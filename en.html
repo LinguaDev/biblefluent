@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BibleFluent | Learn biblical and modern languages through Scripture</title>
+  <meta name="description" content="Free platform to learn Hebrew, Greek, English and more using the Bible as your textbook. Learning paths, resources, and community.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Same CSS as Spanish version (relative path) -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-language"></i>
+        <h1>BibleFluent</h1>
+        <span class="logo-sub">Learn languages with Scripture</span>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <nav class="navbar" id="navbar">
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#paths" class="nav-link">Languages</a></li>
+          <li><a href="#resources" class="nav-link">Resources</a></li>
+          <li><a href="#community" class="nav-link">Community</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="language-switcher">
+        <button id="langEs" class="lang-btn">ES</button>
+        <span>/</span>
+        <button id="langEn" class="lang-btn active">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <span class="badge">✝️ Bible + Languages</span>
+        <h2>Master languages <strong>while studying the Scriptures</strong></h2>
+        <p>Free learning paths for Hebrew, Greek, English, and more. Everything based on the Bible, with practical exercises and a supportive community.</p>
+        <div class="hero-buttons">
+          <a href="#paths" class="btn btn-primary"><i class="fas fa-map-signs"></i> Explore languages</a>
+          <a href="#resources" class="btn btn-secondary"><i class="fas fa-gem"></i> Free resources</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages (Learning paths) -->
+    <section id="paths" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-road"></i> Languages to learn</h3>
+          <p>Choose a language and access lessons, Bible readings, and exercises</p>
+        </div>
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="course-icon"><i class="fas fa-star-of-david"></i></div>
+            <h4>Biblical Hebrew</h4>
+            <p>Learn the language of the Old Testament. From the alphabet to reading Genesis in the original.</p>
+            <div class="course-meta"><span><i class="fas fa-book"></i> Progressive lessons</span></div>
+            <a href="/courses/hebrew/" class="btn-course">View path →</a>
+          </div>
+          <div class="course-card">
+            <div class="course-icon"><i class="fas fa-omega"></i></div>
+            <h4>Koine Greek</h4>
+            <p>The language of the New Testament. Exegesis, vocabulary, and readings from the Gospels.</p>
+            <div class="course-meta"><span><i class="fas fa-book"></i> Progressive lessons</span></div>
+            <a href="/courses/greek/" class="btn-course">View path →</a>
+          </div>
+          <div class="course-card">
+            <div class="course-icon"><i class="fas fa-language"></i></div>
+            <h4>English with the Bible</h4>
+            <p>Improve your English using versions like KJV, ESV. Reading, vocabulary, and listening comprehension.</p>
+            <div class="course-meta"><span><i class="fas fa-book"></i> Progressive lessons</span></div>
+            <a href="/courses/english/" class="btn-course">View path →</a>
+          </div>
+          <div class="course-card">
+            <div class="course-icon"><i class="fas fa-church"></i></div>
+            <h4>Spanish for foreigners</h4>
+            <p>Learn Spanish using the Reina-Valera Bible. Ideal for missionaries and international students.</p>
+            <div class="course-meta"><span><i class="fas fa-book"></i> Progressive lessons</span></div>
+            <a href="/courses/spanish/" class="btn-course">View path →</a>
+          </div>
+          <div class="course-card">
+            <div class="course-icon"><i class="fas fa-feather-alt"></i></div>
+            <h4>Biblical Latin</h4>
+            <p>Introduction to the Vulgate and liturgical texts. Grammar and readings from the Latin Bible.</p>
+            <div class="course-meta"><span><i class="fas fa-book"></i> Progressive lessons</span></div>
+            <a href="/courses/latin/" class="btn-course">View path →</a>
+          </div>
+          <div class="course-card">
+            <div class="course-icon"><i class="fas fa-french"></i></div>
+            <h4>French with the Bible</h4>
+            <p>Study French using the Louis Segond version. Ideal for reaching fluency quickly.</p>
+            <div class="course-meta"><span><i class="fas fa-book"></i> Progressive lessons</span></div>
+            <a href="/courses/french/" class="btn-course">View path →</a>
+          </div>
+        </div>
+        <div class="center-note">
+          <p><i class="fas fa-graduation-cap"></i> Each path includes lessons, exercises, and help forums. All free!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-toolbox"></i> Learning resources</h3>
+          <p>Additional materials, podcasts, and downloadable guides</p>
+        </div>
+        <div class="resources-flex">
+          <div class="resource-block">
+            <i class="fas fa-file-alt"></i>
+            <h4>Grammar guides PDF</h4>
+            <p>Verb tables, thematic vocabulary, and exercises based on Bible passages.</p>
+            <button class="btn-resource">Download</button>
+          </div>
+          <div class="resource-block">
+            <i class="fas fa-podcast"></i>
+            <h4>Podcast "Languages & Faith"</h4>
+            <p>Weekly episodes to improve listening comprehension and biblical culture.</p>
+            <button class="btn-resource">Listen</button>
+          </div>
+          <div class="resource-block">
+            <i class="fas fa-chalkboard-user"></i>
+            <h4>Live workshops</h4>
+            <p>Free sessions with native tutors every week.</p>
+            <button class="btn-resource">Sign up</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community & Testimonials -->
+    <section id="community" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-users"></i> BibleFluent Community</h3>
+          <p>Join thousands of students around the world</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial">
+            <i class="fas fa-quote-left"></i>
+            <p>"The Biblical Hebrew path is incredible. I learned more in 3 months than in years of university."</p>
+            <h5>— José M., pastor</h5>
+          </div>
+          <div class="testimonial">
+            <i class="fas fa-quote-left"></i>
+            <p>"Thanks to the English with the Bible course, I now preach in two languages. Very practical methodology."</p>
+            <h5>— Laura G., missionary</h5>
+          </div>
+          <div class="testimonial">
+            <i class="fas fa-quote-left"></i>
+            <p>"The community support is excellent. I'm learning Koine Greek from scratch."</p>
+            <h5>— Andrés R., student</h5>
+          </div>
+        </div>
+        <div class="discord-invite">
+          <i class="fab fa-discord"></i> Questions? Join our Discord: <a href="#">discord.gg/biblefluent</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Newsletter -->
+    <section id="contact" class="section bg-dark">
+      <div class="container contacto-container">
+        <div class="contact-info">
+          <h3><i class="fas fa-envelope"></i> Receive new lessons</h3>
+          <p>Subscribe to get exclusive content and updates.</p>
+          <form id="newsletterForm" class="newsletter-form">
+            <input type="email" id="newsEmail" placeholder="your@email.com">
+            <button type="submit" class="btn btn-primary">Subscribe <i class="fas fa-paper-plane"></i></button>
+            <p id="formMessage" class="form-message"></p>
+          </form>
+        </div>
+        <div class="contact-social">
+          <h4>Follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+          <div class="support-email">
+            <i class="fas fa-at"></i> hello@biblefluent.org
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <i class="fas fa-language"></i> BibleFluent.org
+        <p>© 2026 – Open biblical language learning</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#" id="backToTop">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Same JS as Spanish version (relative path) -->
+  <script src="../scripts.js"></script>
+</body>
+</html>

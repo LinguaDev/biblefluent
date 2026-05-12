@@ -1,4 +1,4 @@
-// Hamburger menu
+// ==================== MENÚ HAMBURGUESA ====================
 const mobileToggle = document.getElementById('mobileToggle');
 const navbar = document.getElementById('navbar');
 
@@ -25,14 +25,15 @@ if (mobileToggle && navbar) {
   });
 }
 
-// Language switcher (redirige a versiones traducidas)
+// ==================== SELECTOR DE IDIOMA ====================
+// Detecta qué archivo estamos (index.html o en.html)
 const langEs = document.getElementById('langEs');
 const langEn = document.getElementById('langEn');
+const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+const isEnglish = currentFile === 'en.html';
 
 if (langEs && langEn) {
-  const currentPath = window.location.pathname;
-  const isEnglish = currentPath.includes('/en/') || currentPath === '/en/index.html';
-  
+  // Marcar el botón activo según el archivo actual
   if (isEnglish) {
     langEs.classList.remove('active');
     langEn.classList.add('active');
@@ -41,20 +42,21 @@ if (langEs && langEn) {
     langEn.classList.remove('active');
   }
 
+  // Redirigir al cambiar de idioma, conservando el mismo ancla (#)
+  const currentHash = window.location.hash;
+
   langEs.addEventListener('click', () => {
-    if (window.location.pathname !== '/' && !window.location.pathname.includes('/en/')) {
-      return;
-    }
-    window.location.href = '/';
+    if (!isEnglish) return; // ya estamos en español
+    window.location.href = `index.html${currentHash}`;
   });
 
   langEn.addEventListener('click', () => {
-    if (window.location.pathname.includes('/en/')) return;
-    window.location.href = '/en/index.html';
+    if (isEnglish) return; // ya estamos en inglés
+    window.location.href = `en.html${currentHash}`;
   });
 }
 
-// Newsletter simulado
+// ==================== NEWSLETTER ====================
 const newsletterForm = document.getElementById('newsletterForm');
 const formMessage = document.getElementById('formMessage');
 
@@ -63,25 +65,28 @@ if (newsletterForm) {
     e.preventDefault();
     const email = document.getElementById('newsEmail').value.trim();
     if (!email || !email.includes('@')) {
-      formMessage.textContent = 'Correo inválido.';
+      formMessage.textContent = isEnglish ? 'Invalid email address.' : 'Correo inválido.';
       formMessage.style.color = '#f4b642';
       return;
     }
-    formMessage.innerHTML = '✅ ¡Suscripción exitosa! Revisa tu correo.';
+    formMessage.innerHTML = isEnglish ? '✅ Subscribed! Check your email.' : '✅ ¡Suscripción exitosa! Revisa tu correo.';
     formMessage.style.color = '#8bc34a';
     newsletterForm.reset();
     setTimeout(() => { formMessage.textContent = ''; }, 4000);
   });
 }
 
-// Botones de recursos (demo)
+// ==================== BOTONES DE RECURSOS ====================
 document.querySelectorAll('.btn-resource').forEach(btn => {
   btn.addEventListener('click', () => {
-    alert('Próximamente: descarga de materiales. Mientras tanto, explora las rutas de aprendizaje.');
+    const msg = isEnglish 
+      ? 'Coming soon: downloadable materials. Meanwhile, explore the learning paths.'
+      : 'Próximamente: descarga de materiales. Mientras tanto, explora las rutas de aprendizaje.';
+    alert(msg);
   });
 });
 
-// Back to top
+// ==================== BACK TO TOP ====================
 const backBtn = document.getElementById('backToTop');
 if (backBtn) {
   backBtn.addEventListener('click', (e) => {

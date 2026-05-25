@@ -1210,14 +1210,16 @@ body > *:not(#bg-canvas) {
   .nav-cta  { display: none; }
   .nav-toggle { display: flex; }
 
-  /* Nav móvil */
+  /* ==== MENÚ MÓVIL MEJORADO (FONDO SÓLIDO Y ALTO CONTRASTE) ==== */
   .main-nav {
     position: fixed;
     top: var(--header-h);
     left: 0;
     right: 0;
-    background: rgba(14,11,7,.97);
-    backdrop-filter: blur(20px);
+    /* Fondo sólido (sin transparencia) para máxima legibilidad */
+    background: var(--parchment-dk);
+    /* Eliminamos el backdrop-filter para que no se mezcle con las letras de fondo */
+    /* backdrop-filter: blur(20px); */
     border-bottom: 1px solid var(--parchment-bd);
     flex-direction: column;
     align-items: stretch;
@@ -1226,25 +1228,44 @@ body > *:not(#bg-canvas) {
     transform: translateY(-110%);
     transition: transform var(--dur-med) var(--ease-out);
     z-index: 99;
+    /* Aseguramos que el texto sea legible */
+    color: var(--text-primary);
   }
 
   .main-nav.open {
     transform: translateY(0);
   }
 
+  /* Enlaces del menú móvil con mejor contraste */
   .nav-link {
     display: block;
-    font-size: .85rem;
+    font-size: .9rem;  /* ligeramente más grande */
     padding: .9rem 1rem;
     border-radius: var(--radius);
+    color: var(--text-primary);
+    background: transparent;
   }
 
+  .nav-link:hover {
+    background: rgba(201,168,76,.15);
+    color: var(--gold-lt);
+  }
+
+  /* Botón CTA dentro del menú móvil */
   .nav-cta {
     display: block;
     text-align: center;
     margin-left: 0;
     margin-top: .75rem;
     padding: .9rem 1rem;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-lt);
+    color: var(--ink);
   }
 
   /* About grid */

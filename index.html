@@ -2,9 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BibleFluent | Aprende idiomas bíblicos y modernos con las Escrituras</title>
-  <meta name="description" content="Plataforma gratuita para aprender hebreo, griego, inglés y más, usando la Biblia como texto base. Rutas de estudio, recursos y comunidad.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Básico -->
+  <title>BibleFluent | Aprende Idiomas Bíblicos y Modernos con la Biblia</title>
+  <meta name="description" content="Plataforma gratuita para aprender hebreo, griego, inglés y más, usando la Biblia como texto base. Rutas de estudio, recursos y comunidad cristiana.">
+  <meta name="keywords" content="aprender idiomas, hebreo bíblico, griego koiné, inglés con la Biblia, recursos cristianos, BibleFluent">
+  <meta name="author" content="BibleFluent - IDCLATAM">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://biblefluent.org/">
+  <meta property="og:title" content="BibleFluent | Aprende Idiomas Bíblicos y Modernos">
+  <meta property="og:description" content="Aprende hebreo, griego, inglés y más con la Biblia. Cursos gratuitos y recursos para tu crecimiento.">
+  <meta property="og:image" content="https://biblefluent.org/img/og-image.jpg">
+  <meta property="og:locale" content="es_ES">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BibleFluent | Aprende Idiomas con la Biblia">
+  <meta name="twitter:description" content="Plataforma gratuita de idiomas bíblicos y modernos">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://biblefluent.org/">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
@@ -25,6 +47,9 @@
           <li><a href="#recursos" class="nav-link">Recursos</a></li>
           <li><a href="#comunidad" class="nav-link">Comunidad</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
+          <li><a href="https://idclatam.org" target="_blank" class="nav-link">IDCLATAM</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Donaciones</a></li>
         </ul>
       </nav>
       <div class="language-switcher">
@@ -40,9 +65,9 @@
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <span class="badge">Biblia + Idiomas</span>
+        <span class="badge">📖 Biblia + Idiomas</span>
         <h2>Domina idiomas <strong>estudiando las Escrituras</strong></h2>
-        <p>Rutas de aprendizaje gratuitas para hebreo, griego, inglés y más.Con lecciones y ejercicios prácticos.</p>
+        <p>Rutas de aprendizaje gratuitas para hebreo, griego, inglés y más. Con lecciones y ejercicios prácticos.</p>
         <div class="hero-buttons">
           <a href="#rutas" class="btn btn-primary"><i class="fas fa-map-signs"></i> Explorar idiomas</a>
           <a href="#recursos" class="btn btn-secondary"><i class="fas fa-gem"></i> Recursos gratuitos</a>
@@ -50,7 +75,7 @@
       </div>
     </section>
 
-    <!-- Idiomas (Rutas de aprendizaje) -->
+    <!-- Idiomas -->
     <section id="rutas" class="section">
       <div class="container">
         <div class="section-header">
@@ -81,36 +106,34 @@
           </div>
         </div>
         <div class="center-note">
-          <p><i class="fas fa-graduation-cap"></i> Cada ruta incluye lecciones, ejercicios. ¡Todo gratuito!</p>
+          <p><i class="fas fa-graduation-cap"></i> Cada ruta incluye lecciones y ejercicios. ¡Todo gratuito!</p>
         </div>
       </div>
     </section>
 
     <!-- Recursos -->
-<section id="recursos" class="section bg-alt">
-  <div class="container">
-    <div class="section-header">
-      <h3><i class="fas fa-toolbox"></i> Recursos para aprender</h3>
-      <p>Materiales adicionales, podcasts y guías descargables</p>
-    </div>
-    <div class="resources-flex">
-      <!-- Recurso 1: Descarga directa de PDF -->
-      <div class="resource-block">
-        <i class="fas fa-file-alt"></i>
-        <h4>Guías de gramática PDF</h4>
-        <p>Tablas de verbos, vocabulario temático y ejercicios basados en pasajes bíblicos.</p>
-        <a href="pdf/guias-gramatica.pdf" download class="btn-resource">Descargar</a>
+    <section id="recursos" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-toolbox"></i> Recursos para aprender</h3>
+          <p>Materiales adicionales, podcasts y guías descargables</p>
+        </div>
+        <div class="resources-flex">
+          <div class="resource-block">
+            <i class="fas fa-file-alt"></i>
+            <h4>Guías de gramática PDF</h4>
+            <p>Tablas de verbos, vocabulario temático y ejercicios basados en pasajes bíblicos.</p>
+            <a href="pdf/guias-gramatica.pdf" download class="btn-resource">Descargar</a>
+          </div>
+          <div class="resource-block">
+            <i class="fas fa-podcast"></i>
+            <h4>Podcast "Idiomas y Fe"</h4>
+            <p>Episodios para mejorar comprensión auditiva y cultura bíblica.</p>
+            <a href="https://open.spotify.com/show/3YCgXNkXCHylDeVNbpanIh" target="_blank" rel="noopener noreferrer" class="btn-resource">Escuchar</a>
+          </div>
+        </div>
       </div>
-      <!-- Recurso 2: Enlace externo a podcast -->
-      <div class="resource-block">
-        <i class="fas fa-podcast"></i>
-        <h4>Podcast "Idiomas y Fe"</h4>
-        <p>Episodios para mejorar comprensión auditiva y cultura bíblica.</p>
-        <a href="https://open.spotify.com/show/example" target="_blank" rel="noopener noreferrer" class="btn-resource">Escuchar</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Comunidad y testimonios -->
     <section id="comunidad" class="section">
@@ -122,34 +145,41 @@
         <div class="testimonials-grid">
           <div class="testimonial">
             <i class="fas fa-quote-left"></i>
-            <p>"La ruta de hebreo bíblico es increíble."</p>
+            <p>"La ruta de hebreo bíblico es increíble. Aprendí más en pocos meses."</p>
             <h5>— José M., predicador</h5>
           </div>
           <div class="testimonial">
             <i class="fas fa-quote-left"></i>
-            <p>"Metodología muy práctica."</p>
+            <p>"Metodología muy práctica. Ahora puedo leer pasajes en griego."</p>
             <h5>— Daniel G., misionero</h5>
           </div>
           <div class="testimonial">
             <i class="fas fa-quote-left"></i>
-            <p>"Estoy aprendiendo griego koiné desde cero."</p>
+            <p>"Estoy aprendiendo griego koiné desde cero. Excelente plataforma."</p>
             <h5>— Andrés R., estudiante</h5>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contacto / Newsletter -->
+    <!-- Contacto y enlaces -->
     <section id="contacto" class="section bg-dark">
       <div class="container contacto-container">
         <div class="contact-social">
-          <h4>Síguenos</h4>
+          <h4>Síguenos en redes</h4>
           <div class="social-links">
-            <a href="https://www.youtube.com/@IdCAmericaLatina"><i class="fab fa-youtube"></i> YouTube</a>
-            <a href="https://www.facebook.com/profile.php?id=61589698336913"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.tiktok.com/@idclatam.org" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/50557514440" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
           </div>
           <div class="support-email">
-             juancanales5019@gmail.com
+            <i class="fas fa-envelope"></i> juancanales5019@gmail.com
+          </div>
+          <div class="support-links">
+            <a href="https://idclatam.org" target="_blank" rel="noopener">🌎 IDCLATAM.org</a>
+            <a href="https://pinedaamador.org" target="_blank" rel="noopener">📖 Pineda Amador Ministry</a>
+            <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" rel="noopener">💝 Apoya este ministerio (PayPal)</a>
           </div>
         </div>
       </div>
@@ -163,9 +193,10 @@
         <p>© 2026 – Aprendizaje bíblico abierto</p>
       </div>
       <div class="footer-links">
+        <a href="https://idclatam.org" target="_blank">IDCLATAM</a>
+        <a href="https://pinedaamador.org" target="_blank">Pineda Amador</a>
         <a href="#">Acerca de</a>
         <a href="#">Política</a>
-        <a href="#">Términos</a>
         <a href="#" id="backToTop">Volver arriba</a>
       </div>
     </div>

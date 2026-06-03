@@ -2,9 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Griego del Nuevo Testamento | BibleFluent</title>
-  <meta name="description" content="Aprende griego koiné (del Nuevo Testamento) en 24 lecciones progresivas. Accede directamente al texto original de las Escrituras." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <!-- SEO Básico -->
+  <title>Griego del Nuevo Testamento | BibleFluent - Aprende griego koiné</title>
+  <meta name="description" content="Aprende griego koiné (del Nuevo Testamento) en 24 lecciones progresivas. Accede directamente al texto original de las Escrituras. Curso gratuito y completo." />
+  <meta name="keywords" content="griego koiné, griego del Nuevo Testamento, aprender griego bíblico, curso de griego gratis, BibleFluent" />
+  <meta name="author" content="BibleFluent - IDCLATAM" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://biblefluent.org/Greek/main-es.html" />
+  <meta property="og:title" content="Griego del Nuevo Testamento | BibleFluent" />
+  <meta property="og:description" content="Curso completo de griego koiné en 24 lecciones. Aprende a leer el Nuevo Testamento en su idioma original." />
+  <meta property="og:image" content="https://biblefluent.org/img/og-greek.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Griego del Nuevo Testamento | BibleFluent" />
+  <meta name="twitter:description" content="Curso gratuito de griego koiné para hispanohablantes" />
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://biblefluent.org/Greek/main-es.html" />
+  <link rel="alternate" hreflang="en" href="https://biblefluent.org/Greek/main-en.html" />
+  <link rel="alternate" hreflang="es" href="https://biblefluent.org/Greek/main-es.html" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,6 +36,18 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../src/main-language.css" />
+  
+  <style>
+    /* Ajustes adicionales para enlaces en el menú móvil */
+    .main-nav .nav-link {
+      white-space: nowrap;
+    }
+    @media (max-width: 900px) {
+      .main-nav .nav-link {
+        white-space: normal;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -20,7 +55,7 @@
   <!-- CANVAS DE PARTÍCULAS / FONDO ANIMADO -->
   <canvas id="bg-canvas"></canvas>
 
-  <!-- HEADER / NAVEGACIÓN -->
+  <!-- HEADER / NAVEGACIÓN (con enlaces añadidos) -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="https://biblefluent.org" class="logo" aria-label="BibleFluent inicio">
@@ -33,6 +68,9 @@
         <a href="#lecciones" class="nav-link">Lecciones</a>
         <a href="#metodo" class="nav-link">Método</a>
         <a href="#testimonios" class="nav-link">Testimonios</a>
+        <a href="https://idclatam.org" class="nav-link" target="_blank" rel="noopener">IDCLATAM</a>
+        <a href="https://pinedaamador.org" class="nav-link" target="_blank" rel="noopener">Bible Resources</a>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" class="nav-link" target="_blank" rel="noopener">Donaciones</a>
         <a href="https://biblefluent.org" class="nav-cta">Inicio</a>
       </nav>
 
@@ -581,7 +619,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (mejorado con enlaces adicionales) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -609,12 +647,12 @@
         </nav>
 
         <nav class="footer-nav" aria-label="Recursos adicionales">
-          <h4>BibleFluent</h4>
+          <h4>Recursos</h4>
           <ul>
-            <li><a href="https://biblefluent.org">Todos los cursos</a></li>
-            <li><a href="#">Hebreo bíblico</a></li>
-            <li><a href="#">Léxico griego</a></li>
             <li><a href="https://idclatam.org" target="_blank" rel="noopener">IDCLATAM.org</a></li>
+            <li><a href="https://pinedaamador.org" target="_blank" rel="noopener">Pineda Amador Ministry</a></li>
+            <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" rel="noopener">Apoya este ministerio (PayPal)</a></li>
+            <li><a href="https://biblefluent.org">Todos los cursos</a></li>
           </ul>
         </nav>
 

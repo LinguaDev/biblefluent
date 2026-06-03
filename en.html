@@ -2,12 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BibleFluent | Learn biblical and modern languages through Scripture</title>
-  <meta name="description" content="Free platform to learn Hebrew, Greek, English and more using the Bible as your textbook. Learning paths, resources, and community.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Básico -->
+  <title>BibleFluent | Learn Biblical and Modern Languages through Scripture</title>
+  <meta name="description" content="Free platform to learn Hebrew, Greek, English, Spanish and more using the Bible as your textbook. Learning paths, resources, and Christian community.">
+  <meta name="keywords" content="learn biblical languages, Koine Greek, Biblical Hebrew, English with Bible, Spanish with Bible, BibleFluent">
+  <meta name="author" content="BibleFluent - IDCLATAM">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://biblefluent.org/en/">
+  <meta property="og:title" content="BibleFluent | Learn Biblical and Modern Languages">
+  <meta property="og:description" content="Learn Hebrew, Greek, English and more with the Bible. Free courses and resources for your growth.">
+  <meta property="og:image" content="https://biblefluent.org/img/og-image-en.jpg">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BibleFluent | Learn Languages with the Bible">
+  <meta name="twitter:description" content="Free biblical and modern language learning platform">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://biblefluent.org/en/">
+  <link rel="alternate" hreflang="es" href="https://biblefluent.org/">
+  <link rel="alternate" hreflang="en" href="https://biblefluent.org/en/">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <header class="header">
@@ -25,6 +49,9 @@
           <li><a href="#resources" class="nav-link">Resources</a></li>
           <li><a href="#community" class="nav-link">Community</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="https://idclatam.org" target="_blank" class="nav-link">IDCLATAM</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Donate</a></li>
         </ul>
       </nav>
       <div class="language-switcher">
@@ -40,9 +67,9 @@
     <section id="home" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <span class="badge">Bible + Languages</span>
+        <span class="badge">📖 Bible + Languages</span>
         <h2>Master languages <strong>while studying the Scriptures</strong></h2>
-        <p>Free learning paths for Hebrew, Greek, Spanish, and more. Everything with practical  lesson and exercises.</p>
+        <p>Free learning paths for Hebrew, Greek, Spanish, and more. Everything with practical lessons and exercises.</p>
         <div class="hero-buttons">
           <a href="#paths" class="btn btn-primary"><i class="fas fa-map-signs"></i> Explore languages</a>
           <a href="#resources" class="btn btn-secondary"><i class="fas fa-gem"></i> Free resources</a>
@@ -87,30 +114,28 @@
     </section>
 
     <!-- Resources -->
-<section id="resources" class="section bg-alt">
-  <div class="container">
-    <div class="section-header">
-      <h3><i class="fas fa-toolbox"></i> Learning resources</h3>
-      <p>Additional materials, podcasts, and downloadable guides</p>
-    </div>
-    <div class="resources-flex">
-      <!-- Recurso 1: Descarga directa de PDF -->
-      <div class="resource-block">
-        <i class="fas fa-file-alt"></i>
-        <h4>Grammar guides PDF</h4>
-        <p>Verb tables, thematic vocabulary, and exercises based on Bible passages.</p>
-        <a href="pdf/grammar-guides.pdf" download class="btn-resource">Download</a>
+    <section id="resources" class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <h3><i class="fas fa-toolbox"></i> Learning resources</h3>
+          <p>Additional materials, podcasts, and downloadable guides</p>
+        </div>
+        <div class="resources-flex">
+          <div class="resource-block">
+            <i class="fas fa-file-alt"></i>
+            <h4>Grammar guides PDF</h4>
+            <p>Verb tables, thematic vocabulary, and exercises based on Bible passages.</p>
+            <a href="pdf/grammar-guides.pdf" download class="btn-resource">Download</a>
+          </div>
+          <div class="resource-block">
+            <i class="fas fa-podcast"></i>
+            <h4>Podcast "Languages & Faith"</h4>
+            <p>Weekly episodes to improve listening comprehension and biblical culture.</p>
+            <a href="https://open.spotify.com/show/3YCgXNkXCHylDeVNbpanIh" target="_blank" rel="noopener noreferrer" class="btn-resource">Listen</a>
+          </div>
+        </div>
       </div>
-      <!-- Recurso 2: Enlace externo a podcast -->
-      <div class="resource-block">
-        <i class="fas fa-podcast"></i>
-        <h4>Podcast "Languages & Faith"</h4>
-        <p>Weekly episodes to improve listening comprehension and biblical culture.</p>
-        <a href="https://open.spotify.com/show/example" target="_blank" rel="noopener noreferrer" class="btn-resource">Listen</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Community & Testimonials -->
     <section id="community" class="section">
@@ -122,34 +147,41 @@
         <div class="testimonials-grid">
           <div class="testimonial">
             <i class="fas fa-quote-left"></i>
-            <p>"The Biblical Hebrew path is incredible."</p>
+            <p>"The Biblical Hebrew path is incredible. I learned so much in just a few months."</p>
             <h5>— José M., preacher</h5>
           </div>
           <div class="testimonial">
             <i class="fas fa-quote-left"></i>
-            <p>"Very practical methodology."</p>
+            <p>"Very practical methodology. Now I can read passages in Greek."</p>
             <h5>— Daniel G., missionary</h5>
           </div>
           <div class="testimonial">
             <i class="fas fa-quote-left"></i>
-            <p>"I'm learning Koine Greek from scratch."</p>
+            <p>"I'm learning Koine Greek from scratch. Excellent platform."</p>
             <h5>— Andrés R., student</h5>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact / Newsletter (simplificado como en español) -->
+    <!-- Contact & Links -->
     <section id="contact" class="section bg-dark">
       <div class="container contacto-container">
         <div class="contact-social">
-          <h4>Follow us</h4>
+          <h4>Follow us on social media</h4>
           <div class="social-links">
-            <a href="https://www.youtube.com/@IdCAmericaLatina"><i class="fab fa-youtube"></i> YouTube</a>
-            <a href="https://www.facebook.com/profile.php?id=61589698336913"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.tiktok.com/@idclatam.org" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/50557514440" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
           </div>
           <div class="support-email">
-            juancanales5019@gmail.com
+            <i class="fas fa-envelope"></i> juancanales5019@gmail.com
+          </div>
+          <div class="support-links">
+            <a href="https://idclatam.org" target="_blank" rel="noopener">🌎 IDCLATAM.org</a>
+            <a href="https://pinedaamador.org" target="_blank" rel="noopener">📖 Pineda Amador Ministry</a>
+            <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" rel="noopener">💝 Support this ministry (PayPal)</a>
           </div>
         </div>
       </div>
@@ -163,14 +195,15 @@
         <p>© 2026 – Open biblical language learning</p>
       </div>
       <div class="footer-links">
+        <a href="https://idclatam.org" target="_blank">IDCLATAM</a>
+        <a href="https://pinedaamador.org" target="_blank">Pineda Amador</a>
         <a href="#">About</a>
         <a href="#">Privacy</a>
-        <a href="#">Terms</a>
         <a href="#" id="backToTop">Back to top</a>
       </div>
     </div>
   </footer>
 
-  <script src="scripts.js"></script>
+  <script src="../scripts.js"></script>
 </body>
 </html>

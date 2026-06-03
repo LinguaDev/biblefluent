@@ -1,672 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  
-  <!-- SEO Básico -->
-  <title>Griego del Nuevo Testamento | BibleFluent - Aprende griego koiné</title>
-  <meta name="description" content="Aprende griego koiné (del Nuevo Testamento) en 24 lecciones progresivas. Accede directamente al texto original de las Escrituras. Curso gratuito y completo." />
-  <meta name="keywords" content="griego koiné, griego del Nuevo Testamento, aprender griego bíblico, curso de griego gratis, BibleFluent" />
-  <meta name="author" content="BibleFluent - IDCLATAM" />
-  <meta name="robots" content="index, follow" />
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://biblefluent.org/Greek/main-es.html" />
-  <meta property="og:title" content="Griego del Nuevo Testamento | BibleFluent" />
-  <meta property="og:description" content="Curso completo de griego koiné en 24 lecciones. Aprende a leer el Nuevo Testamento en su idioma original." />
-  <meta property="og:image" content="https://biblefluent.org/img/og-greek.jpg" />
-  <meta property="og:locale" content="es_ES" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Griego del Nuevo Testamento | BibleFluent" />
-  <meta name="twitter:description" content="Curso gratuito de griego koiné para hispanohablantes" />
-  
-  <!-- Canonical -->
-  <link rel="canonical" href="https://biblefluent.org/Greek/main-es.html" />
-  <link rel="alternate" hreflang="en" href="https://biblefluent.org/Greek/main-en.html" />
-  <link rel="alternate" hreflang="es" href="https://biblefluent.org/Greek/main-es.html" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,800;1,400&family=Cinzel:wght@400;600;900&family=Noto+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="../src/main-language.css" />
-  
-  <style>
-    /* Ajustes adicionales para enlaces en el menú móvil */
-    .main-nav .nav-link {
-      white-space: nowrap;
-    }
-    @media (max-width: 900px) {
-      .main-nav .nav-link {
-        white-space: normal;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Griego del Nuevo Testamento | BibleFluent</title>
+  <meta name="description" content="Curso completo de griego koiné (Nuevo Testamento) en 24 lecciones. Aprende a leer el texto original de las Escrituras. Gratuito y en español.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=EB+Garamond:ital@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../src/main-language.css">
 </head>
-
 <body>
 
-  <!-- CANVAS DE PARTÍCULAS / FONDO ANIMADO -->
-  <canvas id="bg-canvas"></canvas>
-
-  <!-- HEADER / NAVEGACIÓN (con enlaces añadidos) -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="https://biblefluent.org" class="logo" aria-label="BibleFluent inicio">
         <span class="logo-icon">📖</span>
         <span class="logo-text">Bible<em>Fluent</em></span>
       </a>
-
-      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+      <nav class="main-nav" id="main-nav">
         <a href="#acerca" class="nav-link">Acerca</a>
         <a href="#lecciones" class="nav-link">Lecciones</a>
         <a href="#metodo" class="nav-link">Método</a>
         <a href="#testimonios" class="nav-link">Testimonios</a>
-        <a href="https://idclatam.org" class="nav-link" target="_blank" rel="noopener">IDCLATAM</a>
-        <a href="https://pinedaamador.org" class="nav-link" target="_blank" rel="noopener">Bible Resources</a>
-        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" class="nav-link" target="_blank" rel="noopener">Donaciones</a>
+        <a href="https://idclatam.org" target="_blank" class="nav-link">IDCLATAM</a>
+        <a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Donaciones</a>
         <a href="https://biblefluent.org" class="nav-cta">Inicio</a>
       </nav>
-
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
+        <i class="fas fa-bars"></i>
       </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-
-    <!-- Letras griegas decorativas de fondo -->
-    <div class="hero-greek-bg" aria-hidden="true">
-      <span class="glyph g1">Α</span>
-      <span class="glyph g2">Ω</span>
-      <span class="glyph g3">Λ</span>
-      <span class="glyph g4">Γ</span>
-      <span class="glyph g5">Θ</span>
-      <span class="glyph g6">Σ</span>
-      <span class="glyph g7">Δ</span>
-      <span class="glyph g8">Φ</span>
-    </div>
-
-    <div class="hero-content">
-      <p class="hero-eyebrow reveal">Griego del Nuevo Testamento</p>
-
-      <h1 class="hero-title reveal">
-        <span class="line">Lee el Nuevo</span>
-        <span class="line">Testamento</span>
-        <span class="line accent-line">en su idioma</span>
-        <span class="line accent-line">original</span>
-      </h1>
-
-      <p class="hero-greek-quote reveal" lang="grc">
-        Ἐν ἀρχῇ ἦν ὁ λόγος
-      </p>
-      <p class="hero-greek-trans reveal">«En el principio era la Palabra» — Juan 1:1</p>
-
-      <p class="hero-desc reveal">
-        Un curso completo de griego koiné (el griego del Nuevo Testamento) en <strong>24 lecciones</strong> diseñado
-        para hispanohablantes. Sin requisitos previos. Aprende a leer el texto
-        griego del Nuevo Testamento desde la primera semana.
-      </p>
-
-      <div class="hero-actions reveal">
-        <a href="Griego/main-es.html#lecciones" class="btn-primary">
-          <span>Ver las 24 lecciones</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#acerca" class="btn-ghost">¿Qué aprenderé?</a>
-      </div>
-
-      <div class="hero-stats reveal">
-        <div class="stat">
-          <span class="stat-num">24</span>
-          <span class="stat-label">Lecciones</span>
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Griego del Nuevo Testamento</p>
+        <h1 class="hero-title">Lee el Nuevo Testamento<br>en su idioma original</h1>
+        <p class="hero-greek-quote">Ἐν ἀρχῇ ἦν ὁ λόγος</p>
+        <p class="hero-greek-trans">«En el principio era la Palabra» — Juan 1:1</p>
+        <p class="hero-desc">Un curso completo de griego koiné en <strong>24 lecciones</strong> diseñado para hispanohablantes. Sin requisitos previos. Aprende a leer el texto griego del Nuevo Testamento desde la primera semana.</p>
+        <div class="hero-actions">
+          <a href="Griego/main-es.html#lecciones" class="btn-primary">Ver las 24 lecciones <i class="fas fa-arrow-right"></i></a>
+          <a href="#acerca" class="btn-ghost">¿Qué aprenderé?</a>
         </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">En español</span>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat-num">Acceso</span>
-          <span class="stat-label">Libre</span>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">24</span><span class="stat-label">Lecciones</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">En español</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">Acceso</span><span class="stat-label">Libre</span></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span>Desplázate</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- BANDA DECORATIVA — ALFABETO GRIEGO -->
-  <div class="alphabet-band" aria-hidden="true">
-    <div class="alphabet-track">
-      <span>Α α · Β β · Γ γ · Δ δ · Ε ε · Ζ ζ · Η η · Θ θ · Ι ι · Κ κ · Λ λ · Μ μ · Ν ν · Ξ ξ · Ο ο · Π π · Ρ ρ · Σ σ · Τ τ · Υ υ · Φ φ · Χ χ · Ψ ψ · Ω ω</span>
-      <span aria-hidden="true">Α α · Β β · Γ γ · Δ δ · Ε ε · Ζ ζ · Η η · Θ θ · Ι ι · Κ κ · Λ λ · Μ μ · Ν ν · Ξ ξ · Ο ο · Π π · Ρ ρ · Σ σ · Τ τ · Υ υ · Φ φ · Χ χ · Ψ ψ · Ω ω</span>
-    </div>
-  </div>
-
-  <!-- ACERCA DEL CURSO -->
-  <section class="about-section" id="acerca">
-    <div class="container">
-      <div class="about-grid">
-
-        <div class="about-text">
-          <span class="section-label">El curso</span>
-          <h2 class="section-title">¿Por qué aprender griego koiné?</h2>
-          <p>
-            El Nuevo Testamento fue escrito en griego koiné, el idioma común del
-            mundo mediterráneo del siglo I. Leerlo en su lengua original te permite
-            acceder a matices, estructuras y énfasis que ninguna traducción puede
-            transmitir por completo.
-          </p>
-          <p>
-            Este curso parte desde cero: aprenderás el alfabeto, la fonología,
-            la morfología nominal y verbal, y la sintaxis básica del griego
-            neotestamentario — todo explicado con claridad en español.
-          </p>
-          <a href="Griego/main-es.html" class="text-link">
-            Explorar el portal de griego bíblico
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <div class="about-features">
-          <div class="feature-card">
-            <div class="feature-icon">📖</div>
-            <h3>Texto original</h3>
-            <p>Aprende a leer directamente el texto griego del Nuevo Testamento.</p>
+    <section id="acerca" class="about-section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="section-label">El curso</span>
+            <h2 class="section-title">¿Por qué aprender griego koiné?</h2>
+            <p>El Nuevo Testamento fue escrito en griego koiné, el idioma común del mundo mediterráneo del siglo I. Leerlo en su lengua original te permite acceder a matices, estructuras y énfasis que ninguna traducción puede transmitir por completo.</p>
+            <p>Este curso parte desde cero: aprenderás el alfabeto, la fonología, la morfología nominal y verbal, y la sintaxis básica del griego neotestamentario — todo explicado con claridad en español.</p>
+            <a href="Griego/main-es.html" class="text-link">Explorar el portal de griego bíblico <i class="fas fa-arrow-right"></i></a>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Enfoque práctico</h3>
-            <p>Cada lección introduce vocablos de alta frecuencia para acelerar tu lectura.</p>
+          <div class="about-features">
+            <div class="feature-card"><i class="fas fa-book feature-icon"></i><h3>Texto original</h3><p>Aprende a leer directamente el texto griego del Nuevo Testamento.</p></div>
+            <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>Enfoque práctico</h3><p>Cada lección introduce vocablos de alta frecuencia para acelerar tu lectura.</p></div>
+            <div class="feature-card"><i class="fas fa-brain feature-icon"></i><h3>Sin memorización mecánica</h3><p>Las formas gramaticales se enseñan con lógica y patrones visuales claros.</p></div>
+            <div class="feature-card"><i class="fas fa-dove feature-icon"></i><h3>Profundidad espiritual</h3><p>Cada lección conecta la gramática con pasajes reales del Nuevo Testamento.</p></div>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">🧠</div>
-            <h3>Sin memorización mecánica</h3>
-            <p>Las formas gramaticales se enseñan con lógica y patrones visuales claros.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🕊️</div>
-            <h3>Profundidad espiritual</h3>
-            <p>Cada lección conecta la gramática con pasajes reales del Nuevo Testamento.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- LECCIONES — ÍNDICE DE LAS 24 -->
-  <section class="lessons-section" id="lecciones">
-    <div class="container">
-      <div class="lessons-header">
-        <span class="section-label">Contenido completo</span>
-        <h2 class="section-title">Las 24 lecciones del curso</h2>
-        <p class="section-desc">
-          Progresión cuidadosamente diseñada: desde el alfabeto hasta la lectura
-          fluida de textos del Nuevo Testamento.
-        </p>
-      </div>
-
-      <div class="lessons-grid" id="lessons-grid">
-
-        <!-- UNIDAD 1 -->
-        <div class="unit-header">
-          <span class="unit-label">Unidad I</span>
-          <span class="unit-title">Fundamentos del sistema griego</span>
-        </div>
-
-        <a href="Griego/main-es.html#leccion-1" class="lesson-card">
-          <span class="lesson-num">01</span>
-          <div class="lesson-info">
-            <h3>El alfabeto griego</h3>
-            <p>Letras mayúsculas y minúsculas, pronunciación y fonemas del koiné.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-2" class="lesson-card">
-          <span class="lesson-num">02</span>
-          <div class="lesson-info">
-            <h3>Vocales, diptongos y acentos</h3>
-            <p>Sistema de acentuación griega: agudo, grave y circunflejo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-3" class="lesson-card">
-          <span class="lesson-num">03</span>
-          <div class="lesson-info">
-            <h3>Introducción a los sustantivos</h3>
-            <p>Casos gramaticales, género, número y la función del artículo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-4" class="lesson-card">
-          <span class="lesson-num">04</span>
-          <div class="lesson-info">
-            <h3>Segunda declinación</h3>
-            <p>Sustantivos masculinos y neutros terminados en -ος y -ον.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-5" class="lesson-card">
-          <span class="lesson-num">05</span>
-          <div class="lesson-info">
-            <h3>Primera declinación</h3>
-            <p>Sustantivos femeninos y masculinos terminados en -α / -η.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-6" class="lesson-card">
-          <span class="lesson-num">06</span>
-          <div class="lesson-info">
-            <h3>El artículo definido</h3>
-            <p>Declinación completa del artículo en todos los géneros y casos.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <!-- UNIDAD 2 -->
-        <div class="unit-header">
-          <span class="unit-label">Unidad II</span>
-          <span class="unit-title">El sistema verbal griego</span>
-        </div>
-
-        <a href="Griego/main-es.html#leccion-7" class="lesson-card">
-          <span class="lesson-num">07</span>
-          <div class="lesson-info">
-            <h3>Presente de indicativo activo</h3>
-            <p>Las desinencias primarias activas. El verbo λύω como modelo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-8" class="lesson-card">
-          <span class="lesson-num">08</span>
-          <div class="lesson-info">
-            <h3>Presente de indicativo pasivo/medio</h3>
-            <p>Voz media y pasiva en el tiempo presente. Diferencias de sentido.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-9" class="lesson-card">
-          <span class="lesson-num">09</span>
-          <div class="lesson-info">
-            <h3>Imperfecto de indicativo</h3>
-            <p>El aumento silábico y temporal. Aspecto continuo en el pasado.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-10" class="lesson-card">
-          <span class="lesson-num">10</span>
-          <div class="lesson-info">
-            <h3>Aorist de indicativo activo</h3>
-            <p>El aoristo primero (débil). Aspecto puntual y narrativo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-11" class="lesson-card">
-          <span class="lesson-num">11</span>
-          <div class="lesson-info">
-            <h3>Aorist de indicativo pasivo</h3>
-            <p>El aoristo pasivo. Desinencias secundarias pasivas.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-12" class="lesson-card">
-          <span class="lesson-num">12</span>
-          <div class="lesson-info">
-            <h3>Futuro de indicativo</h3>
-            <p>Formación del futuro activo, medio y pasivo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <!-- UNIDAD 3 -->
-        <div class="unit-header">
-          <span class="unit-label">Unidad III</span>
-          <span class="unit-title">Morfología avanzada</span>
-        </div>
-
-        <a href="Griego/main-es.html#leccion-13" class="lesson-card">
-          <span class="lesson-num">13</span>
-          <div class="lesson-info">
-            <h3>Tercera declinación</h3>
-            <p>Sustantivos con raíces variables. Tipos consonánticos y vocálicos.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-14" class="lesson-card">
-          <span class="lesson-num">14</span>
-          <div class="lesson-info">
-            <h3>Adjetivos griegos</h3>
-            <p>Declinación de adjetivos de 2 y 3 terminaciones. Uso atributivo y predicativo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-15" class="lesson-card">
-          <span class="lesson-num">15</span>
-          <div class="lesson-info">
-            <h3>Pronombres personales</h3>
-            <p>ἐγώ, σύ, αὐτός. Usos enfáticos y anafóricos.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-16" class="lesson-card">
-          <span class="lesson-num">16</span>
-          <div class="lesson-info">
-            <h3>Pronombres relativos y demostrativos</h3>
-            <p>ὅς, ἥ, ὅ · οὗτος · ἐκεῖνος en todos sus casos.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-17" class="lesson-card">
-          <span class="lesson-num">17</span>
-          <div class="lesson-info">
-            <h3>Participios presentes</h3>
-            <p>Participio activo, medio y pasivo. Aspecto y funciones sintácticas.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-18" class="lesson-card">
-          <span class="lesson-num">18</span>
-          <div class="lesson-info">
-            <h3>Participios de aoristo y perfecto</h3>
-            <p>Matices de tiempo relativo. El participio absoluto genitivo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <!-- UNIDAD 4 -->
-        <div class="unit-header">
-          <span class="unit-label">Unidad IV</span>
-          <span class="unit-title">Modos, infinitivos y sintaxis</span>
-        </div>
-
-        <a href="Griego/main-es.html#leccion-19" class="lesson-card">
-          <span class="lesson-num">19</span>
-          <div class="lesson-info">
-            <h3>El modo subjuntivo</h3>
-            <p>Usos del subjuntivo en cláusulas de propósito, condición y exhortación.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-20" class="lesson-card">
-          <span class="lesson-num">20</span>
-          <div class="lesson-info">
-            <h3>El modo imperativo</h3>
-            <p>Órdenes, prohibiciones y ruegos. Diferencia entre presente y aoristo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-21" class="lesson-card">
-          <span class="lesson-num">21</span>
-          <div class="lesson-info">
-            <h3>El infinitivo griego</h3>
-            <p>Usos sustantivados, complementarios y en cláusulas de infinitivo.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-22" class="lesson-card">
-          <span class="lesson-num">22</span>
-          <div class="lesson-info">
-            <h3>Verbos εἰμί y contractos</h3>
-            <p>El verbo «ser». Verbos contractos en -αω, -εω, -οω.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-23" class="lesson-card">
-          <span class="lesson-num">23</span>
-          <div class="lesson-info">
-            <h3>Perfecto y pluscuamperfecto</h3>
-            <p>El aspecto de estado resultante. La reduplicación perfectiva.</p>
-          </div>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-        <a href="Griego/main-es.html#leccion-24" class="lesson-card lesson-card--final">
-          <span class="lesson-num">24</span>
-          <div class="lesson-info">
-            <h3>Lectura del texto griego</h3>
-            <p>Aplicación integral: lectura y análisis de pasajes del Evangelio de Juan.</p>
-          </div>
-          <span class="lesson-badge">Final</span>
-          <span class="lesson-arrow">→</span>
-        </a>
-
-      </div><!-- /lessons-grid -->
-
-      <div class="lessons-cta">
-        <a href="Griego/main-es.html#lecciones" class="btn-primary btn-large">
-          <span>Acceder a todas las lecciones</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MÉTODO -->
-  <section class="method-section" id="metodo">
-    <div class="container">
-      <div class="method-header">
-        <span class="section-label">Metodología</span>
-        <h2 class="section-title">Cómo aprenderás</h2>
-      </div>
-
-      <div class="method-steps">
-
-        <div class="method-step">
-          <div class="step-number">I</div>
-          <div class="step-content">
-            <h3>Aprende el sistema, no la excepción</h3>
-            <p>
-              La gramática griega tiene una lógica interna coherente. Cada lección
-              explica los patrones para que puedas reconocer formas nuevas sin
-              haberlas visto antes.
-            </p>
-          </div>
-        </div>
-
-        <div class="method-step">
-          <div class="step-number">II</div>
-          <div class="step-content">
-            <h3>Vocabulario estratégico</h3>
-            <p>
-              Las 300 palabras más frecuentes del Nuevo Testamento cubren más del
-              80% del texto. El curso prioriza este vocabulario de alto impacto
-              desde las primeras lecciones.
-            </p>
-          </div>
-        </div>
-
-        <div class="method-step">
-          <div class="step-number">III</div>
-          <div class="step-content">
-            <h3>Lectura desde el primer día</h3>
-            <p>
-              Cada lección incluye versículos reales del Nuevo Testamento para
-              practicar. No es gramática por la gramática: todo apunta a leer
-              la Palabra en griego.
-            </p>
-          </div>
-        </div>
-
-        <div class="method-step">
-          <div class="step-number">IV</div>
-          <div class="step-content">
-            <h3>Progresión acumulativa</h3>
-            <p>
-              Cada lección construye sobre la anterior. Al llegar a la lección 24
-              habrás cubierto el 95% de las estructuras gramaticales del
-              Nuevo Testamento griego.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- VERSÍCULO DESTACADO -->
-  <section class="verse-section" aria-label="Versículo en griego">
-    <div class="verse-inner">
-      <blockquote class="verse-greek" lang="grc">
-        πᾶσα γραφὴ θεόπνευστος
-        καὶ ὠφέλιμος πρὸς διδασκαλίαν
-      </blockquote>
-      <p class="verse-trans">
-        «Toda la Escritura es inspirada por Dios y útil para enseñar»
-      </p>
-      <cite class="verse-ref">2 Timoteo 3:16</cite>
-    </div>
-  </section>
-
-  <!-- TESTIMONIOS -->
-  <section class="testimonials-section" id="testimonios">
-    <div class="container">
-      <div class="testimonials-header">
-        <span class="section-label">Estudiantes</span>
-        <h2 class="section-title">Lo que dicen quienes ya estudian</h2>
-      </div>
-
-      <div class="testimonials-grid">
-
-        <figure class="testimonial-card">
-          <blockquote>
-            «Finalmente entiendo por qué ciertas palabras se traducen de manera
-            diferente. El curso me abrió los ojos a matices que nunca había visto.»
-          </blockquote>
-          <figcaption>
-            <strong>Marcos R.</strong>
-            <span>Predicador · Colombia</span>
-          </figcaption>
-        </figure>
-
-        <figure class="testimonial-card">
-          <blockquote>
-            «Lo mejor es que todo está en español. Otros cursos que intenté
-            usaban manuales en inglés y era el doble de trabajo. BibleFluent
-            lo explica en mi idioma.»
-          </blockquote>
-          <figcaption>
-            <strong>Ana L.</strong>
-            <span>Estudiante de teología · México</span>
-          </figcaption>
-        </figure>
-
-        <figure class="testimonial-card">
-          <blockquote>
-            «En la lección 7 ya pude leer Juan 3:16 en griego sin ayuda.
-            Esa sensación no tiene precio. El método funciona.»
-          </blockquote>
-          <figcaption>
-            <strong>Roberto E.</strong>
-            <span>Hno. en la fe · España</span>
-          </figcaption>
-        </figure>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="final-cta-section">
-    <div class="container">
-      <div class="final-cta-inner">
-        <p class="final-cta-greek" lang="grc" aria-hidden="true">Ἄρχου · Μάνθανε · Ἀνάγνωθι</p>
-        <h2 class="final-cta-title">Comienza hoy tu estudio del griego bíblico</h2>
-        <p class="final-cta-desc">
-          Acceso libre a las 24 lecciones. Sin registro requerido.
-        </p>
-        <div class="final-cta-actions">
-          <a href="Griego/main-es.html#lecciones" class="btn-primary btn-large">
-            <span>Ir al curso completo</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="https://biblefluent.org" class="btn-ghost btn-large">Todos los cursos</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER (mejorado con enlaces adicionales) -->
+    <section id="lecciones" class="lessons-section">
+      <div class="container">
+        <div class="lessons-header">
+          <span class="section-label">Contenido completo</span>
+          <h2 class="section-title">Las 24 lecciones del curso</h2>
+          <p class="section-desc">Progresión cuidadosamente diseñada: desde el alfabeto hasta la lectura fluida de textos del Nuevo Testamento.</p>
+        </div>
+        <div class="lessons-grid">
+          <!-- Unidad 1 -->
+          <div class="unit-header"><span class="unit-label">Unidad I</span><span class="unit-title">Fundamentos del sistema griego</span></div>
+          <a href="Griego/main-es.html#leccion-1" class="lesson-card"><span class="lesson-num">01</span><div class="lesson-info"><h3>El alfabeto griego</h3><p>Letras mayúsculas y minúsculas, pronunciación y fonemas del koiné.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-2" class="lesson-card"><span class="lesson-num">02</span><div class="lesson-info"><h3>Vocales, diptongos y acentos</h3><p>Sistema de acentuación griega: agudo, grave y circunflejo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-3" class="lesson-card"><span class="lesson-num">03</span><div class="lesson-info"><h3>Introducción a los sustantivos</h3><p>Casos gramaticales, género, número y la función del artículo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-4" class="lesson-card"><span class="lesson-num">04</span><div class="lesson-info"><h3>Segunda declinación</h3><p>Sustantivos masculinos y neutros terminados en -ος y -ον.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-5" class="lesson-card"><span class="lesson-num">05</span><div class="lesson-info"><h3>Primera declinación</h3><p>Sustantivos femeninos y masculinos terminados en -α / -η.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-6" class="lesson-card"><span class="lesson-num">06</span><div class="lesson-info"><h3>El artículo definido</h3><p>Declinación completa del artículo en todos los géneros y casos.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <!-- Unidad 2 -->
+          <div class="unit-header"><span class="unit-label">Unidad II</span><span class="unit-title">El sistema verbal griego</span></div>
+          <a href="Griego/main-es.html#leccion-7" class="lesson-card"><span class="lesson-num">07</span><div class="lesson-info"><h3>Presente de indicativo activo</h3><p>Las desinencias primarias activas. El verbo λύω como modelo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-8" class="lesson-card"><span class="lesson-num">08</span><div class="lesson-info"><h3>Presente de indicativo pasivo/medio</h3><p>Voz media y pasiva en el tiempo presente. Diferencias de sentido.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-9" class="lesson-card"><span class="lesson-num">09</span><div class="lesson-info"><h3>Imperfecto de indicativo</h3><p>El aumento silábico y temporal. Aspecto continuo en el pasado.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-10" class="lesson-card"><span class="lesson-num">10</span><div class="lesson-info"><h3>Aorist de indicativo activo</h3><p>El aoristo primero (débil). Aspecto puntual y narrativo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-11" class="lesson-card"><span class="lesson-num">11</span><div class="lesson-info"><h3>Aorist de indicativo pasivo</h3><p>El aoristo pasivo. Desinencias secundarias pasivas.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-12" class="lesson-card"><span class="lesson-num">12</span><div class="lesson-info"><h3>Futuro de indicativo</h3><p>Formación del futuro activo, medio y pasivo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <!-- Unidad 3 -->
+          <div class="unit-header"><span class="unit-label">Unidad III</span><span class="unit-title">Morfología avanzada</span></div>
+          <a href="Griego/main-es.html#leccion-13" class="lesson-card"><span class="lesson-num">13</span><div class="lesson-info"><h3>Tercera declinación</h3><p>Sustantivos con raíces variables. Tipos consonánticos y vocálicos.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-14" class="lesson-card"><span class="lesson-num">14</span><div class="lesson-info"><h3>Adjetivos griegos</h3><p>Declinación de adjetivos de 2 y 3 terminaciones. Uso atributivo y predicativo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-15" class="lesson-card"><span class="lesson-num">15</span><div class="lesson-info"><h3>Pronombres personales</h3><p>ἐγώ, σύ, αὐτός. Usos enfáticos y anafóricos.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-16" class="lesson-card"><span class="lesson-num">16</span><div class="lesson-info"><h3>Pronombres relativos y demostrativos</h3><p>ὅς, ἥ, ὅ · οὗτος · ἐκεῖνος en todos sus casos.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-17" class="lesson-card"><span class="lesson-num">17</span><div class="lesson-info"><h3>Participios presentes</h3><p>Participio activo, medio y pasivo. Aspecto y funciones sintácticas.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-18" class="lesson-card"><span class="lesson-num">18</span><div class="lesson-info"><h3>Participios de aoristo y perfecto</h3><p>Matices de tiempo relativo. El participio absoluto genitivo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <!-- Unidad 4 -->
+          <div class="unit-header"><span class="unit-label">Unidad IV</span><span class="unit-title">Modos, infinitivos y sintaxis</span></div>
+          <a href="Griego/main-es.html#leccion-19" class="lesson-card"><span class="lesson-num">19</span><div class="lesson-info"><h3>El modo subjuntivo</h3><p>Usos del subjuntivo en cláusulas de propósito, condición y exhortación.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-20" class="lesson-card"><span class="lesson-num">20</span><div class="lesson-info"><h3>El modo imperativo</h3><p>Órdenes, prohibiciones y ruegos. Diferencia entre presente y aoristo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-21" class="lesson-card"><span class="lesson-num">21</span><div class="lesson-info"><h3>El infinitivo griego</h3><p>Usos sustantivados, complementarios y en cláusulas de infinitivo.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-22" class="lesson-card"><span class="lesson-num">22</span><div class="lesson-info"><h3>Verbos εἰμί y contractos</h3><p>El verbo «ser». Verbos contractos en -αω, -εω, -οω.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-23" class="lesson-card"><span class="lesson-num">23</span><div class="lesson-info"><h3>Perfecto y pluscuamperfecto</h3><p>El aspecto de estado resultante. La reduplicación perfectiva.</p></div><i class="fas fa-arrow-right lesson-arrow"></i></a>
+          <a href="Griego/main-es.html#leccion-24" class="lesson-card lesson-card--final"><span class="lesson-num">24</span><div class="lesson-info"><h3>Lectura del texto griego</h3><p>Aplicación integral: lectura y análisis de pasajes del Evangelio de Juan.</p></div><span class="lesson-badge">Final</span><i class="fas fa-arrow-right lesson-arrow"></i></a>
+        </div>
+        <div class="lessons-cta">
+          <a href="Griego/main-es.html#lecciones" class="btn-primary">Acceder a todas las lecciones <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" class="method-section">
+      <div class="container">
+        <div class="method-header"><span class="section-label">Metodología</span><h2 class="section-title">Cómo aprenderás</h2></div>
+        <div class="method-steps">
+          <div class="method-step"><div class="step-number">I</div><div><h3>Aprende el sistema, no la excepción</h3><p>La gramática griega tiene una lógica interna coherente. Cada lección explica los patrones para que puedas reconocer formas nuevas sin haberlas visto antes.</p></div></div>
+          <div class="method-step"><div class="step-number">II</div><div><h3>Vocabulario estratégico</h3><p>Las 300 palabras más frecuentes del Nuevo Testamento cubren más del 80% del texto. El curso prioriza este vocabulario de alto impacto desde las primeras lecciones.</p></div></div>
+          <div class="method-step"><div class="step-number">III</div><div><h3>Lectura desde el primer día</h3><p>Cada lección incluye versículos reales del Nuevo Testamento para practicar. No es gramática por la gramática: todo apunta a leer la Palabra en griego.</p></div></div>
+          <div class="method-step"><div class="step-number">IV</div><div><h3>Progresión acumulativa</h3><p>Cada lección construye sobre la anterior. Al llegar a la lección 24 habrás cubierto el 95% de las estructuras gramaticales del Nuevo Testamento griego.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="verse-section">
+      <div class="verse-inner">
+        <blockquote class="verse-greek">πᾶσα γραφὴ θεόπνευστος καὶ ὠφέλιμος πρὸς διδασκαλίαν</blockquote>
+        <p class="verse-trans">«Toda la Escritura es inspirada por Dios y útil para enseñar»</p>
+        <cite class="verse-ref">2 Timoteo 3:16</cite>
+      </div>
+    </section>
+
+    <section id="testimonios" class="testimonials-section">
+      <div class="container">
+        <div class="testimonials-header"><span class="section-label">Estudiantes</span><h2 class="section-title">Lo que dicen quienes ya estudian</h2></div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«Finalmente entiendo por qué ciertas palabras se traducen de manera diferente. El curso me abrió los ojos a matices que nunca había visto.»</p><div class="testimonial-author"><strong>Marcos R.</strong><span>Predicador · Colombia</span></div></div>
+          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«Lo mejor es que todo está en español. Otros cursos que intenté usaban manuales en inglés y era el doble de trabajo. BibleFluent lo explica en mi idioma.»</p><div class="testimonial-author"><strong>Ana L.</strong><span>Estudiante de teología · México</span></div></div>
+          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«En la lección 7 ya pude leer Juan 3:16 en griego sin ayuda. Esa sensación no tiene precio. El método funciona.»</p><div class="testimonial-author"><strong>Roberto E.</strong><span>Hno. en la fe · España</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="final-cta-inner">
+          <p class="final-cta-greek">Ἄρχου · Μάνθανε · Ἀνάγνωθι</p>
+          <h2 class="final-cta-title">Comienza hoy tu estudio del griego bíblico</h2>
+          <p class="final-cta-desc">Acceso libre a las 24 lecciones. Sin registro requerido.</p>
+          <div class="final-cta-actions">
+            <a href="Griego/main-es.html#lecciones" class="btn-primary">Ir al curso completo <i class="fas fa-arrow-right"></i></a>
+            <a href="https://biblefluent.org" class="btn-ghost">Todos los cursos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-          <a href="https://biblefluent.org" class="logo" aria-label="BibleFluent">
-            <span class="logo-icon">📖</span>
-            <span class="logo-text">Bible<em>Fluent</em></span>
-          </a>
-          <p>Recursos para el estudio del texto bíblico en sus idiomas originales.</p>
-          <p class="footer-idclatam">
-            Un ministerio de
-            <a href="https://idclatam.org" target="_blank" rel="noopener">IDCLATAM.org</a>
-          </p>
-        </div>
-
-        <nav class="footer-nav" aria-label="Navegación del pie de página">
-          <h4>Griego Bíblico</h4>
-          <ul>
-            <li><a href="Griego/main-es.html">Portal de griego</a></li>
-            <li><a href="Griego/main-es.html#lecciones">Las 24 lecciones</a></li>
-            <li><a href="#acerca">Acerca del curso</a></li>
-            <li><a href="#metodo">Metodología</a></li>
-          </ul>
-        </nav>
-
-        <nav class="footer-nav" aria-label="Recursos adicionales">
-          <h4>Recursos</h4>
-          <ul>
-            <li><a href="https://idclatam.org" target="_blank" rel="noopener">IDCLATAM.org</a></li>
-            <li><a href="https://pinedaamador.org" target="_blank" rel="noopener">Pineda Amador Ministry</a></li>
-            <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" rel="noopener">Apoya este ministerio (PayPal)</a></li>
-            <li><a href="https://biblefluent.org">Todos los cursos</a></li>
-          </ul>
-        </nav>
-
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="https://biblefluent.org" class="logo"><span class="logo-icon">📖</span><span class="logo-text">Bible<em>Fluent</em></span></a>
+        <p>Recursos para el estudio del texto bíblico en sus idiomas originales.</p>
+        <p class="footer-idclatam">Un ministerio de <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></p>
       </div>
-
-      <div class="footer-bottom">
-        <p>© <span id="footer-year"></span> <a href="https://biblefluent.org">BibleFluent.org</a> · Un ministerio de <a href="https://idclatam.org" target="_blank" rel="noopener">IDCLATAM.org</a></p>
-        <p lang="grc" class="footer-greek">Ἡ ἀλήθεια ἐλευθερώσει ὑμᾶς</p>
-      </div>
+      <nav class="footer-nav">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank">Pineda Amador Ministry</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank">Apoya este ministerio (PayPal)</a></li>
+          <li><a href="https://biblefluent.org">Todos los cursos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year"></span> <a href="https://biblefluent.org">BibleFluent.org</a> · Un ministerio de <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></p>
+      <p class="footer-greek">Ἡ ἀλήθεια ἐλευθερώσει ὑμᾶς</p>
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="../src/main-language.js"></script>
-
 </body>
 </html>

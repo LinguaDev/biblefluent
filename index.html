@@ -36,20 +36,20 @@
     <div class="container header-container">
       <div class="logo">
         <i class="fas fa-language"></i>
-        <h1>BibleFluent</h1>
-        <span class="logo-sub">Aprende idiomas con las Escrituras</span>
+        <h1>Aprende Idiomas Bíblicos</h1>
+        <span class="logo-sub">BibleFluent</span>
       </div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
       <nav class="navbar" id="navbar">
         <ul class="nav-menu">
           <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <li><a href="#rutas" class="nav-link">Idiomas</a></li>
-          <li><a href="#recursos" class="nav-link">Recursos</a></li>
-          <li><a href="#comunidad" class="nav-link">Comunidad</a></li>
+          <li><a href="#griego" class="nav-link">Griego</a></li>
+          <li><a href="#hebreo" class="nav-link">Hebreo</a></li>
+          <li><a href="#ingles" class="nav-link">Inglés</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          <li><a href="https://idclatam.org" target="_blank" class="nav-link">IDCLATAM</a></li>
-          <li><a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a></li>
-          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Donaciones</a></li>
+          <li><a href="https://idclatam.org" target="_blank" class="nav-link">Iglesia de Cristo</a></li>
+          <li><a href="https://pinedaamador.org/src/ukbi_library.html" target="_blank" class="nav-link">Biblioteca Cristiana</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Contribuciones</a></li>
         </ul>
       </nav>
       <div class="language-switcher">
@@ -65,12 +65,11 @@
     <section id="inicio" class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <span class="badge">📖 Biblia + Idiomas</span>
+        <span class="badge">Aprende a tu propio ritmo</span>
         <h2>Domina idiomas <strong>estudiando las Escrituras</strong></h2>
         <p>Rutas de aprendizaje gratuitas para hebreo, griego, inglés y más. Con lecciones y ejercicios prácticos.</p>
         <div class="hero-buttons">
-          <a href="#rutas" class="btn btn-primary"><i class="fas fa-map-signs"></i> Explorar idiomas</a>
-          <a href="#recursos" class="btn btn-secondary"><i class="fas fa-gem"></i> Recursos gratuitos</a>
+          <a href="#rutas" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Explorar idiomas</a>
         </div>
       </div>
     </section>
@@ -79,85 +78,34 @@
     <section id="rutas" class="section">
       <div class="container">
         <div class="section-header">
-          <h3><i class="fas fa-road"></i> Idiomas para aprender</h3>
+          <h3>Idiomas para aprender</h3>
           <p>Elige un idioma y accede a lecciones, lecturas bíblicas y ejercicios</p>
         </div>
         <div class="courses-grid">
-          <div class="course-card">
+          <!-- Hebreo -->
+          <div class="course-card" id="hebreo">
             <div class="course-icon"><i class="fas fa-star-of-david"></i></div>
             <h4>Hebreo Bíblico</h4>
             <p>Aprende el idioma del Antiguo Testamento. Desde el alfabeto hasta leer Génesis en original.</p>
-            <div class="course-meta"><span><i class="fas fa-book"></i> Lecciones progresivas</span></div>
-            <a href="/courses/hebrew/" class="btn-course">Ver ruta →</a>
+            <a href="/courses/hebrew/" class="btn-course">Empieza →</a>
           </div>
-          <div class="course-card">
+          <!-- Griego -->
+          <div class="course-card" id="griego">
             <div class="course-icon"><i class="fas fa-omega"></i></div>
             <h4>Griego Koiné</h4>
             <p>El idioma del Nuevo Testamento. Exégesis, vocabulario y lecturas de los evangelios.</p>
-            <div class="course-meta"><span><i class="fas fa-book"></i> Lecciones progresivas</span></div>
-            <a href="Greek/main-es.html" class="btn-course">Ver ruta →</a>
+            <a href="Greek/main-es.html" class="btn-course">Empieza →</a>
           </div>
-          <div class="course-card">
+          <!-- Inglés -->
+          <div class="course-card" id="ingles">
             <div class="course-icon"><i class="fas fa-language"></i></div>
             <h4>Inglés con la Biblia</h4>
             <p>Mejora tu inglés usando versiones como KJV, ESV. Lectura, vocabulario y comprensión auditiva.</p>
-            <div class="course-meta"><span><i class="fas fa-book"></i> Lecciones progresivas</span></div>
-            <a href="/courses/english/" class="btn-course">Ver ruta →</a>
+            <a href="/courses/english/" class="btn-course">Empieza →</a>
           </div>
         </div>
         <div class="center-note">
-          <p><i class="fas fa-graduation-cap"></i> Cada ruta incluye lecciones y ejercicios. ¡Todo gratuito!</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Recursos -->
-    <section id="recursos" class="section bg-alt">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-toolbox"></i> Recursos para aprender</h3>
-          <p>Materiales adicionales, podcasts y guías descargables</p>
-        </div>
-        <div class="resources-flex">
-          <div class="resource-block">
-            <i class="fas fa-file-alt"></i>
-            <h4>Guías de gramática PDF</h4>
-            <p>Tablas de verbos, vocabulario temático y ejercicios basados en pasajes bíblicos.</p>
-            <a href="pdf/guias-gramatica.pdf" download class="btn-resource">Descargar</a>
-          </div>
-          <div class="resource-block">
-            <i class="fas fa-podcast"></i>
-            <h4>Podcast "Idiomas y Fe"</h4>
-            <p>Episodios para mejorar comprensión auditiva y cultura bíblica.</p>
-            <a href="https://open.spotify.com/show/3YCgXNkXCHylDeVNbpanIh" target="_blank" rel="noopener noreferrer" class="btn-resource">Escuchar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Comunidad y testimonios -->
-    <section id="comunidad" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h3><i class="fas fa-users"></i> Comunidad BibleFluent</h3>
-          <p>Únete a miles de estudiantes alrededor del mundo</p>
-        </div>
-        <div class="testimonials-grid">
-          <div class="testimonial">
-            <i class="fas fa-quote-left"></i>
-            <p>"La ruta de hebreo bíblico es increíble. Aprendí más en pocos meses."</p>
-            <h5>— José M., predicador</h5>
-          </div>
-          <div class="testimonial">
-            <i class="fas fa-quote-left"></i>
-            <p>"Metodología muy práctica. Ahora puedo leer pasajes en griego."</p>
-            <h5>— Daniel G., misionero</h5>
-          </div>
-          <div class="testimonial">
-            <i class="fas fa-quote-left"></i>
-            <p>"Estoy aprendiendo griego koiné desde cero. Excelente plataforma."</p>
-            <h5>— Andrés R., estudiante</h5>
-          </div>
+          <p><i class="fas fa-graduation-cap"></i> Cada ruta incluye lecciones en video, vocabulario y ejercicios. ¡Todo gratuito!</p>
         </div>
       </div>
     </section>
@@ -195,8 +143,8 @@
       <div class="footer-links">
         <a href="https://idclatam.org" target="_blank">IDCLATAM</a>
         <a href="https://pinedaamador.org" target="_blank">Pineda Amador</a>
-        <a href="#">Acerca de</a>
-        <a href="#">Política</a>
+        <a href="about.html">Acerca de</a>
+        <a href="privacy.html">Política</a>
         <a href="#" id="backToTop">Volver arriba</a>
       </div>
     </div>

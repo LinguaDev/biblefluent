@@ -34,31 +34,31 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 16px 24px;
-  gap: 15px;
+  padding: 0.8rem 1.5rem;
+  gap: 1rem;
 }
 
 .logo {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .logo i {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #f4a261;
 }
 
 .logo h1 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 
 .logo-sub {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   background: rgba(244, 162, 97, 0.2);
-  padding: 4px 10px;
+  padding: 2px 8px;
   border-radius: 40px;
 }
 
@@ -68,7 +68,7 @@ body {
 
 .nav-menu {
   display: flex;
-  gap: 32px;
+  gap: 1.5rem;
   list-style: none;
 }
 
@@ -76,6 +76,7 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .nav-link:hover {
@@ -86,7 +87,7 @@ body {
   display: none;
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: white;
   cursor: pointer;
 }
@@ -95,7 +96,7 @@ body {
   display: flex;
   gap: 6px;
   background: rgba(255, 255, 255, 0.15);
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 40px;
 }
 
@@ -105,7 +106,7 @@ body {
   color: #e2e8f0;
   font-weight: 700;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .lang-btn.active {
@@ -253,6 +254,7 @@ body {
 .course-icon {
   font-size: 2.5rem;
   color: #f4a261;
+  margin-bottom: 12px;
 }
 
 .course-card h4 {
@@ -286,7 +288,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* ==================== RECURSOS ==================== */
+/* ==================== RECURSOS (no se usan en esta página pero se dejan) ==================== */
 .resources-flex {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -443,21 +445,22 @@ body {
   }
   .navbar {
     position: fixed;
-    top: 70px;
+    top: 60px; /* altura reducida del header en móvil */
     left: -100%;
     width: 80%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     background: #1e3a5f;
     transition: 0.3s;
-    padding: 2rem;
+    padding: 1.5rem;
     z-index: 999;
+    overflow-y: auto;
   }
   .navbar.active {
     left: 0;
   }
   .nav-menu {
     flex-direction: column;
-    gap: 28px;
+    gap: 1.2rem;
   }
   .footer-inner {
     flex-direction: column;
@@ -465,5 +468,9 @@ body {
   }
   .language-switcher {
     margin-left: auto;
+  }
+  /* Ajuste para que el hero no quede tapado por el header fijo */
+  .hero {
+    scroll-margin-top: 60px;
   }
 }

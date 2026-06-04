@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BibleFluent - Acerca de | Ministerio Pineda Amador</title>
+  <meta name="description" content="BibleFluent es un ministerio de la familia Pineda Amador para la Iglesia de Cristo. Aprende idiomas bíblicos y modernos a través de las Escrituras. Gratuito y con propósito eterno.">
+  <meta name="keywords" content="BibleFluent, ministerio Pineda Amador, Iglesia de Cristo, aprender idiomas, hebreo, griego, español, inglés">
+  <meta name="author" content="BibleFluent - Pineda Amador Ministry">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://biblefluent.org/about.html">
+  <meta property="og:title" content="BibleFluent - Acerca de | Ministerio Pineda Amador">
+  <meta property="og:description" content="Conoce nuestra misión: enseñar idiomas bíblicos y modernos usando la Biblia como texto base, al servicio de la Iglesia de Cristo en Latinoamérica.">
+  <meta property="og:image" content="https://biblefluent.org/img/about-og.jpg">
+  <meta property="og:locale" content="es_ES">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BibleFluent - Acerca de">
+  <meta name="twitter:description" content="Ministerio familiar de la Iglesia de Cristo para la enseñanza de idiomas con la Biblia.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ==================== RESET & GLOBAL ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==================== HEADER ==================== */
+    .header {
+      background: #1e3a5f;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      gap: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .logo i {
+      font-size: 2rem;
+      color: #f4a261;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .navbar {
+      transition: 0.3s;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: #f4a261;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      background: linear-gradient(135deg, #1e3a5f, #2c5282);
+      color: white;
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* ==================== SECCIONES ==================== */
+    .section {
+      padding: 4rem 0;
+    }
+
+    .bg-light {
+      background: #f1f5f9;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1e3a5f;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #f4a261;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: #334155;
+    }
+
+    .about-text strong {
+      color: #f4a261;
+    }
+
+    .mission-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .mission-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1e3a5f;
+    }
+
+    .mission-box ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .mission-box li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mission-box li i {
+      color: #f4a261;
+      width: 24px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      transition: 0.2s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-card i {
+      font-size: 2.5rem;
+      color: #f4a261;
+      margin-bottom: 1rem;
+    }
+
+    .team-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #f4a261;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .footer-links a {
+      color: #f4a261;
+      text-decoration: none;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #f4a261;
+      color: #1e3a5f;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      transition: 0.2s;
+      z-index: 99;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .navbar {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #1e3a5f;
+        transition: 0.3s;
+        padding: 2rem;
+        z-index: 999;
+      }
+      .navbar.active {
+        left: 0;
+      }
+      .nav-menu {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .section {
+        padding: 2.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-language"></i>
+        <h1>BibleFluent</h1>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+      <nav class="navbar" id="navbar">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="https://idclatam.org" target="_blank" class="nav-link">IDCLATAM</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Donaciones</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Acerca de BibleFluent</h1>
+        <p>Un ministerio de la familia Pineda Amador al servicio de la Iglesia de Cristo en Latinoamérica y el mundo</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <p><strong>BibleFluent</strong> nace como parte del ministerio digital de la <strong>familia Pineda Amador</strong>, con el firme propósito de equipar a la Iglesia de Cristo en el estudio de los idiomas bíblicos y modernos utilizando las propias Escrituras como texto de aprendizaje.</p>
+            <p>Creemos que conocer el hebreo, el griego koiné y otros idiomas no es un fin en sí mismo, sino una herramienta poderosa para profundizar en la Palabra de Dios, mejorar la enseñanza y extender el evangelio con mayor precisión y pasión.</p>
+            <p>Todo nuestro contenido es <strong>gratuito</strong> y está diseñado para hispanohablantes, con un enfoque práctico y accesible. No cobramos por el conocimiento; es un regalo que hemos recibido y que deseamos compartir con toda la hermandad.</p>
+            <p><strong>“Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree” (Romanos 1:16).</strong></p>
+          </div>
+          <div class="mission-box">
+            <h3>Misión y Visión</h3>
+            <ul>
+              <li><i class="fas fa-bible"></i> Enseñar idiomas bíblicos y modernos a través de la Biblia.</li>
+              <li><i class="fas fa-globe-americas"></i> Servir a la Iglesia de Cristo en Latinoamérica y el mundo.</li>
+              <li><i class="fas fa-hand-holding-heart"></i> Ofrecer recursos completamente gratuitos y de calidad.</li>
+              <li><i class="fas fa-church"></i> Fortalecer la unidad y el crecimiento espiritual mediante el estudio de las Escrituras en sus lenguas originales.</li>
+            </ul>
+            <p style="margin-top: 1rem;">Visión: Que cada discípulo de Cristo pueda acceder a las riquezas del texto original sin barreras económicas ni lingüísticas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h2>El ministerio Pineda Amador</h2>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <i class="fas fa-user"></i>
+            <h3>Juan Pineda</h3>
+            <p>Fundador y desarrollador. Predicador del evangelio, estudiante de teología y creador de recursos digitales para la iglesia.</p>
+          </div>
+          <div class="team-card">
+            <i class="fas fa-user-circle"></i>
+            <h3>Ana Amador</h3>
+            <p>Apasionada por la enseñanza de niños y familias. Coordina el ministerio infantil y los devocionales diarios.</p>
+          </div>
+          <div class="team-card">
+            <i class="fas fa-church"></i>
+            <h3>IDCLATAM</h3>
+            <p>Portal oficial de la Iglesia de Cristo en Latinoamérica, donde conectamos iglesias, hermanos y recursos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 BibleFluent.org - Ministerio de la familia Pineda Amador para la Iglesia de Cristo</p>
+      <div class="footer-links">
+        <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a>
+        <a href="https://pinedaamador.org" target="_blank">Pineda Amador Ministry</a>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank">Apoya este ministerio</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <script>
+    // Menú hamburguesa
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navbar = document.getElementById('navbar');
+    if (mobileToggle && navbar) {
+      mobileToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (navbar.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
+    // Contadores animados (simulados)
+    function animateCounter(element, target, suffix = '') {
+      let current = 0;
+      const increment = target / 50;
+      const update = () => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + suffix;
+          return;
+        }
+        element.textContent = Math.floor(current) + suffix;
+        requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    const studentsEl = document.getElementById('studentsCount');
+    const lessonsEl = document.getElementById('lessonsCount');
+    const countriesEl = document.getElementById('countriesCount');
+    if (studentsEl) animateCounter(studentsEl, 1580, '+');
+    if (lessonsEl) animateCounter(lessonsEl, 320, '+');
+    if (countriesEl) animateCounter(countriesEl, 18, '+');
+
+    // Scroll top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+    scrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

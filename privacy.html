@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Política de Privacidad | BibleFluent</title>
+  <meta name="description" content="Política de privacidad de BibleFluent. Conoce cómo protegemos tus datos personales y la información recopilada en nuestro ministerio digital.">
+  <meta name="keywords" content="privacidad, datos personales, política de privacidad, BibleFluent, ministerio cristiano">
+  <meta name="author" content="BibleFluent - Pineda Amador Ministry">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://biblefluent.org/privacy.html">
+  <meta property="og:title" content="Política de Privacidad | BibleFluent">
+  <meta property="og:description" content="Protección de datos personales en BibleFluent, ministerio de la familia Pineda Amador.">
+  <meta property="og:image" content="https://biblefluent.org/img/privacy-og.jpg">
+  <meta property="og:locale" content="es_ES">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Política de Privacidad - BibleFluent">
+  <meta name="twitter:description" content="Cómo protegemos tu información en nuestro ministerio digital.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ==================== RESET & GLOBAL ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==================== HEADER ==================== */
+    .header {
+      background: #1e3a5f;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      gap: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .logo i {
+      font-size: 2rem;
+      color: #f4a261;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .navbar {
+      transition: 0.3s;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: #f4a261;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      background: linear-gradient(135deg, #1e3a5f, #2c5282);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* ==================== CONTENIDO ==================== */
+    .privacy-content {
+      padding: 3rem 0;
+    }
+
+    .privacy-content h2 {
+      font-size: 1.5rem;
+      color: #1e3a5f;
+      margin: 1.5rem 0 0.8rem;
+      border-left: 4px solid #f4a261;
+      padding-left: 1rem;
+    }
+
+    .privacy-content h3 {
+      font-size: 1.2rem;
+      color: #2c5282;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .privacy-content p {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+
+    .privacy-content ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      color: #334155;
+    }
+
+    .privacy-content li {
+      margin-bottom: 0.3rem;
+    }
+
+    .last-updated {
+      background: #e2e8f0;
+      padding: 0.8rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .footer-links a {
+      color: #f4a261;
+      text-decoration: none;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #f4a261;
+      color: #1e3a5f;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      transition: 0.2s;
+      z-index: 99;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 900px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .navbar {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #1e3a5f;
+        transition: 0.3s;
+        padding: 2rem;
+        z-index: 999;
+      }
+      .navbar.active {
+        left: 0;
+      }
+      .nav-menu {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .privacy-content {
+        padding: 2rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-language"></i>
+        <h1>BibleFluent</h1>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+      <nav class="navbar" id="navbar">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="https://idclatam.org" target="_blank" class="nav-link">IDCLATAM</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Donaciones</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Política de Privacidad</h1>
+        <p>Protección de datos personales en BibleFluent – Ministerio cristiano</p>
+      </div>
+    </section>
+
+    <div class="container privacy-content">
+      <p>En BibleFluent, parte del ministerio digital de la familia Pineda Amador, nos comprometemos a proteger tu privacidad. Esta política describe cómo recopilamos, usamos y protegemos tu información cuando visitas nuestro sitio web.</p>
+
+      <h2>1. Información que recopilamos</h2>
+      <p>Podemos recopilar los siguientes tipos de información:</p>
+      <ul>
+        <li><strong>Información personal:</strong> Nombre, dirección de correo electrónico (cuando te suscribes a nuestro boletín o nos contactas).</li>
+        <li><strong>Datos de uso:</strong> Páginas visitadas, tiempo de permanencia y preferencias de navegación (a través de cookies).</li>
+        <li><strong>Información de contacto:</strong> Cuando nos envías un mensaje a través del formulario de contacto o por correo electrónico.</li>
+      </ul>
+
+      <h2>2. Uso de la información</h2>
+      <p>Utilizamos tu información para:</p>
+      <ul>
+        <li>Responder a tus consultas, oraciones o solicitudes.</li>
+        <li>Enviarte recursos gratuitos, devocionales y novedades del ministerio (si te has suscrito).</li>
+        <li>Mejorar nuestro sitio web y la experiencia de aprendizaje.</li>
+        <li>Proteger la seguridad e integridad de nuestros servicios.</li>
+      </ul>
+
+      <h2>3. Cookies y tecnologías similares</h2>
+      <p>Este sitio utiliza cookies para recordar tus preferencias de idioma y analizar el tráfico. Puedes deshabilitar las cookies en la configuración de tu navegador, aunque algunas funciones podrían verse afectadas.</p>
+
+      <h2>4. Compartir información con terceros</h2>
+      <p>No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto cuando sea necesario para cumplir con la ley o para proteger nuestros derechos. Utilizamos servicios de terceros como Google Analytics para analizar el tráfico; estos servicios tienen sus propias políticas de privacidad.</p>
+
+      <h2>5. Enlaces a otros sitios web</h2>
+      <p>Nuestro sitio puede contener enlaces a recursos externos (IDCLATAM, Pineda Amador, PayPal, etc.). No somos responsables de las prácticas de privacidad de esos sitios. Te recomendamos leer sus políticas.</p>
+
+      <h2>6. Seguridad</h2>
+      <p>Tomamos medidas razonables para proteger tu información contra acceso no autorizado, alteración o destrucción. Sin embargo, ninguna transmisión por Internet es 100% segura.</p>
+
+      <h2>7. Menores de edad</h2>
+      <p>BibleFluent no recopila intencionalmente información personal de menores de 13 años. Si eres padre o tutor y crees que tu hijo nos ha proporcionado datos, contáctanos para eliminarlos.</p>
+
+      <h2>8. Tus derechos</h2>
+      <p>Puedes solicitar acceso, corrección o eliminación de tus datos personales escribiéndonos a <strong>juancanales5019@gmail.com</strong>. También puedes darte de baja de nuestros correos en cualquier momento.</p>
+
+      <h2>9. Cambios a esta política</h2>
+      <p>Podemos actualizar esta política ocasionalmente. Te notificaremos cualquier cambio publicando la nueva versión en esta página. La fecha de la última actualización se indica al final.</p>
+
+      <div class="last-updated">
+        <i class="fas fa-calendar-alt"></i> Última actualización: 1 de junio de 2026
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 BibleFluent.org - Ministerio de la familia Pineda Amador para la Iglesia de Cristo</p>
+      <div class="footer-links">
+        <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a>
+        <a href="https://pinedaamador.org" target="_blank">Pineda Amador Ministry</a>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank">Apoya este ministerio</a>
+        <a href="privacy.html">Política de privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <script>
+    // Menú hamburguesa
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navbar = document.getElementById('navbar');
+    if (mobileToggle && navbar) {
+      mobileToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (navbar.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
+    // Botón scroll top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+    scrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Griego Koiné - Lección 1: Alfabeto y Lectura | BibleFluent</title>
+  <meta name="description" content="Lección 1 del curso de griego koiné: alfabeto griego, vocales, diptongos, acentos y primeras palabras. Aprende a leer el Nuevo Testamento en su idioma original.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET & GLOBAL ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefaf0; /* pergamino claro */
+      color: #2c2418;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== HEADER ========== */
+    .header {
+      background: #1e3a5f;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .logo span {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-menu a:hover {
+      color: #f4a261;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .navbar {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #1e3a5f;
+        transition: 0.3s;
+        padding: 1.5rem;
+        z-index: 999;
+      }
+      .navbar.active {
+        left: 0;
+      }
+      .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* ========== SECCIONES GENERALES ========== */
+    .section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #e2d5bc;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      color: #1e3a5f;
+      border-left: 4px solid #f4a261;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin: 1rem 0 0.5rem;
+      color: #2c5282;
+    }
+
+    /* ========== OBJETIVOS ========== */
+    .objectives {
+      background: #e9f0f5;
+      border-radius: 1rem;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .objectives ul {
+      margin-left: 1.5rem;
+    }
+
+    /* ========== VIDEO ========== */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      margin: 1.5rem 0;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+    }
+
+    /* ========== MICRO-LECCIONES ========== */
+    .micro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .micro-card {
+      background: white;
+      border-radius: 1rem;
+      border: 1px solid #e2d5bc;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+    .micro-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    }
+    .micro-header {
+      background: #faf3e0;
+      padding: 0.8rem 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #e2d5bc;
+    }
+    .micro-content {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+    .micro-content p {
+      margin-bottom: 0.6rem;
+    }
+    .example {
+      background: #fef5e8;
+      padding: 0.5rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      font-family: monospace;
+    }
+
+    /* ========== TARJETAS DE VOCABULARIO (volteables) ========== */
+    .vocab-grid, .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .flashcard {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      aspect-ratio: 3/2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 500;
+      padding: 0.5rem;
+      border: 1px solid #e2d5bc;
+    }
+    .flashcard:hover {
+      transform: scale(1.02);
+    }
+    .flashcard.flipped {
+      background: #f4a261;
+      color: white;
+    }
+
+    /* ========== ENLACES DESTACADOS ========== */
+    .featured-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .featured-links a {
+      background: #f4a26120;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      color: #1e3a5f;
+      font-weight: 500;
+    }
+
+    /* ========== NAVEGACIÓN ENTRE LECCIONES ========== */
+    .lesson-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+      padding-top: 1rem;
+      border-top: 1px solid #e2d5bc;
+    }
+    .lesson-nav a {
+      background: #1e3a5f;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      transition: 0.2s;
+    }
+    .lesson-nav a:hover {
+      background: #f4a261;
+      color: #1e3a5f;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    .footer a {
+      color: #f4a261;
+      text-decoration: none;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f4a261;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e3a5f;
+      opacity: 0;
+      transition: 0.2s;
+      z-index: 99;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <h1>Griego Koiné <span>Lección 1</span></h1>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+    <nav class="navbar" id="navbar">
+      <ul class="nav-menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#micro">Micro-lecciones</a></li>
+        <li><a href="#vocab">Vocabulario</a></li>
+        <li><a href="#test">Test final</a></li>
+        <li><a href="https://biblefluent.org/Greek/main-es.html">Curso</a></li>
+        <li><a href="https://idclatam.org" target="_blank">IDCLATAM</a></li>
+        <li><a href="https://paypal.me/JOHNJPC" target="_blank">Donar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="inicio">
+  <!-- OBJETIVOS -->
+  <section class="objectives">
+    <h2>📖 Al final de esta lección podrás:</h2>
+    <ul>
+      <li>Reconocer y pronunciar las 24 letras del alfabeto griego.</li>
+      <li>Identificar vocales, diptongos y acentos básicos.</li>
+      <li>Leer palabras y frases sencillas como “Ἰησοῦς” y “θεός”.</li>
+      <li>Comprender los artículos definidos y su función.</li>
+    </ul>
+  </section>
+
+  <!-- VIDEO -->
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/6cWD3EgGEao" title="Curso de griego bíblico IBIT lección 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- 7 MICRO-LECCIONES -->
+  <section id="micro">
+    <h2>📘 Micro-lecciones</h2>
+    <div class="micro-grid">
+      <!-- 1. Alfabeto -->
+      <div class="micro-card">
+        <div class="micro-header">1. Alfabeto griego</div>
+        <div class="micro-content">
+          <p>El alfabeto griego tiene 24 letras. Mayúsculas y minúsculas. Pronunciación (moderna):</p>
+          <div class="example">Α α = a / Β β = v / Γ γ = g (antes de ε,ι = y) / Δ δ = d / Ε ε = e / Ζ ζ = z / Η η = i / Θ θ = z dental / Ι ι = i / Κ κ = k / Λ λ = l / Μ μ = m / Ν ν = n / Ξ ξ = ks / Ο ο = o / Π π = p / Ρ ρ = r / Σ σ/ς = s / Τ τ = t / Υ υ = i / Φ φ = f / Χ χ = j / Ψ ψ = ps / Ω ω = o</div>
+          <p>Ejemplo bíblico: <strong>Ἀβραάμ</strong> (Abraham) – primera letra Α.</p>
+        </div>
+      </div>
+      <!-- 2. Vocales y diptongos -->
+      <div class="micro-card">
+        <div class="micro-header">2. Vocales y diptongos</div>
+        <div class="micro-content">
+          <p>Vocales: α, ε, η, ι, ο, υ, ω. Diptongos comunes: αι (e), ει (i), οι (i), υι (i), αυ (av/af), ευ (ev/ef), ου (u).</p>
+          <div class="example">Ejemplo: <strong>αὐτός</strong> (él) – diptongo αυ. <strong>εἰρήνη</strong> (paz) – diptongo ει.</div>
+        </div>
+      </div>
+      <!-- 3. Acentuación básica -->
+      <div class="micro-card">
+        <div class="micro-header">3. Acentuación básica</div>
+        <div class="micro-content">
+          <p>Tres acentos: agudo (´), grave (`), circunflejo (῀). Afectan la entonación.</p>
+          <div class="example">Ejemplo: <strong>ἀγάπη</strong> (amor) – acento agudo en la penúltima sílaba.</div>
+        </div>
+      </div>
+      <!-- 4. Artículo definido -->
+      <div class="micro-card">
+        <div class="micro-header">4. Artículo definido</div>
+        <div class="micro-content">
+          <p>Masculino: ὁ / Femenino: ἡ / Neutro: τό. En Juan 1:1: <strong>ὁ λόγος</strong> (la Palabra).</p>
+          <div class="example">Ejemplo: <strong>ὁ θεός</strong> (Dios).</div>
+        </div>
+      </div>
+      <!-- 5. Primera declinación (femeninos) -->
+      <div class="micro-card">
+        <div class="micro-header">5. Primera declinación (femeninos)</div>
+        <div class="micro-content">
+          <p>Terminaciones en -η, -α. Ejemplo: <strong>δόξα</strong> (gloria). Nominativo singular.</p>
+          <div class="example">Frases bíblicas: <strong>δόξα τῷ θεῷ</strong> (gloria a Dios).</div>
+        </div>
+      </div>
+      <!-- 6. Segunda declinación (masculinos y neutros) -->
+      <div class="micro-card">
+        <div class="micro-header">6. Segunda declinación</div>
+        <div class="micro-content">
+          <p>Masculinos -ος, neutros -ον. Ejemplo: <strong>λόγος</strong> (palabra), <strong>ἔργον</strong> (obra).</p>
+          <div class="example">Juan 1:1: <strong>ἐν ἀρχῇ ἦν ὁ λόγος</strong> (En el principio era la Palabra).</div>
+        </div>
+      </div>
+      <!-- 7. Presente de indicativo activo -->
+      <div class="micro-card">
+        <div class="micro-header">7. Presente de indicativo activo</div>
+        <div class="micro-content">
+          <p>Verbo modelo <strong>λύω</strong> (yo suelto). Desinencias: -ω, -εις, -ει, -ομεν, -ετε, -ουσι(ν).</p>
+          <div class="example">Ejemplo: <strong>γράφω</strong> (escribo) – presente activo.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOCABULARIO (tarjetas volteables) -->
+  <section id="vocab">
+    <h2>📚 Vocabulario de la lección (15 palabras)</h2>
+    <div id="vocabContainer" class="vocab-grid"></div>
+  </section>
+
+  <!-- TEST FINAL (tarjetas para repasar) -->
+  <section id="test">
+    <h2>🧠 Test final – Repasa con tarjetas</h2>
+    <div id="testContainer" class="test-grid"></div>
+  </section>
+
+  <!-- ENLACES DESTACADOS -->
+  <div class="featured-links">
+    <a href="https://biblefluent.org" target="_blank">🌐 BibleFluent.org</a>
+    <a href="https://idclatam.org" target="_blank">⛪ IDCLATAM</a>
+    <a href="https://pinedaamador.org" target="_blank">📖 Pineda Amador</a>
+    <a href="https://paypal.me/JOHNJPC" target="_blank">💝 Donaciones voluntarias</a>
+  </div>
+
+  <!-- NAVEGACIÓN ENTRE LECCIONES -->
+  <div class="lesson-nav">
+    <a href="#" class="prev-lesson">← Anterior</a>
+    <a href="https://biblefluent.org/Greek/main-es.html">📖 Ir al índice del curso</a>
+    <a href="https://biblefluent.org/Greek/Leccion-2.html" class="next-lesson">Siguiente →</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 BibleFluent.org – Ministerio Pineda Amador | Iglesia de Cristo</p>
+    <p><a href="https://biblefluent.org/Greek/main-es.html">Todas las lecciones</a> | <a href="#">Política de privacidad</a></p>
+  </div>
+</footer>
+
+<a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+  // ========== MENÚ HAMBURGUESA ==========
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navbar = document.getElementById('navbar');
+  if (mobileToggle && navbar) {
+    mobileToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      if (navbar.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    document.querySelectorAll('.nav-link, .nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });
+  }
+
+  // ========== DATOS DE VOCABULARIO (15 palabras) ==========
+  const vocabData = [
+    { greek: "θεός", spanish: "Dios" },
+    { greek: "Ἰησοῦς", spanish: "Jesús" },
+    { greek: "λόγος", spanish: "palabra, Verbo" },
+    { greek: "ἀγάπη", spanish: "amor" },
+    { greek: "ἁμαρτία", spanish: "pecado" },
+    { greek: "κύριος", spanish: "Señor" },
+    { greek: "πνεῦμα", spanish: "espíritu" },
+    { greek: "δόξα", spanish: "gloria" },
+    { greek: "γράφω", spanish: "escribo" },
+    { greek: "λέγω", spanish: "digo" },
+    { greek: "ἐγώ", spanish: "yo" },
+    { greek: "σύ", spanish: "tú" },
+    { greek: "αὐτός", spanish: "él/ella/ello" },
+    { greek: "καί", spanish: "y, también" },
+    { greek: "ἐν", spanish: "en, sobre" }
+  ];
+
+  // ========== DATOS DEL TEST (preguntas tipo flashcard) ==========
+  const testData = [
+    { front: "Alfa", back: "Α α" },
+    { front: "Beta", back: "Β β" },
+    { front: "Gamma", back: "Γ γ" },
+    { front: "Delta", back: "Δ δ" },
+    { front: "Épsilon", back: "Ε ε" },
+    { front: "Zeta", back: "Ζ ζ" },
+    { front: "Eta", back: "Η η" },
+    { front: "Theta", back: "Θ θ" },
+    { front: "Iota", back: "Ι ι" },
+    { front: "Kappa", back: "Κ κ" },
+    { front: "Lambda", back: "Λ λ" },
+    { front: "Mi", back: "Μ μ" },
+    { front: "Ni", back: "Ν ν" },
+    { front: "Xi", back: "Ξ ξ" },
+    { front: "Ómicron", back: "Ο ο" },
+    { front: "Pi", back: "Π π" },
+    { front: "Ro", back: "Ρ ρ" },
+    { front: "Sigma", back: "Σ σ/ς" },
+    { front: "Tau", back: "Τ τ" },
+    { front: "Ípsilon", back: "Υ υ" },
+    { front: "Fi", back: "Φ φ" },
+    { front: "Ji", back: "Χ χ" },
+    { front: "Psi", back: "Ψ ψ" },
+    { front: "Omega", back: "Ω ω" },
+    { front: "Palabra 'Dios'", back: "θεός" },
+    { front: "Palabra 'Jesús'", back: "Ἰησοῦς" },
+    { front: "Palabra 'Señor'", back: "κύριος" }
+  ];
+
+  // Función para crear tarjetas volteables
+  function createFlashcard(parent, data, type) {
+    parent.innerHTML = '';
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'flashcard';
+      const front = type === 'vocab' ? item.greek : item.front;
+      const back = type === 'vocab' ? item.spanish : item.back;
+      card.textContent = front;
+      card.setAttribute('data-back', back);
+      card.addEventListener('click', () => {
+        if (card.classList.contains('flipped')) {
+          card.textContent = front;
+        } else {
+          card.textContent = card.getAttribute('data-back');
+        }
+        card.classList.toggle('flipped');
+      });
+      parent.appendChild(card);
+    });
+  }
+
+  // Cargar vocabulario y test
+  const vocabContainer = document.getElementById('vocabContainer');
+  const testContainer = document.getElementById('testContainer');
+  if (vocabContainer) createFlashcard(vocabContainer, vocabData, 'vocab');
+  if (testContainer) createFlashcard(testContainer, testData, 'test');
+
+  // ========== BOTÓN SCROLL TOP ==========
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  });
+  scrollBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

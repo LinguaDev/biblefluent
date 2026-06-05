@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Griego Koiné - Lección 1: Alfabeto y Lectura | BibleFluent</title>
-  <meta name="description" content="Aprende el alfabeto griego y primeros pasos de lectura en griego koiné. Lección 1 del curso completo de 50 lecciones. Incluye vocabulario, ejercicios interactivos y recursos.">
-  <meta name="keywords" content="griego koiné, alfabeto griego, curso griego bíblico, Nuevo Testamento, lección 1">
+  <title>Lección 1: El Griego del Nuevo Testamento | Curso de Griego Koiné | BibleFluent</title>
+  <meta name="description" content="Aprende el origen del griego koiné, los manuscritos del Nuevo Testamento, el sistema de casos y tu primer vocabulario bíblico. Curso completo de 70 lecciones.">
+  <meta name="keywords" content="griego koiné, Nuevo Testamento, manuscritos bíblicos, NA28, UBS5, lengua flexiva, vocabulario griego, Juan 1:1">
   <meta name="author" content="BibleFluent - Pineda Amador Ministry">
-  <meta property="og:title" content="Lección 1: Alfabeto y Lectura - Griego Koiné">
-  <meta property="og:description" content="Aprende el alfabeto griego y comienza a leer el Nuevo Testamento en su idioma original.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://biblefluent.org/lessons/01.html">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://biblefluent.org/lessons/01.html">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Lección 1: El Griego del Nuevo Testamento - Historia y sistema">
+  <meta property="og:description" content="Descubre por qué el NT fue escrito en griego, conoce los manuscritos principales y aprende tus primeras 20 palabras en koiné.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://biblefluent.org/lessons/01.html">
+  <meta property="og:image" content="https://biblefluent.org/img/og-greek.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- CSS común se cargará después (blueprint.css) - por ahora sin estilos adicionales -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- CSS común para todas las lecciones -->
-  <link rel="stylesheet" href="blueprint.css">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
 </head>
 <body>
-  <header class="lesson-header" id="lesson-header">
+  <header class="lesson-header">
     <div class="header-container">
       <div class="logo-area">
         <a href="https://biblefluent.org" class="logo">Bible<span>Fluent</span></a>
-        <span class="lesson-badge">Lección 1 de 50</span>
+        <span class="lesson-badge">Lección 1 de 70</span>
       </div>
       <div class="verse-challenge" id="verseChallenge">
-        <span class="verse-greek"></span>
-        <span class="verse-translation"></span>
-        <button class="verse-btn" id="verseBtn">Traducir / Continuar</button>
+        <span class="verse-greek">Ἐν ἀρχῇ ἦν ὁ λόγος</span>
+        <span class="verse-translation" id="verseTranslation">???</span>
+        <button class="verse-btn" id="verseBtn">Revelar traducción</button>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menú">
         <i class="fas fa-bars"></i>
@@ -37,154 +37,95 @@
     <aside class="progress-sidebar" id="progressSidebar">
       <div class="progress-sticky">
         <h3>Tu progreso</h3>
-        <div class="progress-bar-container">
-          <div class="progress-bar" id="progressBarFill" style="width: 0%;"></div>
-        </div>
+        <div class="progress-bar-container"><div class="progress-bar" id="progressBarFill" style="width: 0%;"></div></div>
         <p class="progress-text" id="progressText">0% completado</p>
         <nav class="lesson-nav">
-          <ul id="lessonNavList">
-            <li><a href="#micro-1">1.1 Letras Α-Δ</a></li>
-            <li><a href="#micro-2">1.2 Letras Ε-Θ</a></li>
-            <li><a href="#micro-3">1.3 Letras Ι-Λ</a></li>
-            <li><a href="#micro-4">1.4 Letras Μ-Π</a></li>
-            <li><a href="#micro-5">1.5 Letras Ρ-Τ</a></li>
-            <li><a href="#micro-6">1.6 Letras Υ-Ω</a></li>
-            <li><a href="#micro-7">1.7 Diptongos y sonidos</a></li>
-            <li><a href="#micro-8">1.8 Acentuación básica</a></li>
-            <li><a href="#micro-9">1.9 Lectura de sílabas</a></li>
-            <li><a href="#micro-10">1.10 Primeras palabras</a></li>
-            <li><a href="#micro-11">1.11 Frase "Jesús es el Señor"</a></li>
-            <li><a href="#micro-12">1.12 Juan 1:1</a></li>
+          <ul>
+            <li><a href="#micro-1">1.1 Origen del griego koiné</a></li>
+            <li><a href="#micro-2">1.2 Manuscritos y texto crítico</a></li>
+            <li><a href="#micro-3">1.3 Lengua flexiva y casos</a></li>
+            <li><a href="#micro-4">1.4 Artículo y conectores</a></li>
+            <li><a href="#micro-5">1.5 Preposiciones y negación</a></li>
+            <li><a href="#micro-6">1.6 Vocabulario teológico</a></li>
+            <li><a href="#micro-7">1.7 Juan 1:1</a></li>
           </ul>
         </nav>
-        <div class="donation-reminder" id="donationReminder" style="display: none;">
-          <p>❤️ ¿Te está siendo útil? <a href="https://paypal.me/JOHNJPC" target="_blank">Apoya este ministerio</a></p>
+        <div class="donation-reminder">
+          <i class="fas fa-heart"></i> ¿Te es útil? <a href="https://paypal.me/JOHNJPC" target="_blank">Apoya este ministerio</a>
         </div>
       </div>
     </aside>
   </header>
 
   <main class="lesson-main">
-    <div class="mobile-index" id="mobileIndex">
-      <button class="index-toggle" id="indexToggle">Índice de la lección <i class="fas fa-chevron-down"></i></button>
+    <div class="mobile-index">
+      <button class="index-toggle" id="indexToggle">
+        <i class="fas fa-list"></i> Índice de la lección <i class="fas fa-chevron-down"></i>
+      </button>
       <ul class="index-list" id="indexList" style="display: none;">
-        <li><a href="#micro-1">1.1 Letras Α-Δ</a></li>
-        <li><a href="#micro-2">1.2 Letras Ε-Θ</a></li>
-        <li><a href="#micro-3">1.3 Letras Ι-Λ</a></li>
-        <li><a href="#micro-4">1.4 Letras Μ-Π</a></li>
-        <li><a href="#micro-5">1.5 Letras Ρ-Τ</a></li>
-        <li><a href="#micro-6">1.6 Letras Υ-Ω</a></li>
-        <li><a href="#micro-7">1.7 Diptongos y sonidos</a></li>
-        <li><a href="#micro-8">1.8 Acentuación básica</a></li>
-        <li><a href="#micro-9">1.9 Lectura de sílabas</a></li>
-        <li><a href="#micro-10">1.10 Primeras palabras</a></li>
-        <li><a href="#micro-11">1.11 Frase "Jesús es el Señor"</a></li>
-        <li><a href="#micro-12">1.12 Juan 1:1</a></li>
+        <li><a href="#micro-1">1.1 Origen del griego koiné</a></li>
+        <li><a href="#micro-2">1.2 Manuscritos y texto crítico</a></li>
+        <li><a href="#micro-3">1.3 Lengua flexiva y casos</a></li>
+        <li><a href="#micro-4">1.4 Artículo y conectores</a></li>
+        <li><a href="#micro-5">1.5 Preposiciones y negación</a></li>
+        <li><a href="#micro-6">1.6 Vocabulario teológico</a></li>
+        <li><a href="#micro-7">1.7 Juan 1:1</a></li>
       </ul>
     </div>
 
     <article class="lesson-content">
       <section class="intro">
-        <h1>Lección 1: Alfabeto Griego y Lectura Básica</h1>
+        <h1>Lección 1: El Griego del Nuevo Testamento</h1>
         <div class="learning-objectives">
-          <h2>Al final de esta lección, podrás:</h2>
+          <h2>Objetivos de aprendizaje</h2>
           <ul>
-            <li>Reconocer y pronunciar las 24 letras del alfabeto griego (mayúsculas y minúsculas).</li>
-            <li>Leer palabras y frases sencillas en griego.</li>
-            <li>Identificar las 20 palabras más frecuentes del Nuevo Testamento.</li>
-            <li>Traducir versículos clave como Juan 1:1.</li>
+            <li>Explicar por qué el Nuevo Testamento fue escrito en griego koiné.</li>
+            <li>Identificar los manuscritos principales (Sinaítico, Vaticano) y las ediciones NA28/UBS5.</li>
+            <li>Comprender qué es una lengua flexiva y los 5 casos gramaticales.</li>
+            <li>Reconocer y traducir las 20 palabras más frecuentes del Nuevo Testamento.</li>
+            <li>Leer y traducir Juan 1:1 en griego.</li>
           </ul>
         </div>
         <div class="video-container">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/6cWD3EgGEao" title="CURSO GRIEGO BIBLICO PARA PRINCIPIANTES 1/28 IBIT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="100%" height="360" src="https://www.youtube.com/embed/6cWD3EgGEao" title="Curso Griego Bíblico 1/28 IBIT" frameborder="0" allowfullscreen></iframe>
           <p class="video-credit">Video por Instituto Bíblico Internacional de Texas (IBIT)</p>
-        </div>
-        <div class="pronunciation-selector">
-          <h3>Sistema de pronunciación</h3>
-          <p>Utilizamos la pronunciación del <strong>griego moderno</strong> (similar al koiné tardío). Ejemplos:</p>
-          <ul>
-            <li>β = 'v' (como "vino")</li>
-            <li>γ = 'g' (como "gato"), antes de ε, ι suena como 'y' (como "yema")</li>
-            <li>δ = 'd' (como "dedo")</li>
-            <li>θ = 'z' dental (como "paz")</li>
-            <li>υ = 'i' (como "milo")</li>
-            <li>αι = 'e' (como "pelo")</li>
-            <li>οι = 'i' (como "milo")</li>
-            <li>ει = 'i' (como "milo")</li>
-            <li>ου = 'u' (como "luna")</li>
-            <li>αυ = 'av' antes de vocal, 'af' antes de consonante sorda</li>
-            <li>ευ = 'ev'/'ef'</li>
-          </ul>
         </div>
       </section>
 
       <section class="micro-lessons">
-        <h2>Micro-lecciones (12)</h2>
-        <div class="micro-lessons-grid">
-          <!-- ==================== MICRO 1 ==================== -->
+        <h2>Micro-lecciones</h2>
+        <div class="micro-lessons-grid" id="microsGrid">
+          <!-- MICRO 1 -->
           <div class="micro-card" id="micro-1" data-micro="1">
-            <div class="micro-header"><h3>1.1 Letras Α α, Β β, Γ γ, Δ δ</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="micro-header"><h3>1.1 Origen del griego koiné y el NT</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
             <div class="micro-content">
               <div class="explanation">
-                <p><strong>Α α (alfa)</strong> – como 'a' en "c<strong>a</strong>sa".<br>
-                <strong>Β β (beta)</strong> – como 'v' en "<strong>v</strong>ino".<br>
-                <strong>Γ γ (gamma)</strong> – como 'g' en "<strong>g</strong>ato"; ante ε, ι suena como 'y' en "<strong>y</strong>ema".<br>
-                <strong>Δ δ (delta)</strong> – como 'd' en "<strong>d</strong>edo".</p>
+                <p>El <strong>griego koiné</strong> (κοινή = "común") surgió con Alejandro Magno (siglo IV a.C.). Fue la lengua internacional del Mediterráneo oriental. El Nuevo Testamento fue escrito en koiné porque:</p>
+                <ul><li>La diáspora judía usaba la Septuaginta (LXX), el Antiguo Testamento en griego.</li><li>Era comprendida por judíos y gentiles por igual.</li><li>Los apóstoles deseaban proclamar el evangelio al mundo entero.</li></ul>
               </div>
               <div class="exercise-area">
-                <p><strong>Ejercicios</strong></p>
                 <ol>
-                  <li>Escribe la letra griega que suena como 'v': <input type="text" class="q1" placeholder="Respuesta"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra la letra a su nombre: 
-                    <div class="drag-drop-zone">
-                      <div class="drag-items"><span draggable="true" data-letter="Α">Α</span><span draggable="true" data-letter="Β">Β</span><span draggable="true" data-letter="Γ">Γ</span><span draggable="true" data-letter="Δ">Δ</span></div>
-                      <div class="drop-zones"><div data-expected="Α">Alfa</div><div data-expected="Β">Beta</div><div data-expected="Γ">Gamma</div><div data-expected="Δ">Delta</div></div>
-                    </div>
-                    <button class="check-dragdrop">Verificar arrastre</button> <span class="drag-feedback"></span>
-                  </li>
-                  <li>¿Cuál es la forma minúscula de la letra Δ? <input type="text" class="q3" placeholder="Respuesta"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Selecciona la opción correcta: La letra Γ (gamma) suena como 'g' en "gato". <select class="q4"><option value="">--Elige--</option><option value="V">Verdadero</option><option value="F">Falso</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une con línea (escribe el número correspondiente): 1-Α → a) Alfa, 2-Β → b) Beta, 3-Γ → c) Gamma, 4-Δ → d) Delta. Respuesta (ej. "1a,2b,3c,4d"): <input type="text" class="q5" placeholder="Respuesta"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra "αγάπη" (amor) – ¿Cuál es la primera letra? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: 
-                    <div class="flashcard-container">
-                      <div class="flashcard" data-front="Α" data-back="Alfa">Α</div>
-                      <div class="flashcard" data-front="Β" data-back="Beta">Β</div>
-                      <div class="flashcard" data-front="Γ" data-back="Gamma">Γ</div>
-                      <div class="flashcard" data-front="Δ" data-back="Delta">Δ</div>
-                    </div>
-                  </li>
+                  <li>¿Qué significa la palabra "κοινή"? <input type="text" class="q1_1"> <button class="check-input" data-ans="común|compartido">Verificar</button> <span class="fb"></span></li>
+                  <li>¿En qué siglo comenzó a usarse el griego koiné como lengua común? <input type="text" class="q1_2"> <button class="check-input" data-ans="IV a.C.|siglo IV a.C.">Verificar</button> <span class="fb"></span></li>
+                  <li>Verdadero o falso: El NT fue escrito originalmente en hebreo exclusivamente. <select class="q1_3"><option>--</option><option value="F">Falso</option><option value="V">Verdadero</option></select> <button class="check-select" data-ans="F">Verificar</button> <span class="fb"></span></li>
                 </ol>
-                <button class="complete-micro">Marcar micro-lección como completada</button>
+                <button class="complete-micro">Marcar completada</button>
               </div>
             </div>
           </div>
 
           <!-- MICRO 2 -->
           <div class="micro-card" id="micro-2" data-micro="2">
-            <div class="micro-header"><h3>1.2 Letras Ε ε, Ζ ζ, Η η, Θ θ</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="micro-header"><h3>1.2 Manuscritos del NT y texto crítico (NA28/UBS5)</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
             <div class="micro-content">
               <div class="explanation">
-                <p><strong>Ε ε (épsilon)</strong> – 'e' breve.<br>
-                <strong>Ζ ζ (zeta)</strong> – 'z' (como "pizza").<br>
-                <strong>Η η (eta)</strong> – 'i' (como "milo").<br>
-                <strong>Θ θ (theta)</strong> – 'z' dental (como "paz").</p>
+                <p>No conservamos los autógrafos (originales), pero sí miles de copias: <strong>papiros</strong> (𝔓), <strong>unciales</strong> (Códice Sinaítico ℵ, Vaticano B) y <strong>minúsculos</strong>. La crítica textual compara todas las copias para reconstruir el texto original. Las ediciones modernas de referencia son <strong>NA28</strong> (aparato crítico detallado) y <strong>UBS5</strong> (para traducciones).</p>
               </div>
               <div class="exercise-area">
                 <ol>
-                  <li>Escribe la letra griega que se pronuncia como 'z' dental: <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra: 
-                    <div class="drag-drop-zone">
-                      <div class="drag-items"><span draggable="true" data-letter="Ε">Ε</span><span draggable="true" data-letter="Ζ">Ζ</span><span draggable="true" data-letter="Η">Η</span><span draggable="true" data-letter="Θ">Θ</span></div>
-                      <div class="drop-zones"><div data-expected="Ε">Épsilon</div><div data-expected="Ζ">Zeta</div><div data-expected="Η">Eta</div><div data-expected="Θ">Theta</div></div>
-                    </div>
-                    <button class="check-dragdrop">Verificar arrastre</button> <span class="drag-feedback"></span>
-                  </li>
-                  <li>¿Cuál es la letra mayúscula de 'η'? <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: La letra Θ se pronuncia como 'z' en "caza". <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1-Ε, 2-Ζ, 3-Η, 4-Θ con a)Eta, b)Épsilon, c)Zeta, d)Theta. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra "ζωή" (vida) y subraya la primera letra (solo escribe la primera letra): <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="Ε">Ε</div><div class="flashcard" data-front="Ζ">Ζ</div><div class="flashcard" data-front="Η">Η</div><div class="flashcard" data-front="Θ">Θ</div></div></li>
+                  <li>¿Cuál es la sigla del Códice Sinaítico? <input type="text" class="q2_1"> <button class="check-input" data-ans="א|Aleph">Verificar</button> <span class="fb"></span></li>
+                  <li>¿Qué siglas identifican las ediciones críticas actuales? <input type="text" class="q2_2"> <button class="check-input" data-ans="NA28 y UBS5|NA28/UBS5">Verificar</button> <span class="fb"></span></li>
+                  <li>Relaciona: Arrastra cada tipo de manuscrito a su nombre.<div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="Papiro">𝔓</span><span draggable="true" data-letter="Uncial">א</span><span draggable="true" data-letter="Minúsculo">1</span></div><div class="drop-zones"><div data-expected="Papiro">Papiro</div><div data-expected="Uncial">Uncial</div><div data-expected="Minúsculo">Minúsculo</div></div></div><button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span></li>
                 </ol>
                 <button class="complete-micro">Marcar completada</button>
               </div>
@@ -193,22 +134,18 @@
 
           <!-- MICRO 3 -->
           <div class="micro-card" id="micro-3" data-micro="3">
-            <div class="micro-header"><h3>1.3 Letras Ι ι, Κ κ, Λ λ</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="micro-header"><h3>1.3 Lengua flexiva: los 5 casos</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
             <div class="micro-content">
               <div class="explanation">
-                <p><strong>Ι ι (iota)</strong> – 'i' en "m<strong>i</strong>lo".<br>
-                <strong>Κ κ (kappa)</strong> – 'k' en "<strong>k</strong>ilo".<br>
-                <strong>Λ λ (lambda)</strong> – 'l' en "<strong>l</strong>una".</p>
+                <p>El griego es una lengua <strong>flexiva</strong>: las terminaciones de las palabras cambian para indicar su función gramatical. Posee 5 casos:</p>
+                <ul><li><strong>Nominativo</strong>: sujeto.</li><li><strong>Genitivo</strong>: posesión ("de").</li><li><strong>Dativo</strong>: objeto indirecto ("a/para").</li><li><strong>Acusativo</strong>: objeto directo.</li><li><strong>Vocativo</strong>: llamada directa.</li></ul>
+                <p>Ejemplo: <strong>λόγος</strong> (la palabra, sujeto) vs <strong>λόγον</strong> (a la palabra, objeto directo).</p>
               </div>
               <div class="exercise-area">
                 <ol>
-                  <li>Escribe la letra griega que suena como 'k': <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra: <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="Ι">Ι</span><span draggable="true" data-letter="Κ">Κ</span><span draggable="true" data-letter="Λ">Λ</span></div><div class="drop-zones"><div data-expected="Ι">Iota</div><div data-expected="Κ">Kappa</div><div data-expected="Λ">Lambda</div></div></div> <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span></li>
-                  <li>¿Cuál es la forma minúscula de la letra Κ? <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: La letra Ι se pronuncia como 'i' en "milo". <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1-Ι, 2-Κ, 3-Λ con a)Kappa, b)Lambda, c)Iota. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra "λόγος" (palabra). ¿Cuál es la primera letra? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="Ι">Ι</div><div class="flashcard" data-front="Κ">Κ</div><div class="flashcard" data-front="Λ">Λ</div></div></li>
+                  <li>¿Qué caso se usa para el sujeto? <input type="text" class="q3_1"> <button class="check-input" data-ans="Nominativo">Verificar</button> <span class="fb"></span></li>
+                  <li>El dativo expresa: <select class="q3_2"><option>--</option><option value="OD">Objeto directo</option><option value="OI">Objeto indirecto</option></select> <button class="check-select" data-ans="OI">Verificar</button> <span class="fb"></span></li>
+                  <li>¿Qué caso indica posesión? <input type="text" class="q3_3"> <button class="check-input" data-ans="Genitivo">Verificar</button> <span class="fb"></span></li>
                 </ol>
                 <button class="complete-micro">Marcar completada</button>
               </div>
@@ -217,24 +154,16 @@
 
           <!-- MICRO 4 -->
           <div class="micro-card" id="micro-4" data-micro="4">
-            <div class="micro-header"><h3>1.4 Letras Μ μ, Ν ν, Ξ ξ, Ο ο, Π π</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="micro-header"><h3>1.4 Artículo definido y conectores básicos</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
             <div class="micro-content">
               <div class="explanation">
-                <p><strong>Μ μ (mi)</strong> – 'm' en "<strong>m</strong>ano".<br>
-                <strong>Ν ν (ni)</strong> – 'n' en "<strong>n</strong>ido".<br>
-                <strong>Ξ ξ (xi)</strong> – 'ks' en "e<strong>ks</strong>amen".<br>
-                <strong>Ο ο (ómicron)</strong> – 'o' breve en "<strong>o</strong>so".<br>
-                <strong>Π π (pi)</strong> – 'p' en "<strong>p</strong>adre".</p>
+                <p>El griego tiene <strong>artículo definido</strong> pero no indefinido. Formas del nominativo singular: <strong>ὁ</strong> (masculino), <strong>ἡ</strong> (femenino), <strong>τό</strong> (neutro). Conectores frecuentes: <strong>καί</strong> (y, también), <strong>δέ</strong> (pero, y, ahora), <strong>ὅτι</strong> (que, porque).</p>
               </div>
               <div class="exercise-area">
                 <ol>
-                  <li>Escribe la letra que suena como 'ks': <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra: <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="Μ">Μ</span><span draggable="true" data-letter="Ν">Ν</span><span draggable="true" data-letter="Ξ">Ξ</span><span draggable="true" data-letter="Ο">Ο</span><span draggable="true" data-letter="Π">Π</span></div><div class="drop-zones"><div data-expected="Μ">Mi</div><div data-expected="Ν">Ni</div><div data-expected="Ξ">Xi</div><div data-expected="Ο">Ómicron</div><div data-expected="Π">Pi</div></div></div> <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span></li>
-                  <li>¿Cuál es la mayúscula de 'π'? <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: La letra Ο suena como 'o' larga. <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1-Μ, 2-Ν, 3-Ξ, 4-Ο, 5-Π con a)Pi, b)Ni, c)Mi, d)Ómicron, e)Xi. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra "πνεῦμα" (espíritu). ¿Primera letra? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="Μ">Μ</div><div class="flashcard" data-front="Ν">Ν</div><div class="flashcard" data-front="Ξ">Ξ</div><div class="flashcard" data-front="Ο">Ο</div><div class="flashcard" data-front="Π">Π</div></div></li>
+                  <li>Artículo femenino singular nominativo: <input type="text" class="q4_1"> <button class="check-input" data-ans="ἡ">Verificar</button> <span class="fb"></span></li>
+                  <li>Traduce "καί": <input type="text" class="q4_2"> <button class="check-input" data-ans="y|también">Verificar</button> <span class="fb"></span></li>
+                  <li>Practica con flashcards:<div class="flashcard-container"><div class="flashcard" data-front="ὁ">ὁ</div><div class="flashcard" data-front="ἡ">ἡ</div><div class="flashcard" data-front="τό">τό</div><div class="flashcard" data-front="καί">καί</div><div class="flashcard" data-front="δέ">δέ</div></div></li>
                 </ol>
                 <button class="complete-micro">Marcar completada</button>
               </div>
@@ -243,48 +172,35 @@
 
           <!-- MICRO 5 -->
           <div class="micro-card" id="micro-5" data-micro="5">
-            <div class="micro-header"><h3>1.5 Letras Ρ ρ, Σ σ/ς, Τ τ</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="micro-header"><h3>1.5 Preposiciones esenciales y negación</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
             <div class="micro-content">
               <div class="explanation">
-                <p><strong>Ρ ρ (ro)</strong> – 'r' vibrante en "pe<strong>r</strong>ro".<br>
-                <strong>Σ σ (sigma)</strong> – 's' en "<strong>s</strong>apo". Al final de palabra: ς.<br>
-                <strong>Τ τ (tau)</strong> – 't' en "<strong>t</strong>igre".</p>
+                <p>Preposiciones básicas: <strong>ἐν</strong> (en), <strong>εἰς</strong> (hacia, para), <strong>ἐκ/ἐξ</strong> (de, desde el interior), <strong>ἀπό</strong> (desde, separación). Negación: <strong>οὐ / οὐκ / οὐχ</strong> ("no") se usa con el modo indicativo.</p>
               </div>
               <div class="exercise-area">
                 <ol>
-                  <li>Escribe la letra que suena como 'r' vibrante: <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra: <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="Ρ">Ρ</span><span draggable="true" data-letter="Σ">Σ</span><span draggable="true" data-letter="Τ">Τ</span></div><div class="drop-zones"><div data-expected="Ρ">Ro</div><div data-expected="Σ">Sigma</div><div data-expected="Τ">Tau</div></div></div> <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span></li>
-                  <li>¿Cuál es la forma final de la sigma? <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: La letra Τ se pronuncia como 'd'. <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1-Ρ, 2-Σ, 3-Τ con a)Sigma, b)Tau, c)Ro. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra "Ἰησοῦς" (Jesús). ¿Cuál es la tercera letra? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="Ρ">Ρ</div><div class="flashcard" data-front="Σ">Σ</div><div class="flashcard" data-front="Τ">Τ</div><div class="flashcard" data-front="ς">ς</div></div></li>
+                  <li>Preposición que significa "dentro de": <input type="text" class="q5_1"> <button class="check-input" data-ans="ἐν">Verificar</button> <span class="fb"></span></li>
+                  <li>Forma de οὐ antes de vocal con espíritu suave: <input type="text" class="q5_2"> <button class="check-input" data-ans="οὐκ">Verificar</button> <span class="fb"></span></li>
+                  <li>Une: arrastra "ἐκ" a su significado "de, desde".<div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="ἐκ">ἐκ</span><span draggable="true" data-letter="εἰς">εἰς</span></div><div class="drop-zones"><div data-expected="de, desde">de, desde</div><div data-expected="hacia">hacia</div></div></div><button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span></li>
                 </ol>
                 <button class="complete-micro">Marcar completada</button>
               </div>
             </div>
           </div>
 
-          <!-- MICRO 6 -->
+          <!-- MICRO 6: Vocabulario teológico (20 palabras) -->
           <div class="micro-card" id="micro-6" data-micro="6">
-            <div class="micro-header"><h3>1.6 Letras Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="micro-header"><h3>1.6 Vocabulario teológico fundamental</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
             <div class="micro-content">
               <div class="explanation">
-                <p><strong>Υ υ (ípsilon)</strong> – 'i' (como "milo").<br>
-                <strong>Φ φ (fi)</strong> – 'f' en "<strong>f</strong>aro".<br>
-                <strong>Χ χ (ji)</strong> – 'j' aspirada (como "<strong>j</strong>amón").<br>
-                <strong>Ψ ψ (psi)</strong> – 'ps' en "<strong>ps</strong>icología".<br>
-                <strong>Ω ω (omega)</strong> – 'o' larga en "t<strong>o</strong>do".</p>
+                <p>Estas 20 palabras son las más frecuentes en el Nuevo Testamento. Haz clic en cada una para revelar su significado.</p>
+                <div class="vocab-list" id="vocabList"></div>
               </div>
               <div class="exercise-area">
                 <ol>
-                  <li>Escribe la letra que suena como 'f': <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra: <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="Υ">Υ</span><span draggable="true" data-letter="Φ">Φ</span><span draggable="true" data-letter="Χ">Χ</span><span draggable="true" data-letter="Ψ">Ψ</span><span draggable="true" data-letter="Ω">Ω</span></div><div class="drop-zones"><div data-expected="Υ">Ípsilon</div><div data-expected="Φ">Fi</div><div data-expected="Χ">Ji</div><div data-expected="Ψ">Psi</div><div data-expected="Ω">Omega</div></div></div> <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span></li>
-                  <li>¿Cuál es la mayúscula de 'ω'? <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: La letra Υ se pronuncia como 'u' en "luna". <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1-Υ, 2-Φ, 3-Χ, 4-Ψ, 5-Ω con a)Fi, b)Ji, c)Psi, d)Omega, e)Ípsilon. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra "Χριστός" (Cristo). ¿Primera letra? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="Υ">Υ</div><div class="flashcard" data-front="Φ">Φ</div><div class="flashcard" data-front="Χ">Χ</div><div class="flashcard" data-front="Ψ">Ψ</div><div class="flashcard" data-front="Ω">Ω</div></div></li>
+                  <li>Traduce "κύριος": <input type="text" class="q6_1"> <button class="check-input" data-ans="Señor|señor">Verificar</button> <span class="fb"></span></li>
+                  <li>Traduce "ἀγάπη": <input type="text" class="q6_2"> <button class="check-input" data-ans="amor">Verificar</button> <span class="fb"></span></li>
+                  <li>Traduce "πίστις": <input type="text" class="q6_3"> <button class="check-input" data-ans="fe|confianza">Verificar</button> <span class="fb"></span></li>
                 </ol>
                 <button class="complete-micro">Marcar completada</button>
               </div>
@@ -293,145 +209,17 @@
 
           <!-- MICRO 7 -->
           <div class="micro-card" id="micro-7" data-micro="7">
-            <div class="micro-header"><h3>1.7 Diptongos y sonidos especiales</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
+            <div class="micro-header"><h3>1.7 Lectura de Juan 1:1</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
             <div class="micro-content">
               <div class="explanation">
-                <p>Diptongos: αι (e), ει (i), οι (i), υι (i), αυ (av/af), ευ (ev/ef), ου (u).</p>
+                <p><strong>Ἐν ἀρχῇ ἦν ὁ λόγος</strong> = "En el principio era la Palabra". Palabras clave: <strong>ἀρχή</strong> (principio), <strong>ἦν</strong> (era, de εἰμί), <strong>λόγος</strong> (palabra, Verbo).</p>
               </div>
               <div class="exercise-area">
                 <ol>
-                  <li>¿Cómo se pronuncia el diptongo "αι"? <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Empareja: Arrastra cada diptongo a su pronunciación: 
-                    <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="αι">αι</span><span draggable="true" data-letter="ει">ει</span><span draggable="true" data-letter="ου">ου</span><span draggable="true" data-letter="αυ">αυ</span></div><div class="drop-zones"><div data-expected="e">e</div><div data-expected="i">i</div><div data-expected="u">u</div><div data-expected="av/af">av/af</div></div></div>
-                    <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span>
-                  </li>
-                  <li>Escribe el diptongo que suena como 'u': <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Selecciona: El diptongo "ευ" suena como 'ev' o 'ef' según la siguiente consonante. <select class="q4"><option>--</option><option value="V">Verdadero</option><option value="F">Falso</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1-αι, 2-οι, 3-ου, 4-αυ con a)u, b)e, c)i, d)av/af. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra "αὐτός". ¿Qué diptongo ves? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="αι">αι</div><div class="flashcard" data-front="ει">ει</div><div class="flashcard" data-front="οι">οι</div><div class="flashcard" data-front="ου">ου</div><div class="flashcard" data-front="αυ">αυ</div></div></li>
-                </ol>
-                <button class="complete-micro">Marcar completada</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- MICRO 8 -->
-          <div class="micro-card" id="micro-8" data-micro="8">
-            <div class="micro-header"><h3>1.8 Acentuación básica</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
-            <div class="micro-content">
-              <div class="explanation">
-                <p>El griego tiene tres acentos: agudo (´), grave (`), circunflejo (῀). Afectan la entonación y la duración de la sílaba. Ejemplo: ἀγάπη (amor).</p>
-              </div>
-              <div class="exercise-area">
-                <ol>
-                  <li>¿Cómo se llama el acento que sube y baja en una sílaba larga? <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Señala cuál es el acento agudo en la palabra "ἀγάπη": <select class="q2"><option>--</option><option value="α">α</option><option value="ἀ">ἀ</option><option value="ά">ά</option><option value="η">η</option></select> <button class="check-q2">Verificar</button> <span class="fb2"></span></li>
-                  <li>Escribe un ejemplo de acento circunflejo: <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: El acento grave solo puede aparecer en la última sílaba. <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1- agudo, 2- grave, 3- circunflejo con a) ` , b) ῀ , c) ´ . Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>¿Qué acento lleva la palabra "λόγος"? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="´">Agudo</div><div class="flashcard" data-front="`">Grave</div><div class="flashcard" data-front="῀">Circunflejo</div></div></li>
-                </ol>
-                <button class="complete-micro">Marcar completada</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- MICRO 9 -->
-          <div class="micro-card" id="micro-9" data-micro="9">
-            <div class="micro-header"><h3>1.9 Lectura de sílabas</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
-            <div class="micro-content">
-              <div class="explanation">
-                <p>Practica leyendo sílabas: γρα (gra), κλε (cle), πρα (pra), τρο (tro).</p>
-              </div>
-              <div class="exercise-area">
-                <ol>
-                  <li>Lee la sílaba "γρα". ¿Qué letras la componen? <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra la sílaba a su pronunciación: 
-                    <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="γρα">γρα</span><span draggable="true" data-letter="κλε">κλε</span><span draggable="true" data-letter="πρα">πρα</span><span draggable="true" data-letter="τρο">τρο</span></div><div class="drop-zones"><div data-expected="gra">gra</div><div data-expected="cle">cle</div><div data-expected="pra">pra</div><div data-expected="tro">tro</div></div></div>
-                    <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span>
-                  </li>
-                  <li>Escribe la sílaba que suena como "tro": <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: La sílaba "γρα" se lee "gra". <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1- γρα, 2- κλε, 3- πρα, 4- τρο con a)pra, b)gra, c)cle, d)tro. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Lee la palabra "πρόσωπον". ¿Qué sílaba ves al inicio? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="γρα">γρα</div><div class="flashcard" data-front="κλε">κλε</div><div class="flashcard" data-front="πρα">πρα</div><div class="flashcard" data-front="τρο">τρο</div></div></li>
-                </ol>
-                <button class="complete-micro">Marcar completada</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- MICRO 10 -->
-          <div class="micro-card" id="micro-10" data-micro="10">
-            <div class="micro-header"><h3>1.10 Primeras palabras</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
-            <div class="micro-content">
-              <div class="explanation">
-                <p>Palabras básicas: θεός (Dios), λόγος (palabra), Ἰησοῦς (Jesús), Χριστός (Cristo).</p>
-              </div>
-              <div class="exercise-area">
-                <ol>
-                  <li>Traduce "θεός": <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra la palabra griega a su traducción: 
-                    <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="θεός">θεός</span><span draggable="true" data-letter="λόγος">λόγος</span><span draggable="true" data-letter="Ἰησοῦς">Ἰησοῦς</span><span draggable="true" data-letter="Χριστός">Χριστός</span></div><div class="drop-zones"><div data-expected="Dios">Dios</div><div data-expected="palabra">palabra</div><div data-expected="Jesús">Jesús</div><div data-expected="Cristo">Cristo</div></div></div>
-                    <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span>
-                  </li>
-                  <li>Escribe la palabra griega para "Jesús": <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: "λόγος" significa "amor". <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1- θεός, 2- λόγος, 3- Ἰησοῦς, 4- Χριστός con a)Cristo, b)palabra, c)Dios, d)Jesús. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la primera palabra de "Ἰησοῦς Χριστός": <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="θεός">θεός</div><div class="flashcard" data-front="λόγος">λόγος</div><div class="flashcard" data-front="Ἰησοῦς">Ἰησοῦς</div><div class="flashcard" data-front="Χριστός">Χριστός</div></div></li>
-                </ol>
-                <button class="complete-micro">Marcar completada</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- MICRO 11 -->
-          <div class="micro-card" id="micro-11" data-micro="11">
-            <div class="micro-header"><h3>1.11 Frase "Jesús es el Señor"</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
-            <div class="micro-content">
-              <div class="explanation">
-                <p>Ἰησοῦς Χριστὸς Κύριος (Jesucristo es Señor).</p>
-              </div>
-              <div class="exercise-area">
-                <ol>
-                  <li>Traduce "Κύριος": <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra las palabras al orden correcto: 
-                    <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="Ἰησοῦς">Ἰησοῦς</span><span draggable="true" data-letter="Χριστὸς">Χριστὸς</span><span draggable="true" data-letter="Κύριος">Κύριος</span></div><div class="drop-zones"><div data-expected="Jesús">Jesús</div><div data-expected="Cristo">Cristo</div><div data-expected="Señor">Señor</div></div></div>
-                    <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span>
-                  </li>
-                  <li>Escribe la frase completa en griego: <input type="text" class="q3" placeholder="Ἰησοῦς Χριστὸς Κύριος"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: "Κύριος" significa "Señor". <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1- Ἰησοῦς, 2- Χριστὸς, 3- Κύριος con a)Señor, b)Jesús, c)Cristo. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>¿Qué palabra está en medio de la frase? <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="Ἰησοῦς">Ἰησοῦς</div><div class="flashcard" data-front="Χριστὸς">Χριστὸς</div><div class="flashcard" data-front="Κύριος">Κύριος</div></div></li>
-                </ol>
-                <button class="complete-micro">Marcar completada</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- MICRO 12 -->
-          <div class="micro-card" id="micro-12" data-micro="12">
-            <div class="micro-header"><h3>1.12 Juan 1:1</h3><button class="toggle-micro"><i class="fas fa-chevron-down"></i></button></div>
-            <div class="micro-content">
-              <div class="explanation">
-                <p>Ἐν ἀρχῇ ἦν ὁ λόγος. (En el principio era la Palabra).</p>
-              </div>
-              <div class="exercise-area">
-                <ol>
-                  <li>Traduce "Ἐν ἀρχῇ": <input type="text" class="q1"> <button class="check-q1">Verificar</button> <span class="fb1"></span></li>
-                  <li>Arrastra las palabras al orden correcto: 
-                    <div class="drag-drop-zone"><div class="drag-items"><span draggable="true" data-letter="Ἐν">Ἐν</span><span draggable="true" data-letter="ἀρχῇ">ἀρχῇ</span><span draggable="true" data-letter="ἦν">ἦν</span><span draggable="true" data-letter="ὁ">ὁ</span><span draggable="true" data-letter="λόγος">λόγος</span></div><div class="drop-zones"><div data-expected="En">En</div><div data-expected="principio">principio</div><div data-expected="era">era</div><div data-expected="el">el</div><div data-expected="Palabra">Palabra</div></div></div>
-                    <button class="check-dragdrop">Verificar</button> <span class="drag-feedback"></span>
-                  </li>
-                  <li>Escribe la primera palabra del versículo: <input type="text" class="q3"> <button class="check-q3">Verificar</button> <span class="fb3"></span></li>
-                  <li>Verdadero o falso: "λόγος" significa "amor". <select class="q4"><option>--</option><option value="V">V</option><option value="F">F</option></select> <button class="check-q4">Verificar</button> <span class="fb4"></span></li>
-                  <li>Une: 1- Ἐν, 2- ἀρχῇ, 3- ἦν, 4- λόγος con a)era, b)Palabra, c)En, d)principio. Respuesta: <input type="text" class="q5"> <button class="check-q5">Verificar</button> <span class="fb5"></span></li>
-                  <li>Escribe la palabra que significa "Palabra": <input type="text" class="q6"> <button class="check-q6">Verificar</button> <span class="fb6"></span></li>
-                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="Ἐν">Ἐν</div><div class="flashcard" data-front="ἀρχῇ">ἀρχῇ</div><div class="flashcard" data-front="ἦν">ἦν</div><div class="flashcard" data-front="λόγος">λόγος</div></div></li>
+                  <li>Traduce "Ἐν ἀρχῇ": <input type="text" class="q7_1"> <button class="check-input" data-ans="En el principio">Verificar</button> <span class="fb"></span></li>
+                  <li>¿Qué palabra significa "Palabra" en Juan 1:1? <input type="text" class="q7_2"> <button class="check-input" data-ans="λόγος">Verificar</button> <span class="fb"></span></li>
+                  <li>Escribe la primera palabra del versículo: <input type="text" class="q7_3"> <button class="check-input" data-ans="Ἐν">Verificar</button> <span class="fb"></span></li>
+                  <li>Flashcards: <div class="flashcard-container"><div class="flashcard" data-front="ἀρχή">ἀρχή</div><div class="flashcard" data-front="λόγος">λόγος</div><div class="flashcard" data-front="ἦν">ἦν</div></div></li>
                 </ol>
                 <button class="complete-micro">Marcar completada</button>
               </div>
@@ -441,87 +229,269 @@
       </section>
 
       <section class="vocabulary-section">
-        <h2>Vocabulario de la lección (20 palabras)</h2>
-        <div class="vocab-list">
-          <ul>
-            <li><strong>καί</strong> - y, también</li>
-            <li><strong>ὁ</strong> - el, la, lo</li>
-            <li><strong>αὐτός</strong> - él, ella, ello</li>
-            <li><strong>ἐν</strong> - en, sobre</li>
-            <li><strong>εἰμί</strong> - ser, estar</li>
-            <li><strong>οὗτος</strong> - este</li>
-            <li><strong>λέγω</strong> - decir</li>
-            <li><strong>γάρ</strong> - porque</li>
-            <li><strong>ἐγώ</strong> - yo</li>
-            <li><strong>εἰς</strong> - hacia</li>
-            <li><strong>σύ</strong> - tú</li>
-            <li><strong>πᾶς</strong> - todo</li>
-            <li><strong>θεός</strong> - Dios</li>
-            <li><strong>Ἰησοῦς</strong> - Jesús</li>
-            <li><strong>Χριστός</strong> - Cristo</li>
-            <li><strong>πνεῦμα</strong> - espíritu</li>
-            <li><strong>ἀγαπάω</strong> - amar</li>
-            <li><strong>δόξα</strong> - gloria</li>
-            <li><strong>κύριος</strong> - Señor</li>
-            <li><strong>ἁμαρτία</strong> - pecado</li>
-          </ul>
-        </div>
-        <div class="vocab-flashcards">
-          <p>Practica con tarjetas de vocabulario:</p>
-          <div class="vocab-flash-grid" id="vocabFlashGrid"></div>
-        </div>
+        <h2>Vocabulario completo de la lección</h2>
+        <div class="vocab-full-list" id="vocabFullList"></div>
       </section>
 
-      <section class="consolidation">
-        <h2>Preguntas de consolidación (12)</h2>
-        <div class="questions-list">
-          <div class="question-item" data-micro="1"><p>1. ¿Cómo se pronuncia la letra Β (beta) en griego moderno?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-1" class="go-to-micro">Ir a micro 1.1</a></div>
-          <div class="question-item" data-micro="2"><p>2. ¿Qué letra representa el sonido 'z' dental?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-2">Ir a 1.2</a></div>
-          <div class="question-item" data-micro="3"><p>3. Escribe la letra griega que suena como 'k':</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-3">Ir a 1.3</a></div>
-          <div class="question-item" data-micro="4"><p>4. ¿Cuál es la letra griega para 'p'?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-4">Ir a 1.4</a></div>
-          <div class="question-item" data-micro="5"><p>5. ¿Cómo se escribe la letra 'sigma' al final de una palabra?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-5">Ir a 1.5</a></div>
-          <div class="question-item" data-micro="6"><p>6. Nombra la letra que se parece a una 'W' mayúscula (omega).</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-6">Ir a 1.6</a></div>
-          <div class="question-item" data-micro="7"><p>7. ¿Cómo se pronuncia el diptongo 'αι' en griego moderno?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-7">Ir a 1.7</a></div>
-          <div class="question-item" data-micro="8"><p>8. ¿Qué tipo de acento va sobre una vocal larga?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-8">Ir a 1.8</a></div>
-          <div class="question-item" data-micro="9"><p>9. Lee la sílaba "γρα". ¿Qué letras la componen?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-9">Ir a 1.9</a></div>
-          <div class="question-item" data-micro="10"><p>10. Traduce "θεός".</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-10">Ir a 1.10</a></div>
-          <div class="question-item" data-micro="11"><p>11. Escribe en griego "Señor Jesús".</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-11">Ir a 1.11</a></div>
-          <div class="question-item" data-micro="12"><p>12. ¿Cuál es la primera palabra de Juan 1:1 en griego?</p><input type="text"><button class="check-answer">Comprobar</button><span class="answer-feedback"></span><a href="#micro-12">Ir a 1.12</a></div>
-        </div>
-      </section>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC" target="_blank"><i class="fab fa-paypal"></i> PayPal</a>
+        <a href="https://idclatam.org" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://pinedaamador.org" target="_blank"><i class="fas fa-users"></i> Pineda Amador</a>
+        <a href="https://biblefluent.org" target="_blank"><i class="fas fa-book"></i> BibleFluent</a>
+        <a href="mailto:juancanales5019@gmail.com"><i class="fas fa-envelope"></i> Correo</a>
+      </div>
 
-      <section class="additional-resources">
-        <h2>Recursos adicionales</h2>
-        <ul>
-          <li><a href="https://www.biblegateway.com/passage/?search=John+1%3A1&version=NABRE" target="_blank">Juan 1:1 interlineal</a></li>
-          <li><a href="https://www.blueletterbible.org/" target="_blank">Blue Letter Bible - Léxico griego</a></li>
-          <li><a href="https://quizlet.com/" target="_blank">Crea tus flashcards</a></li>
-        </ul>
-        <div class="pdf-download">
-          <a href="../pdf/lesson01.pdf" download class="btn-pdf"><i class="fas fa-file-pdf"></i> Descargar lección en PDF</a>
-        </div>
-        <div class="social-links">
-          <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-          <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-          <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-          <a href="https://paypal.me/JOHNJPC" target="_blank"><i class="fab fa-paypal"></i> Donar</a>
-        </div>
-      </section>
+      <div class="lesson-navigation">
+        <a href="https://biblefluent.org" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+        <a href="#" class="nav-link disabled"><i class="fas fa-arrow-left"></i> Lección anterior</a>
+        <a href="lesson02.html" class="nav-link">Lección 2 <i class="fas fa-arrow-right"></i></a>
+      </div>
     </article>
-
-    <div class="lesson-navigation">
-      <a href="../index.html" class="prev-lesson"><i class="fas fa-arrow-left"></i> Inicio</a>
-      <a href="lesson02.html" class="next-lesson">Lección 2 <i class="fas fa-arrow-right"></i></a>
-    </div>
   </main>
 
   <footer class="lesson-footer">
     <div class="footer-content">
-      <p>Ministerio de <a href="https://pinedaamador.org" target="_blank">Pineda Amador</a> | <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></p>
-      <p>© 2026 BibleFluent.org - Todos los recursos son gratuitos.</p>
+      <p>Ministerio <a href="https://pinedaamador.org">Pineda Amador</a> | <a href="https://idclatam.org">IDCLATAM.org</a></p>
+      <p>© 2026 BibleFluent.org - Recursos gratuitos para el estudio del griego del NT</p>
     </div>
   </footer>
 
-  <script src="Leccion-1.js"></script>
+  <!-- JavaScript específico de la lección (no compartido) -->
+  <script>
+    (function() {
+      // ---------- VOCABULARIO (20 palabras) ----------
+      const vocabWords = [
+        { greek: "ὁ, ἡ, τό", meaning: "el, la, lo (artículo)" },
+        { greek: "καί", meaning: "y, también" },
+        { greek: "δέ", meaning: "pero, y, ahora" },
+        { greek: "ἐν", meaning: "en, dentro de" },
+        { greek: "εἰς", meaning: "hacia, en, para" },
+        { greek: "ἐκ / ἐξ", meaning: "de, desde" },
+        { greek: "ὅτι", meaning: "que, porque" },
+        { greek: "οὐ / οὐκ", meaning: "no" },
+        { greek: "ἀπό", meaning: "de, desde" },
+        { greek: "κύριος", meaning: "Señor" },
+        { greek: "Ἰησοῦς", meaning: "Jesús" },
+        { greek: "Χριστός", meaning: "Cristo" },
+        { greek: "θεός", meaning: "Dios" },
+        { greek: "λόγος", meaning: "palabra, Verbo" },
+        { greek: "πνεῦμα", meaning: "espíritu, aliento" },
+        { greek: "εἰρήνη", meaning: "paz" },
+        { greek: "ἀγάπη", meaning: "amor" },
+        { greek: "χάρις", meaning: "gracia" },
+        { greek: "πίστις", meaning: "fe, confianza" },
+        { greek: "ζωή", meaning: "vida" }
+      ];
+
+      // Mostrar vocabulario en micro-6 y en la sección completa
+      const vocabContainer = document.getElementById('vocabList');
+      const fullVocabContainer = document.getElementById('vocabFullList');
+      if (vocabContainer) {
+        vocabWords.forEach(word => {
+          const div = document.createElement('div');
+          div.className = 'vocab-item';
+          div.innerHTML = `<span class="vocab-greek">${word.greek}</span> <span class="vocab-meaning-hidden" data-meaning="${word.meaning}">???</span>`;
+          vocabContainer.appendChild(div);
+        });
+        // clic para revelar significado
+        document.querySelectorAll('.vocab-meaning-hidden').forEach(el => {
+          el.addEventListener('click', function() {
+            this.textContent = this.dataset.meaning;
+            this.classList.remove('vocab-meaning-hidden');
+            this.style.filter = 'none';
+            this.style.background = '#e2f0e6';
+          });
+        });
+      }
+      if (fullVocabContainer) {
+        const ul = document.createElement('ul');
+        vocabWords.forEach(word => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${word.greek}</strong> — ${word.meaning}`;
+          ul.appendChild(li);
+        });
+        fullVocabContainer.appendChild(ul);
+      }
+
+      // ---------- Micro-lecciones toggle ----------
+      const microCards = document.querySelectorAll('.micro-card');
+      microCards.forEach(card => {
+        const header = card.querySelector('.micro-header');
+        const toggleBtn = card.querySelector('.toggle-micro');
+        const openClass = 'open';
+        const toggle = () => {
+          card.classList.toggle(openClass);
+          const icon = toggleBtn.querySelector('i');
+          if (icon) icon.classList.toggle('fa-chevron-down');
+          if (icon) icon.classList.toggle('fa-chevron-up');
+        };
+        if (header) header.addEventListener('click', toggle);
+        if (toggleBtn) toggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+      });
+
+      // ---------- Verificar respuestas individuales ----------
+      document.querySelectorAll('.check-input').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const input = this.previousElementSibling;
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswers = this.dataset.ans.split('|').map(a => a.toLowerCase());
+          const feedbackSpan = this.nextElementSibling;
+          if (correctAnswers.includes(userAnswer)) {
+            feedbackSpan.textContent = '✓ Correcto';
+            feedbackSpan.style.color = '#2e7a4b';
+          } else {
+            feedbackSpan.textContent = `✗ Incorrecto. Respuesta: ${this.dataset.ans.split('|')[0]}`;
+            feedbackSpan.style.color = '#b34e4e';
+          }
+        });
+      });
+      document.querySelectorAll('.check-select').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const select = this.previousElementSibling;
+          const userVal = select.value;
+          const correct = this.dataset.ans;
+          const feedbackSpan = this.nextElementSibling;
+          if (userVal === correct) {
+            feedbackSpan.textContent = '✓ Correcto';
+            feedbackSpan.style.color = '#2e7a4b';
+          } else {
+            feedbackSpan.textContent = `✗ Incorrecto. La opción correcta es ${correct}.`;
+            feedbackSpan.style.color = '#b34e4e';
+          }
+        });
+      });
+
+      // Drag & drop simplificado
+      function initDragDrop() {
+        const dragItems = document.querySelectorAll('.drag-items span');
+        const dropZones = document.querySelectorAll('.drop-zones div');
+        dragItems.forEach(drag => {
+          drag.setAttribute('draggable', 'true');
+          drag.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('text/plain', drag.getAttribute('data-letter'));
+          });
+        });
+        dropZones.forEach(zone => {
+          zone.addEventListener('dragover', e => e.preventDefault());
+          zone.addEventListener('drop', e => {
+            e.preventDefault();
+            const draggedValue = e.dataTransfer.getData('text/plain');
+            const expected = zone.getAttribute('data-expected');
+            if (draggedValue === expected) {
+              zone.style.background = '#c9e0c2';
+              zone.style.border = '1px solid green';
+            } else {
+              zone.style.background = '#f0c0c0';
+            }
+          });
+        });
+        document.querySelectorAll('.check-dragdrop').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const container = this.closest('.drag-drop-zone');
+            const drops = container.querySelectorAll('.drop-zones div');
+            let allOk = true;
+            drops.forEach(z => {
+              const bg = z.style.background;
+              if (bg !== 'rgb(201, 224, 194)' && bg !== '#c9e0c2') allOk = false;
+            });
+            const fb = container.parentElement?.querySelector('.drag-feedback');
+            if (fb) {
+              if (allOk) fb.textContent = '✓ Asignación correcta';
+              else fb.textContent = '✗ Revisa tus asignaciones';
+            }
+          });
+        });
+      }
+      initDragDrop();
+
+      // Flashcard flip
+      document.querySelectorAll('.flashcard').forEach(card => {
+        card.addEventListener('click', function() {
+          this.classList.toggle('flipped');
+          if (this.classList.contains('flipped')) {
+            const originalText = this.textContent;
+            let backText = "";
+            if (originalText === 'ὁ') backText = 'artículo masc.';
+            else if (originalText === 'ἡ') backText = 'artículo fem.';
+            else if (originalText === 'τό') backText = 'artículo neutro';
+            else if (originalText === 'καί') backText = 'y';
+            else if (originalText === 'δέ') backText = 'pero';
+            else if (originalText === 'ἀρχή') backText = 'principio';
+            else if (originalText === 'λόγος') backText = 'palabra';
+            else if (originalText === 'ἦν') backText = 'era';
+            else backText = this.dataset.front || 'vocablo';
+            this.textContent = backText;
+          } else {
+            const original = this.dataset.front || (this.textContent === 'artículo masc.' ? 'ὁ' : (this.textContent === 'artículo fem.' ? 'ἡ' : (this.textContent === 'artículo neutro' ? 'τό' : (this.textContent === 'y' ? 'καί' : (this.textContent === 'pero' ? 'δέ' : (this.textContent === 'principio' ? 'ἀρχή' : (this.textContent === 'palabra' ? 'λόγος' : (this.textContent === 'era' ? 'ἦν' : '?'))))))));
+            this.textContent = original;
+          }
+        });
+      });
+
+      // Progreso: completar micro-lecciones
+      const completarBtns = document.querySelectorAll('.complete-micro');
+      const progressBar = document.getElementById('progressBarFill');
+      const progressText = document.getElementById('progressText');
+      let completed = JSON.parse(localStorage.getItem('lesson1_completed') || '[]');
+      function updateProgress() {
+        const total = microCards.length;
+        const percent = (completed.length / total) * 100;
+        if (progressBar) progressBar.style.width = percent + '%';
+        if (progressText) progressText.textContent = Math.round(percent) + '% completado';
+        completarBtns.forEach((btn, idx) => {
+          const microId = microCards[idx]?.dataset.micro;
+          if (completed.includes(microId)) {
+            btn.textContent = '✓ Completada';
+            btn.disabled = true;
+            btn.style.opacity = '0.6';
+          } else {
+            btn.textContent = 'Marcar completada';
+            btn.disabled = false;
+          }
+        });
+      }
+      completarBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+          const microId = microCards[idx]?.dataset.micro;
+          if (!completed.includes(microId)) {
+            completed.push(microId);
+            localStorage.setItem('lesson1_completed', JSON.stringify(completed));
+            updateProgress();
+          }
+        });
+      });
+      updateProgress();
+
+      // Menú móvil y sidebar
+      const mobileToggle = document.getElementById('mobileMenuToggle');
+      const sidebar = document.getElementById('progressSidebar');
+      if (mobileToggle && sidebar) {
+        mobileToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('open');
+        });
+      }
+      const indexToggle = document.getElementById('indexToggle');
+      const indexList = document.getElementById('indexList');
+      if (indexToggle && indexList) {
+        indexToggle.addEventListener('click', () => {
+          if (indexList.style.display === 'none') indexList.style.display = 'block';
+          else indexList.style.display = 'none';
+        });
+      }
+      // Versículo revelar
+      const verseBtn = document.getElementById('verseBtn');
+      const verseTranslationSpan = document.getElementById('verseTranslation');
+      if (verseBtn && verseTranslationSpan) {
+        verseBtn.addEventListener('click', () => {
+          verseTranslationSpan.textContent = 'En el principio era la Palabra';
+          verseBtn.disabled = true;
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

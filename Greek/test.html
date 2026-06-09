@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griego NT · Lector de Lecciones</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f7fc;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: #1a2c3e;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 1.8rem 2rem 2.5rem 2rem;
+        }
+
+        .hero {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e466e, #2b6a9f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .badge {
+            display: inline-block;
+            background: #eef2ff;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1e4a76;
+            margin-top: 0.5rem;
+        }
+        .file-info {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-family: monospace;
+        }
+
+        /* Accordion */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .accordion-item {
+            background: white;
+            border-radius: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+            overflow: hidden;
+        }
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.6rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background 0.2s;
+        }
+        .accordion-header i:last-child {
+            transition: transform 0.25s ease;
+        }
+        .accordion-item.active .accordion-header i:last-child {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            display: none;
+            padding: 1.4rem 1.8rem 1.8rem;
+            border-top: 1px solid #eef2f6;
+            animation: fadeSlide 0.25s ease-out;
+        }
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(-8px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* Markdown styles */
+        .accordion-content h2, .accordion-content h3 {
+            margin-top: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .accordion-content h3:first-child {
+            margin-top: 0;
+        }
+        .accordion-content h1 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .question-block, .pregunta {
+            background: #f1f6fe;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            margin: 1rem 0 0.5rem;
+            font-weight: 600;
+            border-left: 4px solid #3b82f6;
+        }
+        .answer-block, .respuesta {
+            background: #fef9e6;
+            padding: 0.7rem 1rem;
+            border-radius: 14px;
+            margin: 0.5rem 0 1rem;
+            border-left: 4px solid #eab308;
+        }
+        .greek-word, code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+        }
+        pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        pre code {
+            background: transparent;
+            color: inherit;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            border: 1px solid #dce3ec;
+            padding: 0.7rem;
+            text-align: left;
+        }
+        th {
+            background: #eef2ff;
+        }
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .vocab-item {
+            background: #f8fafc;
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .loading, .error {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+        .error {
+            color: #dc2626;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.75rem;
+            color: #6c7a8a;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .accordion-header { padding: 0.8rem 1rem; font-size: 0.9rem; }
+            .accordion-content { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>📖 Curso de Griego del Nuevo Testamento</h1>
+        <div class="badge">MÓDULO I — FUNDAMENTOS | Texto Programado + Spaced Repetition</div>
+        <div class="file-info" id="fileInfo">
+            <i class="fas fa-file-alt"></i> <span id="fileName">lecciones.md</span>
+        </div>
+    </div>
+
+    <div id="accordion-container" class="accordion">
+        <div class="loading"><i class="fas fa-spinner fa-pulse"></i> Cargando lecciones.md...</div>
+    </div>
+    
+    <footer>
+        Curso completo de Griego del Nuevo Testamento · 70 lecciones · 
+        Metodología: texto programado + lectura inductiva + spaced repetition
+    </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>
+// ============================================================
+// CONFIGURACIÓN - CARGA lecciones.md del mismo directorio
+// ============================================================
+const MARKDOWN_FILE = 'lecciones.md';
+
+// ============================================================
+// FUNCIONES PRINCIPALES
+// ============================================================
+
+async function loadAndRenderMarkdown() {
+    const container = document.getElementById('accordion-container');
+    container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> Cargando lecciones.md...</div>';
+    
+    try {
+        const response = await fetch(MARKDOWN_FILE);
+        if (!response.ok) {
+            throw new Error(`No se pudo cargar ${MARKDOWN_FILE} (HTTP ${response.status})`);
+        }
+        const markdown = await response.text();
+        
+        // Verificar si el archivo está vacío
+        if (!markdown.trim()) {
+            throw new Error(`El archivo ${MARKDOWN_FILE} está vacío`);
+        }
+        
+        // Procesar y renderizar
+        const sections = createAccordionFromMarkdown(markdown);
+        renderAccordion(sections);
+        
+        // Actualizar información del archivo
+        document.getElementById('fileName').innerHTML = MARKDOWN_FILE + ` (${Math.round(markdown.length / 1024)} KB)`;
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showError(`
+            <strong>❌ Error al cargar ${MARKDOWN_FILE}</strong><br><br>
+            ${error.message}<br><br>
+            <strong>Posibles soluciones:</strong><br>
+            • Asegúrate de que el archivo <code>${MARKDOWN_FILE}</code> existe en el mismo directorio que este HTML.<br>
+            • Verifica que el archivo tenga permisos de lectura.<br>
+            • Si estás en GitHub Pages, asegúrate de que el archivo esté incluido en el repositorio.<br><br>
+            <strong>Para probar:</strong> Crea un archivo de prueba llamado <code>${MARKDOWN_FILE}</code> con contenido Markdown.
+        `);
+    }
+}
+
+function showError(message) {
+    const container = document.getElementById('accordion-container');
+    container.innerHTML = `<div class="error">
+        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i><br>
+        ${message}
+    </div>`;
+}
+
+// ============================================================
+// PROCESAMIENTO DE MARKDOWN A ACORDEÓN
+// ============================================================
+
+function createAccordionFromMarkdown(md) {
+    const converter = new showdown.Converter();
+    converter.setOption('tables', true);
+    converter.setOption('simplifiedAutoLink', true);
+    converter.setOption('strikethrough', true);
+    converter.setOption('tasklists', true);
+    converter.setOption('ghCompatibleHeaderId', true);
+    converter.setOption('emoji', true);
+    
+    let html = converter.makeHtml(md);
+    
+    // Transformar preguntas/respuestas en bloques estilizados
+    // Formato: > ❓ PREGUNTA: texto
+    html = html.replace(/<blockquote>\s*<p>❓\s*<strong>PREGUNTA:<\/strong>(.*?)<\/p>\s*<\/blockquote>/gs, 
+        '<div class="question-block"><strong>❓ PREGUNTA:</strong>$1</div>');
+    html = html.replace(/<blockquote>\s*<p>✅\s*<strong>RESPUESTA:<\/strong>(.*?)<\/p>\s*<\/blockquote>/gs, 
+        '<div class="answer-block"><strong>✅ RESPUESTA:</strong>$1</div>');
+    
+    // Formato simple: > ❓ texto
+    html = html.replace(/<blockquote>\s*<p>❓\s*(.*?)<\/p>\s*<\/blockquote>/gs, 
+        '<div class="question-block"><strong>❓ PREGUNTA:</strong> $1</div>');
+    html = html.replace(/<blockquote>\s*<p>✅\s*(.*?)<\/p>\s*<\/blockquote>/gs, 
+        '<div class="answer-block"><strong>✅ RESPUESTA:</strong> $1</div>');
+    
+    // Transformar tablas de vocabulario en grid
+    // Detecta tablas con palabras griegas y las convierte a grid visual
+    html = html.replace(/<table>[\s\S]*?<tbody>[\s\S]*?<\/tbody>[\s\S]*?<\/table>/gi, function(match) {
+        // Si la tabla contiene palabras griegas (letras griegas Unicode)
+        if (match.match(/[\u0370-\u03FF\u1F00-\u1FFF]/)) {
+            let gridHtml = '<div class="vocab-grid">';
+            const rows = match.match(/<tr>.*?<\/tr>/gs);
+            if (rows) {
+                rows.forEach(row => {
+                    const cells = row.match(/<td[^>]*>(.*?)<\/td>/gs);
+                    if (cells && cells.length >= 2) {
+                        const greek = cells[0].replace(/<\/?td[^>]*>/g, '').trim();
+                        const spanish = cells[1].replace(/<\/?td[^>]*>/g, '').trim();
+                        if (greek && spanish) {
+                            gridHtml += `<div class="vocab-item"><strong>${greek}</strong> <span>${spanish}</span></div>`;
+                        }
+                    }
+                });
+            }
+            gridHtml += '</div>';
+            return gridHtml;
+        }
+        return match;
+    });
+    
+    // Dividir por encabezados H2 para crear secciones de acordeón
+    // Busca patrones como ## Título o ### Título
+    const sectionRegex = /<h2\b[^>]*>(.*?)<\/h2>/gi;
+    const headerMatches = [];
+    let match;
+    
+    while ((match = sectionRegex.exec(html)) !== null) {
+        headerMatches.push({ index: match.index, header: match[0], title: match[1] });
+    }
+    
+    // Si no hay H2, intentar con H3
+    if (headerMatches.length === 0) {
+        const h3Regex = /<h3\b[^>]*>(.*?)<\/h3>/gi;
+        while ((match = h3Regex.exec(html)) !== null) {
+            headerMatches.push({ index: match.index, header: match[0], title: match[1] });
+        }
+    }
+    
+    if (headerMatches.length === 0) {
+        // Si no hay encabezados, todo el contenido en un solo acordeón
+        return [{ title: '📖 Contenido', content: html }];
+    }
+    
+    const sections = [];
+    for (let i = 0; i < headerMatches.length; i++) {
+        const start = headerMatches[i].index;
+        const end = (i + 1 < headerMatches.length) ? headerMatches[i + 1].index : html.length;
+        let sectionContent = html.substring(start, end);
+        
+        let title = headerMatches[i].title;
+        title = title.replace(/<\/?[^>]+(>|$)/g, '').trim();
+        // Limpiar iconos o emojis extraños del título
+        title = title.replace(/[#]/g, '').trim();
+        
+        sections.push({ title: title, content: sectionContent });
+    }
+    
+    return sections;
+}
+
+function renderAccordion(sections) {
+    const container = document.getElementById('accordion-container');
+    if (!container) return;
+    
+    if (sections.length === 0) {
+        container.innerHTML = '<div class="error">No se pudo procesar el contenido del archivo Markdown</div>';
+        return;
+    }
+    
+    const colorThemes = [
+        { bg: '#EFF6FF', border: '#3b82f6', icon: 'fa-scroll' },
+        { bg: '#F0FDF4', border: '#22c55e', icon: 'fa-language' },
+        { bg: '#FFF7ED', border: '#f97316', icon: 'fa-bible' },
+        { bg: '#FEFCE8', border: '#eab308', icon: 'fa-check-circle' },
+        { bg: '#F5F3FF', border: '#a855f7', icon: 'fa-calendar-week' },
+        { bg: '#F1F5F9', border: '#64748b', icon: 'fa-timeline' },
+        { bg: '#FFF1F2', border: '#ec489a', icon: 'fa-book-open' },
+        { bg: '#E0F2FE', border: '#0ea5e9', icon: 'fa-graduation-cap' }
+    ];
+    
+    let accordionHtml = '';
+    sections.forEach((section, idx) => {
+        const theme = colorThemes[idx % colorThemes.length];
+        const icon = getIconForTitle(section.title) || theme.icon;
+        
+        accordionHtml += `
+            <div class="accordion-item" data-section="${idx}">
+                <div class="accordion-header" style="background: ${theme.bg}; border-left: 6px solid ${theme.border};">
+                    <h3><i class="fas ${icon}"></i> ${escapeHtml(section.title)}</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    ${section.content}
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = accordionHtml;
+    
+    // Event listeners para acordeón
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const parentItem = this.closest('.accordion-item');
+            const isActive = parentItem.classList.contains('active');
+            
+            // Cerrar todos
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Si no estaba activo, abrir este
+            if (!isActive) {
+                parentItem.classList.add('active');
+            }
+        });
+    });
+    
+    // Abrir la primera sección por defecto
+    const firstItem = document.querySelector('.accordion-item');
+    if (firstItem) firstItem.classList.add('active');
+    
+    // Resaltar bloques de código
+    if (typeof hljs !== 'undefined') {
+        document.querySelectorAll('pre code').forEach(block => {
+            hljs.highlightElement(block);
+        });
+    }
+}
+
+function getIconForTitle(title) {
+    const titleLower = title.toLowerCase();
+    if (titleLower.includes('introduccion') || titleLower.includes('contexto') || titleLower.includes('historia')) return 'fa-scroll';
+    if (titleLower.includes('vocabulario') || titleLower.includes('palabras')) return 'fa-language';
+    if (titleLower.includes('lectura') || titleLower.includes('texto') || titleLower.includes('juan')) return 'fa-bible';
+    if (titleLower.includes('evaluacion') || titleLower.includes('test') || titleLower.includes('examen')) return 'fa-check-circle';
+    if (titleLower.includes('repaso') || titleLower.includes('srs') || titleLower.includes('memoria')) return 'fa-calendar-week';
+    if (titleLower.includes('tiempo') || titleLower.includes('cronologia')) return 'fa-timeline';
+    if (titleLower.includes('gramatica') || titleLower.includes('casos') || titleLower.includes('flexiva')) return 'fa-diagram-project';
+    if (titleLower.includes('manuscrito') || titleLower.includes('texto critico')) return 'fa-scroll';
+    return 'fa-book-open';
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
+// ============================================================
+// INICIALIZACIÓN
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    loadAndRenderMarkdown();
+});
+</script>
+</body>
+</html>

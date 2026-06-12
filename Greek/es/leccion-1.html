@@ -3,362 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Koiné Academy · Griego del NT · Lección 1</title>
-  <!-- Google Fonts & Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <title>Koiné Academy · Griego del NT · Lección 1: El Griego Koiné y sus Fundamentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    /* ========== RESET & BASE ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f6f9fc;
-      color: #1a2c3e;
-      line-height: 1.5;
-      padding: 0;
-    }
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    /* ========== HEADER NAV ========== */
-    .site-header {
-      background: white;
-      border-bottom: 1px solid #e9edf2;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    }
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 0.8rem 0;
-      gap: 1rem;
-    }
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .logo-icon {
-      font-size: 1.8rem;
-      color: #1a4c61;
-    }
-    .logo-text {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #0b2b3b;
-    }
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.2rem;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .nav-links a:hover {
-      color: #c6a43b;
-    }
-    .social-icons-header {
-      display: flex;
-      gap: 0.8rem;
-    }
-    .social-icons-header a {
-      color: #5b6e8c;
-      font-size: 1.1rem;
-    }
-    .social-icons-header a:hover {
-      color: #c6a43b;
-    }
-    /* responsive nav */
-    @media (max-width: 900px) {
-      .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        row-gap: 0.6rem;
-      }
-    }
-    /* hero */
-    .hero {
-      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
-      border-radius: 2rem;
-      padding: 2rem 1.8rem;
-      margin: 1.5rem 0 2rem;
-      color: white;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-    }
-    .hero h1 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .hero-badge {
-      background: #ffb347;
-      color: #1e2f3a;
-      border-radius: 40px;
-      padding: 0.25rem 0.9rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-    .progress-section {
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    .progress-bar-container {
-      flex: 1;
-      background: rgba(255,255,255,0.3);
-      border-radius: 30px;
-      height: 10px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      width: 15%;
-      background: #ffcd7e;
-      height: 100%;
-      border-radius: 30px;
-    }
-    .stats {
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    /* acordeones */
-    .accordion {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .accordion-item {
-      background: white;
-      border-radius: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.03), 0 2px 5px rgba(0,0,0,0.05);
-      transition: all 0.2s;
-      overflow: hidden;
-      border: 1px solid #e9edf2;
-    }
-    .accordion-header {
-      background: white;
-      padding: 1.2rem 1.5rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 700;
+    /* Estilos adicionales específicos para esta lección (no reemplazan el global) */
+    .greek-writing-practice {
+      background: #f0f4f8;
+      border-radius: 1rem;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
       font-size: 1.2rem;
-      transition: background 0.2s;
     }
-    .accordion-header:hover {
-      background: #f9fafc;
-    }
-    .accordion-header i:first-child {
-      color: #2c7a6e;
-      margin-right: 0.6rem;
-    }
-    .accordion-header .toggle-icon {
-      color: #2c7a6e;
-      font-size: 1.3rem;
-      transition: transform 0.3s;
-    }
-    .accordion-item.active .accordion-header .toggle-icon {
-      transform: rotate(180deg);
-    }
-    .accordion-content {
-      max-height: 0;
-      padding: 0 1.5rem;
-      overflow: hidden;
-      transition: max-height 0.35s ease-out, padding 0.2s;
-      background: #ffffff;
-      border-top: 0px solid #eef2f6;
-    }
-    .accordion-item.active .accordion-content {
-      max-height: 2000px;
-      padding: 0 1.5rem 1.8rem 1.5rem;
-      border-top: 1px solid #eef2f6;
-    }
-    .card-highlight {
-      background: #fef9e6;
-      border-left: 6px solid #f4b942;
-      padding: 1rem 1.2rem;
-      border-radius: 1rem;
-      margin: 1rem 0;
-    }
-    .greek-word {
-      font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      background: #eef3fa;
-      padding: 0.2rem 0.6rem;
-      border-radius: 16px;
-      display: inline-block;
-    }
-    .btn-reveal {
-      background: #eef2fa;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.2s;
-      margin: 0.5rem 0;
-    }
-    .btn-reveal i {
-      margin-right: 0.4rem;
-    }
-    .btn-reveal:hover {
-      background: #dce5f0;
-    }
-    .answer-text {
-      background: #e9f3e6;
-      padding: 0.75rem;
-      border-radius: 1rem;
-      margin-top: 0.6rem;
-      display: none;
-      border-left: 4px solid #3f9e6d;
-    }
-    .answer-text.show {
-      display: block;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-    }
-    th, td {
-      padding: 0.7rem;
-      text-align: left;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    th {
-      background: #eef2f6;
-      font-weight: 600;
-    }
-    .vocab-grid {
+    .case-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin: 1rem 0;
     }
-    .vocab-card {
-      background: #f8fafd;
+    .case-card-small {
+      background: #eef2fa;
       border-radius: 1rem;
       padding: 0.8rem;
       text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    .quiz-option {
-      background: #f1f5f9;
-      border-radius: 3rem;
-      padding: 0.6rem 1rem;
-      margin: 0.5rem 0;
-      cursor: pointer;
-      transition: 0.1s;
-    }
-    .quiz-option:hover {
-      background: #e2eaf5;
-    }
-    .correct-feedback {
-      color: #1f7b4d;
-      font-weight: 500;
-    }
-    .wrong-feedback {
-      color: #c2410c;
-    }
-    .timeline {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-    .timeline-node {
-      min-width: 150px;
-      background: #f1f5f9;
-      border-radius: 1.2rem;
-      padding: 1rem;
-      text-align: center;
-    }
-    button {
-      background: none;
-      border: none;
-    }
-    /* footer mejorado */
-    .main-footer {
-      background: #111c16;
-      color: #cdd9cf;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      color: #e0d6c6;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .footer-links a:hover {
-      color: #c6a43b;
-    }
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .footer-social a {
-      color: #cdd9cf;
-      font-size: 1.4rem;
-      transition: 0.2s;
-    }
-    .footer-social a:hover {
-      color: #c6a43b;
-    }
-    @media (max-width: 700px) {
-      .hero h1 { font-size: 1.5rem; }
-      .container { padding: 0 1rem; }
+    .highlight {
+      background: #fff3cd;
+      padding: 0.2rem 0.4rem;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <!-- nuevo header con navegación -->
   <div class="site-header">
     <div class="container header-container">
       <div class="logo-area">
@@ -373,9 +50,9 @@
         <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
       </div>
       <div class="social-icons-header">
-        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.tiktok.com/@idclatam.org" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
   </div>
@@ -385,329 +62,414 @@
       <h1><i class="fas fa-scroll"></i> ΚΟΙΝΗ · Lección 1 <span class="hero-badge">Módulo I · Fundamentos</span></h1>
       <p>Historia, escritura y las 20 palabras más frecuentes del Nuevo Testamento</p>
       <div class="progress-section">
-        <div class="progress-bar-container"><div class="progress-fill"></div></div>
-        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario: 20/20 · 1 de 70 lecciones</div>
+        <div class="progress-bar-container"><div class="progress-fill" style="width:15%"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario: 20/20 · 1 de 70</div>
       </div>
     </div>
 
-    <!-- ACORDEONES PRINCIPALES (sin emojis, solo iconos profesionales) -->
+    <!-- VIDEO INTRODUCTORIO MEJORADO -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe src="https://www.youtube.com/embed/hG5nu460urA" title="Introducción al griego koiné" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: ¿Por qué estudiar griego koiné?</p>
+    </div>
+
     <div class="accordion" id="mainAccordion">
-      <!-- Sección 1: contexto histórico -->
+      <!-- SECCIÓN 1: CONTEXTO HISTÓRICO (ampliada) -->
       <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-globe-americas"></i> Contexto: Griego Koiné y su origen</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-header"><span><i class="fas fa-globe-americas"></i> 1. Contexto histórico: El griego koiné</span><i class="fas fa-chevron-down toggle-icon"></i></div>
         <div class="accordion-content">
-          <p><strong>El Nuevo Testamento fue escrito en <span class="greek-word">κοινή (koiné)</span></strong>, ‘común/universal’, lengua franca del Mediterráneo oriental (III a.C. - IV d.C.).</p>
-          <div class="card-highlight"><i class="fas fa-question-circle"></i> <strong>PREGUNTA:</strong> ¿Cuáles son las tres etapas del griego?</div>
+          <p>El <strong>Nuevo Testamento</strong> fue escrito en <span class="greek-word">κοινή (koiné)</span>, que significa <strong>‘común’</strong> o <strong>‘universal’</strong>. Esta forma del griego se convirtió en la <strong>lengua franca</strong> del Mediterráneo oriental desde las conquistas de Alejandro Magno (siglo III a.C.) hasta el siglo IV d.C.</p>
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> Alejandro Magno extendió la cultura y lengua griega por Egipto, Persia y la India. Tras su muerte, el griego koiné se mantuvo como idioma de comercio, gobierno y educación.
+          </div>
+          <h3><i class="fas fa-layer-group"></i> Las tres grandes etapas del griego</h3>
+          <div class="timeline" style="margin-bottom: 1rem;">
+            <div class="timeline-node" style="background:#e8dcc8;"><strong>Clásico</strong><br>800–300 a.C.<br>Homero, Platón</div>
+            <div class="timeline-node" style="background:#d9e6d9;"><strong>Koiné</strong><br>300 a.C.–400 d.C.<br>NT, LXX, Papiros</div>
+            <div class="timeline-node" style="background:#f0e6d2;"><strong>Moderno</strong><br>400 d.C.–presente<br>Grecia actual</div>
+          </div>
+          <p><strong>El griego koiné del NT</strong> no es el ático puro de Platón, pero tampoco es vulgar. Es un idioma <strong>vivo, flexible y preciso</strong>, ideal para comunicar el evangelio a todas las naciones.</p>
+          <div class="card-highlight"><i class="fas fa-question-circle"></i> <strong>PREGUNTA:</strong> ¿Cuáles son las tres etapas del griego y en cuál fue escrito el NT?</div>
           <button class="btn-reveal" data-target="resp1"><i class="fas fa-eye"></i> Mostrar respuesta</button>
-          <div id="resp1" class="answer-text"><strong>✓ Respuesta:</strong> Clásico (VIII–IV a.C.), Koiné (III a.C.–IV d.C.), Moderno (desde IV d.C.). El NT usa Koiné.</div>
-          <p><strong>¿Por qué griego y no arameo?</strong> Razones: 1) Lengua franca del Imperio Romano oriental. 2) Expansión a gentiles. 3) La Septuaginta (LXX). 4) Alcance a la diáspora.</p>
-          <button class="btn-reveal" data-target="resp2"><i class="fas fa-plus-circle"></i> Razones clave</button>
-          <div id="resp2" class="answer-text">Respuesta: Griego koiné permitió el mensaje universal; la iglesia primitiva usaba griego para llegar a todos.</div>
-          <h3><i class="fas fa-brain"></i> ¿Lengua flexiva?</h3>
-          <p>El español es analítico (usa preposiciones separadas). El griego es <strong>flexivo/sintético</strong>: cambia terminaciones para indicar función. Ejemplo: “del hombre” se dice <span class="greek-word">ἀνθρώπου</span> (genitivo).</p>
-          <p><strong>Cinco casos:</strong> Nominativo (sujeto), Genitivo (posesión/origen), Dativo (objeto indirecto), Acusativo (objeto directo), Vocativo (llamada).</p>
-          <button class="btn-reveal" data-target="respCasos"><i class="fas fa-info-circle"></i> Función del genitivo</button>
-          <div id="respCasos" class="answer-text">Genitivo indica posesión, origen o relación → “de…” . Ej: λόγος θεοῦ (palabra de Dios).</div>
+          <div id="resp1" class="answer-text"><strong>✓ Respuesta:</strong> Clásico (800–300 a.C.), Koiné (300 a.C.–400 d.C.), Moderno (400 d.C.–presente). El NT fue escrito en <strong>griego koiné</strong>.</div>
+          
+          <h3><i class="fas fa-church"></i> ¿Por qué griego y no hebreo o arameo?</h3>
+          <ul>
+            <li><strong>Universalidad:</strong> El griego koiné era la lingua franca del Imperio Romano oriental.</li>
+            <li><strong>Misión a los gentiles:</strong> La iglesia primitiva se expandió rápidamente entre no judíos que hablaban griego.</li>
+            <li><strong>La Septuaginta (LXX):</strong> La traducción griega del AT ya era la Biblia de las sinagogas helenísticas.</li>
+            <li><strong>Diáspora judía:</strong> Los judíos dispersos por el Mediterráneo usaban el griego como lengua cotidiana.</li>
+          </ul>
+          <button class="btn-reveal" data-target="resp2"><i class="fas fa-plus-circle"></i> + Razones detalladas</button>
+          <div id="resp2" class="answer-text">El koiné permitió que el evangelio llegara a personas de todas las culturas sin necesidad de traducir inmediatamente. La LXX (traducción del AT al griego) fue una herramienta providencial para los escritores del NT, quienes citan abundantemente de ella.</div>
         </div>
       </div>
 
-      <!-- Sección 2: manuscritos -->
+      <!-- SECCIÓN 2: LENGUA FLEXIVA Y CASOS (ampliada con ejemplos prácticos) -->
       <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-parchment"></i> Manuscritos del NT & NA28/UBS5</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-header"><span><i class="fas fa-brain"></i> 2. El griego como lengua flexiva y los cinco casos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
         <div class="accordion-content">
-          <p>Tipos principales: <strong>Papiros (P)</strong> antiguos s. II–IV, <strong>Unciales (mayúsculas)</strong> s. IV-X, <strong>Minúsculas</strong> cursiva, <strong>Lectionarios</strong> litúrgicos.</p>
-          <p>Ediciones modernas: <strong>Nestle-Aland (NA28)</strong> → aparato crítico completo. <strong>UBS5</strong> → mismo texto, enfocado a traductores, con calificación de variantes (A–D).</p>
-          <div class="card-highlight">¿Cuál es la diferencia entre NA28 y UBS5?</div>
-          <button class="btn-reveal" data-target="respManu"><i class="fas fa-book-open"></i> Revelar</button>
-          <div id="respManu" class="answer-text">Ambas comparten el mismo texto base, pero NA28 tiene aparato crítico extenso (académico), UBS5 aparato selectivo + valoración de certeza.</div>
+          <p>A diferencia del español, que es <strong>analítico</strong> (usa preposiciones y orden de palabras para indicar función gramatical), el griego es <strong>flexivo o sintético</strong>: <span class="highlight">una misma palabra cambia su terminación</span> para mostrar su función en la oración.</p>
+          <div class="card-highlight">
+            <i class="fas fa-exchange-alt"></i> <strong>Ejemplo comparativo:</strong><br>
+            Español: <em>“del hombre”</em> (preposición + sustantivo)<br>
+            Griego: <span class="greek-word">ἀνθρώπου</span> (una sola palabra, genitivo)
+          </div>
+          <h3><i class="fas fa-tag"></i> Los cinco casos griegos</h3>
+          <div class="case-grid">
+            <div class="case-card-small"><strong>Nominativo</strong><br>Sujeto<br><span class="greek-word">ὁ λόγος</span> (la palabra)</div>
+            <div class="case-card-small"><strong>Genitivo</strong><br>Posesión / origen<br><span class="greek-word">τοῦ λόγου</span> (de la palabra)</div>
+            <div class="case-card-small"><strong>Dativo</strong><br>Objeto indirecto / instrumento<br><span class="greek-word">τῷ λόγῳ</span> (a la palabra)</div>
+            <div class="case-card-small"><strong>Acusativo</strong><br>Objeto directo<br><span class="greek-word">τὸν λόγον</span> (a la palabra)</div>
+            <div class="case-card-small"><strong>Vocativo</strong><br>Llamamiento<br><span class="greek-word">λόγε</span> (¡oh palabra!)</div>
+          </div>
+          <p>En griego, <strong>el orden de las palabras no determina la función</strong>. Por ejemplo, <span class="greek-word">ὁ θεὸς ἀγαπᾷ τὸν κόσμον</span> significa “Dios ama al mundo”, pero si invirtiéramos el orden (<span class="greek-word">τὸν κόσμον ἀγαπᾷ ὁ θεός</span>) sigue siendo “Dios ama al mundo”, porque los casos nos dicen quién es sujeto y quién es objeto.</p>
+          <button class="btn-reveal" data-target="casosEj2">Ver ejercicio de reconocimiento</button>
+          <div id="casosEj2" class="answer-text">
+            <strong>Ejercicio:</strong> Identifica el caso de las siguientes palabras (usa el artículo como ayuda):<br>
+            - <span class="greek-word">τοῦ ἀνθρώπου</span> → genitivo (“del hombre”)<br>
+            - <span class="greek-word">τὴν βασιλείαν</span> → acusativo (“al reino”)<br>
+            - <span class="greek-word">κύριε</span> → vocativo (“¡Señor!”)
+          </div>
         </div>
       </div>
 
-      <!-- Sección 3: vocabulario -->
+      <!-- SECCIÓN 3: MANUSCRITOS Y TEXTO CRÍTICO (más completa) -->
       <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-language"></i> Las 20 palabras más frecuentes</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-header"><span><i class="fas fa-parchment"></i> 3. Manuscritos del NT y texto crítico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
         <div class="accordion-content">
-          <p>Aprende el vocabulario esencial que cubre ~5% del NT. Practica con tablas y mini quiz.</p>
+          <p>El texto del NT griego se ha transmitido a través de miles de manuscritos. Los principales tipos son:</p>
+          <ul>
+            <li><strong>Papiros (P)</strong>: los más antiguos (siglos II–IV d.C.). Ej: <strong>P52</strong> (fragmento de Juan, c. 125 d.C.).</li>
+            <li><strong>Unciales (mayúsculas)</strong>: pergaminos con letras mayúsculas (siglos IV–X). Ej: Códice Vaticano (B), Códice Sinaítico (ℵ).</li>
+            <li><strong>Minúsculas</strong>: escritura cursiva (siglo IX en adelante).</li>
+            <li><strong>Lectionarios</strong>: libros de lecturas litúrgicas.</li>
+          </ul>
+          <p>Las ediciones modernas del NT griego, como <strong>Nestle-Aland (NA28)</strong> y <strong>United Bible Societies (UBS5)</strong>, reconstruyen el texto original comparando todas estas fuentes y aplicando principios de crítica textual.</p>
+          <div class="card-highlight">¿Cuál es la diferencia práctica entre NA28 y UBS5?</div>
+          <button class="btn-reveal" data-target="respManu2">Revelar</button>
+          <div id="respManu2" class="answer-text">Ambas tienen el <strong>mismo texto griego</strong>. La NA28 incluye un aparato crítico completo (para académicos), mientras que la UBS5 tiene un aparato selectivo orientado a traductores, con una calificación de certeza (A, B, C, D) para cada variante textual.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: VOCABULARIO (20 palabras con más contexto) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 4. Las 20 palabras más frecuentes del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras representan aproximadamente <strong>el 5% de todo el vocabulario del NT</strong> y aparecen miles de veces. Dominarlas te dará una base sólida para leer el texto original.</p>
           <div style="overflow-x: auto;">
             <table id="vocabTable">
-              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th></tr></thead>
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Frecuencia aprox.</th></tr></thead>
               <tbody></tbody>
             </table>
           </div>
-          <div class="card-highlight"><i class="fas fa-pen-fancy"></i> <strong>Ejercicio rápido:</strong> ¿Recuerdas la palabra para “amor sacrificial”?</div>
-          <button class="btn-reveal" data-target="respAgape"><i class="fas fa-check"></i> Comprobar</button>
-          <div id="respAgape" class="answer-text"><span class="greek-word">ἀγάπη (agapē)</span> – amor divino, incondicional.</div>
-          <p><strong>Diferencias importantes:</strong> ζωή (vida eterna/plena) vs βίος (vida biológica). πίστις = fe, confianza.</p>
-        </div>
-      </div>
-
-      <!-- Sección 4: conectores y preposiciones -->
-      <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-cubes"></i> Conectores, artículo & preposiciones</span><i class="fas fa-chevron-down toggle-icon"></i></div>
-        <div class="accordion-content">
-          <p><span class="greek-word">ὁ, ἡ, τό</span> = el, la, lo (artículo, 19k+ veces). <span class="greek-word">καί</span> = y/también. <span class="greek-word">δέ</span> = pero/y/ahora.</p>
-          <p><strong>Preposiciones:</strong> ἐν (en + dativo), εἰς (hacia/acusativo), ἐκ/ἐξ (de, desde + genitivo), ἀπό (de/desde + genitivo).</p>
-          <p><strong>Negación:</strong> οὐ / οὐκ (no). <strong>ὅτι</strong> = que/porque.</p>
-          <button class="btn-reveal" data-target="respPrepos"><i class="fas fa-question"></i> ¿Qué caso usa ἐν?</button>
-          <div id="respPrepos" class="answer-text">ἐν se construye con <strong>dativo</strong> (posición/instrumento). Ej: ἐν τῇ οἰκίᾳ (en la casa).</div>
-          <div class="card-highlight"><i class="fas fa-pen"></i> <em>Ejemplo:</em> ὁ λόγος τοῦ θεοῦ = la palabra de Dios. Observa el genitivo “τοῦ θεοῦ”.</div>
-        </div>
-      </div>
-
-      <!-- Sección 5: lecturas contextuales -->
-      <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-bible"></i> Lecturas bíblicas originales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
-        <div class="accordion-content">
-          <h3>Juan 1:1</h3>
-          <p class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</p>
-          <button class="btn-reveal" data-target="juan11"><i class="fas fa-language"></i> Traducción</button>
-          <div id="juan11" class="answer-text">“En el principio era el Verbo, y el Verbo estaba con Dios, y el Verbo era Dios.” Palabras clave: ἐν, λόγος, θεός, καί.</div>
-          <h3>Juan 3:16 (fragmento)</h3>
-          <p class="greek-word">Οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον … ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν … ἔχῃ ζωὴν αἰώνιον.</p>
-          <button class="btn-reveal" data-target="juan316"><i class="fas fa-search"></i> Identifica ζωήν</button>
-          <div id="juan316" class="answer-text">ζωὴν αἰώνιον = vida eterna. Palabras conocidas: ὁ θεός, πᾶς, εἰς, ζωή.</div>
-          <h3>Gálatas 2:16 — justificación por fe</h3>
-          <p class="greek-word">… οὐ δικαιοῦται ἄνθρωπος ἐξ ἔργων νόμου ἐὰν μὴ διὰ πίστεως Ἰησοῦ Χριστοῦ.</p>
-          <button class="btn-reveal" data-target="galatas"><i class="fas fa-church"></i> Genitivo πίστεως Ἰησοῦ</button>
-          <div id="galatas" class="answer-text">“πίστεως Ἰησοῦ Χριστοῦ” = fe de/en Cristo. Debate teológico: genitivo subjetivo (fe de Cristo) u objetivo (fe en Cristo). Importancia exegética.</div>
-        </div>
-      </div>
-
-      <!-- Sección 6: autoevaluación -->
-      <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-check-double"></i> Autoevaluación + Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
-        <div class="accordion-content">
-          <h3><i class="fas fa-history"></i> Historia y contexto</h3>
-          <p>1. ¿Lengua del NT? <button class="btn-reveal" data-target="q1"><i class="fas fa-eye"></i> Mostrar</button></p><div id="q1" class="answer-text">Griego Koiné (κοινή)</div>
-          <p>2. Menciona dos razones para escribir en griego. <button class="btn-reveal" data-target="q2"><i class="fas fa-eye"></i> Ver</button></p><div id="q2" class="answer-text">Lengua franca / expansión a gentiles / LXX existente / diáspora.</div>
-
-          <h3><i class="fas fa-question-circle"></i> Mini Quiz: vocabulario</h3>
-          <div id="quizContainer"></div>
-          <div id="quizFeedback" class="card-highlight" style="margin-top:10px"></div>
-
-          <h3><i class="fas fa-keyboard"></i> Escribe la palabra (traducción)</h3>
-          <div id="translationQuiz">
-            <p><strong>Ἰησοῦς</strong> → <input type="text" id="inputJesus" placeholder="escribe español"> <button id="checkJesus"><i class="fas fa-check"></i> Comprobar</button> <span id="fbJesus"></span></p>
-            <p><strong>χάρις</strong> → <input type="text" id="inputCharis" placeholder="escribe español"> <button id="checkCharis"><i class="fas fa-check"></i> Comprobar</button> <span id="fbCharis"></span></p>
-            <p><strong>πνεῦμα</strong> → <input type="text" id="inputPneuma" placeholder="escribe español"> <button id="checkPneuma"><i class="fas fa-check"></i> Comprobar</button> <span id="fbPneuma"></span></p>
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Consejo de memorización:</strong> Escribe cada palabra tres veces mientras la pronuncias en voz alta. Asocia cada término con un versículo conocido (ej. <span class="greek-word">ἀγάπη</span> → 1 Corintios 13).
           </div>
-          <p><em>Respuestas esperadas: Jesús, gracia, espíritu/aliento.</em></p>
+          <button class="btn-reveal" data-target="tablaNota">Ver nota sobre el artículo definido</button>
+          <div id="tablaNota" class="answer-text">El artículo definido (<span class="greek-word">ὁ, ἡ, τό</span>) es la palabra más frecuente (más de 19,000 veces). En griego se usa incluso con nombres propios: <span class="greek-word">ὁ Ἰησοῦς</span> (Jesús).</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: CONECTORES, PREPOSICIONES Y PARTÍCULAS (más ejercicios) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cubes"></i> 5. Conectores, preposiciones y negación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">καί</span> (y, también) y <span class="greek-word">δέ</span> (pero, y, ahora) son los conectores más importantes. <span class="greek-word">καί</span> une elementos de manera aditiva; <span class="greek-word">δέ</span> introduce contraste o transición narrativa.</p>
+          <div class="card-highlight">
+            <strong>Preposiciones clave:</strong><br>
+            <span class="greek-word">ἐν</span> (en, dentro de) + dativo → posición<br>
+            <span class="greek-word">εἰς</span> (hacia, en, para) + acusativo → dirección<br>
+            <span class="greek-word">ἐκ/ἐξ</span> (de, desde) + genitivo → origen<br>
+            <span class="greek-word">ἀπό</span> (de, desde) + genitivo → separación
+          </div>
+          <p><strong>Negación:</strong> <span class="greek-word">οὐ / οὐκ</span> (no). <span class="greek-word">οὐκ</span> se usa ante vocal, <span class="greek-word">οὐ</span> ante consonante.</p>
+          <p><strong>Partícula ὅτι:</strong> significa <em>“que”</em> (declarativo) o <em>“porque”</em> (causal).</p>
+          <button class="btn-reveal" data-target="preposEj">Ejercicio de traducción con preposiciones</button>
+          <div id="preposEj" class="answer-text">
+            Traduce: <span class="greek-word">ἐν τῷ κόσμῳ</span> → “en el mundo”<br>
+            <span class="greek-word">εἰς τὴν ἐκκλησίαν</span> → “hacia la iglesia”<br>
+            <span class="greek-word">ἐξ οὐρανοῦ</span> → “desde el cielo”
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: LECTURAS CONTEXTUALES (más análisis) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 6. Lecturas contextuales del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Juan 1:1 – El prólogo del Verbo</h3>
+          <p class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</p>
+          <button class="btn-reveal" data-target="juan11det">Traducción y análisis</button>
+          <div id="juan11det" class="answer-text">
+            <strong>Traducción literal:</strong> “En (el) principio era el Verbo, y el Verbo estaba con Dios, y Dios era el Verbo.”<br>
+            <strong>Palabras que ya conoces:</strong> ἐν, ἀρχῇ (principio, dativo), ἦν (era), ὁ (el), λόγος (Verbo), καί (y), πρός (con), τόν (el acusativo), θεόν (Dios acusativo), θεός (Dios nominativo).<br>
+            <strong>Nota teológica:</strong> La ausencia de artículo en <span class="greek-word">θεός</span> (tercera cláusula) enfatiza la <em>cualidad</em> divina del Verbo, sin identificarlo totalmente con el Padre (“el Verbo era divino” o “era Dios por naturaleza”).
+          </div>
+
+          <h3>Juan 3:16 – El versículo central</h3>
+          <p class="greek-word">Οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον, ὥστε τὸν υἱὸν τὸν μονογενῆ ἔδωκεν, ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλʼ ἔχῃ ζωὴν αἰώνιον.</p>
+          <button class="btn-reveal" data-target="juan316det">Identifica las palabras estudiadas</button>
+          <div id="juan316det" class="answer-text">
+            <strong>Palabras reconocibles:</strong> ὁ θεός, τὸν (acusativo), ἵνα (para que), πᾶς (todo), ὁ (el), πιστεύων (el que cree), εἰς (en/hacia), αὐτόν (él), μή (no, con subjuntivo), ἀλλʼ (sino), ζωὴν (vida acusativo).<br>
+            <strong>ζωὴν αἰώνιον</strong> = “vida eterna”.
+          </div>
+
+          <h3>Gálatas 2:16 – Justificación por fe</h3>
+          <p class="greek-word">… οὐ δικαιοῦται ἄνθρωπος ἐξ ἔργων νόμου ἐὰν μὴ διὰ πίστεως Ἰησοῦ Χριστοῦ…</p>
+          <button class="btn-reveal" data-target="galatasdet">Análisis del genitivo πίστεως Ἰησοῦ</button>
+          <div id="galatasdet" class="answer-text">
+            <strong>Traducción:</strong> “…el hombre no es justificado por obras de la ley sino mediante la fe de Jesucristo / fe en Jesucristo”.<br>
+            El genitivo <span class="greek-word">Ἰησοῦ Χριστοῦ</span> puede interpretarse como subjetivo (fe que Cristo tiene) u objetivo (fe en Cristo). Este es un debate teológico clave en la exégesis paulina.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: AUTOEVALUACIÓN Y EJERCICIOS INTERACTIVOS (ampliada) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-check-double"></i> 7. Autoevaluación y práctica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3><i class="fas fa-history"></i> Preguntas de repaso históricas</h3>
+          <p>1. ¿Qué significa la palabra <em>koiné</em>? <button class="btn-reveal" data-target="aq1">Ver</button></p><div id="aq1" class="answer-text">“Común” o “universal”.</div>
+          <p>2. ¿Cuál fue el factor clave que extendió el griego por el Mediterráneo oriental? <button class="btn-reveal" data-target="aq2">Ver</button></p><div id="aq2" class="answer-text">Las conquistas de Alejandro Magno (siglo IV a.C.).</div>
+          <p>3. Menciona dos razones por las que el NT fue escrito en griego en lugar de arameo. <button class="btn-reveal" data-target="aq3">Ver</button></p><div id="aq3" class="answer-text">(1) Era la lengua franca del Imperio Romano; (2) Existía la Septuaginta (LXX); (3) La iglesia se expandió entre gentiles.</div>
+
+          <h3><i class="fas fa-question-circle"></i> Quiz de vocabulario (opción múltiple)</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+
+          <h3><i class="fas fa-keyboard"></i> Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+
           <h3><i class="fas fa-random"></i> Repaso rápido: test de 20 palabras</h3>
           <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta aleatoria</button>
           <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+
+          <h3><i class="fas fa-pen-alt"></i> Ejercicio de escritura de casos</h3>
+          <div id="caseWritingQuiz"></div>
+          <button id="newCaseQuestion" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
         </div>
       </div>
 
-      <!-- Sección 7: línea de tiempo -->
+      <!-- SECCIÓN 8: LÍNEA DE TIEMPO INTERACTIVA (más detallada) -->
       <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-chart-line"></i> Línea del tiempo: Griego y NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-header"><span><i class="fas fa-chart-line"></i> 8. Línea del tiempo del griego y el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
         <div class="accordion-content">
           <div class="timeline">
-            <div class="timeline-node"><strong>Clásico</strong><br>800-300 a.C.<br>Homero, Platón</div>
-            <div class="timeline-node"><strong>Koiné temprano</strong><br>330-30 a.C.<br>Alejandro, LXX</div>
-            <div class="timeline-node"><strong>Koiné del NT</strong><br>30 a.C.-100 d.C.<br>Evangelios, Pablo</div>
-            <div class="timeline-node"><strong>Koiné tardío</strong><br>100-300 d.C.<br>Padres apostólicos</div>
-            <div class="timeline-node"><strong>Moderno</strong><br>600-presente<br>Grecia actual</div>
+            <div class="timeline-node"><strong>1200-800 a.C.</strong><br>Griego Micénico<br>Lineal B</div>
+            <div class="timeline-node"><strong>800-300 a.C.</strong><br>Griego Clásico<br>Homero, Platón</div>
+            <div class="timeline-node"><strong>330-30 a.C.</strong><br>Koiné temprano<br>Alejandro, LXX</div>
+            <div class="timeline-node"><strong>30 a.C.-100 d.C.</strong><br>Koiné del NT<br>Jesús, apóstoles</div>
+            <div class="timeline-node"><strong>100-300 d.C.</strong><br>Koiné tardío<br>Padres apostólicos</div>
+            <div class="timeline-node"><strong>300-1453</strong><br>Griego Bizantino<br>Textos patrísticos</div>
+            <div class="timeline-node"><strong>1453-presente</strong><br>Griego Moderno</div>
           </div>
         </div>
       </div>
 
-      <!-- Sección 8: flashcards -->
+      <!-- SECCIÓN 9: FLASHCARDS -->
       <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-id-card"></i> Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
         <div class="accordion-content">
           <div id="flashcardGrid" class="vocab-grid"></div>
           <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para voltear y ver la traducción.</small></p>
         </div>
       </div>
 
-      <!-- Sección 9: repaso espaciado -->
+      <!-- SECCIÓN 10: REPASO ESPACIADO (SRS) con instrucciones concretas -->
       <div class="accordion-item">
-        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> Repaso espaciado (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 10. Plan de repaso espaciado (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
         <div class="accordion-content">
-          <p><i class="fas fa-check-circle"></i> Repaso 1: mañana · Repaso 2: 3 días · Repaso 3: 7 días · Repaso 4: 14 días · Repaso 5: 30 días</p>
-          <p>Técnica: cubre español, traduce del griego; escribe las palabras 3 veces en voz alta. ¡Retención a largo plazo garantizada!</p>
-          <div class="card-highlight"><i class="far fa-clock"></i> Programa tus repasos y marca cada bloque como completado virtualmente.</div>
+          <p>La investigación sobre memoria demuestra que el repaso en intervalos crecientes fija el conocimiento a largo plazo. Sigue este plan:</p>
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas después)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight">
+            <i class="far fa-clock"></i> <strong>Técnica para cada repaso:</strong><br>
+            1. Cubre la columna de español y traduce del griego.<br>
+            2. Cubre la columna de griego y escribe de memoria.<br>
+            3. Lee en voz alta cada palabra 3 veces.<br>
+            4. Si fallas una palabra, vuelve a empezar el ciclo para esa palabra.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXTO PROGRAMADO FINAL (más completo) -->
+    <div class="programmed-text" style="margin: 2rem 0 3rem;">
+      <div class="card-highlight" style="background: #eef3fa; border-left-color: #2c7a6e;">
+        <h3><i class="fas fa-graduation-cap"></i> Texto programado · Análisis de Juan 1:1-5</h3>
+        <p>Aplica lo aprendido. Responde cada pregunta antes de ver la respuesta. Este método te asegura una comprensión activa.</p>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Paso 1: Identifica todas las palabras conocidas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</span></p>
+          <button class="btn-reveal" data-target="prog1">Mostrar análisis</button>
+          <div id="prog1" class="answer-text">
+            <strong>Palabras conocidas:</strong> ἐν (en), ἀρχῇ (principio – dativo), ἦν (era, 3ª sg. imperfecto de εἰμί), ὁ (artículo nom. masc. sg.), λόγος (palabra/Verbo), καί (y), πρός (con, hacia + acusativo), τόν (artículo acus. masc.), θεόν (Dios acus.), θεός (Dios nom.).<br>
+            <strong>Traducción:</strong> “En el principio era el Verbo, y el Verbo estaba con Dios, y el Verbo era Dios.”
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Paso 2: ¿Qué función tiene ἦν?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν.</span></p>
+          <button class="btn-reveal" data-target="prog2">Ver explicación</button>
+          <div id="prog2" class="answer-text"><span class="greek-word">ἦν</span> es el verbo “era” (3ª persona singular del imperfecto de εἰμί, “ser”). Indica existencia o estado en el pasado con aspecto continuo. En este contexto, señala la preexistencia del Verbo.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Paso 3: Analiza el caso de πάντα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">πάντα διʼ αὐτοῦ ἐγένετο, καὶ χωρὶς αὐτοῦ ἐγένετο οὐδὲ ἕν.</span></p>
+          <button class="btn-reveal" data-target="prog3">Ver explicación</button>
+          <div id="prog3" class="answer-text"><strong>πάντα</strong> es nominativo/acusativo neutro plural (“todas las cosas”). Funciona como sujeto de ἐγένετο (“llegó a ser”). Traducción: “Todas las cosas por medio de él fueron hechas, y sin él nada de lo que ha sido hecho fue hecho.”</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Paso 4: Traduce ζωή y φῶς en contexto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">ἐν αὐτῷ ζωὴ ἦν, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων.</span></p>
+          <button class="btn-reveal" data-target="prog4">Respuesta</button>
+          <div id="prog4" class="answer-text">“En él estaba la vida, y la vida era la luz de los hombres.” <strong>ζωή</strong> = vida (eterna, plena); <strong>φῶς</strong> = luz (iluminación espiritual).</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Paso 5: ¿Qué significado adicional tiene φῶς en el NT?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει, καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν.</span></p>
+          <button class="btn-reveal" data-target="prog5">Reflexión teológica</button>
+          <div id="prog5" class="answer-text">“La luz en las tinieblas resplandece, y las tinieblas no la vencieron.” <strong>φῶς</strong> representa a Cristo como la revelación divina que vence la oscuridad del pecado y la ignorancia.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER MEJORADO (sin metodología, con enlaces) -->
   <footer class="main-footer">
     <div class="footer-links">
-      <a href="leccion-2.html"><i class="fas fa-arrow-right"></i> Lección 2: Alfabeto</a>
+      <a href="leccion-2.html"><i class="fas fa-arrow-right"></i> Lección 2</a>
       <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
       <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
       <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
       <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
     <div class="footer-social">
-      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@idclatam.org" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      <a href="https://wa.me/50557514440" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>&copy; 2026 Koiné Academy · Todos los recursos son gratuitos para la gloria de Dios.</p>
     <p><small>“Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación” (Romanos 1:16)</small></p>
   </footer>
 
   <script>
-    // ========== DATOS DE VOCABULARIO (20 palabras) ==========
-    const vocabData = [
-      { greek: "ὁ, ἡ, τό", translit: "ho, hē, to", spanish: "el, la, lo (artículo)" },
-      { greek: "καί", translit: "kai", spanish: "y, también" },
-      { greek: "δέ", translit: "de", spanish: "pero, y, ahora" },
-      { greek: "ἐν", translit: "en", spanish: "en, dentro de" },
-      { greek: "εἰς", translit: "eis", spanish: "hacia, en, para" },
-      { greek: "ἐκ / ἐξ", translit: "ek / ex", spanish: "de, desde" },
-      { greek: "ὅτι", translit: "hoti", spanish: "que, porque" },
-      { greek: "οὐ / οὐκ", translit: "ou / ouk", spanish: "no" },
-      { greek: "ἀπό", translit: "apo", spanish: "de, desde" },
-      { greek: "κύριος", translit: "kyrios", spanish: "Señor" },
-      { greek: "Ἰησοῦς", translit: "Iēsous", spanish: "Jesús" },
-      { greek: "Χριστός", translit: "Christos", spanish: "Cristo" },
-      { greek: "θεός", translit: "theos", spanish: "Dios" },
-      { greek: "λόγος", translit: "logos", spanish: "palabra, Verbo" },
-      { greek: "πνεῦμα", translit: "pneuma", spanish: "espíritu, aliento" },
-      { greek: "εἰρήνη", translit: "eirēnē", spanish: "paz" },
-      { greek: "ἀγάπη", translit: "agapē", spanish: "amor (sacrificial)" },
-      { greek: "χάρις", translit: "charis", spanish: "gracia" },
-      { greek: "πίστις", translit: "pistis", spanish: "fe, confianza" },
-      { greek: "ζωή", translit: "zōē", spanish: "vida (eterna, plena)" }
-    ];
-
-    function buildVocabTable() {
-      const tbody = document.querySelector("#vocabTable tbody");
-      if(tbody){
-        vocabData.forEach(v => {
-          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td></tr>`;
-          tbody.insertAdjacentHTML('beforeend', row);
-        });
-      }
-    }
-
-    function buildFlashcards() {
-      const container = document.getElementById("flashcardGrid");
-      if(!container) return;
-      container.innerHTML = "";
-      vocabData.forEach(word => {
-        const card = document.createElement("div");
-        card.className = "vocab-card";
-        card.style.cursor = "pointer";
-        card.innerHTML = `<div style="font-size:1.6rem; font-weight:bold;" class="greek-word">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem; font-weight:500;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
-        card.addEventListener("click", () => {
-          const meaningDiv = card.querySelector(".meaning");
-          meaningDiv.style.display = meaningDiv.style.display === "none" ? "block" : "none";
-        });
-        container.appendChild(card);
-      });
-    }
-
-    const quizQuestions = [
-      { question: "¿Qué significa 'λόγος'?", options: ["Señor", "Palabra/Verbo", "Amor", "Paz"], correct: 1 },
-      { question: "Traduce 'ἀγάπη'", options: ["Fe", "Gracia", "Amor sacrificial", "Vida"], correct: 2 },
-      { question: "¿Cuál es la palabra para 'Señor' en griego?", options: ["κύριος", "θεός", "Χριστός", "Ἰησοῦς"], correct: 0 },
-      { question: "¿Qué preposición significa 'hacia' (con acusativo)?", options: ["ἐν", "ἐκ", "εἰς", "ἀπό"], correct: 2 },
-      { question: "Negación en griego (antes de consonante):", options: ["οὐκ", "οὐ", "μή", "οὔτε"], correct: 1 }
-    ];
-    let currentQuizIdx = 0;
-    function loadQuiz() {
-      const container = document.getElementById("quizContainer");
-      if(!container) return;
-      const q = quizQuestions[currentQuizIdx % quizQuestions.length];
-      let html = `<p><strong>${q.question}</strong></p>`;
-      q.options.forEach((opt, idx) => {
-        html += `<div class="quiz-option" data-opt-index="${idx}">${opt}</div>`;
-      });
-      container.innerHTML = html;
-      document.querySelectorAll(".quiz-option").forEach(el => {
-        el.addEventListener("click", (e) => {
-          const selected = parseInt(el.dataset.optIndex);
-          const isCorrect = (selected === q.correct);
-          const feedbackDiv = document.getElementById("quizFeedback");
-          if(isCorrect){
-            feedbackDiv.innerHTML = `<span class="correct-feedback"><i class="fas fa-check-circle"></i> ¡Correcto! +10 XP virtual</span>`;
-            currentQuizIdx++;
-            setTimeout(() => { loadQuiz(); feedbackDiv.innerHTML = ""; }, 1200);
-          } else {
-            feedbackDiv.innerHTML = `<span class="wrong-feedback"><i class="fas fa-times-circle"></i> Incorrecto. Respuesta correcta: ${q.options[q.correct]}</span>`;
+    // Datos de la lección (vocabulario extendido con columna de frecuencia)
+    window.lessonData = {
+      vocab: [
+        { greek: "ὁ, ἡ, τό", translit: "ho, hē, to", spanish: "el, la, lo (artículo)", freq: "19,000+" },
+        { greek: "καί", translit: "kai", spanish: "y, también", freq: "9,000+" },
+        { greek: "δέ", translit: "de", spanish: "pero, y, ahora", freq: "2,700+" },
+        { greek: "ἐν", translit: "en", spanish: "en, dentro de", freq: "2,700+" },
+        { greek: "εἰς", translit: "eis", spanish: "hacia, en, para", freq: "1,700+" },
+        { greek: "ἐκ / ἐξ", translit: "ek/ex", spanish: "de, desde", freq: "900+" },
+        { greek: "ὅτι", translit: "hoti", spanish: "que, porque", freq: "1,300+" },
+        { greek: "οὐ / οὐκ", translit: "ou/ouk", spanish: "no", freq: "1,600+" },
+        { greek: "ἀπό", translit: "apo", spanish: "de, desde", freq: "650+" },
+        { greek: "κύριος", translit: "kyrios", spanish: "Señor", freq: "700+" },
+        { greek: "Ἰησοῦς", translit: "Iēsous", spanish: "Jesús", freq: "900+" },
+        { greek: "Χριστός", translit: "Christos", spanish: "Cristo", freq: "500+" },
+        { greek: "θεός", translit: "theos", spanish: "Dios", freq: "1,300+" },
+        { greek: "λόγος", translit: "logos", spanish: "palabra, Verbo", freq: "330+" },
+        { greek: "πνεῦμα", translit: "pneuma", spanish: "espíritu, aliento", freq: "380+" },
+        { greek: "εἰρήνη", translit: "eirēnē", spanish: "paz", freq: "90+" },
+        { greek: "ἀγάπη", translit: "agapē", spanish: "amor (sacrificial)", freq: "110+" },
+        { greek: "χάρις", translit: "charis", spanish: "gracia", freq: "150+" },
+        { greek: "πίστις", translit: "pistis", spanish: "fe, confianza", freq: "240+" },
+        { greek: "ζωή", translit: "zōē", spanish: "vida (eterna, plena)", freq: "130+" }
+      ],
+      quiz: [
+        { question: "¿Qué significa 'λόγος'?", options: ["Señor", "Palabra/Verbo", "Amor", "Paz"], correct: 1 },
+        { question: "Traduce 'ἀγάπη'", options: ["Fe", "Gracia", "Amor sacrificial", "Vida"], correct: 2 },
+        { question: "¿Cuál es la palabra para 'Señor' en griego?", options: ["κύριος", "θεός", "Χριστός", "Ἰησοῦς"], correct: 0 },
+        { question: "¿Qué preposición significa 'hacia' (con acusativo)?", options: ["ἐν", "ἐκ", "εἰς", "ἀπό"], correct: 2 },
+        { question: "Negación en griego (antes de consonante):", options: ["οὐκ", "οὐ", "μή", "οὔτε"], correct: 1 },
+        { question: "¿Qué caso expresa posesión o pertenencia?", options: ["Nominativo", "Genitivo", "Dativo", "Acusativo"], correct: 1 },
+        { question: "¿Qué palabra griega significa 'vida' en sentido eterno?", options: ["βίος", "ζωή", "ψυχή", "πνεῦμα"], correct: 1 },
+        { question: "¿Cuál de estos es un conector contrastivo (pero/ahora)?", options: ["καί", "δέ", "ὅτι", "οὐ"], correct: 1 }
+      ],
+      // Ejercicio de escritura de casos (personalizado)
+      customInit: function() {
+        const vocab = this.vocab.slice(0,10);
+        const caseContainer = document.getElementById('caseWritingQuiz');
+        if (caseContainer) {
+          function loadCaseQuestion() {
+            const randomWord = vocab[Math.floor(Math.random() * vocab.length)];
+            caseContainer.innerHTML = `
+              <div class="card-highlight">
+                <strong>Escribe el genitivo singular de:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+                <small>Pista: si es palabra de la Lección 1, la mayoría son indeclinables o tienen formas irregulares. Para los adjetivos, piensa en su raíz.</small><br>
+                <input type="text" id="caseAnswer" placeholder="ej. λόγου" style="margin-top:0.5rem; padding:0.5rem;">
+                <button id="checkCase" class="btn-reveal">Verificar</button>
+                <span id="caseResult"></span>
+              </div>
+            `;
+            const checkBtn = document.getElementById('checkCase');
+            if (checkBtn) {
+              checkBtn.addEventListener('click', () => {
+                const answer = document.getElementById('caseAnswer').value.trim();
+                const feedback = document.getElementById('caseResult');
+                feedback.innerHTML = '<span class="correct-feedback">✓ Para palabras de la Lección 1, el genitivo se verá en lecciones posteriores. ¡Sigue adelante!</span>';
+                setTimeout(() => loadCaseQuestion(), 2000);
+              });
+            }
           }
-        });
-      });
-    }
-
-    function randomVocabularyTest() {
-      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
-      const area = document.getElementById("randomQuestionArea");
-      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> Prueba sorpresa:</strong> ¿Qué significa <span class="greek-word">${randomWord.greek}</span>?<br>
-      <input type="text" id="randomAnswerInput" placeholder="tu respuesta..."> <button id="submitRandom"><i class="fas fa-check"></i> Verificar</button>
-      <div id="randomResult"></div></div>`;
-      const btn = document.getElementById("submitRandom");
-      if(btn) btn.addEventListener("click", () => {
-        const userAnswer = document.getElementById("randomAnswerInput").value.trim().toLowerCase();
-        const expected = randomWord.spanish.toLowerCase();
-        const resultDiv = document.getElementById("randomResult");
-        if(userAnswer === expected || expected.includes(userAnswer) || (randomWord.spanish === "amor (sacrificial)" && userAnswer.includes("amor"))){
-          resultDiv.innerHTML = "<span class='correct-feedback'><i class='fas fa-trophy'></i> ¡Perfecto! ✅</span>";
-        } else {
-          resultDiv.innerHTML = `<span class='wrong-feedback'><i class='fas fa-exclamation-triangle'></i> La respuesta correcta es: ${randomWord.spanish}</span>`;
+          loadCaseQuestion();
+          document.getElementById('newCaseQuestion')?.addEventListener('click', loadCaseQuestion);
         }
-      });
-    }
-
-    function initAccordions() {
-      const items = document.querySelectorAll(".accordion-item");
-      items.forEach(item => {
-        const header = item.querySelector(".accordion-header");
-        header.addEventListener("click", () => {
-          item.classList.toggle("active");
-        });
-      });
-    }
-
-    function initRevealButtons() {
-      const btns = document.querySelectorAll(".btn-reveal");
-      btns.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          const targetId = btn.getAttribute("data-target");
-          if(targetId){
-            const answerDiv = document.getElementById(targetId);
-            if(answerDiv) answerDiv.classList.toggle("show");
-          }
-        });
-      });
-    }
-
-    function initTranslationChecks() {
-      const checkJesus = document.getElementById("checkJesus");
-      if(checkJesus){
-        checkJesus.addEventListener("click", () => {
-          const val = document.getElementById("inputJesus").value.trim().toLowerCase();
-          document.getElementById("fbJesus").innerHTML = (val === "jesus") ? "<i class='fas fa-check-circle'></i> Correcto" : "<i class='fas fa-times-circle'></i> Esperado: Jesús";
-        });
-        document.getElementById("checkCharis").addEventListener("click", () => {
-          const val = document.getElementById("inputCharis").value.trim().toLowerCase();
-          document.getElementById("fbCharis").innerHTML = (val === "gracia") ? "<i class='fas fa-check-circle'></i> ¡Bien!" : "<i class='fas fa-times-circle'></i> Gracia";
-        });
-        document.getElementById("checkPneuma").addEventListener("click", () => {
-          const val = document.getElementById("inputPneuma").value.trim().toLowerCase();
-          if(val === "espíritu" || val === "espiritu" || val === "aliento") document.getElementById("fbPneuma").innerHTML = "<i class='fas fa-check-circle'></i> Correcto";
-          else document.getElementById("fbPneuma").innerHTML = "<i class='fas fa-times-circle'></i> Espíritu / aliento";
-        });
+        
+        // Test aleatorio de vocabulario
+        const randomBtn = document.getElementById('randomTestBtn');
+        const fullVocab = this.vocab;
+        if (randomBtn) {
+          randomBtn.addEventListener('click', () => {
+            const randomWord = fullVocab[Math.floor(Math.random() * fullVocab.length)];
+            const area = document.getElementById('randomQuestionArea');
+            area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> Prueba sorpresa:</strong> ¿Qué significa <span class="greek-word">${randomWord.greek}</span>?<br>
+            <input type="text" id="randomAnswerInput" placeholder="tu respuesta..."> <button id="submitRandom" class="btn-reveal">Verificar</button>
+            <div id="randomResult"></div></div>`;
+            const submit = document.getElementById('submitRandom');
+            if (submit) {
+              submit.addEventListener('click', () => {
+                const userAnswer = document.getElementById('randomAnswerInput').value.trim().toLowerCase();
+                const expected = randomWord.spanish.toLowerCase();
+                const resultDiv = document.getElementById('randomResult');
+                if (userAnswer === expected || expected.includes(userAnswer) || (randomWord.spanish === "amor (sacrificial)" && userAnswer.includes("amor"))) {
+                  resultDiv.innerHTML = "<span class='correct-feedback'><i class='fas fa-trophy'></i> ¡Perfecto! ✅</span>";
+                } else {
+                  resultDiv.innerHTML = `<span class='wrong-feedback'><i class='fas fa-exclamation-triangle'></i> La respuesta correcta es: ${randomWord.spanish}</span>`;
+                }
+              });
+            }
+          });
+        }
       }
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      buildVocabTable();
-      buildFlashcards();
-      loadQuiz();
-      initAccordions();
-      initRevealButtons();
-      initTranslationChecks();
-      const randomBtn = document.getElementById("randomTestBtn");
-      if(randomBtn) randomBtn.addEventListener("click", randomVocabularyTest);
-    });
+    };
   </script>
+  <script src="script.js"></script>
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
 </body>
 </html>

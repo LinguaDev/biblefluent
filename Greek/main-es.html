@@ -7,7 +7,394 @@
   <meta name="description" content="Curso completo de griego koiné en 70 lecciones. Método de lectura programada. Aprende gramática, 1050 palabras y lectura del NT. Gratuito.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=EB+Garamond:ital@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="../src/main-language.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: #fefcf5;
+      color: #1e2a2e;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f3b2c;
+    }
+    .logo-icon { font-size: 1.8rem; }
+    .logo-text em { font-style: normal; color: #c6a43b; }
+    .main-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link, .nav-cta {
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-link { color: #2c3e2f; }
+    .nav-link:hover, .nav-cta:hover { color: #c6a43b; }
+    .nav-cta {
+      background: #c6a43b;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      color: #1f3b2c;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1f3b2c;
+    }
+    @media (max-width: 900px) {
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        transition: 0.3s;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 99;
+      }
+      .main-nav.open { left: 0; }
+      .nav-toggle { display: block; }
+      .header-inner { padding: 0.8rem 1.5rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(105deg, #fff7ea 0%, #e9e0cf 100%);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c6a43b;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-family: 'Cinzel', serif;
+      margin: 1rem 0;
+      line-height: 1.2;
+    }
+    .hero-greek-quote {
+      font-size: 1.8rem;
+      font-family: 'EB Garamond', serif;
+      margin: 1rem 0;
+    }
+    .hero-greek-trans {
+      font-style: italic;
+      color: #4a5b4a;
+    }
+    .hero-desc {
+      max-width: 700px;
+      margin: 1.5rem auto;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-ghost {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: #1f3b2c;
+      color: white;
+    }
+    .btn-primary:hover { background: #2a4a38; }
+    .btn-ghost {
+      background: transparent;
+      border: 2px solid #1f3b2c;
+      color: #1f3b2c;
+    }
+    .btn-ghost:hover { background: #1f3b2c; color: white; }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 700; display: block; }
+    .stat-label { font-size: 0.8rem; text-transform: uppercase; }
+    .stat-divider { width: 1px; background: #c6a43b; }
+    /* Video placeholder */
+    .hero-video-placeholder {
+      max-width: 800px;
+      margin: 2rem auto 0;
+      background: #1a2a1f;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero-video-placeholder:hover { transform: scale(1.01); }
+    .video-preview {
+      position: relative;
+      background: #0f1a0c;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .video-preview i {
+      font-size: 4rem;
+      color: #c6a43b;
+      transition: 0.2s;
+    }
+    .video-preview i:hover { transform: scale(1.1); }
+    .video-preview span {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+    }
+    /* ========== ABOUT ========== */
+    .about-section { padding: 4rem 0; background: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #c6a43b;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-family: 'Cinzel', serif;
+      margin: 0.5rem 0 1rem;
+    }
+    .about-text p { margin-bottom: 1rem; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #c6a43b;
+      font-weight: 600;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: #fefcf5;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .feature-icon { font-size: 2rem; color: #c6a43b; margin-bottom: 1rem; }
+    /* ========== ACORDEÓN (menú desplegable de colores) ========== */
+    .lessons-section { padding: 4rem 0; background: #faf8f0; }
+    .lessons-header { text-align: center; margin-bottom: 2rem; }
+    .accordion-selector {
+      background: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .accordion-selector h3 { font-size: 1.5rem; text-align: center; margin-bottom: 1rem; color: #1f3b2c; }
+    .accordion-selector p { text-align: center; margin-bottom: 1.5rem; color: #4a5b4a; }
+    .accordion-group {
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background: #fefcf5;
+      border: 1px solid #e0d6c6;
+    }
+    .accordion-group-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .accordion-group-header i { transition: transform 0.3s; }
+    .accordion-group.open .accordion-group-header i { transform: rotate(180deg); }
+    .accordion-group-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: white;
+    }
+    .accordion-group.open .accordion-group-content { max-height: 600px; overflow-y: auto; }
+    .lesson-options { list-style: none; padding: 0.5rem 0; margin: 0; }
+    .lesson-options li {
+      padding: 0.5rem 1.5rem;
+      border-bottom: 1px solid #f0e7d6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+    .lesson-options li:hover { background: #fef9e6; }
+    .lesson-options li .lesson-num {
+      font-size: 0.8rem;
+      background: #eef3fa;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      margin-right: 1rem;
+      min-width: 45px;
+      text-align: center;
+    }
+    .lesson-options li .lesson-title { flex: 1; font-weight: 500; }
+    .lesson-options li i { color: #c6a43b; font-size: 0.8rem; opacity: 0.6; }
+    /* Colores módulos */
+    .accordion-group[data-module="1"] .accordion-group-header { background: #e8dcc8; }
+    .accordion-group[data-module="2"] .accordion-group-header { background: #d9e6d9; }
+    .accordion-group[data-module="3"] .accordion-group-header { background: #f0e6d2; }
+    .accordion-group[data-module="4"] .accordion-group-header { background: #e6d9e6; }
+    .accordion-group[data-module="5"] .accordion-group-header { background: #d9e6f0; }
+    .go-button {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 2rem auto 0;
+      background: #c6a43b;
+      color: #1f3b2c;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+    .go-button:hover { background: #b08a2c; transform: translateY(-2px); }
+    .lessons-cta { text-align: center; margin-top: 2rem; }
+    /* ========== MÉTODO ========== */
+    .method-section { padding: 4rem 0; background: white; }
+    .method-header { text-align: center; margin-bottom: 2rem; }
+    .method-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+    .method-step { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .step-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #c6a43b;
+      min-width: 50px;
+    }
+    /* ========== VERSE SECTION ========== */
+    .verse-section {
+      background: #1f3b2c;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .verse-greek {
+      font-size: 1.6rem;
+      font-family: 'EB Garamond', serif;
+      margin-bottom: 1rem;
+    }
+    /* ========== TESTIMONIOS ========== */
+    .testimonials-section { padding: 4rem 0; background: #fefcf5; }
+    .testimonials-header { text-align: center; margin-bottom: 2rem; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .testimonial-card i { color: #c6a43b; font-size: 1.5rem; margin-bottom: 1rem; }
+    /* ========== FINAL CTA ========== */
+    .final-cta-section {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .final-cta-greek { font-size: 1.5rem; margin-bottom: 1rem; }
+    .final-cta-title { font-size: 2rem; margin-bottom: 1rem; }
+    .final-cta-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+    /* ========== FOOTER ========== */
+    .site-footer {
+      background: #111c16;
+      color: #cdd9cf;
+      padding: 3rem 1rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .footer-brand .logo { color: #cdd9cf; font-size: 1.3rem; }
+    .footer-nav ul { list-style: none; margin-top: 1rem; }
+    .footer-nav li { margin-bottom: 0.5rem; }
+    .footer-nav a { color: #cdd9cf; text-decoration: none; }
+    .footer-nav a:hover { color: #c6a43b; }
+    .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #2a3a2e; }
+    @media (max-width: 768px) {
+      .about-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -51,6 +438,12 @@
           <div class="stat-divider"></div>
           <div class="stat"><span class="stat-num">1050</span><span class="stat-label">Palabras de vocabulario</span></div>
         </div>
+        <div class="hero-video-placeholder" id="videoPlaceholder">
+          <div class="video-preview">
+            <i class="fas fa-play-circle"></i>
+            <span>Ver introducción al curso</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -62,7 +455,7 @@
             <h2 class="section-title">¿Por qué aprender griego koiné?</h2>
             <p>El Nuevo Testamento fue escrito en griego koiné. Leerlo en su lengua original te permite acceder a matices que ninguna traducción puede transmitir por completo. Nuestro curso utiliza el <strong>método de lectura programada</strong>, que descompone el aprendizaje en pequeñas unidades (micro-lecciones) para que avances de forma constante y segura.</p>
             <p>Este curso parte desde cero: aprenderás el alfabeto, la fonología, la morfología nominal y verbal, y la sintaxis básica del griego neotestamentario — todo explicado con claridad en español. Integramos tres enfoques simultáneos: gramática, vocabulario (1050 palabras más frecuentes) y lectura progresiva del Nuevo Testamento.</p>
-            <a href="Leccion-1.html" class="text-link">Comenzar con la lección 1 <i class="fas fa-arrow-right"></i></a>
+            <a href="es/leccion-1.html" class="text-link">Comenzar con la lección 1 <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="about-features">
             <div class="feature-card"><i class="fas fa-book feature-icon"></i><h3>Texto original</h3><p>Aprende a leer directamente el texto griego del Nuevo Testamento.</p></div>
@@ -79,14 +472,20 @@
         <div class="lessons-header">
           <span class="section-label">Contenido completo</span>
           <h2 class="section-title">Las 70 lecciones del curso</h2>
-          <p class="section-desc">Progresión cuidadosamente diseñada: desde el alfabeto hasta la lectura fluida de textos del Nuevo Testamento. Cada lección contiene 7 micro-lecciones, ejercicios interactivos y 15 palabras de vocabulario.</p>
+          <p class="section-desc">Progresión cuidadosamente diseñada: desde el alfabeto hasta la lectura fluida de textos del Nuevo Testamento.</p>
         </div>
-        <div class="lessons-grid" id="lessonsGrid">
-          <!-- Generado dinámicamente -->
-          <div class="loading">Cargando índice de lecciones...</div>
+
+        <!-- MENÚ DESPLEGABLE TIPO ACORDEÓN (sin buscador) -->
+        <div class="accordion-selector">
+          <h3><i class="fas fa-folder-tree"></i> Selecciona tu lección</h3>
+          <p>Haz clic en cualquier lección para abrirla directamente.</p>
+          <div id="accordionContainer"></div>
+          <!-- Botón opcional (se mantiene por si acaso, pero el clic directo es principal) -->
+          <button class="go-button" id="goToLessonBtn" style="display: none;">Ir a lección seleccionada</button>
         </div>
+
         <div class="lessons-cta">
-          <a href="Leccion-1.html" class="btn-primary">Comenzar curso <i class="fas fa-arrow-right"></i></a>
+          <a href="es/leccion-1.html" class="btn-primary">Comenzar curso desde la Lección 1 <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -130,7 +529,7 @@
           <h2 class="final-cta-title">Comienza hoy tu estudio del griego bíblico</h2>
           <p class="final-cta-desc">Acceso libre a las 70 lecciones. Sin registro requerido.</p>
           <div class="final-cta-actions">
-            <a href="Leccion-1.html" class="btn-primary">Ir al curso completo <i class="fas fa-arrow-right"></i></a>
+            <a href="es/leccion-1.html" class="btn-primary">Ir al curso completo <i class="fas fa-arrow-right"></i></a>
             <a href="https://biblefluent.org" class="btn-ghost">Todos los cursos</a>
           </div>
         </div>
@@ -139,7 +538,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="footer-grid">
       <div class="footer-brand">
         <a href="https://biblefluent.org" class="logo"><span class="logo-icon">📖</span><span class="logo-text">Bible<em>Fluent</em></span></a>
         <p>Recursos para el estudio del texto bíblico en sus idiomas originales.</p>
@@ -162,58 +561,247 @@
   </footer>
 
   <script>
-    // Lista de títulos de las 70 lecciones (básico a intermedio, lectura programada)
-    const lecciones = [
-      "El alfabeto griego", "Vocales, diptongos y acentos", "El artículo definido",
-      "Segunda declinación (masculinos)", "Segunda declinación (neutros)", "Primera declinación (femeninos)",
-      "Adjetivos de la primera y segunda declinación", "El verbo εἰμί (ser/estar)", "Presente de indicativo activo",
-      "Presente de indicativo medio/pasivo", "Imperfecto de indicativo activo", "Imperfecto de indicativo medio/pasivo",
-      "Aoristo primero activo", "Aoristo primero medio", "Aoristo pasivo",
-      "Futuro activo", "Futuro medio", "Futuro pasivo",
-      "Tercera declinación (consonántica)", "Tercera declinación (vocálica)", "Adjetivos de la tercera declinación",
-      "Pronombres personales", "Pronombres demostrativos", "Pronombres relativos",
-      "Participio de presente activo", "Participio de presente medio/pasivo", "Participio de aoristo activo",
-      "Participio de aoristo pasivo", "Participio de perfecto", "El infinitivo",
-      "Modo subjuntivo (presente)", "Modo subjuntivo (aoristo)", "Modo imperativo (presente)",
-      "Modo imperativo (aoristo)", "Oraciones condicionales (primer tipo)", "Oraciones condicionales (segundo tipo)",
-      "Oraciones condicionales (tercer tipo)", "Cláusulas de propósito", "Cláusulas de resultado",
-      "El genitivo absoluto", "Preposiciones con genitivo", "Preposiciones con dativo y acusativo",
-      "Números cardinales", "Números ordinales", "Comparativos y superlativos regulares",
-      "Comparativos y superlativos irregulares", "Verbos contractos (-αω)", "Verbos contractos (-εω)",
-      "Verbos contractos (-οω)", "Perfecto activo", "Perfecto medio/pasivo",
-      "Pluscuamperfecto activo", "Verbos deponentes (presente)", "Verbos deponentes (aoristo)",
-      "El verbo οἶδα (saber)", "Lectura de Juan 1:1-5", "Lectura de Juan 3:16",
-      "Lectura de Romanos 1:16-17", "Lectura de Romanos 8:28-30", "Lectura de Mateo 5:3-12",
-      "Lectura de 1 Corintios 13", "Lectura de Efesios 2:8-10", "Lectura de Filipenses 2:5-11",
-      "Lectura de Hebreos 11:1-6", "Lectura de Apocalipsis 1:8-18", "Traducción de pasajes selectos I",
-      "Traducción de pasajes selectos II", "Análisis textual con herramientas digitales", "Proyecto final: Lectura continua de Juan"
-    ];
-    // Ajustar a 70 lecciones (completar con títulos adicionales si es necesario)
-    while(lecciones.length < 70) lecciones.push(`Lección ${lecciones.length+1}: Repaso y lectura`);
+    (function() {
+      // ==================== DATOS DE LAS 70 LECCIONES ====================
+      const modulesData = [
+        { title: "Módulo I — Fundamentos (L01–L15)", moduleId: 1, start: 1, lessons: [
+          "El Griego del NT: Historia y sistema de escritura",
+          "El Alfabeto Griego: Letras, nombres y sonidos",
+          "Pronunciación, acentos y espíritus",
+          "Vocales, diptongos y sistema consonántico",
+          "El sistema de casos: Los 5 casos del griego",
+          "El artículo definido: Paradigma completo y usos",
+          "Primera declinación: Femeninos (-η, -ης, -α, -ας)",
+          "Primera declinación: Masculinos (-ης, -ας)",
+          "Segunda declinación: Masculinos (-ος) y neutros (-ον)",
+          "Adjetivos de la 1ª y 2ª declinación (tipo 2-1-2)",
+          "El verbo: Presente activo indicativo (paradigma -ω)",
+          "El verbo εἰμί y el presente medio/pasivo",
+          "Pronombres personales y el adjetivo αὐτός",
+          "El imperfecto: Activo y medio/pasivo",
+          "Pronombres demostrativos y números"
+        ]},
+        { title: "Módulo II — Base Gramatical (L16–L30)", moduleId: 2, start: 16, lessons: [
+          "Tercera declinación I: Temas en oclusiva",
+          "Tercera declinación II: Temas en nasal, líquida y silbante",
+          "Tercera declinación III: Temas en -ι, -υ y los irregulares",
+          "Adjetivos de la 3ª declinación: πᾶς, μέγας, πολύς",
+          "El futuro indicativo: Activo, medio y líquido",
+          "El aoristo primero: Activo y medio",
+          "El aoristo segundo y el aoristo pasivo",
+          "El perfecto activo: Reduplicación y aspecto",
+          "El perfecto medio/pasivo y el pluscuamperfecto",
+          "Pronombres relativos, interrogativos e indefinidos",
+          "El modo subjuntivo: Formas en presente y aoristo",
+          "Usos del subjuntivo: Propósito, condición, exhortación",
+          "El imperativo presente y aoristo",
+          "El infinitivo: Formas y usos principales",
+          "Oraciones condicionales: Las cuatro clases"
+        ]},
+        { title: "Módulo III — Desarrollo (L31–L45)", moduleId: 3, start: 31, lessons: [
+          "El participio presente activo",
+          "El participio presente medio/pasivo y el genitivo absoluto",
+          "El participio aoristo: Activo, medio y pasivo",
+          "El participio perfecto y usos avanzados del participio",
+          "Los verbos -μι I: Introducción y δίδωμι",
+          "Los verbos -μι II: τίθημι, ἵστημι, ἀφίημι",
+          "Los verbos contractos: -έω y -άω",
+          "Los verbos contractos -όω y verbos deponentes avanzados",
+          "La voz pasiva: Sistema completo y expresión del agente",
+          "Sintaxis avanzada del genitivo",
+          "Sintaxis del dativo, acusativo y nominativo",
+          "El optativo y el discurso indirecto",
+          "Partículas y conectores discursivos del NT",
+          "El aspecto verbal: Tiempo vs. aspecto en profundidad",
+          "Las seis formas principales de los verbos"
+        ]},
+        { title: "Módulo IV — Consolidación (L46–L60)", moduleId: 4, start: 46, lessons: [
+          "Sintaxis de la oración: Cláusulas nominales, verbales y relativas",
+          "Los verbos compuestos y los preverbios",
+          "Vocabulario por campos semánticos I: Cristología y soteriología",
+          "Vocabulario por campos semánticos II: Escatología y apocalíptica",
+          "Vocabulario por campos semánticos III: Vida ética y espiritual",
+          "Análisis textual: El Evangelio de Juan (capítulos 1–4)",
+          "Análisis textual: Las epístolas paulinas (Romanos 1–8)",
+          "Análisis textual: Los evangelios sinópticos y Hechos",
+          "Crítica textual del NT: Introducción a los manuscritos",
+          "Los hebraísmos y el griego de la LXX en el NT",
+          "Los géneros literarios del NT y su impacto en la gramática",
+          "Léxico teológico avanzado: Términos únicos del NT (hapax)",
+          "Los sustantivos verbales: Nomen actionis y nomen agentis",
+          "La retórica greco-romana y el NT",
+          "Herramientas exegéticas: Léxicos, concordancias y software bíblico"
+        ]},
+        { title: "Módulo V — Maestría (L61–L70)", moduleId: 5, start: 61, lessons: [
+          "Lectura continua del Evangelio de Juan (Juan 11–21)",
+          "Lectura de Pablo: Gálatas y Efesios",
+          "Lectura del Apocalipsis: Griego apocalíptico",
+          "Lectura de Hebreos: El griego más literario del NT",
+          "Exégesis independiente: Metodología completa",
+          "Griego del NT y hebreo/arameo: Conexiones con el AT",
+          "Gramática histórica: Del protoindoeuropeo al griego koiné",
+          "Revisión morfológica integral: Síntesis de 70 lecciones",
+          "Proyecto exegético final: Análisis completo de un pasaje",
+          "De la gramática a la predicación: Griego vivo en la iglesia"
+        ]}
+      ];
 
-    const gridContainer = document.getElementById('lessonsGrid');
-    if (gridContainer) {
-      let html = '';
-      for (let i = 0; i < 70; i++) {
-        const num = i + 1;
-        const numStr = num.toString().padStart(2, '0');
-        const titulo = lecciones[i] || `Lección ${numStr}`;
-        html += `
-          <a href="Leccion-${num}.html" class="lesson-card">
-            <span class="lesson-num">${numStr}</span>
-            <div class="lesson-info">
-              <h3>${titulo}</h3>
-              <p>7 micro-lecciones · 15 palabras nuevas</p>
+      // Construir el acordeón y asignar redirección directa al hacer clic
+      function buildAccordion() {
+        const container = document.getElementById('accordionContainer');
+        if (!container) {
+          console.error('No se encontró #accordionContainer');
+          return;
+        }
+        let html = '';
+        modulesData.forEach((mod, idx) => {
+          const openClass = (idx === 0) ? 'open' : '';
+          html += `
+            <div class="accordion-group ${openClass}" data-module="${mod.moduleId}">
+              <div class="accordion-group-header">
+                <span><i class="fas fa-folder-open"></i> ${mod.title}</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-group-content">
+                <ul class="lesson-options">
+          `;
+          mod.lessons.forEach((lesson, lIdx) => {
+            const lessonNum = mod.start + lIdx;
+            const numStr = lessonNum.toString().padStart(2, '0');
+            html += `
+              <li data-lesson="${lessonNum}">
+                <span class="lesson-num">${numStr}</span>
+                <span class="lesson-title">${lesson}</span>
+                <i class="fas fa-chevron-right"></i>
+              </li>
+            `;
+          });
+          html += `
+                </ul>
+              </div>
             </div>
-            <i class="fas fa-arrow-right lesson-arrow"></i>
-          </a>
-        `;
-      }
-      gridContainer.innerHTML = html;
-    }
+          `;
+        });
+        container.innerHTML = html;
 
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
+        // Eventos de acordeón (abrir/cerrar)
+        document.querySelectorAll('.accordion-group-header').forEach(header => {
+          header.removeEventListener('click', toggleAccordion);
+          header.addEventListener('click', toggleAccordion);
+        });
+
+        // Eventos de clic en cada lección: redirigir DIRECTAMENTE
+        document.querySelectorAll('.lesson-options li').forEach(li => {
+          li.removeEventListener('click', redirectToLesson);
+          li.addEventListener('click', redirectToLesson);
+        });
+      }
+
+      function toggleAccordion(e) {
+        const group = this.closest('.accordion-group');
+        if (group) group.classList.toggle('open');
+      }
+
+      function redirectToLesson(e) {
+        // Evitar que el clic se propague al acordeón
+        e.stopPropagation();
+        const li = this;
+        const lessonNum = parseInt(li.dataset.lesson);
+        if (!isNaN(lessonNum)) {
+          window.location.href = `es/leccion-${lessonNum}.html`;
+        } else {
+          console.warn('Número de lección inválido');
+        }
+      }
+
+      // Inicialización
+      document.addEventListener('DOMContentLoaded', () => {
+        buildAccordion();
+
+        // Opcional: si quieres mantener el botón, pero está oculto (display:none)
+        // Para no complicar, se ha ocultado el botón. Si prefieres tenerlo, descomenta y ajusta.
+
+        // Video placeholder
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        if (videoPlaceholder) {
+          videoPlaceholder.addEventListener('click', () => {
+            window.open('https://www.youtube.com/watch?v=TUjY-s6rvdU', '_blank');
+          });
+        }
+
+        // Año footer
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        // Menú hamburguesa (como estaba)
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+        if (navToggle && mainNav) {
+          navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.contains('open');
+            mainNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', !isOpen);
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              if (!isOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+              } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            }
+          });
+
+          const navLinks = mainNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mainNav.classList.remove('open');
+              navToggle.setAttribute('aria-expanded', 'false');
+              const icon = navToggle.querySelector('i');
+              if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            });
+          });
+        }
+
+        // Scroll suave para anclas
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.pushState(null, null, targetId);
+            }
+          });
+        });
+
+        // Efecto sombra header
+        const header = document.getElementById('site-header');
+        if (header) {
+          window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 40 ? '0 2px 10px rgba(0,0,0,0.05)' : 'none';
+          });
+        }
+
+        // Cerrar menú al redimensionar
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 900 && mainNav.classList.contains('open')) {
+            mainNav.classList.remove('open');
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      });
+    })();
   </script>
-  <script src="../src/main-language.js"></script>
 </body>
 </html>

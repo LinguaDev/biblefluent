@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 5: Los 5 Casos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0.8rem 0;
+      gap: 1rem;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-icon {
+      font-size: 1.8rem;
+      color: #1a4c61;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0b2b3b;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-links a:hover {
+      color: #c6a43b;
+    }
+    .social-icons-header {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .social-icons-header a {
+      color: #5b6e8c;
+      font-size: 1.1rem;
+    }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin: 1.5rem 0 2rem;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-badge {
+      background: #ffb347;
+      color: #1e2f3a;
+      border-radius: 40px;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .progress-section {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .progress-bar-container {
+      flex: 1;
+      background: rgba(255,255,255,0.3);
+      border-radius: 30px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 7%;
+      background: #ffcd7e;
+      height: 100%;
+      border-radius: 30px;
+    }
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .accordion-item {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      border: 1px solid #e9edf2;
+      overflow: hidden;
+    }
+    .accordion-header {
+      background: white;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .accordion-header:hover {
+      background: #f9fafc;
+    }
+    .accordion-header i:first-child {
+      color: #2c7a6e;
+      margin-right: 0.6rem;
+    }
+    .accordion-header .toggle-icon {
+      color: #2c7a6e;
+      transition: transform 0.3s;
+    }
+    .accordion-item.active .accordion-header .toggle-icon {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      padding: 0 1.5rem;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out;
+      border-top: 0px solid #eef2f6;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 2000px;
+      padding: 0 1.5rem 1.8rem 1.5rem;
+      border-top: 1px solid #eef2f6;
+    }
+    .card-highlight {
+      background: #fef9e6;
+      border-left: 6px solid #f4b942;
+      padding: 1rem 1.2rem;
+      border-radius: 1rem;
+      margin: 1rem 0;
+    }
+    .greek-word {
+      font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      background: #eef3fa;
+      padding: 0.2rem 0.6rem;
+      border-radius: 16px;
+      display: inline-block;
+    }
+    .btn-reveal {
+      background: #eef2fa;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 0.5rem 0;
+    }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .answer-text {
+      background: #e9f3e6;
+      padding: 0.75rem;
+      border-radius: 1rem;
+      margin-top: 0.6rem;
+      display: none;
+      border-left: 4px solid #3f9e6d;
+    }
+    .answer-text.show { display: block; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 0.7rem;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    th { background: #eef2f6; font-weight: 600; }
+    .case-table {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .case-card {
+      flex: 1;
+      background: #f1f5f9;
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+      min-width: 120px;
+    }
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .vocab-card {
+      background: #f8fafd;
+      border-radius: 1rem;
+      padding: 0.8rem;
+      text-align: center;
+      cursor: pointer;
+    }
+    .quiz-option {
+      background: #f1f5f9;
+      border-radius: 3rem;
+      padding: 0.6rem 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+    }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .footer {
+      background: #111c16;
+      color: #cdd9cf;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      color: #e0d6c6;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social a {
+      color: #cdd9cf;
+      font-size: 1.4rem;
+    }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+      .case-card { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="site-header">
+  <div class="container header-container">
+    <div class="logo-area">
+      <i class="fas fa-scroll logo-icon"></i>
+      <span class="logo-text">Koiné Academy</span>
+    </div>
+    <div class="nav-links">
+      <a href="leccion-4.html"><i class="fas fa-arrow-left"></i> Lección 4</a>
+      <a href="leccion-6.html"><i class="fas fa-arrow-right"></i> Lección 6</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+    </div>
+    <div class="social-icons-header">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="hero">
+    <h1><i class="fas fa-grip-lines-vertical"></i> Lección 5 · El Sistema de Casos <span class="hero-badge">Módulo I · Fundamentos</span></h1>
+    <p>Nominativo, Genitivo, Dativo, Acusativo, Vocativo · El griego usa terminaciones, no posición</p>
+    <div class="progress-section">
+      <div class="progress-bar-container"><div class="progress-fill"></div></div>
+      <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 100/1400</div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <!-- Sección 1: Los cinco casos -->
+    <div class="accordion-item">
+      <div class="accordion-header"><span><i class="fas fa-tag"></i> Los 5 casos del griego</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+      <div class="accordion-content">
+        <div class="case-table">
+          <div class="case-card"><strong>Nominativo</strong><br>Sujeto<br><span class="greek-word">ὁ ἄνθρωπος</span><br>"el hombre"</div>
+          <div class="case-card"><strong>Genitivo</strong><br>Posesión, origen<br><span class="greek-word">τοῦ ἀνθρώπου</span><br>"del hombre"</div>
+          <div class="case-card"><strong>Dativo</strong><br>Objeto indirecto, instrumento<br><span class="greek-word">τῷ ἀνθρώπῳ</span><br>"al hombre"</div>
+          <div class="case-card"><strong>Acusativo</strong><br>Objeto directo<br><span class="greek-word">τὸν ἄνθρωπον</span><br>"al hombre"</div>
+          <div class="case-card"><strong>Vocativo</strong><br>Llamamiento<br><span class="greek-word">ἄνθρωπε</span><br>"¡Oh hombre!"</div>
+        </div>
+        <p><i class="fas fa-info-circle"></i> En griego, la función gramatical se indica mediante <strong>terminaciones</strong>, no por el orden de las palabras como en español.</p>
+        <button class="btn-reveal" data-target="casosEj">Ejemplo en frase</button>
+        <div id="casosEj" class="answer-text"><strong>Juan 1:1:</strong> <span class="greek-word">ἐν ἀρχῇ ἦν ὁ λόγος</span> → <em>En (el) principio era el Verbo</em>. Nominativo: <span class="greek-word">λόγος</span> (sujeto).</div>
+      </div>
+    </div>
+
+    <!-- Sección 2: Vocabulario nuevo (pronombre y sustantivos) -->
+    <div class="accordion-item">
+      <div class="accordion-header"><span><i class="fas fa-words"></i> Nuevo vocabulario: pronombres y personas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+      <div class="accordion-content">
+        <p>20 palabras de alta frecuencia: pronombres personales, interrogativos y sustantivos clave.</p>
+        <div style="overflow-x: auto;">
+          <table id="vocabTableL5">
+            <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card-highlight"><i class="fas fa-users"></i> <strong>Uso frecuente:</strong> <span class="greek-word">ἐγώ εἰμι</span> (yo soy) – Juan 8:58.</div>
+      </div>
+    </div>
+
+    <!-- Sección 3: Ejercicio interactivo: identifica el caso -->
+    <div class="accordion-item">
+      <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Identifica el caso (ejercicio)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+      <div class="accordion-content">
+        <div id="caseQuizArea"></div>
+        <button id="newCaseQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+        <div id="caseFeedback" style="margin-top: 1rem;"></div>
+        <p><small>Las palabras están en diferentes casos. Usa el contexto y las terminaciones.</small></p>
+      </div>
+    </div>
+
+    <!-- Sección 4: Flashcards del vocabulario -->
+    <div class="accordion-item">
+      <div class="accordion-header"><span><i class="fas fa-id-card"></i> Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+      <div class="accordion-content">
+        <div id="flashcardGrid" class="vocab-grid"></div>
+        <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para mostrar la traducción.</small></p>
+      </div>
+    </div>
+
+    <!-- Sección 5: Autoevaluación + Quiz -->
+    <div class="accordion-item">
+      <div class="accordion-header"><span><i class="fas fa-gamepad"></i> Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+      <div class="accordion-content">
+        <div id="quizContainer"></div>
+        <div id="quizFeedback" class="card-highlight"></div>
+        <h3>Traduce al español</h3>
+        <div id="translationQuizL5"></div>
+        <h3>Frase en contexto: Juan 1:1</h3>
+        <div class="card-highlight"><span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος</span><br><button id="checkJohn" class="btn-reveal">Traducción</button><span id="johnAnswer" style="display:inline-block; margin-left:1rem;"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="leccion-4.html"><i class="fas fa-arrow-left"></i> Lección 4</a>
+    <a href="leccion-6.html"><i class="fas fa-arrow-right"></i> Lección 6</a>
+    <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+    <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+    <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+    <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>&copy; 2026 Koiné Academy · <span class="greek-word">ὁ λόγος σὰρξ ἐγένετο</span> (el Verbo se hizo carne)</p>
+</footer>
+
+<script>
+  // Vocabulario Lección 5 (20 palabras)
+  const vocabL5 = [
+    { greek: "ἐγώ", translit: "egō", spanish: "yo" },
+    { greek: "σύ", translit: "sy", spanish: "tú" },
+    { greek: "ἡμεῖς", translit: "hēmeis", spanish: "nosotros" },
+    { greek: "ὑμεῖς", translit: "hymeis", spanish: "vosotros" },
+    { greek: "τίς", translit: "tis", spanish: "¿quién? ¿qué?" },
+    { greek: "τις", translit: "tis", spanish: "alguien, cierto" },
+    { greek: "οὐδείς", translit: "oudeis", spanish: "nadie, ninguno" },
+    { greek: "ἕκαστος", translit: "hekastos", spanish: "cada uno" },
+    { greek: "ὅς", translit: "hos", spanish: "que, quien (relativo)" },
+    { greek: "μαθητής", translit: "mathētēs", spanish: "discípulo" },
+    { greek: "ἀπόστολος", translit: "apostolos", spanish: "apóstol" },
+    { greek: "προφήτης", translit: "prophētēs", spanish: "profeta" },
+    { greek: "ἄγγελος", translit: "angelos", spanish: "ángel, mensajero" },
+    { greek: "δοῦλος", translit: "doulos", spanish: "siervo, esclavo" },
+    { greek: "ἀδελφός", translit: "adelphos", spanish: "hermano" },
+    { greek: "τέκνον", translit: "teknon", spanish: "hijo, niño" },
+    { greek: "οἶκος / οἰκία", translit: "oikos/oikia", spanish: "casa, hogar" },
+    { greek: "γυνή", translit: "gynē", spanish: "mujer, esposa" },
+    { greek: "ἀνήρ", translit: "anēr", spanish: "hombre, esposo" },
+    { greek: "πόλις", translit: "polis", spanish: "ciudad" }
+  ];
+
+  // Palabras para ejercicio de casos (se muestran en contexto)
+  const caseExamples = [
+    { word: "ὁ λόγος", case: "nominativo", meaning: "la palabra" },
+    { word: "τοῦ θεοῦ", case: "genitivo", meaning: "de Dios" },
+    { word: "τῷ ἀνθρώπῳ", case: "dativo", meaning: "al hombre" },
+    { word: "τὸν υἱόν", case: "acusativo", meaning: "al hijo" },
+    { word: "κύριε", case: "vocativo", meaning: "¡Señor!" },
+    { word: "οἱ μαθηταί", case: "nominativo", meaning: "los discípulos" },
+    { word: "τῶν ἀποστόλων", case: "genitivo", meaning: "de los apóstoles" },
+    { word: "τῇ ἐκκλησίᾳ", case: "dativo", meaning: "a la iglesia" }
+  ];
+
+  let currentCase = caseExamples[0];
+
+  function renderVocabTable() {
+    const tbody = document.querySelector('#vocabTableL5 tbody');
+    if (tbody) {
+      vocabL5.forEach(v => {
+        tbody.innerHTML += `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td></tr>`;
+      });
+    }
+  }
+
+  function renderFlashcards() {
+    const container = document.getElementById('flashcardGrid');
+    if (!container) return;
+    container.innerHTML = '';
+    vocabL5.forEach(word => {
+      const card = document.createElement('div');
+      card.className = 'vocab-card';
+      card.innerHTML = `<div style="font-size:1.6rem; font-weight:bold;" class="greek-word">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+      card.addEventListener('click', () => {
+        const m = card.querySelector('.meaning');
+        m.style.display = m.style.display === 'none' ? 'block' : 'none';
+      });
+      container.appendChild(card);
+    });
+  }
+
+  // Ejercicio de casos
+  function loadCaseQuiz() {
+    const randomIndex = Math.floor(Math.random() * caseExamples.length);
+    currentCase = caseExamples[randomIndex];
+    const container = document.getElementById('caseQuizArea');
+    container.innerHTML = `<div class="card-highlight"><strong>Identifica el caso de:</strong><br><span class="greek-word" style="font-size:1.8rem;">${currentCase.word}</span><br>
+    <button id="optNom" class="btn-reveal">Nominativo</button> <button id="optGen" class="btn-reveal">Genitivo</button> <button id="optDat" class="btn-reveal">Dativo</button>
+    <button id="optAcc" class="btn-reveal">Acusativo</button> <button id="optVoc" class="btn-reveal">Vocativo</button><br>
+    <small>Significado aproximado: ${currentCase.meaning}</small></div>`;
+    const addListener = (id, caseName) => {
+      document.getElementById(id).addEventListener('click', () => {
+        const feedback = document.getElementById('caseFeedback');
+        if (caseName === currentCase.case) {
+          feedback.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+        } else {
+          feedback.innerHTML = `<span class="wrong-feedback">✗ Incorrecto. El caso es ${currentCase.case}.</span>`;
+        }
+      });
+    };
+    addListener('optNom', 'nominativo');
+    addListener('optGen', 'genitivo');
+    addListener('optDat', 'dativo');
+    addListener('optAcc', 'acusativo');
+    addListener('optVoc', 'vocativo');
+  }
+
+  // Quiz de vocabulario
+  const quizL5 = [
+    { question: "¿Qué significa 'ἐγώ'?", options: ["Tú", "Él", "Yo", "Nosotros"], correct: 2 },
+    { question: "Traduce 'μαθητής'", options: ["Apóstol", "Discípulo", "Profeta", "Ángel"], correct: 1 },
+    { question: "¿Cuál es la palabra para 'hermano'?", options: ["ἀδελφός", "δοῦλος", "τέκνον", "ἀνήρ"], correct: 0 },
+    { question: "Identifica 'πόλις'", options: ["Casa", "Ciudad", "Pueblo", "Mujer"], correct: 1 },
+    { question: "¿Qué significa 'τίς'?", options: ["Alguien", "Nadie", "¿Quién?", "Este"], correct: 2 }
+  ];
+  let currentQ = 0;
+  function loadQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    const q = quizL5[currentQ % quizL5.length];
+    let html = `<p><strong>${q.question}</strong></p>`;
+    q.options.forEach((opt, idx) => {
+      html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+    });
+    container.innerHTML = html;
+    document.querySelectorAll('.quiz-option').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const selected = parseInt(el.dataset.opt);
+        const isCorrect = (selected === q.correct);
+        const feedback = document.getElementById('quizFeedback');
+        if (isCorrect) {
+          feedback.innerHTML = '<span class="correct-feedback">✅ ¡Muy bien! +10 XP</span>';
+          currentQ++;
+          setTimeout(() => { loadQuiz(); feedback.innerHTML = ''; }, 1200);
+        } else {
+          feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.options[q.correct]}</span>`;
+        }
+      });
+    });
+  }
+
+  // Traducción aleatoria
+  function loadTranslationQuiz() {
+    const container = document.getElementById('translationQuizL5');
+    const randomWord = vocabL5[Math.floor(Math.random() * vocabL5.length)];
+    container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+    <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+    document.getElementById('checkTrans').addEventListener('click', () => {
+      const answer = document.getElementById('transAnswer').value.trim().toLowerCase();
+      const correct = randomWord.spanish.toLowerCase();
+      const fb = document.getElementById('transFeedback');
+      if (answer === correct || (correct.includes(answer) && answer.length > 2)) {
+        fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+      } else {
+        fb.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${randomWord.spanish}</span>`;
+      }
+    });
+  }
+
+  // Juan 1:1
+  function initJohn() {
+    const btn = document.getElementById('checkJohn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const span = document.getElementById('johnAnswer');
+        span.innerHTML = '<strong>“En el principio era el Verbo”</strong>';
+      });
+    }
+  }
+
+  // Acordeones y botones reveal
+  function initAccordions() {
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      header.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  }
+
+  function initRevealButtons() {
+    const btns = document.querySelectorAll('.btn-reveal');
+    btns.forEach(btn => {
+      if (btn.id === 'newCaseQuiz' || btn.id === 'optNom' || btn.id === 'optGen' || btn.id === 'optDat' || btn.id === 'optAcc' || btn.id === 'optVoc' || btn.id === 'checkTrans' || btn.id === 'checkJohn') return;
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        if (targetId) {
+          const ans = document.getElementById(targetId);
+          if (ans) ans.classList.toggle('show');
+        }
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    renderVocabTable();
+    renderFlashcards();
+    loadCaseQuiz();
+    loadQuiz();
+    loadTranslationQuiz();
+    initJohn();
+    initAccordions();
+    initRevealButtons();
+    document.getElementById('newCaseQuiz')?.addEventListener('click', () => {
+      loadCaseQuiz();
+      document.getElementById('caseFeedback').innerHTML = '';
+    });
+  });
+</script>
+</body>
+</html>

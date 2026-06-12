@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Griego del Nuevo Testamento | BibleFluent - 70 lecciones</title>
-  <meta name="description" content="Curso completo de griego koiné en 70 lecciones. Método de lectura programada. Aprende gramática, 1050 palabras y lectura del NT. Gratuito.">
+  <meta name="description" content="Curso completo de griego koiné en 70 lecciones. Método de lectura programada. Aprende gramática, 1400 palabras y lectura del NT. Gratuito.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=EB+Garamond:ital@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -160,6 +160,7 @@
       justify-content: center;
       gap: 2rem;
       margin-top: 2rem;
+      flex-wrap: wrap;
     }
     .stat { text-align: center; }
     .stat-num { font-size: 2rem; font-weight: 700; display: block; }
@@ -279,13 +280,14 @@
     .accordion-group.open .accordion-group-content { max-height: 600px; overflow-y: auto; }
     .lesson-options { list-style: none; padding: 0.5rem 0; margin: 0; }
     .lesson-options li {
-      padding: 0.5rem 1.5rem;
+      padding: 0.5rem 1rem;
       border-bottom: 1px solid #f0e7d6;
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
       transition: 0.1s;
+      gap: 0.5rem;
     }
     .lesson-options li:hover { background: #fef9e6; }
     .lesson-options li .lesson-num {
@@ -294,33 +296,17 @@
       padding: 0.2rem 0.6rem;
       border-radius: 2rem;
       font-weight: 600;
-      margin-right: 1rem;
       min-width: 45px;
       text-align: center;
     }
-    .lesson-options li .lesson-title { flex: 1; font-weight: 500; }
-    .lesson-options li i { color: #c6a43b; font-size: 0.8rem; opacity: 0.6; }
+    .lesson-options li .lesson-title { flex: 1; font-weight: 500; word-break: break-word; }
+    .lesson-options li i { color: #c6a43b; font-size: 0.8rem; opacity: 0.6; flex-shrink: 0; }
     /* Colores módulos */
     .accordion-group[data-module="1"] .accordion-group-header { background: #e8dcc8; }
     .accordion-group[data-module="2"] .accordion-group-header { background: #d9e6d9; }
     .accordion-group[data-module="3"] .accordion-group-header { background: #f0e6d2; }
     .accordion-group[data-module="4"] .accordion-group-header { background: #e6d9e6; }
     .accordion-group[data-module="5"] .accordion-group-header { background: #d9e6f0; }
-    .go-button {
-      display: block;
-      width: 100%;
-      max-width: 300px;
-      margin: 2rem auto 0;
-      background: #c6a43b;
-      color: #1f3b2c;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 3rem;
-      font-weight: bold;
-      cursor: pointer;
-      text-align: center;
-    }
-    .go-button:hover { background: #b08a2c; transform: translateY(-2px); }
     .lessons-cta { text-align: center; margin-top: 2rem; }
     /* ========== MÉTODO ========== */
     .method-section { padding: 4rem 0; background: white; }
@@ -344,22 +330,8 @@
       font-size: 1.6rem;
       font-family: 'EB Garamond', serif;
       margin-bottom: 1rem;
+      word-break: break-word;
     }
-    /* ========== TESTIMONIOS ========== */
-    .testimonials-section { padding: 4rem 0; background: #fefcf5; }
-    .testimonials-header { text-align: center; margin-bottom: 2rem; }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .testimonial-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    .testimonial-card i { color: #c6a43b; font-size: 1.5rem; margin-bottom: 1rem; }
     /* ========== FINAL CTA ========== */
     .final-cta-section {
       background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
@@ -390,9 +362,19 @@
     .footer-nav a { color: #cdd9cf; text-decoration: none; }
     .footer-nav a:hover { color: #c6a43b; }
     .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #2a3a2e; }
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
       .about-grid, .footer-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: 2rem; }
+      .hero-greek-quote { font-size: 1.3rem; }
+      .section-title { font-size: 1.8rem; }
+      .accordion-selector { padding: 1.5rem; }
+      .accordion-group-header { padding: 0.8rem 1rem; font-size: 1rem; }
+      .lesson-options li { padding: 0.5rem 0.8rem; }
+      .lesson-options li .lesson-num { min-width: 40px; font-size: 0.7rem; }
+      .method-step { gap: 1rem; }
+      .step-number { font-size: 1.5rem; min-width: 40px; }
+      .container { padding: 0 1rem; }
     }
   </style>
 </head>
@@ -426,7 +408,7 @@
         <h1 class="hero-title">Lee el Nuevo Testamento<br>en su idioma original</h1>
         <p class="hero-greek-quote">Ἐν ἀρχῇ ἦν ὁ λόγος</p>
         <p class="hero-greek-trans">«En el principio era la Palabra» — Juan 1:1</p>
-        <p class="hero-desc">Un curso completo de griego koiné en <strong>70 lecciones</strong> basado en el <strong>método de lectura programada</strong>. Cada lección incluye <strong>7 micro-lecciones</strong>, <strong>15 palabras de vocabulario</strong> y ejercicios interactivos. Sin requisitos previos. Aprende a leer el texto griego del Nuevo Testamento desde la primera semana.</p>
+        <p class="hero-desc">Un curso completo de griego koiné en <strong>70 lecciones</strong> basado en el <strong>método de lectura programada</strong>. Cada lección incluye <strong>7 micro-lecciones</strong>, <strong>20 palabras de vocabulario</strong> y ejercicios interactivos. Sin requisitos previos. Aprende a leer el texto griego del Nuevo Testamento desde la primera semana.</p>
         <div class="hero-actions">
           <a href="#lecciones" class="btn-primary">Ver las 70 lecciones <i class="fas fa-arrow-right"></i></a>
           <a href="#acerca" class="btn-ghost">¿Qué aprenderé?</a>
@@ -436,7 +418,7 @@
           <div class="stat-divider"></div>
           <div class="stat"><span class="stat-num">7</span><span class="stat-label">Micro-lecciones/lección</span></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="stat-num">1050</span><span class="stat-label">Palabras de vocabulario</span></div>
+          <div class="stat"><span class="stat-num">1400</span><span class="stat-label">Palabras de vocabulario</span></div>
         </div>
         <div class="hero-video-placeholder" id="videoPlaceholder">
           <div class="video-preview">
@@ -454,13 +436,14 @@
             <span class="section-label">El curso</span>
             <h2 class="section-title">¿Por qué aprender griego koiné?</h2>
             <p>El Nuevo Testamento fue escrito en griego koiné. Leerlo en su lengua original te permite acceder a matices que ninguna traducción puede transmitir por completo. Nuestro curso utiliza el <strong>método de lectura programada</strong>, que descompone el aprendizaje en pequeñas unidades (micro-lecciones) para que avances de forma constante y segura.</p>
-            <p>Este curso parte desde cero: aprenderás el alfabeto, la fonología, la morfología nominal y verbal, y la sintaxis básica del griego neotestamentario — todo explicado con claridad en español. Integramos tres enfoques simultáneos: gramática, vocabulario (1050 palabras más frecuentes) y lectura progresiva del Nuevo Testamento.</p>
+            <p>Este curso parte desde cero: aprenderás el alfabeto, la fonología, la morfología nominal y verbal, y la sintaxis básica del griego neotestamentario — todo explicado con claridad en español. Integramos tres enfoques simultáneos: gramática, vocabulario (1400 palabras más frecuentes, cubriendo el 90% del NT) y lectura progresiva del Nuevo Testamento.</p>
+            <p>Estructurado en <strong>5 módulos</strong> y <strong>70 lecciones</strong>, con un vocabulario acumulado de 1400 palabras (96% del NT).</p>
             <a href="es/leccion-1.html" class="text-link">Comenzar con la lección 1 <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="about-features">
             <div class="feature-card"><i class="fas fa-book feature-icon"></i><h3>Texto original</h3><p>Aprende a leer directamente el texto griego del Nuevo Testamento.</p></div>
-            <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>Enfoque práctico</h3><p>Cada lección introduce 15 palabras de alta frecuencia.</p></div>
-            <div class="feature-card"><i class="fas fa-brain feature-icon"></i><h3>Lectura programada</h3><p>6 micro-lecciones por lección con ejercicios paso a paso.</p></div>
+            <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>Enfoque práctico</h3><p>Cada lección introduce 20 palabras de alta frecuencia.</p></div>
+            <div class="feature-card"><i class="fas fa-brain feature-icon"></i><h3>Lectura programada</h3><p>7 micro-lecciones por lección con ejercicios paso a paso.</p></div>
             <div class="feature-card"><i class="fas fa-dove feature-icon"></i><h3>Profundidad espiritual</h3><p>Cada lección conecta con pasajes reales del Nuevo Testamento.</p></div>
           </div>
         </div>
@@ -475,13 +458,11 @@
           <p class="section-desc">Progresión cuidadosamente diseñada: desde el alfabeto hasta la lectura fluida de textos del Nuevo Testamento.</p>
         </div>
 
-        <!-- MENÚ DESPLEGABLE TIPO ACORDEÓN (sin buscador) -->
+        <!-- MENÚ DESPLEGABLE TIPO ACORDEÓN -->
         <div class="accordion-selector">
           <h3><i class="fas fa-folder-tree"></i> Selecciona tu lección</h3>
           <p>Haz clic en cualquier lección para abrirla directamente.</p>
           <div id="accordionContainer"></div>
-          <!-- Botón opcional (se mantiene por si acaso, pero el clic directo es principal) -->
-          <button class="go-button" id="goToLessonBtn" style="display: none;">Ir a lección seleccionada</button>
         </div>
 
         <div class="lessons-cta">
@@ -494,11 +475,11 @@
       <div class="container">
         <div class="method-header"><span class="section-label">Metodología</span><h2 class="section-title">Cómo aprenderás</h2></div>
         <div class="method-steps">
-          <div class="method-step"><div class="step-number">I</div><div><h3>Aprende el sistema, no la excepción</h3><p>La gramática griega tiene una lógica interna coherente. Cada lección explica los patrones para que puedas reconocer formas nuevas sin haberlas visto antes.</p></div></div>
-          <div class="method-step"><div class="step-number">II</div><div><h3>Vocabulario estratégico (1050 palabras)</h3><p>Las 1050 palabras más frecuentes del Nuevo Testamento cubren más del 90% del texto. El curso prioriza este vocabulario de alto impacto, introduciendo 15 palabras por lección.</p></div></div>
-          <div class="method-step"><div class="step-number">III</div><div><h3>7 micro-lecciones por lección</h3><p>Cada lección se divide en 7 micro-lecciones temáticas, con ejercicios de arrastrar, flashcards, emparejamiento y autoevaluación para reforzar el aprendizaje.</p></div></div>
-          <div class="method-step"><div class="step-number">IV</div><div><h3>Lectura programada</h3><p>El método de lectura programada descompone el contenido en pequeños pasos (micro-lecciones) que aseguran un progreso constante y evitan la sobrecarga cognitiva.</p></div></div>
-          <div class="method-step"><div class="step-number">V</div><div><h3>Progresión acumulativa</h3><p>Cada lección construye sobre la anterior. Al llegar a la lección 70 habrás cubierto el 95% de las estructuras gramaticales del Nuevo Testamento griego.</p></div></div>
+          <div class="method-step"><div class="step-number">I</div><div><h3>Texto programado</h3><p>Cada lección se divide en pequeñas unidades de respuesta inmediata, garantizando un progreso constante sin sobrecarga.</p></div></div>
+          <div class="method-step"><div class="step-number">II</div><div><h3>Vocabulario estratégico (1400 palabras)</h3><p>Las 1400 palabras más frecuentes del Nuevo Testamento cubren más del 96% del texto. El curso prioriza este vocabulario de alto impacto, introduciendo 20 palabras por lección.</p></div></div>
+          <div class="method-step"><div class="step-number">III</div><div><h3>Lectura inductiva</h3><p>Aprende gramática y vocabulario en su contexto natural, leyendo pasajes reales del NT desde las primeras lecciones.</p></div></div>
+          <div class="method-step"><div class="step-number">IV</div><div><h3>Spaced Repetition (SRS)</h3><p>Sistema de repaso espaciado integrado para fijar el vocabulario a largo plazo con intervalos crecientes.</p></div></div>
+          <div class="method-step"><div class="step-number">V</div><div><h3>Análisis contextual</h3><p>Cada lección incluye ejercicios de reconocimiento de formas y análisis de cláusulas del NT, preparándote para la exégesis.</p></div></div>
         </div>
       </div>
     </section>
@@ -508,17 +489,6 @@
         <blockquote class="verse-greek">πᾶσα γραφὴ θεόπνευστος καὶ ὠφέλιμος πρὸς διδασκαλίαν</blockquote>
         <p class="verse-trans">«Toda la Escritura es inspirada por Dios y útil para enseñar»</p>
         <cite class="verse-ref">2 Timoteo 3:16</cite>
-      </div>
-    </section>
-
-    <section id="testimonios" class="testimonials-section">
-      <div class="container">
-        <div class="testimonials-header"><span class="section-label">Estudiantes</span><h2 class="section-title">Lo que dicen quienes ya estudian</h2></div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«El método de lectura programada hace que el griego sea realmente accesible. Cada micro-lección es un paso pequeño pero seguro.»</p><div class="testimonial-author"><strong>Marcos R.</strong><span>Predicador · Colombia</span></div></div>
-          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«Lo mejor es que todo está en español. Las 6 micro-lecciones por lección me permiten estudiar sin agobios.»</p><div class="testimonial-author"><strong>Ana L.</strong><span>Estudiante de teología · México</span></div></div>
-          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«En la lección 3 ya podía leer palabras completas. El vocabulario de 15 palabras por lección es justo lo que necesito.»</p><div class="testimonial-author"><strong>Roberto E.</strong><span>Hno. en la fe · España</span></div></div>
-        </div>
       </div>
     </section>
 
@@ -562,7 +532,7 @@
 
   <script>
     (function() {
-      // ==================== DATOS DE LAS 70 LECCIONES ====================
+      // ==================== DATOS DE LAS 70 LECCIONES (basado en lecciones.md) ====================
       const modulesData = [
         { title: "Módulo I — Fundamentos (L01–L15)", moduleId: 1, start: 1, lessons: [
           "El Griego del NT: Historia y sistema de escritura",
@@ -646,13 +616,9 @@
         ]}
       ];
 
-      // Construir el acordeón y asignar redirección directa al hacer clic
       function buildAccordion() {
         const container = document.getElementById('accordionContainer');
-        if (!container) {
-          console.error('No se encontró #accordionContainer');
-          return;
-        }
+        if (!container) return;
         let html = '';
         modulesData.forEach((mod, idx) => {
           const openClass = (idx === 0) ? 'open' : '';
@@ -684,13 +650,10 @@
         });
         container.innerHTML = html;
 
-        // Eventos de acordeón (abrir/cerrar)
         document.querySelectorAll('.accordion-group-header').forEach(header => {
           header.removeEventListener('click', toggleAccordion);
           header.addEventListener('click', toggleAccordion);
         });
-
-        // Eventos de clic en cada lección: redirigir DIRECTAMENTE
         document.querySelectorAll('.lesson-options li').forEach(li => {
           li.removeEventListener('click', redirectToLesson);
           li.addEventListener('click', redirectToLesson);
@@ -703,14 +666,11 @@
       }
 
       function redirectToLesson(e) {
-        // Evitar que el clic se propague al acordeón
         e.stopPropagation();
         const li = this;
         const lessonNum = parseInt(li.dataset.lesson);
         if (!isNaN(lessonNum)) {
           window.location.href = `es/leccion-${lessonNum}.html`;
-        } else {
-          console.warn('Número de lección inválido');
         }
       }
 
@@ -718,10 +678,6 @@
       document.addEventListener('DOMContentLoaded', () => {
         buildAccordion();
 
-        // Opcional: si quieres mantener el botón, pero está oculto (display:none)
-        // Para no complicar, se ha ocultado el botón. Si prefieres tenerlo, descomenta y ajusta.
-
-        // Video placeholder
         const videoPlaceholder = document.getElementById('videoPlaceholder');
         if (videoPlaceholder) {
           videoPlaceholder.addEventListener('click', () => {
@@ -729,11 +685,9 @@
           });
         }
 
-        // Año footer
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        // Menú hamburguesa (como estaba)
         const navToggle = document.getElementById('nav-toggle');
         const mainNav = document.getElementById('main-nav');
         if (navToggle && mainNav) {
@@ -767,7 +721,6 @@
           });
         }
 
-        // Scroll suave para anclas
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -781,7 +734,6 @@
           });
         });
 
-        // Efecto sombra header
         const header = document.getElementById('site-header');
         if (header) {
           window.addEventListener('scroll', () => {
@@ -789,7 +741,6 @@
           });
         }
 
-        // Cerrar menú al redimensionar
         window.addEventListener('resize', () => {
           if (window.innerWidth > 900 && mainNav.classList.contains('open')) {
             mainNav.classList.remove('open');

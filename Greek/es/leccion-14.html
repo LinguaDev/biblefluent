@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 14: El Imperfecto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .rule-box { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 1rem 0; border-left: 4px solid #2c7a6e; }
+    .augment-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .aspect-compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin: 1rem 0; }
+    .aspect-card { background: #f0f4f8; padding: 0.5rem; border-radius: 0.5rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-13.html"><i class="fas fa-arrow-left"></i> Lección 13</a>
+        <a href="leccion-15.html"><i class="fas fa-arrow-right"></i> Lección 15</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-clock"></i> Lección 14 · El Imperfecto <span class="hero-badge">Módulo I · Fundamentos</span></h1>
+      <p>Acción continua en el pasado · Aumento · Terminaciones · Aspecto lineal · Comparación con aoristo</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill" style="width:20%"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 280/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe src="https://www.youtube.com/embed/YD5nBzLvO4I" title="El imperfecto en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: El imperfecto – acción continua en el pasado</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: EL IMPERFECTO – INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-hourglass-half"></i> 1. El tiempo imperfecto: aspecto lineal en pasado</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>imperfecto</strong> es un tiempo verbal que expresa una acción <strong>continua, habitual o repetida</strong> en el pasado. Su aspecto es <strong>lineal</strong> (como el presente, pero en el pasado).</p>
+          <div class="aspect-compare">
+            <div class="aspect-card"><strong>Presente</strong><br>acción continua<br><span class="greek-word">λύω</span> – desato (ahora)</div>
+            <div class="aspect-card"><strong>Imperfecto</strong><br>acción continua en pasado<br><span class="greek-word">ἔλυον</span> – desataba</div>
+            <div class="aspect-card"><strong>Aoristo</strong><br>acción puntual<br><span class="greek-word">ἔλυσα</span> – desaté</div>
+          </div>
+          <p><strong>Usos principales del imperfecto en el NT:</strong></p>
+          <ul>
+            <li><strong>Acción en progreso:</strong> <span class="greek-word">ἦν διδάσκων</span> (estaba enseñando).</li>
+            <li><strong>Acción habitual:</strong> <span class="greek-word">ἐπορεύετο</span> (solía ir / iba).</li>
+            <li><strong>Descripción de fondo:</strong> establece el escenario para la narración.</li>
+          </ul>
+          <div class="rule-box">
+            <strong><i class="fas fa-gavel"></i> Aspecto del imperfecto:</strong> El imperfecto describe la <strong>duración</strong> o <strong>repetición</strong> de la acción en el pasado, no su finalización.
+          </div>
+          <button class="btn-reveal" data-target="imperfUsos">Ejemplos en el NT</button>
+          <div id="imperfUsos" class="answer-text">
+            <span class="greek-word">ἦν κηρύσσων</span> (Marcos 1:39) – "estaba predicando".<br>
+            <span class="greek-word">ἐδίδασκεν</span> – "enseñaba" (acción continua).<br>
+            <span class="greek-word">ἤρχοντο</span> – "venían" (acción repetida).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: FORMACIÓN DEL IMPERFECTO ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cogs"></i> 2. Formación del imperfecto activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El imperfecto se forma con tres elementos:</p>
+          <ul>
+            <li><strong>Aumento (ἐ-):</strong> prefijo que indica tiempo pasado.</li>
+            <li><strong>Tema verbal:</strong> la raíz del presente.</li>
+            <li><strong>Terminaciones secundarias activas:</strong> -ον, -ες, -ε(ν), -ομεν, -ετε, -ον.</li>
+          </ul>
+          <div class="augment-box">
+            <strong><i class="fas fa-plus-circle"></i> Reglas del aumento:</strong><br>
+            <strong>Silábico:</strong> se añade <strong>ἐ-</strong> si el verbo comienza con consonante.<br>
+            <span class="greek-word">λύω → ἔλυον</span> (desataba).<br>
+            <strong>Temporal:</strong> si el verbo comienza con vocal, la vocal se alarga:<br>
+            α → η, ε → η, ο → ω, etc.<br>
+            <span class="greek-word">ἀγαπάω → ἠγάπων</span> (amaba).
+          </div>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Terminación</th><th>Ejemplo: λύω → ἔλυον (desataba)</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>-ον</td><td>ἔλυον</td></tr>
+                <tr><td>2ª sg.</td><td>-ες</td><td>ἔλυες</td></tr>
+                <tr><td>3ª sg.</td><td>-ε(ν)</td><td>ἔλυε(ν)</td></tr>
+                <tr><td>1ª pl.</td><td>-ομεν</td><td>ἐλύομεν</td></tr>
+                <tr><td>2ª pl.</td><td>-ετε</td><td>ἐλύετε</td></tr>
+                <tr><td>3ª pl.</td><td>-ον</td><td>ἔλυον</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn-reveal" data-target="imperfActEj">Conjuga ἐγώ en imperfecto activo</button>
+          <div id="imperfActEj" class="answer-text">
+            <span class="greek-word">ἔχω</span> (tener) → εἶχον (yo tenía), εἶχες, εἶχε, εἴχομεν, εἴχετε, εἶχον.<br>
+            <span class="greek-word">λέγω</span> (decir) → ἔλεγον (yo decía), ἔλεγες, ἔλεγε, ἐλέγομεν, ἐλέγετε, ἔλεγον.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: EL IMPERFECTO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-circle-notch"></i> 3. El imperfecto medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El imperfecto medio/pasivo usa las <strong>terminaciones medias secundarias</strong> (-μην, -σο, -το, -μεθα, -σθε, -ντο) con aumento + tema.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Terminación</th><th>Ejemplo: λύω → ἐλυόμην (me desataba / era desatado)</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>-μην</td><td>ἐλυόμην</td></tr>
+                <tr><td>2ª sg.</td><td>-σο</td><td>ἐλύου</td></tr>
+                <tr><td>3ª sg.</td><td>-το</td><td>ἐλύετο</td></tr>
+                <tr><td>1ª pl.</td><td>-μεθα</td><td>ἐλυόμεθα</td></tr>
+                <tr><td>2ª pl.</td><td>-σθε</td><td>ἐλύεσθε</td></tr>
+                <tr><td>3ª pl.</td><td>-ντο</td><td>ἐλύοντο</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Observaciones:</strong></p>
+          <ul>
+            <li>La 2ª sg. (-σο) se contrae con la vocal de unión: <span class="greek-word">ἐλύεσο → ἐλύου</span>.</li>
+            <li>Los verbos deponentes usan estas terminaciones con significado activo: <span class="greek-word">ἐγινόμην</span> (llegaba a ser).</li>
+          </ul>
+          <button class="btn-reveal" data-target="imperfMidEj">Conjuga πορεύομαι en imperfecto medio</button>
+          <div id="imperfMidEj" class="answer-text">
+            <span class="greek-word">ἐπορευόμην</span> (yo iba), ἐπορεύου, ἐπορεύετο, ἐπορευόμεθα, ἐπορεύεσθε, ἐπορεύοντο.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 4. Vocabulario · Sustantivos y adjetivos comunes</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son frecuentes en los Evangelios y las Epístolas, describiendo personas y su condición.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-lightbulb"></i> <strong>Consejo:</strong> Muchos de estos adjetivos terminan en -ος (2ª declinación) o -ός (1ª/3ª). Practica su declinación y concordancia.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: EJERCICIO DE CONJUGACIÓN DEL IMPERFECTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 5. Practica: conjuga en imperfecto activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="imperfActQuizArea"></div>
+          <button id="newImperfActQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="imperfActFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: EJERCICIO DE CONJUGACIÓN DEL IMPERFECTO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 6. Practica: conjuga en imperfecto medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="imperfMidQuizArea"></div>
+          <button id="newImperfMidQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="imperfMidFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO: IDENTIFICA EL TIEMPO (PRESENTE, IMPERFECTO O AORISTO) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el tiempo verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tenseQuizArea"></div>
+          <button id="newTenseQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tenseFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 8. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 9. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: TEXTO PROGRAMADO – MARCOS 1:21-28 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 10. Lectura programada · Marcos 1:21-28</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee el relato de la enseñanza y sanidad en Capernaum. Identifica los verbos en imperfecto.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Marcos 1:21 – imperfecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ εἰσπορεύονται εἰς Καφαρναούμ· καὶ εὐθὺς τοῖς σάββασιν εἰσελθὼν εἰς τὴν συναγωγὴν ἐδίδασκεν.</span></p>
+              <button class="btn-reveal" data-target="mk21a">¿Qué verbo está en imperfecto?</button>
+              <div id="mk21a" class="answer-text"><span class="greek-word">ἐδίδασκεν</span> (enseñaba) – imperfecto activo de διδάσκω.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Marcos 1:22 – imperfecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ ἐξεπλήσσοντο ἐπὶ τῇ διδαχῇ αὐτοῦ, ἦν γὰρ διδάσκων αὐτοὺς ὡς ἐξουσίαν ἔχων καὶ οὐχ ὡς οἱ γραμματεῖς.</span></p>
+              <button class="btn-reveal" data-target="mk22a">¿Qué verbo en imperfecto medio/pasivo aparece?</button>
+              <div id="mk22a" class="answer-text"><span class="greek-word">ἐξεπλήσσοντο</span> (estaban asombrados) – imperfecto medio/pasivo de ἐκπλήσσω.</div>
+              <button class="btn-reveal" data-target="mk22b">¿Qué otro imperfecto aparece en la frase?</button>
+              <div id="mk22b" class="answer-text"><span class="greek-word">ἦν</span> (era) – imperfecto de εἰμί.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Marcos 1:23 – imperfecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ εὐθὺς ἦν ἐν τῇ συναγωγῇ αὐτῶν ἄνθρωπος ἐν πνεύματι ἀκαθάρτῳ, καὶ ἀνέκραξεν</span></p>
+              <button class="btn-reveal" data-target="mk23a">¿Qué verbo en imperfecto describe el estado?</button>
+              <div id="mk23a" class="answer-text"><span class="greek-word">ἦν</span> (estaba) – imperfecto de εἰμί.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con imperfecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οἱ δὲ ἄνθρωποι ἐθαύμαζον</span></p>
+              <button class="btn-reveal" data-target="traduccionImp">Traduce</button>
+              <div id="traduccionImp" class="answer-text">"Los hombres se maravillaban" (imperfecto de θαυμάζω – acción continua en el pasado).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 11. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Conjuga λύω en imperfecto activo y medio/pasivo. Practica la diferencia entre presente, imperfecto y aoristo con frases.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-13.html"><i class="fas fa-arrow-left"></i> Lección 13</a>
+      <a href="leccion-15.html"><i class="fas fa-arrow-right"></i> Lección 15</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἐδίδασκεν αὐτοὺς ὡς ἐξουσίαν ἔχων</span> (Marcos 1:22)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 14 ==========
+    window.lessonData = {
+      vocab: [
+        { greek: "ὄχλος", translit: "ochlos", spanish: "multitud, gentío", note: "2ª masc." },
+        { greek: "τυφλός", translit: "typhlos", spanish: "ciego", note: "2ª masc." },
+        { greek: "χωλός", translit: "chōlos", spanish: "cojo", note: "2ª masc." },
+        { greek: "λεπρός", translit: "lepros", spanish: "leproso", note: "2ª masc." },
+        { greek: "πτωχός", translit: "ptōchos", spanish: "pobre", note: "2ª masc." },
+        { greek: "ἁμαρτωλός", translit: "hamartōlos", spanish: "pecador", note: "2ª masc." },
+        { greek: "νεανίας", translit: "neanias", spanish: "joven", note: "1ª masc." },
+        { greek: "παιδίον", translit: "paidion", spanish: "niño pequeño", note: "2ª neut." },
+        { greek: "παῖς", translit: "pais", spanish: "niño, siervo", note: "3ª masc./fem." },
+        { greek: "γέρων", translit: "gerōn", spanish: "anciano", note: "3ª masc." },
+        { greek: "πρεσβύτερος", translit: "presbyteros", spanish: "anciano, presbítero", note: "2ª masc." },
+        { greek: "δεσπότης", translit: "despotēs", spanish: "señor, amo", note: "1ª masc." },
+        { greek: "οἰκοδεσπότης", translit: "oikodespotēs", spanish: "dueño de casa", note: "1ª masc." },
+        { greek: "δοῦλος", translit: "doulos", spanish: "siervo, esclavo", note: "2ª masc." },
+        { greek: "ἐλεύθερος", translit: "eleutheros", spanish: "libre", note: "2ª masc." },
+        { greek: "πλούσιος", translit: "plousios", spanish: "rico", note: "2ª masc." },
+        { greek: "δίκαιος", translit: "dikaios", spanish: "justo", note: "2ª masc." },
+        { greek: "πονηρός", translit: "ponēros", spanish: "malo, malvado", note: "2ª masc." },
+        { greek: "ἄξιος", translit: "axios", spanish: "digno", note: "2ª masc." },
+        { greek: "ἀνάξιος", translit: "anaxios", spanish: "indigno", note: "2ª masc." }
+      ],
+      quiz: [
+        { question: "¿Qué significa 'ὄχλος'?", options: ["multitud", "ciego", "pobre", "pecador"], correct: 0 },
+        { question: "Traduce 'τυφλός'", options: ["cojo", "ciego", "leproso", "pobre"], correct: 1 },
+        { question: "¿Qué verbo en imperfecto significa 'yo desataba'?", options: ["λύω", "ἔλυον", "ἔλυσα", "λέλυκα"], correct: 1 },
+        { question: "Terminación de 1ª persona singular del imperfecto activo", options: ["-ω", "-ον", "-σα", "-κα"], correct: 1 },
+        { question: "¿Qué significa 'ἐδίδασκεν'?", options: ["enseña", "enseñaba", "enseñó", "ha enseñado"], correct: 1 }
+      ],
+      customInit: function() {
+        // ==================== EJERCICIO DE IMPERFECTO ACTIVO ====================
+        const imperfActVerbs = [
+          { verb: "λύω", imperfect: "ἔλυον", person: "1ª sg." },
+          { verb: "λύω", imperfect: "ἔλυες", person: "2ª sg." },
+          { verb: "λύω", imperfect: "ἔλυε(ν)", person: "3ª sg." },
+          { verb: "λύω", imperfect: "ἐλύομεν", person: "1ª pl." },
+          { verb: "λύω", imperfect: "ἐλύετε", person: "2ª pl." },
+          { verb: "λύω", imperfect: "ἔλυον", person: "3ª pl." },
+          { verb: "λέγω", imperfect: "ἔλεγον", person: "1ª sg." },
+          { verb: "ἔχω", imperfect: "εἶχον", person: "1ª sg." }
+        ];
+        let currentImperfAct = imperfActVerbs[0];
+        const imperfActArea = document.getElementById("imperfActQuizArea");
+        const imperfActFeedback = document.getElementById("imperfActFeedback");
+        function loadImperfActQuiz() {
+          currentImperfAct = imperfActVerbs[Math.floor(Math.random() * imperfActVerbs.length)];
+          imperfActArea.innerHTML = `<div class="card-highlight"><strong>Escribe el imperfecto activo de ${currentImperfAct.person} para <span class="greek-word">${currentImperfAct.verb}</span>:</strong><br>
+          <input type="text" id="imperfActAnswer" placeholder="ej. ἔλυον" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkImperfAct" class="btn-reveal">Verificar</button>
+          <div id="imperfActResult"></div></div>`;
+          document.getElementById("checkImperfAct").addEventListener("click", () => {
+            const answer = document.getElementById("imperfActAnswer").value.trim();
+            const result = document.getElementById("imperfActResult");
+            if (answer === currentImperfAct.imperfect) {
+              result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+              setTimeout(loadImperfActQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${currentImperfAct.imperfect}</span>`;
+            }
+          });
+        }
+        loadImperfActQuiz();
+        document.getElementById("newImperfActQuiz")?.addEventListener("click", () => {
+          loadImperfActQuiz();
+          imperfActFeedback.innerHTML = "";
+        });
+
+        // ==================== EJERCICIO DE IMPERFECTO MEDIO/PASIVO ====================
+        const imperfMidVerbs = [
+          { verb: "λύω", imperfect: "ἐλυόμην", person: "1ª sg." },
+          { verb: "λύω", imperfect: "ἐλύου", person: "2ª sg." },
+          { verb: "λύω", imperfect: "ἐλύετο", person: "3ª sg." },
+          { verb: "λύω", imperfect: "ἐλυόμεθα", person: "1ª pl." },
+          { verb: "λύω", imperfect: "ἐλύεσθε", person: "2ª pl." },
+          { verb: "λύω", imperfect: "ἐλύοντο", person: "3ª pl." },
+          { verb: "πορεύομαι", imperfect: "ἐπορευόμην", person: "1ª sg." }
+        ];
+        let currentImperfMid = imperfMidVerbs[0];
+        const imperfMidArea = document.getElementById("imperfMidQuizArea");
+        const imperfMidFeedback = document.getElementById("imperfMidFeedback");
+        function loadImperfMidQuiz() {
+          currentImperfMid = imperfMidVerbs[Math.floor(Math.random() * imperfMidVerbs.length)];
+          imperfMidArea.innerHTML = `<div class="card-highlight"><strong>Escribe el imperfecto medio/pasivo de ${currentImperfMid.person} para <span class="greek-word">${currentImperfMid.verb}</span>:</strong><br>
+          <input type="text" id="imperfMidAnswer" placeholder="ej. ἐλυόμην" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkImperfMid" class="btn-reveal">Verificar</button>
+          <div id="imperfMidResult"></div></div>`;
+          document.getElementById("checkImperfMid").addEventListener("click", () => {
+            const answer = document.getElementById("imperfMidAnswer").value.trim();
+            const result = document.getElementById("imperfMidResult");
+            if (answer === currentImperfMid.imperfect) {
+              result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+              setTimeout(loadImperfMidQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${currentImperfMid.imperfect}</span>`;
+            }
+          });
+        }
+        loadImperfMidQuiz();
+        document.getElementById("newImperfMidQuiz")?.addEventListener("click", () => {
+          loadImperfMidQuiz();
+          imperfMidFeedback.innerHTML = "";
+        });
+
+        // ==================== EJERCICIO DE IDENTIFICACIÓN DE TIEMPO ====================
+        const tenseExamples = [
+          { form: "λύω", tense: "presente", translation: "desato" },
+          { form: "ἔλυον", tense: "imperfecto", translation: "desataba" },
+          { form: "ἔλυσα", tense: "aoristo", translation: "desaté" },
+          { form: "λέγω", tense: "presente", translation: "digo" },
+          { form: "ἔλεγον", tense: "imperfecto", translation: "decía" },
+          { form: "εἶπον", tense: "aoristo", translation: "dije" },
+          { form: "ἔχω", tense: "presente", translation: "tengo" },
+          { form: "εἶχον", tense: "imperfecto", translation: "tenía" }
+        ];
+        let currentTense = tenseExamples[0];
+        const tenseArea = document.getElementById("tenseQuizArea");
+        const tenseFeedback = document.getElementById("tenseFeedback");
+        function loadTenseQuiz() {
+          currentTense = tenseExamples[Math.floor(Math.random() * tenseExamples.length)];
+          tenseArea.innerHTML = `<div class="card-highlight"><strong>Identifica el tiempo de:</strong><br>
+          <span class="greek-word" style="font-size:1.8rem;">${currentTense.form}</span><br>
+          <button id="tensePres" class="btn-reveal">Presente</button> <button id="tenseImp" class="btn-reveal">Imperfecto</button> <button id="tenseAor" class="btn-reveal">Aoristo</button>
+          <div id="tenseResult"></div></div>`;
+          const presBtn = document.getElementById("tensePres");
+          const impBtn = document.getElementById("tenseImp");
+          const aorBtn = document.getElementById("tenseAor");
+          if (presBtn) presBtn.addEventListener("click", () => {
+            const result = document.getElementById("tenseResult");
+            if (currentTense.tense === "presente") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTense.translation})</span>`;
+              setTimeout(loadTenseQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTense.tense} (${currentTense.translation})</span>`;
+            }
+          });
+          if (impBtn) impBtn.addEventListener("click", () => {
+            const result = document.getElementById("tenseResult");
+            if (currentTense.tense === "imperfecto") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTense.translation})</span>`;
+              setTimeout(loadTenseQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTense.tense} (${currentTense.translation})</span>`;
+            }
+          });
+          if (aorBtn) aorBtn.addEventListener("click", () => {
+            const result = document.getElementById("tenseResult");
+            if (currentTense.tense === "aoristo") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTense.translation})</span>`;
+              setTimeout(loadTenseQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTense.tense} (${currentTense.translation})</span>`;
+            }
+          });
+        }
+        loadTenseQuiz();
+        document.getElementById("newTenseQuiz")?.addEventListener("click", () => {
+          loadTenseQuiz();
+          tenseFeedback.innerHTML = "";
+        });
+
+        // ==================== TEST ALEATORIO ====================
+        const randomBtn = document.getElementById("randomTestBtn");
+        if (randomBtn) {
+          randomBtn.addEventListener("click", () => {
+            const word = this.vocab[Math.floor(Math.random() * this.vocab.length)];
+            const area = document.getElementById("randomQuestionArea");
+            area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+            <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+            <div id="randResult"></div></div>`;
+            document.getElementById("submitRand").addEventListener("click", () => {
+              const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+              const correct = word.spanish.toLowerCase();
+              const res = document.getElementById("randResult");
+              if (ans === correct || correct.includes(ans)) {
+                res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+              } else {
+                res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+              }
+            });
+          });
+        }
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+</body>
+</html>

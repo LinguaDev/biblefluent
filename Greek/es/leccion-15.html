@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 15: Demostrativos y Números</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .rule-box { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 1rem 0; border-left: 4px solid #2c7a6e; }
+    .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; }
+    .demo-item { background: #f0f4f8; padding: 0.3rem 0.6rem; border-radius: 0.3rem; text-align: center; }
+    .num-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; margin: 1rem 0; }
+    .num-item { background: #e8f0e8; padding: 0.3rem 0.6rem; border-radius: 0.3rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-14.html"><i class="fas fa-arrow-left"></i> Lección 14</a>
+        <a href="leccion-16.html"><i class="fas fa-arrow-right"></i> Lección 16</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-hand-pointer"></i> Lección 15 · Demostrativos y Números <span class="hero-badge">Módulo I · Fundamentos</span></h1>
+      <p>Pronombres demostrativos οὗτος y ἐκεῖνος · Números cardinales y ordinales · Uso pronominal vs. adjetival</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill" style="width:21%"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 300/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe src="https://www.youtube.com/embed/9dQGGtqyPjk" title="Pronombres demostrativos y números en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los demostrativos οὗτος y ἐκεῖνος, y los números</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: PRONOMBRES DEMOSTRATIVOS – INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrow-pointer"></i> 1. Pronombres demostrativos: οὗτος y ἐκεῖνος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los pronombres demostrativos señalan o identifican algo en relación con el hablante:</p>
+          <ul>
+            <li><strong>οὗτος / αὕτη / τοῦτο</strong> = <strong>este / esta / esto</strong> (cerca del hablante).</li>
+            <li><strong>ἐκεῖνος / ἐκείνη / ἐκεῖνο</strong> = <strong>aquel / aquella / aquello</strong> (lejos del hablante).</li>
+          </ul>
+          <p>Se pueden usar como <strong>adjetivos</strong> (modificando un sustantivo) o como <strong>pronombres</strong> (en lugar de un sustantivo).</p>
+          <div class="rule-box">
+            <strong><i class="fas fa-gavel"></i> Regla de concordancia:</strong> El demostrativo concuerda en <strong>género, número y caso</strong> con el sustantivo al que modifica o al que se refiere.
+          </div>
+          <button class="btn-reveal" data-target="demoIntroEj">Ejemplos de uso</button>
+          <div id="demoIntroEj" class="answer-text">
+            <strong>Adjetival:</strong> <span class="greek-word">οὗτος ὁ λόγος</span> (esta palabra) – concuerda en masculino singular nominativo.<br>
+            <strong>Pronominal:</strong> <span class="greek-word">οὗτός ἐστιν</span> (este es) – funciona como sujeto.<br>
+            <strong>ἐκεῖνος:</strong> <span class="greek-word">ἐκεῖνος ὁ ἄνθρωπος</span> (aquel hombre).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: DECLINACIÓN DE οὗτος -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Declinación de οὗτος (este)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead>
+                <tr><th>Caso</th><th colspan="3">Singular</th><th colspan="3">Plural</th></tr>
+                <tr><th></th><th>Masc.</th><th>Fem.</th><th>Neut.</th><th>Masc.</th><th>Fem.</th><th>Neut.</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>οὗτος</td><td>αὕτη</td><td>τοῦτο</td><td>οὗτοι</td><td>αὗται</td><td>ταῦτα</td></tr>
+                <tr><td>Genitivo</td><td>τούτου</td><td>ταύτης</td><td>τούτου</td><td>τούτων</td><td>τούτων</td><td>τούτων</td></tr>
+                <tr><td>Dativo</td><td>τούτῳ</td><td>ταύτῃ</td><td>τούτῳ</td><td>τούτοις</td><td>ταύταις</td><td>τούτοις</td></tr>
+                <tr><td>Acusativo</td><td>τοῦτον</td><td>ταύτην</td><td>τοῦτο</td><td>τούτους</td><td>ταύτας</td><td>ταῦτα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Observaciones:</strong></p>
+          <ul>
+            <li>La raíz es <strong>τουτ-</strong> para masculino/neutro, y <strong>ταυτ-</strong> para femenino.</li>
+            <li>El nominativo singular neutro <span class="greek-word">τοῦτο</span> se confunde a veces con el artículo <span class="greek-word">τό</span>, pero lleva tilde.</li>
+            <li>El nominativo plural neutro <span class="greek-word">ταῦτα</span> es muy frecuente en el NT.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: DECLINACIÓN DE ἐκεῖνος -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Declinación de ἐκεῖνος (aquel)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead>
+                <tr><th>Caso</th><th colspan="3">Singular</th><th colspan="3">Plural</th></tr>
+                <tr><th></th><th>Masc.</th><th>Fem.</th><th>Neut.</th><th>Masc.</th><th>Fem.</th><th>Neut.</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>ἐκεῖνος</td><td>ἐκείνη</td><td>ἐκεῖνο</td><td>ἐκεῖνοι</td><td>ἐκεῖναι</td><td>ἐκεῖνα</td></tr>
+                <tr><td>Genitivo</td><td>ἐκείνου</td><td>ἐκείνης</td><td>ἐκείνου</td><td>ἐκείνων</td><td>ἐκείνων</td><td>ἐκείνων</td></tr>
+                <tr><td>Dativo</td><td>ἐκείνῳ</td><td>ἐκείνῃ</td><td>ἐκείνῳ</td><td>ἐκείνοις</td><td>ἐκείναις</td><td>ἐκείνοις</td></tr>
+                <tr><td>Acusativo</td><td>ἐκεῖνον</td><td>ἐκείνην</td><td>ἐκεῖνο</td><td>ἐκείνους</td><td>ἐκείνας</td><td>ἐκεῖνα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Observaciones:</strong></p>
+          <ul>
+            <li>Sigue el patrón de los adjetivos 2-1-2 (como <span class="greek-word">ἀγαθός</span>).</li>
+            <li>Femenino en <strong>-η</strong>, neutro en <strong>-ον</strong>.</li>
+            <li>Se usa para referirse a algo distante en el espacio o en el tiempo.</li>
+          </ul>
+          <button class="btn-reveal" data-target="demoComp">Comparación οὗτος vs. ἐκεῖνος</button>
+          <div id="demoComp" class="answer-text">
+            <span class="greek-word">οὗτος ὁ ἄνθρωπος</span> – este hombre (cerca)<br>
+            <span class="greek-word">ἐκεῖνος ὁ ἄνθρωπος</span> – aquel hombre (lejos)<br>
+            En Juan 14:26, <span class="greek-word">ἐκεῖνος</span> se usa para el Espíritu Santo: "él os enseñará".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: USO TEOLÓGICO DE ἐκεῖNOS EN JUAN 14-16 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 4. El uso de ἐκεῖνος en Juan 14-16</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>En el Evangelio de Juan, Jesús usa <span class="greek-word">ἐκεῖνος</span> para referirse al <strong>Espíritu Santo</strong> que vendría después de su partida. Es un uso teológico importante.</p>
+          <div class="rule-box">
+            <strong><i class="fas fa-bible"></i> Juan 14:26:</strong> <span class="greek-word">ὁ δὲ παράκλητος, τὸ πνεῦμα τὸ ἅγιον, ὃ πέμψει ὁ πατὴρ ἐν τῷ ὀνόματί μου, ἐκεῖνος ὑμᾶς διδάξει πάντα</span> (el Consolador, el Espíritu Santo... <strong>él</strong> os enseñará).
+          </div>
+          <p><strong>Juan 16:13:</strong> <span class="greek-word">ὅταν δὲ ἔλθῃ ἐκεῖνος, τὸ πνεῦμα τῆς ἀληθείας, ὁδηγήσει ὑμᾶς ἐν τῇ ἀληθείᾳ πάσῃ</span> (cuando venga <strong>él</strong>, el Espíritu de verdad, os guiará).</p>
+          <p>El uso de <span class="greek-word">ἐκεῖνος</span> (en lugar de <span class="greek-word">αὐτός</span>) enfatiza la <strong>distinción personal</strong> del Espíritu Santo respecto al Padre y al Hijo.</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: NÚMEROS CARDINALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calculator"></i> 5. Números cardinales y ordinales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Cardinales principales (1-12)</h3>
+          <div class="num-grid">
+            <div class="num-item"><strong>1</strong> <span class="greek-word">εἷς</span> (m), <span class="greek-word">μία</span> (f), <span class="greek-word">ἕν</span> (n)</div>
+            <div class="num-item"><strong>2</strong> <span class="greek-word">δύο</span></div>
+            <div class="num-item"><strong>3</strong> <span class="greek-word">τρεῖς</span> (m/f), <span class="greek-word">τρία</span> (n)</div>
+            <div class="num-item"><strong>4</strong> <span class="greek-word">τέσσαρες</span> (m/f), <span class="greek-word">τέσσαρα</span> (n)</div>
+            <div class="num-item"><strong>5</strong> <span class="greek-word">πέντε</span></div>
+            <div class="num-item"><strong>6</strong> <span class="greek-word">ἕξ</span></div>
+            <div class="num-item"><strong>7</strong> <span class="greek-word">ἑπτά</span></div>
+            <div class="num-item"><strong>8</strong> <span class="greek-word">ὀκτώ</span></div>
+            <div class="num-item"><strong>9</strong> <span class="greek-word">ἐννέα</span></div>
+            <div class="num-item"><strong>10</strong> <span class="greek-word">δέκα</span></div>
+            <div class="num-item"><strong>11</strong> <span class="greek-word">ἕνδεκα</span></div>
+            <div class="num-item"><strong>12</strong> <span class="greek-word">δώδεκα</span></div>
+          </div>
+          <h3>Números especiales (frecuentes en el NT)</h3>
+          <div class="num-grid">
+            <div class="num-item"><strong>40</strong> <span class="greek-word">τεσσεράκοντα</span></div>
+            <div class="num-item"><strong>70</strong> <span class="greek-word">ἑβδομήκοντα</span></div>
+            <div class="num-item"><strong>100</strong> <span class="greek-word">ἑκατόν</span></div>
+            <div class="num-item"><strong>1,000</strong> <span class="greek-word">χίλιοι</span></div>
+            <div class="num-item"><strong>10,000</strong> <span class="greek-word">μυριάς</span></div>
+          </div>
+          <h3>Ordinales principales</h3>
+          <div class="num-grid">
+            <div class="num-item"><strong>primero</strong> <span class="greek-word">πρῶτος</span></div>
+            <div class="num-item"><strong>segundo</strong> <span class="greek-word">δεύτερος</span></div>
+            <div class="num-item"><strong>tercero</strong> <span class="greek-word">τρίτος</span></div>
+            <div class="num-item"><strong>cuarto</strong> <span class="greek-word">τέταρτος</span></div>
+            <div class="num-item"><strong>séptimo</strong> <span class="greek-word">ἕβδομος</span></div>
+            <div class="num-item"><strong>octavo</strong> <span class="greek-word">ὄγδοος</span></div>
+            <div class="num-item"><strong>último</strong> <span class="greek-word">ἔσχατος</span></div>
+          </div>
+          <button class="btn-reveal" data-target="numEjemplos">Ejemplos bíblicos con números</button>
+          <div id="numEjemplos" class="answer-text">
+            <span class="greek-word">οἱ δώδεκα</span> – los doce (discípulos).<br>
+            <span class="greek-word">τεσσεράκοντα ἡμέρας</span> – cuarenta días.<br>
+            <span class="greek-word">ἑβδομήκοντα ἑπτά</span> – setenta y siete (Mateo 18:22).<br>
+            <span class="greek-word">χιλιάδες μυριάδων</span> – miles de millares (Apocalipsis).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Demostrativos y números</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen los demostrativos, números y otros términos relacionados.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-lightbulb"></i> <strong>Consejo:</strong> Practica la declinación de οὗτος y ἐκεῖνος con sustantivos de las lecciones anteriores (λόγος, φωνή, ἔργον).</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE DECLINACIÓN DE DEMOSTRATIVOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: declina un demostrativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="demoDeclQuizArea"></div>
+          <button id="newDemoDeclQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="demoDeclFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: USO PRONOMINAL VS. ADJETIVAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el uso del demostrativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="demoUseQuizArea"></div>
+          <button id="newDemoUseQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="demoUseFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO CON NÚMEROS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calculator"></i> 9. Practica con números</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="numQuizArea"></div>
+          <button id="newNumQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva pregunta</button>
+          <div id="numFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – JUAN 14:26 Y APOCALIPSIS 7:4 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Juan 14:26 y Apocalipsis 7:4</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica los demostrativos y los números.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 14:26 – ἐκεῖνος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ δὲ παράκλητος, τὸ πνεῦμα τὸ ἅγιον, ὃ πέμψει ὁ πατὴρ ἐν τῷ ὀνόματί μου, ἐκεῖνος ὑμᾶς διδάξει πάντα</span></p>
+              <button class="btn-reveal" data-target="j26a">¿Qué demostrativo aparece y qué uso tiene?</button>
+              <div id="j26a" class="answer-text"><span class="greek-word">ἐκεῖνος</span> – pronombre personal (se refiere al Espíritu Santo).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 7:4 – número</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ ἤκουσα τὸν ἀριθμὸν τῶν ἐσφραγισμένων, ἑκατὸν τεσσεράκοντα τέσσαρες χιλιάδες, ἐσφραγισμένοι ἐκ πάσης φυλῆς υἱῶν Ἰσραήλ</span></p>
+              <button class="btn-reveal" data-target="rev7">¿Qué número aparece?</button>
+              <div id="rev7" class="answer-text"><span class="greek-word">ἑκατὸν τεσσεράκοντα τέσσαρες χιλιάδες</span> – 144,000 (100 + 40 + 4 = 144).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con demostrativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οὗτός ἐστιν ὁ υἱός μου</span></p>
+              <button class="btn-reveal" data-target="traduccionDemo">Traduce</button>
+              <div id="traduccionDemo" class="answer-text">"Este es mi Hijo" (Mateo 3:17) – οὗτος funciona como pronombre.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Escribe la declinación de οὗτος y ἐκεῖνος. Practica los números cardinales y ordinales. Memoriza el uso teológico de ἐκεῖνος en Juan.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-14.html"><i class="fas fa-arrow-left"></i> Lección 14</a>
+      <a href="leccion-16.html"><i class="fas fa-arrow-right"></i> Lección 16</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">οὗτός ἐστιν ὁ υἱός μου</span> (Mateo 3:17)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 15 ==========
+    window.lessonData = {
+      vocab: [
+        { greek: "οὗτος / αὕτη / τοῦτο", translit: "houtos / hautē / touto", spanish: "este / esta / esto", note: "demostrativo" },
+        { greek: "ἐκεῖνος / ἐκείνη / ἐκεῖνο", translit: "ekeinos / ekeinē / ekeino", spanish: "aquel / aquella / aquello", note: "demostrativo" },
+        { greek: "εἷς / μία / ἕν", translit: "heis / mia / hen", spanish: "uno / una", note: "cardinal 1" },
+        { greek: "δύο", translit: "dyo", spanish: "dos", note: "cardinal 2" },
+        { greek: "τρεῖς / τρία", translit: "treis / tria", spanish: "tres", note: "cardinal 3" },
+        { greek: "τέσσαρες / τέσσαρα", translit: "tessares / tessara", spanish: "cuatro", note: "cardinal 4" },
+        { greek: "πέντε", translit: "pente", spanish: "cinco", note: "cardinal 5" },
+        { greek: "ἕξ", translit: "hex", spanish: "seis", note: "cardinal 6" },
+        { greek: "ἑπτά", translit: "hepta", spanish: "siete", note: "cardinal 7" },
+        { greek: "δώδεκα", translit: "dōdeka", spanish: "doce", note: "cardinal 12" },
+        { greek: "τεσσεράκοντα", translit: "tesserakonta", spanish: "cuarenta", note: "cardinal 40" },
+        { greek: "ἑβδομήκοντα", translit: "hebdomēkonta", spanish: "setenta", note: "cardinal 70" },
+        { greek: "ἑκατόν", translit: "hekaton", spanish: "cien", note: "cardinal 100" },
+        { greek: "χίλιοι", translit: "chilioi", spanish: "mil", note: "cardinal 1,000" },
+        { greek: "μυριάς", translit: "myrias", spanish: "diez mil", note: "cardinal 10,000" },
+        { greek: "πρῶτος", translit: "prōtos", spanish: "primero", note: "ordinal" },
+        { greek: "δεύτερος", translit: "deuteros", spanish: "segundo", note: "ordinal" },
+        { greek: "τρίτος", translit: "tritos", spanish: "tercero", note: "ordinal" },
+        { greek: "τέταρτος", translit: "tetartos", spanish: "cuarto", note: "ordinal" },
+        { greek: "ἔσχατος", translit: "eschatos", spanish: "último", note: "ordinal" }
+      ],
+      quiz: [
+        { question: "¿Qué significa 'οὗτος'?", options: ["aquel", "este", "ese", "él"], correct: 1 },
+        { question: "Forma femenina de 'οὗτος'", options: ["αὕτη", "τοῦτο", "ἐκείνη", "οὗτοι"], correct: 0 },
+        { question: "¿Qué número es 'ἑπτά'?", options: ["cinco", "seis", "siete", "ocho"], correct: 2 },
+        { question: "Traduce 'ἑκατόν'", options: ["diez", "cien", "mil", "diez mil"], correct: 1 },
+        { question: "Uso de 'ἐκεῖνος' en Juan 14:26", options: ["pronombre personal", "adjetivo", "artículo", "conjunción"], correct: 0 }
+      ],
+      customInit: function() {
+        // ==================== EJERCICIO DE DECLINACIÓN DE DEMOSTRATIVOS ====================
+        const demoDeclQuestions = [
+          { word: "οὗτος", forms: ["οὗτος", "τούτου", "τούτῳ", "τοῦτον"], cases: ["Nominativo", "Genitivo", "Dativo", "Acusativo"] },
+          { word: "αὕτη", forms: ["αὕτη", "ταύτης", "ταύτῃ", "ταύτην"], cases: ["Nominativo", "Genitivo", "Dativo", "Acusativo"] },
+          { word: "τοῦτο", forms: ["τοῦτο", "τούτου", "τούτῳ", "τοῦτο"], cases: ["Nominativo", "Genitivo", "Dativo", "Acusativo"] },
+          { word: "ἐκεῖνος", forms: ["ἐκεῖνος", "ἐκείνου", "ἐκείνῳ", "ἐκεῖνον"], cases: ["Nominativo", "Genitivo", "Dativo", "Acusativo"] },
+          { word: "ἐκείνη", forms: ["ἐκείνη", "ἐκείνης", "ἐκείνῃ", "ἐκείνην"], cases: ["Nominativo", "Genitivo", "Dativo", "Acusativo"] },
+          { word: "ἐκεῖνο", forms: ["ἐκεῖνο", "ἐκείνου", "ἐκείνῳ", "ἐκεῖνο"], cases: ["Nominativo", "Genitivo", "Dativo", "Acusativo"] }
+        ];
+        let currentDemoDecl = demoDeclQuestions[0];
+        const demoDeclArea = document.getElementById("demoDeclQuizArea");
+        const demoDeclFeedback = document.getElementById("demoDeclFeedback");
+        function loadDemoDeclQuiz() {
+          currentDemoDecl = demoDeclQuestions[Math.floor(Math.random() * demoDeclQuestions.length)];
+          const randomCase = Math.floor(Math.random() * 4);
+          const caseName = currentDemoDecl.cases[randomCase];
+          const correct = currentDemoDecl.forms[randomCase];
+          demoDeclArea.innerHTML = `<div class="card-highlight"><strong>Escribe la forma de ${caseName} para <span class="greek-word">${currentDemoDecl.word}</span>:</strong><br>
+          <input type="text" id="demoDeclAnswer" placeholder="ej. οὗτος" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkDemoDecl" class="btn-reveal">Verificar</button>
+          <div id="demoDeclResult"></div></div>`;
+          document.getElementById("checkDemoDecl").addEventListener("click", () => {
+            const answer = document.getElementById("demoDeclAnswer").value.trim();
+            const result = document.getElementById("demoDeclResult");
+            if (answer === correct) {
+              result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+              setTimeout(loadDemoDeclQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}</span>`;
+            }
+          });
+        }
+        loadDemoDeclQuiz();
+        document.getElementById("newDemoDeclQuiz")?.addEventListener("click", () => {
+          loadDemoDeclQuiz();
+          demoDeclFeedback.innerHTML = "";
+        });
+
+        // ==================== EJERCICIO DE USO DEL DEMOSTRATIVO ====================
+        const demoUseExamples = [
+          { phrase: "οὗτος ὁ ἄνθρωπος", use: "adjetival", translation: "este hombre" },
+          { phrase: "οὗτός ἐστιν", use: "pronominal", translation: "este es" },
+          { phrase: "ἐκεῖνος ὁ λόγος", use: "adjetival", translation: "aquel palabra" },
+          { phrase: "ἐκεῖνος ὑμᾶς διδάξει", use: "pronominal", translation: "él os enseñará" },
+          { phrase: "ταῦτα λέγω", use: "pronominal", translation: "estas cosas digo" }
+        ];
+        let currentDemoUse = demoUseExamples[0];
+        const demoUseArea = document.getElementById("demoUseQuizArea");
+        const demoUseFeedback = document.getElementById("demoUseFeedback");
+        function loadDemoUseQuiz() {
+          currentDemoUse = demoUseExamples[Math.floor(Math.random() * demoUseExamples.length)];
+          demoUseArea.innerHTML = `<div class="card-highlight"><strong>Identifica el uso del demostrativo en:</strong><br>
+          <span class="greek-word" style="font-size:1.5rem;">${currentDemoUse.phrase}</span><br>
+          <button id="demoUseAdj" class="btn-reveal">Adjetival</button> <button id="demoUsePron" class="btn-reveal">Pronominal</button>
+          <div id="demoUseResult"></div></div>`;
+          const adjBtn = document.getElementById("demoUseAdj");
+          const pronBtn = document.getElementById("demoUsePron");
+          if (adjBtn) adjBtn.addEventListener("click", () => {
+            const result = document.getElementById("demoUseResult");
+            if (currentDemoUse.use === "adjetival") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDemoUse.translation})</span>`;
+              setTimeout(loadDemoUseQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ Es pronominal (${currentDemoUse.translation})</span>`;
+            }
+          });
+          if (pronBtn) pronBtn.addEventListener("click", () => {
+            const result = document.getElementById("demoUseResult");
+            if (currentDemoUse.use === "pronominal") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDemoUse.translation})</span>`;
+              setTimeout(loadDemoUseQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ Es adjetival (${currentDemoUse.translation})</span>`;
+            }
+          });
+        }
+        loadDemoUseQuiz();
+        document.getElementById("newDemoUseQuiz")?.addEventListener("click", () => {
+          loadDemoUseQuiz();
+          demoUseFeedback.innerHTML = "";
+        });
+
+        // ==================== EJERCICIO CON NÚMEROS ====================
+        const numQuestions = [
+          { question: "¿Cómo se dice 'dos' en griego?", answer: "δύο", hint: "cardinal 2" },
+          { question: "¿Cómo se dice 'siete' en griego?", answer: "ἑπτά", hint: "cardinal 7" },
+          { question: "¿Cómo se dice 'primero' en griego?", answer: "πρῶτος", hint: "ordinal" },
+          { question: "¿Cómo se dice 'cuarenta' en griego?", answer: "τεσσεράκοντα", hint: "cardinal 40" },
+          { question: "¿Cómo se dice 'cien' en griego?", answer: "ἑκατόν", hint: "cardinal 100" }
+        ];
+        let currentNum = numQuestions[0];
+        const numArea = document.getElementById("numQuizArea");
+        const numFeedback = document.getElementById("numFeedback");
+        function loadNumQuiz() {
+          currentNum = numQuestions[Math.floor(Math.random() * numQuestions.length)];
+          numArea.innerHTML = `<div class="card-highlight"><strong>${currentNum.question}</strong> (${currentNum.hint})<br>
+          <input type="text" id="numAnswer" placeholder="ej. δύο" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkNum" class="btn-reveal">Verificar</button>
+          <div id="numResult"></div></div>`;
+          document.getElementById("checkNum").addEventListener("click", () => {
+            const answer = document.getElementById("numAnswer").value.trim();
+            const result = document.getElementById("numResult");
+            if (answer === currentNum.answer) {
+              result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+              setTimeout(loadNumQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es ${currentNum.answer}</span>`;
+            }
+          });
+        }
+        loadNumQuiz();
+        document.getElementById("newNumQuiz")?.addEventListener("click", () => {
+          loadNumQuiz();
+          numFeedback.innerHTML = "";
+        });
+
+        // ==================== TEST ALEATORIO ====================
+        const randomBtn = document.getElementById("randomTestBtn");
+        if (randomBtn) {
+          randomBtn.addEventListener("click", () => {
+            const word = this.vocab[Math.floor(Math.random() * this.vocab.length)];
+            const area = document.getElementById("randomQuestionArea");
+            area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+            <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+            <div id="randResult"></div></div>`;
+            document.getElementById("submitRand").addEventListener("click", () => {
+              const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+              const correct = word.spanish.toLowerCase();
+              const res = document.getElementById("randResult");
+              if (ans === correct || correct.includes(ans)) {
+                res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+              } else {
+                res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+              }
+            });
+          });
+        }
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+</body>
+</html>

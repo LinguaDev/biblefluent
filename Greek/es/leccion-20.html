@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 20: El Futuro Indicativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .rule-box { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 1rem 0; border-left: 4px solid #2c7a6e; }
+    .irregular-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.5rem; }
+    .irregular-item { background: #f0f4f8; padding: 0.4rem; border-radius: 0.4rem; text-align: center; }
+    .future-conj { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-19.html"><i class="fas fa-arrow-left"></i> Lección 19</a>
+        <a href="leccion-21.html"><i class="fas fa-arrow-right"></i> Lección 21</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-clock"></i> Lección 20 · El Futuro Indicativo <span class="hero-badge">Módulo II · Base Gramatical</span></h1>
+      <p>Formación del futuro activo y medio · Cambios consonánticos · Futuro líquido · Irregulares</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill" style="width:28%"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 400/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe src="https://www.youtube.com/embed/5xVkqR2HqL0" title="El futuro indicativo en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: El futuro indicativo – formación y usos</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN AL FUTURO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El futuro indicativo: visión general</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>futuro indicativo</strong> expresa una acción que ocurrirá en el futuro. Es uno de los tiempos más predecibles del griego, formado por:</p>
+          <ul>
+            <li><strong>Tema verbal</strong> (raíz del presente).</li>
+            <li><strong>σ</strong> (sigma) – la marca del futuro.</li>
+            <li><strong>Terminaciones primarias activas o medias</strong> (las mismas del presente).</li>
+          </ul>
+          <div class="rule-box">
+            <strong><i class="fas fa-gavel"></i> Fórmula:</strong> Futuro = Tema + σ + Terminaciones del presente activo/medio.
+          </div>
+          <p><strong>Voz activa:</strong> λύω → λύσω (desataré).</p>
+          <p><strong>Voz media:</strong> λύομαι → λύσομαι (me desataré).</p>
+          <p>El futuro pasivo se forma de manera diferente y lo veremos más adelante.</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: FORMACIÓN DEL FUTURO ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cogs"></i> 2. Formación del futuro activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Para formar el futuro activo, se añade <strong>-σ-</strong> al tema verbal y luego las terminaciones activas del presente (-ω, -εις, -ει, -ομεν, -ετε, -ουσι).</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Terminación</th><th>Ejemplo: λύω → λύσω (desataré)</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>-ω</td><td>λύσω</td></tr>
+                <tr><td>2ª sg.</td><td>-εις</td><td>λύσεις</td></tr>
+                <tr><td>3ª sg.</td><td>-ει</td><td>λύσει</td></tr>
+                <tr><td>1ª pl.</td><td>-ομεν</td><td>λύσομεν</td></tr>
+                <tr><td>2ª pl.</td><td>-ετε</td><td>λύσετε</td></tr>
+                <tr><td>3ª pl.</td><td>-ουσι(ν)</td><td>λύσουσι(ν)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="future-conj">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> La -σ- se mantiene estable. No hay aumento en el futuro (a diferencia del aoristo e imperfecto).
+          </div>
+          <button class="btn-reveal" data-target="futActEj">Conjuga ποιέω en futuro activo</button>
+          <div id="futActEj" class="answer-text">
+            ποιέω → ποιήσω (haré)<br>
+            ποιήσεις, ποιήσει, ποιήσομεν, ποιήσετε, ποιήσουσι(ν).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: CAMBIOS CONSONÁNTICOS ANTE -σ- -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-waveform"></i> 3. Cambios consonánticos ante -σ-</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Cuando la raíz termina en consonante, se aplican las mismas reglas que en la tercera declinación:</p>
+          <ul>
+            <li><strong>Labiales (π, β, φ) + σ = ψ</strong> – Ejemplo: <span class="greek-word">γράφω → γράψω</span> (escribiré).</li>
+            <li><strong>Velares (κ, γ, χ) + σ = ξ</strong> – Ejemplo: <span class="greek-word">ἄγω → ἄξω</span> (conduciré).</li>
+            <li><strong>Dentales (τ, δ, θ) + σ = σ</strong> (la dental desaparece) – Ejemplo: <span class="greek-word">πείθω → πείσω</span> (persuadiré).</li>
+          </ul>
+          <div class="rule-box">
+            <strong><i class="fas fa-memory"></i> Recuerda:</strong> "Labiales → ψ, Velares → ξ, Dentales → σ (desaparecen)".
+          </div>
+          <button class="btn-reveal" data-target="consCambios">Más ejemplos</button>
+          <div id="consCambios" class="answer-text">
+            <span class="greek-word">βλέπω</span> → βλέψω (veré) – labial π → ψ.<br>
+            <span class="greek-word">διώκω</span> → διώξω (perseguiré) – velar κ → ξ.<br>
+            <span class="greek-word">σῴζω</span> → σώσω (salvaré) – dental ζ (de δ) → σ.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: FUTURO DE VERBOS CONTRACTOS (LÍQUIDOS) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-compress-alt"></i> 4. El futuro líquido (verbos contractos y -έω, -άω, -όω)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los verbos cuyo tema termina en <strong>ε, α u ο</strong> (verbos contractos) cambian la vocal temática antes de la -σ- del futuro:</p>
+          <ul>
+            <li><strong>-έω</strong> (ποιέω) → ποιήσω (la ε se convierte en η).</li>
+            <li><strong>-άω</strong> (ἀγαπάω) → ἀγαπήσω (la α se convierte en η).</li>
+            <li><strong>-όω</strong> (πληρόω) → πληρώσω (la ο se convierte en ω).</li>
+          </ul>
+          <div class="rule-box">
+            <strong><i class="fas fa-lightbulb"></i> Regla para verbos contractos:</strong> La vocal temática se alarga antes de la -σ- del futuro: ε→η, α→η, ο→ω.
+          </div>
+          <p><strong>Verbos líquidos (con raíz en -λ, -ρ, -ν):</strong> No pueden añadir -σ- directamente, por lo que la -σ- se pierde y el tema se contrae:</p>
+          <ul>
+            <li><span class="greek-word">μένω</span> (permanecer) → μενῶ (futuro contracto).</li>
+            <li><span class="greek-word">φέρω</span> (llevar) → οἴσω (irregular).</li>
+          </ul>
+          <button class="btn-reveal" data-target="futLiquido">Futuros líquidos comunes</button>
+          <div id="futLiquido" class="answer-text">
+            <span class="greek-word">μένω</span> → μενῶ (permaneceré).<br>
+            <span class="greek-word">σπείρω</span> → σπερῶ (sembraré).<br>
+            <span class="greek-word">ἐγείρω</span> → ἐγερῶ (resucitaré).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: FUTUROS IRREGULARES MÁS FRECUENTES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-exclamation-triangle"></i> 5. Futuros irregulares más comunes del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Algunos verbos muy frecuentes tienen futuros irregulares que deben memorizarse:</p>
+          <div class="irregular-grid">
+            <div class="irregular-item"><strong>λέγω</strong> (decir) → <span class="greek-word">ἐρῶ</span></div>
+            <div class="irregular-item"><strong>ὁράω</strong> (ver) → <span class="greek-word">ὄψομαι</span></div>
+            <div class="irregular-item"><strong>ἔρχομαι</strong> (venir) → <span class="greek-word">ἐλεύσομαι</span></div>
+            <div class="irregular-item"><strong>φέρω</strong> (llevar) → <span class="greek-word">οἴσω</span></div>
+            <div class="irregular-item"><strong>γινώσκω</strong> (conocer) → <span class="greek-word">γνώσομαι</span></div>
+            <div class="irregular-item"><strong>εὑρίσκω</strong> (hallar) → <span class="greek-word">εὑρήσω</span></div>
+            <div class="irregular-item"><strong>λαμβάνω</strong> (tomar) → <span class="greek-word">λήμψομαι</span></div>
+            <div class="irregular-item"><strong>πίπτω</strong> (caer) → <span class="greek-word">πεσοῦμαι</span></div>
+          </div>
+          <div class="future-conj">
+            <strong><i class="fas fa-bible"></i> Ejemplo en Juan 14:2:</strong> <span class="greek-word">ἐὰν πορευθῶ καὶ ἑτοιμάσω τόπον ὑμῖν, πάλιν ἔρχομαι καὶ παραλήμψομαι ὑμᾶς</span> – "voy y os prepararé lugar, y vendré y os tomaré".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · 20 verbos de alta frecuencia</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos 20 verbos aparecen constantemente en el NT. Memoriza su futuro.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Presente</th><th>Futuro</th><th>Transliteración</th><th>Español</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-lightbulb"></i> <strong>Consejo:</strong> Cubre la columna del futuro y practica deduciéndolo a partir del presente usando las reglas.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE CONJUGACIÓN EN FUTURO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: conjuga en futuro activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="conjQuizArea"></div>
+          <button id="newConjQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="conjFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO DE IDENTIFICACIÓN DE FUTURO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el tiempo: ¿presente o futuro?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tenseQuizArea"></div>
+          <button id="newTenseQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tenseFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO DE FUTUROS IRREGULARES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-exclamation-triangle"></i> 9. Practica: futuros irregulares</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="irregularQuizArea"></div>
+          <button id="newIrregularQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva pregunta</button>
+          <div id="irregularFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – JUAN 14 Y APOCALIPSIS 21 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Juan 14 y Apocalipsis 21</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica los verbos en futuro y sus formas.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 14:2 – πορεύομαι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πορεύομαι ἑτοιμάσαι τόπον ὑμῖν</span></p>
+              <button class="btn-reveal" data-target="j14a">¿Qué forma verbal es πορεύομαι?</button>
+              <div id="j14a" class="answer-text">Presente medio de <span class="greek-word">πορεύομαι</span> (voy).</div>
+              <button class="btn-reveal" data-target="j14b">¿Cuál sería su futuro?</button>
+              <div id="j14b" class="answer-text">El futuro es <span class="greek-word">πορεύσομαι</span> (iré) – deponente.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 14:12 – ποιέω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τὰ ἔργα ἃ ἐγὼ ποιῶ κἀκεῖνος ποιήσει</span></p>
+              <button class="btn-reveal" data-target="j14c">¿Qué tiempo es ποιήσει?</button>
+              <div id="j14c" class="answer-text">Futuro activo de <span class="greek-word">ποιέω</span> (hará).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 21:3 – ἔσται</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ ἔσται ὁ θεὸς μετʼ αὐτῶν</span></p>
+              <button class="btn-reveal" data-target="ap21a">¿Qué forma es ἔσται?</button>
+              <div id="ap21a" class="answer-text">Futuro de <span class="greek-word">εἰμί</span> (será).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con futuro</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀγαπήσεις τὸν πλησίον σου</span></p>
+              <button class="btn-reveal" data-target="traduccionFut">Traduce</button>
+              <div id="traduccionFut" class="answer-text">"Amarás a tu prójimo" – futuro de <span class="greek-word">ἀγαπάω</span>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Conjuga λύω en futuro activo y medio. Practica los futuros irregulares con flashcards. Lee Juan 14 en griego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-19.html"><i class="fas fa-arrow-left"></i> Lección 19</a>
+      <a href="leccion-21.html"><i class="fas fa-arrow-right"></i> Lección 21</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἀγαπήσεις τὸν πλησίον σου</span> (Mateo 22:39)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 20 ==========
+    window.lessonData = {
+      vocab: [
+        { present: "ἀποστέλλω", future: "ἀποστελῶ", translit: "apostellō / apostelō", spanish: "enviar" },
+        { present: "μένω", future: "μενῶ", translit: "menō / menō", spanish: "permanecer, quedar" },
+        { present: "κρίνω", future: "κρινῶ", translit: "krinō / krinō", spanish: "juzgar" },
+        { present: "ἐγείρω", future: "ἐγερῶ", translit: "egeirō / egerō", spanish: "resucitar, despertar" },
+        { present: "αἴρω", future: "ἀρῶ", translit: "airō / arō", spanish: "quitar, levantar" },
+        { present: "φέρω", future: "οἴσω", translit: "pherō / oisō", spanish: "llevar, traer" },
+        { present: "χαίρω", future: "χαρήσομαι", translit: "chairō / charēsomai", spanish: "alegrarse, regocijarse" },
+        { present: "σπείρω", future: "σπερῶ", translit: "speirō / sperō", spanish: "sembrar" },
+        { present: "ἀγγέλλω", future: "ἀγγελῶ", translit: "angellō / angelō", spanish: "anunciar" },
+        { present: "εὐαγγελίζω", future: "εὐαγγελιῶ", translit: "euangelizō / euangeliō", spanish: "evangelizar" },
+        { present: "ἀποκαλύπτω", future: "ἀποκαλύψω", translit: "apokalyptō / apokalypsō", spanish: "revelar" },
+        { present: "πληρόω", future: "πληρώσω", translit: "plēroō / plērōsō", spanish: "cumplir, llenar" },
+        { present: "δικαιόω", future: "δικαιώσω", translit: "dikaioō / dikaiōsō", spanish: "justificar" },
+        { present: "σταυρόω", future: "σταυρώσω", translit: "stauroō / staurōsō", spanish: "crucificar" },
+        { present: "ὑψόω", future: "ὑψώσω", translit: "hypsoō / hypsōsō", spanish: "exaltar, levantar" },
+        { present: "τελειόω", future: "τελειώσω", translit: "teleioō / teleiōsō", spanish: "completar, perfeccionar" },
+        { present: "δηλόω", future: "δηλώσω", translit: "dēloō / dēlōsō", spanish: "mostrar, manifestar" },
+        { present: "ἐλπίζω", future: "ἐλπιῶ", translit: "elpizō / elpiō", spanish: "esperar" },
+        { present: "πληθύνω", future: "πληθυνῶ", translit: "plēthynō / plēthynō", spanish: "multiplicar" },
+        { present: "σκανδαλίζω", future: "σκανδαλιῶ", translit: "skandalizō / skandaliō", spanish: "escandalizar, tropezar" }
+      ],
+      quiz: [
+        { question: "Futuro de 'λέγω'", options: ["ἐρῶ", "λέξω", "λεγήσω", "λεγῶ"], correct: 0 },
+        { question: "Futuro de 'ὁράω'", options: ["ὄψομαι", "ὁράσω", "ὁρῶ", "ὄψω"], correct: 0 },
+        { question: "¿Qué verbo tiene el futuro 'ἐλεύσομαι'?", options: ["ἔρχομαι", "πορεύομαι", "φέρω", "βαίνω"], correct: 0 },
+        { question: "Futuro de 'γράφω'", options: ["γράψω", "γράφσω", "γραφῶ", "γράφω"], correct: 0 },
+        { question: "Forma de 2ª persona singular de 'λύσω'", options: ["λύσεις", "λύσει", "λύσομεν", "λύσουσι"], correct: 0 }
+      ],
+      type: "conjugation",
+      conjugationWords: [
+        { verb: "λύω", future: "λύσω", conjugations: ["λύσω", "λύσεις", "λύσει", "λύσομεν", "λύσετε", "λύσουσι(ν)"] },
+        { verb: "ποιέω", future: "ποιήσω", conjugations: ["ποιήσω", "ποιήσεις", "ποιήσει", "ποιήσομεν", "ποιήσετε", "ποιήσουσι(ν)"] },
+        { verb: "γράφω", future: "γράψω", conjugations: ["γράψω", "γράψεις", "γράψει", "γράψομεν", "γράψετε", "γράψουσι(ν)"] },
+        { verb: "ἀγαπάω", future: "ἀγαπήσω", conjugations: ["ἀγαπήσω", "ἀγαπήσεις", "ἀγαπήσει", "ἀγαπήσομεν", "ἀγαπήσετε", "ἀγαπήσουσι(ν)"] }
+      ],
+      customInit: function() {
+        // ==================== EJERCICIO DE CONJUGACIÓN EN FUTURO ====================
+        const conjWords = this.conjugationWords || [
+          { verb: "λύω", future: "λύσω", conjugations: ["λύσω", "λύσεις", "λύσει", "λύσομεν", "λύσετε", "λύσουσι(ν)"] },
+          { verb: "ποιέω", future: "ποιήσω", conjugations: ["ποιήσω", "ποιήσεις", "ποιήσει", "ποιήσομεν", "ποιήσετε", "ποιήσουσι(ν)"] },
+          { verb: "γράφω", future: "γράψω", conjugations: ["γράψω", "γράψεις", "γράψει", "γράψομεν", "γράψετε", "γράψουσι(ν)"] },
+          { verb: "ἀγαπάω", future: "ἀγαπήσω", conjugations: ["ἀγαπήσω", "ἀγαπήσεις", "ἀγαπήσει", "ἀγαπήσομεν", "ἀγαπήσετε", "ἀγαπήσουσι(ν)"] }
+        ];
+        let currentConj = conjWords[0];
+        const conjArea = document.getElementById("conjQuizArea");
+        const conjFeedback = document.getElementById("conjFeedback");
+        const persons = ["1ª sg.", "2ª sg.", "3ª sg.", "1ª pl.", "2ª pl.", "3ª pl."];
+        function loadConjQuiz() {
+          currentConj = conjWords[Math.floor(Math.random() * conjWords.length)];
+          const randomPerson = Math.floor(Math.random() * 6);
+          const personLabel = persons[randomPerson];
+          const correct = currentConj.conjugations[randomPerson];
+          conjArea.innerHTML = `<div class="card-highlight"><strong>Escribe la forma de ${personLabel} en futuro para <span class="greek-word">${currentConj.verb}</span>:</strong><br>
+          <input type="text" id="conjAnswer" placeholder="ej. λύσω" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkConj" class="btn-reveal">Verificar</button>
+          <div id="conjResult"></div></div>`;
+          document.getElementById("checkConj").addEventListener("click", () => {
+            const answer = document.getElementById("conjAnswer").value.trim();
+            const result = document.getElementById("conjResult");
+            if (answer === correct) {
+              result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+              setTimeout(loadConjQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}</span>`;
+            }
+          });
+        }
+        loadConjQuiz();
+        document.getElementById("newConjQuiz")?.addEventListener("click", () => {
+          loadConjQuiz();
+          conjFeedback.innerHTML = "";
+        });
+
+        // ==================== EJERCICIO DE IDENTIFICACIÓN DE TIEMPO (PRESENTE VS FUTURO) ====================
+        const tenseExamples = [
+          { form: "λύω", tense: "presente", translation: "desato" },
+          { form: "λύσω", tense: "futuro", translation: "desataré" },
+          { form: "γράφω", tense: "presente", translation: "escribo" },
+          { form: "γράψω", tense: "futuro", translation: "escribiré" },
+          { form: "ποιῶ", tense: "presente", translation: "hago" },
+          { form: "ποιήσω", tense: "futuro", translation: "haré" },
+          { form: "ἀγαπῶ", tense: "presente", translation: "amo" },
+          { form: "ἀγαπήσω", tense: "futuro", translation: "amaré" }
+        ];
+        let currentTense = tenseExamples[0];
+        const tenseArea = document.getElementById("tenseQuizArea");
+        const tenseFeedback = document.getElementById("tenseFeedback");
+        function loadTenseQuiz() {
+          currentTense = tenseExamples[Math.floor(Math.random() * tenseExamples.length)];
+          tenseArea.innerHTML = `<div class="card-highlight"><strong>¿Es presente o futuro?</strong><br>
+          <span class="greek-word" style="font-size:1.8rem;">${currentTense.form}</span><br>
+          <button id="tensePres" class="btn-reveal">Presente</button> <button id="tenseFut" class="btn-reveal">Futuro</button>
+          <div id="tenseResult"></div></div>`;
+          const presBtn = document.getElementById("tensePres");
+          const futBtn = document.getElementById("tenseFut");
+          if (presBtn) presBtn.addEventListener("click", () => {
+            const result = document.getElementById("tenseResult");
+            if (currentTense.tense === "presente") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTense.translation})</span>`;
+              setTimeout(loadTenseQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ Es futuro (${currentTense.translation})</span>`;
+            }
+          });
+          if (futBtn) futBtn.addEventListener("click", () => {
+            const result = document.getElementById("tenseResult");
+            if (currentTense.tense === "futuro") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTense.translation})</span>`;
+              setTimeout(loadTenseQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ Es presente (${currentTense.translation})</span>`;
+            }
+          });
+        }
+        loadTenseQuiz();
+        document.getElementById("newTenseQuiz")?.addEventListener("click", () => {
+          loadTenseQuiz();
+          tenseFeedback.innerHTML = "";
+        });
+
+        // ==================== EJERCICIO DE FUTUROS IRREGULARES ====================
+        const irregularFutures = [
+          { present: "λέγω", future: "ἐρῶ", meaning: "decir" },
+          { present: "ὁράω", future: "ὄψομαι", meaning: "ver" },
+          { present: "ἔρχομαι", future: "ἐλεύσομαι", meaning: "venir" },
+          { present: "φέρω", future: "οἴσω", meaning: "llevar" },
+          { present: "γινώσκω", future: "γνώσομαι", meaning: "conocer" },
+          { present: "εὑρίσκω", future: "εὑρήσω", meaning: "hallar" },
+          { present: "λαμβάνω", future: "λήμψομαι", meaning: "tomar" },
+          { present: "πίπτω", future: "πεσοῦμαι", meaning: "caer" }
+        ];
+        let currentIrreg = irregularFutures[0];
+        const irregArea = document.getElementById("irregularQuizArea");
+        const irregFeedback = document.getElementById("irregularFeedback");
+        function loadIrregularQuiz() {
+          currentIrreg = irregularFutures[Math.floor(Math.random() * irregularFutures.length)];
+          irregArea.innerHTML = `<div class="card-highlight"><strong>Escribe el futuro de <span class="greek-word">${currentIrreg.present}</span> (${currentIrreg.meaning}):</strong><br>
+          <input type="text" id="irregAnswer" placeholder="ej. ἐρῶ" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkIrreg" class="btn-reveal">Verificar</button>
+          <div id="irregResult"></div></div>`;
+          document.getElementById("checkIrreg").addEventListener("click", () => {
+            const answer = document.getElementById("irregAnswer").value.trim();
+            const result = document.getElementById("irregResult");
+            if (answer === currentIrreg.future) {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentIrreg.meaning})</span>`;
+              setTimeout(loadIrregularQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ El futuro es ${currentIrreg.future}</span>`;
+            }
+          });
+        }
+        loadIrregularQuiz();
+        document.getElementById("newIrregularQuiz")?.addEventListener("click", () => {
+          loadIrregularQuiz();
+          irregFeedback.innerHTML = "";
+        });
+
+        // ==================== TEST ALEATORIO ====================
+        const randomBtn = document.getElementById("randomTestBtn");
+        if (randomBtn) {
+          randomBtn.addEventListener("click", () => {
+            const word = this.vocab[Math.floor(Math.random() * this.vocab.length)];
+            const area = document.getElementById("randomQuestionArea");
+            area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Cuál es el futuro de <span class="greek-word">${word.present}</span>?</strong><br>
+            <input type="text" id="randAnswer" placeholder="ej. λύσω" style="margin-top:0.5rem; padding:0.5rem;"> <button id="submitRand" class="btn-reveal">Verificar</button>
+            <div id="randResult"></div></div>`;
+            document.getElementById("submitRand").addEventListener("click", () => {
+              const ans = document.getElementById("randAnswer").value.trim();
+              const correct = word.future;
+              const res = document.getElementById("randResult");
+              if (ans === correct) {
+                res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+              } else {
+                res.innerHTML = `<span class="wrong-feedback">✗ El futuro es ${correct}</span>`;
+              }
+            });
+          });
+        }
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+</body>
+</html>

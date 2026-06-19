@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 17: Tercera Declinación II</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .rule-box { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 1rem 0; border-left: 4px solid #2c7a6e; }
+    .irregular-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem; }
+    .irregular-item { background: #f0f4f8; padding: 0.4rem; border-radius: 0.4rem; text-align: center; }
+    .synkope-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-16.html"><i class="fas fa-arrow-left"></i> Lección 16</a>
+        <a href="leccion-18.html"><i class="fas fa-arrow-right"></i> Lección 18</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-layer-group"></i> Lección 17 · Tercera Declinación II <span class="hero-badge">Módulo II · Base Gramatical</span></h1>
+      <p>Temas en nasal (-ν), líquida (-ρ, -λ) y silbante (-σ) · Síncope y contracción · Irregulares frecuentes</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill" style="width:24%"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 340/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe src="https://www.youtube.com/embed/6Xz3fX8VjRU" title="Tercera declinación II: nasal, líquida y silbante" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Temas en nasal, líquida y silbante</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. La tercera declinación: temas en nasal, líquida y silbante</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>En la lección anterior vimos los temas en oclusivas (labiales, velares, dentales). Ahora estudiaremos los sustantivos de 3ª declinación cuyo tema termina en <strong>nasal (-ν)</strong>, <strong>líquida (-ρ, -λ)</strong> o <strong>silbante (-σ)</strong>.</p>
+          <div class="rule-box">
+            <strong><i class="fas fa-gavel"></i> Regla clave:</strong> El genitivo singular revela el tema real. Siempre que veas un genitivo en -ος, -ος, -τος, etc., usa esa forma para deducir el tema.
+          </div>
+          <p><strong>Grupos principales:</strong></p>
+          <ul>
+            <li><strong>Temas en -ν:</strong> αἰών (gen. αἰῶνος), ποιμήν (gen. ποιμένος), εἰκών (gen. εἰκόνος).</li>
+            <li><strong>Temas en -ρ:</strong> πατήρ (gen. πατρός), σωτήρ (gen. σωτῆρος), μήτηρ (gen. μητρός), θυγάτηρ (gen. θυγατρός).</li>
+            <li><strong>Neutros silbantes (tema en -σ):</strong> τέλος (gen. τέλους), γένος (gen. γένους), ἔθνος (gen. ἔθνους).</li>
+          </ul>
+          <p>Estos sustantivos presentan <strong>irregularidades</strong> (síncope vocálica, cambios de acento y contracciones) que deben memorizarse.</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: PARADIGMA DE πατήρ (TEMA EN -ρ CON SÍNCOPE) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Paradigma de πατήρ (padre) – tema en -ρ con síncope</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">πατήρ</span> (padre) es uno de los sustantivos más frecuentes del NT (más de 400 veces). Presenta <strong>síncope</strong> (pérdida de una vocal) en el genitivo y dativo singular.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Caso</th><th>Singular</th><th>Plural</th></tr></thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>πατήρ</td><td>πατέρες</td></tr>
+                <tr><td>Genitivo</td><td>πατρός</td><td>πατέρων</td></tr>
+                <tr><td>Dativo</td><td>πατρί</td><td>πατράσιν</td></tr>
+                <tr><td>Acusativo</td><td>πατέρα</td><td>πατέρας</td></tr>
+                <tr><td>Vocativo</td><td>πάτερ</td><td>πατέρες</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="synkope-box">
+            <strong><i class="fas fa-lightbulb"></i> Síncope:</strong> En el genitivo y dativo singular, la -ε- del tema cae: <span class="greek-word">πατέρ-ος → πατρός</span>. El acento se retrae en el vocativo (πάτερ).
+          </div>
+          <p><strong>Otros sustantivos con síncope similar:</strong></p>
+          <ul>
+            <li><span class="greek-word">μήτηρ</span> (madre): gen. μητρός, dat. μητρί, voc. μῆτερ.</li>
+            <li><span class="greek-word">θυγάτηρ</span> (hija): gen. θυγατρός, dat. θυγατρί, voc. θύγατερ.</li>
+            <li><span class="greek-word">ἀνήρ</span> (hombre, esposo) – veremos más adelante.</li>
+          </ul>
+          <button class="btn-reveal" data-target="synkopeEj">Declina μήτηρ</button>
+          <div id="synkopeEj" class="answer-text">
+            Sing: μήτηρ, μητρός, μητρί, μητέρα, μῆτερ.<br>
+            Pl: μητέρες, μητέρων, μητράσιν, μητέρας.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: PARADIGMA DE αἰών (TEMA EN -Ν) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Paradigma de αἰών (siglo, eternidad) – tema en -ν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">αἰών</span> (siglo, eternidad) es muy frecuente en el NT (más de 120 veces). Su tema es <strong>αἰών-</strong>.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Caso</th><th>Singular</th><th>Plural</th></tr></thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>αἰών</td><td>αἰῶνες</td></tr>
+                <tr><td>Genitivo</td><td>αἰῶνος</td><td>αἰώνων</td></tr>
+                <tr><td>Dativo</td><td>αἰῶνι</td><td>αἰῶσι(ν)</td></tr>
+                <tr><td>Acusativo</td><td>αἰῶνα</td><td>αἰῶνας</td></tr>
+                <tr><td>Vocativo</td><td>αἰών</td><td>αἰῶνες</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Otros temas en -ν:</strong></p>
+          <ul>
+            <li><span class="greek-word">ποιμήν</span> (pastor): gen. ποιμένος, dat. ποιμένι, ac. ποιμένα.</li>
+            <li><span class="greek-word">εἰκών</span> (imagen): gen. εἰκόνος, dat. εἰκόνι, ac. εἰκόνα.</li>
+            <li><span class="greek-word">ἡγεμών</span> (gobernante): gen. ἡγεμόνος.</li>
+          </ul>
+          <button class="btn-reveal" data-target="aionEj">Declina ποιμήν</button>
+          <div id="aionEj" class="answer-text">
+            Sing: ποιμήν, ποιμένος, ποιμένι, ποιμένα, ποιμήν.<br>
+            Pl: ποιμένες, ποιμένων, ποιμέσι(ν), ποιμένας.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: PARADIGMA DE σωτήρ (TEMA EN -Ρ) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 4. Paradigma de σωτήρ (salvador) – tema en -ρ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">σωτήρ</span> (salvador) es un título cristológico importante. Su tema es <strong>σωτῆρ-</strong>.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Caso</th><th>Singular</th><th>Plural</th></tr></thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>σωτήρ</td><td>σωτῆρες</td></tr>
+                <tr><td>Genitivo</td><td>σωτῆρος</td><td>σωτήρων</td></tr>
+                <tr><td>Dativo</td><td>σωτῆρι</td><td>σωτῆρσι(ν)</td></tr>
+                <tr><td>Acusativo</td><td>σωτῆρα</td><td>σωτῆρας</td></tr>
+                <tr><td>Vocativo</td><td>σωτήρ</td><td>σωτῆρες</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Observación:</strong> A diferencia de πατήρ, <span class="greek-word">σωτήρ</span> mantiene la -η- en todo el paradigma (no hay síncope). El acento es circunflejo en el nominativo singular y en el genitivo/plural.</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: NEUTROS SILBANTES (TEMA EN -Σ) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 5. Neutros silbantes: τέλος, γένος, ἔθνος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los neutros cuyo tema termina en <strong>-σ</strong> (silbante) sufren <strong>contracción</strong> en el genitivo y dativo singular, y en el nominativo/acusativo plural. El nominativo singular pierde la -σ y alarga la vocal.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Caso</th><th>Singular</th><th>Plural</th></tr></thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>τέλος</td><td>τέλη</td></tr>
+                <tr><td>Genitivo</td><td>τέλους</td><td>τελῶν</td></tr>
+                <tr><td>Dativo</td><td>τέλει</td><td>τέλεσι(ν)</td></tr>
+                <tr><td>Acusativo</td><td>τέλος</td><td>τέλη</td></tr>
+                <tr><td>Vocativo</td><td>τέλος</td><td>τέλη</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Regla de contracción:</strong></p>
+          <ul>
+            <li>Genitivo singular: <span class="greek-word">τέλεσ-ος → τέλους</span> (ε+ο = ου).</li>
+            <li>Dativo singular: <span class="greek-word">τέλεσ-ι → τέλει</span> (ε+ι = ει).</li>
+            <li>Nominativo plural: <span class="greek-word">τέλεσ-α → τέλη</span> (ε+α = η).</li>
+          </ul>
+          <p><strong>Otros neutros silbantes:</strong></p>
+          <ul>
+            <li><span class="greek-word">γένος</span> (raza, tipo): gen. γένους, dat. γένει, nom. pl. γένη.</li>
+            <li><span class="greek-word">ἔθνος</span> (nación, gentiles): gen. ἔθνους, dat. ἔθνει, nom. pl. ἔθνη.</li>
+            <li><span class="greek-word">ἔλεος</span> (misericordia): gen. ἐλέους.</li>
+            <li><span class="greek-word">σκότος</span> (oscuridad): gen. σκότους.</li>
+          </ul>
+          <button class="btn-reveal" data-target="silbanteEj">Declina γένος</button>
+          <div id="silbanteEj" class="answer-text">
+            Sing: γένος, γένους, γένει, γένος.<br>
+            Pl: γένη, γενῶν, γένεσι(ν), γένη.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · 20 sustantivos de 3ª declinación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son esenciales para la lectura del NT. Muchas son irregulares o presentan contracciones.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Genitivo (tema)</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-lightbulb"></i> <strong>Consejo:</strong> Memoriza el genitivo de cada palabra, porque revela el tema real. Practica la declinación de cada una.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE DECLINACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: escribe el genitivo singular</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="declensionQuizArea"></div>
+          <button id="newDeclQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="declFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: IDENTIFICA EL TEMA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el tema (genitivo → nominativo)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="themeQuizArea"></div>
+          <button id="newThemeQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva pregunta</button>
+          <div id="themeFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 10. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: TEXTO PROGRAMADO – EFESIOS 3:14-21 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 11. Lectura programada · Efesios 3:14-21</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee la oración de Pablo. Identifica los sustantivos de 3ª declinación de esta lección.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 3:14 – πατήρ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τούτου χάριν κάμπτω τὰ γόνατά μου πρὸς τὸν πατέρα</span></p>
+              <button class="btn-reveal" data-target="ef14a">¿Qué caso es πατέρα?</button>
+              <div id="ef14a" class="answer-text">Acusativo singular (objeto de πρός).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 3:15 – πατριά</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐξ οὗ πᾶσα πατριὰ ἐν οὐρανοῖς καὶ ἐπὶ γῆς ὀνομάζεται</span></p>
+              <button class="btn-reveal" data-target="ef15a">¿Qué palabra relacionada con πατήρ aparece?</button>
+              <div id="ef15a" class="answer-text"><span class="greek-word">πατριά</span> (familia, linaje) – derivado de πατήρ.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 3:19 – γνῶσις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">γνῶναί τε τὴν ὑπερβάλλουσαν τῆς γνώσεως ἀγάπην τοῦ Χριστοῦ</span></p>
+              <button class="btn-reveal" data-target="ef19a">¿Qué sustantivo de 3ª declinación (tema en -σ) aparece?</button>
+              <div id="ef19a" class="answer-text"><span class="greek-word">γνώσεως</span> es genitivo de <span class="greek-word">γνῶσις</span> (conocimiento) – tema en -σις.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con πατήρ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ πατὴρ τοῦ κυρίου ἡμῶν</span></p>
+              <button class="btn-reveal" data-target="traduccionPat">Traduce</button>
+              <div id="traduccionPat" class="answer-text">"El Padre de nuestro Señor" – πατήρ en nominativo, κυρίου en genitivo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 12. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Escribe la declinación de πατήρ, αἰών y τέλος. Practica identificando el tema a partir del genitivo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-16.html"><i class="fas fa-arrow-left"></i> Lección 16</a>
+      <a href="leccion-18.html"><i class="fas fa-arrow-right"></i> Lección 18</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">πατέρα τῶν αἰώνων</span> (Padre de los siglos)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 17 ==========
+    window.lessonData = {
+      vocab: [
+        { greek: "πατήρ", translit: "patēr", spanish: "padre", gen: "πατρός" },
+        { greek: "μήτηρ", translit: "mētēr", spanish: "madre", gen: "μητρός" },
+        { greek: "ἀδελφός", translit: "adelphos", spanish: "hermano", gen: "ἀδελφοῦ" },
+        { greek: "ἀδελφή", translit: "adelphē", spanish: "hermana", gen: "ἀδελφῆς" },
+        { greek: "υἱός", translit: "huios", spanish: "hijo", gen: "υἱοῦ" },
+        { greek: "θυγάτηρ", translit: "thygatēr", spanish: "hija", gen: "θυγατρός" },
+        { greek: "σωτήρ", translit: "sōtēr", spanish: "Salvador", gen: "σωτῆρος" },
+        { greek: "αἰών", translit: "aiōn", spanish: "siglo, eternidad", gen: "αἰῶνος" },
+        { greek: "ποιμήν", translit: "poimēn", spanish: "pastor", gen: "ποιμένος" },
+        { greek: "εἰκών", translit: "eikōn", spanish: "imagen", gen: "εἰκόνος" },
+        { greek: "τέλος", translit: "telos", spanish: "fin, meta", gen: "τέλους" },
+        { greek: "ἔθνος", translit: "ethnos", spanish: "nación; gentiles", gen: "ἔθνους" },
+        { greek: "γένος", translit: "genos", spanish: "raza, tipo", gen: "γένους" },
+        { greek: "ἔλεος", translit: "eleos", spanish: "misericordia", gen: "ἐλέους" },
+        { greek: "σκότος", translit: "skotos", spanish: "oscuridad", gen: "σκότους" },
+        { greek: "πλῆθος", translit: "plēthos", spanish: "multitud", gen: "πλήθους" },
+        { greek: "ὄρος", translit: "oros", spanish: "monte, montaña", gen: "ὄρους" },
+        { greek: "μέρος", translit: "meros", spanish: "parte", gen: "μέρους" },
+        { greek: "μέλος", translit: "melos", spanish: "miembro (del cuerpo)", gen: "μέλους" },
+        { greek: "γνόφος", translit: "gnophos", spanish: "oscuridad, tiniebla", gen: "γνόφου" }
+      ],
+      quiz: [
+        { question: "¿Cuál es el genitivo singular de πατήρ?", options: ["πατρός", "πατέρος", "πατέρα", "πατρί"], correct: 0 },
+        { question: "Traduce 'αἰών'", options: ["siglo", "salvador", "pastor", "imagen"], correct: 0 },
+        { question: "Forma de genitivo de τέλος", options: ["τέλους", "τέλεος", "τέλει", "τέλη"], correct: 0 },
+        { question: "¿Qué significa 'ποιμήν'?", options: ["pastor", "padre", "hermano", "hijo"], correct: 0 },
+        { question: "Genitivo de σωτήρ", options: ["σωτῆρος", "σωτήρος", "σωτήρι", "σωτῆρα"], correct: 0 }
+      ],
+      type: "declension",
+      declensionWords: [
+        { nom: "πατήρ", article: "ὁ", gen: "πατρός", dat: "πατρί", acc: "πατέρα", voc: "πάτερ" },
+        { nom: "αἰών", article: "ὁ", gen: "αἰῶνος", dat: "αἰῶνι", acc: "αἰῶνα", voc: "αἰών" },
+        { nom: "σωτήρ", article: "ὁ", gen: "σωτῆρος", dat: "σωτῆρι", acc: "σωτῆρα", voc: "σωτήρ" },
+        { nom: "ποιμήν", article: "ὁ", gen: "ποιμένος", dat: "ποιμένι", acc: "ποιμένα", voc: "ποιμήν" },
+        { nom: "τέλος", article: "τό", gen: "τέλους", dat: "τέλει", acc: "τέλος", voc: "τέλος" }
+      ],
+      customInit: function() {
+        // ==================== EJERCICIO DE IDENTIFICACIÓN DEL TEMA ====================
+        const themeQuestions = [
+          { gen: "πατρός", nom: "πατήρ", meaning: "padre" },
+          { gen: "αἰῶνος", nom: "αἰών", meaning: "siglo" },
+          { gen: "σωτῆρος", nom: "σωτήρ", meaning: "salvador" },
+          { gen: "ποιμένος", nom: "ποιμήν", meaning: "pastor" },
+          { gen: "τέλους", nom: "τέλος", meaning: "fin" },
+          { gen: "γένους", nom: "γένος", meaning: "raza" },
+          { gen: "ἔθνους", nom: "ἔθνος", meaning: "nación" },
+          { gen: "εἰκόνος", nom: "εἰκών", meaning: "imagen" }
+        ];
+        let currentTheme = themeQuestions[0];
+        const themeArea = document.getElementById("themeQuizArea");
+        const themeFeedback = document.getElementById("themeFeedback");
+        function loadThemeQuiz() {
+          currentTheme = themeQuestions[Math.floor(Math.random() * themeQuestions.length)];
+          themeArea.innerHTML = `<div class="card-highlight"><strong>¿Cuál es el nominativo correspondiente a este genitivo?</strong><br>
+          <span class="greek-word" style="font-size:1.8rem;">${currentTheme.gen}</span><br>
+          <input type="text" id="themeAnswer" placeholder="ej. πατήρ" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTheme" class="btn-reveal">Verificar</button>
+          <div id="themeResult"></div></div>`;
+          document.getElementById("checkTheme").addEventListener("click", () => {
+            const answer = document.getElementById("themeAnswer").value.trim();
+            const result = document.getElementById("themeResult");
+            if (answer === currentTheme.nom) {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTheme.meaning})</span>`;
+              setTimeout(loadThemeQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es ${currentTheme.nom} (${currentTheme.meaning})</span>`;
+            }
+          });
+        }
+        loadThemeQuiz();
+        document.getElementById("newThemeQuiz")?.addEventListener("click", () => {
+          loadThemeQuiz();
+          themeFeedback.innerHTML = "";
+        });
+
+        // ==================== TEST ALEATORIO ====================
+        const randomBtn = document.getElementById("randomTestBtn");
+        if (randomBtn) {
+          randomBtn.addEventListener("click", () => {
+            const word = this.vocab[Math.floor(Math.random() * this.vocab.length)];
+            const area = document.getElementById("randomQuestionArea");
+            area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+            <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+            <div id="randResult"></div></div>`;
+            document.getElementById("submitRand").addEventListener("click", () => {
+              const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+              const correct = word.spanish.toLowerCase();
+              const res = document.getElementById("randResult");
+              if (ans === correct || correct.includes(ans)) {
+                res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+              } else {
+                res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+              }
+            });
+          });
+        }
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+</body>
+</html>

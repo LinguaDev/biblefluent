@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 32: Participio Medio/Pasivo y Genitivo Absoluto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 46%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2000px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .absolute-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-31.html"><i class="fas fa-arrow-left"></i> Lección 31</a>
+        <a href="leccion-33.html"><i class="fas fa-arrow-right"></i> Lección 33</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-puzzle-piece"></i> Lección 32 · Participio Medio/Pasivo y Genitivo Absoluto <span class="hero-badge">Módulo III · Desarrollo</span></h1>
+      <p>Paradigma -όμενος/-ομένη/-όμενον · Genitivo absoluto · Participios deponentes · Lectura de Mateo 2 y Hechos 2</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 640/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Participio medio/pasivo y genitivo absoluto en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: El participio presente medio/pasivo y el genitivo absoluto</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El participio presente medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>participio presente medio/pasivo</strong> se forma con el tema del presente, la vocal de unión (<strong>-ο-</strong> para todas las formas), y las terminaciones de la 1ª y 2ª declinación. Tiene la terminación característica <strong>-όμενος</strong> (masculino), <strong>-ομένη</strong> (femenino), <strong>-όμενον</strong> (neutro).</p>
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Esquema de formación:</strong><br>
+            λύω → λυ- + -ο- + -μενος = λυόμενος (siendo desatado / desatándose)<br>
+            <span class="greek-word">γίνομαι</span> → γιν- + -ο- + -μενος = γινόμενος (llegando a ser)
+          </div>
+          <p><strong>Observaciones importantes:</strong></p>
+          <ul>
+            <li>La <strong>voz</strong> se determina por el contexto: puede ser media (acción que el sujeto realiza sobre sí mismo) o pasiva (acción que el sujeto recibe).</li>
+            <li>Los <strong>verbos deponentes</strong> usan estas formas con significado activo: <span class="greek-word">ἐρχόμενος</span> (viniendo), <span class="greek-word">γινόμενος</span> (llegando a ser).</li>
+            <li>El aspecto es <strong>lineal/continuo</strong> (igual que el presente activo).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Frecuencia:</strong> El participio medio/pasivo es muy común en el NT, especialmente en los Evangelios y Hechos.
+          </div>
+          <button class="btn-reveal" data-target="introMid">Comparación con el activo</button>
+          <div id="introMid" class="answer-text">
+            <strong>Activo:</strong> <span class="greek-word">λύων</span> – "desatando" (acción realizada).<br>
+            <strong>Medio/Pasivo:</strong> <span class="greek-word">λυόμενος</span> – "desatándose" (media) / "siendo desatado" (pasiva).<br>
+            <strong>Deponente:</strong> <span class="greek-word">ἐρχόμενος</span> – "viniendo" (activo en significado).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: DECLINACIÓN DEL PARTICIPIO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Declinación de λυόμενος (siendo desatado / desatándose)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio medio/pasivo sigue el patrón <strong>2-1-2</strong> (como los adjetivos de la lección 10).</p>
+          <div class="paradigm-table">
+            <table>
+              <thead>
+                <tr><th>Caso</th><th colspan="3">Singular</th><th colspan="3">Plural</th></tr>
+                <tr><th></th><th>Masc.</th><th>Fem.</th><th>Neut.</th><th>Masc.</th><th>Fem.</th><th>Neut.</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>λυόμενος</td><td>λυομένη</td><td>λυόμενον</td><td>λυόμενοι</td><td>λυόμεναι</td><td>λυόμενα</td></tr>
+                <tr><td>Genitivo</td><td>λυομένου</td><td>λυομένης</td><td>λυομένου</td><td>λυομένων</td><td>λυομένων</td><td>λυομένων</td></tr>
+                <tr><td>Dativo</td><td>λυομένῳ</td><td>λυομένῃ</td><td>λυομένῳ</td><td>λυομένοις</td><td>λυομέναις</td><td>λυομένοις</td></tr>
+                <tr><td>Acusativo</td><td>λυόμενον</td><td>λυομένην</td><td>λυόμενον</td><td>λυομένους</td><td>λυομένας</td><td>λυόμενα</td></tr>
+                <tr><td>Vocativo</td><td>λυόμενε</td><td>λυομένη</td><td>λυόμενον</td><td>λυόμενοι</td><td>λυόμεναι</td><td>λυόμενα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Reglas de declinación:</strong>
+            <ul>
+              <li>Sigue el patrón de los adjetivos 2-1-2 (como <span class="greek-word">ἀγαθός</span>).</li>
+              <li>El acento se mantiene en la <strong>penúltima sílaba</strong> (λυόμενος, no λυόμενός).</li>
+              <li>El femenino es de 1ª declinación (como <span class="greek-word">φωνή</span>).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="declMidEj">Declina πιστευόμενος (siendo creído / creyéndose)</button>
+          <div id="declMidEj" class="answer-text">
+            Masc. sg.: πιστευόμενος, πιστευομένου, πιστευομένῳ, πιστευόμενον<br>
+            Fem. sg.: πιστευομένη, πιστευομένης, πιστευομένῃ, πιστευομένην<br>
+            Neut. sg.: πιστευόμενον, πιστευομένου, πιστευομένῳ, πιστευόμενον
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: EL GENITIVO ABSOLUTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-absolute"></i> 3. El genitivo absoluto: la construcción más elegante del griego</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>genitivo absoluto</strong> es una construcción gramatical donde un <strong>participio</strong> y su <strong>sujeto propio</strong> van en <strong>genitivo</strong>. Forma una cláusula independiente que expresa <strong>tiempo</strong>, <strong>causa</strong> o <strong>condición</strong> con respecto al verbo principal.</p>
+          <div class="absolute-box">
+            <strong><i class="fas fa-lightbulb"></i> Estructura:</strong><br>
+            <strong>Sujeto en genitivo + Participio en genitivo</strong><br>
+            Ejemplo: <span class="greek-word">τοῦ Ἰησοῦ λέγοντος</span> – "mientras Jesús decía" / "cuando Jesús dijo".
+          </div>
+          <p><strong>Características del genitivo absoluto:</strong></p>
+          <ul>
+            <li>El sujeto del participio es <strong>diferente</strong> del sujeto del verbo principal.</li>
+            <li>El participio puede estar en <strong>presente</strong> (acción simultánea) o en <strong>aoristo</strong> (acción anterior).</li>
+            <li>Se traduce como una cláusula <strong>temporal</strong> ("mientras", "cuando"), <strong>causal</strong> ("porque", "ya que") o <strong>condicional</strong> ("si").</li>
+            <li>Es una construcción muy común en los textos narrativos (Evangelios, Hechos).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo en Mateo 2:13:</strong><br>
+            <span class="greek-word">ἀναχωρησάντων δὲ αὐτῶν</span> – "cuando ellos se hubieron retirado".<br>
+            <strong>Análisis:</strong> Sujeto: <span class="greek-word">αὐτῶν</span> (ellos) en genitivo; Participio: <span class="greek-word">ἀναχωρησάντων</span> (habiéndose retirado) en genitivo.
+          </div>
+          <button class="btn-reveal" data-target="genAbsEj">Más ejemplos de genitivo absoluto</button>
+          <div id="genAbsEj" class="answer-text">
+            <span class="greek-word">τοῦ δὲ Ἰησοῦ γεννηθέντος</span> – "cuando Jesús nació" (Mateo 2:1).<br>
+            <span class="greek-word">ἐλθόντος τοῦ ἀνθρώπου</span> – "cuando el hombre vino".<br>
+            <span class="greek-word">τούτων λεγομένων</span> – "mientras estas cosas se decían" (Lucas 24:36).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: PARTICIPIOS DEPONENTES EN PRESENTE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user-check"></i> 4. Participios deponentes en presente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>verbos deponentes</strong> tienen forma media/pasiva pero significado <strong>activo</strong>. Sus participios, por lo tanto, tienen forma media/pasiva pero se traducen como activos.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Deponentes comunes:</strong>
+            <ul>
+              <li><span class="greek-word">ἔρχομαι</span> → <strong>ἐρχόμενος</strong> (viniendo, no "siendo venido")</li>
+              <li><span class="greek-word">γίνομαι</span> → <strong>γινόμενος</strong> (llegando a ser, no "siendo llegado")</li>
+              <li><span class="greek-word">πορεύομαι</span> → <strong>πορευόμενος</strong> (yendo, caminando)</li>
+              <li><span class="greek-word">ἀποκρίνομαι</span> → <strong>ἀποκρινόμενος</strong> (respondiendo)</li>
+              <li><span class="greek-word">προσεύχομαι</span> → <strong>προσευχόμενος</strong> (orando)</li>
+            </ul>
+          </div>
+          <div class="absolute-box">
+            <strong><i class="fas fa-memory"></i> Regla:</strong> Si el verbo es deponente, su participio medio/pasivo se traduce como <strong>activo</strong>. Ejemplo: <span class="greek-word">ἐρχόμενος</span> = "viniendo", no "siendo venido".
+          </div>
+          <button class="btn-reveal" data-target="deponenteEj">Ejemplos en el NT</button>
+          <div id="deponenteEj" class="answer-text">
+            <span class="greek-word">ὁ ἐρχόμενος πρός με</span> – "el que viene a mí" (Juan 6:35).<br>
+            <span class="greek-word">προσευχόμενοι</span> – "orando" (Hechos 1:14).<br>
+            <span class="greek-word">πορευόμενοι</span> – "yendo" (Mateo 28:19).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 5. Vocabulario · Verbos deponentes y de movimiento</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen verbos deponentes, verbos de movimiento y términos relacionados con la narración.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Participio presente</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-lightbulb"></i> <strong>Consejo:</strong> Memoriza la forma del participio deponente junto con el verbo base.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: EJERCICIO DE DECLINACIÓN DE PARTICIPIO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 6. Practica: declina un participio medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="declMidQuizArea"></div>
+          <button id="newDeclMidQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="declMidFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO: IDENTIFICA EL GENITIVO ABSOLUTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-absolute"></i> 7. Identifica el genitivo absoluto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="genAbsQuizArea"></div>
+          <button id="newGenAbsQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="genAbsFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO DE TRADUCCIÓN CON PARTICIPIOS MEDIO/PASIVOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce frases con participios medio/pasivos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transMidQuizArea"></div>
+          <button id="newTransMidQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transMidFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 10. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: TEXTO PROGRAMADO – MATEO 2 Y HECHOS 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 11. Lectura programada · Mateo 2 y Hechos 2</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica los genitivos absolutos y los participios deponentes.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 2:1 – genitivo absoluto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τοῦ δὲ Ἰησοῦ γεννηθέντος ἐν Βηθλέεμ</span></p>
+              <button class="btn-reveal" data-target="mt2a">¿Qué construcción es?</button>
+              <div id="mt2a" class="answer-text">Genitivo absoluto: <span class="greek-word">τοῦ Ἰησοῦ</span> (sujeto en genitivo) + <span class="greek-word">γεννηθέντος</span> (participio aoristo pasivo en genitivo).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 2:13 – genitivo absoluto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀναχωρησάντων δὲ αὐτῶν</span></p>
+              <button class="btn-reveal" data-target="mt2b">¿Qué construcción es y qué significa?</button>
+              <div id="mt2b" class="answer-text">Genitivo absoluto: <span class="greek-word">αὐτῶν</span> (ellos) + <span class="greek-word">ἀναχωρησάντων</span> (habiéndose retirado) = "cuando ellos se hubieron retirado".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 2:1 – participio deponente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐν τῷ συμπληροῦσθαι τὴν ἡμέραν τῆς πεντηκοστῆς ἦσαν πάντες ὁμοῦ ἐπὶ τὸ αὐτό.</span></p>
+              <button class="btn-reveal" data-target="acts2a">¿Qué participio deponente aparece (aunque no esté explícito en este texto, busca en el capítulo)?</button>
+              <div id="acts2a" class="answer-text">En Hechos 2:1 no hay participio deponente explícito, pero el verbo <span class="greek-word">ἦσαν</span> (estaban) es de εἰμί. En Hechos 2:4 encontramos <span class="greek-word">ἤρξαντο</span> (comenzaron) que es deponente.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con genitivo absoluto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ταῦτα λέγοντος τοῦ Ἰησοῦ</span></p>
+              <button class="btn-reveal" data-target="traduccionGenAbs">Traduce</button>
+              <div id="traduccionGenAbs" class="answer-text">"Mientras Jesús decía estas cosas" – genitivo absoluto con participio presente.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 12. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Escribe la declinación de λυόμενος. Practica la identificación de genitivos absolutos. Lee Mateo 2 y Hechos 2 en griego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-31.html"><i class="fas fa-arrow-left"></i> Lección 31</a>
+      <a href="leccion-33.html"><i class="fas fa-arrow-right"></i> Lección 33</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">τοῦ Ἰησοῦ γεννηθέντος</span> (Mateo 2:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 32 ==========
+    const vocabData = [
+      { greek: "ἑρμηνεύω", translit: "hermēneuō", spanish: "interpretar, explicar", part: "ἑρμηνεύων" },
+      { greek: "μεταφράζω", translit: "metaphrazō", spanish: "traducir", part: "μεταφράζων" },
+      { greek: "ἀγγέλλω", translit: "angellō", spanish: "anunciar", part: "ἀγγέλλων" },
+      { greek: "ἀπαγγέλλω", translit: "apangellō", spanish: "anunciar, informar", part: "ἀπαγγέλλων" },
+      { greek: "προαγγέλλω", translit: "proangellō", spanish: "anunciar de antemano", part: "προαγγέλλων" },
+      { greek: "καταγγέλλω", translit: "katangellō", spanish: "proclamar", part: "καταγγέλλων" },
+      { greek: "ἐπαγγέλλομαι", translit: "epangelomai", spanish: "prometer", part: "ἐπαγγελλόμενος" },
+      { greek: "διαγγέλλω", translit: "diangellō", spanish: "proclamar ampliamente", part: "διαγγέλλων" },
+      { greek: "ὑποστρέφω", translit: "hypostrephō", spanish: "regresar", part: "ὑποστρέφων" },
+      { greek: "ἐπαναστρέφω", translit: "epanastrephō", spanish: "regresar, volver", part: "ἐπαναστρέφων" },
+      { greek: "ἐλεύθερος", translit: "eleutheros", spanish: "libre", part: "—" },
+      { greek: "δοῦλος", translit: "doulos", spanish: "siervo, esclavo", part: "—" },
+      { greek: "δουλεύω", translit: "douleuō", spanish: "servir, ser esclavo", part: "δουλεύων" },
+      { greek: "δουλόω", translit: "douloō", spanish: "esclavizar", part: "δουλῶν" },
+      { greek: "δεσμός", translit: "desmos", spanish: "cadena, atadura", part: "—" },
+      { greek: "δέσμιος", translit: "desmios", spanish: "prisionero", part: "—" },
+      { greek: "φυλακή", translit: "phylakē", spanish: "prisión, guardia", part: "—" },
+      { greek: "ἀρχή", translit: "archē", spanish: "principio, gobierno", part: "—" },
+      { greek: "ἐξουσία", translit: "exousia", spanish: "autoridad", part: "—" },
+      { greek: "δύναμις", translit: "dynamis", spanish: "poder", part: "—" }
+    ];
+
+    // Palabras para ejercicio de declinación
+    const declMidWords = [
+      { nom: "λυόμενος", fem: "λυομένη", neut: "λυόμενον", gen: "λυομένου", dat: "λυομένῳ", acc: "λυόμενον", plural: "λυόμενοι" },
+      { nom: "πιστευόμενος", fem: "πιστευομένη", neut: "πιστευόμενον", gen: "πιστευομένου", dat: "πιστευομένῳ", acc: "πιστευόμενον", plural: "πιστευόμενοι" },
+      { nom: "γινόμενος", fem: "γινομένη", neut: "γινόμενον", gen: "γινομένου", dat: "γινομένῳ", acc: "γινόμενον", plural: "γινόμενοι" },
+      { nom: "ἐρχόμενος", fem: "ἐρχομένη", neut: "ἐρχόμενον", gen: "ἐρχομένου", dat: "ἐρχομένῳ", acc: "ἐρχόμενον", plural: "ἐρχόμενοι" }
+    ];
+
+    // Ejemplos de genitivo absoluto
+    const genAbsExamples = [
+      { phrase: "τοῦ Ἰησοῦ λέγοντος", genitive: "τοῦ Ἰησοῦ", participle: "λέγοντος", translation: "mientras Jesús decía" },
+      { phrase: "τούτων λεγομένων", genitive: "τούτων", participle: "λεγομένων", translation: "mientras estas cosas se decían" },
+      { phrase: "τοῦ δὲ Ἰησοῦ γεννηθέντος", genitive: "τοῦ Ἰησοῦ", participle: "γεννηθέντος", translation: "cuando Jesús nació" },
+      { phrase: "ἀναχωρησάντων δὲ αὐτῶν", genitive: "αὐτῶν", participle: "ἀναχωρησάντων", translation: "cuando ellos se hubieron retirado" },
+      { phrase: "ἐλθόντος τοῦ ἀνθρώπου", genitive: "τοῦ ἀνθρώπου", participle: "ἐλθόντος", translation: "cuando el hombre vino" }
+    ];
+
+    let currentDeclMid = declMidWords[0];
+    let currentGenAbs = genAbsExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.part}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadDeclMidQuiz() {
+      const randomIndex = Math.floor(Math.random() * declMidWords.length);
+      currentDeclMid = declMidWords[randomIndex];
+      const container = document.getElementById("declMidQuizArea");
+      const correct = currentDeclMid.gen;
+      container.innerHTML = `<div class="card-highlight"><strong>Completa la declinación de <span class="greek-word">${currentDeclMid.nom}</span>:</strong><br>
+      Nominativo: ${currentDeclMid.nom}<br>
+      Genitivo singular: ______<br>
+      <input type="text" id="declMidAnswer" placeholder="ej. λυομένου" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkDeclMid" class="btn-reveal">Verificar</button>
+      <div id="declMidResult"></div></div>`;
+      document.getElementById("checkDeclMid").addEventListener("click", () => {
+        const answer = document.getElementById("declMidAnswer").value.trim();
+        const result = document.getElementById("declMidResult");
+        if (answer === correct) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+          setTimeout(loadDeclMidQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}.</span>`;
+        }
+      });
+    }
+
+    function loadGenAbsQuiz() {
+      const randomIndex = Math.floor(Math.random() * genAbsExamples.length);
+      currentGenAbs = genAbsExamples[randomIndex];
+      const container = document.getElementById("genAbsQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Identifica el genitivo absoluto:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentGenAbs.phrase}</span><br>
+      <button id="genAbsGen" class="btn-reveal">¿Cuál es el sujeto en genitivo?</button>
+      <button id="genAbsPart" class="btn-reveal">¿Cuál es el participio?</button>
+      <div id="genAbsResult"></div></div>`;
+      document.getElementById("genAbsGen").addEventListener("click", () => {
+        const result = document.getElementById("genAbsResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Sujeto: ${currentGenAbs.genitive}</span>`;
+      });
+      document.getElementById("genAbsPart").addEventListener("click", () => {
+        const result = document.getElementById("genAbsResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Participio: ${currentGenAbs.participle}</span>`;
+      });
+    }
+
+    // Traducción de frases con participios medio/pasivos
+    const transMidPhrases = [
+      { greek: "λυόμενος ὑπὸ τοῦ θεοῦ", translation: "siendo desatado por Dios" },
+      { greek: "πιστευόμενος λόγος", translation: "una palabra que es creída" },
+      { greek: "γινόμενος υἱός", translation: "llegando a ser hijo" },
+      { greek: "ἐρχόμενος πρὸς αὐτόν", translation: "viniendo a él" },
+      { greek: "πορευόμενοι εἰς τὴν πόλιν", translation: "yendo a la ciudad" }
+    ];
+    let currentTransMid = transMidPhrases[0];
+    function loadTransMidQuiz() {
+      const randomIndex = Math.floor(Math.random() * transMidPhrases.length);
+      currentTransMid = transMidPhrases[randomIndex];
+      const container = document.getElementById("transMidQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransMid.greek}</span><br>
+      <input type="text" id="transMidAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransMid" class="btn-reveal">Verificar</button>
+      <div id="transMidResult"></div></div>`;
+      document.getElementById("checkTransMid").addEventListener("click", () => {
+        const answer = document.getElementById("transMidAnswer").value.trim().toLowerCase();
+        const correct = currentTransMid.translation.toLowerCase();
+        const result = document.getElementById("transMidResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransMidQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransMid.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Terminación del participio presente medio/pasivo masculino nominativo singular", opts: ["-όμενος", "-ομένη", "-όμενον", "-ομένου"], correct: 0 },
+      { q: "¿Qué construcción usa un participio y su sujeto en genitivo?", opts: ["Genitivo absoluto", "Acusativo con infinitivo", "Participio atributivo", "Condicional"], correct: 0 },
+      { q: "Traduce 'ἐρχόμενος'", opts: ["viniendo", "siendo venido", "habiendo venido", "que vendrá"], correct: 0 },
+      { q: "¿Qué verbo deponente significa 'venir'?", opts: ["ἔρχομαι", "πορεύομαι", "γίνομαι", "ἀποκρίνομαι"], correct: 0 },
+      { q: "Forma de genitivo singular masculino de λυόμενος", opts: ["λυομένου", "λυομένῳ", "λυόμενον", "λυόμενοι"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkDeclMid" || btn.id === "genAbsGen" || btn.id === "genAbsPart" || btn.id === "checkTransMid" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadDeclMidQuiz();
+      loadGenAbsQuiz();
+      loadTransMidQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newDeclMidQuiz")?.addEventListener("click", () => {
+        loadDeclMidQuiz();
+        document.getElementById("declMidFeedback").innerHTML = "";
+      });
+      document.getElementById("newGenAbsQuiz")?.addEventListener("click", () => {
+        loadGenAbsQuiz();
+        document.getElementById("genAbsFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransMidQuiz")?.addEventListener("click", () => {
+        loadTransMidQuiz();
+        document.getElementById("transMidFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 31: El Participio Presente Activo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 44%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2000px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-30.html"><i class="fas fa-arrow-left"></i> Lección 30</a>
+        <a href="leccion-32.html"><i class="fas fa-arrow-right"></i> Lección 32</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-puzzle-piece"></i> Lección 31 · El Participio Presente Activo <span class="hero-badge">Módulo III · Desarrollo</span></h1>
+      <p>Morfología (tema + οντ/ουσ + terminaciones) · Declinación 3ª-1ª-3ª · Usos atributivo, predicativo, circunstancial · Aspecto simultáneo</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 620/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/3XpLZz4nY7I" title="El participio presente activo en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: El participio presente activo – forma, declinación y usos</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN AL PARTICIPIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Qué es un participio?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>participio</strong> es una forma verbal que funciona como <strong>adjetivo</strong>. Combina características del verbo (tiempo, voz, aspecto) con las del adjetivo (género, número, caso).</p>
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Definición:</strong> Un participio es un "verbo adjetivado". Ejemplo: <span class="greek-word">ὁ πιστεύων</span> – "el que cree" (el creyente).
+          </div>
+          <p><strong>Características del participio presente activo:</strong></p>
+          <ul>
+            <li><strong>Aspecto lineal/continuo</strong> (como el presente indicativo).</li>
+            <li><strong>Voz activa</strong> (el sujeto realiza la acción).</li>
+            <li><strong>Tiempo presente</strong> (acción simultánea al verbo principal).</li>
+            <li><strong>Se declina</strong> como un adjetivo de 3ª declinación (masculino/neutro) y 1ª declinación (femenino).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Frecuencia en el NT:</strong> Los participios son una de las formas más comunes del NT. El participio presente activo aparece miles de veces.
+          </div>
+          <button class="btn-reveal" data-target="introEj">Comparación con el español</button>
+          <div id="introEj" class="answer-text">
+            En español, los participios presentes (gerundios) son invariables ("creyendo"). En griego, el participio es <strong>variable</strong> (concuerda en género, número y caso).<br>
+            Ejemplo: <span class="greek-word">πιστεύων</span> (masc. sg.), <span class="greek-word">πιστεύουσα</span> (fem. sg.), <span class="greek-word">πιστεῦον</span> (neut. sg.).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: MORFOLOGÍA DEL PARTICIPIO PRESENTE ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cogs"></i> 2. Formación del participio presente activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio presente activo se forma con:</p>
+          <ul>
+            <li><strong>Tema del presente</strong> (ej. <span class="greek-word">λυ-</span> para λύω).</li>
+            <li><strong>-οντ- / -ουσ-</strong> (para masculino/neutro) y <strong>-ουσ-</strong> (para femenino).</li>
+            <li><strong>Terminaciones de la 3ª declinación</strong> (masculino/neutro) y <strong>1ª declinación</strong> (femenino).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-memory"></i> Esquema de formación:</strong><br>
+            λύω → λυ- + -οντ- + -ς = λύων (masculino)<br>
+            λύω → λυ- + -ουσ- + -α = λύουσα (femenino)<br>
+            λύω → λυ- + -οντ- + - (sin terminación) = λῦον (neutro)
+          </div>
+          <p><strong>Observaciones importantes:</strong></p>
+          <ul>
+            <li>El masculino nominativo singular termina en <strong>-ων</strong> (ej. λύων).</li>
+            <li>El femenino nominativo singular termina en <strong>-ουσα</strong> (ej. λύουσα).</li>
+            <li>El neutro nominativo singular termina en <strong>-ον</strong> (ej. λῦον).</li>
+            <li>El acento se mantiene en la misma sílaba que el tema verbal (regla de acentuación).</li>
+          </ul>
+          <button class="btn-reveal" data-target="morfologiaEj">Forma el participio de γράφω</button>
+          <div id="morfologiaEj" class="answer-text">
+            γράφω → <strong>γράφων</strong> (masc. sg.), <strong>γράφουσα</strong> (fem. sg.), <strong>γράφον</strong> (neut. sg.)
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: DECLINACIÓN DEL PARTICIPIO PRESENTE ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Declinación del participio presente activo (paradigma 3ª-1ª-3ª)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio presente activo sigue el patrón <strong>3ª-1ª-3ª</strong>: masculino y neutro son de 3ª declinación; femenino es de 1ª declinación.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead>
+                <tr><th>Caso</th><th colspan="3">Singular</th><th colspan="3">Plural</th></tr>
+                <tr><th></th><th>Masc.</th><th>Fem.</th><th>Neut.</th><th>Masc.</th><th>Fem.</th><th>Neut.</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>λύων</td><td>λύουσα</td><td>λῦον</td><td>λύοντες</td><td>λύουσαι</td><td>λύοντα</td></tr>
+                <tr><td>Genitivo</td><td>λύοντος</td><td>λυούσης</td><td>λύοντος</td><td>λυόντων</td><td>λυουσῶν</td><td>λυόντων</td></tr>
+                <tr><td>Dativo</td><td>λύοντι</td><td>λυούσῃ</td><td>λύοντι</td><td>λύουσι(ν)</td><td>λυούσαις</td><td>λύουσι(ν)</td></tr>
+                <tr><td>Acusativo</td><td>λύοντα</td><td>λύουσαν</td><td>λῦον</td><td>λύοντας</td><td>λυούσας</td><td>λύοντα</td></tr>
+                <tr><td>Vocativo</td><td>λύων</td><td>λύουσα</td><td>λῦον</td><td>λύοντες</td><td>λύουσαι</td><td>λύοντα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Reglas de declinación:</strong>
+            <ul>
+              <li>El masculino y neutro siguen la 3ª declinación (tema en <strong>-οντ-</strong>).</li>
+              <li>El femenino sigue la 1ª declinación (tema en <strong>-ουσ-</strong>).</li>
+              <li>El dativo plural masculino/neutro termina en <strong>-ουσι(ν)</strong> (como el presente indicativo 3ª pl.).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="declinacionEj">Declina πιστεύων (el que cree)</button>
+          <div id="declinacionEj" class="answer-text">
+            Masc. sg.: πιστεύων, πιστεύοντος, πιστεύοντι, πιστεύοντα<br>
+            Fem. sg.: πιστεύουσα, πιστευούσης, πιστευούσῃ, πιστεύουσαν<br>
+            Neut. sg.: πιστεῦον, πιστεύοντος, πιστεύοντι, πιστεῦον
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: USOS DEL PARTICIPIO PRESENTE ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gavel"></i> 4. Los tres usos principales del participio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio presente activo tiene tres usos fundamentales en el NT:</p>
+
+          <h3>1. Uso atributivo</h3>
+          <p>El participio califica directamente a un sustantivo, funcionando como un adjetivo. Va con artículo y concuerda en caso, género y número.</p>
+          <div class="card-highlight">
+            <strong>Ejemplo:</strong> <span class="greek-word">ὁ πιστεύων</span> – "el que cree" (el creyente).<br>
+            <span class="greek-word">οἱ ἐρχόμενοι</span> – "los que vienen".
+          </div>
+
+          <h3>2. Uso predicativo</h3>
+          <p>El participio funciona como predicado, normalmente con el verbo "ser" implícito o explícito.</p>
+          <div class="card-highlight">
+            <strong>Ejemplo:</strong> <span class="greek-word">οὗτός ἐστιν ὁ ἐρχόμενος</span> – "este es el que viene".<br>
+            <span class="greek-word">ἦν διδάσκων</span> – "estaba enseñando" (perífrasis verbal).
+          </div>
+
+          <h3>3. Uso circunstancial</h3>
+          <p>El participio expresa una circunstancia (tiempo, causa, modo, condición, etc.) relacionada con el verbo principal. Es el uso más flexible y común.</p>
+          <div class="card-highlight">
+            <strong>Ejemplos:</strong><br>
+            <span class="greek-word">ἀκούσας</span> – "habiendo oído" (tiempo – aoristo).<br>
+            Pero en presente: <span class="greek-word">ἀκούων</span> – "oyendo" (simultáneo).<br>
+            <span class="greek-word">πορευόμενοι</span> – "yendo" (modo).<br>
+            <span class="greek-word">βλέπων</span> – "viendo" (causa).
+          </div>
+          <button class="btn-reveal" data-target="usosEj">Identifica el uso en ejemplos</button>
+          <div id="usosEj" class="answer-text">
+            <span class="greek-word">ὁ πιστεύων ἔχει ζωήν</span> – atributivo (el que cree tiene vida).<br>
+            <span class="greek-word">εἰσῆλθεν διδάσκων</span> – circunstancial (entró enseñando).<br>
+            <span class="greek-word">ἦν διδάσκων</span> – predicativo (estaba enseñando).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: ASPECTO SIMULTÁNEO DEL PARTICIPIO PRESENTE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-clock"></i> 5. Aspecto simultáneo: el participio presente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio presente expresa una acción que es <strong>simultánea</strong> al tiempo del verbo principal. No indica anterioridad (como el aoristo) ni estado resultante (como el perfecto).</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Regla:</strong> El participio presente describe una acción que ocurre <strong>al mismo tiempo</strong> que la acción del verbo principal.
+          </div>
+          <p><strong>Comparación de tiempos:</strong></p>
+          <ul>
+            <li><span class="greek-word">ἀκούσας</span> (aoristo) – "habiendo oído" (acción anterior).</li>
+            <li><span class="greek-word">ἀκούων</span> (presente) – "oyendo" (acción simultánea).</li>
+            <li><span class="greek-word">ἀκηκοώς</span> (perfecto) – "habiendo oído (y aún oyendo)" – estado resultante.</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo en el NT:</strong><br>
+            <span class="greek-word">καὶ ἰδὼν τοὺς ὄχλους ἀνέβη</span> – "y viendo las multitudes, subió" (aoristo: anterioridad).<br>
+            <span class="greek-word">περιπατῶν παρὰ τὴν θάλασσαν εἶδεν</span> – "andando junto al mar, vio" (presente: simultáneo).
+          </div>
+          <button class="btn-reveal" data-target="aspectoEj">Traduce según el aspecto</button>
+          <div id="aspectoEj" class="answer-text">
+            <span class="greek-word">ἀκούων</span> – "oyendo" (simultáneo).<br>
+            <span class="greek-word">ἀκούσας</span> – "habiendo oído" (anterior).<br>
+            <span class="greek-word">λελυκώς</span> – "habiendo desatado" (estado resultante).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Participios comunes en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen participios presentes activos muy frecuentes y otros términos relacionados.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Forma base</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-lightbulb"></i> <strong>Consejo:</strong> Memoriza la forma del participio junto con el verbo base. Practica la declinación de cada uno.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE DECLINACIÓN DE PARTICIPIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: declina un participio presente activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="declPartQuizArea"></div>
+          <button id="newDeclPartQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="declPartFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: IDENTIFICA EL USO DEL PARTICIPIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el uso del participio (atributivo, predicativo, circunstancial)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="usoPartQuizArea"></div>
+          <button id="newUsoPartQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="usoPartFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO DE TRADUCCIÓN CON PARTICIPIOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con participios</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transPartQuizArea"></div>
+          <button id="newTransPartQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transPartFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – JUAN 3:1-21 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Juan 3:1-21 (Nicodemo)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee el diálogo de Jesús con Nicodemo. Identifica los participios presentes activos y su función.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 3:3 – πιστεύων</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀπεκρίθη Ἰησοῦς καὶ εἶπεν αὐτῷ· ἀμὴν ἀμὴν λέγω σοι, ἐὰν μή τις γεννηθῇ ἄνωθεν, οὐ δύναται ἰδεῖν τὴν βασιλείαν τοῦ θεοῦ.</span></p>
+              <button class="btn-reveal" data-target="j3a">¿Qué participio aparece en el versículo 3 (no en este texto, pero busca πιστεύων en el capítulo)?</button>
+              <div id="j3a" class="answer-text">En Juan 3:18: <span class="greek-word">ὁ πιστεύων</span> (el que cree) – participio presente activo, uso atributivo.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 3:16 – πιστεύων</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλʼ ἔχῃ ζωὴν αἰώνιον.</span></p>
+              <button class="btn-reveal" data-target="j3b">¿Qué uso tiene el participio πιστεύων?</button>
+              <div id="j3b" class="answer-text"><strong>Atributivo</strong> – con artículo (ὁ πιστεύων) = "el que cree".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 3:20 – πράσσων</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πᾶς γὰρ ὁ φαῦλα πράσσων μισεῖ τὸ φῶς</span></p>
+              <button class="btn-reveal" data-target="j3c">¿Qué participio aparece y qué uso tiene?</button>
+              <div id="j3c" class="answer-text"><span class="greek-word">πράσσων</span> (el que practica) – participio presente activo de <span class="greek-word">πράσσω</span>, uso atributivo.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con participio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀκούων ταῦτα ἐθαύμασεν</span></p>
+              <button class="btn-reveal" data-target="traduccionPart">Traduce y analiza</button>
+              <div id="traduccionPart" class="answer-text">"Oyendo estas cosas, se maravilló" – participio presente circunstancial (simultáneo).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Escribe la declinación de λύων, λύουσα, λῦον. Practica la identificación de usos (atributivo, predicativo, circunstancial). Lee Juan 3:1-21 en griego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-30.html"><i class="fas fa-arrow-left"></i> Lección 30</a>
+      <a href="leccion-32.html"><i class="fas fa-arrow-right"></i> Lección 32</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ὁ πιστεύων εἰς αὐτὸν ἔχει ζωὴν αἰώνιον</span> (Juan 3:36)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 31 ==========
+    const vocabData = [
+      { greek: "πιστεύων", translit: "pisteuōn", spanish: "el que cree (creyente)", base: "πιστεύω" },
+      { greek: "ἐρχόμενος", translit: "erchomenos", spanish: "el que viene", base: "ἔρχομαι" },
+      { greek: "λέγων", translit: "legōn", spanish: "diciendo", base: "λέγω" },
+      { greek: "ἔχων", translit: "echōn", spanish: "teniendo", base: "ἔχω" },
+      { greek: "ἀκούων", translit: "akouōn", spanish: "oyendo", base: "ἀκούω" },
+      { greek: "ποιῶν", translit: "poiōn", spanish: "haciendo", base: "ποιέω" },
+      { greek: "γινώσκων", translit: "ginōskōn", spanish: "conociendo", base: "γινώσκω" },
+      { greek: "βλέπων", translit: "blepōn", spanish: "viendo", base: "βλέπω" },
+      { greek: "ζῶν", translit: "zōn", spanish: "viviente, vivo", base: "ζάω" },
+      { greek: "μένων", translit: "menōn", spanish: "permaneciendo", base: "μένω" },
+      { greek: "ὤν", translit: "ōn", spanish: "siendo (de εἰμί)", base: "εἰμί" },
+      { greek: "ἀγαπῶν", translit: "agapōn", spanish: "el que ama", base: "ἀγαπάω" },
+      { greek: "διδάσκων", translit: "didaskōn", spanish: "el que enseña", base: "διδάσκω" },
+      { greek: "κηρύσσων", translit: "kēryssōn", spanish: "el que proclama", base: "κηρύσσω" },
+      { greek: "βαπτίζων", translit: "baptizōn", spanish: "el que bautiza", base: "βαπτίζω" },
+      { greek: "σῴζων", translit: "sōzōn", spanish: "el que salva", base: "σῴζω" },
+      { greek: "κρίνων", translit: "krinōn", spanish: "el que juzga", base: "κρίνω" },
+      { greek: "φέρων", translit: "pherōn", spanish: "el que lleva", base: "φέρω" },
+      { greek: "δίδους", translit: "didous", spanish: "el que da", base: "δίδωμι" },
+      { greek: "καλῶν", translit: "kalōn", spanish: "el que llama", base: "καλέω" }
+    ];
+
+    // Palabras para ejercicio de declinación
+    const declPartWords = [
+      { nom: "λύων", fem: "λύουσα", neut: "λῦον", gen: "λύοντος", dat: "λύοντι", acc: "λύοντα", plural: "λύοντες" },
+      { nom: "πιστεύων", fem: "πιστεύουσα", neut: "πιστεῦον", gen: "πιστεύοντος", dat: "πιστεύοντι", acc: "πιστεύοντα", plural: "πιστεύοντες" },
+      { nom: "γράφων", fem: "γράφουσα", neut: "γράφον", gen: "γράφοντος", dat: "γράφοντι", acc: "γράφοντα", plural: "γράφοντες" },
+      { nom: "λέγων", fem: "λέγουσα", neut: "λέγον", gen: "λέγοντος", dat: "λέγοντι", acc: "λέγοντα", plural: "λέγοντες" }
+    ];
+
+    // Ejemplos de usos
+    const usoPartExamples = [
+      { phrase: "ὁ πιστεύων", use: "atributivo", translation: "el que cree" },
+      { phrase: "ἦν διδάσκων", use: "predicativo", translation: "estaba enseñando" },
+      { phrase: "ἀκούων ἐθαύμασεν", use: "circunstancial", translation: "oyendo, se maravilló" },
+      { phrase: "οἱ ἐρχόμενοι", use: "atributivo", translation: "los que vienen" },
+      { phrase: "πορευόμενος εἶδεν", use: "circunstancial", translation: "yendo, vio" }
+    ];
+
+    let currentDecl = declPartWords[0];
+    let currentUso = usoPartExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.base}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadDeclPartQuiz() {
+      const randomIndex = Math.floor(Math.random() * declPartWords.length);
+      currentDecl = declPartWords[randomIndex];
+      const container = document.getElementById("declPartQuizArea");
+      const correct = currentDecl.gen;
+      container.innerHTML = `<div class="card-highlight"><strong>Completa la declinación de <span class="greek-word">${currentDecl.nom}</span>:</strong><br>
+      Nominativo: ${currentDecl.nom}<br>
+      Genitivo singular: ______<br>
+      <input type="text" id="declPartAnswer" placeholder="ej. λύοντος" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkDeclPart" class="btn-reveal">Verificar</button>
+      <div id="declPartResult"></div></div>`;
+      document.getElementById("checkDeclPart").addEventListener("click", () => {
+        const answer = document.getElementById("declPartAnswer").value.trim();
+        const result = document.getElementById("declPartResult");
+        if (answer === correct) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+          setTimeout(loadDeclPartQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}.</span>`;
+        }
+      });
+    }
+
+    function loadUsoPartQuiz() {
+      const randomIndex = Math.floor(Math.random() * usoPartExamples.length);
+      currentUso = usoPartExamples[randomIndex];
+      const container = document.getElementById("usoPartQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Identifica el uso del participio:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentUso.phrase}</span><br>
+      <button id="usoAtrib" class="btn-reveal">Atributivo</button> <button id="usoPred" class="btn-reveal">Predicativo</button> <button id="usoCirc" class="btn-reveal">Circunstancial</button>
+      <div id="usoPartResult"></div></div>`;
+      const addHandler = (id, use) => {
+        document.getElementById(id).addEventListener("click", () => {
+          const result = document.getElementById("usoPartResult");
+          if (use === currentUso.use) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentUso.translation})</span>`;
+            setTimeout(loadUsoPartQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentUso.use}</span>`;
+          }
+        });
+      };
+      addHandler("usoAtrib", "atributivo");
+      addHandler("usoPred", "predicativo");
+      addHandler("usoCirc", "circunstancial");
+    }
+
+    // Traducción aleatoria
+    const transPartPhrases = [
+      { greek: "ὁ πιστεύων ἔχει ζωήν", translation: "el que cree tiene vida" },
+      { greek: "ἀκούων ἐθαύμασεν", translation: "oyendo, se maravilló" },
+      { greek: "ἦν διδάσκων", translation: "estaba enseñando" },
+      { greek: "οἱ ἐρχόμενοι εἶδον", translation: "los que vinieron vieron" },
+      { greek: "λέγων ταῦτα ἐξῆλθεν", translation: "diciendo estas cosas, salió" }
+    ];
+    let currentTransPart = transPartPhrases[0];
+    function loadTransPartQuiz() {
+      const randomIndex = Math.floor(Math.random() * transPartPhrases.length);
+      currentTransPart = transPartPhrases[randomIndex];
+      const container = document.getElementById("transPartQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransPart.greek}</span><br>
+      <input type="text" id="transPartAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransPart" class="btn-reveal">Verificar</button>
+      <div id="transPartResult"></div></div>`;
+      document.getElementById("checkTransPart").addEventListener("click", () => {
+        const answer = document.getElementById("transPartAnswer").value.trim().toLowerCase();
+        const correct = currentTransPart.translation.toLowerCase();
+        const result = document.getElementById("transPartResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransPartQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransPart.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "¿Qué aspecto expresa el participio presente activo?", opts: ["Lineal/continuo", "Puntual", "Resultativo", "Pasado"], correct: 0 },
+      { q: "Terminación del nominativo masculino singular del participio presente activo", opts: ["-ων", "-ουσα", "-ον", "-οντος"], correct: 0 },
+      { q: "Uso del participio en 'ὁ πιστεύων'", opts: ["Atributivo", "Predicativo", "Circunstancial", "Ninguno"], correct: 0 },
+      { q: "¿Qué significa 'ἀκούων'?", opts: ["Oyendo", "Habiendo oído", "Habiendo oído (y aún oyendo)", "Oí"], correct: 0 },
+      { q: "Forma de dativo plural masculino del participio λύων", opts: ["λύουσι(ν)", "λύοντι", "λύοντας", "λυόντων"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkDeclPart" || btn.id === "usoAtrib" || btn.id === "usoPred" || btn.id === "usoCirc" || btn.id === "checkTransPart" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadDeclPartQuiz();
+      loadUsoPartQuiz();
+      loadTransPartQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newDeclPartQuiz")?.addEventListener("click", () => {
+        loadDeclPartQuiz();
+        document.getElementById("declPartFeedback").innerHTML = "";
+      });
+      document.getElementById("newUsoPartQuiz")?.addEventListener("click", () => {
+        loadUsoPartQuiz();
+        document.getElementById("usoPartFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransPartQuiz")?.addEventListener("click", () => {
+        loadTransPartQuiz();
+        document.getElementById("transPartFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

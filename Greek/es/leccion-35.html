@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 35: Verbos -μι I (δίδωμι)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 50%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .mi-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-34.html"><i class="fas fa-arrow-left"></i> Lección 34</a>
+        <a href="leccion-36.html"><i class="fas fa-arrow-right"></i> Lección 36</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-greek-helmet"></i> Lección 35 · Verbos -μι I (δίδωμι) <span class="hero-badge">Módulo III · Desarrollo</span></h1>
+      <p>Sistema -μι · Reduplicación · Paradigma de δίδωμι · Comparación con -ω · Análisis de Juan 3:16 y 6:37</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 700/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Los verbos -μι en griego: δίδωμι" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Introducción a los verbos -μι y el paradigma de δίδωμι</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN AL SISTEMA -μι -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El sistema de verbos -μι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Además de los verbos en <strong>-ω</strong> (paradigma regular), el griego tiene un grupo de verbos que terminan en <strong>-μι</strong> en la 1ª persona singular del presente. Son verbos <strong>irregulares</strong> que deben memorizarse por separado.</p>
+          <div class="mi-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características de los verbos -μι:</strong>
+            <ul>
+              <li><strong>Reduplicación</strong>: repiten la primera consonante + vocal para formar el tema de presente.</li>
+              <li><strong>Terminaciones</strong>: -μι, -ς, -σι(ν), -μεν, -τε, -ασι(ν).</li>
+              <li><strong>Vocal de tema</strong>: larga en singular (ej. δίδωμι, δίδως, δίδωσι) y corta en plural (δίδομεν, δίδοτε, διδόασι).</li>
+              <li><strong>Menos verbos</strong>: solo unos 10-15 verbos -μι en el NT, pero son muy frecuentes (δίδωμι, τίθημι, ἵστημι, ἀφίημι, etc.).</li>
+            </ul>
+          </div>
+          <p><strong>Comparación con verbos -ω:</strong></p>
+          <ul>
+            <li>Verbos -ω: <span class="greek-word">λύω</span> (desato) – tema λυ-, vocal de unión ο/ε, terminaciones primarias.</li>
+            <li>Verbos -μι: <span class="greek-word">δίδωμι</span> (doy) – reduplicación δι-, vocal de tema larga (ω/ως/ωσι) en singular, corta (ο/ομεν/οτε) en plural.</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-memory"></i> Clave:</strong> Los verbos -μι <strong>no usan vocal de unión</strong> (ο/ε). Las terminaciones se añaden directamente al tema reduplicado.
+          </div>
+          <button class="btn-reveal" data-target="introMi">Ver lista de verbos -μι en el NT</button>
+          <div id="introMi" class="answer-text">
+            <strong>Verbos -μι principales:</strong><br>
+            δίδωμι (dar), τίθημι (poner), ἵστημι (estar de pie, poner), ἵημι (enviar, dejar), ἀφίημι (perdonar, dejar), δείκνυμι (mostrar), οἶδα (saber – perfecto con significado presente), etc.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: PARADIGMA DE δίδωμι (PRESENTE INDICATIVO) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Presente de indicativo de δίδωμι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">δίδωμι</span> (doy) es uno de los verbos más frecuentes del NT (más de 400 veces). Su presente se forma con reduplicación <strong>δι-</strong> y las terminaciones -μι.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>δίδωμι</td><td>doy</td></tr>
+                <tr><td>2ª sg.</td><td>δίδως</td><td>das</td></tr>
+                <tr><td>3ª sg.</td><td>δίδωσι(ν)</td><td>da</td></tr>
+                <tr><td>1ª pl.</td><td>δίδομεν</td><td>damos</td></tr>
+                <tr><td>2ª pl.</td><td>δίδοτε</td><td>dais</td></tr>
+                <tr><td>3ª pl.</td><td>διδόασι(ν)</td><td>dan</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mi-box">
+            <strong><i class="fas fa-lightbulb"></i> Observaciones:</strong>
+            <ul>
+              <li>Singular: vocal larga <strong>ω</strong> (δίδωμι, δίδως, δίδωσι).</li>
+              <li>Plural: vocal corta <strong>ο</strong> (δίδομεν, δίδοτε, διδόασι).</li>
+              <li>La 3ª pl. a veces se contrae: <span class="greek-word">διδόασι</span> o <span class="greek-word">διδοῦσι</span> (menos común).</li>
+              <li>El acento se mantiene en la penúltima sílaba en singular, y en la antepenúltima en plural (reglas del acento).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="didomiPresEj">Conjuga δίδωμι en presente</button>
+          <div id="didomiPresEj" class="answer-text">
+            δίδωμι, δίδως, δίδωσι(ν), δίδομεν, δίδοτε, διδόασι(ν).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: AORISTO DE δίδωμι -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Aoristo de δίδωμι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El aoristo de δίδωμι es irregular: <strong>ἔδωκα</strong> (di). Sigue el patrón del aoristo primero (con -κα) pero con una raíz diferente.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἔδωκα</td><td>di</td></tr>
+                <tr><td>2ª sg.</td><td>ἔδωκας</td><td>diste</td></tr>
+                <tr><td>3ª sg.</td><td>ἔδωκε(ν)</td><td>dio</td></tr>
+                <tr><td>1ª pl.</td><td>ἐδώκαμεν</td><td>dimos</td></tr>
+                <tr><td>2ª pl.</td><td>ἐδώκατε</td><td>disteis</td></tr>
+                <tr><td>3ª pl.</td><td>ἔδωκαν</td><td>dieron</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mi-box">
+            <strong><i class="fas fa-lightbulb"></i> Observaciones:</strong>
+            <ul>
+              <li>Aumento <strong>ἐ-</strong> (como en aoristo primero).</li>
+              <li>Tema <strong>δωκ-</strong> (no δο-).</li>
+              <li>Terminaciones del aoristo primero (-α, -ας, -ε, -αμεν, -ατε, -αν).</li>
+              <li>Perfecto: <span class="greek-word">δέδωκα</span> (he dado) – también irregular.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="didomiAorEj">Conjuga δίδωμι en aoristo</button>
+          <div id="didomiAorEj" class="answer-text">
+            ἔδωκα, ἔδωκας, ἔδωκε(ν), ἐδώκαμεν, ἐδώκατε, ἔδωκαν.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: OTROS VERBOS -MI IMPORTANTES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 4. Otros verbos -μι importantes</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Además de δίδωμι, los siguientes verbos -μι son esenciales en el NT:</p>
+          <ul>
+            <li><strong>τίθημι</strong> (poner, colocar) – presente: τίθημι, τίθης, τίθησι(ν), τίθεμεν, τίθετε, τιθέασι(ν).</li>
+            <li><strong>ἵστημι</strong> (estar de pie, poner) – presente: ἵστημι, ἵστης, ἵστησι(ν), ἵσταμεν, ἵστατε, ἱστάσι(ν).</li>
+            <li><strong>ἀφίημι</strong> (perdonar, dejar) – presente: ἀφίημι, ἀφίης, ἀφίησι(ν), ἀφίεμεν, ἀφίετε, ἀφιᾶσι(ν).</li>
+            <li><strong>δείκνυμι</strong> (mostrar) – presente: δείκνυμι, δείκνυς, δείκνυσι(ν), δείκνυμεν, δείκνυτε, δεικνύασι(ν).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Frecuencia en el NT:</strong>
+            <ul>
+              <li>δίδωμι: 400+ veces</li>
+              <li>ἀφίημι: 140+ veces</li>
+              <li>τίθημι: 100+ veces</li>
+              <li>ἵστημι: 80+ veces</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="otrosMi">Conjuga ἀφίημι en presente</button>
+          <div id="otrosMi" class="answer-text">
+            ἀφίημι, ἀφίης, ἀφίησι(ν), ἀφίεμεν, ἀφίετε, ἀφιᾶσι(ν).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: COMPARACIÓN -ω vs -μι -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-layer-group"></i> 5. Comparación entre verbos -ω y -μι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>-ω (λύω)</th><th>-μι (δίδωμι)</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>λύω</td><td>δίδωμι</td></tr>
+                <tr><td>2ª sg.</td><td>λύεις</td><td>δίδως</td></tr>
+                <tr><td>3ª sg.</td><td>λύει</td><td>δίδωσι(ν)</td></tr>
+                <tr><td>1ª pl.</td><td>λύομεν</td><td>δίδομεν</td></tr>
+                <tr><td>2ª pl.</td><td>λύετε</td><td>δίδοτε</td></tr>
+                <tr><td>3ª pl.</td><td>λύουσι(ν)</td><td>διδόασι(ν)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mi-box">
+            <strong><i class="fas fa-lightbulb"></i> Diferencias clave:</strong>
+            <ul>
+              <li>Verbos -ω: vocal de unión (ο/ε).</li>
+              <li>Verbos -μι: terminaciones directas sin vocal de unión.</li>
+              <li>Verbos -μι: vocal del tema se alarga en singular (ω) y se acorta en plural (ο).</li>
+              <li>Verbos -μι: reduplicación en presente.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="compEj">Compara las formas de presente de λύω y δίδωμι</button>
+          <div id="compEj" class="answer-text">
+            λύω (desato) vs. δίδωμι (doy) – ambas son 1ª persona singular, pero λύω usa -ω y δίδωμι usa -μι. La 2ª sg. λύεις vs. δίδως, etc.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Verbos -μι y compuestos de δίδωμι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen δίδωμι, sus compuestos y otros verbos -μι. Aparecen constantemente en el NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Ejemplo:</strong> <span class="greek-word">ἔδωκεν αὐτοῖς ἐξουσίαν</span> – "les dio autoridad" (Juan 1:12).</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE CONJUGACIÓN DE δίδωμι -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: conjuga δίδωμι en presente y aoristo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="conjDidomiQuizArea"></div>
+          <button id="newConjDidomiQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="conjDidomiFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: IDENTIFICA EL VERBO -MI -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el verbo -μι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="identificaMiQuizArea"></div>
+          <button id="newIdentificaMiQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="identificaMiFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO DE TRADUCCIÓN CON δίδωμι -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con δίδωμι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transDidomiQuizArea"></div>
+          <button id="newTransDidomiQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transDidomiFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – JUAN 3:16 Y 6:37 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Juan 3:16 y 6:37</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica las formas de δίδωμι y otros verbos -μι.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 3:16 – ἔδωκεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον, ὥστε τὸν υἱὸν αὐτοῦ τὸν μονογενῆ ἔδωκεν, ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλʼ ἔχῃ ζωὴν αἰώνιον.</span></p>
+              <button class="btn-reveal" data-target="j3a">¿Qué forma de δίδωμι aparece?</button>
+              <div id="j3a" class="answer-text"><span class="greek-word">ἔδωκεν</span> – aoristo activo de δίδωμι (dio). Es 3ª persona singular.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 6:37 – δώσω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πᾶν ὃ δίδωσίν μοι ὁ πατὴρ πρὸς ἐμὲ ἥξει, καὶ τὸν ἐρχόμενον πρός με οὐ μὴ ἐκβάλω ἔξω.</span></p>
+              <button class="btn-reveal" data-target="j6a">¿Qué forma de δίδωμι aparece?</button>
+              <div id="j6a" class="answer-text"><span class="greek-word">δίδωσιν</span> – presente activo de δίδωμι (da).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 6:37 – δώσω (futuro)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πᾶν ὃ δίδωσίν μοι ὁ πατὴρ πρὸς ἐμὲ ἥξει, καὶ τὸν ἐρχόμενον πρός με οὐ μὴ ἐκβάλω ἔξω.</span></p>
+              <button class="btn-reveal" data-target="j6b">¿Cuál sería el futuro de δίδωμι?</button>
+              <div id="j6b" class="answer-text">El futuro de δίδωμι es <span class="greek-word">δώσω</span> (daré). Aparece en el versículo 37 (no en este texto, pero en el contexto completo).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con δίδωμι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">δίδωμι ὑμῖν εἰρήνην</span></p>
+              <button class="btn-reveal" data-target="traduccionDidomi">Traduce</button>
+              <div id="traduccionDidomi" class="answer-text">"Os doy paz" – presente de δίδωμι.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Conjuga δίδωμι en presente y aoristo cinco veces. Practica la identificación de verbos -μι. Lee Juan 3:16 y 6:37 en griego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-34.html"><i class="fas fa-arrow-left"></i> Lección 34</a>
+      <a href="leccion-36.html"><i class="fas fa-arrow-right"></i> Lección 36</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον</span> (Juan 3:16)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 35 ==========
+    const vocabData = [
+      { greek: "δίδωμι", translit: "didōmi", spanish: "dar", note: "presente -μι" },
+      { greek: "δωρεά", translit: "dōrea", spanish: "regalo, don gratuito", note: "sustantivo" },
+      { greek: "δῶρον", translit: "dōron", spanish: "regalo, ofrenda", note: "sustantivo" },
+      { greek: "δωρεάν", translit: "dōrean", spanish: "gratuitamente", note: "adverbio" },
+      { greek: "χαρίζομαι", translit: "charizomai", spanish: "dar gracia, perdonar", note: "deponente" },
+      { greek: "ἀποδίδωμι", translit: "apodidōmi", spanish: "devolver, pagar", note: "compuesto -μι" },
+      { greek: "παραδίδωμι", translit: "paradidōmi", spanish: "entregar, traicionar", note: "compuesto -μι" },
+      { greek: "ἀναδίδωμι", translit: "anadidōmi", spanish: "entregar, dar", note: "compuesto -μι" },
+      { greek: "ἐπιδίδωμι", translit: "epidedōmi", spanish: "dar, entregar", note: "compuesto -μι" },
+      { greek: "μεταδίδωμι", translit: "metadidōmi", spanish: "compartir, repartir", note: "compuesto -μι" },
+      { greek: "τίθημι", translit: "tithēmi", spanish: "poner, colocar", note: "verbo -μι" },
+      { greek: "ἵστημι", translit: "histēmi", spanish: "estar de pie, poner", note: "verbo -μι" },
+      { greek: "ἵημι", translit: "hiēmi", spanish: "enviar, dejar", note: "verbo -μι" },
+      { greek: "ἀφίημι", translit: "aphiēmi", spanish: "perdonar, dejar", note: "verbo -μι" },
+      { greek: "δείκνυμι", translit: "deiknymi", spanish: "mostrar", note: "verbo -μι" },
+      { greek: "ἀνοίγω", translit: "anoigō", spanish: "abrir", note: "verbo -ω" },
+      { greek: "κλείω", translit: "kleiō", spanish: "cerrar", note: "verbo -ω" },
+      { greek: "προσφέρω", translit: "prospherō", spanish: "ofrecer, presentar", note: "verbo -ω" },
+      { greek: "λαμβάνω", translit: "lambanō", spanish: "recibir, tomar", note: "verbo -ω" },
+      { greek: "δέχομαι", translit: "dechomai", spanish: "recibir, aceptar", note: "deponente" }
+    ];
+
+    // Palabras para ejercicio de conjugación de δίδωμι
+    const conjDidomiForms = [
+      { tense: "presente", person: "1ª sg.", form: "δίδωμι", translation: "doy" },
+      { tense: "presente", person: "2ª sg.", form: "δίδως", translation: "das" },
+      { tense: "presente", person: "3ª sg.", form: "δίδωσι(ν)", translation: "da" },
+      { tense: "presente", person: "1ª pl.", form: "δίδομεν", translation: "damos" },
+      { tense: "presente", person: "2ª pl.", form: "δίδοτε", translation: "dais" },
+      { tense: "presente", person: "3ª pl.", form: "διδόασι(ν)", translation: "dan" },
+      { tense: "aoristo", person: "1ª sg.", form: "ἔδωκα", translation: "di" },
+      { tense: "aoristo", person: "2ª sg.", form: "ἔδωκας", translation: "diste" },
+      { tense: "aoristo", person: "3ª sg.", form: "ἔδωκε(ν)", translation: "dio" },
+      { tense: "aoristo", person: "1ª pl.", form: "ἐδώκαμεν", translation: "dimos" },
+      { tense: "aoristo", person: "2ª pl.", form: "ἐδώκατε", translation: "disteis" },
+      { tense: "aoristo", person: "3ª pl.", form: "ἔδωκαν", translation: "dieron" }
+    ];
+
+    // Ejemplos para identificar verbos -μι
+    const identificaMiExamples = [
+      { form: "δίδωμι", verb: "δίδωμι", type: "verbo -μι" },
+      { form: "τίθημι", verb: "τίθημι", type: "verbo -μι" },
+      { form: "ἵστημι", verb: "ἵστημι", type: "verbo -μι" },
+      { form: "ἀφίημι", verb: "ἀφίημι", type: "verbo -μι" },
+      { form: "λύω", verb: "λύω", type: "verbo -ω" },
+      { form: "γράφω", verb: "γράφω", type: "verbo -ω" },
+      { form: "δείκνυμι", verb: "δείκνυμι", type: "verbo -μι" }
+    ];
+
+    // Frases para traducción con δίδωμι
+    const transDidomiPhrases = [
+      { greek: "δίδωμι ὑμῖν εἰρήνην", translation: "os doy paz" },
+      { greek: "ἔδωκεν αὐτοῖς ἐξουσίαν", translation: "les dio autoridad" },
+      { greek: "ἀποδίδωμι τὸ χρέος", translation: "pago la deuda" },
+      { greek: "παραδίδωμι τὸν Ἰησοῦν", translation: "entrego a Jesús" },
+      { greek: "δῶρον δίδωμι", translation: "doy un regalo" }
+    ];
+
+    let currentConjDidomi = conjDidomiForms[0];
+    let currentIdentificaMi = identificaMiExamples[0];
+    let currentTransDidomi = transDidomiPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadConjDidomiQuiz() {
+      const randomIndex = Math.floor(Math.random() * conjDidomiForms.length);
+      currentConjDidomi = conjDidomiForms[randomIndex];
+      const container = document.getElementById("conjDidomiQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Escribe la forma de ${currentConjDidomi.tense} para ${currentConjDidomi.person} de δίδωμι:</strong><br>
+      <input type="text" id="conjDidomiAnswer" placeholder="ej. δίδωμι" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkConjDidomi" class="btn-reveal">Verificar</button>
+      <div id="conjDidomiResult"></div></div>`;
+      document.getElementById("checkConjDidomi").addEventListener("click", () => {
+        const answer = document.getElementById("conjDidomiAnswer").value.trim();
+        const result = document.getElementById("conjDidomiResult");
+        if (answer === currentConjDidomi.form || answer === currentConjDidomi.form.replace(/\(ν\)/g, '')) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentConjDidomi.translation})</span>`;
+          setTimeout(loadConjDidomiQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${currentConjDidomi.form}</span>`;
+        }
+      });
+    }
+
+    function loadIdentificaMiQuiz() {
+      const randomIndex = Math.floor(Math.random() * identificaMiExamples.length);
+      currentIdentificaMi = identificaMiExamples[randomIndex];
+      const container = document.getElementById("identificaMiQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué tipo de verbo es <span class="greek-word">${currentIdentificaMi.form}</span>?</strong><br>
+      <button id="miBtn" class="btn-reveal">Verbo -μι</button> <button id="omegaBtn" class="btn-reveal">Verbo -ω</button>
+      <div id="identificaMiResult"></div></div>`;
+      const miBtn = document.getElementById("miBtn");
+      const omegaBtn = document.getElementById("omegaBtn");
+      if (miBtn) miBtn.addEventListener("click", () => {
+        const result = document.getElementById("identificaMiResult");
+        if (currentIdentificaMi.type === "verbo -μι") {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentIdentificaMi.verb})</span>`;
+          setTimeout(loadIdentificaMiQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentIdentificaMi.type}</span>`;
+        }
+      });
+      if (omegaBtn) omegaBtn.addEventListener("click", () => {
+        const result = document.getElementById("identificaMiResult");
+        if (currentIdentificaMi.type === "verbo -ω") {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentIdentificaMi.verb})</span>`;
+          setTimeout(loadIdentificaMiQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentIdentificaMi.type}</span>`;
+        }
+      });
+    }
+
+    function loadTransDidomiQuiz() {
+      const randomIndex = Math.floor(Math.random() * transDidomiPhrases.length);
+      currentTransDidomi = transDidomiPhrases[randomIndex];
+      const container = document.getElementById("transDidomiQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransDidomi.greek}</span><br>
+      <input type="text" id="transDidomiAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransDidomi" class="btn-reveal">Verificar</button>
+      <div id="transDidomiResult"></div></div>`;
+      document.getElementById("checkTransDidomi").addEventListener("click", () => {
+        const answer = document.getElementById("transDidomiAnswer").value.trim().toLowerCase();
+        const correct = currentTransDidomi.translation.toLowerCase();
+        const result = document.getElementById("transDidomiResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransDidomiQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransDidomi.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Presente de δίδωμι (1ª sg.)", opts: ["δίδωμι", "δίδως", "δίδωσι", "δίδομεν"], correct: 0 },
+      { q: "Aoristo de δίδωμι (1ª sg.)", opts: ["ἔδωκα", "δίδωμι", "δώσω", "δέδωκα"], correct: 0 },
+      { q: "¿Qué verbo -μι significa 'perdonar'?", opts: ["ἀφίημι", "τίθημι", "ἵστημι", "δείκνυμι"], correct: 0 },
+      { q: "Traduce 'δωρεάν'", opts: ["gratuitamente", "regalo", "deuda", "perdón"], correct: 0 },
+      { q: "Forma de 3ª persona plural de δίδωμι en presente", opts: ["διδόασι(ν)", "δίδωσι(ν)", "δίδομεν", "δίδως"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkConjDidomi" || btn.id === "miBtn" || btn.id === "omegaBtn" || btn.id === "checkTransDidomi" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadConjDidomiQuiz();
+      loadIdentificaMiQuiz();
+      loadTransDidomiQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newConjDidomiQuiz")?.addEventListener("click", () => {
+        loadConjDidomiQuiz();
+        document.getElementById("conjDidomiFeedback").innerHTML = "";
+      });
+      document.getElementById("newIdentificaMiQuiz")?.addEventListener("click", () => {
+        loadIdentificaMiQuiz();
+        document.getElementById("identificaMiFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransDidomiQuiz")?.addEventListener("click", () => {
+        loadTransDidomiQuiz();
+        document.getElementById("transDidomiFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

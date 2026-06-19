@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 33: El Participio Aoristo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 47%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2000px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .aorist-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-32.html"><i class="fas fa-arrow-left"></i> Lección 32</a>
+        <a href="leccion-34.html"><i class="fas fa-arrow-right"></i> Lección 34</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-clock"></i> Lección 33 · El Participio Aoristo <span class="hero-badge">Módulo III · Desarrollo</span></h1>
+      <p>Aoristo activo (-ας/-ουσα/-αν) · Aoristo medio (-άμενος) · Aoristo pasivo (-θείς/-θεῖσα/-θέν) · Anterioridad temporal</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 660/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/8xGxQmDfZRQ" title="El participio aoristo en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: El participio aoristo – formación y uso</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El participio aoristo: aspecto puntual y anterioridad</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>participio aoristo</strong> expresa una acción <strong>puntual</strong> o <strong>completada</strong> que es <strong>anterior</strong> al tiempo del verbo principal. Es el participio narrativo por excelencia en el NT.</p>
+          <div class="aorist-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características clave:</strong>
+            <ul>
+              <li><strong>Aspecto puntual</strong> (como el aoristo indicativo).</li>
+              <li><strong>Anterioridad temporal</strong>: la acción del participio ocurre antes que la del verbo principal.</li>
+              <li><strong>Sin aumento</strong> (a diferencia del aoristo indicativo).</li>
+              <li>Se forma sobre el <strong>tema del aoristo</strong> (primero o segundo) con terminaciones específicas.</li>
+            </ul>
+          </div>
+          <p><strong>Comparación con el participio presente:</strong></p>
+          <ul>
+            <li><span class="greek-word">ἀκούων</span> (presente) – "oyendo" (acción simultánea).</li>
+            <li><span class="greek-word">ἀκούσας</span> (aoristo) – "habiendo oído" (acción anterior).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo en el NT:</strong><br>
+            <span class="greek-word">ἀκούσας δὲ ὁ Ἰησοῦς ἀνεχώρησεν</span> – "Y habiendo oído Jesús, se retiró" (Mateo 14:13).<br>
+            <strong>Análisis:</strong> La acción de oír es anterior a la de retirarse.
+          </div>
+          <button class="btn-reveal" data-target="introAor">Ver más ejemplos de anterioridad</button>
+          <div id="introAor" class="answer-text">
+            <span class="greek-word">ἰδὼν τὴν πόλιν ἔκλαυσεν</span> – "Habiendo visto la ciudad, lloró" (Lucas 19:41).<br>
+            <span class="greek-word">ἐλθὼν πρὸς αὐτὸν εἶπεν</span> – "Habiendo venido a él, dijo".<br>
+            <span class="greek-word">λαβὼν τὸν ἄρτον εὐχαρίστησεν</span> – "Habiendo tomado el pan, dio gracias" (Mateo 26:26).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: PARTICIPIO AORISTO ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Formación del participio aoristo activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio aoristo activo se forma con el <strong>tema del aoristo</strong> (sin aumento) y las terminaciones:</p>
+          <ul>
+            <li><strong>Masculino:</strong> -ας (tema + -ας)</li>
+            <li><strong>Femenino:</strong> -ασα (tema + -ασα)</li>
+            <li><strong>Neutro:</strong> -αν (tema + -αν)</li>
+          </ul>
+          <p>El paradigma sigue el patrón <strong>3ª-1ª-3ª</strong> (como el participio presente activo).</p>
+          <div class="paradigm-table">
+            <table>
+              <thead>
+                <tr><th>Caso</th><th colspan="3">Singular</th><th colspan="3">Plural</th></tr>
+                <tr><th></th><th>Masc.</th><th>Fem.</th><th>Neut.</th><th>Masc.</th><th>Fem.</th><th>Neut.</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>λύσας</td><td>λύσασα</td><td>λῦσαν</td><td>λύσαντες</td><td>λύσασαι</td><td>λύσαντα</td></tr>
+                <tr><td>Genitivo</td><td>λύσαντος</td><td>λυσάσης</td><td>λύσαντος</td><td>λυσάντων</td><td>λυσασῶν</td><td>λυσάντων</td></tr>
+                <tr><td>Dativo</td><td>λύσαντι</td><td>λυσάσῃ</td><td>λύσαντι</td><td>λύσασι(ν)</td><td>λυσάσαις</td><td>λύσασι(ν)</td></tr>
+                <tr><td>Acusativo</td><td>λύσαντα</td><td>λύσασαν</td><td>λῦσαν</td><td>λύσαντας</td><td>λυσάσας</td><td>λύσαντα</td></tr>
+                <tr><td>Vocativo</td><td>λύσας</td><td>λύσασα</td><td>λῦσαν</td><td>λύσαντες</td><td>λύσασαι</td><td>λύσαντα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="aorist-box">
+            <strong><i class="fas fa-memory"></i> Reglas de formación:</strong>
+            <ul>
+              <li>Aoristo primero (σ): <span class="greek-word">λύω</span> → λύσας (tema λυσ- + -ας).</li>
+              <li>Aoristo segundo (sin σ): <span class="greek-word">λαμβάνω</span> → λαβών (tema λαβ- + -ών).<br>
+                <span class="greek-word">λέγω</span> → εἰπών (tema εἰπ- + -ών).</li>
+              <li>El acento se mantiene en la penúltima o antepenúltima según las reglas.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="aorActEj">Declina ἰδών (habiendo visto, de ὁράω)</button>
+          <div id="aorActEj" class="answer-text">
+            Masc. sg.: ἰδών, ἰδόντος, ἰδόντι, ἰδόντα<br>
+            Fem. sg.: ἰδοῦσα, ἰδούσης, ἰδούσῃ, ἰδοῦσαν<br>
+            Neut. sg.: ἰδόν, ἰδόντος, ἰδόντι, ἰδόν
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: PARTICIPIO AORISTO MEDIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Formación del participio aoristo medio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio aoristo medio se forma con el <strong>tema del aoristo medio</strong> (sin aumento) + <strong>-άμενος</strong> (masculino), <strong>-αμένη</strong> (femenino), <strong>-άμενον</strong> (neutro).</p>
+          <ul>
+            <li>Aoristo primero medio: <span class="greek-word">λύω</span> → λυσάμενος (habiéndose desatado / habiendo desatado para sí).</li>
+            <li>Verbos deponentes: <span class="greek-word">δέχομαι</span> → δεξάμενος (habiendo recibido).</li>
+          </ul>
+          <div class="paradigm-table">
+            <table>
+              <thead>
+                <tr><th>Caso</th><th colspan="3">Singular</th><th colspan="3">Plural</th></tr>
+                <tr><th></th><th>Masc.</th><th>Fem.</th><th>Neut.</th><th>Masc.</th><th>Fem.</th><th>Neut.</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>λυσάμενος</td><td>λυσαμένη</td><td>λυσάμενον</td><td>λυσάμενοι</td><td>λυσάμεναι</td><td>λυσάμενα</td></tr>
+                <tr><td>Genitivo</td><td>λυσαμένου</td><td>λυσαμένης</td><td>λυσαμένου</td><td>λυσαμένων</td><td>λυσαμένων</td><td>λυσαμένων</td></tr>
+                <tr><td>Dativo</td><td>λυσαμένῳ</td><td>λυσαμένῃ</td><td>λυσαμένῳ</td><td>λυσαμένοις</td><td>λυσαμέναις</td><td>λυσαμένοις</td></tr>
+                <tr><td>Acusativo</td><td>λυσάμενον</td><td>λυσαμένην</td><td>λυσάμενον</td><td>λυσαμένους</td><td>λυσαμένας</td><td>λυσάμενα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> El aoristo medio de los deponentes se traduce como activo: <span class="greek-word">ἀποκρινάμενος</span> = "habiendo respondido".
+          </div>
+          <button class="btn-reveal" data-target="aorMidEj">Declina δεξάμενος (habiendo recibido)</button>
+          <div id="aorMidEj" class="answer-text">
+            Masc.: δεξάμενος, δεξαμένου, δεξαμένῳ, δεξάμενον<br>
+            Fem.: δεξαμένη, δεξαμένης, δεξαμένῃ, δεξαμένην<br>
+            Neut.: δεξάμενον, δεξαμένου, δεξαμένῳ, δεξάμενον
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: PARTICIPIO AORISTO PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 4. Formación del participio aoristo pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El participio aoristo pasivo se forma con el <strong>tema del aoristo pasivo</strong> (sin aumento) + <strong>-θείς</strong> (masculino), <strong>-θεῖσα</strong> (femenino), <strong>-θέν</strong> (neutro).</p>
+          <ul>
+            <li>Aoristo pasivo primero (con θ): <span class="greek-word">λύω</span> → λυθείς (habiendo sido desatado).</li>
+            <li>Aoristo pasivo segundo (sin θ, solo η): <span class="greek-word">γράφω</span> → γραφείς (habiendo sido escrito).</li>
+          </ul>
+          <div class="paradigm-table">
+            <table>
+              <thead>
+                <tr><th>Caso</th><th colspan="3">Singular</th><th colspan="3">Plural</th></tr>
+                <tr><th></th><th>Masc.</th><th>Fem.</th><th>Neut.</th><th>Masc.</th><th>Fem.</th><th>Neut.</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>λυθείς</td><td>λυθεῖσα</td><td>λυθέν</td><td>λυθέντες</td><td>λυθεῖσαι</td><td>λυθέντα</td></tr>
+                <tr><td>Genitivo</td><td>λυθέντος</td><td>λυθείσης</td><td>λυθέντος</td><td>λυθέντων</td><td>λυθεισῶν</td><td>λυθέντων</td></tr>
+                <tr><td>Dativo</td><td>λυθέντι</td><td>λυθείσῃ</td><td>λυθέντι</td><td>λυθεῖσι(ν)</td><td>λυθείσαις</td><td>λυθεῖσι(ν)</td></tr>
+                <tr><td>Acusativo</td><td>λυθέντα</td><td>λυθεῖσαν</td><td>λυθέν</td><td>λυθέντας</td><td>λυθείσας</td><td>λυθέντα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="aorist-box">
+            <strong><i class="fas fa-memory"></i> Regla:</strong> El participio aoristo pasivo se traduce como "habiendo sido + participio" o "siendo + participio" según el contexto. Ejemplo: <span class="greek-word">βαπτισθείς</span> = "habiendo sido bautizado".
+          </div>
+          <button class="btn-reveal" data-target="aorPasEj">Declina γραφείς (habiendo sido escrito)</button>
+          <div id="aorPasEj" class="answer-text">
+            Masc.: γραφείς, γραφέντος, γραφέντι, γραφέντα<br>
+            Fem.: γραφεῖσα, γραφείσης, γραφείσῃ, γραφεῖσαν<br>
+            Neut.: γραφέν, γραφέντος, γραφέντι, γραφέν
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: COMPARACIÓN DE PARTICIPIOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-layer-group"></i> 5. Comparación: participio presente, aoristo y perfecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Tiempo</th><th>Forma (λύω)</th><th>Aspecto</th><th>Relación temporal</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>Presente</td><td>λύων</td><td>Lineal</td><td>Simultáneo</td><td>desatando</td></tr>
+                <tr><td>Aoristo</td><td>λύσας</td><td>Puntual</td><td>Anterior</td><td>habiendo desatado</td></tr>
+                <tr><td>Perfecto</td><td>λελυκώς</td><td>Resultativo</td><td>Estado presente</td><td>habiendo desatado (y permanece)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo en Marcos 1:10:</strong><br>
+            <span class="greek-word">εὐθὺς ἀναβαίνων ἐκ τοῦ ὕδατος εἶδεν</span> – "inmediatamente, subiendo del agua, vio" (presente, simultáneo).<br>
+            <span class="greek-word">εἰδὼς ὁ Ἰησοῦς</span> – "sabiendo Jesús" (perfecto, estado de conocimiento).
+          </div>
+          <button class="btn-reveal" data-target="compPart">Traduce según el aspecto</button>
+          <div id="compPart" class="answer-text">
+            <span class="greek-word">ἀκούων</span> – "oyendo" (simultáneo).<br>
+            <span class="greek-word">ἀκούσας</span> – "habiendo oído" (anterior).<br>
+            <span class="greek-word">ἀκηκοώς</span> – "habiendo oído (y aún lo sabe)" (estado resultante).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Participios aoristos comunes</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos 20 participios aoristos son esenciales para la lectura del NT. Aparecen cientos de veces.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Verbo base</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-lightbulb"></i> <strong>Consejo:</strong> Memoriza el participio aoristo junto con el verbo base. Practica la declinación de cada uno.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE DECLINACIÓN DE PARTICIPIO AORISTO ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: declina un participio aoristo activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="declAorActQuizArea"></div>
+          <button id="newDeclAorActQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="declAorActFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: IDENTIFICA EL TIPO DE PARTICIPIO AORISTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el tipo de participio aoristo (activo, medio, pasivo)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tipoAorQuizArea"></div>
+          <button id="newTipoAorQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tipoAorFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO DE TRADUCCIÓN CON PARTICIPIOS AORISTOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con participios aoristos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transAorQuizArea"></div>
+          <button id="newTransAorQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transAorFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – HECHOS 2:1-21 Y COLOSENSES 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Hechos 2:1-21 y Colosenses 1</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica los participios aoristos y su función temporal.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 2:2 – participio aoristo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ ἐγένετο ἄφνω ἐκ τοῦ οὐρανοῦ ἦχος ὥσπερ φερομένης πνοῆς βιαίας, καὶ ἐπλήρωσεν ὅλον τὸν οἶκον οὗ ἦσαν καθήμενοι.</span></p>
+              <button class="btn-reveal" data-target="acts2a">¿Qué participio aoristo aparece en el versículo 2 (busca en el texto griego completo)?</button>
+              <div id="acts2a" class="answer-text">En Hechos 2:2, <span class="greek-word">φερομένης</span> es presente, no aoristo. En Hechos 2:3 encontramos <span class="greek-word">διαμεριζόμεναι</span> (presente). El participio aoristo más claro en el capítulo es <span class="greek-word">πληρωθέντες</span> en el v.4 (habiendo sido llenos).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 2:4 – πληρωθέντες</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ ἐπλήσθησαν πάντες πνεύματος ἁγίου καὶ ἤρξαντο λαλεῖν ἑτέραις γλώσσαις καθὼς τὸ πνεῦμα ἐδίδου ἀποφθέγγεσθαι αὐτοῖς.</span></p>
+              <button class="btn-reveal" data-target="acts2b">¿Qué participio aoristo aparece en el v.4 (en el texto completo) y qué significa?</button>
+              <div id="acts2b" class="answer-text">En Hechos 2:4, <span class="greek-word">πληρωθέντες</span> (aoristo pasivo de πληρόω) – "habiendo sido llenos". Expresa anterioridad: primero fueron llenos, luego comenzaron a hablar.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Colosenses 1:12 – participio aoristo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">εὐχαριστοῦντες τῷ πατρὶ τῷ ἱκανώσαντι ὑμᾶς εἰς τὴν μερίδα τοῦ κλήρου τῶν ἁγίων ἐν τῷ φωτί</span></p>
+              <button class="btn-reveal" data-target="col1a">¿Qué participio aoristo aparece en este versículo?</button>
+              <div id="col1a" class="answer-text"><span class="greek-word">ἱκανώσαντι</span> – participio aoristo activo de <span class="greek-word">ἱκανόω</span> (habiendo capacitado).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con participio aoristo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀκούσας ταῦτα ἐθαύμασεν</span></p>
+              <button class="btn-reveal" data-target="traduccionAor">Traduce y analiza</button>
+              <div id="traduccionAor" class="answer-text">"Habiendo oído estas cosas, se maravilló" – participio aoristo, acción anterior.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Escribe la declinación de λύσας, λυσάμενος y λυθείς. Practica la identificación de participios aoristos en Hechos 2 y Colosenses 1.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-32.html"><i class="fas fa-arrow-left"></i> Lección 32</a>
+      <a href="leccion-34.html"><i class="fas fa-arrow-right"></i> Lección 34</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἀκούσας ταῦτα ἐθαύμασεν</span></p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 33 ==========
+    const vocabData = [
+      { greek: "εἰπών", translit: "eipōn", spanish: "habiendo dicho", base: "λέγω" },
+      { greek: "ἐλθών", translit: "elthōn", spanish: "habiendo venido", base: "ἔρχομαι" },
+      { greek: "ἰδών", translit: "idōn", spanish: "habiendo visto", base: "ὁράω" },
+      { greek: "λαβών", translit: "labōn", spanish: "habiendo tomado", base: "λαμβάνω" },
+      { greek: "ἀκούσας", translit: "akousas", spanish: "habiendo oído", base: "ἀκούω" },
+      { greek: "πιστεύσας", translit: "pisteusas", spanish: "habiendo creído", base: "πιστεύω" },
+      { greek: "γνούς", translit: "gnous", spanish: "habiendo conocido", base: "γινώσκω" },
+      { greek: "εὑρών", translit: "heurōn", spanish: "habiendo hallado", base: "εὑρίσκω" },
+      { greek: "ποιήσας", translit: "poiēsas", spanish: "habiendo hecho", base: "ποιέω" },
+      { greek: "λύσας", translit: "lysas", spanish: "habiendo desatado", base: "λύω" },
+      { greek: "βαπτισθείς", translit: "baptistheis", spanish: "habiendo sido bautizado", base: "βαπτίζω" },
+      { greek: "σωθείς", translit: "sōtheis", spanish: "habiendo sido salvo", base: "σῴζω" },
+      { greek: "ἀποσταλείς", translit: "apostaleis", spanish: "habiendo sido enviado", base: "ἀποστέλλω" },
+      { greek: "γεννηθείς", translit: "gennētheis", spanish: "habiendo sido engendrado", base: "γεννάω" },
+      { greek: "δοθείς", translit: "dotheis", spanish: "habiendo sido dado", base: "δίδωμι" },
+      { greek: "γραφείς", translit: "grapheis", spanish: "habiendo sido escrito", base: "γράφω" },
+      { greek: "κληθείς", translit: "klētheis", spanish: "habiendo sido llamado", base: "καλέω" },
+      { greek: "δικαιωθείς", translit: "dikaiōtheis", spanish: "habiendo sido justificado", base: "δικαιόω" },
+      { greek: "ἁγιασθείς", translit: "hagiastheis", spanish: "habiendo sido santificado", base: "ἁγιάζω" },
+      { greek: "σταυρωθείς", translit: "staurōtheis", spanish: "habiendo sido crucificado", base: "σταυρόω" }
+    ];
+
+    // Palabras para ejercicio de declinación (aoristo activo)
+    const declAorActWords = [
+      { nom: "λύσας", fem: "λύσασα", neut: "λῦσαν", gen: "λύσαντος", dat: "λύσαντι", acc: "λύσαντα", plural: "λύσαντες" },
+      { nom: "ἀκούσας", fem: "ἀκούσασα", neut: "ἀκοῦσαν", gen: "ἀκούσαντος", dat: "ἀκούσαντι", acc: "ἀκούσαντα", plural: "ἀκούσαντες" },
+      { nom: "ποιήσας", fem: "ποιήσασα", neut: "ποιῆσαν", gen: "ποιήσαντος", dat: "ποιήσαντι", acc: "ποιήσαντα", plural: "ποιήσαντες" },
+      { nom: "εἰπών", fem: "εἰποῦσα", neut: "εἰπόν", gen: "εἰπόντος", dat: "εἰπόντι", acc: "εἰπόντα", plural: "εἰπόντες" }
+    ];
+
+    // Ejemplos para identificación de tipo
+    const tipoAorExamples = [
+      { form: "λύσας", type: "activo", verb: "λύω" },
+      { form: "λυσάμενος", type: "medio", verb: "λύω" },
+      { form: "λυθείς", type: "pasivo", verb: "λύω" },
+      { form: "ἀκούσας", type: "activo", verb: "ἀκούω" },
+      { form: "δεξάμενος", type: "medio", verb: "δέχομαι" },
+      { form: "βαπτισθείς", type: "pasivo", verb: "βαπτίζω" },
+      { form: "εἰπών", type: "activo", verb: "λέγω" },
+      { form: "ἐλθών", type: "activo", verb: "ἔρχομαι" }
+    ];
+
+    let currentDeclAorAct = declAorActWords[0];
+    let currentTipoAor = tipoAorExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.base}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadDeclAorActQuiz() {
+      const randomIndex = Math.floor(Math.random() * declAorActWords.length);
+      currentDeclAorAct = declAorActWords[randomIndex];
+      const container = document.getElementById("declAorActQuizArea");
+      const correct = currentDeclAorAct.gen;
+      container.innerHTML = `<div class="card-highlight"><strong>Completa la declinación de <span class="greek-word">${currentDeclAorAct.nom}</span>:</strong><br>
+      Nominativo: ${currentDeclAorAct.nom}<br>
+      Genitivo singular: ______<br>
+      <input type="text" id="declAorActAnswer" placeholder="ej. λύσαντος" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkDeclAorAct" class="btn-reveal">Verificar</button>
+      <div id="declAorActResult"></div></div>`;
+      document.getElementById("checkDeclAorAct").addEventListener("click", () => {
+        const answer = document.getElementById("declAorActAnswer").value.trim();
+        const result = document.getElementById("declAorActResult");
+        if (answer === correct) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+          setTimeout(loadDeclAorActQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}.</span>`;
+        }
+      });
+    }
+
+    function loadTipoAorQuiz() {
+      const randomIndex = Math.floor(Math.random() * tipoAorExamples.length);
+      currentTipoAor = tipoAorExamples[randomIndex];
+      const container = document.getElementById("tipoAorQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Identifica el tipo de participio aoristo:</strong><br>
+      <span class="greek-word" style="font-size:1.8rem;">${currentTipoAor.form}</span><br>
+      <button id="tipoAct" class="btn-reveal">Activo</button> <button id="tipoMid" class="btn-reveal">Medio</button> <button id="tipoPas" class="btn-reveal">Pasivo</button>
+      <div id="tipoAorResult"></div></div>`;
+      const act = document.getElementById("tipoAct");
+      const mid = document.getElementById("tipoMid");
+      const pas = document.getElementById("tipoPas");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("tipoAorResult");
+          if (expected === currentTipoAor.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTipoAor.verb})</span>`;
+            setTimeout(loadTipoAorQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTipoAor.type}</span>`;
+          }
+        });
+      };
+      check(act, "activo");
+      check(mid, "medio");
+      check(pas, "pasivo");
+    }
+
+    // Traducción de frases con participios aoristos
+    const transAorPhrases = [
+      { greek: "ἀκούσας ταῦτα ἐθαύμασεν", translation: "habiendo oído estas cosas, se maravilló" },
+      { greek: "ἰδὼν τὴν πόλιν ἔκλαυσεν", translation: "habiendo visto la ciudad, lloró" },
+      { greek: "ἐλθὼν πρὸς αὐτὸν εἶπεν", translation: "habiendo venido a él, dijo" },
+      { greek: "λαβὼν τὸν ἄρτον εὐχαρίστησεν", translation: "habiendo tomado el pan, dio gracias" },
+      { greek: "βαπτισθεὶς ἀνέβη", translation: "habiendo sido bautizado, subió" }
+    ];
+    let currentTransAor = transAorPhrases[0];
+    function loadTransAorQuiz() {
+      const randomIndex = Math.floor(Math.random() * transAorPhrases.length);
+      currentTransAor = transAorPhrases[randomIndex];
+      const container = document.getElementById("transAorQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransAor.greek}</span><br>
+      <input type="text" id="transAorAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransAor" class="btn-reveal">Verificar</button>
+      <div id="transAorResult"></div></div>`;
+      document.getElementById("checkTransAor").addEventListener("click", () => {
+        const answer = document.getElementById("transAorAnswer").value.trim().toLowerCase();
+        const correct = currentTransAor.translation.toLowerCase();
+        const result = document.getElementById("transAorResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransAorQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransAor.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "El participio aoristo expresa acción...", opts: ["Anterior", "Simultánea", "Posterior", "Resultativa"], correct: 0 },
+      { q: "Terminación del nominativo masculino singular del participio aoristo activo", opts: ["-ας", "-ων", "-ουσα", "-αν"], correct: 0 },
+      { q: "Participio aoristo pasivo de 'λύω' (masculino sg.)", opts: ["λυθείς", "λύσας", "λυσάμενος", "λελυκώς"], correct: 0 },
+      { q: "Forma de genitivo singular masculino de λύσας", opts: ["λύσαντος", "λύσαντι", "λύσαντα", "λυσάντων"], correct: 0 },
+      { q: "Traduce 'ἰδών'", opts: ["habiendo visto", "viendo", "habiendo sido visto", "ver"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkDeclAorAct" || btn.id === "tipoAct" || btn.id === "tipoMid" || btn.id === "tipoPas" || btn.id === "checkTransAor" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadDeclAorActQuiz();
+      loadTipoAorQuiz();
+      loadTransAorQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newDeclAorActQuiz")?.addEventListener("click", () => {
+        loadDeclAorActQuiz();
+        document.getElementById("declAorActFeedback").innerHTML = "";
+      });
+      document.getElementById("newTipoAorQuiz")?.addEventListener("click", () => {
+        loadTipoAorQuiz();
+        document.getElementById("tipoAorFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransAorQuiz")?.addEventListener("click", () => {
+        loadTransAorQuiz();
+        document.getElementById("transAorFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 37: Verbos Contractos (-έω, -άω)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 53%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .contract-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-36.html"><i class="fas fa-arrow-left"></i> Lección 36</a>
+        <a href="leccion-38.html"><i class="fas fa-arrow-right"></i> Lección 38</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-compress-alt"></i> Lección 37 · Verbos Contractos (-έω, -άω) <span class="hero-badge">Módulo III · Desarrollo</span></h1>
+      <p>Reglas de contracción · φιλέω, ποιέω, ἀγαπάω, ζάω · φιλέω vs. ἀγαπάω en Juan 21:15-17</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 740/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/3XpLZz4nY7I" title="Verbos contractos en griego: -έω y -άω" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los verbos contractos – formación y usos</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN A LOS VERBOS CONTRACTOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Qué son los verbos contractos?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>verbos contractos</strong> son aquellos cuya raíz termina en <strong>α, ε u ο</strong>. Cuando se añaden las terminaciones, las vocales se <strong>contraen</strong> (fusionan) siguiendo reglas fijas.</p>
+          <div class="contract-box">
+            <i class="fas fa-lightbulb"></i> <strong>Tipos de verbos contractos:</strong>
+            <ul>
+              <li><strong>-άω</strong>: raíz termina en α (ej. <span class="greek-word">ἀγαπάω</span> – amar).</li>
+              <li><strong>-έω</strong>: raíz termina en ε (ej. <span class="greek-word">ποιέω</span> – hacer; <span class="greek-word">φιλέω</span> – amar como amigo).</li>
+              <li><strong>-όω</strong>: raíz termina en ο (ej. <span class="greek-word">πληρόω</span> – llenar).</li>
+            </ul>
+          </div>
+          <p><strong>¿Por qué se contraen?</strong> La combinación de dos vocales en griego tiende a fusionarse para facilitar la pronunciación. Las contracciones son <strong>regulares</strong> y siguen patrones predecibles.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-memory"></i> Regla de oro:</strong> Las contracciones ocurren cuando la vocal de la raíz y la vocal de la terminación se encuentran. El resultado depende de la combinación específica de vocales.
+          </div>
+          <button class="btn-reveal" data-target="introCont">Ver las reglas de contracción</button>
+          <div id="introCont" class="answer-text">
+            <strong>Reglas para -έω:</strong> ε+ε=ει, ε+ο=ου, ε+ει=ει, ε+ω=ω, ε+ου=ου.<br>
+            <strong>Reglas para -άω:</strong> α+ε=α, α+ο=ω, α+ει=ᾳ, α+η=α, α+ω=ω.<br>
+            <strong>Reglas para -όω:</strong> ο+ε=ου, ο+ο=ου, ο+ει=οι, ο+ω=ω.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: REGLAS DE CONTRACCIÓN DETALLADAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Tablas de contracción para -έω y -άω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Contracciones de -έω</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Combinación</th><th>Resultado</th><th>Ejemplo</th></tr></thead>
+              <tbody>
+                <tr><td>ε + ε</td><td>ει</td><td>φιλέω → φιλῶ (1ª sg.)</td></tr>
+                <tr><td>ε + ο</td><td>ου</td><td>φιλέομεν → φιλοῦμεν</td></tr>
+                <tr><td>ε + ει</td><td>ει</td><td>φιλέεις → φιλεῖς</td></tr>
+                <tr><td>ε + ω</td><td>ω</td><td>ποιέω → ποιῶ</td></tr>
+                <tr><td>ε + ου</td><td>ου</td><td>ποιέουσι → ποιοῦσι</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Contracciones de -άω</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Combinación</th><th>Resultado</th><th>Ejemplo</th></tr></thead>
+              <tbody>
+                <tr><td>α + ε</td><td>α</td><td>ἀγαπάετε → ἀγαπᾶτε</td></tr>
+                <tr><td>α + ο</td><td>ω</td><td>ἀγαπάομεν → ἀγαπῶμεν</td></tr>
+                <tr><td>α + ει</td><td>ᾳ</td><td>ἀγαπάεις → ἀγαπᾷς</td></tr>
+                <tr><td>α + η</td><td>α</td><td>ἀγαπάητε → ἀγαπᾶτε</td></tr>
+                <tr><td>α + ω</td><td>ω</td><td>ἀγαπάω → ἀγαπῶ</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="contract-box">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> La iota suscrita (ᾳ) aparece en la 2ª y 3ª persona singular del presente de -άω: <span class="greek-word">ἀγαπᾷς</span> (2ª sg.), <span class="greek-word">ἀγαπᾷ</span> (3ª sg.).
+          </div>
+          <button class="btn-reveal" data-target="contTablaEj">Aplica la contracción a ποιέω</button>
+          <div id="contTablaEj" class="answer-text">
+            ποιέω → ποιῶ (1ª sg.), ποιεῖς (2ª sg.), ποιεῖ (3ª sg.), ποιοῦμεν (1ª pl.), ποιεῖτε (2ª pl.), ποιοῦσι(ν) (3ª pl.).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: CONJUGACIÓN DE φιλέω (AMAR COMO AMIGO) Y ποιέω (HACER) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Conjugación de φιλέω y ποιέω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>φιλέω – amar (como amigo)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>φιλῶ</td><td>amo</td></tr>
+                <tr><td>2ª sg.</td><td>φιλεῖς</td><td>amas</td></tr>
+                <tr><td>3ª sg.</td><td>φιλεῖ</td><td>ama</td></tr>
+                <tr><td>1ª pl.</td><td>φιλοῦμεν</td><td>amamos</td></tr>
+                <tr><td>2ª pl.</td><td>φιλεῖτε</td><td>amáis</td></tr>
+                <tr><td>3ª pl.</td><td>φιλοῦσι(ν)</td><td>aman</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>ποιέω – hacer</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ποιῶ</td><td>hago</td></tr>
+                <tr><td>2ª sg.</td><td>ποιεῖς</td><td>haces</td></tr>
+                <tr><td>3ª sg.</td><td>ποιεῖ</td><td>hace</td></tr>
+                <tr><td>1ª pl.</td><td>ποιοῦμεν</td><td>hacemos</td></tr>
+                <tr><td>2ª pl.</td><td>ποιεῖτε</td><td>hacéis</td></tr>
+                <tr><td>3ª pl.</td><td>ποιοῦσι(ν)</td><td>hacen</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="contract-box">
+            <strong><i class="fas fa-memory"></i> Clave:</strong> Ambos verbos siguen el patrón de -έω: 1ª sg. -ῶ, 2ª sg. -εῖς, 3ª sg. -εῖ, 1ª pl. -οῦμεν, 2ª pl. -εῖτε, 3ª pl. -οῦσι(ν).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: CONJUGACIÓN DE ἀγαπάω (AMAR) Y ζάω (VIVIR) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 4. Conjugación de ἀγαπάω y ζάω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>ἀγαπάω – amar (amor sacrificial, divino)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἀγαπῶ</td><td>amo</td></tr>
+                <tr><td>2ª sg.</td><td>ἀγαπᾷς</td><td>amas</td></tr>
+                <tr><td>3ª sg.</td><td>ἀγαπᾷ</td><td>ama</td></tr>
+                <tr><td>1ª pl.</td><td>ἀγαπῶμεν</td><td>amamos</td></tr>
+                <tr><td>2ª pl.</td><td>ἀγαπᾶτε</td><td>amáis</td></tr>
+                <tr><td>3ª pl.</td><td>ἀγαπῶσι(ν)</td><td>aman</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>ζάω – vivir</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ζῶ</td><td>vivo</td></tr>
+                <tr><td>2ª sg.</td><td>ζῇς</td><td>vives</td></tr>
+                <tr><td>3ª sg.</td><td>ζῇ</td><td>vive</td></tr>
+                <tr><td>1ª pl.</td><td>ζῶμεν</td><td>vivimos</td></tr>
+                <tr><td>2ª pl.</td><td>ζῆτε</td><td>vivís</td></tr>
+                <tr><td>3ª pl.</td><td>ζῶσι(ν)</td><td>viven</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="contract-box">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> <span class="greek-word">ζάω</span> es un verbo -άω que se contrae de manera especial: ζῶ (1ª sg.), ζῇς (2ª sg.), ζῇ (3ª sg.), ζῶμεν (1ª pl.), ζῆτε (2ª pl.), ζῶσι(ν) (3ª pl.). La 2ª y 3ª sg. tienen <strong>iota suscrita</strong> (ζῇς, ζῇ).
+          </div>
+          <button class="btn-reveal" data-target="agapaoEj">Conjuga ἀγαπάω en presente</button>
+          <div id="agapaoEj" class="answer-text">
+            ἀγαπῶ, ἀγαπᾷς, ἀγαπᾷ, ἀγαπῶμεν, ἀγαπᾶτε, ἀγαπῶσι(ν).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: ANÁLISIS EXEGÉTICO – φιλέω vs. ἀγαπάω en Juan 21:15-17 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 5. φιλέω vs. ἀγαπάω en Juan 21:15-17</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El diálogo entre Jesús y Pedro en Juan 21:15-17 es uno de los pasajes más estudiados del NT. Jesús usa dos verbos diferentes para "amar":</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Juan 21:15-17 (texto griego):</strong><br>
+            <span class="greek-word">λέγει τῷ Σίμωνι Πέτρῳ ὁ Ἰησοῦς· Σίμων Ἰωάννου, <strong>ἀγαπᾷς</strong> με πλέον τούτων; λέγει αὐτῷ· ναί, κύριε, σὺ οἶδας ὅτι <strong>φιλῶ</strong> σε. λέγει αὐτῷ· βόσκε τὰ ἀρνία μου.</span><br>
+            <span class="greek-word">λέγει αὐτῷ πάλιν δεύτερον· Σίμων Ἰωάννου, <strong>ἀγαπᾷς</strong> με; λέγει αὐτῷ· ναί, κύριε, σὺ οἶδας ὅτι <strong>φιλῶ</strong> σε. λέγει αὐτῷ· ποίμαινε τὰ πρόβατά μου.</span><br>
+            <span class="greek-word">λέγει αὐτῷ τὸ τρίτον· Σίμων Ἰωάννου, <strong>φιλεῖς</strong> με; ἐλυπήθη ὁ Πέτρος ὅτι εἶπεν αὐτῷ τὸ τρίτον· φιλεῖς με; καὶ λέγει αὐτῷ· κύριε, πάντα σὺ οἶδας, σὺ γινώσκεις ὅτι <strong>φιλῶ</strong> σε. λέγει αὐτῷ· βόσκε τὰ πρόβατά μου.</span>
+          </div>
+          <p><strong>Observaciones exegéticas:</strong></p>
+          <ul>
+            <li><strong>ἀγαπάω</strong> (agapaō) – amor divino, sacrificial, incondicional, de elección.</li>
+            <li><strong>φιλέω</strong> (phileō) – amor de amistad, afecto, cariño personal.</li>
+            <li>Jesús usa <strong>ἀγαπάω</strong> en las dos primeras preguntas; Pedro responde con <strong>φιλέω</strong> (amistad).</li>
+            <li>En la tercera pregunta, Jesús usa <strong>φιλέω</strong>, y Pedro se entristece porque Jesús "baja" a su nivel de amor.</li>
+            <li>Muchos intérpretes ven aquí una lección sobre la <strong>gracia</strong>: Jesús acepta el amor imperfecto de Pedro y lo restaura al ministerio.</li>
+          </ul>
+          <div class="contract-box">
+            <strong><i class="fas fa-lightbulb"></i> Significado teológico:</strong> Este pasaje muestra que Jesús no exige un amor perfecto (ἀγάπη) para el servicio, sino que acepta el amor sincero (φιλία) y lo transforma. Es un mensaje de <strong>restauración y gracia</strong>.
+          </div>
+          <button class="btn-reveal" data-target="juan21Ex">Traduce las tres preguntas</button>
+          <div id="juan21Ex" class="answer-text">
+            1ª: "¿Me amas (ἀγαπᾷς) más que estos?"<br>
+            2ª: "¿Me amas (ἀγαπᾷς)?"<br>
+            3ª: "¿Me amas (φιλεῖς)?"<br>
+            Respuesta de Pedro: "Tú sabes que te amo (φιλῶ)".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Verbos contractos y relacionados</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen los verbos contractos más importantes del NT y términos relacionados.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Tipo</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>1 Corintios 13:13:</strong> <span class="greek-word">νυνὶ δὲ μένει πίστις, ἐλπίς, ἀγάπη, τὰ τρία ταῦτα· μείζων δὲ τούτων ἡ ἀγάπη.</span> – "Ahora permanecen la fe, la esperanza y el amor; pero el mayor de estos es el amor (ἀγάπη)".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE CONJUGACIÓN DE VERBOS CONTRACTOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: conjuga verbos contractos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="conjContQuizArea"></div>
+          <button id="newConjContQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="conjContFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: IDENTIFICA LA CONTRACCIÓN CORRECTA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica la contracción correcta</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="contraccionQuizArea"></div>
+          <button id="newContraccionQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva pregunta</button>
+          <div id="contraccionFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO DE TRADUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con verbos contractos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transContQuizArea"></div>
+          <button id="newTransContQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transContFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – JUAN 21:15-17 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Juan 21:15-17</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee el diálogo de Jesús y Pedro. Identifica las formas de ἀγαπάω y φιλέω.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 21:15 – ἀγαπᾷς</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀγαπᾷς με πλέον τούτων;</span></p>
+              <button class="btn-reveal" data-target="j21a">¿Qué forma de ἀγαπάω aparece?</button>
+              <div id="j21a" class="answer-text">2ª persona singular del presente de <span class="greek-word">ἀγαπάω</span> (ἀγαπᾷς) – "¿me amas?".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 21:15 – φιλῶ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">σὺ οἶδας ὅτι φιλῶ σε.</span></p>
+              <button class="btn-reveal" data-target="j21b">¿Qué forma de φιλέω aparece?</button>
+              <div id="j21b" class="answer-text">1ª persona singular del presente de <span class="greek-word">φιλέω</span> (φιλῶ) – "te amo".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 21:17 – φιλεῖς</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">φιλεῖς με;</span></p>
+              <button class="btn-reveal" data-target="j21c">¿Qué forma de φιλέω aparece?</button>
+              <div id="j21c" class="answer-text">2ª persona singular del presente de <span class="greek-word">φιλέω</span> (φιλεῖς) – "¿me amas?".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con contracto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ζῶ ἐν πίστει</span></p>
+              <button class="btn-reveal" data-target="traduccionCont">Traduce</button>
+              <div id="traduccionCont" class="answer-text">"Vivo en fe" – ζῶ es 1ª sg. de ζάω.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Escribe la conjugación de φιλέω, ποιέω, ἀγαπάω y ζάω. Reflexiona sobre la diferencia entre ἀγάπη y φιλία en Juan 21.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-36.html"><i class="fas fa-arrow-left"></i> Lección 36</a>
+      <a href="leccion-38.html"><i class="fas fa-arrow-right"></i> Lección 38</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">νυνὶ δὲ μένει πίστις, ἐλπίς, ἀγάπη</span> (1 Corintios 13:13)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 37 ==========
+    const vocabData = [
+      { greek: "ποιέω", translit: "poieō", spanish: "hacer", type: "-έω" },
+      { greek: "φιλέω", translit: "phileō", spanish: "amar (como amigo)", type: "-έω" },
+      { greek: "ἀγαπάω", translit: "agapaō", spanish: "amar (sacrificial)", type: "-άω" },
+      { greek: "ζάω", translit: "zaō", spanish: "vivir", type: "-άω" },
+      { greek: "ζητέω", translit: "zēteō", spanish: "buscar", type: "-έω" },
+      { greek: "εὑρίσκω", translit: "heuriskō", spanish: "hallar, encontrar", type: "-ω" },
+      { greek: "θεωρέω", translit: "theōreō", spanish: "ver, contemplar", type: "-έω" },
+      { greek: "τηρέω", translit: "tēreō", spanish: "guardar, observar", type: "-έω" },
+      { greek: "λαλέω", translit: "laleō", spanish: "hablar", type: "-έω" },
+      { greek: "καλέω", translit: "kaleō", spanish: "llamar", type: "-έω" },
+      { greek: "ἀκολουθέω", translit: "akoloutheō", spanish: "seguir", type: "-έω" },
+      { greek: "νικάω", translit: "nikaō", spanish: "vencer", type: "-άω" },
+      { greek: "πλανάω", translit: "planaō", spanish: "engañar, extraviar", type: "-άω" },
+      { greek: "ὁράω", translit: "horaō", spanish: "ver", type: "-άω" },
+      { greek: "ἐρωτάω", translit: "erōtaō", spanish: "preguntar", type: "-άω" },
+      { greek: "εὐαγγελίζω", translit: "euangelizō", spanish: "anunciar, evangelizar", type: "-ω" },
+      { greek: "μαρτυρέω", translit: "martyreō", spanish: "testificar", type: "-έω" },
+      { greek: "παρακαλέω", translit: "parakaleō", spanish: "exhortar, consolar", type: "-έω" },
+      { greek: "οἰκοδομέω", translit: "oikodomeō", spanish: "edificar", type: "-έω" },
+      { greek: "εὐχαριστέω", translit: "eucharisteō", spanish: "dar gracias", type: "-έω" }
+    ];
+
+    // Palabras para ejercicio de conjugación de contractos
+    const conjContForms = [
+      { verb: "φιλέω", person: "1ª sg.", form: "φιλῶ" },
+      { verb: "φιλέω", person: "2ª sg.", form: "φιλεῖς" },
+      { verb: "φιλέω", person: "3ª sg.", form: "φιλεῖ" },
+      { verb: "φιλέω", person: "1ª pl.", form: "φιλοῦμεν" },
+      { verb: "φιλέω", person: "2ª pl.", form: "φιλεῖτε" },
+      { verb: "φιλέω", person: "3ª pl.", form: "φιλοῦσι(ν)" },
+      { verb: "ποιέω", person: "1ª sg.", form: "ποιῶ" },
+      { verb: "ποιέω", person: "2ª sg.", form: "ποιεῖς" },
+      { verb: "ποιέω", person: "3ª sg.", form: "ποιεῖ" },
+      { verb: "ποιέω", person: "1ª pl.", form: "ποιοῦμεν" },
+      { verb: "ποιέω", person: "2ª pl.", form: "ποιεῖτε" },
+      { verb: "ποιέω", person: "3ª pl.", form: "ποιοῦσι(ν)" },
+      { verb: "ἀγαπάω", person: "1ª sg.", form: "ἀγαπῶ" },
+      { verb: "ἀγαπάω", person: "2ª sg.", form: "ἀγαπᾷς" },
+      { verb: "ἀγαπάω", person: "3ª sg.", form: "ἀγαπᾷ" },
+      { verb: "ἀγαπάω", person: "1ª pl.", form: "ἀγαπῶμεν" },
+      { verb: "ἀγαπάω", person: "2ª pl.", form: "ἀγαπᾶτε" },
+      { verb: "ἀγαπάω", person: "3ª pl.", form: "ἀγαπῶσι(ν)" },
+      { verb: "ζάω", person: "1ª sg.", form: "ζῶ" },
+      { verb: "ζάω", person: "2ª sg.", form: "ζῇς" },
+      { verb: "ζάω", person: "3ª sg.", form: "ζῇ" },
+      { verb: "ζάω", person: "1ª pl.", form: "ζῶμεν" },
+      { verb: "ζάω", person: "2ª pl.", form: "ζῆτε" },
+      { verb: "ζάω", person: "3ª pl.", form: "ζῶσι(ν)" }
+    ];
+
+    // Ejercicio de contracciones: identificar la forma correcta
+    const contraccionQuestions = [
+      { base: "φιλέω", person: "1ª sg.", correct: "φιλῶ", options: ["φιλῶ", "φιλέω", "φιλοῦ", "φιλεῖς"] },
+      { base: "φιλέω", person: "2ª sg.", correct: "φιλεῖς", options: ["φιλεῖς", "φιλῶ", "φιλεῖ", "φιλοῦμεν"] },
+      { base: "ποιέω", person: "1ª pl.", correct: "ποιοῦμεν", options: ["ποιοῦμεν", "ποιῶ", "ποιεῖτε", "ποιοῦσι"] },
+      { base: "ἀγαπάω", person: "2ª sg.", correct: "ἀγαπᾷς", options: ["ἀγαπᾷς", "ἀγαπῶ", "ἀγαπᾷ", "ἀγαπᾶτε"] },
+      { base: "ζάω", person: "3ª sg.", correct: "ζῇ", options: ["ζῇ", "ζῶ", "ζῇς", "ζῆτε"] }
+    ];
+
+    // Frases para traducción
+    const transContPhrases = [
+      { greek: "ποιῶ τὸ θέλημα τοῦ θεοῦ", translation: "hago la voluntad de Dios" },
+      { greek: "φιλῶ τὸν ἀδελφόν μου", translation: "amo a mi hermano" },
+      { greek: "ἀγαπῶ τὸν κύριον", translation: "amo al Señor" },
+      { greek: "ζῶ ἐν Χριστῷ", translation: "vivo en Cristo" },
+      { greek: "ζητῶ τὴν βασιλείαν", translation: "busco el reino" },
+      { greek: "τηρῶ τὰς ἐντολάς", translation: "guardo los mandamientos" }
+    ];
+
+    let currentConjCont = conjContForms[0];
+    let currentContraccion = contraccionQuestions[0];
+    let currentTransCont = transContPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.type}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadConjContQuiz() {
+      const randomIndex = Math.floor(Math.random() * conjContForms.length);
+      currentConjCont = conjContForms[randomIndex];
+      const container = document.getElementById("conjContQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Escribe la forma de ${currentConjCont.person} de <span class="greek-word">${currentConjCont.verb}</span> en presente:</strong><br>
+      <input type="text" id="conjContAnswer" placeholder="ej. φιλῶ" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkConjCont" class="btn-reveal">Verificar</button>
+      <div id="conjContResult"></div></div>`;
+      document.getElementById("checkConjCont").addEventListener("click", () => {
+        const answer = document.getElementById("conjContAnswer").value.trim();
+        const result = document.getElementById("conjContResult");
+        const correct = currentConjCont.form;
+        if (answer === correct || answer === correct.replace(/\(ν\)/g, '')) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+          setTimeout(loadConjContQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}</span>`;
+        }
+      });
+    }
+
+    function loadContraccionQuiz() {
+      const randomIndex = Math.floor(Math.random() * contraccionQuestions.length);
+      currentContraccion = contraccionQuestions[randomIndex];
+      const container = document.getElementById("contraccionQuizArea");
+      let optionsHtml = currentContraccion.options.map((opt, i) => 
+        `<button class="btn-reveal" data-opt="${i}">${opt}</button>`
+      ).join(' ');
+      container.innerHTML = `<div class="card-highlight"><strong>¿Cuál es la forma correcta de ${currentContraccion.person} de <span class="greek-word">${currentContraccion.base}</span>?</strong><br>
+      ${optionsHtml}<br>
+      <div id="contraccionResult"></div></div>`;
+      document.querySelectorAll("#contraccionQuizArea .btn-reveal").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const selected = parseInt(btn.dataset.opt);
+          const result = document.getElementById("contraccionResult");
+          if (currentContraccion.options[selected] === currentContraccion.correct) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentContraccion.correct})</span>`;
+            setTimeout(loadContraccionQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${currentContraccion.correct}</span>`;
+          }
+        });
+      });
+    }
+
+    function loadTransContQuiz() {
+      const randomIndex = Math.floor(Math.random() * transContPhrases.length);
+      currentTransCont = transContPhrases[randomIndex];
+      const container = document.getElementById("transContQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransCont.greek}</span><br>
+      <input type="text" id="transContAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransCont" class="btn-reveal">Verificar</button>
+      <div id="transContResult"></div></div>`;
+      document.getElementById("checkTransCont").addEventListener("click", () => {
+        const answer = document.getElementById("transContAnswer").value.trim().toLowerCase();
+        const correct = currentTransCont.translation.toLowerCase();
+        const result = document.getElementById("transContResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransContQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransCont.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Forma contraída de φιλέω (1ª sg.)", opts: ["φιλῶ", "φιλεῖς", "φιλεῖ", "φιλοῦμεν"], correct: 0 },
+      { q: "Forma contraída de ἀγαπάω (2ª sg.)", opts: ["ἀγαπᾷς", "ἀγαπῶ", "ἀγαπᾷ", "ἀγαπᾶτε"], correct: 0 },
+      { q: "Forma contraída de ζάω (3ª sg.)", opts: ["ζῇ", "ζῶ", "ζῇς", "ζῆτε"], correct: 0 },
+      { q: "Significado de φιλέω", opts: ["amar (como amigo)", "amar (sacrificial)", "hacer", "vivir"], correct: 0 },
+      { q: "Traduce 'ἀγαπῶ'", opts: ["amo", "amas", "ama", "amamos"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkConjCont" || btn.id === "checkTransCont" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        // Para evitar conflictos con los botones de las opciones del quiz de contracciones
+        if (btn.closest && btn.closest("#contraccionQuizArea")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadConjContQuiz();
+      loadContraccionQuiz();
+      loadTransContQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newConjContQuiz")?.addEventListener("click", () => {
+        loadConjContQuiz();
+        document.getElementById("conjContFeedback").innerHTML = "";
+      });
+      document.getElementById("newContraccionQuiz")?.addEventListener("click", () => {
+        loadContraccionQuiz();
+        document.getElementById("contraccionFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransContQuiz")?.addEventListener("click", () => {
+        loadTransContQuiz();
+        document.getElementById("transContFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

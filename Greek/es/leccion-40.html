@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 40: Sintaxis Avanzada del Genitivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 57%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .genitive-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .exegetical-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-39.html"><i class="fas fa-arrow-left"></i> Lección 39</a>
+        <a href="leccion-41.html"><i class="fas fa-arrow-right"></i> Lección 41</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-tag"></i> Lección 40 · Sintaxis Avanzada del Genitivo <span class="hero-badge">Módulo IV · Consolidación</span></h1>
+      <p>Genitivo de posesión, descripción, partitivo, aposición · Objetivo vs. subjetivo · Genitivo absoluto · Análisis de Gálatas 2:16</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 800/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/6GZz3nYxH6M" title="Sintaxis avanzada del genitivo en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los usos del genitivo y el debate exegético de πίστις Χριστοῦ</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El genitivo: el caso de la relación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>genitivo</strong> es el caso de la <strong>relación</strong>. Originalmente expresaba <strong>posesión</strong> u <strong>origen</strong>, pero en el NT tiene una amplia gama de usos que son esenciales para la exégesis.</p>
+          <div class="genitive-box">
+            <i class="fas fa-lightbulb"></i> <strong>Función básica:</strong> El genitivo modifica a un sustantivo, indicando cómo se relaciona con él. Se traduce comúnmente con la preposición <strong>"de"</strong> o con posesivos.
+          </div>
+          <p><strong>Importancia exegética:</strong> La correcta identificación del tipo de genitivo puede cambiar radicalmente la interpretación de un pasaje. El debate sobre <span class="greek-word">πίστις Χριστοῦ</span> (Gálatas 2:16, Romanos 3:22) es uno de los ejemplos más famosos.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo clásico:</strong><br>
+            <span class="greek-word">πίστις Χριστοῦ</span> – ¿"fe <strong>en</strong> Cristo" (genitivo objetivo) o "fe <strong>de</strong> Cristo" (genitivo subjetivo)?<br>
+            Esta distinción afecta la teología de la justificación.
+          </div>
+          <button class="btn-reveal" data-target="introGen">Ver lista de usos del genitivo</button>
+          <div id="introGen" class="answer-text">
+            <strong>Usos principales del genitivo:</strong><br>
+            1. Posesión (el libro <strong>de Juan</strong>)<br>
+            2. Descripción / cualidad (hombre <strong>de fe</strong>)<br>
+            3. Partitivo (parte <strong>del pan</strong>)<br>
+            4. Aposición (la ciudad <strong>de Jerusalén</strong>)<br>
+            5. Subjetivo / objetivo (fe <strong>de/en Cristo</strong>)<br>
+            6. Con adjetivos y verbos (digno <strong>de</strong>, lleno <strong>de</strong>)<br>
+            7. Genitivo absoluto (cuando <strong>el Señor</strong> vino)
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: GENITIVO DE POSESIÓN, DESCRIPCIÓN, PARTITIVO, APOSICIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Usos fundamentales del genitivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Genitivo de posesión</h3>
+          <p>Indica a quién pertenece algo. Es el uso más básico.</p>
+          <div class="genitive-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ὁ οἶκος τοῦ θεοῦ</span> – "la casa <strong>de Dios</strong>" (Dios posee la casa).<br>
+            <span class="greek-word">τὸ βιβλίον τοῦ Ἰωάννου</span> – "el libro <strong>de Juan</strong>".
+          </div>
+
+          <h3>Genitivo de descripción (cualitativo)</h3>
+          <p>Describe o califica al sustantivo, indicando una característica o cualidad.</p>
+          <div class="genitive-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ἄνθρωπος πίστεως</span> – "hombre <strong>de fe</strong>" (hombre que tiene fe).<br>
+            <span class="greek-word">λόγος σοφίας</span> – "palabra <strong>de sabiduría</strong>" (palabra sabia).
+          </div>
+
+          <h3>Genitivo partitivo</h3>
+          <p>Indica la totalidad de la cual una parte es tomada.</p>
+          <div class="genitive-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">τὸ μέρος τοῦ ἄρτου</span> – "la parte <strong>del pan</strong>" (una parte del pan).<br>
+            <span class="greek-word">οἱ μαθηταὶ τῶν Φαρισαίων</span> – "los discípulos <strong>de los fariseos</strong>" (algunos de ellos).
+          </div>
+
+          <h3>Genitivo de aposición (equivalencia)</h3>
+          <p>El genitivo identifica al sustantivo al que modifica, en lugar de describirlo.</p>
+          <div class="genitive-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">τὴν πόλιν Ἰερουσαλήμ</span> – "la ciudad <strong>de Jerusalén</strong>" (Jerusalén es la ciudad).<br>
+            <span class="greek-word">τὸ σημεῖον τῆς περιτομῆς</span> – "la señal <strong>de la circuncisión</strong>" (la circuncisión es la señal).
+          </div>
+          <button class="btn-reveal" data-target="usosGenEj">Identifica el uso en ejemplos</button>
+          <div id="usosGenEj" class="answer-text">
+            <span class="greek-word">ἡ χάρις τοῦ θεοῦ</span> – posesión (la gracia de Dios).<br>
+            <span class="greek-word">ἄνθρωπος δικαιοσύνης</span> – descripción (hombre de justicia).<br>
+            <span class="greek-word">τὸ πλήρωμα τοῦ κόσμου</span> – partitivo (la plenitud del mundo).<br>
+            <span class="greek-word">τὸ πνεῦμα τῆς ἀληθείας</span> – aposición (el Espíritu, que es la verdad).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: GENITIVO OBJETIVO Y SUBJETIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 3. Genitivo objetivo vs. subjetivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Esta distinción es <strong>crucial</strong> para la exégesis. El genitivo puede indicar quién <strong>realiza</strong> la acción (subjetivo) o quién la <strong>recibe</strong> (objetivo).</p>
+          <div class="exegetical-box">
+            <i class="fas fa-lightbulb"></i> <strong>Diferencia clave:</strong>
+            <ul>
+              <li><strong>Genitivo subjetivo:</strong> el sustantivo en genitivo <strong>realiza</strong> la acción implícita.<br>
+                Ejemplo: <span class="greek-word">ἡ ἀγάπη τοῦ θεοῦ</span> – "el amor <strong>de Dios</strong>" = Dios ama (Dios es el sujeto).</li>
+              <li><strong>Genitivo objetivo:</strong> el sustantivo en genitivo <strong>recibe</strong> la acción implícita.<br>
+                Ejemplo: <span class="greek-word">ἡ ἀγάπη τοῦ θεοῦ</span> – "el amor <strong>de Dios</strong>" = amor hacia Dios (Dios es el objeto).</li>
+            </ul>
+          </div>
+          <p><strong>El debate de πίστις Χριστοῦ (Gálatas 2:16, Romanos 3:22):</strong></p>
+          <div class="card-highlight">
+            <span class="greek-word">πίστις Χριστοῦ</span> – ¿"fe <strong>en</strong> Cristo" (objetivo) o "fe <strong>de</strong> Cristo" (subjetivo)?<br><br>
+            <strong>Interpretación subjetiva:</strong> la fe que Cristo tuvo (su fidelidad en la cruz).<br>
+            <strong>Interpretación objetiva:</strong> la fe que los creyentes tienen en Cristo.<br><br>
+            La mayoría de los eruditos hoy interpretan <span class="greek-word">πίστις Χριστοῦ</span> como <strong>genitivo objetivo</strong> ("fe en Cristo"), pero el debate sigue vivo.
+          </div>
+          <div class="genitive-box">
+            <strong><i class="fas fa-bible"></i> Ejemplos adicionales:</strong><br>
+            <span class="greek-word">ἡ ἐλπίς μου</span> – "mi esperanza" (subjetivo: yo espero) u "objetivo: la esperanza que tengo".<br>
+            <span class="greek-word">ὁ φόβος τοῦ κυρίου</span> – "el temor del Señor" (subjetivo: el Señor teme) o "objetivo: temor al Señor".<br>
+            El contexto determina la interpretación.
+          </div>
+          <button class="btn-reveal" data-target="objSubjEj">Práctica: identifica si es subjetivo u objetivo</button>
+          <div id="objSubjEj" class="answer-text">
+            <span class="greek-word">ἡ δικαιοσύνη τοῦ θεοῦ</span> – la justicia de Dios (subjetivo: Dios es justo; o objetivo: justicia que viene de Dios).<br>
+            <span class="greek-word">τὸ εὐαγγέλιον τῆς χάριτος</span> – el evangelio de la gracia (objetivo: el evangelio que anuncia la gracia).<br>
+            <span class="greek-word">ἡ πίστις Ἰησοῦ</span> – la fe de Jesús (debate: objetivo o subjetivo).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: GENITIVO CON ADJETIVOS Y VERBOS ESPECIALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-link"></i> 4. Genitivo con adjetivos y verbos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Algunos <strong>adjetivos</strong> y <strong>verbos</strong> rigen genitivo, no acusativo como en español. Esto es importante para la traducción.</p>
+          <h3>Adjetivos que rigen genitivo</h3>
+          <ul>
+            <li><span class="greek-word">ἄξιος</span> (digno de) – <span class="greek-word">ἄξιος τοῦ θανάτου</span> (digno de muerte).</li>
+            <li><span class="greek-word">ἀνάξιος</span> (indigno de) – <span class="greek-word">ἀνάξιος τῆς βασιλείας</span> (indigno del reino).</li>
+            <li><span class="greek-word">πλήρης</span> (lleno de) – <span class="greek-word">πλήρης χάριτος</span> (lleno de gracia).</li>
+            <li><span class="greek-word">μεστός</span> (lleno de) – <span class="greek-word">μεστὸς δόλου</span> (lleno de engaño).</li>
+          </ul>
+          <h3>Verbos que rigen genitivo</h3>
+          <ul>
+            <li><span class="greek-word">ἀκούω</span> (oír) – <span class="greek-word">ἀκούω τοῦ λόγου</span> (oigo la palabra).</li>
+            <li><span class="greek-word">πίμπλημι</span> (llenar) – <span class="greek-word">ἐπλήσθη πνεύματος</span> (fue lleno del Espíritu).</li>
+            <li><span class="greek-word">γεύομαι</span> (probar) – <span class="greek-word">γεύομαι τοῦ θανάτου</span> (pruebo la muerte).</li>
+            <li><span class="greek-word">μνημονεύω</span> (recordar) – <span class="greek-word">μνημονεύω τῶν λόγων</span> (recuerdo las palabras).</li>
+          </ul>
+          <div class="genitive-box">
+            <strong><i class="fas fa-bible"></i> Ejemplo en el NT:</strong><br>
+            <span class="greek-word">ἄξιός ἐστιν τοῦ ἁγίου πνεύματος</span> – "es digno del Espíritu Santo" (Hechos 5:32).
+          </div>
+          <button class="btn-reveal" data-target="adjVerbGen">Práctica: traduce</button>
+          <div id="adjVerbGen" class="answer-text">
+            <span class="greek-word">πλήρης χάριτος</span> – "lleno de gracia".<br>
+            <span class="greek-word">ἄξιος τιμῆς</span> – "digno de honor".<br>
+            <span class="greek-word">μνημονεύω τῶν ἐντολῶν</span> – "recuerdo los mandamientos".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: GENITIVO ABSOLUTO (REVISIÓN) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-absolute"></i> 5. Genitivo absoluto – repaso y profundización</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>genitivo absoluto</strong> es una construcción donde un <strong>participio</strong> y su <strong>sujeto</strong> van en genitivo, formando una cláusula independiente. Es una de las marcas del griego literario.</p>
+          <div class="genitive-box">
+            <strong><i class="fas fa-lightbulb"></i> Estructura:</strong><br>
+            <strong>Sujeto en genitivo + Participio en genitivo</strong><br>
+            Ejemplo: <span class="greek-word">τοῦ Ἰησοῦ λέγοντος</span> – "mientras Jesús decía".
+          </div>
+          <p><strong>Usos del genitivo absoluto:</strong></p>
+          <ul>
+            <li><strong>Temporal:</strong> <span class="greek-word">ἐλθόντος τοῦ κυρίου</span> – "cuando el Señor vino".</li>
+            <li><strong>Causal:</strong> <span class="greek-word">τούτων λεγομένων</span> – "porque estas cosas se decían".</li>
+            <li><strong>Condicional:</strong> <span class="greek-word">θελήσαντος τοῦ θεοῦ</span> – "si Dios quiere".</li>
+            <li><strong>Concesivo:</strong> <span class="greek-word">καὶ ταῦτα εἰδότος</span> – "aunque él sabía esto".</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo en Mateo 2:13:</strong><br>
+            <span class="greek-word">ἀναχωρησάντων δὲ αὐτῶν</span> – "cuando ellos se hubieron retirado".<br>
+            <strong>Análisis:</strong> Sujeto: <span class="greek-word">αὐτῶν</span> (ellos) en genitivo; Participio: <span class="greek-word">ἀναχωρησάντων</span> (habiéndose retirado) en genitivo.
+          </div>
+          <button class="btn-reveal" data-target="genAbsEj">Identifica el genitivo absoluto</button>
+          <div id="genAbsEj" class="answer-text">
+            <span class="greek-word">τοῦ Ἰησοῦ γεννηθέντος</span> – "cuando Jesús nació".<br>
+            <span class="greek-word">ταῦτα λέγοντος τοῦ κυρίου</span> – "mientras el Señor decía estas cosas".<br>
+            <span class="greek-word">ἐλθόντος τοῦ ἀνθρώπου</span> – "cuando el hombre vino".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Términos para el debate exegético</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender el debate sobre la justificación y la fe.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Gálatas 2:16:</strong> <span class="greek-word">εἰδότες δὲ ὅτι οὐ δικαιοῦται ἄνθρωπος ἐξ ἔργων νόμου ἐὰν μὴ διὰ πίστεως Ἰησοῦ Χριστοῦ</span> – "sabiendo que el hombre no es justificado por obras de la ley sino por la fe de Jesucristo".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO: IDENTIFICA EL TIPO DE GENITIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el tipo de genitivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tipoGenQuizArea"></div>
+          <button id="newTipoGenQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="tipoGenFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: GENITIVO OBJETIVO VS. SUBJETIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 8. ¿Objetivo o subjetivo?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="objSubjQuizArea"></div>
+          <button id="newObjSubjQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="objSubjFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO DE TRADUCCIÓN CON GENITIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con genitivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transGenQuizArea"></div>
+          <button id="newTransGenQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transGenFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – GÁLATAS 2:16 Y ROMANOS 1:17 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Gálatas 2:16 y Romanos 1:17</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Analiza el genitivo <span class="greek-word">πίστις Χριστοῦ</span> y su interpretación.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 2:16 – πίστεως Ἰησοῦ Χριστοῦ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οὐ δικαιοῦται ἄνθρωπος ἐξ ἔργων νόμου ἐὰν μὴ διὰ πίστεως Ἰησοῦ Χριστοῦ</span></p>
+              <button class="btn-reveal" data-target="ga2a">¿Qué tipo de genitivo es <strong>πίστεως Ἰησοῦ</strong>?</button>
+              <div id="ga2a" class="answer-text">Debate: puede ser <strong>objetivo</strong> ("fe en Jesucristo") o <strong>subjetivo</strong> ("fe de Jesucristo"). El contexto sugiere que Pablo está hablando de la fe en Cristo como medio de salvación (objetivo).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 1:17 – ἐκ πίστεως</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται ἐκ πίστεως εἰς πίστιν</span></p>
+              <button class="btn-reveal" data-target="rm1a">¿Qué genitivo aparece en <strong>δικαιοσύνη θεοῦ</strong>?</button>
+              <div id="rm1a" class="answer-text"><span class="greek-word">θεοῦ</span> es genitivo subjetivo o de origen: la justicia que proviene de Dios.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 3:22 – πίστις Ἰησοῦ Χριστοῦ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἵνα ἡ ἐπαγγελία ἐκ πίστεως Ἰησοῦ Χριστοῦ δοθῇ τοῖς πιστεύουσιν</span></p>
+              <button class="btn-reveal" data-target="ga3a">¿Qué interpretación es más probable para <strong>πίστεως Ἰησοῦ</strong>?</button>
+              <div id="ga3a" class="answer-text">Muchos eruditos lo interpretan como <strong>genitivo objetivo</strong> ("la fe en Jesucristo"), porque el contexto habla de la fe de los creyentes.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con genitivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τὸ εὐαγγέλιον τῆς χάριτος</span></p>
+              <button class="btn-reveal" data-target="traduccionGen">Traduce y analiza</button>
+              <div id="traduccionGen" class="answer-text">"El evangelio de la gracia" – genitivo de descripción o aposición: el evangelio que anuncia la gracia.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la identificación de genitivos. Lee Gálatas 2:16 y Romanos 3:21-26 en griego. Reflexiona sobre el debate exegético de πίστις Χριστοῦ.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-39.html"><i class="fas fa-arrow-left"></i> Lección 39</a>
+      <a href="leccion-41.html"><i class="fas fa-arrow-right"></i> Lección 41</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">πίστις Χριστοῦ</span> – el gran debate exegético</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 40 ==========
+    const vocabData = [
+      { greek: "ἀγαπητός", translit: "agapētos", spanish: "amado", note: "adjetivo" },
+      { greek: "κλητός", translit: "klētos", spanish: "llamado", note: "adjetivo" },
+      { greek: "ἅγιος", translit: "hagios", spanish: "santo", note: "adjetivo" },
+      { greek: "ἐκλεκτός", translit: "eklektos", spanish: "elegido", note: "adjetivo" },
+      { greek: "πιστός", translit: "pistos", spanish: "fiel", note: "adjetivo" },
+      { greek: "δικαιοσύνη", translit: "dikaiosynē", spanish: "justicia", note: "sustantivo" },
+      { greek: "δικαίωσις", translit: "dikaiōsis", spanish: "justificación", note: "sustantivo" },
+      { greek: "ἁγιασμός", translit: "hagiasmos", spanish: "santificación", note: "sustantivo" },
+      { greek: "ἀπολύτρωσις", translit: "apolytrōsis", spanish: "redención", note: "sustantivo" },
+      { greek: "σωτηρία", translit: "sōtēria", spanish: "salvación", note: "sustantivo" },
+      { greek: "σωτήρ", translit: "sōtēr", spanish: "Salvador", note: "sustantivo" },
+      { greek: "εἰρήνη", translit: "eirēnē", spanish: "paz", note: "sustantivo" },
+      { greek: "ἐλπίς", translit: "elpis", spanish: "esperanza", note: "sustantivo" },
+      { greek: "πίστις", translit: "pistis", spanish: "fe", note: "sustantivo" },
+      { greek: "ἀγάπη", translit: "agapē", spanish: "amor", note: "sustantivo" },
+      { greek: "χάρις", translit: "charis", spanish: "gracia", note: "sustantivo" },
+      { greek: "δύναμις", translit: "dynamis", spanish: "poder", note: "sustantivo" },
+      { greek: "θεότης", translit: "theotēs", spanish: "divinidad", note: "sustantivo" },
+      { greek: "θεῖος", translit: "theios", spanish: "divino", note: "adjetivo" },
+      { greek: "θεοσέβεια", translit: "theosebeia", spanish: "piedad, devoción a Dios", note: "sustantivo" }
+    ];
+
+    // Ejemplos para identificar tipo de genitivo
+    const tipoGenExamples = [
+      { phrase: "ὁ οἶκος τοῦ θεοῦ", type: "posesión", translation: "la casa de Dios" },
+      { phrase: "ἄνθρωπος πίστεως", type: "descripción", translation: "hombre de fe" },
+      { phrase: "τὸ μέρος τοῦ ἄρτου", type: "partitivo", translation: "la parte del pan" },
+      { phrase: "τὴν πόλιν Ἰερουσαλήμ", type: "aposición", translation: "la ciudad de Jerusalén" },
+      { phrase: "ἡ ἀγάπη τοῦ θεοῦ", type: "subjetivo/objetivo", translation: "el amor de Dios" },
+      { phrase: "πλήρης χάριτος", type: "con adjetivo", translation: "lleno de gracia" }
+    ];
+
+    // Ejemplos para objetivo vs subjetivo
+    const objSubjExamples = [
+      { phrase: "ἡ πίστις Ἰησοῦ Χριστοῦ", type: "debate", translation: "la fe de/en Jesucristo" },
+      { phrase: "ἡ ἀγάπη τοῦ θεοῦ", type: "objetivo/subjetivo", translation: "el amor de Dios" },
+      { phrase: "τὸ εὐαγγέλιον τῆς χάριτος", type: "objetivo", translation: "el evangelio de la gracia" },
+      { phrase: "ὁ φόβος τοῦ κυρίου", type: "subjetivo/objetivo", translation: "el temor del Señor" },
+      { phrase: "ἡ δικαιοσύνη τοῦ θεοῦ", type: "subjetivo", translation: "la justicia de Dios" }
+    ];
+
+    // Frases para traducción con genitivo
+    const transGenPhrases = [
+      { greek: "ὁ λόγος τοῦ θεοῦ", translation: "la palabra de Dios" },
+      { greek: "πλήρης χάριτος", translation: "lleno de gracia" },
+      { greek: "τὸ πλήρωμα τῆς ἐκκλησίας", translation: "la plenitud de la iglesia" },
+      { greek: "ἄξιος τοῦ θανάτου", translation: "digno de muerte" },
+      { greek: "ἡ ἐλπὶς τῆς σωτηρίας", translation: "la esperanza de la salvación" }
+    ];
+
+    let currentTipoGen = tipoGenExamples[0];
+    let currentObjSubj = objSubjExamples[0];
+    let currentTransGen = transGenPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadTipoGenQuiz() {
+      const randomIndex = Math.floor(Math.random() * tipoGenExamples.length);
+      currentTipoGen = tipoGenExamples[randomIndex];
+      const container = document.getElementById("tipoGenQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué tipo de genitivo es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTipoGen.phrase}</span><br>
+      <button id="genPosesion" class="btn-reveal">Posesión</button> <button id="genDesc" class="btn-reveal">Descripción</button>
+      <button id="genPart" class="btn-reveal">Partitivo</button> <button id="genApos" class="btn-reveal">Aposición</button>
+      <button id="genAdj" class="btn-reveal">Con adjetivo</button>
+      <div id="tipoGenResult"></div></div>`;
+      const poses = document.getElementById("genPosesion");
+      const desc = document.getElementById("genDesc");
+      const part = document.getElementById("genPart");
+      const apos = document.getElementById("genApos");
+      const adj = document.getElementById("genAdj");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("tipoGenResult");
+          if (expected === currentTipoGen.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTipoGen.translation})</span>`;
+            setTimeout(loadTipoGenQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTipoGen.type}</span>`;
+          }
+        });
+      };
+      check(poses, "posesión");
+      check(desc, "descripción");
+      check(part, "partitivo");
+      check(apos, "aposición");
+      check(adj, "con adjetivo");
+    }
+
+    function loadObjSubjQuiz() {
+      const randomIndex = Math.floor(Math.random() * objSubjExamples.length);
+      currentObjSubj = objSubjExamples[randomIndex];
+      const container = document.getElementById("objSubjQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Genitivo objetivo o subjetivo?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentObjSubj.phrase}</span><br>
+      <button id="objBtn" class="btn-reveal">Objetivo</button> <button id="subjBtn" class="btn-reveal">Subjetivo</button> <button id="debateBtn" class="btn-reveal">Debatido</button>
+      <div id="objSubjResult"></div></div>`;
+      const objBtn = document.getElementById("objBtn");
+      const subjBtn = document.getElementById("subjBtn");
+      const debateBtn = document.getElementById("debateBtn");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("objSubjResult");
+          if (expected === currentObjSubj.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentObjSubj.translation})</span>`;
+            setTimeout(loadObjSubjQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentObjSubj.type}</span>`;
+          }
+        });
+      };
+      check(objBtn, "objetivo");
+      check(subjBtn, "subjetivo");
+      check(debateBtn, "debate");
+    }
+
+    function loadTransGenQuiz() {
+      const randomIndex = Math.floor(Math.random() * transGenPhrases.length);
+      currentTransGen = transGenPhrases[randomIndex];
+      const container = document.getElementById("transGenQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransGen.greek}</span><br>
+      <input type="text" id="transGenAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransGen" class="btn-reveal">Verificar</button>
+      <div id="transGenResult"></div></div>`;
+      document.getElementById("checkTransGen").addEventListener("click", () => {
+        const answer = document.getElementById("transGenAnswer").value.trim().toLowerCase();
+        const correct = currentTransGen.translation.toLowerCase();
+        const result = document.getElementById("transGenResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransGenQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransGen.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Genitivo que indica a quién pertenece algo", opts: ["Posesión", "Partitivo", "Aposición", "Descripción"], correct: 0 },
+      { q: "Genitivo que indica la totalidad de la cual se toma una parte", opts: ["Partitivo", "Posesión", "Aposición", "Descripción"], correct: 0 },
+      { q: "En 'πίστις Χριστοῦ', el genitivo puede ser...", opts: ["Objetivo o subjetivo", "Solo objetivo", "Solo subjetivo", "Posesión"], correct: 0 },
+      { q: "Genitivo de 'el evangelio de la gracia'", opts: ["Aposición", "Descripción", "Objetivo", "Subjetivo"], correct: 1 },
+      { q: "Genitivo que identifica al sustantivo (equivalencia)", opts: ["Aposición", "Posesión", "Partitivo", "Descripción"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransGen" || btn.id === "checkTrans" || btn.id === "submitRand" || btn.closest("#tipoGenQuizArea") || btn.closest("#objSubjQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadTipoGenQuiz();
+      loadObjSubjQuiz();
+      loadTransGenQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newTipoGenQuiz")?.addEventListener("click", () => {
+        loadTipoGenQuiz();
+        document.getElementById("tipoGenFeedback").innerHTML = "";
+      });
+      document.getElementById("newObjSubjQuiz")?.addEventListener("click", () => {
+        loadObjSubjQuiz();
+        document.getElementById("objSubjFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransGenQuiz")?.addEventListener("click", () => {
+        loadTransGenQuiz();
+        document.getElementById("transGenFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

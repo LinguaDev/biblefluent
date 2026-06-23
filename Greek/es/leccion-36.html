@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 36: Verbos -μι II</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 51%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .mi-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-35.html"><i class="fas fa-arrow-left"></i> Lección 35</a>
+        <a href="leccion-37.html"><i class="fas fa-arrow-right"></i> Lección 37</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-greek-helmet"></i> Lección 36 · Verbos -μι II <span class="hero-badge">Módulo III · Desarrollo</span></h1>
+      <p>τίθημι (poner) · ἵστημι (estar de pie/establecer) · ἀφίημι (perdonar/dejar) · El perdón en el NT</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 720/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Verbos -μι II: τίθημι, ἵστημι, ἀφίημι" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los verbos -μι más importantes del NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Los verbos -μι más frecuentes del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Después de δίδωμι, los verbos -μι más importantes del NT son:</p>
+          <ul>
+            <li><strong>τίθημι</strong> (poner, colocar, establecer) – más de 100 veces.</li>
+            <li><strong>ἵστημι</strong> (estar de pie, poner, establecer) – más de 80 veces.</li>
+            <li><strong>ἀφίημι</strong> (perdonar, dejar, soltar) – más de 140 veces.</li>
+          </ul>
+          <div class="mi-box">
+            <i class="fas fa-lightbulb"></i> <strong>Importancia teológica:</strong>
+            <ul>
+              <li><span class="greek-word">τίθημι</span> se usa para "poner la vida" (Juan 10:11, 15, 17-18).</li>
+              <li><span class="greek-word">ἵστημι</span> se usa para la resurrección y la firmeza en la fe.</li>
+              <li><span class="greek-word">ἀφίημι</span> es la base de <span class="greek-word">ἄφεσις</span> (perdón, remisión de pecados).</li>
+            </ul>
+          </div>
+          <p><strong>Consejo:</strong> Memoriza estos tres verbos como un grupo. Comparten características morfológicas (reduplicación, vocales largas/cortas) pero cada uno tiene sus propias irregularidades.</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: τίθημι (PONER, COLOCAR) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. τίθημι – presente y aoristo activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">τίθημι</span> significa "poner", "colocar", "establecer". Es un verbo muy usado en el NT para conceptos teológicos como "poner la vida" (Juan 10:11).</p>
+          <h3>Presente de indicativo</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>τίθημι</td><td>pongo</td></tr>
+                <tr><td>2ª sg.</td><td>τίθης</td><td>pones</td></tr>
+                <tr><td>3ª sg.</td><td>τίθησι(ν)</td><td>pone</td></tr>
+                <tr><td>1ª pl.</td><td>τίθεμεν</td><td>ponemos</td></tr>
+                <tr><td>2ª pl.</td><td>τίθετε</td><td>ponéis</td></tr>
+                <tr><td>3ª pl.</td><td>τιθέασι(ν)</td><td>ponen</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Aoristo activo (ἔθηκα)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἔθηκα</td><td>puse</td></tr>
+                <tr><td>2ª sg.</td><td>ἔθηκας</td><td>pusiste</td></tr>
+                <tr><td>3ª sg.</td><td>ἔθηκε(ν)</td><td>puso</td></tr>
+                <tr><td>1ª pl.</td><td>ἐθήκαμεν</td><td>pusimos</td></tr>
+                <tr><td>2ª pl.</td><td>ἐθήκατε</td><td>pusisteis</td></tr>
+                <tr><td>3ª pl.</td><td>ἔθηκαν</td><td>pusieron</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mi-box">
+            <strong><i class="fas fa-bible"></i> Juan 10:11:</strong> <span class="greek-word">ἐγώ εἰμι ὁ ποιμὴν ὁ καλός. ὁ ποιμὴν ὁ καλὸς τὴν ψυχὴν αὐτοῦ τίθησιν ὑπὲρ τῶν προβάτων.</span> – "Yo soy el buen pastor. El buen pastor <strong>pone</strong> su vida por las ovejas."
+          </div>
+          <button class="btn-reveal" data-target="tithEj">Conjuga τίθημι en aoristo</button>
+          <div id="tithEj" class="answer-text">
+            ἔθηκα, ἔθηκας, ἔθηκε(ν), ἐθήκαμεν, ἐθήκατε, ἔθηκαν.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: ἵστημι (ESTAR DE PIE, PONER, ESTABLECER) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. ἵστημι – presente y los dos aoristos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">ἵστημι</span> tiene dos significados principales: <strong>intransitivo</strong> (estar de pie) y <strong>transitivo</strong> (poner, establecer). Tiene <strong>dos aoristos</strong>:</p>
+          <ul>
+            <li><strong>ἔστησα</strong> (transitivo) – "puse, establecí" (acción que realiza el sujeto).</li>
+            <li><strong>ἔστην</strong> (intransitivo) – "me puse de pie, estuve" (acción que el sujeto experimenta).</li>
+          </ul>
+          <h3>Presente de indicativo</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἵστημι</td><td>pongo / estoy de pie</td></tr>
+                <tr><td>2ª sg.</td><td>ἵστης</td><td>pones / estás de pie</td></tr>
+                <tr><td>3ª sg.</td><td>ἵστησι(ν)</td><td>pone / está de pie</td></tr>
+                <tr><td>1ª pl.</td><td>ἵσταμεν</td><td>ponemos / estamos de pie</td></tr>
+                <tr><td>2ª pl.</td><td>ἵστατε</td><td>ponéis / estáis de pie</td></tr>
+                <tr><td>3ª pl.</td><td>ἱστάσι(ν)</td><td>ponen / están de pie</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Aoristo transitivo: ἔστησα (puse, establecí)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἔστησα</td><td>puse, establecí</td></tr>
+                <tr><td>2ª sg.</td><td>ἔστησας</td><td>pusiste, estableciste</td></tr>
+                <tr><td>3ª sg.</td><td>ἔστησε(ν)</td><td>puso, estableció</td></tr>
+                <tr><td>1ª pl.</td><td>ἐστήσαμεν</td><td>pusimos, establecimos</td></tr>
+                <tr><td>2ª pl.</td><td>ἐστήσατε</td><td>pusisteis, establecisteis</td></tr>
+                <tr><td>3ª pl.</td><td>ἔστησαν</td><td>pusieron, establecieron</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Aoristo intransitivo: ἔστην (me puse de pie, estuve)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἔστην</td><td>me puse de pie</td></tr>
+                <tr><td>2ª sg.</td><td>ἔστης</td><td>te pusiste de pie</td></tr>
+                <tr><td>3ª sg.</td><td>ἔστη</td><td>se puso de pie</td></tr>
+                <tr><td>1ª pl.</td><td>ἔστημεν</td><td>nos pusimos de pie</td></tr>
+                <tr><td>2ª pl.</td><td>ἔστητε</td><td>os pusisteis de pie</td></tr>
+                <tr><td>3ª pl.</td><td>ἔστησαν</td><td>se pusieron de pie</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mi-box">
+            <strong><i class="fas fa-lightbulb"></i> Diferencia clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἔστησα</span> = "puse" (algo o alguien) – transitivo.</li>
+              <li><span class="greek-word">ἔστην</span> = "me puse de pie" – intransitivo.</li>
+              <li>El contexto teológico: <span class="greek-word">ἐστήριξεν</span> (estableció) es un derivado de ἵστημι.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="histEj">Conjuga ἵστημι en aoristo intransitivo</button>
+          <div id="histEj" class="answer-text">
+            ἔστην, ἔστης, ἔστη, ἔστημεν, ἔστητε, ἔστησαν.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: ἀφίημι (PERDONAR, DEJAR) Y ἄφεσις -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 4. ἀφίημι – perdonar y dejar</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">ἀφίημι</span> es uno de los verbos más importantes del NT. Significa <strong>"perdonar"</strong>, <strong>"dejar"</strong>, <strong>"soltar"</strong>. Su sustantivo relacionado es <span class="greek-word">ἄφεσις</span> (perdón, remisión).</p>
+          <h3>Presente de indicativo</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἀφίημι</td><td>perdono / dejo</td></tr>
+                <tr><td>2ª sg.</td><td>ἀφίης</td><td>perdonas / dejas</td></tr>
+                <tr><td>3ª sg.</td><td>ἀφίησι(ν)</td><td>perdona / deja</td></tr>
+                <tr><td>1ª pl.</td><td>ἀφίεμεν</td><td>perdonamos / dejamos</td></tr>
+                <tr><td>2ª pl.</td><td>ἀφίετε</td><td>perdonáis / dejáis</td></tr>
+                <tr><td>3ª pl.</td><td>ἀφιᾶσι(ν)</td><td>perdonan / dejan</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Aoristo activo (ἀφῆκα)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἀφῆκα</td><td>perdoné / dejé</td></tr>
+                <tr><td>2ª sg.</td><td>ἀφῆκας</td><td>perdonaste / dejaste</td></tr>
+                <tr><td>3ª sg.</td><td>ἀφῆκε(ν)</td><td>perdonó / dejó</td></tr>
+                <tr><td>1ª pl.</td><td>ἀφήκαμεν</td><td>perdonamos / dejamos</td></tr>
+                <tr><td>2ª pl.</td><td>ἀφήκατε</td><td>perdonasteis / dejasteis</td></tr>
+                <tr><td>3ª pl.</td><td>ἀφῆκαν</td><td>perdonaron / dejaron</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mi-box">
+            <strong><i class="fas fa-bible"></i> El perdón en el NT:</strong>
+            <ul>
+              <li><span class="greek-word">ἄφεσις ἁμαρτιῶν</span> – "perdón de pecados" (Hechos 2:38).</li>
+              <li><span class="greek-word">ἀφίημι</span> es el verbo que usó Jesús en el Padre Nuestro: <span class="greek-word">ἄφες ἡμῖν τὰ ὀφειλήματα ἡμῶν</span> – "perdónanos nuestras deudas" (Mateo 6:12).</li>
+              <li>El perdón es el centro del evangelio: <span class="greek-word">ἐν ᾧ ἔχομεν τὴν ἀπολύτρωσιν, τὴν ἄφεσιν τῶν ἁμαρτιῶν</span> – "en quien tenemos la redención, el perdón de los pecados" (Colosenses 1:14).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="afiEj">Conjuga ἀφίημι en presente</button>
+          <div id="afiEj" class="answer-text">
+            ἀφίημι, ἀφίης, ἀφίησι(ν), ἀφίεμεν, ἀφίετε, ἀφιᾶσι(ν).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: COMPARACIÓN DE VERBOS -MI -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-layer-group"></i> 5. Comparación de los verbos -μι (presente)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>δίδωμι</th><th>τίθημι</th><th>ἵστημι</th><th>ἀφίημι</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>δίδωμι</td><td>τίθημι</td><td>ἵστημι</td><td>ἀφίημι</td></tr>
+                <tr><td>2ª sg.</td><td>δίδως</td><td>τίθης</td><td>ἵστης</td><td>ἀφίης</td></tr>
+                <tr><td>3ª sg.</td><td>δίδωσι</td><td>τίθησι</td><td>ἵστησι</td><td>ἀφίησι</td></tr>
+                <tr><td>1ª pl.</td><td>δίδομεν</td><td>τίθεμεν</td><td>ἵσταμεν</td><td>ἀφίεμεν</td></tr>
+                <tr><td>2ª pl.</td><td>δίδοτε</td><td>τίθετε</td><td>ἵστατε</td><td>ἀφίετε</td></tr>
+                <tr><td>3ª pl.</td><td>διδόασι</td><td>τιθέασι</td><td>ἱστάσι</td><td>ἀφιᾶσι</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-memory"></i> Patrón común:</strong>
+            <ul>
+              <li>Singular: vocal larga (ω/η) en la raíz.</li>
+              <li>Plural: vocal corta (ο/ε) en la raíz.</li>
+              <li>Reduplicación en todas las formas (δι-, τι-, ι-, αφι-).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Perdón, redención y términos relacionados</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son esenciales para entender la teología del perdón y la redención en el NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Efesios 1:7:</strong> <span class="greek-word">ἐν ᾧ ἔχομεν τὴν ἀπολύτρωσιν διὰ τοῦ αἵματος αὐτοῦ, τὴν ἄφεσιν τῶν παραπτωμάτων</span> – "En quien tenemos la redención por su sangre, el perdón de los pecados".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO DE CONJUGACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 7. Practica: conjuga τίθημι, ἵστημι, ἀφίημι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="conjMiQuizArea"></div>
+          <button id="newConjMiQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="conjMiFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO: IDENTIFICA EL VERBO -MI -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el verbo -μι (τίθημι, ἵστημι, ἀφίημι)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="identificaMi2QuizArea"></div>
+          <button id="newIdentificaMi2Quiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="identificaMi2Feedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO DE TRADUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con τίθημι, ἵστημι, ἀφίημι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transMiQuizArea"></div>
+          <button id="newTransMiQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transMiFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – PADRE NUESTRO Y LUCAS 15 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Padre Nuestro y Lucas 15</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica las formas de τίθημι, ἵστημι, ἀφίημι.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 6:12 – ἀφίημι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ ἄφες ἡμῖν τὰ ὀφειλήματα ἡμῶν, ὡς καὶ ἡμεῖς ἀφήκαμεν τοῖς ὀφειλέταις ἡμῶν.</span></p>
+              <button class="btn-reveal" data-target="mt6a">¿Qué forma de ἀφίημι aparece?</button>
+              <div id="mt6a" class="answer-text"><span class="greek-word">ἄφες</span> – imperativo aoristo de ἀφίημι (2ª sg.). <span class="greek-word">ἀφήκαμεν</span> – aoristo de 1ª pl. (hemos perdonado).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Lucas 15:5 – τίθημι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ εὑρὼν ἐπιτίθησιν ἐπὶ τοὺς ὤμους αὐτοῦ χαίρων.</span></p>
+              <button class="btn-reveal" data-target="lu15a">¿Qué forma de τίθημι aparece?</button>
+              <div id="lu15a" class="answer-text"><span class="greek-word">ἐπιτίθησιν</span> – presente de <span class="greek-word">ἐπιτίθημι</span> (pone sobre, coloca sobre).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Lucas 15:24 – ἀνέστη</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀναστὰς οὖν ἦλθε πρὸς τὸν πατέρα ἑαυτοῦ. ἔτι δὲ αὐτοῦ μακρὰν ἀπέχοντος εἶδεν αὐτὸν ὁ πατὴρ αὐτοῦ καὶ ἐσπλαγχνίσθη, καὶ δραμὼν ἐπέπεσεν ἐπὶ τὸν τράχηλον αὐτοῦ καὶ κατεφίλησεν αὐτόν.</span></p>
+              <button class="btn-reveal" data-target="lu15b">¿Qué forma de ἵστημι aparece en el versículo 20 (no en este texto)?</button>
+              <div id="lu15b" class="answer-text">En Lucas 15:20, <span class="greek-word">ἀναστάς</span> (levantándose) es un aoristo de <span class="greek-word">ἀνίστημι</span> (de ἵστημι) – "habiéndose levantado".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con ἀφίημι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀφίεταί σοι</span></p>
+              <button class="btn-reveal" data-target="traduccionAfi">Traduce</button>
+              <div id="traduccionAfi" class="answer-text">"Te son perdonados" – presente pasivo de ἀφίημι.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Conjuga τίθημι, ἵστημι, ἀφίημι en presente y aoristo. Lee el Padre Nuestro en griego. Reflexiona sobre el significado teológico de ἄφεσις.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-35.html"><i class="fas fa-arrow-left"></i> Lección 35</a>
+      <a href="leccion-37.html"><i class="fas fa-arrow-right"></i> Lección 37</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἄφες ἡμῖν τὰ ὀφειλήματα ἡμῶν</span> (Mateo 6:12)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 36 ==========
+    const vocabData = [
+      { greek: "τίθημι", translit: "tithēmi", spanish: "poner, colocar", note: "verbo -μι" },
+      { greek: "ἵστημι", translit: "histēmi", spanish: "estar de pie, poner", note: "verbo -μι" },
+      { greek: "ἀφίημι", translit: "aphiēmi", spanish: "perdonar, dejar", note: "verbo -μι" },
+      { greek: "ἄφεσις", translit: "aphesis", spanish: "perdón, remisión", note: "sustantivo" },
+      { greek: "ἁμαρτία", translit: "hamartia", spanish: "pecado", note: "sustantivo" },
+      { greek: "ἔλεος", translit: "eleos", spanish: "misericordia", note: "sustantivo" },
+      { greek: "συγγνώμη", translit: "syngnōmē", spanish: "indulgencia", note: "sustantivo" },
+      { greek: "χρέος", translit: "chreos", spanish: "deuda", note: "sustantivo" },
+      { greek: "ὀφειλέτης", translit: "opheiletēs", spanish: "deudor", note: "sustantivo" },
+      { greek: "ὀφείλω", translit: "opheilō", spanish: "deber, estar obligado", note: "verbo -ω" },
+      { greek: "λύτρον", translit: "lytron", spanish: "rescate, precio", note: "sustantivo" },
+      { greek: "λυτρόω", translit: "lytroō", spanish: "rescatar, redimir", note: "verbo -ω" },
+      { greek: "λυτρωτής", translit: "lytrōtēs", spanish: "redentor, liberador", note: "sustantivo" },
+      { greek: "ἐξαγοράζω", translit: "exagorazō", spanish: "redimir, rescatar", note: "verbo -ω" },
+      { greek: "ἀγοράζω", translit: "agorazō", spanish: "comprar", note: "verbo -ω" },
+      { greek: "τιμή", translit: "timē", spanish: "precio, honor", note: "sustantivo" },
+      { greek: "ἄξιος", translit: "axios", spanish: "digno", note: "adjetivo" },
+      { greek: "ἀντίλυτρον", translit: "antilytron", spanish: "sustituto, rescate", note: "sustantivo" },
+      { greek: "ἱλάσκομαι", translit: "hilaskomai", spanish: "propiciar, aplacar", note: "deponente" },
+      { greek: "ἐπικαλέω", translit: "epikaleō", spanish: "invocar, llamar", note: "verbo -ω" }
+    ];
+
+    // Palabras para ejercicio de conjugación de verbos -μι
+    const conjMiForms = [
+      { verb: "τίθημι", tense: "presente", person: "1ª sg.", form: "τίθημι" },
+      { verb: "τίθημι", tense: "presente", person: "2ª sg.", form: "τίθης" },
+      { verb: "τίθημι", tense: "presente", person: "3ª sg.", form: "τίθησι(ν)" },
+      { verb: "τίθημι", tense: "presente", person: "1ª pl.", form: "τίθεμεν" },
+      { verb: "τίθημι", tense: "presente", person: "2ª pl.", form: "τίθετε" },
+      { verb: "τίθημι", tense: "presente", person: "3ª pl.", form: "τιθέασι(ν)" },
+      { verb: "τίθημι", tense: "aoristo", person: "1ª sg.", form: "ἔθηκα" },
+      { verb: "τίθημι", tense: "aoristo", person: "3ª sg.", form: "ἔθηκε(ν)" },
+      { verb: "ἵστημι", tense: "presente", person: "1ª sg.", form: "ἵστημι" },
+      { verb: "ἵστημι", tense: "presente", person: "2ª sg.", form: "ἵστης" },
+      { verb: "ἵστημι", tense: "presente", person: "3ª sg.", form: "ἵστησι(ν)" },
+      { verb: "ἵστημι", tense: "presente", person: "1ª pl.", form: "ἵσταμεν" },
+      { verb: "ἵστημι", tense: "presente", person: "2ª pl.", form: "ἵστατε" },
+      { verb: "ἵστημι", tense: "presente", person: "3ª pl.", form: "ἱστάσι(ν)" },
+      { verb: "ἵστημι", tense: "aoristo transitivo", person: "1ª sg.", form: "ἔστησα" },
+      { verb: "ἵστημι", tense: "aoristo intransitivo", person: "1ª sg.", form: "ἔστην" },
+      { verb: "ἀφίημι", tense: "presente", person: "1ª sg.", form: "ἀφίημι" },
+      { verb: "ἀφίημι", tense: "presente", person: "2ª sg.", form: "ἀφίης" },
+      { verb: "ἀφίημι", tense: "presente", person: "3ª sg.", form: "ἀφίησι(ν)" },
+      { verb: "ἀφίημι", tense: "presente", person: "1ª pl.", form: "ἀφίεμεν" },
+      { verb: "ἀφίημι", tense: "presente", person: "2ª pl.", form: "ἀφίετε" },
+      { verb: "ἀφίημι", tense: "presente", person: "3ª pl.", form: "ἀφιᾶσι(ν)" },
+      { verb: "ἀφίημι", tense: "aoristo", person: "1ª sg.", form: "ἀφῆκα" },
+      { verb: "ἀφίημι", tense: "aoristo", person: "3ª sg.", form: "ἀφῆκε(ν)" }
+    ];
+
+    // Ejemplos para identificar verbos -μι
+    const identificaMi2Examples = [
+      { form: "τίθημι", verb: "τίθημι", type: "τίθημι" },
+      { form: "τίθης", verb: "τίθημι", type: "τίθημι" },
+      { form: "ἔθηκα", verb: "τίθημι", type: "τίθημι" },
+      { form: "ἵστημι", verb: "ἵστημι", type: "ἵστημι" },
+      { form: "ἵστης", verb: "ἵστημι", type: "ἵστημι" },
+      { form: "ἔστησα", verb: "ἵστημι", type: "ἵστημι (trans.)" },
+      { form: "ἔστην", verb: "ἵστημι", type: "ἵστημι (intrans.)" },
+      { form: "ἀφίημι", verb: "ἀφίημι", type: "ἀφίημι" },
+      { form: "ἀφίης", verb: "ἀφίημι", type: "ἀφίημι" },
+      { form: "ἀφῆκα", verb: "ἀφίημι", type: "ἀφίημι" }
+    ];
+
+    // Frases para traducción
+    const transMiPhrases = [
+      { greek: "τίθημι τὴν ψυχήν μου", translation: "pongo mi vida" },
+      { greek: "ἔστησεν αὐτὸν", translation: "lo puso de pie / lo estableció" },
+      { greek: "ἀφῆκεν τὰς ἁμαρτίας", translation: "perdonó los pecados" },
+      { greek: "ἄφες ἡμῖν", translation: "perdónanos" },
+      { greek: "ἔστην ἐν τῷ ἱερῷ", translation: "estuve de pie en el templo" },
+      { greek: "ἔθηκεν ἐπὶ τὴν τράπεζαν", translation: "lo puso sobre la mesa" }
+    ];
+
+    let currentConjMi = conjMiForms[0];
+    let currentIdentificaMi2 = identificaMi2Examples[0];
+    let currentTransMi = transMiPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadConjMiQuiz() {
+      const randomIndex = Math.floor(Math.random() * conjMiForms.length);
+      currentConjMi = conjMiForms[randomIndex];
+      const container = document.getElementById("conjMiQuizArea");
+      const verbDisplay = currentConjMi.verb;
+      const tenseDisplay = currentConjMi.tense;
+      const personDisplay = currentConjMi.person;
+      container.innerHTML = `<div class="card-highlight"><strong>Escribe la forma de ${personDisplay} en ${tenseDisplay} de <span class="greek-word">${verbDisplay}</span>:</strong><br>
+      <input type="text" id="conjMiAnswer" placeholder="ej. τίθημι" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkConjMi" class="btn-reveal">Verificar</button>
+      <div id="conjMiResult"></div></div>`;
+      document.getElementById("checkConjMi").addEventListener("click", () => {
+        const answer = document.getElementById("conjMiAnswer").value.trim();
+        const result = document.getElementById("conjMiResult");
+        const correct = currentConjMi.form;
+        if (answer === correct || answer === correct.replace(/\(ν\)/g, '')) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+          setTimeout(loadConjMiQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}</span>`;
+        }
+      });
+    }
+
+    function loadIdentificaMi2Quiz() {
+      const randomIndex = Math.floor(Math.random() * identificaMi2Examples.length);
+      currentIdentificaMi2 = identificaMi2Examples[randomIndex];
+      const container = document.getElementById("identificaMi2QuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué verbo -μι es <span class="greek-word">${currentIdentificaMi2.form}</span>?</strong><br>
+      <button id="idTith" class="btn-reveal">τίθημι</button> <button id="idHist" class="btn-reveal">ἵστημι</button> <button id="idAphi" class="btn-reveal">ἀφίημι</button>
+      <div id="identificaMi2Result"></div></div>`;
+      const tithBtn = document.getElementById("idTith");
+      const histBtn = document.getElementById("idHist");
+      const aphiBtn = document.getElementById("idAphi");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("identificaMi2Result");
+          const baseVerb = currentIdentificaMi2.type.split(' ')[0];
+          if (baseVerb === expected) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentIdentificaMi2.verb})</span>`;
+            setTimeout(loadIdentificaMi2Quiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentIdentificaMi2.type}</span>`;
+          }
+        });
+      };
+      check(tithBtn, "τίθημι");
+      check(histBtn, "ἵστημι");
+      check(aphiBtn, "ἀφίημι");
+    }
+
+    function loadTransMiQuiz() {
+      const randomIndex = Math.floor(Math.random() * transMiPhrases.length);
+      currentTransMi = transMiPhrases[randomIndex];
+      const container = document.getElementById("transMiQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransMi.greek}</span><br>
+      <input type="text" id="transMiAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransMi" class="btn-reveal">Verificar</button>
+      <div id="transMiResult"></div></div>`;
+      document.getElementById("checkTransMi").addEventListener("click", () => {
+        const answer = document.getElementById("transMiAnswer").value.trim().toLowerCase();
+        const correct = currentTransMi.translation.toLowerCase();
+        const result = document.getElementById("transMiResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransMiQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransMi.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Presente de τίθημι (1ª sg.)", opts: ["τίθημι", "τίθης", "τίθησι", "τίθεμεν"], correct: 0 },
+      { q: "Aoristo transitivo de ἵστημι (1ª sg.)", opts: ["ἔστησα", "ἔστην", "ἵστημι", "ἔθηκα"], correct: 0 },
+      { q: "Aoristo intransitivo de ἵστημι (1ª sg.)", opts: ["ἔστην", "ἔστησα", "ἵστημι", "ἀφῆκα"], correct: 0 },
+      { q: "Aoristo de ἀφίημι (1ª sg.)", opts: ["ἀφῆκα", "ἀφίημι", "ἀφίης", "ἀφίεμεν"], correct: 0 },
+      { q: "Traduce 'ἄφεσις'", opts: ["perdón", "deuda", "rescate", "justicia"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkConjMi" || btn.id === "idTith" || btn.id === "idHist" || btn.id === "idAphi" || btn.id === "checkTransMi" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadConjMiQuiz();
+      loadIdentificaMi2Quiz();
+      loadTransMiQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newConjMiQuiz")?.addEventListener("click", () => {
+        loadConjMiQuiz();
+        document.getElementById("conjMiFeedback").innerHTML = "";
+      });
+      document.getElementById("newIdentificaMi2Quiz")?.addEventListener("click", () => {
+        loadIdentificaMi2Quiz();
+        document.getElementById("identificaMi2Feedback").innerHTML = "";
+      });
+      document.getElementById("newTransMiQuiz")?.addEventListener("click", () => {
+        loadTransMiQuiz();
+        document.getElementById("transMiFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

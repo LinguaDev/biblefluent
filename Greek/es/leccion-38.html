@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 38: Verbos Contractos -όω y Deponentes Avanzados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 54%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .contract-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .deponent-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-37.html"><i class="fas fa-arrow-left"></i> Lección 37</a>
+        <a href="leccion-39.html"><i class="fas fa-arrow-right"></i> Lección 39</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-compress-alt"></i> Lección 38 · Verbos Contractos -όω y Deponentes Avanzados <span class="hero-badge">Módulo III · Desarrollo</span></h1>
+      <p>Contracciones de -όω · πληρόω, δηλόω · Verbos deponentes que cambian de voz · Lectura de Colosenses 1</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 760/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/6vDpXjXr2aQ" title="Verbos contractos -όω y deponentes avanzados" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los verbos contractos -όω y los deponentes avanzados</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN A -όω -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Los verbos contractos -όω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los verbos contractos <strong>-όω</strong> tienen raíz que termina en <strong>ο</strong>. Al añadir las terminaciones, se producen contracciones regulares. Son muy frecuentes en el NT, especialmente en las epístolas de Pablo.</p>
+          <div class="contract-box">
+            <i class="fas fa-lightbulb"></i> <strong>Reglas de contracción para -όω:</strong>
+            <ul>
+              <li><strong>ο + ε</strong> = ου (ej. δηλόετε → δηλοῦτε)</li>
+              <li><strong>ο + ο</strong> = ου (ej. δηλόομεν → δηλοῦμεν)</li>
+              <li><strong>ο + ει</strong> = οι (ej. δηλόεις → δηλοῖς)</li>
+              <li><strong>ο + ω</strong> = ω (ej. δηλόω → δηλῶ)</li>
+              <li><strong>ο + ου</strong> = ου (ej. δηλόουσι → δηλοῦσι)</li>
+            </ul>
+          </div>
+          <p><strong>Verbos -όω importantes en el NT:</strong></p>
+          <ul>
+            <li><span class="greek-word">πληρόω</span> – llenar, cumplir.</li>
+            <li><span class="greek-word">δηλόω</span> – manifestar, mostrar.</li>
+            <li><span class="greek-word">δικαιόω</span> – justificar.</li>
+            <li><span class="greek-word">σταυρόω</span> – crucificar.</li>
+            <li><span class="greek-word">ὑψόω</span> – exaltar, levantar.</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Frecuencia:</strong> <span class="greek-word">πληρόω</span> aparece más de 80 veces en el NT, y <span class="greek-word">δηλόω</span> aparece en contextos teológicos importantes (Colosenses, Efesios).
+          </div>
+          <button class="btn-reveal" data-target="introOo">Ver tabla de contracciones de -όω</button>
+          <div id="introOo" class="answer-text">
+            <strong>Contracciones de -όω:</strong><br>
+            ο+ε = ου · ο+ο = ου · ο+ει = οι · ο+ω = ω · ο+ου = ου.<br>
+            Ejemplo: πληρόω → πληρῶ (1ª sg.), πληροῖς (2ª sg.), πληροῖ (3ª sg.), πληροῦμεν (1ª pl.), πληροῦτε (2ª pl.), πληροῦσι(ν) (3ª pl.).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: CONJUGACIÓN DE πληρόω (LLENAR, CUMPLIR) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Conjugación de πληρόω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">πληρόω</span> es uno de los verbos teológicos más importantes del NT. Significa "llenar" o "cumplir". Jesús lo usa para el cumplimiento de las Escrituras.</p>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>πληρῶ</td><td>lleno / cumplo</td></tr>
+                <tr><td>2ª sg.</td><td>πληροῖς</td><td>llenas / cumples</td></tr>
+                <tr><td>3ª sg.</td><td>πληροῖ</td><td>llena / cumple</td></tr>
+                <tr><td>1ª pl.</td><td>πληροῦμεν</td><td>llenamos / cumplimos</td></tr>
+                <tr><td>2ª pl.</td><td>πληροῦτε</td><td>llenáis / cumplís</td></tr>
+                <tr><td>3ª pl.</td><td>πληροῦσι(ν)</td><td>llenan / cumplen</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="contract-box">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> Las formas son similares a las de -έω, pero con <strong>οῦ</strong> en lugar de <strong>οῦ</strong> (en realidad, la combinación ο+ε produce ου, no ου). La 2ª sg. es πληροῖς (con iota suscrita), la 3ª sg. es πληροῖ.
+          </div>
+          <button class="btn-reveal" data-target="plerooEj">Conjuga δηλόω (manifestar)</button>
+          <div id="plerooEj" class="answer-text">
+            δηλῶ, δηλοῖς, δηλοῖ, δηλοῦμεν, δηλοῦτε, δηλοῦσι(ν).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: VERBOS DEPONENTES AVANZADOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user-check"></i> 3. Verbos deponentes avanzados</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Algunos verbos en griego no son simplemente deponentes (media/pasiva con significado activo), sino que <strong>cambian de voz</strong> dependiendo del tiempo o tienen <strong>formas activas y medias con diferentes significados</strong>.</p>
+          <div class="deponent-box">
+            <i class="fas fa-lightbulb"></i> <strong>Tipos de deponentes avanzados:</strong>
+            <ul>
+              <li><strong>Deponentes que cambian de voz:</strong> tienen formas activas en algunos tiempos y medias/pasivas en otros (ej. <span class="greek-word">γίνομαι</span> – aoristo activo <span class="greek-word">ἐγενόμην</span>).</li>
+              <li><strong>Verbos con significados diferentes según la voz:</strong> <span class="greek-word">πείθω</span> (persuado, activo) vs. <span class="greek-word">πείθομαι</span> (obedezco, medio).</li>
+              <li><strong>Deponentes medios con significado activo pero con formas activas en otros tiempos:</strong> ej. <span class="greek-word">ἔρχομαι</span> (presente medio) tiene aoristo <span class="greek-word">ἦλθον</span> (activo).</li>
+            </ul>
+          </div>
+          <p><strong>Ejemplos importantes:</strong></p>
+          <ul>
+            <li><span class="greek-word">γίνομαι</span> (llegar a ser) – presente medio, aoristo medio <span class="greek-word">ἐγενόμην</span>.</li>
+            <li><span class="greek-word">ἀποκρίνομαι</span> (responder) – presente medio, aoristo medio <span class="greek-word">ἀπεκρινάμην</span>.</li>
+            <li><span class="greek-word">πείθω</span> (persuadir) – activo; <span class="greek-word">πείθομαι</span> (obedecer) – medio.</li>
+            <li><span class="greek-word">παύω</span> (hacer cesar) – activo; <span class="greek-word">παύομαι</span> (cesar) – medio.</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-memory"></i> Clave para identificar:</strong> Presta atención al <strong>contexto</strong>. Si un verbo medio/pasivo tiene un significado activo, probablemente es deponente. Si un verbo tiene formas activas y medias con significados diferentes, debes aprender ambos usos.
+          </div>
+          <button class="btn-reveal" data-target="depAvanz">Ver más ejemplos de deponentes avanzados</button>
+          <div id="depAvanz" class="answer-text">
+            <span class="greek-word">ἄρχω</span> (gobernar, activo) vs. <span class="greek-word">ἄρχομαι</span> (comenzar, medio).<br>
+            <span class="greek-word">δικαιόω</span> (justificar, activo) vs. <span class="greek-word">δικαιόομαι</span> (ser justificado, pasivo).<br>
+            <span class="greek-word">ἁγιάζω</span> (santificar, activo) vs. <span class="greek-word">ἁγιάζομαι</span> (ser santificado, pasivo).<br>
+            <span class="greek-word">δοξάζω</span> (glorificar, activo) vs. <span class="greek-word">δοξάζομαι</span> (ser glorificado, pasivo).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: COMPARACIÓN DE VERBOS CONTRACTOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-layer-group"></i> 4. Comparación de verbos contractos: -άω, -έω, -όω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>-άω (ἀγαπάω)</th><th>-έω (ποιέω)</th><th>-όω (πληρόω)</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἀγαπῶ</td><td>ποιῶ</td><td>πληρῶ</td></tr>
+                <tr><td>2ª sg.</td><td>ἀγαπᾷς</td><td>ποιεῖς</td><td>πληροῖς</td></tr>
+                <tr><td>3ª sg.</td><td>ἀγαπᾷ</td><td>ποιεῖ</td><td>πληροῖ</td></tr>
+                <tr><td>1ª pl.</td><td>ἀγαπῶμεν</td><td>ποιοῦμεν</td><td>πληροῦμεν</td></tr>
+                <tr><td>2ª pl.</td><td>ἀγαπᾶτε</td><td>ποιεῖτε</td><td>πληροῦτε</td></tr>
+                <tr><td>3ª pl.</td><td>ἀγαπῶσι</td><td>ποιοῦσι</td><td>πληροῦσι</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="contract-box">
+            <strong><i class="fas fa-memory"></i> Patrón de contracción:</strong>
+            <ul>
+              <li><strong>-άω</strong>: α + ε → α, α + ο → ω, α + ει → ᾳ.</li>
+              <li><strong>-έω</strong>: ε + ε → ει, ε + ο → ου, ε + ει → ει.</li>
+              <li><strong>-όω</strong>: ο + ε → ου, ο + ο → ου, ο + ει → οι.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="compCont">Compara la 2ª sg. de los tres tipos</button>
+          <div id="compCont" class="answer-text">
+            ἀγαπᾷς (-άω), ποιεῖς (-έω), πληροῖς (-όω).<br>
+            Todas tienen iota suscrita o subscrita, pero la vocal cambia: α, ε, ο.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 5. Vocabulario · Verbos -όω y deponentes avanzados</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen verbos -όω y deponentes importantes para entender la teología paulina.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Colosenses 1:19:</strong> <span class="greek-word">ὅτι ἐν αὐτῷ εὐδόκησεν πᾶν τὸ πλήρωμα κατοικῆσαι</span> – "Porque en él [Cristo] agradó habitar toda la plenitud".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: EJERCICIO DE CONJUGACIÓN DE -όω -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 6. Practica: conjuga verbos -όω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="conjOoQuizArea"></div>
+          <button id="newConjOoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="conjOoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO: IDENTIFICA EL DEPONENTE AVANZADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el verbo deponente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="depQuizArea"></div>
+          <button id="newDepQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="depFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO DE TRADUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce frases con -όω y deponentes</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transOoQuizArea"></div>
+          <button id="newTransOoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transOoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 10. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: TEXTO PROGRAMADO – COLOSENSES 1:15-29 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 11. Lectura programada · Colosenses 1:15-29</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee el himno cristológico de Pablo. Identifica los verbos -όω y los deponentes.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Colosenses 1:19 – πλήρωμα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὅτι ἐν αὐτῷ εὐδόκησεν πᾶν τὸ πλήρωμα κατοικῆσαι</span></p>
+              <button class="btn-reveal" data-target="col1a">¿Qué palabra relacionada con πληρόω aparece?</button>
+              <div id="col1a" class="answer-text"><span class="greek-word">πλήρωμα</span> – sustantivo derivado de πληρόω (plenitud).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Colosenses 1:23 – πληρόω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἣν ἐγὼ Παῦλος ἐγενόμην διάκονος</span></p>
+              <button class="btn-reveal" data-target="col1b">¿Qué forma de γίνομαι aparece?</button>
+              <div id="col1b" class="answer-text"><span class="greek-word">ἐγενόμην</span> – aoristo medio de γίνομαι (llegué a ser).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Colosenses 1:24 – πληρόω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">νῦν χαίρω ἐν τοῖς παθήμασιν ὑπὲρ ὑμῶν, καὶ ἀνταναπληρῶ τὰ ὑστερήματα τῶν θλίψεων τοῦ Χριστοῦ</span></p>
+              <button class="btn-reveal" data-target="col1c">¿Qué verbo -όω aparece?</button>
+              <div id="col1c" class="answer-text"><span class="greek-word">ἀνταναπληρῶ</span> – presente de <span class="greek-word">ἀνταναπληρόω</span> (completar, suplir).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con -όω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πληροῦτε τὴν χαράν μου</span></p>
+              <button class="btn-reveal" data-target="traduccionOo">Traduce</button>
+              <div id="traduccionOo" class="answer-text">"Llenad mi gozo" – Filipenses 2:2, imperativo de πληρόω.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 12. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Conjuga πληρόω y δηλόω en presente. Practica la identificación de deponentes avanzados. Lee Colosenses 1:15-29 en griego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-37.html"><i class="fas fa-arrow-left"></i> Lección 37</a>
+      <a href="leccion-39.html"><i class="fas fa-arrow-right"></i> Lección 39</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἐν αὐτῷ κατοικεῖ πᾶν τὸ πλήρωμα</span> (Colosenses 1:19)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 38 ==========
+    const vocabData = [
+      { greek: "πληρόω", translit: "plēroō", spanish: "llenar, cumplir", note: "-όω" },
+      { greek: "πλήρωμα", translit: "plērōma", spanish: "plenitud", note: "sustantivo" },
+      { greek: "ἀνακεφαλαιόω", translit: "anakephalaioō", spanish: "recapitular, resumir", note: "-όω" },
+      { greek: "τελειόω", translit: "teleioō", spanish: "perfeccionar", note: "-όω" },
+      { greek: "ἀγαθοποιέω", translit: "agathopoieō", spanish: "hacer el bien", note: "-έω" },
+      { greek: "κακοποιέω", translit: "kakopoieō", spanish: "hacer el mal", note: "-έω" },
+      { greek: "δικαιόω", translit: "dikaioō", spanish: "justificar", note: "-όω" },
+      { greek: "σταυρόω", translit: "stauroō", spanish: "crucificar", note: "-όω" },
+      { greek: "ὑψόω", translit: "hypsoō", spanish: "exaltar, levantar", note: "-όω" },
+      { greek: "δοξάζω", translit: "doxazō", spanish: "glorificar", note: "-ω" },
+      { greek: "πρωτεύω", translit: "prōteuō", spanish: "tener preeminencia", note: "-ω" },
+      { greek: "εἰκών", translit: "eikōn", spanish: "imagen", note: "sustantivo" },
+      { greek: "πρωτότοκος", translit: "prōtotokos", spanish: "primogénito", note: "adjetivo" },
+      { greek: "κτίσις", translit: "ktisis", spanish: "creación, criatura", note: "sustantivo" },
+      { greek: "σύνδεσμος", translit: "syndesmos", spanish: "vínculo", note: "sustantivo" },
+      { greek: "εἰρηνοποιέω", translit: "eirēnopoieō", spanish: "hacer la paz", note: "-έω" },
+      { greek: "ἁρμονία", translit: "harmonia", spanish: "armonía, articulación", note: "sustantivo" },
+      { greek: "σύσσωμος", translit: "syssōmos", spanish: "del mismo cuerpo", note: "adjetivo" },
+      { greek: "συμμέτοχος", translit: "symmetochos", spanish: "copartícipe", note: "adjetivo" },
+      { greek: "πλήρης", translit: "plērēs", spanish: "lleno", note: "adjetivo" }
+    ];
+
+    // Palabras para ejercicio de conjugación de -όω
+    const conjOoForms = [
+      { verb: "πληρόω", person: "1ª sg.", form: "πληρῶ" },
+      { verb: "πληρόω", person: "2ª sg.", form: "πληροῖς" },
+      { verb: "πληρόω", person: "3ª sg.", form: "πληροῖ" },
+      { verb: "πληρόω", person: "1ª pl.", form: "πληροῦμεν" },
+      { verb: "πληρόω", person: "2ª pl.", form: "πληροῦτε" },
+      { verb: "πληρόω", person: "3ª pl.", form: "πληροῦσι(ν)" },
+      { verb: "δηλόω", person: "1ª sg.", form: "δηλῶ" },
+      { verb: "δηλόω", person: "2ª sg.", form: "δηλοῖς" },
+      { verb: "δηλόω", person: "3ª sg.", form: "δηλοῖ" },
+      { verb: "δηλόω", person: "1ª pl.", form: "δηλοῦμεν" },
+      { verb: "δηλόω", person: "2ª pl.", form: "δηλοῦτε" },
+      { verb: "δηλόω", person: "3ª pl.", form: "δηλοῦσι(ν)" },
+      { verb: "δικαιόω", person: "1ª sg.", form: "δικαιῶ" },
+      { verb: "δικαιόω", person: "2ª sg.", form: "δικαιοῖς" },
+      { verb: "δικαιόω", person: "3ª sg.", form: "δικαιοῖ" },
+      { verb: "δικαιόω", person: "1ª pl.", form: "δικαιοῦμεν" },
+      { verb: "δικαιόω", person: "2ª pl.", form: "δικαιοῦτε" },
+      { verb: "δικαιόω", person: "3ª pl.", form: "δικαιοῦσι(ν)" }
+    ];
+
+    // Ejemplos para identificar deponentes avanzados
+    const depExamples = [
+      { form: "γίνομαι", type: "deponente medio", meaning: "llegar a ser" },
+      { form: "ἀποκρίνομαι", type: "deponente medio", meaning: "responder" },
+      { form: "πείθομαι", type: "medio con significado diferente", meaning: "obedecer (vs. πείθω = persuadir)" },
+      { form: "παύομαι", type: "medio con significado diferente", meaning: "cesar (vs. παύω = hacer cesar)" },
+      { form: "ἄρχομαι", type: "medio con significado diferente", meaning: "comenzar (vs. ἄρχω = gobernar)" }
+    ];
+
+    // Frases para traducción
+    const transOoPhrases = [
+      { greek: "πληρῶ τὸ θέλημα τοῦ θεοῦ", translation: "cumplo la voluntad de Dios" },
+      { greek: "δικαιούμενοι δωρεάν", translation: "siendo justificados gratuitamente" },
+      { greek: "σταυρωθεὶς ὑπὲρ ἡμῶν", translation: "habiendo sido crucificado por nosotros" },
+      { greek: "ὑψωθεὶς ἐκ τῶν νεκρῶν", translation: "habiendo sido exaltado de entre los muertos" },
+      { greek: "πληροῦντες τὴν χαράν", translation: "llenando el gozo" }
+    ];
+
+    let currentConjOo = conjOoForms[0];
+    let currentDep = depExamples[0];
+    let currentTransOo = transOoPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadConjOoQuiz() {
+      const randomIndex = Math.floor(Math.random() * conjOoForms.length);
+      currentConjOo = conjOoForms[randomIndex];
+      const container = document.getElementById("conjOoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Escribe la forma de ${currentConjOo.person} de <span class="greek-word">${currentConjOo.verb}</span> en presente:</strong><br>
+      <input type="text" id="conjOoAnswer" placeholder="ej. πληρῶ" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkConjOo" class="btn-reveal">Verificar</button>
+      <div id="conjOoResult"></div></div>`;
+      document.getElementById("checkConjOo").addEventListener("click", () => {
+        const answer = document.getElementById("conjOoAnswer").value.trim();
+        const result = document.getElementById("conjOoResult");
+        const correct = currentConjOo.form;
+        if (answer === correct || answer === correct.replace(/\(ν\)/g, '')) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+          setTimeout(loadConjOoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}</span>`;
+        }
+      });
+    }
+
+    function loadDepQuiz() {
+      const randomIndex = Math.floor(Math.random() * depExamples.length);
+      currentDep = depExamples[randomIndex];
+      const container = document.getElementById("depQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué tipo de verbo es <span class="greek-word">${currentDep.form}</span>?</strong><br>
+      <span class="greek-word" style="font-size:1.8rem;">${currentDep.form}</span><br>
+      <button id="depMed" class="btn-reveal">Deponente medio</button> <button id="depDiff" class="btn-reveal">Medio con significado diferente</button>
+      <div id="depResult"></div></div>`;
+      const medBtn = document.getElementById("depMed");
+      const diffBtn = document.getElementById("depDiff");
+      if (medBtn) medBtn.addEventListener("click", () => {
+        const result = document.getElementById("depResult");
+        if (currentDep.type === "deponente medio") {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDep.meaning})</span>`;
+          setTimeout(loadDepQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentDep.type}</span>`;
+        }
+      });
+      if (diffBtn) diffBtn.addEventListener("click", () => {
+        const result = document.getElementById("depResult");
+        if (currentDep.type === "medio con significado diferente") {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDep.meaning})</span>`;
+          setTimeout(loadDepQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentDep.type}</span>`;
+        }
+      });
+    }
+
+    function loadTransOoQuiz() {
+      const randomIndex = Math.floor(Math.random() * transOoPhrases.length);
+      currentTransOo = transOoPhrases[randomIndex];
+      const container = document.getElementById("transOoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransOo.greek}</span><br>
+      <input type="text" id="transOoAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransOo" class="btn-reveal">Verificar</button>
+      <div id="transOoResult"></div></div>`;
+      document.getElementById("checkTransOo").addEventListener("click", () => {
+        const answer = document.getElementById("transOoAnswer").value.trim().toLowerCase();
+        const correct = currentTransOo.translation.toLowerCase();
+        const result = document.getElementById("transOoResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransOoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransOo.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Forma contraída de πληρόω (1ª sg.)", opts: ["πληρῶ", "πληροῖς", "πληροῖ", "πληροῦμεν"], correct: 0 },
+      { q: "Forma contraída de δηλόω (2ª sg.)", opts: ["δηλοῖς", "δηλῶ", "δηλοῖ", "δηλοῦμεν"], correct: 0 },
+      { q: "Forma contraída de δικαιόω (3ª sg.)", opts: ["δικαιοῖ", "δικαιῶ", "δικαιοῖς", "δικαιοῦμεν"], correct: 0 },
+      { q: "¿Qué verbo -όω significa 'justificar'?", opts: ["δικαιόω", "πληρόω", "δηλόω", "σταυρόω"], correct: 0 },
+      { q: "Traduce 'πλήρωμα'", opts: ["plenitud", "llenar", "cumplir", "justicia"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkConjOo" || btn.id === "depMed" || btn.id === "depDiff" || btn.id === "checkTransOo" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadConjOoQuiz();
+      loadDepQuiz();
+      loadTransOoQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newConjOoQuiz")?.addEventListener("click", () => {
+        loadConjOoQuiz();
+        document.getElementById("conjOoFeedback").innerHTML = "";
+      });
+      document.getElementById("newDepQuiz")?.addEventListener("click", () => {
+        loadDepQuiz();
+        document.getElementById("depFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransOoQuiz")?.addEventListener("click", () => {
+        loadTransOoQuiz();
+        document.getElementById("transOoFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

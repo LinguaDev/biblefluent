@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 42: El Optativo y el Discurso Indirecto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 60%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .optative-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .indirect-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-41.html"><i class="fas fa-arrow-left"></i> Lección 41</a>
+        <a href="leccion-43.html"><i class="fas fa-arrow-right"></i> Lección 43</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-question-circle"></i> Lección 42 · El Optativo y el Discurso Indirecto <span class="hero-badge">Módulo IV · Consolidación</span></h1>
+      <p>Formación del optativo · Usos: desiderativo, potencial, condiciones remotas · μὴ γένοιτο · Discurso indirecto con ὅτι, infinitivo y participio</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 840/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/9HjLqL6nVcM" title="El optativo y el discurso indirecto en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: El modo optativo y las construcciones del discurso indirecto en el NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El optativo: el modo de la posibilidad remota</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>optativo</strong> es el modo que expresa la <strong>máxima distancia de la realidad</strong>. En el NT es relativamente raro, pero aparece en contextos muy significativos.</p>
+          <div class="optative-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características del optativo:</strong>
+            <ul>
+              <li>Expresa <strong>deseo</strong>, <strong>posibilidad remota</strong> o <strong>condición irreal</strong>.</li>
+              <li>Su forma característica es la <strong>marca -οι-</strong> en presente/aoristo y -αι- en perfecto.</li>
+              <li>En el NT aparece principalmente en <strong>fórmulas fijas</strong> (μὴ γένοιτο) y en <strong>discurso indirecto</strong>.</li>
+              <li>Es el modo <strong>menos frecuente</strong> en el NT (menos de 100 ocurrencias).</li>
+            </ul>
+          </div>
+          <p><strong>Importancia exegética:</strong> El optativo es clave para entender la <strong>intensidad retórica</strong> de Pablo cuando exclama μὴ γένοιτο ("¡De ninguna manera!") y para analizar el <strong>discurso indirecto</strong> en textos narrativos.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo clásico:</strong><br>
+            <span class="greek-word">μὴ γένοιτο</span> – "¡De ninguna manera!" (Romanos 3:4; 6:2; 11:1, 11).<br>
+            Es un optativo desiderativo (deseo negativo: "¡que no sea así!").
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: FORMACIÓN DEL OPTATIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Formación del optativo: presente, aoristo, perfecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El optativo se forma con el <strong>tema del tiempo</strong> + la <strong>marca modal -οι-</strong> (o -αι- en perfecto) + <strong>terminaciones primarias o secundarias</strong> según el tiempo.</p>
+          <h3>Optativo presente activo (λύω → λύοιμι)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>λύοιμι</td><td>ojalá desate</td></tr>
+                <tr><td>2ª sg.</td><td>λύοις</td><td>ojalá desates</td></tr>
+                <tr><td>3ª sg.</td><td>λύοι</td><td>ojalá desate</td></tr>
+                <tr><td>1ª pl.</td><td>λύοιμεν</td><td>ojalá desatemos</td></tr>
+                <tr><td>2ª pl.</td><td>λύοιτε</td><td>ojalá desatéis</td></tr>
+                <tr><td>3ª pl.</td><td>λύοιεν</td><td>ojalá desaten</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Optativo aoristo activo (λύω → λύσαιμι)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>λύσαιμι</td><td>ojalá desatara</td></tr>
+                <tr><td>2ª sg.</td><td>λύσαις</td><td>ojalá desataras</td></tr>
+                <tr><td>3ª sg.</td><td>λύσαι</td><td>ojalá desatara</td></tr>
+                <tr><td>1ª pl.</td><td>λύσαιμεν</td><td>ojalá desatáramos</td></tr>
+                <tr><td>2ª pl.</td><td>λύσαιτε</td><td>ojalá desatarais</td></tr>
+                <tr><td>3ª pl.</td><td>λύσαιεν</td><td>ojalá desataran</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Optativo perfecto activo (λύω → λελυκώς εἴην)</h3>
+          <p>El optativo perfecto se forma con el <strong>participio perfecto</strong> + el optativo de <span class="greek-word">εἰμί</span>.</p>
+          <div class="optative-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">λελυκώς εἴην</span> – "ojalá haya desatado".<br>
+            <span class="greek-word">λελυμένος εἴην</span> – "ojalá haya sido desatado" (pasivo).
+          </div>
+          <button class="btn-reveal" data-target="optFormEj">Conjuga λύοιμι en presente</button>
+          <div id="optFormEj" class="answer-text">
+            λύοιμι, λύοις, λύοι, λύοιμεν, λύοιτε, λύοιεν.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: USOS DEL OPTATIVO EN EL NT -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bullseye"></i> 3. Usos del optativo en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>En el NT, el optativo tiene tres usos principales:</p>
+          <h3>1. Optativo desiderativo (expresión de deseo)</h3>
+          <p>Expresa un <strong>deseo</strong> (positivo o negativo). Es el uso más frecuente.</p>
+          <div class="optative-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">μὴ γένοιτο</span> – "¡De ninguna manera!" (Romanos 3:4).<br>
+            <span class="greek-word">ὁ θεὸς εὐλογήσαι</span> – "¡Que Dios te bendiga!" (Hebreos 13:21, variante textual).
+          </div>
+          <h3>2. Optativo potencial (posibilidad remota)</h3>
+          <p>Expresa una <strong>posibilidad</strong> que el hablante considera remota.</p>
+          <div class="optative-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">εἴη</span> – "sería" (optativo de εἰμί).<br>
+            En el NT es raro, pero aparece en Lucas 1:29: <span class="greek-word">διεταράχθη</span> (no es optativo).
+          </div>
+          <h3>3. Optativo en condiciones remotas (4ª clase)</h3>
+          <p>En oraciones condicionales de <strong>4ª clase</strong>: εἰ + optativo (prótasis) + optativo (apódosis).</p>
+          <div class="optative-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">εἴ τις εἴποι</span> – "si alguien dijera" (condición remota).<br>
+            En el NT es extremadamente raro; 1 Pedro 3:14 es el ejemplo más claro: <span class="greek-word">εἰ καὶ πάσχοιτε</span> – "si también sufrierais".
+          </div>
+          <button class="btn-reveal" data-target="optUsoEj">Identifica el uso del optativo</button>
+          <div id="optUsoEj" class="answer-text">
+            <span class="greek-word">μὴ γένοιτο</span> – desiderativo (deseo negativo).<br>
+            <span class="greek-word">εἰ πάσχοιτε</span> – condición remota (4ª clase).<br>
+            <span class="greek-word">εἴη</span> – potencial (sería).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: μὴ γένοιτο – ANÁLISIS EXEGÉTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 4. μὴ γένοιτο: el optativo de Pablo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La expresión <span class="greek-word">μὴ γένοιτο</span> es un <strong>optativo desiderativo</strong> que significa literalmente "¡que no llegue a ser!" o "¡De ninguna manera!". Pablo la usa en Romanos para rechazar conclusiones falsas de su argumento.</p>
+          <div class="exegetical-box">
+            <i class="fas fa-bible"></i> <strong>Ocurrencias en el NT:</strong>
+            <ul>
+              <li><span class="greek-word">μὴ γένοιτο</span> – Romanos 3:4, 6; 6:2, 15; 7:7, 13; 9:14; 11:1, 11.</li>
+              <li>También en 1 Corintios 6:15; Gálatas 2:17; 3:21; 6:14.</li>
+            </ul>
+          </div>
+          <p><strong>Análisis exegético:</strong></p>
+          <ul>
+            <li>Pablo usa <span class="greek-word">μὴ γένοιτο</span> como una <strong>refutación enfática</strong>.</li>
+            <li>No es solo una negación, sino una <strong>exclamación retórica</strong> que rechaza con vehemencia.</li>
+            <li>En Romanos 6:2, Pablo dice: <span class="greek-word">οἵτινες ἀπεθάνομεν τῇ ἁμαρτίᾳ, πῶς ἔτι ζήσομεν ἐν αὐτῇ; μὴ γένοιτο</span> – "los que hemos muerto al pecado, ¿cómo vamos a vivir aún en él? ¡De ninguna manera!"</li>
+            <li>Es un <strong>optativo de deseo</strong> en forma de <strong>imprecación</strong> (deseo negativo).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Clave:</strong> <span class="greek-word">μὴ γένοιτο</span> no es una simple negación (οὐ), sino una <strong>exclamación</strong> que expresa la <strong>repulsión moral</strong> del apóstol ante una conclusión errónea.
+          </div>
+          <button class="btn-reveal" data-target="mhGenoitoEj">Traduce μὴ γένοιτο en contexto</button>
+          <div id="mhGenoitoEj" class="answer-text">
+            Romanos 6:2 – "¿Cómo vamos a vivir aún en el pecado? <strong>¡De ninguna manera!</strong>"<br>
+            Romanos 11:1 – "¿Acaso ha rechazado Dios a su pueblo? <strong>¡De ninguna manera!</strong>"
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: DISCURSO INDIRECTO I – ὅτι + INDICATIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-quote-right"></i> 5. Discurso indirecto con ὅτι + indicativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La construcción más común para el discurso indirecto en el NT es <strong><span class="greek-word">ὅτι</span> + indicativo</strong> (o subjuntivo si hay propósito).</p>
+          <div class="indirect-box">
+            <strong>Estructura:</strong> Verbo introductorio (λέγω, γινώσκω, πιστεύω, etc.) + <span class="greek-word">ὅτι</span> + oración en el modo que corresponde al pensamiento original.
+          </div>
+          <p><strong>Ejemplos:</strong></p>
+          <ul>
+            <li><span class="greek-word">λέγω ὑμῖν ὅτι</span> – "os digo que..." (Mateo 5:18).</li>
+            <li><span class="greek-word">οἴδαμεν ὅτι</span> – "sabemos que..." (Romanos 8:28).</li>
+            <li><span class="greek-word">πιστεύω ὅτι</span> – "creo que..." (Juan 11:27).</li>
+          </ul>
+          <div class="indirect-box">
+            <strong><i class="fas fa-bible"></i> Análisis:</strong> Esta construcción <strong>preserva el modo y tiempo</strong> de la oración original, y <span class="greek-word">ὅτι</span> funciona como una <strong>conjunción</strong> ("que").
+          </div>
+          <button class="btn-reveal" data-target="hotiEj">Ejemplos de ὅτι en el NT</button>
+          <div id="hotiEj" class="answer-text">
+            <span class="greek-word">λέγει αὐτῷ· σὺ οἶδας ὅτι φιλῶ σε</span> – "le dice: tú sabes que te amo" (Juan 21:15).<br>
+            <span class="greek-word">πιστεύομεν ὅτι Ἰησοῦς Χριστός</span> – "creemos que Jesús es el Cristo".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: DISCURSO INDIRECTO II – INFINITIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-quote-right"></i> 6. Discurso indirecto con infinitivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>infinitivo</strong> se usa en discurso indirecto con verbos de <strong>mandato, deseo, declaración</strong> o <strong>percepción</strong>.</p>
+          <div class="indirect-box">
+            <strong>Estructura:</strong> Verbo introductorio + <strong>acusativo</strong> (sujeto del infinitivo) + <strong>infinitivo</strong>.
+          </div>
+          <p><strong>Ejemplos:</strong></p>
+          <ul>
+            <li><span class="greek-word">λέγω ὑμῖν ποιεῖν</span> – "os digo que hagáis" (verbo de mandato).</li>
+            <li><span class="greek-word">θέλω ὑμᾶς εἰδέναι</span> – "quiero que sepáis" (1 Corintios 11:3).</li>
+            <li><span class="greek-word">ἀκούω αὐτὸν λέγοντα</span> – "le oigo decir" (participio, no infinitivo).</li>
+          </ul>
+          <div class="indirect-box">
+            <strong><i class="fas fa-bible"></i> Análisis:</strong> Esta construcción es típica de los <strong>verbos de voluntad</strong> (θέλω, βούλομαι, κελεύω) y de los <strong>verbos de percepción</strong> (ὁράω, ἀκούω) cuando introducen un contenido.
+          </div>
+          <button class="btn-reveal" data-target="infEj">Analiza el infinitivo en discurso indirecto</button>
+          <div id="infEj" class="answer-text">
+            <span class="greek-word">θέλω ὑμᾶς πάντας γινώσκειν</span> – "quiero que todos vosotros sepáis" (1 Corintios 11:3).<br>
+            <span class="greek-word">λέγω αὐτῷ ποιῆσαι</span> – "le digo que haga".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: DISCURSO INDIRECTO III – PARTICIPIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-quote-right"></i> 7. Discurso indirecto con participio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>participio</strong> se usa en discurso indirecto con <strong>verbos de percepción</strong> (ver, oír, conocer) y <strong>verbos de declaración</strong> (anunciar, informar).</p>
+          <div class="indirect-box">
+            <strong>Estructura:</strong> Verbo introductorio + <strong>acusativo</strong> (sujeto del participio) + <strong>participio</strong> (concordando en caso, género y número con el acusativo).
+          </div>
+          <p><strong>Ejemplos:</strong></p>
+          <ul>
+            <li><span class="greek-word">εἶδον αὐτὸν ἐρχόμενον</span> – "lo vi venir" (Juan 1:32).</li>
+            <li><span class="greek-word">ἤκουσαν αὐτὸν λαλοῦντα</span> – "lo oyeron hablar".</li>
+            <li><span class="greek-word">γνωρίζω ὑμῖν τὸ εὐαγγέλιον</span> – "os hago conocer el evangelio" (participio implícito).</li>
+          </ul>
+          <div class="indirect-box">
+            <strong><i class="fas fa-lightbulb"></i> Diferencia clave:</strong>
+            <ul>
+              <li><span class="greek-word">ὅτι</span> + indicativo: el contenido se presenta como una <strong>proposición</strong>.</li>
+              <li><strong>Infinitivo:</strong> el contenido se presenta como <strong>acción</strong> o <strong>voluntad</strong>.</li>
+              <li><strong>Participio:</strong> el contenido se presenta como una <strong>percepción</strong> o <strong>experiencia</strong>.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="partEj">Analiza el participio en discurso indirecto</button>
+          <div id="partEj" class="answer-text">
+            <span class="greek-word">εἶδον τὸ πνεῦμα καταβαῖνον</span> – "vi al Espíritu descender" (Juan 1:32).<br>
+            <span class="greek-word">ἤκουσα φωνὴν λέγουσαν</span> – "oí una voz que decía" (Apocalipsis 1:10).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 8. Vocabulario · Términos para el discurso y la argumentación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender el discurso indirecto, la argumentación y el uso del optativo en el NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Romanos 3:4:</strong> <span class="greek-word">γινέσθω δὲ ὁ θεὸς ἀληθής, πᾶς δὲ ἄνθρωπος ψεύστης, καθὼς γέγραπται· ὅπως ἂν δικαιωθῇς ἐν τοῖς λόγοις σου, καὶ νικήσῃς ἐν τῷ κρίνεσθαί σε</span> – "Sea Dios veraz, y todo hombre mentiroso, como está escrito: para que seas justificado en tus palabras y venzas cuando seas juzgado".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – IDENTIFICA EL OPTATIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 9. Identifica el uso del optativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="optativoQuizArea"></div>
+          <button id="newOptativoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="optativoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – DISCURSO INDIRECTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-quote-right"></i> 10. Identifica la construcción de discurso indirecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="indirectQuizArea"></div>
+          <button id="newIndirectQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="indirectFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: EJERCICIO – TRADUCCIÓN CON OPTATIVO Y DISCURSO INDIRECTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 11. Traduce y analiza</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transOptQuizArea"></div>
+          <button id="newTransOptQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transOptFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 12. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 13. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: TEXTO PROGRAMADO – ROMANOS 3, 6, 11 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 14. Lectura programada · Romanos 3:4; 6:2; 11:1</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica las formas de optativo y las construcciones de discurso indirecto.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:4 – μὴ γένοιτο</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">μὴ γένοιτο· γινέσθω δὲ ὁ θεὸς ἀληθής, πᾶς δὲ ἄνθρωπος ψεύστης</span></p>
+              <button class="btn-reveal" data-target="rm3a">¿Qué forma de optativo es <strong>γένοιτο</strong>?</button>
+              <div id="rm3a" class="answer-text">Optativo aoristo medio de <span class="greek-word">γίνομαι</span> (3ª sg.) – "¡De ninguna manera!" (deseo negativo).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 6:2 – μὴ γένοιτο</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οἵτινες ἀπεθάνομεν τῇ ἁμαρτίᾳ, πῶς ἔτι ζήσομεν ἐν αὐτῇ; μὴ γένοιτο</span></p>
+              <button class="btn-reveal" data-target="rm6a">¿Qué función retórica cumple <strong>μὴ γένοιτο</strong> aquí?</button>
+              <div id="rm6a" class="answer-text">Rechaza enfáticamente la conclusión absurda: "los que hemos muerto al pecado, ¿cómo vamos a vivir aún en él? ¡De ninguna manera!"</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 11:1 – μὴ γένοιτο</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">μὴ ἀπώσατο ὁ θεὸς τὸν λαὸν αὐτοῦ; μὴ γένοιτο</span></p>
+              <button class="btn-reveal" data-target="rm11a">¿Qué conclusión rechaza Pablo aquí?</button>
+              <div id="rm11a" class="answer-text">Rechaza la idea de que Dios haya rechazado a su pueblo Israel.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Discurso indirecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">λέγω ὑμῖν ὅτι ἤκουσαν</span></p>
+              <button class="btn-reveal" data-target="indirectEj">Traduce y analiza</button>
+              <div id="indirectEj" class="answer-text">"Os digo que oyeron" – discurso indirecto con <span class="greek-word">ὅτι</span> + indicativo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 15: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 15. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la conjugación del optativo (λύοιμι). Lee Romanos 3, 6 y 11 en griego. Identifica las tres construcciones del discurso indirecto en el texto del NT.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-41.html"><i class="fas fa-arrow-left"></i> Lección 41</a>
+      <a href="leccion-43.html"><i class="fas fa-arrow-right"></i> Lección 43</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">μὴ γένοιτο</span> – la exclamación de Pablo</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 42 ==========
+    const vocabData = [
+      { greek: "μὴ γένοιτο", translit: "mē genoito", spanish: "¡De ninguna manera!", note: "optativo desiderativo" },
+      { greek: "εἴη", translit: "eiē", spanish: "fuera, sería (opt. εἰμί)", note: "optativo" },
+      { greek: "εἴπω", translit: "eipō", spanish: "podría decir", note: "optativo aoristo" },
+      { greek: "τάχα", translit: "tacha", spanish: "quizás", note: "adv. de posibilidad" },
+      { greek: "ἴσως", translit: "isōs", spanish: "quizás, igualmente", note: "adv." },
+      { greek: "δήπου", translit: "dēpou", spanish: "ciertamente, sin duda", note: "partícula" },
+      { greek: "ἆρα", translit: "ara", spanish: "acaso, ¿verdad que...?", note: "partícula interrogativa" },
+      { greek: "πρέπω", translit: "prepō", spanish: "es conveniente", note: "verbo" },
+      { greek: "συμφέρω", translit: "sympherō", spanish: "convenir, beneficiar", note: "verbo" },
+      { greek: "λυσιτελέω", translit: "lysitelēo", spanish: "ser útil, convenir", note: "verbo" },
+      { greek: "συνίστημι", translit: "synistēmi", spanish: "recomendar, demostrar", note: "verbo -μι" },
+      { greek: "ἐπαινέω", translit: "epaineō", spanish: "alabar, elogiar", note: "verbo" },
+      { greek: "ἔπαινος", translit: "epainos", spanish: "alabanza, elogio", note: "sustantivo" },
+      { greek: "κατακρίνω", translit: "katakrinō", spanish: "condenar", note: "verbo" },
+      { greek: "κατάκρισις", translit: "katakrisis", spanish: "condenación", note: "sustantivo" },
+      { greek: "ἀπολογέομαι", translit: "apologeomai", spanish: "defender, disculpar", note: "deponente" },
+      { greek: "ἀπολογία", translit: "apologia", spanish: "defensa", note: "sustantivo" },
+      { greek: "κατηγορία", translit: "katēgoria", spanish: "acusación", note: "sustantivo" },
+      { greek: "κατήγορος", translit: "katēgoros", spanish: "acusador", note: "sustantivo" },
+      { greek: "δικαστήριον", translit: "dikastērion", spanish: "tribunal", note: "sustantivo" }
+    ];
+
+    // Ejemplos para identificar uso del optativo
+    const optativoExamples = [
+      { phrase: "μὴ γένοιτο", type: "desiderativo", translation: "¡De ninguna manera!" },
+      { phrase: "εἴη", type: "potencial", translation: "sería" },
+      { phrase: "εἰ πάσχοιτε", type: "condición remota", translation: "si sufrierais" },
+      { phrase: "εἴπω", type: "potencial", translation: "podría decir" },
+      { phrase: "ὁ θεὸς εὐλογήσαι", type: "desiderativo", translation: "¡Que Dios te bendiga!" }
+    ];
+
+    // Ejemplos para identificar construcción de discurso indirecto
+    const indirectExamples = [
+      { phrase: "λέγω ὑμῖν ὅτι", type: "ὅτι + indicativo", translation: "os digo que" },
+      { phrase: "θέλω ὑμᾶς εἰδέναι", type: "infinitivo", translation: "quiero que sepáis" },
+      { phrase: "εἶδον αὐτὸν ἐρχόμενον", type: "participio", translation: "lo vi venir" },
+      { phrase: "οἴδαμεν ὅτι", type: "ὅτι + indicativo", translation: "sabemos que" },
+      { phrase: "ἤκουσα φωνὴν λέγουσαν", type: "participio", translation: "oí una voz que decía" }
+    ];
+
+    // Frases para traducción
+    const transOptPhrases = [
+      { greek: "μὴ γένοιτο", translation: "¡De ninguna manera!", analysis: "optativo desiderativo" },
+      { greek: "λέγω ὑμῖν ὅτι ἤκουσαν", translation: "os digo que oyeron", analysis: "discurso indirecto con ὅτι" },
+      { greek: "θέλω ὑμᾶς γινώσκειν", translation: "quiero que sepáis", analysis: "discurso indirecto con infinitivo" },
+      { greek: "εἶδον αὐτὸν ἐρχόμενον", translation: "lo vi venir", analysis: "discurso indirecto con participio" },
+      { greek: "εἴη", translation: "sería", analysis: "optativo potencial" }
+    ];
+
+    let currentOptativo = optativoExamples[0];
+    let currentIndirect = indirectExamples[0];
+    let currentTransOpt = transOptPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadOptativoQuiz() {
+      const randomIndex = Math.floor(Math.random() * optativoExamples.length);
+      currentOptativo = optativoExamples[randomIndex];
+      const container = document.getElementById("optativoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué uso del optativo es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentOptativo.phrase}</span><br>
+      <button id="optDes" class="btn-reveal">Desiderativo</button> <button id="optPot" class="btn-reveal">Potencial</button>
+      <button id="optCond" class="btn-reveal">Condición remota</button>
+      <div id="optativoResult"></div></div>`;
+      const des = document.getElementById("optDes");
+      const pot = document.getElementById("optPot");
+      const cond = document.getElementById("optCond");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("optativoResult");
+          if (expected === currentOptativo.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentOptativo.translation})</span>`;
+            setTimeout(loadOptativoQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentOptativo.type}</span>`;
+          }
+        });
+      };
+      check(des, "desiderativo");
+      check(pot, "potencial");
+      check(cond, "condición remota");
+    }
+
+    function loadIndirectQuiz() {
+      const randomIndex = Math.floor(Math.random() * indirectExamples.length);
+      currentIndirect = indirectExamples[randomIndex];
+      const container = document.getElementById("indirectQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué construcción de discurso indirecto es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentIndirect.phrase}</span><br>
+      <button id="indHoti" class="btn-reveal">ὅτι + indicativo</button> <button id="indInf" class="btn-reveal">Infinitivo</button>
+      <button id="indPart" class="btn-reveal">Participio</button>
+      <div id="indirectResult"></div></div>`;
+      const hoti = document.getElementById("indHoti");
+      const inf = document.getElementById("indInf");
+      const part = document.getElementById("indPart");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("indirectResult");
+          if (expected === currentIndirect.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentIndirect.translation})</span>`;
+            setTimeout(loadIndirectQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentIndirect.type}</span>`;
+          }
+        });
+      };
+      check(hoti, "ὅτι + indicativo");
+      check(inf, "infinitivo");
+      check(part, "participio");
+    }
+
+    function loadTransOptQuiz() {
+      const randomIndex = Math.floor(Math.random() * transOptPhrases.length);
+      currentTransOpt = transOptPhrases[randomIndex];
+      const container = document.getElementById("transOptQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransOpt.greek}</span><br>
+      <input type="text" id="transOptAnswer" placeholder="traducción + análisis..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransOpt" class="btn-reveal">Verificar</button>
+      <div id="transOptResult"></div></div>`;
+      document.getElementById("checkTransOpt").addEventListener("click", () => {
+        const answer = document.getElementById("transOptAnswer").value.trim().toLowerCase();
+        const correct = currentTransOpt.translation.toLowerCase();
+        const analysis = currentTransOpt.analysis.toLowerCase();
+        const result = document.getElementById("transOptResult");
+        if (answer.includes(correct) && answer.includes(analysis)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransOpt.translation} – ${currentTransOpt.analysis})</span>`;
+          setTimeout(loadTransOptQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransOpt.translation} – ${currentTransOpt.analysis}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Optativo que expresa un deseo", opts: ["Desiderativo", "Potencial", "Condición remota", "Imperativo"], correct: 0 },
+      { q: "Traducción de μὴ γένοιτο", opts: ["¡De ninguna manera!", "Sería", "Quizás", "Ciertamente"], correct: 0 },
+      { q: "Discurso indirecto con verbos de percepción (ver, oír)", opts: ["Participio", "Infinitivo", "ὅτι + indicativo", "Subjuntivo"], correct: 0 },
+      { q: "Discurso indirecto con verbos de voluntad (querer, desear)", opts: ["Infinitivo", "Participio", "ὅτι + indicativo", "Optativo"], correct: 0 },
+      { q: "Discurso indirecto con verbos de declaración (decir, saber)", opts: ["ὅτι + indicativo", "Infinitivo", "Participio", "Optativo"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransOpt" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#optativoQuizArea") || btn.closest("#indirectQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadOptativoQuiz();
+      loadIndirectQuiz();
+      loadTransOptQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newOptativoQuiz")?.addEventListener("click", () => {
+        loadOptativoQuiz();
+        document.getElementById("optativoFeedback").innerHTML = "";
+      });
+      document.getElementById("newIndirectQuiz")?.addEventListener("click", () => {
+        loadIndirectQuiz();
+        document.getElementById("indirectFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransOptQuiz")?.addEventListener("click", () => {
+        loadTransOptQuiz();
+        document.getElementById("transOptFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

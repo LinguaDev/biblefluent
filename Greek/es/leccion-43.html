@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 43: Partículas y Conectores Discursivos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 61%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .particle-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .discourse-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-42.html"><i class="fas fa-arrow-left"></i> Lección 42</a>
+        <a href="leccion-44.html"><i class="fas fa-arrow-right"></i> Lección 44</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-link"></i> Lección 43 · Partículas y Conectores Discursivos del NT <span class="hero-badge">Módulo IV · Consolidación</span></h1>
+      <p>δέ, γάρ, οὖν · μέν…δέ · καί, ἀλλά, πλήν, ὅμως · γε, τοι, δή, ἄρα · Análisis de Romanos 8 y Gálatas 5</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 860/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Partículas y conectores discursivos del NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Las partículas que estructuran el discurso del NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Qué son las partículas y los conectores?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las <strong>partículas</strong> son palabras invariables que <strong>estructuran el discurso</strong>, conectan ideas y matizan la relación entre cláusulas. Son <strong>esenciales</strong> para entender el flujo lógico y argumentativo del NT.</p>
+          <div class="particle-box">
+            <i class="fas fa-lightbulb"></i> <strong>Función:</strong> Las partículas no se traducen siempre literalmente, pero <strong>guián al lector</strong> sobre cómo las oraciones se relacionan entre sí.
+          </div>
+          <p><strong>Importancia exegética:</strong> Una partícula mal interpretada puede cambiar radicalmente el sentido de un pasaje. Por ejemplo, <span class="greek-word">δέ</span> puede indicar contraste o simplemente continuidad, según el contexto.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo clásico:</strong><br>
+            <span class="greek-word">πάντα γὰρ ἐξ αὐτοῦ καὶ διʼ αὐτοῦ καὶ εἰς αὐτόν</span> – Romanos 11:36.<br>
+            <span class="greek-word">γάρ</span> aquí explica por qué Pablo alaba a Dios (partícula causal-explicativa).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: LAS PARTÍCULAS BÁSICAS – δέ, γάρ, οὖν -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. δέ, γάρ, οὖν: las partículas fundamentales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas tres partículas son las más frecuentes del NT. Aparecen en casi todas las páginas.</p>
+
+          <h3>δέ – la partícula del "cambio"</h3>
+          <p>Es la partícula narrativa por excelencia. Puede indicar <strong>transición</strong>, <strong>contraste</strong> o simplemente <strong>continuidad</strong> en la narración.</p>
+          <div class="particle-box">
+            <strong>Usos:</strong>
+            <ul>
+              <li><strong>Narrativo:</strong> introduce un nuevo elemento en la historia (≈ "y", "entonces").</li>
+              <li><strong>Contrastivo:</strong> indica oposición (≈ "pero").</li>
+              <li>Traducción flexible: a menudo no se traduce, pero se percibe como un cambio de tema.</li>
+            </ul>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἦν δὲ Ἰωάννης</span> – "Y Juan era..." (Juan 1:6).<br>
+            <span class="greek-word">οἱ δὲ εἶπον</span> – "Pero ellos dijeron..." (Mateo 21:27).
+          </div>
+
+          <h3>γάρ – la partícula explicativa</h3>
+          <p>Introduce una <strong>explicación</strong>, <strong>razón</strong> o <strong>causa</strong>. Es la partícula del "porque".</p>
+          <div class="particle-box">
+            <strong>Usos:</strong>
+            <ul>
+              <li><strong>Causal:</strong> explica la razón de lo anterior (≈ "porque", "pues").</li>
+              <li><strong>Explicativo:</strong> aclara o amplía lo dicho.</li>
+              <li>En el NT, <span class="greek-word">γάρ</span> es clave en la argumentación paulina.</li>
+            </ul>
+            <strong>Ejemplo:</strong> <span class="greek-word">οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον</span> – "Porque tanto amó Dios al mundo" (Juan 3:16).
+          </div>
+
+          <h3>οὖν – la partícula inferencial</h3>
+          <p>Indica una <strong>conclusión</strong> o <strong>inferencia</strong> lógica de lo dicho anteriormente.</p>
+          <div class="particle-box">
+            <strong>Usos:</strong>
+            <ul>
+              <li><strong>Inferencial:</strong> "por tanto", "entonces".</li>
+              <li><strong>Resumitivo:</strong> introduce una conclusión o aplicación práctica.</li>
+            </ul>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἔσται οὖν ἡ βασιλεία</span> – "Será, por tanto, el reino..." (Mateo 21:43).<br>
+            <span class="greek-word">ἄρα οὖν</span> – "Así que, por tanto..." (Romanos 9:16, 18).
+          </div>
+          <button class="btn-reveal" data-target="basicasEj">Identifica la partícula</button>
+          <div id="basicasEj" class="answer-text">
+            <span class="greek-word">λέγω γὰρ ὑμῖν</span> – γάρ = explicativo ("porque os digo").<br>
+            <span class="greek-word">ὁ δὲ Ἰησοῦς</span> – δέ = narrativo/contrastivo ("Jesús, en cambio...").<br>
+            <span class="greek-word">ἀποκριθεὶς οὖν</span> – οὖν = inferencial ("entonces, respondiendo...").
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: μέν...δέ – ESTRUCTURA DE CONTRASTE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-balance-scale"></i> 3. μέν...δέ: el contraste estructurado</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La combinación <span class="greek-word">μέν...δέ</span> es una de las estructuras más elegantes del griego. <span class="greek-word">μέν</span> introduce el primer elemento y <span class="greek-word">δέ</span> introduce el segundo en contraste.</p>
+          <div class="discourse-box">
+            <strong>Estructura:</strong> <span class="greek-word">μέν</span> (primer elemento) + <span class="greek-word">δέ</span> (segundo elemento, opuesto o complementario).<br>
+            Traducción: "por un lado... por otro lado", "ciertamente... pero".
+          </div>
+          <p><strong>Ejemplos en el NT:</strong></p>
+          <ul>
+            <li><span class="greek-word">ὁ μὲν θερίζων, ὁ δὲ σπείρων</span> – "El que siega, por un lado, y el que siembra, por otro" (Juan 4:36).</li>
+            <li><span class="greek-word">οἱ μὲν... οἱ δὲ... οἱ δὲ</span> – "Unos... otros... otros..." (Mateo 16:14 – contrasta opiniones sobre quién es Jesús).</li>
+            <li><span class="greek-word">πολλοὶ μὲν... πάντες δὲ</span> – "Muchos por un lado... todos por otro..." (Romanos 5:15).</li>
+          </ul>
+          <div class="particle-box">
+            <strong><i class="fas fa-lightbulb"></i> Clave:</strong> <span class="greek-word">μέν</span> por sí solo no se traduce; su función es <strong>señalar</strong> que vendrá un contraste con <span class="greek-word">δέ</span>.
+          </div>
+          <button class="btn-reveal" data-target="menDeEj">Analiza μέν...δέ</button>
+          <div id="menDeEj" class="answer-text">
+            <span class="greek-word">οἱ μὲν εἶπον, οἱ δὲ οὐκ εἶπον</span> – "Unos dijeron, otros no dijeron".<br>
+            <span class="greek-word">τὰ μὲν ἐπίγεια, τὰ δὲ ἐπουράνια</span> – "Las cosas terrenales, por un lado, y las celestiales, por otro".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: PARTÍCULAS ENFÁTICAS – γε, τοι, δή, ἄρα -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-exclamation"></i> 4. Partículas enfáticas: γε, τοι, δή, ἄρα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas partículas añaden <strong>énfasis</strong>, <strong>matiz</strong> o <strong>certeza</strong> a la oración.</p>
+
+          <h3>γε – énfasis ("ciertamente", "al menos")</h3>
+          <p>Añade énfasis a una palabra o a toda la oración.</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">εἰ γε καὶ</span> – "si ciertamente" (1 Corintios 11:11).<br>
+            <span class="greek-word">καὶ γε</span> – "y ciertamente" (Romanos 8:30).
+          </div>
+
+          <h3>τοι – "así que", "por tanto"</h3>
+          <p>Partícula inferencial que refuerza la conclusión (menos frecuente en el NT).</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">τοίνυν</span> – "por tanto" (Hechos 16:36).<br>
+            <span class="greek-word">τοιγαροῦν</span> – "por lo cual" (1 Tesalonicenses 4:8).
+          </div>
+
+          <h3>δή – "ciertamente", "ya", "entonces"</h3>
+          <p>Refuerza una afirmación o una pregunta.</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ἤλθομεν δή</span> – "ciertamente vinimos" (Hechos 16:12).<br>
+            <span class="greek-word">δηλαδή</span> – "evidentemente" (Gálatas 2:17, forma compuesta).
+          </div>
+
+          <h3>ἄρα – "entonces", "por lo tanto"</h3>
+          <p>Indica una inferencia o consecuencia lógica.</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ἄρα οὖν</span> – "por tanto, entonces" (Romanos 9:16, 18).<br>
+            <span class="greek-word">ἆρα</span> – "¿acaso?" (interrogativo enfático, con acento en la primera sílaba).
+          </div>
+          <button class="btn-reveal" data-target="enfaticasEj">Identifica la partícula enfática</button>
+          <div id="enfaticasEj" class="answer-text">
+            <span class="greek-word">εἰ γε</span> – "si ciertamente".<br>
+            <span class="greek-word">ἄρα οὖν</span> – "por tanto, entonces".<br>
+            <span class="greek-word">δή</span> – "ciertamente".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: COORDINANTES – καί, ἀλλά, πλήν, ὅμως -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-link"></i> 5. Coordinantes: καί, ἀλλά, πλήν, ὅμως</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas partículas conectan cláusulas al mismo nivel sintáctico.</p>
+
+          <h3>καί – "y", "también", "aun"</h3>
+          <p>Es la conjunción coordinante más frecuente. Puede significar "y", "también" o "aun" según el contexto.</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">καί ἐγώ</span> – "y yo" / "yo también".<br>
+            <span class="greek-word">καί...καί</span> – "tanto... como" (Mateo 10:28).
+          </div>
+
+          <h3>ἀλλά – "pero", "sino"</h3>
+          <p>Indica contraste fuerte o corrección de lo anterior.</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">οὐ... ἀλλά</span> – "no... sino" (Juan 1:13).<br>
+            <span class="greek-word">ἀλλά γε</span> – "pero ciertamente" (Lucas 12:8).
+          </div>
+
+          <h3>πλήν – "pero", "sin embargo", "excepto"</h3>
+          <p>Introduce una excepción o un contraste suave.</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">πλήν</span> – "sin embargo" (Mateo 11:22).<br>
+            <span class="greek-word">πλήν ὅτι</span> – "excepto que" (Hechos 20:23).
+          </div>
+
+          <h3>ὅμως – "sin embargo", "no obstante"</h3>
+          <p>Indica concesión: a pesar de lo dicho.</p>
+          <div class="particle-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ὅμως</span> – "sin embargo" (Juan 12:42).<br>
+            <span class="greek-word">ὅμως μέντοι</span> – "sin embargo" (1 Corintios 14:7).
+          </div>
+          <button class="btn-reveal" data-target="coordinantesEj">Identifica el coordinante</button>
+          <div id="coordinantesEj" class="answer-text">
+            <span class="greek-word">οὐ... ἀλλά</span> – "no... sino" (contraste fuerte).<br>
+            <span class="greek-word">πλήν</span> – "sin embargo" (excepción).<br>
+            <span class="greek-word">καί... καί</span> – "tanto... como" (coordinación).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Partículas y conectores</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen las partículas más importantes del NT y términos relacionados con el discurso.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Romanos 8:28:</strong> <span class="greek-word">οἴδαμεν δὲ ὅτι πάντα συνεργεῖ εἰς ἀγαθὸν τοῖς ἀγαπῶσιν τὸν θεόν, τοῖς κατὰ πρόθεσιν κλητοῖς οὖσιν</span> – "Sabemos, además, que todas las cosas cooperan para bien de los que aman a Dios, de los que son llamados conforme a su propósito".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA LA PARTÍCULA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica la partícula o conector</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="particulaQuizArea"></div>
+          <button id="newParticulaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="particulaFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – TRADUCCIÓN CON PARTÍCULAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce frases con partículas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transPartQuizArea"></div>
+          <button id="newTransPartQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transPartFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 10. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: TEXTO PROGRAMADO – ROMANOS 8 Y GÁLATAS 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 11. Lectura programada · Romanos 8 y Gálatas 5</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica las partículas y su función discursiva.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 8:1 – οὐδὲν ἄρα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οὐδὲν ἄρα νῦν κατάκριμα τοῖς ἐν Χριστῷ Ἰησοῦ</span></p>
+              <button class="btn-reveal" data-target="rm8a">¿Qué función tiene <strong>ἄρα</strong>?</button>
+              <div id="rm8a" class="answer-text">Inferencial: "por tanto, entonces" – Pablo concluye de lo dicho anteriormente.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 8:28 – οἴδαμεν δέ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οἴδαμεν δὲ ὅτι πάντα συνεργεῖ εἰς ἀγαθὸν</span></p>
+              <button class="btn-reveal" data-target="rm8b">¿Qué función tiene <strong>δέ</strong>?</button>
+              <div id="rm8b" class="answer-text">Narrativo/continuativo: "Sabemos, además..." – añade un nuevo punto al argumento.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 5:16 – λέγω δέ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">λέγω δέ, πνεύματι περιπατεῖτε</span></p>
+              <button class="btn-reveal" data-target="ga5a">¿Qué función tiene <strong>δέ</strong>?</button>
+              <div id="ga5a" class="answer-text">Transición: "Pero digo..." – introduce una aplicación práctica.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 5:22 – ὁ δὲ καρπὸς</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ δὲ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη, χαρά, εἰρήνη</span></p>
+              <button class="btn-reveal" data-target="ga5b">¿Qué función tiene <strong>δέ</strong> aquí?</button>
+              <div id="ga5b" class="answer-text">Contrastivo: "Pero el fruto..." – contrasta con las obras de la carne mencionadas anteriormente.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 12. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la identificación de partículas en Romanos 8 y Gálatas 5. Lee en voz alta los textos marcando cada partícula y su función.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-42.html"><i class="fas fa-arrow-left"></i> Lección 42</a>
+      <a href="leccion-44.html"><i class="fas fa-arrow-right"></i> Lección 44</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">πάντα γὰρ ἐξ αὐτοῦ</span> (Romanos 11:36)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 43 ==========
+    const vocabData = [
+      { greek: "γε", translit: "ge", spanish: "al menos, sí, ciertamente", note: "partícula enfática" },
+      { greek: "δή", translit: "dē", spanish: "entonces, ya, ciertamente", note: "partícula enfática" },
+      { greek: "τοι", translit: "toi", spanish: "así que, por tanto", note: "partícula inferencial" },
+      { greek: "ἆρα", translit: "ara", spanish: "entonces, por lo tanto", note: "partícula inferencial" },
+      { greek: "μέν οὖν", translit: "men oun", spanish: "por tanto, en resumen", note: "partícula" },
+      { greek: "διό", translit: "dio", spanish: "por lo cual, por eso", note: "conjunción causal" },
+      { greek: "διότι", translit: "dioti", spanish: "porque, por el hecho de", note: "conjunción causal" },
+      { greek: "καθότι", translit: "kathoti", spanish: "según que, en cuanto", note: "conjunción" },
+      { greek: "ἀφ' οὗ", translit: "aph' hou", spanish: "desde que", note: "conjunción temporal" },
+      { greek: "ἐφ' ὅσον", translit: "eph' hoson", spanish: "en tanto que, mientras", note: "conjunción temporal" },
+      { greek: "ὡσεί", translit: "hōsei", spanish: "como si, aproximadamente", note: "partícula" },
+      { greek: "ὡσαύτως", translit: "hōsautōs", spanish: "igualmente, de la misma forma", note: "adv." },
+      { greek: "ὁμοίως", translit: "homoiōs", spanish: "de manera semejante", note: "adv." },
+      { greek: "ναί", translit: "nai", spanish: "sí, ciertamente", note: "partícula afirmativa" },
+      { greek: "ἀμήν", translit: "amēn", spanish: "amén, ciertamente", note: "partícula" },
+      { greek: "εἴτε...εἴτε", translit: "eite...eite", spanish: "ya sea...ya sea", note: "correlativa" },
+      { greek: "μεταξύ", translit: "metaxy", spanish: "entre, mientras tanto", note: "adv." },
+      { greek: "τοὐναντίον", translit: "tounantion", spanish: "por el contrario", note: "adv." },
+      { greek: "ἔμπροσθεν", translit: "emprosthen", spanish: "delante (de)", note: "adv." },
+      { greek: "ὅπισθεν", translit: "opisthen", spanish: "detrás (de)", note: "adv." }
+    ];
+
+    // Ejemplos para identificar partículas
+    const particulaExamples = [
+      { phrase: "λέγω γὰρ ὑμῖν", particle: "γάρ", type: "explicativo", translation: "porque os digo" },
+      { phrase: "ὁ δὲ Ἰησοῦς", particle: "δέ", type: "narrativo/contrastivo", translation: "Jesús, en cambio..." },
+      { phrase: "ἄρα οὖν", particle: "ἄρα", type: "inferencial", translation: "por tanto, entonces" },
+      { phrase: "οἱ μὲν... οἱ δέ", particle: "μέν...δέ", type: "contraste estructurado", translation: "unos... otros..." },
+      { phrase: "οὐ... ἀλλά", particle: "ἀλλά", type: "contraste fuerte", translation: "no... sino" },
+      { phrase: "πλήν", particle: "πλήν", type: "excepción", translation: "sin embargo, excepto" },
+      { phrase: "καί... καί", particle: "καί", type: "coordinación", translation: "tanto... como" },
+      { phrase: "εἰ γε", particle: "γε", type: "enfático", translation: "si ciertamente" }
+    ];
+
+    // Frases para traducción con partículas
+    const transPartPhrases = [
+      { greek: "λέγω γὰρ ὑμῖν", translation: "porque os digo" },
+      { greek: "ὁ δὲ Ἰησοῦς εἶπεν", translation: "Jesús, en cambio, dijo" },
+      { greek: "ἄρα οὖν", translation: "por tanto, entonces" },
+      { greek: "οἱ μὲν εἶπον, οἱ δὲ οὐκ εἶπον", translation: "unos dijeron, otros no dijeron" },
+      { greek: "οὐκ ἦλθον καταλῦσαι ἀλλὰ πληρῶσαι", translation: "no vine a abolir sino a cumplir" },
+      { greek: "πάντα δὲ δοκιμάζετε", translation: "examinadlo todo" }
+    ];
+
+    let currentParticula = particulaExamples[0];
+    let currentTransPart = transPartPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadParticulaQuiz() {
+      const randomIndex = Math.floor(Math.random() * particulaExamples.length);
+      currentParticula = particulaExamples[randomIndex];
+      const container = document.getElementById("particulaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué partícula o conector es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentParticula.phrase}</span><br>
+      <button id="partGar" class="btn-reveal">γάρ</button> <button id="partDe" class="btn-reveal">δέ</button>
+      <button id="partAra" class="btn-reveal">ἄρα</button> <button id="partMenDe" class="btn-reveal">μέν...δέ</button>
+      <button id="partAlla" class="btn-reveal">ἀλλά</button> <button id="partPlin" class="btn-reveal">πλήν</button>
+      <button id="partKai" class="btn-reveal">καί</button> <button id="partGe" class="btn-reveal">γε</button>
+      <div id="particulaResult"></div></div>`;
+      const gar = document.getElementById("partGar");
+      const de = document.getElementById("partDe");
+      const ara = document.getElementById("partAra");
+      const menDe = document.getElementById("partMenDe");
+      const alla = document.getElementById("partAlla");
+      const plin = document.getElementById("partPlin");
+      const kai = document.getElementById("partKai");
+      const ge = document.getElementById("partGe");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("particulaResult");
+          if (expected === currentParticula.particle) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentParticula.type}: ${currentParticula.translation})</span>`;
+            setTimeout(loadParticulaQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentParticula.particle} (${currentParticula.type})</span>`;
+          }
+        });
+      };
+      check(gar, "γάρ");
+      check(de, "δέ");
+      check(ara, "ἄρα");
+      check(menDe, "μέν...δέ");
+      check(alla, "ἀλλά");
+      check(plin, "πλήν");
+      check(kai, "καί");
+      check(ge, "γε");
+    }
+
+    function loadTransPartQuiz() {
+      const randomIndex = Math.floor(Math.random() * transPartPhrases.length);
+      currentTransPart = transPartPhrases[randomIndex];
+      const container = document.getElementById("transPartQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransPart.greek}</span><br>
+      <input type="text" id="transPartAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransPart" class="btn-reveal">Verificar</button>
+      <div id="transPartResult"></div></div>`;
+      document.getElementById("checkTransPart").addEventListener("click", () => {
+        const answer = document.getElementById("transPartAnswer").value.trim().toLowerCase();
+        const correct = currentTransPart.translation.toLowerCase();
+        const result = document.getElementById("transPartResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransPartQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransPart.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Partícula explicativa que significa 'porque'", opts: ["γάρ", "δέ", "οὖν", "ἄρα"], correct: 0 },
+      { q: "Partícula narrativa que introduce transición o contraste", opts: ["δέ", "γάρ", "οὖν", "ἀλλά"], correct: 0 },
+      { q: "Partícula inferencial que significa 'por tanto'", opts: ["οὖν", "δέ", "γάρ", "γε"], correct: 0 },
+      { q: "Estructura que introduce contraste ('por un lado... por otro')", opts: ["μέν...δέ", "οὐ...ἀλλά", "καί...καί", "εἴτε...εἴτε"], correct: 0 },
+      { q: "Partícula que significa 'sin embargo' o 'excepto'", opts: ["πλήν", "ἀλλά", "καί", "δέ"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransPart" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && btn.closest("#particulaQuizArea")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadParticulaQuiz();
+      loadTransPartQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newParticulaQuiz")?.addEventListener("click", () => {
+        loadParticulaQuiz();
+        document.getElementById("particulaFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransPartQuiz")?.addEventListener("click", () => {
+        loadTransPartQuiz();
+        document.getElementById("transPartFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

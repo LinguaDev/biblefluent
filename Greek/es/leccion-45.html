@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 45: Las Seis Formas Principales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 64%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .pp-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .table-responsive { overflow-x: auto; }
+    .verb-highlight { background: #eef3fa; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-44.html"><i class="fas fa-arrow-left"></i> Lección 44</a>
+        <a href="leccion-46.html"><i class="fas fa-arrow-right"></i> Lección 46</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-puzzle-piece"></i> Lección 45 · Las Seis Formas Principales <span class="hero-badge">Módulo IV · Consolidación</span></h1>
+      <p>Qué son las Principal Parts · Información que provee cada forma · Los 20 verbos más importantes del NT · Reconocimiento y deducción</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 900/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/5XxZ6ZxXzZ4" title="Las seis formas principales de los verbos griegos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Las seis formas principales – la clave para dominar los verbos griegos</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Qué son las "Seis Formas Principales"?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las <strong>Seis Formas Principales</strong> (en inglés <em>Principal Parts</em>) son las seis formas verbales básicas que, una vez memorizadas, permiten <strong>deducir todas las demás formas</strong> de un verbo griego.</p>
+          <div class="pp-box">
+            <i class="fas fa-lightbulb"></i> <strong>Las seis formas son:</strong>
+            <ol>
+              <li><strong>Presente activo/medio</strong> (1ª sg.) – base para presente, imperfecto y subjuntivo presente.</li>
+              <li><strong>Futuro activo/medio</strong> – base para el futuro.</li>
+              <li><strong>Aoristo activo/medio</strong> – base para el aoristo activo y medio.</li>
+              <li><strong>Perfecto activo</strong> – base para el perfecto y pluscuamperfecto activos.</li>
+              <li><strong>Perfecto medio/pasivo</strong> – base para el perfecto y pluscuamperfecto medio/pasivos.</li>
+              <li><strong>Aoristo pasivo</strong> – base para el aoristo y futuro pasivos.</li>
+            </ol>
+          </div>
+          <p><strong>Importancia exegética:</strong> Conocer las formas principales de un verbo permite <strong>reconocer cualquier forma</strong> que aparezca en el texto, incluso si no se ha visto antes. Es la herramienta más poderosa para la lectura fluida del NT.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">γίνομαι</span> → <span class="greek-word">γέγονα</span> (perfecto activo) – si conoces la 4ª forma, reconoces que <span class="greek-word">γέγονα</span> es perfecto de γίνομαι.
+          </div>
+          <button class="btn-reveal" data-target="introPP">Ver las 6 formas de λύω como ejemplo</button>
+          <div id="introPP" class="answer-text">
+            <strong>λύω (desatar):</strong><br>
+            1. <span class="greek-word">λύω</span> (presente activo)<br>
+            2. <span class="greek-word">λύσω</span> (futuro activo)<br>
+            3. <span class="greek-word">ἔλυσα</span> (aoristo activo)<br>
+            4. <span class="greek-word">λέλυκα</span> (perfecto activo)<br>
+            5. <span class="greek-word">λέλυμαι</span> (perfecto medio/pasivo)<br>
+            6. <span class="greek-word">ἐλύθην</span> (aoristo pasivo)
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: QUÉ INFORMA CADA FORMA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Información que provee cada forma</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Cada una de las seis formas principales revela información crucial sobre el verbo:</p>
+
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Forma</th><th>Qué revela</th><th>Ejemplo (λύω)</th></tr></thead>
+              <tbody>
+                <tr><td><strong>1. Presente</strong></td><td>Tema del presente; tipo de verbo (-ω, -μι, contracto)</td><td>λύω</td></tr>
+                <tr><td><strong>2. Futuro</strong></td><td>Tema del futuro; cambios consonánticos ante σ</td><td>λύσω</td></tr>
+                <tr><td><strong>3. Aoristo activo/medio</strong></td><td>Tema del aoristo activo; aumento; forma del aoristo (1° o 2°)</td><td>ἔλυσα</td></tr>
+                <tr><td><strong>4. Perfecto activo</strong></td><td>Tema del perfecto activo; reduplicación; vocal de la raíz</td><td>λέλυκα</td></tr>
+                <tr><td><strong>5. Perfecto medio/pasivo</strong></td><td>Tema del perfecto medio/pasivo; cambios consonánticos</td><td>λέλυμαι</td></tr>
+                <tr><td><strong>6. Aoristo pasivo</strong></td><td>Tema del aoristo pasivo; si tiene -θ- o no (1° o 2° pasivo)</td><td>ἐλύθην</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pp-box">
+            <strong><i class="fas fa-memory"></i> Clave:</strong> Con estas seis formas, puedes <strong>generar todos los tiempos y modos</strong> del verbo: presente, imperfecto, futuro, aoristo, perfecto, pluscuamperfecto, subjuntivo, optativo, imperativo, infinitivo y participio.
+          </div>
+          <button class="btn-reveal" data-target="infoPP">Ver los cambios de raíz en verbos irregulares</button>
+          <div id="infoPP" class="answer-text">
+            <strong>Verbos irregulares cambian de raíz:</strong><br>
+            <span class="greek-word">φέρω</span> (llevar) → 2. <span class="greek-word">οἴσω</span> → 3. <span class="greek-word">ἤνεγκα</span> → 4. <span class="greek-word">ἐνήνοχα</span> → 5. <span class="greek-word">ἐνήνεγμαι</span> → 6. <span class="greek-word">ἠνέχθην</span>.<br>
+            Cada forma revela una raíz diferente: φερ-, οἰσ-, ἐνεγκ-, ἐνηνοχ-, ἐνηνεγμ-, ἐνεχθ-.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: PATRONES DE FORMACIÓN Y CAMBIOS VOCÁLICOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrows-alt-h"></i> 3. Patrones de formación y cambios vocálicos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los verbos griegos muestran <strong>patrones predecibles</strong> en sus formas principales, aunque hay muchas irregularidades que deben memorizarse.</p>
+
+          <h3>Cambios vocálicos (ablaut) en la raíz</h3>
+          <div class="pp-box">
+            <ul>
+              <li><strong>Grado ε (presente):</strong> <span class="greek-word">λέγω</span></li>
+              <li><strong>Grado ο (aoristo/perfecto):</strong> <span class="greek-word">λέλεκα, λέλογα</span></li>
+              <li><strong>Grado cero (participios):</strong> <span class="greek-word">λεκτός</span></li>
+            </ul>
+            <strong>Ejemplo:</strong> <span class="greek-word">γίνομαι</span> (ε/ο en la raíz gen-/gon-/gn-).
+          </div>
+
+          <h3>Cambios consonánticos ante -σ-</h3>
+          <div class="pp-box">
+            <ul>
+              <li>Labiales (π, β, φ) + σ → <strong>ψ</strong> (ej. <span class="greek-word">γράφω</span> → <span class="greek-word">γράψω</span>)</li>
+              <li>Velares (κ, γ, χ) + σ → <strong>ξ</strong> (ej. <span class="greek-word">ἄγω</span> → <span class="greek-word">ἄξω</span>)</li>
+              <li>Dentales (τ, δ, θ) + σ → <strong>σ</strong> (ej. <span class="greek-word">πείθω</span> → <span class="greek-word">πείσω</span>)</li>
+            </ul>
+          </div>
+
+          <h3>Reduplicación en el perfecto</h3>
+          <div class="pp-box">
+            <ul>
+              <li><strong>Silábica:</strong> repite la primera consonante + ε (ej. <span class="greek-word">λύω</span> → <span class="greek-word">λέλυκα</span>)</li>
+              <li><strong>Temporal:</strong> alarga la vocal inicial (ej. <span class="greek-word">ἀκούω</span> → <span class="greek-word">ἀκήκοα</span>)</li>
+              <li><strong>Con reduplicación en -μι:</strong> (ej. <span class="greek-word">δίδωμι</span> → <span class="greek-word">δέδωκα</span>)</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="patronesPP">Ver tabla de cambios consonánticos</button>
+          <div id="patronesPP" class="answer-text">
+            <strong>Cambios ante -σ-:</strong><br>
+            π, β, φ → ψ · κ, γ, χ → ξ · τ, δ, θ → σ (o desaparece).<br>
+            <strong>Reducción del aumento:</strong> ε- para verbos que empiezan por consonante; alargamiento de vocal para verbos que empiezan por vocal (ἀκούω → ἤκουσα).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: LOS 20 VERBOS MÁS IMPORTANTES DEL NT -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 4. Tabla de verbos: las seis formas principales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos son los <strong>20 verbos más frecuentes</strong> del NT. Memorizar sus seis formas principales te permitirá reconocer <strong>cualquier forma</strong> de estos verbos en el texto.</p>
+
+          <div class="table-responsive">
+            <table id="ppTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Verbo</th>
+                  <th>Presente</th>
+                  <th>Futuro</th>
+                  <th>Aoristo</th>
+                  <th>Perfecto Act.</th>
+                  <th>Perfecto M/P</th>
+                  <th>Aoristo Pas.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Los datos se llenan con JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Cómo usar esta tabla:</strong>
+            <ul>
+              <li>Memoriza primero los <strong>verbos 1-10</strong> (los más frecuentes).</li>
+              <li>Usa la tabla como <strong>referencia rápida</strong> cuando encuentres una forma desconocida.</li>
+              <li>Presta atención a los <strong>cambios de raíz</strong> (γίνομαι → γενήσομαι → ἐγενόμην → γέγονα).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="ppTablaEj">Ver los 20 verbos en la tabla</button>
+          <div id="ppTablaEj" class="answer-text" style="font-size:0.9rem;">
+            La tabla completa se muestra arriba. Los 20 verbos son: γίνομαι, λέγω, ὁράω, ἔρχομαι, γινώσκω, ἀκούω, λαμβάνω, ἀποκρίνομαι, δίδωμι, πιστεύω, πορεύομαι, ἐγείρω, ἀποστέλλω, ἀγαπάω, εὑρίσκω, ἐσθίω, ἀποθνήσκω, σῴζω, βαπτίζω, κρίνω.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: CÓMO DEDUCIR FORMAS A PARTIR DE LAS PRINCIPALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-brain"></i> 5. Deducción de formas a partir de las principales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Una vez conocidas las seis formas principales, puedes <strong>deducir</strong> cualquier forma verbal.</p>
+
+          <div class="pp-box">
+            <strong><i class="fas fa-lightbulb"></i> Regla de deducción:</strong>
+            <ul>
+              <li><strong>Presente/Imperfecto:</strong> usa la 1ª forma + terminaciones primarias/secundarias.</li>
+              <li><strong>Futuro:</strong> usa la 2ª forma + terminaciones primarias (sin aumento).</li>
+              <li><strong>Aoristo activo/medio:</strong> usa la 3ª forma (con aumento) + terminaciones secundarias.</li>
+              <li><strong>Perfecto activo:</strong> usa la 4ª forma (con reduplicación) + terminaciones de perfecto.</li>
+              <li><strong>Perfecto medio/pasivo:</strong> usa la 5ª forma + terminaciones de perfecto medio/pasivo.</li>
+              <li><strong>Aoristo pasivo:</strong> usa la 6ª forma (con aumento y -θην) + terminaciones secundarias activas.</li>
+            </ul>
+          </div>
+
+          <p><strong>Ejemplo con <span class="greek-word">γίνομαι</span>:</strong></p>
+          <ul>
+            <li>1ª: <span class="greek-word">γίνομαι</span> → presente medio (1ª sg.)</li>
+            <li>2ª: <span class="greek-word">γενήσομαι</span> → futuro medio (1ª sg.)</li>
+            <li>3ª: <span class="greek-word">ἐγενόμην</span> → aoristo medio (1ª sg.)</li>
+            <li>4ª: <span class="greek-word">γέγονα</span> → perfecto activo (1ª sg.)</li>
+            <li>5ª: <span class="greek-word">γεγένημαι</span> → perfecto medio/pasivo (1ª sg.)</li>
+            <li>6ª: <span class="greek-word">ἐγενήθην</span> → aoristo pasivo (1ª sg.)</li>
+          </ul>
+          <div class="card-highlight">
+            <strong>Ejercicio mental:</strong> Si ves <span class="greek-word">γεγέννηται</span>, sabes que es perfecto medio/pasivo de γεννάω porque la 5ª forma es <span class="greek-word">γεγέννημαι</span>.
+          </div>
+          <button class="btn-reveal" data-target="deduccionEj">Deduce la forma</button>
+          <div id="deduccionEj" class="answer-text">
+            <span class="greek-word">ἐγράφη</span> → aoristo pasivo de γράφω (6ª forma: ἐγράφην).<br>
+            <span class="greek-word">ἀκηκόαμεν</span> → perfecto activo de ἀκούω (4ª forma: ἀκήκοα).<br>
+            <span class="greek-word">ἐλήλυθα</span> → perfecto activo de ἔρχομαι (4ª forma: ἐλήλυθα).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Verbos y formas principales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Este vocabulario incluye los 20 verbos más frecuentes del NT con sus significados. La tabla de formas principales está en la sección anterior.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Frecuencia en el NT</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Juan 3:16:</strong> <span class="greek-word">οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον</span> – "Porque tanto amó Dios al mundo". Aquí <span class="greek-word">ἠγάπησεν</span> es aoristo de ἀγαπάω (3ª forma).</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA LA FORMA PRINCIPAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica a qué forma principal pertenece</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="ppQuizArea"></div>
+          <button id="newPpQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="ppFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – DEDUCE LA FORMA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-brain"></i> 8. Deduce la forma verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="deduceQuizArea"></div>
+          <button id="newDeduceQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="deduceFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN Y ANÁLISIS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce y analiza la forma verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transPpQuizArea"></div>
+          <button id="newTransPpQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="transPpFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ROMANOS 3:22-26 Y JUAN 3:16 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Romanos 3:22-26 y Juan 3:16</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica la forma principal de cada verbo.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:22 – δικαιοσύνη</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">δικαιοσύνη δὲ θεοῦ διὰ πίστεως Ἰησοῦ Χριστοῦ εἰς πάντας τοὺς πιστεύοντας</span></p>
+              <button class="btn-reveal" data-target="rm3a">¿Qué verbo está implícito en <strong>δικαιοσύνη</strong>?</button>
+              <div id="rm3a" class="answer-text"><span class="greek-word">δικαιόω</span> – sus formas principales son: δικαιόω, δικαιώσω, ἐδικαίωσα, δεδικαίωκα, δεδικαίωμαι, ἐδικαιώθην.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:24 – δικαιούμενοι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι</span></p>
+              <button class="btn-reveal" data-target="rm3b">¿De qué forma principal deriva <strong>δικαιούμενοι</strong>?</button>
+              <div id="rm3b" class="answer-text">Presente pasivo participio de δικαιόω – deriva de la 1ª forma (δικαιόω) con terminaciones medias/pasivas.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 3:16 – ἠγάπησεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον</span></p>
+              <button class="btn-reveal" data-target="jn3b">¿Qué forma principal de <strong>ἀγαπάω</strong> es <strong>ἠγάπησεν</strong>?</button>
+              <div id="jn3b" class="answer-text">3ª forma (aoristo activo): <span class="greek-word">ἠγάπησα</span> – 3ª persona singular <span class="greek-word">ἠγάπησε(ν)</span>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción y análisis</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">γέγραπται</span></p>
+              <button class="btn-reveal" data-target="transPp">Traduce y analiza</button>
+              <div id="transPp" class="answer-text">"Está escrito" – 5ª forma (perfecto pasivo) de γράφω: <span class="greek-word">γέγραμμαι</span> (3ª sg. <span class="greek-word">γέγραπται</span>).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Memoriza las 6 formas de los 10 verbos más frecuentes. Practica la deducción de formas a partir de las principales. Lee Romanos 3:22-26 y Juan 3:16 en griego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-44.html"><i class="fas fa-arrow-left"></i> Lección 44</a>
+      <a href="leccion-46.html"><i class="fas fa-arrow-right"></i> Lección 46</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">γέγραπται γάρ</span> – "porque está escrito"</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 45 ==========
+
+    // Datos de los 20 verbos para la tabla de formas principales
+    const ppData = [
+      { num: 1, verb: "γίνομαι", p1: "γίνομαι", p2: "γενήσομαι", p3: "ἐγενόμην", p4: "γέγονα", p5: "γεγένημαι", p6: "ἐγενήθην" },
+      { num: 2, verb: "λέγω", p1: "λέγω", p2: "ἐρῶ", p3: "εἶπον", p4: "εἴρηκα", p5: "εἴρημαι", p6: "ἐρρέθην" },
+      { num: 3, verb: "ὁράω", p1: "ὁράω", p2: "ὄψομαι", p3: "εἶδον", p4: "ἑώρακα", p5: "—", p6: "ὤφθην" },
+      { num: 4, verb: "ἔρχομαι", p1: "ἔρχομαι", p2: "ἐλεύσομαι", p3: "ἦλθον", p4: "ἐλήλυθα", p5: "—", p6: "—" },
+      { num: 5, verb: "γινώσκω", p1: "γινώσκω", p2: "γνώσομαι", p3: "ἔγνων", p4: "ἔγνωκα", p5: "ἔγνωσμαι", p6: "ἐγνώσθην" },
+      { num: 6, verb: "ἀκούω", p1: "ἀκούω", p2: "ἀκούσομαι", p3: "ἤκουσα", p4: "ἀκήκοα", p5: "—", p6: "ἠκούσθην" },
+      { num: 7, verb: "λαμβάνω", p1: "λαμβάνω", p2: "λήμψομαι", p3: "ἔλαβον", p4: "εἴληφα", p5: "εἴλημμαι", p6: "ἐλήμφθην" },
+      { num: 8, verb: "ἀποκρίνομαι", p1: "ἀποκρίνομαι", p2: "—", p3: "ἀπεκρινάμην", p4: "—", p5: "—", p6: "ἀπεκρίθην" },
+      { num: 9, verb: "δίδωμι", p1: "δίδωμι", p2: "δώσω", p3: "ἔδωκα", p4: "δέδωκα", p5: "δέδομαι", p6: "ἐδόθην" },
+      { num: 10, verb: "πιστεύω", p1: "πιστεύω", p2: "πιστεύσω", p3: "ἐπίστευσα", p4: "πεπίστευκα", p5: "πεπίστευμαι", p6: "ἐπιστεύθην" },
+      { num: 11, verb: "πορεύομαι", p1: "πορεύομαι", p2: "πορεύσομαι", p3: "ἐπορεύθην", p4: "—", p5: "—", p6: "—" },
+      { num: 12, verb: "ἐγείρω", p1: "ἐγείρω", p2: "ἐγερῶ", p3: "ἤγειρα", p4: "ἐγήγερκα", p5: "ἐγήγερμαι", p6: "ἠγέρθην" },
+      { num: 13, verb: "ἀποστέλλω", p1: "ἀποστέλλω", p2: "ἀποστελῶ", p3: "ἀπέστειλα", p4: "ἀπέσταλκα", p5: "ἀπέσταλμαι", p6: "ἀπεστάλην" },
+      { num: 14, verb: "ἀγαπάω", p1: "ἀγαπάω", p2: "ἀγαπήσω", p3: "ἠγάπησα", p4: "ἠγάπηκα", p5: "ἠγάπημαι", p6: "ἠγαπήθην" },
+      { num: 15, verb: "εὑρίσκω", p1: "εὑρίσκω", p2: "εὑρήσω", p3: "εὗρον", p4: "εὕρηκα", p5: "εὕρημαι", p6: "εὑρέθην" },
+      { num: 16, verb: "ἐσθίω", p1: "ἐσθίω", p2: "φάγομαι", p3: "ἔφαγον", p4: "—", p5: "—", p6: "—" },
+      { num: 17, verb: "ἀποθνήσκω", p1: "ἀποθνήσκω", p2: "ἀποθανοῦμαι", p3: "ἀπέθανον", p4: "—", p5: "—", p6: "—" },
+      { num: 18, verb: "σῴζω", p1: "σῴζω", p2: "σώσω", p3: "ἔσωσα", p4: "σέσωκα", p5: "σέσωσμαι", p6: "ἐσώθην" },
+      { num: 19, verb: "βαπτίζω", p1: "βαπτίζω", p2: "βαπτίσω", p3: "ἐβάπτισα", p4: "βεβάπτικα", p5: "βεβάπτισμαι", p6: "ἐβαπτίσθην" },
+      { num: 20, verb: "κρίνω", p1: "κρίνω", p2: "κρινῶ", p3: "ἔκρινα", p4: "κέκρικα", p5: "κέκριμαι", p6: "ἐκρίθην" }
+    ];
+
+    // Vocabulario de la lección (20 verbos con frecuencia aproximada)
+    const vocabData = [
+      { greek: "γίνομαι", translit: "ginomai", spanish: "llegar a ser, suceder", freq: "669" },
+      { greek: "λέγω", translit: "legō", spanish: "decir, hablar", freq: "2354" },
+      { greek: "ὁράω", translit: "horaō", spanish: "ver", freq: "454" },
+      { greek: "ἔρχομαι", translit: "erchomai", spanish: "venir, ir", freq: "642" },
+      { greek: "γινώσκω", translit: "ginōskō", spanish: "conocer", freq: "222" },
+      { greek: "ἀκούω", translit: "akouō", spanish: "oír", freq: "428" },
+      { greek: "λαμβάνω", translit: "lambanō", spanish: "tomar, recibir", freq: "263" },
+      { greek: "ἀποκρίνομαι", translit: "apokrinomai", spanish: "responder", freq: "231" },
+      { greek: "δίδωμι", translit: "didōmi", spanish: "dar", freq: "416" },
+      { greek: "πιστεύω", translit: "pisteuō", spanish: "creer", freq: "248" },
+      { greek: "πορεύομαι", translit: "poreuomai", spanish: "ir, caminar", freq: "154" },
+      { greek: "ἐγείρω", translit: "egeirō", spanish: "despertar, resucitar", freq: "144" },
+      { greek: "ἀποστέλλω", translit: "apostellō", spanish: "enviar", freq: "132" },
+      { greek: "ἀγαπάω", translit: "agapaō", spanish: "amar", freq: "143" },
+      { greek: "εὑρίσκω", translit: "heuriskō", spanish: "hallar, encontrar", freq: "176" },
+      { greek: "ἐσθίω", translit: "esthiō", spanish: "comer", freq: "158" },
+      { greek: "ἀποθνήσκω", translit: "apothnēskō", spanish: "morir", freq: "110" },
+      { greek: "σῴζω", translit: "sōzō", spanish: "salvar", freq: "106" },
+      { greek: "βαπτίζω", translit: "baptizō", spanish: "bautizar", freq: "80" },
+      { greek: "κρίνω", translit: "krinō", spanish: "juzgar", freq: "114" }
+    ];
+
+    // Ejemplos para identificar la forma principal
+    const ppQuizExamples = [
+      { form: "γίνομαι", verb: "γίνομαι", pp: "1ª (presente)", meaning: "llegar a ser" },
+      { form: "γενήσομαι", verb: "γίνομαι", pp: "2ª (futuro)", meaning: "llegaré a ser" },
+      { form: "ἐγενόμην", verb: "γίνομαι", pp: "3ª (aoristo)", meaning: "llegué a ser" },
+      { form: "γέγονα", verb: "γίνομαι", pp: "4ª (perf. act.)", meaning: "he llegado a ser" },
+      { form: "γεγένημαι", verb: "γίνομαι", pp: "5ª (perf. m/p)", meaning: "he llegado a ser (estado)" },
+      { form: "ἐγενήθην", verb: "γίνομαι", pp: "6ª (aor. pas.)", meaning: "fui hecho" },
+      { form: "λέγω", verb: "λέγω", pp: "1ª (presente)", meaning: "digo" },
+      { form: "ἐρῶ", verb: "λέγω", pp: "2ª (futuro)", meaning: "diré" },
+      { form: "εἶπον", verb: "λέγω", pp: "3ª (aoristo)", meaning: "dije" },
+      { form: "εἴρηκα", verb: "λέγω", pp: "4ª (perf. act.)", meaning: "he dicho" }
+    ];
+
+    // Ejemplos para deducir la forma
+    const deduceExamples = [
+      { form: "γέγονα", verb: "γίνομαι", analysis: "perfecto activo, 1ª sg.", translation: "he llegado a ser" },
+      { form: "εἶπον", verb: "λέγω", analysis: "aoristo activo, 1ª sg.", translation: "dije" },
+      { form: "ἠγάπησεν", verb: "ἀγαπάω", analysis: "aoristo activo, 3ª sg.", translation: "amó" },
+      { form: "γέγραπται", verb: "γράφω", analysis: "perfecto pasivo, 3ª sg.", translation: "está escrito" },
+      { form: "ἐβαπτίσθη", verb: "βαπτίζω", analysis: "aoristo pasivo, 3ª sg.", translation: "fue bautizado" }
+    ];
+
+    // Frases para traducción
+    const transPpPhrases = [
+      { greek: "γέγονα", translation: "he llegado a ser", analysis: "perf. act. de γίνομαι" },
+      { greek: "εἶπον", translation: "dije", analysis: "aor. act. de λέγω" },
+      { greek: "ἠγάπησεν", translation: "amó", analysis: "aor. act. de ἀγαπάω" },
+      { greek: "γέγραπται", translation: "está escrito", analysis: "perf. pas. de γράφω" },
+      { greek: "ἐβαπτίσθη", translation: "fue bautizado", analysis: "aor. pas. de βαπτίζω" },
+      { greek: "ἐλήλυθα", translation: "he venido", analysis: "perf. act. de ἔρχομαι" }
+    ];
+
+    let currentPp = ppQuizExamples[0];
+    let currentDeduce = deduceExamples[0];
+    let currentTransPp = transPpPhrases[0];
+
+    function renderPpTable() {
+      const tbody = document.querySelector("#ppTable tbody");
+      if (tbody) {
+        ppData.forEach(v => {
+          const row = `<tr>
+            <td>${v.num}</td>
+            <td><strong><span class="greek-word">${v.verb}</span></strong></td>
+            <td><span class="greek-word">${v.p1}</span></td>
+            <td><span class="greek-word">${v.p2}</span></td>
+            <td><span class="greek-word">${v.p3}</span></td>
+            <td><span class="greek-word">${v.p4}</span></td>
+            <td><span class="greek-word">${v.p5}</span></td>
+            <td><span class="greek-word">${v.p6}</span></td>
+          </tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.freq}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadPpQuiz() {
+      const randomIndex = Math.floor(Math.random() * ppQuizExamples.length);
+      currentPp = ppQuizExamples[randomIndex];
+      const container = document.getElementById("ppQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿A qué forma principal pertenece <span class="greek-word">${currentPp.form}</span>?</strong><br>
+      <small>Verbo: <span class="greek-word">${currentPp.verb}</span></small><br>
+      <button id="pp1" class="btn-reveal">1ª (presente)</button> <button id="pp2" class="btn-reveal">2ª (futuro)</button>
+      <button id="pp3" class="btn-reveal">3ª (aoristo)</button> <button id="pp4" class="btn-reveal">4ª (perf. act.)</button>
+      <button id="pp5" class="btn-reveal">5ª (perf. m/p)</button> <button id="pp6" class="btn-reveal">6ª (aor. pas.)</button>
+      <div id="ppResult"></div></div>`;
+      const b1 = document.getElementById("pp1");
+      const b2 = document.getElementById("pp2");
+      const b3 = document.getElementById("pp3");
+      const b4 = document.getElementById("pp4");
+      const b5 = document.getElementById("pp5");
+      const b6 = document.getElementById("pp6");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("ppResult");
+          if (expected === currentPp.pp) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPp.meaning})</span>`;
+            setTimeout(loadPpQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentPp.pp}</span>`;
+          }
+        });
+      };
+      check(b1, "1ª (presente)");
+      check(b2, "2ª (futuro)");
+      check(b3, "3ª (aoristo)");
+      check(b4, "4ª (perf. act.)");
+      check(b5, "5ª (perf. m/p)");
+      check(b6, "6ª (aor. pas.)");
+    }
+
+    function loadDeduceQuiz() {
+      const randomIndex = Math.floor(Math.random() * deduceExamples.length);
+      currentDeduce = deduceExamples[randomIndex];
+      const container = document.getElementById("deduceQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la forma <span class="greek-word">${currentDeduce.form}</span>:</strong><br>
+      <span style="font-weight:500;">¿Qué verbo, tiempo y persona es?</span><br>
+      <input type="text" id="deduceAnswer" placeholder="ej. γίνομαι, presente, 1ª sg." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkDeduce" class="btn-reveal">Verificar</button>
+      <div id="deduceResult"></div></div>`;
+      document.getElementById("checkDeduce").addEventListener("click", () => {
+        const answer = document.getElementById("deduceAnswer").value.trim().toLowerCase();
+        const correct = currentDeduce.analysis.toLowerCase();
+        const result = document.getElementById("deduceResult");
+        if (answer.includes(correct) || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDeduce.translation})</span>`;
+          setTimeout(loadDeduceQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Es: ${currentDeduce.analysis} – ${currentDeduce.translation}</span>`;
+        }
+      });
+    }
+
+    function loadTransPpQuiz() {
+      const randomIndex = Math.floor(Math.random() * transPpPhrases.length);
+      currentTransPp = transPpPhrases[randomIndex];
+      const container = document.getElementById("transPpQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza <span class="greek-word">${currentTransPp.greek}</span>:</strong><br>
+      <input type="text" id="transPpAnswer" placeholder="traducción + análisis..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransPp" class="btn-reveal">Verificar</button>
+      <div id="transPpResult"></div></div>`;
+      document.getElementById("checkTransPp").addEventListener("click", () => {
+        const answer = document.getElementById("transPpAnswer").value.trim().toLowerCase();
+        const correct = currentTransPp.translation.toLowerCase();
+        const analysis = currentTransPp.analysis.toLowerCase();
+        const result = document.getElementById("transPpResult");
+        if (answer.includes(correct) && answer.includes(analysis)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransPp.translation} – ${currentTransPp.analysis})</span>`;
+          setTimeout(loadTransPpQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransPp.translation} – ${currentTransPp.analysis}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Forma principal que da base al presente e imperfecto", opts: ["1ª (presente)", "2ª (futuro)", "3ª (aoristo)", "4ª (perf. act.)"], correct: 0 },
+      { q: "Forma principal que da base al aoristo activo", opts: ["3ª (aoristo)", "1ª (presente)", "2ª (futuro)", "6ª (aor. pas.)"], correct: 0 },
+      { q: "Forma principal que da base al perfecto pasivo", opts: ["5ª (perf. m/p)", "4ª (perf. act.)", "6ª (aor. pas.)", "2ª (futuro)"], correct: 0 },
+      { q: "¿Qué forma principal de γίνομαι es 'γέγονα'?", opts: ["4ª (perf. act.)", "1ª (presente)", "3ª (aoristo)", "5ª (perf. m/p)"], correct: 0 },
+      { q: "¿Qué forma principal de λέγω es 'εἶπον'?", opts: ["3ª (aoristo)", "1ª (presente)", "2ª (futuro)", "4ª (perf. act.)"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkDeduce" || btn.id === "checkTransPp" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#ppQuizArea") || btn.closest("#deduceQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderPpTable();
+      renderVocabTable();
+      buildFlashcards();
+      loadPpQuiz();
+      loadDeduceQuiz();
+      loadTransPpQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newPpQuiz")?.addEventListener("click", () => {
+        loadPpQuiz();
+        document.getElementById("ppFeedback").innerHTML = "";
+      });
+      document.getElementById("newDeduceQuiz")?.addEventListener("click", () => {
+        loadDeduceQuiz();
+        document.getElementById("deduceFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransPpQuiz")?.addEventListener("click", () => {
+        loadTransPpQuiz();
+        document.getElementById("transPpFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

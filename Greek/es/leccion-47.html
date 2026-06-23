@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 47: Verbos Compuestos y Preverbios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 67%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .compound-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .preverb-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-46.html"><i class="fas fa-arrow-left"></i> Lección 46</a>
+        <a href="leccion-48.html"><i class="fas fa-arrow-right"></i> Lección 48</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-puzzle-piece"></i> Lección 47 · Verbos Compuestos y Preverbios <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Preverbios · Cambios fonológicos · Familias de verbos: ἔρχομαι, ἄγω, βαίνω, φέρω, τίθημι · Deducción de significado</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 940/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Verbos compuestos y preverbios en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los verbos compuestos – la clave para expandir tu vocabulario</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Qué son los verbos compuestos?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>verbos compuestos</strong> son verbos formados por la combinación de una <strong>preposición</strong> (preverbio) y un <strong>verbo base</strong>. Esta combinación modifica el significado del verbo original.</p>
+          <div class="compound-box">
+            <i class="fas fa-lightbulb"></i> <strong>Estructura:</strong> <span class="greek-word">ἐκ + βαίνω</span> = <span class="greek-word">ἐκβαίνω</span> (salir).<br>
+            <span class="greek-word">σύν + ἔρχομαι</span> = <span class="greek-word">συνέρχομαι</span> (reunirse, venir juntos).
+          </div>
+          <p><strong>Importancia exegética:</strong> Más de la mitad de los verbos del NT son compuestos. Conocer el significado de los preverbios te permite <strong>deducir el significado</strong> de muchos verbos que nunca has visto antes.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">ἐξέρχομαι</span> = <span class="greek-word">ἐξ</span> (fuera) + <span class="greek-word">ἔρχομαι</span> (venir) = "salir".<br>
+            <span class="greek-word">εἰσέρχομαι</span> = <span class="greek-word">εἰς</span> (dentro) + <span class="greek-word">ἔρχομαι</span> (venir) = "entrar".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: LOS PREVERBIOS MÁS IMPORTANTES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Los preverbios: significados básicos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los preverbios más comunes en el NT son las <strong>preposiciones</strong> utilizadas como prefijos verbales. Cada una aporta un matiz específico al verbo base.</p>
+
+          <div class="preverb-box">
+            <strong><i class="fas fa-arrow-right"></i> Preverbios de lugar/dirección:</strong>
+            <ul>
+              <li><span class="greek-word">ἀπό</span> (ἀπ-) → lejos de, separación</li>
+              <li><span class="greek-word">εἰς</span> (εἰσ-) → hacia dentro, entrada</li>
+              <li><span class="greek-word">ἐκ / ἐξ</span> (ἐκ-/ἐξ-) → hacia fuera, salida</li>
+              <li><span class="greek-word">ἐπί</span> (ἐπ-) → sobre, hacia</li>
+              <li><span class="greek-word">κατά</span> (καθ-/κατ-) → hacia abajo, contra</li>
+              <li><span class="greek-word">παρά</span> (παρ-) → junto a, al lado</li>
+              <li><span class="greek-word">περί</span> (περι-) → alrededor</li>
+              <li><span class="greek-word">πρός</span> (προσ-) → hacia, junto a</li>
+              <li><span class="greek-word">σύν</span> (συν-/συμ-/συλ-) → con, junto</li>
+              <li><span class="greek-word">ὑπό</span> (ὑπ-) → bajo, por (agente)</li>
+            </ul>
+          </div>
+
+          <div class="preverb-box">
+            <strong><i class="fas fa-arrow-right"></i> Preverbios con otros matices:</strong>
+            <ul>
+              <li><span class="greek-word">διά</span> (δι-) → a través de, completamente</li>
+              <li><span class="greek-word">μετά</span> (μετ-) → con, después de, cambio</li>
+              <li><span class="greek-word">ἀντί</span> (ἀντι-) → en lugar de, contra</li>
+              <li><span class="greek-word">ἀνά</span> (ἀν-) → hacia arriba, de nuevo</li>
+              <li><span class="greek-word">πρό</span> (προ-) → antes, delante</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Clave:</strong> Cuando veas un verbo compuesto, <strong>identifica el preverbio</strong> y el <strong>verbo base</strong> para deducir su significado.
+          </div>
+          <button class="btn-reveal" data-target="preverbiosEj">Practica con ejemplos</button>
+          <div id="preverbiosEj" class="answer-text">
+            <span class="greek-word">ἀποστέλλω</span> = <span class="greek-word">ἀπό</span> (lejos) + <span class="greek-word">στέλλω</span> (enviar) = "enviar (lejos)".<br>
+            <span class="greek-word">συνάγω</span> = <span class="greek-word">σύν</span> (junto) + <span class="greek-word">ἄγω</span> (llevar) = "reunir".<br>
+            <span class="greek-word">προσφέρω</span> = <span class="greek-word">πρός</span> (hacia) + <span class="greek-word">φέρω</span> (llevar) = "ofrecer, presentar".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: CAMBIOS FONOLÓGICOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-exchange-alt"></i> 3. Cambios fonológicos al unir preverbio y verbo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Cuando un preverbio se une a un verbo, se producen cambios fonológicos para facilitar la pronunciación:</p>
+
+          <h3>1. Asimilación de consonantes finales</h3>
+          <div class="compound-box">
+            <ul>
+              <li><strong>σύν +</strong> consonante labial (π, β, φ, μ) → <strong>συμ-</strong> (ej. <span class="greek-word">συμβαίνω</span>)</li>
+              <li><strong>σύν +</strong> consonante velar (κ, γ, χ) → <strong>συγγ-</strong> (ej. <span class="greek-word">συγγίνομαι</span>)</li>
+              <li><strong>σύν +</strong> consonante dental (τ, δ, θ) → <strong>συν-</strong> (ej. <span class="greek-word">συντάσσω</span>)</li>
+              <li><strong>σύν +</strong> líquida (λ, ρ) → <strong>συλ-/συρ-</strong> (ej. <span class="greek-word">συλλέγω</span>)</li>
+              <li><strong>σύν +</strong> σ → <strong>συσ-</strong> (ej. <span class="greek-word">συσταυρόω</span>)</li>
+            </ul>
+          </div>
+
+          <h3>2. Elisión (pérdida de vocal final)</h3>
+          <div class="compound-box">
+            <ul>
+              <li><strong>ἀπό +</strong> vocal → <strong>ἀπ-</strong> (ej. <span class="greek-word">ἀπέρχομαι</span>)</li>
+              <li><strong>ἐπί +</strong> vocal → <strong>ἐπ-</strong> (ej. <span class="greek-word">ἐπερωτάω</span>)</li>
+              <li><strong>παρά +</strong> vocal → <strong>παρ-</strong> (ej. <span class="greek-word">παρέρχομαι</span>)</li>
+              <li><strong>πρός +</strong> vocal → <strong>προσ-</strong> (ej. <span class="greek-word">προσέρχομαι</span>)</li>
+            </ul>
+          </div>
+
+          <h3>3. Cambios de aspiración</h3>
+          <div class="compound-box">
+            <ul>
+              <li><strong>κατά +</strong> espíritu áspero → <strong>καθ-</strong> (ej. <span class="greek-word">καθίζω</span>)</li>
+              <li><strong>μετά +</strong> espíritu áspero → <strong>μεθ-</strong> (ej. <span class="greek-word">μέθυσος</span>)</li>
+              <li><strong>ἀντί +</strong> espíritu áspero → <strong>ἀνθ-</strong> (ej. <span class="greek-word">ἀνθίστημι</span>)</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="fonologiaEj">Identifica el cambio fonológico</button>
+          <div id="fonologiaEj" class="answer-text">
+            <span class="greek-word">συμβαίνω</span> – asimilación (σύν + βαίνω → συμ-).<br>
+            <span class="greek-word">ἀπέρχομαι</span> – elisión (ἀπό + ἔρχομαι → ἀπ-).<br>
+            <span class="greek-word">καθίζω</span> – cambio de aspiración (κατά + ἵζω → καθ-).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: FAMILIAS DE VERBOS COMPUESTOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 4. Familias de verbos compuestos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Conocer las <strong>familias de verbos compuestos</strong> te permite aprender decenas de verbos a partir de unos pocos verbos base.</p>
+
+          <h3>Familia de ἔρχομαι (venir, ir)</h3>
+          <div class="compound-box">
+            <ul>
+              <li><span class="greek-word">εἰσέρχομαι</span> – entrar</li>
+              <li><span class="greek-word">ἐξέρχομαι</span> – salir</li>
+              <li><span class="greek-word">ἀπέρχομαι</span> – irse, marcharse</li>
+              <li><span class="greek-word">παρέρχομαι</span> – pasar, transcurrir</li>
+              <li><span class="greek-word">προσέρχομαι</span> – acercarse</li>
+              <li><span class="greek-word">συνέρχομαι</span> – reunirse, venir juntos</li>
+              <li><span class="greek-word">ἀνέρχομαι</span> – subir</li>
+              <li><span class="greek-word">κατέρχομαι</span> – descender</li>
+              <li><span class="greek-word">διέρχομαι</span> – atravesar, pasar por</li>
+              <li><span class="greek-word">ἐπανέρχομαι</span> – volver, regresar</li>
+            </ul>
+          </div>
+
+          <h3>Familia de ἄγω (llevar, conducir)</h3>
+          <div class="compound-box">
+            <ul>
+              <li><span class="greek-word">ἀπάγω</span> – llevar, conducir</li>
+              <li><span class="greek-word">εἰσάγω</span> – introducir</li>
+              <li><span class="greek-word">ἐξάγω</span> – sacar</li>
+              <li><span class="greek-word">προάγω</span> – ir adelante, preceder</li>
+              <li><span class="greek-word">παράγω</span> – pasar</li>
+              <li><span class="greek-word">συνάγω</span> – reunir, congregar</li>
+            </ul>
+          </div>
+
+          <h3>Familia de φέρω (llevar, traer)</h3>
+          <div class="compound-box">
+            <ul>
+              <li><span class="greek-word">ἀναφέρω</span> – llevar arriba, ofrecer</li>
+              <li><span class="greek-word">καταφέρω</span> – llevar abajo</li>
+              <li><span class="greek-word">προσφέρω</span> – ofrecer, presentar</li>
+              <li><span class="greek-word">διαφέρω</span> – diferir, importar más</li>
+              <li><span class="greek-word">εἰσφέρω</span> – traer dentro</li>
+              <li><span class="greek-word">ἐκφέρω</span> – llevar fuera</li>
+            </ul>
+          </div>
+
+          <h3>Familia de τίθημι (poner, colocar)</h3>
+          <div class="compound-box">
+            <ul>
+              <li><span class="greek-word">ἀνατίθημι</span> – dedicar, poner aparte</li>
+              <li><span class="greek-word">ἀποτίθημι</span> – deponer, quitar</li>
+              <li><span class="greek-word">ἐπιτίθημι</span> – poner sobre, imponer</li>
+              <li><span class="greek-word">παρατίθημι</span> – poner junto, presentar</li>
+              <li><span class="greek-word">προστίθημι</span> – añadir</li>
+              <li><span class="greek-word">συντίθημι</span> – poner juntos, acordar</li>
+              <li><span class="greek-word">ὑποτίθημι</span> – poner debajo</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="familiasEj">Ejercicio: identifica el verbo base</button>
+          <div id="familiasEj" class="answer-text">
+            <span class="greek-word">συνεσταύρωμαι</span> – <span class="greek-word">σύν</span> + <span class="greek-word">σταυρόω</span> (crucificar) → co-crucificado.<br>
+            <span class="greek-word">προσδοκάω</span> – <span class="greek-word">πρός</span> + <span class="greek-word">δοκάω</span> (esperar) → esperar, aguardar.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: CÓMO DEDUCIR SIGNIFICADOS DESCONOCIDOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-brain"></i> 5. Estrategias para deducir el significado</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Cuando encuentres un verbo compuesto desconocido, sigue estos pasos:</p>
+
+          <div class="compound-box">
+            <strong><i class="fas fa-lightbulb"></i> Método de deducción:</strong>
+            <ol>
+              <li><strong>Identifica el preverbio</strong> – ¿qué preposición es?</li>
+              <li><strong>Identifica el verbo base</strong> – ¿reconoces la raíz verbal?</li>
+              <li><strong>Combina los significados</strong> – el preverbio modifica el verbo base.</li>
+              <li><strong>Considera el contexto</strong> – el uso en la oración confirma o matiza la deducción.</li>
+            </ol>
+          </div>
+
+          <p><strong>Ejemplos de deducción:</strong></p>
+          <ul>
+            <li><span class="greek-word">περικρατέω</span> – <span class="greek-word">περί</span> (alrededor) + <span class="greek-word">κρατέω</span> (agarrar) → "agarrar alrededor" → "sujetar, retener" (Hechos 17:18).</li>
+            <li><span class="greek-word">ἐκπληρόω</span> – <span class="greek-word">ἐκ</span> (fuera/completamente) + <span class="greek-word">πληρόω</span> (llenar) → "llenar completamente" → "cumplir del todo" (Hechos 3:18).</li>
+            <li><span class="greek-word">ἀναγκάζω</span> – <span class="greek-word">ἀνά</span> (arriba, intensivo) + <span class="greek-word">ἀγκάζω</span> (forzar) → "forzar" (Gálatas 2:14).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Aplicación práctica:</strong><br>
+            Si ves <span class="greek-word">παρατίθημι</span>, sabes que <span class="greek-word">παρά</span> = "junto a" y <span class="greek-word">τίθημι</span> = "poner" → "poner junto a" → "presentar, servir, recomendar".
+          </div>
+          <button class="btn-reveal" data-target="deducirEj">Practica la deducción</button>
+          <div id="deducirEj" class="answer-text">
+            <span class="greek-word">συλλαμβάνω</span> – <span class="greek-word">σύν</span> (junto) + <span class="greek-word">λαμβάνω</span> (tomar) → "tomar junto" → "atrapar, ayudar".<br>
+            <span class="greek-word">ἀνθίστημι</span> – <span class="greek-word">ἀντί</span> (contra) + <span class="greek-word">ἵστημι</span> (poner) → "poner contra" → "resistir".<br>
+            <span class="greek-word">ἐπιγινώσκω</span> – <span class="greek-word">ἐπί</span> (sobre) + <span class="greek-word">γινώσκω</span> (conocer) → "conocer plenamente" → "reconocer".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Verbos compuestos frecuentes</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos 20 verbos compuestos son esenciales para la lectura del NT. Aprende su preverbio y verbo base.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Preverbio + base</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Hechos 1:8:</strong> <span class="greek-word">ἀλλὰ λήμψεσθε δύναμιν ἐπελθόντος τοῦ ἁγίου πνεύματος ἐφʼ ὑμᾶς</span> – "pero recibiréis poder cuando el Espíritu Santo venga sobre vosotros". <span class="greek-word">ἐπελθόντος</span> es participio de <span class="greek-word">ἐπέρχομαι</span> (venir sobre).</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL PREVERBIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el preverbio y su significado</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="preverbioQuizArea"></div>
+          <button id="newPreverbioQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="preverbioFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – DEDUCE EL SIGNIFICADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-brain"></i> 8. Deduce el significado del verbo compuesto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="deduceCompQuizArea"></div>
+          <button id="newDeduceCompQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="deduceCompFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN CON VERBOS COMPUESTOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con verbos compuestos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transCompQuizArea"></div>
+          <button id="newTransCompQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transCompFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – HECHOS 1–5 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Hechos 1–5</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica los verbos compuestos y analiza su formación.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 1:8 – ἐπελθόντος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">λήμψεσθε δύναμιν ἐπελθόντος τοῦ ἁγίου πνεύματος ἐφʼ ὑμᾶς</span></p>
+              <button class="btn-reveal" data-target="hch1a">¿Qué verbo compuesto es <strong>ἐπελθόντος</strong>?</button>
+              <div id="hch1a" class="answer-text"><span class="greek-word">ἐπέρχομαι</span> = <span class="greek-word">ἐπί</span> (sobre) + <span class="greek-word">ἔρχομαι</span> (venir) → "venir sobre".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 2:1 – συνήχθησαν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἦσαν πάντες ὁμοῦ ἐπὶ τὸ αὐτό· καὶ ἐγένετο ἄφνω ... ἦχος ... καὶ ἐπλήσθησαν ... καὶ συνήχθησαν</span></p>
+              <button class="btn-reveal" data-target="hch2a">¿Qué verbo compuesto es <strong>συνήχθησαν</strong>?</button>
+              <div id="hch2a" class="answer-text"><span class="greek-word">συνάγω</span> = <span class="greek-word">σύν</span> (junto) + <span class="greek-word">ἄγω</span> (llevar) → "reunir". <span class="greek-word">συνήχθησαν</span> es aoristo pasivo (fueron reunidos).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 3:6 – ἐγείρου</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐν τῷ ὀνόματι Ἰησοῦ Χριστοῦ ... ἔγειρε καὶ περιπάτει</span></p>
+              <button class="btn-reveal" data-target="hch3a">¿Qué verbo compuesto podría formarse con <strong>ἀνά</strong> + <strong>ἵστημι</strong>?</button>
+              <div id="hch3a" class="answer-text"><span class="greek-word">ἀνίστημι</span> – "levantar, resucitar". En Hechos 3:6, el mandato es <span class="greek-word">ἔγειρε</span> (levántate), pero el verbo compuesto relacionado es <span class="greek-word">ἀνίστημι</span>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 5:1 – ἐπώλησεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀνὴρ δέ τις Ἀνανίας ... ἐπώλησεν κτῆμα</span></p>
+              <button class="btn-reveal" data-target="hch5a">¿Qué verbo compuesto contiene <strong>ἀπό</strong> + <strong>δίδωμι</strong>?</button>
+              <div id="hch5a" class="answer-text"><span class="greek-word">ἀποδίδωμι</span> – "devolver, pagar, vender" (en el sentido de "entregar"). En Hechos 5:1, <span class="greek-word">ἐπώλησεν</span> es de <span class="greek-word">πωλέω</span> (vender), pero <span class="greek-word">ἀποδίδωμι</span> es el compuesto relacionado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la deducción de verbos compuestos a partir del preverbio y la base. Lee Hechos 1-5 en griego, identificando todos los verbos compuestos y analizando su formación.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-46.html"><i class="fas fa-arrow-left"></i> Lección 46</a>
+      <a href="leccion-48.html"><i class="fas fa-arrow-right"></i> Lección 48</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">συνήχθησαν πάντες ἐπὶ τὸ αὐτό</span> (Hechos 2:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 47 ==========
+    const vocabData = [
+      { greek: "εἰσέρχομαι", translit: "eiserchomai", spanish: "entrar", comp: "εἰς + ἔρχομαι" },
+      { greek: "ἐξέρχομαι", translit: "exerchomai", spanish: "salir", comp: "ἐκ + ἔρχομαι" },
+      { greek: "ἀπέρχομαι", translit: "aperchomai", spanish: "irse, marcharse", comp: "ἀπό + ἔρχομαι" },
+      { greek: "παρέρχομαι", translit: "parerchomai", spanish: "pasar, transcurrir", comp: "παρά + ἔρχομαι" },
+      { greek: "προσέρχομαι", translit: "proserchomai", spanish: "acercarse", comp: "πρός + ἔρχομαι" },
+      { greek: "συνέρχομαι", translit: "synerchomai", spanish: "reunirse", comp: "σύν + ἔρχομαι" },
+      { greek: "ἀπάγω", translit: "apagō", spanish: "llevar, conducir", comp: "ἀπό + ἄγω" },
+      { greek: "εἰσάγω", translit: "eisagō", spanish: "introducir", comp: "εἰς + ἄγω" },
+      { greek: "ἐξάγω", translit: "exagō", spanish: "sacar", comp: "ἐκ + ἄγω" },
+      { greek: "προάγω", translit: "proagō", spanish: "ir adelante", comp: "πρό + ἄγω" },
+      { greek: "συνάγω", translit: "synagō", spanish: "reunir, congregar", comp: "σύν + ἄγω" },
+      { greek: "ἀναφέρω", translit: "anapherō", spanish: "llevar arriba, ofrecer", comp: "ἀνά + φέρω" },
+      { greek: "προσφέρω", translit: "prospherō", spanish: "ofrecer", comp: "πρός + φέρω" },
+      { greek: "διαφέρω", translit: "diapherō", spanish: "diferir, importar más", comp: "διά + φέρω" },
+      { greek: "ἀνατίθημι", translit: "anatithēmi", spanish: "dedicar, poner aparte", comp: "ἀνά + τίθημι" },
+      { greek: "ἀποτίθημι", translit: "apotithēmi", spanish: "deponer, quitar", comp: "ἀπό + τίθημι" },
+      { greek: "ἐπιτίθημι", translit: "epitithēmi", spanish: "poner sobre, imponer", comp: "ἐπί + τίθημι" },
+      { greek: "παρατίθημι", translit: "paratithēmi", spanish: "poner junto, presentar", comp: "παρά + τίθημι" },
+      { greek: "προστίθημι", translit: "prostithēmi", spanish: "añadir", comp: "πρός + τίθημι" },
+      { greek: "συντίθημι", translit: "syntithēmi", spanish: "poner juntos, acordar", comp: "σύν + τίθημι" }
+    ];
+
+    // Ejemplos para identificar preverbio
+    const preverbioExamples = [
+      { form: "εἰσέρχομαι", preverb: "εἰς", meaning: "dentro", base: "ἔρχομαι" },
+      { form: "ἐξέρχομαι", preverb: "ἐκ", meaning: "fuera", base: "ἔρχομαι" },
+      { form: "συνάγω", preverb: "σύν", meaning: "junto", base: "ἄγω" },
+      { form: "ἀναφέρω", preverb: "ἀνά", meaning: "arriba", base: "φέρω" },
+      { form: "προσφέρω", preverb: "πρός", meaning: "hacia", base: "φέρω" },
+      { form: "ἀποτίθημι", preverb: "ἀπό", meaning: "lejos", base: "τίθημι" },
+      { form: "ἐπιτίθημι", preverb: "ἐπί", meaning: "sobre", base: "τίθημι" }
+    ];
+
+    // Ejemplos para deducir significado
+    const deduceCompExamples = [
+      { form: "συλλαμβάνω", preverb: "σύν", base: "λαμβάνω", meaning: "atrapar, ayudar" },
+      { form: "ἀνθίστημι", preverb: "ἀντί", base: "ἵστημι", meaning: "resistir" },
+      { form: "ἐπιγινώσκω", preverb: "ἐπί", base: "γινώσκω", meaning: "reconocer" },
+      { form: "παραλαμβάνω", preverb: "παρά", base: "λαμβάνω", meaning: "tomar junto, recibir" },
+      { form: "ἐκβάλλω", preverb: "ἐκ", base: "βάλλω", meaning: "echar fuera" },
+      { form: "περικρατέω", preverb: "περί", base: "κρατέω", meaning: "sujetar, retener" }
+    ];
+
+    // Frases para traducción
+    const transCompPhrases = [
+      { greek: "εἰσῆλθεν εἰς τὴν οἰκίαν", translation: "entró en la casa", analysis: "εἰσέρχομαι" },
+      { greek: "ἐξῆλθεν ἀπὸ τοῦ ἱεροῦ", translation: "salió del templo", analysis: "ἐξέρχομαι" },
+      { greek: "συνήχθησαν πάντες", translation: "todos se reunieron", analysis: "συνάγω" },
+      { greek: "προσέφερεν δῶρα", translation: "ofrecía regalos", analysis: "προσφέρω" },
+      { greek: "ἐπέθηκεν τὰς χεῖρας", translation: "puso las manos sobre", analysis: "ἐπιτίθημι" },
+      { greek: "παρέθηκεν τὸ ἔργον", translation: "presentó la obra", analysis: "παρατίθημι" }
+    ];
+
+    let currentPreverbio = preverbioExamples[0];
+    let currentDeduceComp = deduceCompExamples[0];
+    let currentTransComp = transCompPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.comp}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadPreverbioQuiz() {
+      const randomIndex = Math.floor(Math.random() * preverbioExamples.length);
+      currentPreverbio = preverbioExamples[randomIndex];
+      const container = document.getElementById("preverbioQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué preverbio tiene <span class="greek-word">${currentPreverbio.form}</span>?</strong><br>
+      <span style="font-size:0.9rem;">(Significado: ${currentPreverbio.meaning})</span><br>
+      <button id="prevEis" class="btn-reveal">εἰς</button> <button id="prevEk" class="btn-reveal">ἐκ</button>
+      <button id="prevSyn" class="btn-reveal">σύν</button> <button id="prevAna" class="btn-reveal">ἀνά</button>
+      <button id="prevPros" class="btn-reveal">πρός</button> <button id="prevApo" class="btn-reveal">ἀπό</button>
+      <button id="prevEpi" class="btn-reveal">ἐπί</button>
+      <div id="preverbioResult"></div></div>`;
+      const eis = document.getElementById("prevEis");
+      const ek = document.getElementById("prevEk");
+      const syn = document.getElementById("prevSyn");
+      const ana = document.getElementById("prevAna");
+      const pros = document.getElementById("prevPros");
+      const apo = document.getElementById("prevApo");
+      const epi = document.getElementById("prevEpi");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("preverbioResult");
+          if (expected === currentPreverbio.preverb) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPreverbio.preverb} + ${currentPreverbio.base})</span>`;
+            setTimeout(loadPreverbioQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentPreverbio.preverb}</span>`;
+          }
+        });
+      };
+      check(eis, "εἰς");
+      check(ek, "ἐκ");
+      check(syn, "σύν");
+      check(ana, "ἀνά");
+      check(pros, "πρός");
+      check(apo, "ἀπό");
+      check(epi, "ἐπί");
+    }
+
+    function loadDeduceCompQuiz() {
+      const randomIndex = Math.floor(Math.random() * deduceCompExamples.length);
+      currentDeduceComp = deduceCompExamples[randomIndex];
+      const container = document.getElementById("deduceCompQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Deduce el significado de <span class="greek-word">${currentDeduceComp.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Preverbio: ${currentDeduceComp.preverb} · Base: ${currentDeduceComp.base}</span><br>
+      <input type="text" id="deduceCompAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkDeduceComp" class="btn-reveal">Verificar</button>
+      <div id="deduceCompResult"></div></div>`;
+      document.getElementById("checkDeduceComp").addEventListener("click", () => {
+        const answer = document.getElementById("deduceCompAnswer").value.trim().toLowerCase();
+        const correct = currentDeduceComp.meaning.toLowerCase();
+        const result = document.getElementById("deduceCompResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDeduceComp.meaning})</span>`;
+          setTimeout(loadDeduceCompQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentDeduceComp.meaning}</span>`;
+        }
+      });
+    }
+
+    function loadTransCompQuiz() {
+      const randomIndex = Math.floor(Math.random() * transCompPhrases.length);
+      currentTransComp = transCompPhrases[randomIndex];
+      const container = document.getElementById("transCompQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransComp.greek}</span><br>
+      <input type="text" id="transCompAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransComp" class="btn-reveal">Verificar</button>
+      <div id="transCompResult"></div></div>`;
+      document.getElementById("checkTransComp").addEventListener("click", () => {
+        const answer = document.getElementById("transCompAnswer").value.trim().toLowerCase();
+        const correct = currentTransComp.translation.toLowerCase();
+        const result = document.getElementById("transCompResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransComp.analysis})</span>`;
+          setTimeout(loadTransCompQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransComp.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Preverbio que significa 'dentro' o 'hacia adentro'", opts: ["εἰς", "ἐκ", "σύν", "ἀνά"], correct: 0 },
+      { q: "Preverbio que significa 'junto' o 'con'", opts: ["σύν", "ἀπό", "παρά", "περί"], correct: 0 },
+      { q: "Verbo compuesto formado por σύν + ἄγω", opts: ["συνάγω", "εἰσάγω", "ἐξάγω", "προάγω"], correct: 0 },
+      { q: "Verbo compuesto formado por ἐκ + βάλλω", opts: ["ἐκβάλλω", "εἰσβάλλω", "ἀναβάλλω", "καταβάλλω"], correct: 0 },
+      { q: "Significado de ἀναφέρω", opts: ["llevar arriba, ofrecer", "llevar abajo", "llevar hacia", "llevar fuera"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkDeduceComp" || btn.id === "checkTransComp" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#preverbioQuizArea") || btn.closest("#deduceCompQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadPreverbioQuiz();
+      loadDeduceCompQuiz();
+      loadTransCompQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newPreverbioQuiz")?.addEventListener("click", () => {
+        loadPreverbioQuiz();
+        document.getElementById("preverbioFeedback").innerHTML = "";
+      });
+      document.getElementById("newDeduceCompQuiz")?.addEventListener("click", () => {
+        loadDeduceCompQuiz();
+        document.getElementById("deduceCompFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransCompQuiz")?.addEventListener("click", () => {
+        loadTransCompQuiz();
+        document.getElementById("transCompFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

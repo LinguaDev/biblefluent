@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 46: Sintaxis de la Oración</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 66%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .syntax-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .clause-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .diagram-icon { font-size: 1.2rem; margin-right: 0.5rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-45.html"><i class="fas fa-arrow-left"></i> Lección 45</a>
+        <a href="leccion-47.html"><i class="fas fa-arrow-right"></i> Lección 47</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-diagram-project"></i> Lección 46 · Sintaxis de la Oración <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Cláusulas nominales, verbales y relativas · Subordinación (temporal, causal, concesiva, final, consecutiva, condicional) · Hipotaxis vs. parataxis</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 920/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Sintaxis de la oración en griego: cláusulas y subordinación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: La estructura de la oración en el NT – cláusulas nominales, verbales y relativas</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. La estructura de la oración en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>sintaxis de la oración</strong> estudia cómo se combinan las palabras para formar oraciones con sentido completo. En griego, la estructura se basa en la <strong>relación entre cláusulas</strong>.</p>
+          <div class="syntax-box">
+            <i class="fas fa-lightbulb"></i> <strong>Definiciones clave:</strong>
+            <ul>
+              <li><strong>Cláusula:</strong> grupo de palabras con un verbo (implícito o explícito).</li>
+              <li><strong>Oración simple:</strong> una sola cláusula independiente.</li>
+              <li><strong>Oración compuesta:</strong> dos o más cláusulas unidas por coordinación o subordinación.</li>
+              <li><strong>Parataxis:</strong> coordinación de cláusulas (una tras otra).</li>
+              <li><strong>Hipotaxis:</strong> subordinación de una cláusula a otra (jerarquía).</li>
+            </ul>
+          </div>
+          <p><strong>Importancia exegética:</strong> Comprender la estructura oracional es esencial para seguir el argumento de Pablo, entender las narraciones de los Evangelios y captar el flujo retórico de todo el NT.</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">ἐν ἀρχῇ ἦν ὁ λόγος</span> (Juan 1:1) – oración simple (cláusula nominal con εἰμί).<br>
+            <span class="greek-word">ὁ λόγος σὰρξ ἐγένετο καὶ ἐσκήνωσεν ἐν ἡμῖν</span> (Juan 1:14) – coordinación (parataxis) con καί.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: CLÁUSULAS NOMINALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user-tag"></i> 2. Cláusulas nominales (con εἰμί y otros copulativos)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las <strong>cláusulas nominales</strong> son aquellas cuyo núcleo es un <strong>verbo copulativo</strong> (εἰμί, γίνομαι, ὑπάρχω, etc.) que une un <strong>sujeto</strong> con un <strong>predicado nominal</strong> (en nominativo).</p>
+          <div class="clause-box">
+            <i class="fas fa-arrow-right"></i> <strong>Estructura:</strong> Sujeto (nom.) + Verbo copulativo + Predicado (nom.)<br>
+            <strong>Función:</strong> identifica, define o describe al sujeto.
+          </div>
+          <p><strong>Ejemplos en el NT:</strong></p>
+          <ul>
+            <li><span class="greek-word">ὁ θεὸς φῶς ἐστιν</span> – "Dios es luz" (1 Juan 1:5).</li>
+            <li><span class="greek-word">ἐγώ εἰμι τὸ φῶς τοῦ κόσμου</span> – "Yo soy la luz del mundo" (Juan 8:12).</li>
+            <li><span class="greek-word">ὁ λόγος σὰρξ ἐγένετο</span> – "El Verbo se hizo carne" (Juan 1:14).</li>
+          </ul>
+          <div class="syntax-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota:</strong> Las cláusulas nominales pueden tener el verbo <strong>implícito</strong> (elíptico) cuando es εἰμί, especialmente en frases proverbiales o títulos.
+          </div>
+          <button class="btn-reveal" data-target="nominalEj">Identifica la cláusula nominal</button>
+          <div id="nominalEj" class="answer-text">
+            <span class="greek-word">ἡ ἀγάπη ἐκ τοῦ θεοῦ ἐστιν</span> – "el amor es de Dios" (1 Juan 4:7).<br>
+            <span class="greek-word">σύ εἶ ὁ Χριστός</span> – "tú eres el Cristo" (Marcos 8:29).<br>
+            <span class="greek-word">μακάριοι οἱ πτωχοὶ τῷ πνεύματι</span> – "bienaventurados los pobres en espíritu" (el verbo está implícito).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: CLÁUSULAS VERBALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-running"></i> 3. Cláusulas verbales (con verbos de acción)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las <strong>cláusulas verbales</strong> tienen como núcleo un <strong>verbo de acción</strong> (no copulativo). Son el tipo más común en el NT.</p>
+          <div class="clause-box">
+            <i class="fas fa-arrow-right"></i> <strong>Estructura:</strong> Sujeto (nom.) + Verbo (con o sin objeto)<br>
+            <strong>Función:</strong> expresa una acción realizada por el sujeto.
+          </div>
+          <p><strong>Ejemplos en el NT:</strong></p>
+          <ul>
+            <li><span class="greek-word">ἠγάπησεν ὁ θεὸς τὸν κόσμον</span> – "Dios amó al mundo" (Juan 3:16).</li>
+            <li><span class="greek-word">Ἰησοῦς ἐβαπτίσθη</span> – "Jesús fue bautizado" (Mateo 3:13).</li>
+            <li><span class="greek-word">ἔγραψεν ὁ Ἰωάννης</span> – "Juan escribió" (Apocalipsis 1:1).</li>
+          </ul>
+          <div class="syntax-box">
+            <strong><i class="fas fa-lightbulb"></i> Clasificación por transitividad:</strong>
+            <ul>
+              <li><strong>Transitivos:</strong> requieren objeto directo en acusativo.</li>
+              <li><strong>Intransitivos:</strong> no requieren objeto.</li>
+              <li><strong>Deponentes:</strong> forma media/pasiva con significado activo.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="verbalEj">Identifica cláusulas verbales</button>
+          <div id="verbalEj" class="answer-text">
+            <span class="greek-word">ἔρχεται ὁ κύριος</span> – "el Señor viene" (intransitivo).<br>
+            <span class="greek-word">κηρύσσω τὸ εὐαγγέλιον</span> – "predico el evangelio" (transitivo).<br>
+            <span class="greek-word">ἀποκρίνομαι τῷ Ἰησοῦ</span> – "respondo a Jesús" (deponente con dativo).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: CLÁUSULAS RELATIVAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-link"></i> 4. Cláusulas relativas (con ὅς, ἥ, ὅ)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las <strong>cláusulas relativas</strong> son oraciones subordinadas introducidas por un <strong>pronombre relativo</strong> (ὅς, ἥ, ὅ) que se refiere a un antecedente en la cláusula principal.</p>
+          <div class="clause-box">
+            <i class="fas fa-arrow-right"></i> <strong>Estructura:</strong> Antecedente (en la principal) + Pronombre relativo (concuerda en género y número) + Cláusula relativa.<br>
+            <strong>Función:</strong> modifica o identifica al antecedente.
+          </div>
+          <p><strong>Regla de concordancia:</strong> El pronombre relativo concuerda con el antecedente en <strong>género y número</strong>, pero su <strong>caso</strong> depende de su función dentro de la cláusula relativa.</p>
+          <p><strong>Ejemplos en el NT:</strong></p>
+          <ul>
+            <li><span class="greek-word">πᾶς ὁ πιστεύων εἰς αὐτὸν</span> – "todo el que cree en él" (Juan 3:16).</li>
+            <li><span class="greek-word">ὁ θεὸς ὁ εἴπας</span> – "Dios, el que dijo" (2 Corintios 4:6).</li>
+            <li><span class="greek-word">ἃ ἑτοίμασεν ὁ θεός</span> – "lo que Dios preparó" (1 Corintios 2:9).</li>
+          </ul>
+          <div class="syntax-box">
+            <strong><i class="fas fa-lightbulb"></i> Atracción del relativo:</strong> A veces el pronombre relativo se atrae al caso del antecedente (fenómeno llamado "atracción del relativo").<br>
+            Ejemplo: <span class="greek-word">οὗ τὸ πνεῦμα</span> – "cuyo espíritu" (en lugar de ὅς).
+          </div>
+          <button class="btn-reveal" data-target="relativaEj">Analiza la cláusula relativa</button>
+          <div id="relativaEj" class="answer-text">
+            <span class="greek-word">ὁ λόγος ὃν εἶπον</span> – "la palabra que dije" (ὃν es acusativo porque es objeto de εἶπον).<br>
+            <span class="greek-word">τὸν θεὸν ὃν οὐκ εἴδετε</span> – "al Dios a quien no visteis" (ὃν es acusativo, objeto de εἴδετε).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: TIPOS DE SUBORDINACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 5. Tipos de subordinación en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las cláusulas subordinadas se clasifican según la <strong>relación semántica</strong> que establecen con la principal.</p>
+
+          <h3>1. Cláusulas temporales</h3>
+          <p>Indican <strong>cuándo</strong> ocurre la acción principal.</p>
+          <div class="syntax-box">
+            <strong>Conjunciones:</strong> <span class="greek-word">ὅτε</span> (cuando), <span class="greek-word">ἕως</span> (hasta que), <span class="greek-word">ὡς</span> (cuando), <span class="greek-word">ἐπεί</span> (cuando, después que).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ὅτε ἦλθεν ὁ Ἰησοῦς</span> – "cuando Jesús vino".
+          </div>
+
+          <h3>2. Cláusulas causales</h3>
+          <p>Indican la <strong>razón o causa</strong> de la acción principal.</p>
+          <div class="syntax-box">
+            <strong>Conjunciones:</strong> <span class="greek-word">ὅτι</span> (porque), <span class="greek-word">γάρ</span> (pues), <span class="greek-word">ἐπεί</span> (puesto que), <span class="greek-word">διότι</span> (porque).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">οὕτως γὰρ ἠγάπησεν</span> – "porque tanto amó".
+          </div>
+
+          <h3>3. Cláusulas concesivas</h3>
+          <p>Indican una <strong>concesión</strong> o <strong>contraste</strong> ("a pesar de que").</p>
+          <div class="syntax-box">
+            <strong>Conjunciones:</strong> <span class="greek-word">καίτοι</span> (aunque), <span class="greek-word">εἰ καί</span> (aunque), <span class="greek-word">καίπερ</span> (aunque).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">καίπερ ὢν υἱός</span> – "aunque era Hijo" (Hebreos 5:8).
+          </div>
+
+          <h3>4. Cláusulas finales (de propósito)</h3>
+          <p>Indican el <strong>propósito o finalidad</strong> de la acción principal.</p>
+          <div class="syntax-box">
+            <strong>Conjunciones:</strong> <span class="greek-word">ἵνα</span> (para que), <span class="greek-word">ὅπως</span> (para que), <span class="greek-word">εἰς τό + inf.</span> (para).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἵνα πᾶς ὁ πιστεύων μὴ ἀπόληται</span> – "para que todo el que cree no perezca".
+          </div>
+
+          <h3>5. Cláusulas consecutivas</h3>
+          <p>Indican el <strong>resultado o consecuencia</strong> de la acción principal.</p>
+          <div class="syntax-box">
+            <strong>Conjunciones:</strong> <span class="greek-word">ὥστε</span> (de modo que), <span class="greek-word">ὡς</span> (que).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">οὕτως... ὥστε</span> – "tanto... que".
+          </div>
+
+          <h3>6. Cláusulas condicionales</h3>
+          <p>Establecen una <strong>condición</strong> para que se cumpla la principal.</p>
+          <div class="syntax-box">
+            <strong>Conjunciones:</strong> <span class="greek-word">εἰ</span> (si), <span class="greek-word">ἐάν</span> (si, con subjuntivo).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἐὰν ἀγαπᾶτέ με</span> – "si me amáis" (Juan 14:15).
+          </div>
+          <button class="btn-reveal" data-target="subordinacionEj">Identifica el tipo de subordinación</button>
+          <div id="subordinacionEj" class="answer-text">
+            <span class="greek-word">ἵνα πιστεύητε</span> – final (propósito).<br>
+            <span class="greek-word">ὅτε ἦν ἐν τῷ κόσμῳ</span> – temporal.<br>
+            <span class="greek-word">ὅτι ἠγάπησεν</span> – causal.<br>
+            <span class="greek-word">εἰ καὶ πάσχοιτε</span> – concesiva/condicional.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: HIPOTAXIS VS. PARATAXIS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-balance-scale"></i> 6. Hipotaxis vs. parataxis: estilos del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Dos formas de organizar cláusulas dominan el NT:</p>
+
+          <h3>Parataxis (coordinación)</h3>
+          <p>Cláusulas <strong>yuxtapuestas</strong> o unidas por <span class="greek-word">καί</span>, <span class="greek-word">δέ</span>, <span class="greek-word">ἀλλά</span>. Es el estilo de <strong>Marcos</strong> y de los Evangelios sinópticos.</p>
+          <div class="syntax-box">
+            <strong>Características:</strong>
+            <ul>
+              <li>Oraciones cortas, simples.</li>
+              <li>Uso frecuente de <span class="greek-word">καί</span> ("y") y <span class="greek-word">δέ</span> ("y/pero").</li>
+              <li>Progresión narrativa lineal.</li>
+            </ul>
+            <strong>Ejemplo (Marcos 1:21):</strong> <span class="greek-word">καὶ εἰσπορεύονται εἰς Καφαρναούμ· καὶ εὐθὺς τοῖς σάββασιν εἰσελθὼν εἰς τὴν συναγωγὴν ἐδίδασκεν</span> – "Y entran en Cafarnaúm; y al instante, entrando en la sinagoga en sábado, enseñaba."
+          </div>
+
+          <h3>Hipotaxis (subordinación)</h3>
+          <p>Cláusulas <strong>jerarquizadas</strong> con subordinación explícita. Es el estilo de <strong>Pablo</strong>, <strong>Hebreos</strong> y el <strong>Prólogo de Juan</strong>.</p>
+          <div class="syntax-box">
+            <strong>Características:</strong>
+            <ul>
+              <li>Oraciones largas y complejas.</li>
+              <li>Uso de partículas subordinantes (ὅτι, ἵνα, ὥστε, etc.).</li>
+              <li>Participios y genitivos absolutos.</li>
+            </ul>
+            <strong>Ejemplo (Efesios 1:3-14):</strong> Una sola oración de 12 versículos en griego, con múltiples cláusulas subordinadas (participios, cláusulas relativas, finales).
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Aplicación exegética:</strong> Al leer un texto, identifica si es predominantemente <strong>paratáctico</strong> (narrativo, simple) o <strong>hipotáctico</strong> (argumentativo, complejo). Esto te ayudará a seguir el flujo del autor.
+          </div>
+          <button class="btn-reveal" data-target="hipoParaEj">Compara estilos</button>
+          <div id="hipoParaEj" class="answer-text">
+            <strong>Parataxis (Marcos):</strong> <span class="greek-word">καὶ ἦλθεν καὶ ἔλαβεν</span> – "y vino y tomó".<br>
+            <strong>Hipotaxis (Pablo):</strong> <span class="greek-word">εἰδότες ὅτι... ἵνα...</span> – "sabiendo que... para que...".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Términos sintácticos y estructurales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender la estructura del discurso y la sintaxis del NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Romanos 8:28-30:</strong> <span class="greek-word">οἴδαμεν δὲ ὅτι πάντα συνεργεῖ εἰς ἀγαθὸν τοῖς ἀγαπῶσιν τὸν θεόν, τοῖς κατὰ πρόθεσιν κλητοῖς οὖσιν. ὅτι οὓς προέγνω, καὶ προώρισεν συμμόρφους τῆς εἰκόνος τοῦ υἱοῦ αὐτοῦ, εἰς τὸ εἶναι αὐτὸν πρωτότοκον ἐν πολλοῖς ἀδελφοῖς· οὓς δὲ προώρισεν, τούτους καὶ ἐκάλεσεν· καὶ οὓς ἐκάλεσεν, τούτους καὶ ἐδικαίωσεν· οὓς δὲ ἐδικαίωσεν, τούτους καὶ ἐδόξασεν.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL TIPO DE CLÁUSULA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el tipo de cláusula</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="clausulaQuizArea"></div>
+          <button id="newClausulaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="clausulaFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – IDENTIFICA LA SUBORDINACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 9. Identifica el tipo de subordinación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="subordQuizArea"></div>
+          <button id="newSubordQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="subordFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – TRADUCCIÓN Y ANÁLISIS SINTÁCTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 10. Traduce y analiza la estructura oracional</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transSyntaxQuizArea"></div>
+          <button id="newTransSyntaxQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transSyntaxFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – JUAN 1:1-5 Y ROMANOS 8:28-30 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Lectura programada · Juan 1:1-5 y Romanos 8:28-30</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica los tipos de cláusulas y la estructura oracional.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:1 – ἐν ἀρχῇ ἦν ὁ λόγος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</span></p>
+              <button class="btn-reveal" data-target="jn1_1">¿Qué tipo de cláusulas predominan?</button>
+              <div id="jn1_1" class="answer-text">Cláusulas nominales (con εἰμί) en una estructura paratáctica (coordinadas con καί).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:4 – ἡ ζωὴ ἦν τὸ φῶς</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐν αὐτῷ ζωὴ ἦν, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων</span></p>
+              <button class="btn-reveal" data-target="jn1_4">¿Qué tipo de cláusula es <strong>ἡ ζωὴ ἦν τὸ φῶς</strong>?</button>
+              <div id="jn1_4" class="answer-text">Cláusula nominal: sujeto (ἡ ζωὴ) + verbo copulativo (ἦν) + predicado (τὸ φῶς).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 8:28 – οἴδαμεν δὲ ὅτι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οἴδαμεν δὲ ὅτι πάντα συνεργεῖ εἰς ἀγαθὸν τοῖς ἀγαπῶσιν τὸν θεόν</span></p>
+              <button class="btn-reveal" data-target="rm8_28">¿Qué tipo de subordinación introduce <strong>ὅτι</strong>?</button>
+              <div id="rm8_28" class="answer-text">Cláusula sustantiva (objeto de οἴδαμεν) – es una cláusula nominal en función de objeto directo.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 8:29-30 – οὓς προέγνω... προώρισεν... ἐκάλεσεν... ἐδικαίωσεν... ἐδόξασεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οὓς προέγνω, καὶ προώρισεν... οὓς δὲ προώρισεν, τούτους καὶ ἐκάλεσεν...</span></p>
+              <button class="btn-reveal" data-target="rm8_29">¿Qué estructura retórica usa Pablo aquí?</button>
+              <div id="rm8_29" class="answer-text">Una <strong>cadena de cláusulas relativas</strong> (οὓς... οὓς... οὓς) que forman una progresión lógica: los que Dios conoció, predestinó, llamó, justificó y glorificó.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la identificación de cláusulas nominales, verbales y relativas. Lee Juan 1:1-18 y Romanos 8:28-39 en griego, marcando cada cláusula y su función.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-45.html"><i class="fas fa-arrow-left"></i> Lección 45</a>
+      <a href="leccion-47.html"><i class="fas fa-arrow-right"></i> Lección 47</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἐν ἀρχῇ ἦν ὁ λόγος</span> (Juan 1:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 46 ==========
+    const vocabData = [
+      { greek: "λογισμός", translit: "logismos", spanish: "razonamiento, argumento", note: "sustantivo" },
+      { greek: "ὑποτάσσω", translit: "hypotassō", spanish: "sujetar, someter", note: "verbo" },
+      { greek: "ὑπακοή", translit: "hypakoē", spanish: "obediencia", note: "sustantivo" },
+      { greek: "παρακοή", translit: "parakoē", spanish: "desobediencia", note: "sustantivo" },
+      { greek: "ἀνυπότακτος", translit: "anypotaktos", spanish: "rebelde, insubordinado", note: "adjetivo" },
+      { greek: "στρατεία", translit: "strateia", spanish: "campaña militar", note: "sustantivo" },
+      { greek: "ὅπλον", translit: "hoplon", spanish: "arma, herramienta", note: "sustantivo" },
+      { greek: "πανοπλία", translit: "panoplia", spanish: "armadura completa", note: "sustantivo" },
+      { greek: "ἀντίπαλος", translit: "antipalos", spanish: "adversario", note: "sustantivo" },
+      { greek: "ἀντίδικος", translit: "antidikos", spanish: "oponente legal", note: "sustantivo" },
+      { greek: "νικητής", translit: "nikētēs", spanish: "vencedor", note: "sustantivo" },
+      { greek: "τρόπαιον", translit: "tropaion", spanish: "trofeo", note: "sustantivo" },
+      { greek: "στεφανόω", translit: "stephanōō", spanish: "coronar", note: "verbo" },
+      { greek: "στέφανος", translit: "stephanos", spanish: "corona (de laurel)", note: "sustantivo" },
+      { greek: "διάδημα", translit: "diadēma", spanish: "diadema (real)", note: "sustantivo" },
+      { greek: "ἆθλον", translit: "athlon", spanish: "premio, recompensa", note: "sustantivo" },
+      { greek: "βραβεῖον", translit: "brabeion", spanish: "premio deportivo", note: "sustantivo" },
+      { greek: "ἀγών", translit: "agōn", spanish: "lucha, certamen", note: "sustantivo" },
+      { greek: "ἀθλέω", translit: "athleō", spanish: "competir, luchar", note: "verbo" },
+      { greek: "τρέχω", translit: "trechō", spanish: "correr", note: "verbo" }
+    ];
+
+    // Ejemplos para identificar tipo de cláusula
+    const clausulaExamples = [
+      { phrase: "ὁ θεὸς φῶς ἐστιν", type: "nominal", translation: "Dios es luz" },
+      { phrase: "ἠγάπησεν ὁ θεὸς τὸν κόσμον", type: "verbal", translation: "Dios amó al mundo" },
+      { phrase: "ὁ λόγος ὃν εἶπον", type: "relativa", translation: "la palabra que dije" },
+      { phrase: "σύ εἶ ὁ Χριστός", type: "nominal", translation: "tú eres el Cristo" },
+      { phrase: "κηρύσσω τὸ εὐαγγέλιον", type: "verbal", translation: "predico el evangelio" },
+      { phrase: "τὸν θεὸν ὃν οὐκ εἴδετε", type: "relativa", translation: "al Dios a quien no visteis" }
+    ];
+
+    // Ejemplos para identificar tipo de subordinación
+    const subordExamples = [
+      { phrase: "ὅτε ἦλθεν ὁ Ἰησοῦς", type: "temporal", translation: "cuando Jesús vino" },
+      { phrase: "οὕτως γὰρ ἠγάπησεν", type: "causal", translation: "porque tanto amó" },
+      { phrase: "ἵνα πᾶς ὁ πιστεύων μὴ ἀπόληται", type: "final", translation: "para que todo el que cree no perezca" },
+      { phrase: "ὥστε πάντας σωθῆναι", type: "consecutiva", translation: "de modo que todos sean salvos" },
+      { phrase: "ἐὰν ἀγαπᾶτέ με", type: "condicional", translation: "si me amáis" },
+      { phrase: "καίπερ ὢν υἱός", type: "concesiva", translation: "aunque era Hijo" }
+    ];
+
+    // Frases para traducción y análisis sintáctico
+    const transSyntaxPhrases = [
+      { greek: "ὁ θεὸς φῶς ἐστιν", translation: "Dios es luz", analysis: "cláusula nominal" },
+      { greek: "ἠγάπησεν ὁ θεὸς τὸν κόσμον", translation: "Dios amó al mundo", analysis: "cláusula verbal" },
+      { greek: "ὁ λόγος ὃν εἶπον", translation: "la palabra que dije", analysis: "cláusula relativa" },
+      { greek: "ἵνα πιστεύητε", translation: "para que creáis", analysis: "cláusula final" },
+      { greek: "ὅτι ἠγάπησεν", translation: "porque amó", analysis: "cláusula causal" },
+      { greek: "ὅτε ἦν ἐν τῷ κόσμῳ", translation: "cuando estaba en el mundo", analysis: "cláusula temporal" }
+    ];
+
+    let currentClausula = clausulaExamples[0];
+    let currentSubord = subordExamples[0];
+    let currentTransSyntax = transSyntaxPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadClausulaQuiz() {
+      const randomIndex = Math.floor(Math.random() * clausulaExamples.length);
+      currentClausula = clausulaExamples[randomIndex];
+      const container = document.getElementById("clausulaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué tipo de cláusula es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentClausula.phrase}</span><br>
+      <button id="clausNom" class="btn-reveal">Nominal</button> <button id="clausVerb" class="btn-reveal">Verbal</button>
+      <button id="clausRel" class="btn-reveal">Relativa</button>
+      <div id="clausulaResult"></div></div>`;
+      const nom = document.getElementById("clausNom");
+      const verb = document.getElementById("clausVerb");
+      const rel = document.getElementById("clausRel");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("clausulaResult");
+          if (expected === currentClausula.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentClausula.translation})</span>`;
+            setTimeout(loadClausulaQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentClausula.type}</span>`;
+          }
+        });
+      };
+      check(nom, "nominal");
+      check(verb, "verbal");
+      check(rel, "relativa");
+    }
+
+    function loadSubordQuiz() {
+      const randomIndex = Math.floor(Math.random() * subordExamples.length);
+      currentSubord = subordExamples[randomIndex];
+      const container = document.getElementById("subordQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué tipo de subordinación es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentSubord.phrase}</span><br>
+      <button id="subTemp" class="btn-reveal">Temporal</button> <button id="subCaus" class="btn-reveal">Causal</button>
+      <button id="subFin" class="btn-reveal">Final</button> <button id="subConsec" class="btn-reveal">Consecutiva</button>
+      <button id="subCond" class="btn-reveal">Condicional</button> <button id="subConc" class="btn-reveal">Concesiva</button>
+      <div id="subordResult"></div></div>`;
+      const temp = document.getElementById("subTemp");
+      const caus = document.getElementById("subCaus");
+      const fin = document.getElementById("subFin");
+      const consec = document.getElementById("subConsec");
+      const cond = document.getElementById("subCond");
+      const conc = document.getElementById("subConc");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("subordResult");
+          if (expected === currentSubord.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentSubord.translation})</span>`;
+            setTimeout(loadSubordQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentSubord.type}</span>`;
+          }
+        });
+      };
+      check(temp, "temporal");
+      check(caus, "causal");
+      check(fin, "final");
+      check(consec, "consecutiva");
+      check(cond, "condicional");
+      check(conc, "concesiva");
+    }
+
+    function loadTransSyntaxQuiz() {
+      const randomIndex = Math.floor(Math.random() * transSyntaxPhrases.length);
+      currentTransSyntax = transSyntaxPhrases[randomIndex];
+      const container = document.getElementById("transSyntaxQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransSyntax.greek}</span><br>
+      <input type="text" id="transSyntaxAnswer" placeholder="traducción + análisis..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransSyntax" class="btn-reveal">Verificar</button>
+      <div id="transSyntaxResult"></div></div>`;
+      document.getElementById("checkTransSyntax").addEventListener("click", () => {
+        const answer = document.getElementById("transSyntaxAnswer").value.trim().toLowerCase();
+        const correct = currentTransSyntax.translation.toLowerCase();
+        const analysis = currentTransSyntax.analysis.toLowerCase();
+        const result = document.getElementById("transSyntaxResult");
+        if (answer.includes(correct) && answer.includes(analysis)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransSyntax.translation} – ${currentTransSyntax.analysis})</span>`;
+          setTimeout(loadTransSyntaxQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransSyntax.translation} – ${currentTransSyntax.analysis}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Cláusula cuyo núcleo es un verbo copulativo (εἰμί, γίνομαι)", opts: ["Nominal", "Verbal", "Relativa", "Adverbial"], correct: 0 },
+      { q: "Cláusula introducida por un pronombre relativo (ὅς, ἥ, ὅ)", opts: ["Relativa", "Nominal", "Verbal", "Causal"], correct: 0 },
+      { q: "Subordinación que expresa propósito (ἵνα, ὅπως)", opts: ["Final", "Causal", "Temporal", "Consecutiva"], correct: 0 },
+      { q: "Subordinación que expresa causa (ὅτι, γάρ)", opts: ["Causal", "Final", "Temporal", "Concesiva"], correct: 0 },
+      { q: "Estilo de Marcos: oraciones cortas unidas con καί", opts: ["Parataxis", "Hipotaxis", "Hipotaxis compleja", "Subordinación"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransSyntax" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#clausulaQuizArea") || btn.closest("#subordQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadClausulaQuiz();
+      loadSubordQuiz();
+      loadTransSyntaxQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newClausulaQuiz")?.addEventListener("click", () => {
+        loadClausulaQuiz();
+        document.getElementById("clausulaFeedback").innerHTML = "";
+      });
+      document.getElementById("newSubordQuiz")?.addEventListener("click", () => {
+        loadSubordQuiz();
+        document.getElementById("subordFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransSyntaxQuiz")?.addEventListener("click", () => {
+        loadTransSyntaxQuiz();
+        document.getElementById("transSyntaxFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

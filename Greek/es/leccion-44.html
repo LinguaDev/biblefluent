@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 44: El Aspecto Verbal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 63%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .aspect-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .exegetical-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .aspect-icon { font-size: 1.2rem; margin-right: 0.5rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-43.html"><i class="fas fa-arrow-left"></i> Lección 43</a>
+        <a href="leccion-45.html"><i class="fas fa-arrow-right"></i> Lección 45</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-clock"></i> Lección 44 · El Aspecto Verbal <span class="hero-badge">Módulo IV · Consolidación</span></h1>
+      <p>Tiempo vs. Aspecto · Los tres aspectos: lineal, puntual y estado resultante · Aoristo gnómico y epistolar · Casos exegéticos clave</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 880/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/4XxZ6ZxXzZ4" title="El aspecto verbal en griego: tiempo vs. aspecto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: La distinción entre tiempo y aspecto en el sistema verbal griego</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Tiempo vs. Aspecto: la clave del sistema verbal griego</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Una de las diferencias más profundas entre el griego y el español es que el <strong>sistema verbal griego</strong> se organiza principalmente en torno al <strong>aspecto</strong>, no al tiempo.</p>
+          <div class="aspect-box">
+            <i class="fas fa-lightbulb"></i> <strong>Distinción fundamental:</strong>
+            <ul>
+              <li><strong>Tiempo (chronos):</strong> cuándo ocurre la acción (pasado, presente, futuro).</li>
+              <li><strong>Aspecto (eidos):</strong> cómo se presenta la acción (en progreso, completada puntualmente, o como estado resultante).</li>
+            </ul>
+          </div>
+          <p><strong>Implicación exegética:</strong> La elección de un tiempo verbal en griego dice más sobre el <strong>aspecto</strong> que sobre el <strong>tiempo cronológico</strong>. Esto es crucial para interpretar pasajes como <span class="greek-word">ἀγαπᾶτε</span> (presente: "amad continuamente") vs. <span class="greek-word">ἀγαπήσατε</span> (aoristo: "amad en un momento dado").</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">γράφω</span> (presente) = "estoy escribiendo" (aspecto lineal).<br>
+            <span class="greek-word">ἔγραψα</span> (aoristo) = "escribí" (aspecto puntual).<br>
+            <span class="greek-word">γέγραφα</span> (perfecto) = "he escrito" (aspecto de estado resultante).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: LOS TRES ASPECTOS VERBALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Los tres aspectos del sistema verbal griego</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El griego tiene <strong>tres aspectos</strong> principales, que se expresan a través de diferentes tiempos:</p>
+
+          <h3>1. Aspecto lineal (progresivo, continuo)</h3>
+          <p>Presenta la acción como <strong>en proceso</strong>, sin referencia a su inicio o fin.</p>
+          <div class="aspect-box">
+            <i class="fas fa-spinner aspect-icon"></i> <strong>Expresado por:</strong> presente e imperfecto.<br>
+            <strong>Traducción:</strong> "está haciendo", "solía hacer", "hace habitualmente".<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">γράφω</span> – "estoy escribiendo" / "escribo (habitualmente)".
+          </div>
+
+          <h3>2. Aspecto puntual (aoristo)</h3>
+          <p>Presenta la acción como <strong>un evento completo</strong>, visto desde fuera, sin interés en su duración.</p>
+          <div class="aspect-box">
+            <i class="fas fa-dot-circle aspect-icon"></i> <strong>Expresado por:</strong> aoristo (y ocasionalmente el futuro).<br>
+            <strong>Traducción:</strong> "hizo", "ha hecho" (acción completa).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἔγραψα</span> – "escribí" (acción completada en el pasado).
+          </div>
+
+          <h3>3. Aspecto de estado resultante (perfecto)</h3>
+          <p>Presenta la acción como <strong>completada en el pasado con un estado presente resultante</strong>.</p>
+          <div class="aspect-box">
+            <i class="fas fa-check-double aspect-icon"></i> <strong>Expresado por:</strong> perfecto y pluscuamperfecto.<br>
+            <strong>Traducción:</strong> "he hecho (y el resultado continúa)".<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">γέγραφα</span> – "he escrito" (y el escrito sigue existiendo).
+          </div>
+          <button class="btn-reveal" data-target="aspectosEj">Identifica el aspecto</button>
+          <div id="aspectosEj" class="answer-text">
+            <span class="greek-word">βαπτίζω</span> – aspecto lineal (estoy bautizando).<br>
+            <span class="greek-word">ἐβάπτισα</span> – aspecto puntual (bauticé).<br>
+            <span class="greek-word">βεβάπτισμαι</span> – estado resultante (he sido bautizado, y permanezco bautizado).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: EL PRESENTE Y EL IMPERFECTO – ASPECTO LINEAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-spinner"></i> 3. Presente e imperfecto: el aspecto lineal en acción</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El presente y el imperfecto comparten el <strong>aspecto lineal</strong>. La diferencia entre ellos es <strong>temporal</strong>: presente (ahora) vs. imperfecto (pasado).</p>
+          <div class="aspect-box">
+            <strong><i class="fas fa-lightbulb"></i> Aspecto lineal:</strong>
+            <ul>
+              <li>La acción se ve <strong>desde dentro</strong>, en su desarrollo.</li>
+              <li>No indica si la acción se completó o no.</li>
+              <li>Puede ser <strong>progresiva</strong> ("está haciendo") o <strong>habitual</strong> ("suele hacer").</li>
+            </ul>
+          </div>
+          <p><strong>Implicación exegética:</strong> Cuando Jesús dice <span class="greek-word">γινώσκετε</span> (Juan 8:32), está diciendo "estáis conociendo" o "conocéis" – una verdad que se está desarrollando, no un conocimiento puntual.</p>
+          <div class="card-highlight">
+            <strong>Ejemplos:</strong><br>
+            <span class="greek-word">ἔλεγεν</span> – "estaba diciendo" (imperfecto: acción en proceso en el pasado).<br>
+            <span class="greek-word">πιστεύετε</span> – "creéis" (presente: acción continua).
+          </div>
+          <button class="btn-reveal" data-target="linealEj">Conjuga en aspecto lineal</button>
+          <div id="linealEj" class="answer-text">
+            Presente: <span class="greek-word">λύω, λύεις, λύει, λύομεν, λύετε, λύουσι</span>.<br>
+            Imperfecto: <span class="greek-word">ἔλυον, ἔλυες, ἔλυε, ἐλύομεν, ἐλύετε, ἔλυον</span>.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: EL AORISTO – ASPECTO PUNTUAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-dot-circle"></i> 4. El aoristo: el aspecto puntual y sus usos exegéticos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>aoristo</strong> es el tiempo más común del NT. Su aspecto es <strong>puntual</strong>: ve la acción como un <strong>evento completo</strong>.</p>
+          <div class="aspect-box">
+            <strong><i class="fas fa-lightbulb"></i> Características del aoristo:</strong>
+            <ul>
+              <li>Ve la acción <strong>desde fuera</strong>, como un todo.</li>
+              <li>No dice <strong>cuánto duró</strong> la acción, solo que ocurrió.</li>
+              <li>Es el tiempo por defecto para la <strong>narración</strong> de eventos pasados.</li>
+            </ul>
+          </div>
+          <h3>Usos especiales del aoristo</h3>
+          <ul>
+            <li><strong>Aoristo gnómico:</strong> expresa una <strong>verdad general</strong> (máxima, proverbio).<br>
+              Ejemplo: <span class="greek-word">πᾶς γὰρ ὁ αἰτῶν λαμβάνει</span> – "porque todo el que pide, recibe" (Mateo 7:8) – aquí el presente es más común, pero el aoristo gnómico aparece en contextos de verdades atemporales.</li>
+            <li><strong>Aoristo epistolar:</strong> usado en cartas para referirse al <strong>momento de la escritura</strong> como si ya hubiera pasado.<br>
+              Ejemplo: <span class="greek-word">ἔγραψα</span> – "he escrito" (en cartas paulinas, puede referirse a la carta que está escribiendo).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo de aoristo epistolar:</strong><br>
+            <span class="greek-word">ἔγραψα ὑμῖν</span> – "os he escrito" (1 Juan 2:14) – se refiere a la carta que está escribiendo ahora.
+          </div>
+          <button class="btn-reveal" data-target="aoristoEj">Conjuga λύω en aoristo</button>
+          <div id="aoristoEj" class="answer-text">
+            <span class="greek-word">ἔλυσα, ἔλυσας, ἔλυσε, ἐλύσαμεν, ἐλύσατε, ἔλυσαν</span> (aoristo activo).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: EL PERFECTO – ESTADO RESULTANTE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-check-double"></i> 5. El perfecto: el aspecto de estado resultante</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>perfecto</strong> es único en el sistema verbal griego. No solo indica que la acción ocurrió, sino que <strong>sus efectos continúan en el presente</strong>.</p>
+          <div class="aspect-box">
+            <strong><i class="fas fa-lightbulb"></i> Características del perfecto:</strong>
+            <ul>
+              <li>Acción <strong>completada</strong> en el pasado.</li>
+              <li><strong>Estado presente</strong> que resulta de esa acción.</li>
+              <li>En el NT, es clave teológicamente: <span class="greek-word">γέγραπται</span> ("está escrito" – y sigue siendo autoritativo), <span class="greek-word">σεσωσμένοι</span> ("habéis sido salvados" – y seguís salvos).</li>
+            </ul>
+          </div>
+          <p><strong>Ejemplos clave en el NT:</strong></p>
+          <ul>
+            <li><span class="greek-word">γέγραπται</span> – "está escrito" (perfecto pasivo de γράφω).</li>
+            <li><span class="greek-word">τετέλεσται</span> – "está consumado" (Juan 19:30 – perfecto pasivo de τελέω).</li>
+            <li><span class="greek-word">ἐγήγερται</span> – "ha resucitado" (Mateo 28:6 – perfecto pasivo de ἐγείρω).</li>
+          </ul>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Teología del perfecto:</strong><br>
+            Cuando Pablo dice <span class="greek-word">σεσωσμένοι ἐστέ</span> (Efesios 2:8), está diciendo: "sois salvos (y permanecéis en estado de salvación)". Es un argumento contra la pérdida de la salvación.
+          </div>
+          <button class="btn-reveal" data-target="perfectoEj">Conjuga λύω en perfecto pasivo</button>
+          <div id="perfectoEj" class="answer-text">
+            <span class="greek-word">λέλυμαι, λέλυσαι, λέλυται, λελύμεθα, λέλυσθε, λέλυνται</span>.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: CASOS EXEGÉTICOS CLAVE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 6. Análisis exegético: Mateo 5:48, Romanos 6:2, 1 Juan 3:9</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Tres pasajes donde la interpretación del <strong>aspecto</strong> cambia radicalmente el significado teológico:</p>
+
+          <h3>Mateo 5:48 – Ἔσεσθε οὖν ὑμεῖς τέλειοι</h3>
+          <div class="exegetical-box">
+            <span class="greek-word">Ἔσεσθε οὖν ὑμεῖς τέλειοι, ὡς ὁ πατὴρ ὑμῶν ὁ οὐράνιος τέλειός ἐστιν.</span><br>
+            <strong>El verbo:</strong> <span class="greek-word">ἔσεσθε</span> – futuro de εἰμί (aspecto lineal en futuro).<br>
+            <strong>Interpretación:</strong> "Seréis perfectos" – no es un mandato de perfección instantánea, sino un <strong>proceso continuo</strong> de crecimiento hacia la perfección.
+          </div>
+
+          <h3>Romanos 6:2 – οἵτινες ἀπεθάνομεν τῇ ἁμαρτίᾳ</h3>
+          <div class="exegetical-box">
+            <span class="greek-word">οἵτινες ἀπεθάνομεν τῇ ἁμαρτίᾳ, πῶς ἔτι ζήσομεν ἐν αὐτῇ;</span><br>
+            <strong>El verbo:</strong> <span class="greek-word">ἀπεθάνομεν</span> – aoristo de ἀποθνήσκω (aspecto puntual).<br>
+            <strong>Interpretación:</strong> "Los que hemos muerto al pecado" – es una <strong>acción puntual</strong> que ocurrió en el pasado (en el bautismo). No es un proceso continuo, sino un evento único que cambia el estatus.
+          </div>
+
+          <h3>1 Juan 3:9 – πᾶς ὁ γεγεννημένος ἐκ τοῦ θεοῦ ἁμαρτίαν οὐ ποιεῖ</h3>
+          <div class="exegetical-box">
+            <span class="greek-word">πᾶς ὁ γεγεννημένος ἐκ τοῦ θεοῦ ἁμαρτίαν οὐ ποιεῖ, ὅτι σπέρμα αὐτοῦ ἐν αὐτῷ μένει</span><br>
+            <strong>El verbo:</strong> <span class="greek-word">γεγεννημένος</span> – perfecto pasivo de γεννάω (estado resultante).<br>
+            <strong>Interpretación:</strong> "Todo el que ha sido engendrado de Dios" – el perfecto indica un <strong>estado permanente</strong> de ser hijo de Dios. El que está en ese estado <strong>no practica el pecado</strong> (no es un acto aislado, sino una conducta habitual).
+          </div>
+          <button class="btn-reveal" data-target="exegeticosEj">Resumen de los tres casos</button>
+          <div id="exegeticosEj" class="answer-text">
+            <strong>Mateo 5:48:</strong> futuro con aspecto lineal → proceso de perfeccionamiento.<br>
+            <strong>Romanos 6:2:</strong> aoristo puntual → muerte al pecado como evento único.<br>
+            <strong>1 Juan 3:9:</strong> perfecto de estado → nuevo nacimiento como estado permanente.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Términos teológicos y aspectuales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender el debate teológico sobre la perfección, el pecado y la nueva vida.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>1 Juan 3:9:</strong> <span class="greek-word">πᾶς ὁ γεγεννημένος ἐκ τοῦ θεοῦ ἁμαρτίαν οὐ ποιεῖ</span> – "Todo el que ha nacido de Dios no practica el pecado".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL ASPECTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el aspecto verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="aspectoQuizArea"></div>
+          <button id="newAspectoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="aspectoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRANSFORMA EL ASPECTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sync-alt"></i> 9. Transforma el aspecto verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transformQuizArea"></div>
+          <button id="newTransformQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="transformFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – TRADUCCIÓN CON ASPECTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 10. Traduce considerando el aspecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transAspectQuizArea"></div>
+          <button id="newTransAspectQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transAspectFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – MATEO 5:48, ROMANOS 6:2, 1 JUAN 3:9 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Lectura programada · Mateo 5:48, Romanos 6:2, 1 Juan 3:9</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica el aspecto de cada verbo y su implicación teológica.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 5:48 – ἔσεσθε</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Ἔσεσθε οὖν ὑμεῖς τέλειοι, ὡς ὁ πατὴρ ὑμῶν ὁ οὐράνιος τέλειός ἐστιν.</span></p>
+              <button class="btn-reveal" data-target="mt5a">¿Qué aspecto tiene <strong>ἔσεσθε</strong>?</button>
+              <div id="mt5a" class="answer-text">Futuro de εἰμί – aspecto <strong>lineal</strong> (proceso continuo de llegar a ser perfectos).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 6:2 – ἀπεθάνομεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οἵτινες ἀπεθάνομεν τῇ ἁμαρτίᾳ, πῶς ἔτι ζήσομεν ἐν αὐτῇ;</span></p>
+              <button class="btn-reveal" data-target="rm6a">¿Qué aspecto tiene <strong>ἀπεθάνομεν</strong>?</button>
+              <div id="rm6a" class="answer-text">Aoristo de ἀποθνήσκω – aspecto <strong>puntual</strong> (la muerte al pecado es un evento único y completado).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Juan 3:9 – γεγεννημένος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πᾶς ὁ γεγεννημένος ἐκ τοῦ θεοῦ ἁμαρτίαν οὐ ποιεῖ</span></p>
+              <button class="btn-reveal" data-target="jn3a">¿Qué aspecto tiene <strong>γεγεννημένος</strong>?</button>
+              <div id="jn3a" class="answer-text">Perfecto pasivo de γεννάω – aspecto de <strong>estado resultante</strong> (el nuevo nacimiento es un estado permanente).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con aspecto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">γέγραφα ὑμῖν</span></p>
+              <button class="btn-reveal" data-target="transAspect">Traduce considerando el aspecto</button>
+              <div id="transAspect" class="answer-text">"Os he escrito" – perfecto de estado: el escrito permanece y sigue siendo relevante.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la transformación aspectual de verbos. Lee Mateo 5:48, Romanos 6:2 y 1 Juan 3:9 en griego. Reflexiona sobre cómo el aspecto afecta la interpretación teológica.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-43.html"><i class="fas fa-arrow-left"></i> Lección 43</a>
+      <a href="leccion-45.html"><i class="fas fa-arrow-right"></i> Lección 45</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">νυνὶ δὲ μένει πίστις, ἐλπίς, ἀγάπη</span> (1 Corintios 13:13)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 44 ==========
+    const vocabData = [
+      { greek: "τέλειος", translit: "teleios", spanish: "perfecto, maduro", note: "adjetivo" },
+      { greek: "τελειότης", translit: "teleiotēs", spanish: "perfección, madurez", note: "sustantivo" },
+      { greek: "τελέω", translit: "teleō", spanish: "completar", note: "verbo" },
+      { greek: "τελεσφορέω", translit: "telesphoreō", spanish: "dar fruto hasta madurar", note: "verbo" },
+      { greek: "ἐπιτελέω", translit: "epiteleō", spanish: "completar, acabar", note: "verbo" },
+      { greek: "νήπιος", translit: "nēpios", spanish: "infante, niño espiritual", note: "adjetivo" },
+      { greek: "αὐξάνω", translit: "auxanō", spanish: "crecer", note: "verbo" },
+      { greek: "προκόπτω", translit: "prokoptō", spanish: "avanzar, progresar", note: "verbo" },
+      { greek: "ἀνανεόω", translit: "ananeoō", spanish: "renovar", note: "verbo" },
+      { greek: "μεταμορφόω", translit: "metamorphoō", spanish: "transformar", note: "verbo" },
+      { greek: "ἀνακαινίζω", translit: "anakainizō", spanish: "renovar completamente", note: "verbo" },
+      { greek: "μεταστρέφω", translit: "metastrephō", spanish: "cambiar, transformar", note: "verbo" },
+      { greek: "ἐπιστροφή", translit: "epistrophē", spanish: "conversión, vuelta", note: "sustantivo" },
+      { greek: "ἀγωγή", translit: "agōgē", spanish: "conducta, modo de vida", note: "sustantivo" },
+      { greek: "ἀναστροφή", translit: "anastrophē", spanish: "modo de vida, conducta", note: "sustantivo" },
+      { greek: "πολίτευμα", translit: "politeuma", spanish: "ciudadanía, manera de vivir", note: "sustantivo" },
+      { greek: "βίος", translit: "bios", spanish: "vida (modo de vida)", note: "sustantivo" },
+      { greek: "ζωή", translit: "zōē", spanish: "vida (vida eterna)", note: "sustantivo" },
+      { greek: "ψυχή", translit: "psychē", spanish: "alma", note: "sustantivo" },
+      { greek: "πνεῦμα", translit: "pneuma", spanish: "espíritu", note: "sustantivo" }
+    ];
+
+    // Ejemplos para identificar aspecto
+    const aspectoExamples = [
+      { form: "γράφω", aspect: "lineal", translation: "escribo / estoy escribiendo" },
+      { form: "ἔγραψα", aspect: "puntual", translation: "escribí" },
+      { form: "γέγραφα", aspect: "estado resultante", translation: "he escrito (y permanece)" },
+      { form: "βαπτίζω", aspect: "lineal", translation: "bautizo / estoy bautizando" },
+      { form: "ἐβάπτισα", aspect: "puntual", translation: "bauticé" },
+      { form: "βεβάπτισμαι", aspect: "estado resultante", translation: "he sido bautizado" },
+      { form: "λύω", aspect: "lineal", translation: "desato / estoy desatando" },
+      { form: "ἔλυσα", aspect: "puntual", translation: "desaté" },
+      { form: "λέλυμαι", aspect: "estado resultante", translation: "he sido desatado" }
+    ];
+
+    // Ejemplos para transformación aspectual
+    const transformExamples = [
+      { base: "γράφω", transform: "ἔγραψα", aspect: "lineal → puntual" },
+      { base: "γράφω", transform: "γέγραφα", aspect: "lineal → estado resultante" },
+      { base: "βαπτίζω", transform: "ἐβάπτισα", aspect: "lineal → puntual" },
+      { base: "βαπτίζω", transform: "βεβάπτισμαι", aspect: "lineal → estado resultante" },
+      { base: "λύω", transform: "ἔλυσα", aspect: "lineal → puntual" },
+      { base: "λύω", transform: "λέλυμαι", aspect: "lineal → estado resultante" }
+    ];
+
+    // Frases para traducción con aspecto
+    const transAspectPhrases = [
+      { greek: "γράφω", translation: "escribo / estoy escribiendo", aspect: "lineal" },
+      { greek: "ἔγραψα", translation: "escribí", aspect: "puntual" },
+      { greek: "γέγραφα", translation: "he escrito (y permanece)", aspect: "estado resultante" },
+      { greek: "βαπτίζω", translation: "bautizo", aspect: "lineal" },
+      { greek: "ἐβάπτισα", translation: "bauticé", aspect: "puntual" },
+      { greek: "βεβάπτισμαι", translation: "he sido bautizado", aspect: "estado resultante" }
+    ];
+
+    let currentAspecto = aspectoExamples[0];
+    let currentTransform = transformExamples[0];
+    let currentTransAspect = transAspectPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadAspectoQuiz() {
+      const randomIndex = Math.floor(Math.random() * aspectoExamples.length);
+      currentAspecto = aspectoExamples[randomIndex];
+      const container = document.getElementById("aspectoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué aspecto tiene <span class="greek-word">${currentAspecto.form}</span>?</strong><br>
+      <button id="aspLineal" class="btn-reveal">Lineal</button> <button id="aspPuntual" class="btn-reveal">Puntual</button>
+      <button id="aspEstado" class="btn-reveal">Estado resultante</button>
+      <div id="aspectoResult"></div></div>`;
+      const lineal = document.getElementById("aspLineal");
+      const puntual = document.getElementById("aspPuntual");
+      const estado = document.getElementById("aspEstado");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("aspectoResult");
+          if (expected === currentAspecto.aspect) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentAspecto.translation})</span>`;
+            setTimeout(loadAspectoQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentAspecto.aspect}</span>`;
+          }
+        });
+      };
+      check(lineal, "lineal");
+      check(puntual, "puntual");
+      check(estado, "estado resultante");
+    }
+
+    function loadTransformQuiz() {
+      const randomIndex = Math.floor(Math.random() * transformExamples.length);
+      currentTransform = transformExamples[randomIndex];
+      const container = document.getElementById("transformQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Transforma <span class="greek-word">${currentTransform.base}</span> al aspecto que se indica:</strong><br>
+      <span style="font-weight:500;">${currentTransform.aspect}</span><br>
+      <input type="text" id="transformAnswer" placeholder="escribe la forma..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransform" class="btn-reveal">Verificar</button>
+      <div id="transformResult"></div></div>`;
+      document.getElementById("checkTransform").addEventListener("click", () => {
+        const answer = document.getElementById("transformAnswer").value.trim();
+        const result = document.getElementById("transformResult");
+        const correct = currentTransform.transform;
+        if (answer === correct) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto!</span>`;
+          setTimeout(loadTransformQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}</span>`;
+        }
+      });
+    }
+
+    function loadTransAspectQuiz() {
+      const randomIndex = Math.floor(Math.random() * transAspectPhrases.length);
+      currentTransAspect = transAspectPhrases[randomIndex];
+      const container = document.getElementById("transAspectQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce <span class="greek-word">${currentTransAspect.greek}</span> (aspecto: ${currentTransAspect.aspect}):</strong><br>
+      <input type="text" id="transAspectAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransAspect" class="btn-reveal">Verificar</button>
+      <div id="transAspectResult"></div></div>`;
+      document.getElementById("checkTransAspect").addEventListener("click", () => {
+        const answer = document.getElementById("transAspectAnswer").value.trim().toLowerCase();
+        const correct = currentTransAspect.translation.toLowerCase();
+        const result = document.getElementById("transAspectResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransAspectQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransAspect.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Aspecto que presenta la acción en proceso", opts: ["Lineal", "Puntual", "Estado resultante", "Perfecto"], correct: 0 },
+      { q: "Aspecto que presenta la acción como un evento completo", opts: ["Puntual", "Lineal", "Estado resultante", "Imperfecto"], correct: 0 },
+      { q: "Aspecto que indica una acción completada con un estado presente resultante", opts: ["Estado resultante", "Puntual", "Lineal", "Aoristo"], correct: 0 },
+      { q: "Tiempo que expresa el aspecto lineal en el pasado", opts: ["Imperfecto", "Aoristo", "Perfecto", "Futuro"], correct: 0 },
+      { q: "En 'γεγεννημένος', el aspecto es de...", opts: ["Estado resultante", "Lineal", "Puntual", "Aoristo"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransform" || btn.id === "checkTransAspect" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#aspectoQuizArea") || btn.closest("#transformQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadAspectoQuiz();
+      loadTransformQuiz();
+      loadTransAspectQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newAspectoQuiz")?.addEventListener("click", () => {
+        loadAspectoQuiz();
+        document.getElementById("aspectoFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransformQuiz")?.addEventListener("click", () => {
+        loadTransformQuiz();
+        document.getElementById("transformFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransAspectQuiz")?.addEventListener("click", () => {
+        loadTransAspectQuiz();
+        document.getElementById("transAspectFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

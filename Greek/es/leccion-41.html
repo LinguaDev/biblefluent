@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 41: Sintaxis del Dativo, Acusativo y Nominativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 58%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .case-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .exegetical-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-40.html"><i class="fas fa-arrow-left"></i> Lección 40</a>
+        <a href="leccion-42.html"><i class="fas fa-arrow-right"></i> Lección 42</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-sitemap"></i> Lección 41 · Sintaxis del Dativo, Acusativo y Nominativo <span class="hero-badge">Módulo IV · Consolidación</span></h1>
+      <p>Dativo de interés, instrumental, locativo · Acusativo de extensión, de relación, doble acusativo · Nominativo pendens y predicativo</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 820/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/8G5C7nzWlYg" title="Sintaxis del dativo, acusativo y nominativo en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Usos avanzados del dativo, acusativo y nominativo en el NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Los casos más allá del sujeto y el objeto</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>En esta lección profundizamos en los usos <strong>avanzados</strong> del dativo, acusativo y nominativo, que van más allá de las funciones básicas (objeto indirecto, objeto directo, sujeto).</p>
+          <div class="case-box">
+            <i class="fas fa-lightbulb"></i> <strong>Función general de cada caso:</strong>
+            <ul>
+              <li><strong>Dativo:</strong> caso de la <em>participación</em> (objeto indirecto, instrumento, lugar, interés).</li>
+              <li><strong>Acusativo:</strong> caso de la <em>extensión</em> (objeto directo, meta, respecto, duración).</li>
+              <li><strong>Nominativo:</strong> caso del <em>sujeto</em> y del <em>predicado</em> (identificación, apelación).</li>
+            </ul>
+          </div>
+          <p><strong>Importancia exegética:</strong> La correcta identificación de estos usos permite entender matices que las traducciones al español a menudo pierden, como la diferencia entre "por" (instrumental) y "para" (dativo de interés).</p>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo clásico:</strong><br>
+            <span class="greek-word">τῇ καρδίᾳ πιστεύεται</span> (Romanos 10:10) – "con el corazón se cree" (dativo instrumental = medio).<br>
+            <span class="greek-word">ἐβαπτίσθη εἰς Χριστόν</span> – "fue bautizado en Cristo" (acusativo de meta/destino).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: EL DATIVO – USOS AVANZADOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-hand-holding-heart"></i> 2. El dativo: interés, instrumental, locativo y otros</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El dativo en griego abarca varias funciones que en español se expresan con diferentes preposiciones. Los usos más importantes son:</p>
+          <h3>Dativo de interés (ventaja/desventaja)</h3>
+          <p>Indica a favor o en contra de quién se realiza la acción.</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ἔδωκεν ἡμῖν</span> – "nos dio" (dativo de ventaja: para nosotros).<br>
+            <span class="greek-word">ἐπέθεντο αὐτῷ</span> – "se lanzaron contra él" (dativo de desventaja).
+          </div>
+          <h3>Dativo instrumental (o de medio)</h3>
+          <p>Expresa el instrumento o medio con el que se realiza la acción.</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ἐξουσίᾳ</span> – "con autoridad" (Marcos 1:22).<br>
+            <span class="greek-word">τῇ πίστει</span> – "por la fe" (Romanos 1:17).
+          </div>
+          <h3>Dativo locativo</h3>
+          <p>Indica el lugar donde ocurre la acción (sin preposición).</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">τῇ πόλει</span> – "en la ciudad".<br>
+            <span class="greek-word">τῇ ἐκκλησίᾳ</span> – "en la iglesia" (local).
+          </div>
+          <h3>Dativo de esfera (o de referencia)</h3>
+          <p>Indica el ámbito o aspecto en el que se aplica algo.</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">πτωχοὶ τῷ πνεύματι</span> – "pobres en espíritu" (Mateo 5:3).<br>
+            <span class="greek-word">καθαροὶ τῇ καρδίᾳ</span> – "limpios de corazón" (Mateo 5:8).
+          </div>
+          <button class="btn-reveal" data-target="dativoEj">Identifica el uso del dativo</button>
+          <div id="dativoEj" class="answer-text">
+            <span class="greek-word">πιστεύετε τῷ θεῷ</span> – dativo de interés (creer a Dios).<br>
+            <span class="greek-word">ἐβαπτίσθη ὕδατι</span> – dativo instrumental (con agua).<br>
+            <span class="greek-word">μακάριοι οἱ πτωχοὶ τῷ πνεύματι</span> – dativo de esfera (en espíritu).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: EL ACUSATIVO – EXTENSIÓN, RELACIÓN Y DOBLE ACUSATIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrows-alt-h"></i> 3. El acusativo: extensión, relación y doble acusativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El acusativo no solo marca el objeto directo, sino que tiene usos que expresan <strong>extensión espacial/temporal</strong> y <strong>relación</strong>.</p>
+          <h3>Acusativo de extensión (espacial o temporal)</h3>
+          <p>Indica cuánto espacio o tiempo abarca la acción.</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">τρεῖς ἡμέρας</span> – "tres días" (extensión temporal).<br>
+            <span class="greek-word">σταδίους δώδεκα</span> – "doce estadios" (extensión espacial).
+          </div>
+          <h3>Acusativo de relación (o de respecto)</h3>
+          <p>Indica en qué aspecto o respecto se aplica una afirmación.</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">κατὰ σάρκα</span> – "según la carne" (en cuanto a la carne).<br>
+            <span class="greek-word">τὰ τῆς σαρκός</span> – "las cosas de la carne" (en relación con la carne).
+          </div>
+          <h3>Doble acusativo</h3>
+          <p>Algunos verbos toman dos acusativos: uno de persona y otro de cosa (o dos de persona).</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ἐδίδαξεν αὐτοὺς τὸ βάπτισμα</span> – "les enseñó el bautismo" (a ellos = objeto persona; el bautismo = objeto cosa).<br>
+            <span class="greek-word">ᾐτήσατο αὐτὸν ζωήν</span> – "le pidió vida" (Salmos 21:4).
+          </div>
+          <button class="btn-reveal" data-target="acusativoEj">Analiza el acusativo</button>
+          <div id="acusativoEj" class="answer-text">
+            <span class="greek-word">ἔμεινεν ἐκεῖ δύο ἡμέρας</span> – acusativo de extensión temporal (dos días).<br>
+            <span class="greek-word">ᾐτήσατο αὐτὸν ζωήν</span> – doble acusativo (a él, vida).<br>
+            <span class="greek-word">κατὰ σάρκα</span> – acusativo de relación (en cuanto a la carne).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: EL NOMINATIVO – USOS ESPECIALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user-tag"></i> 4. El nominativo: pendens y predicativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El nominativo es el caso del <strong>sujeto</strong>, pero tiene dos usos especiales que aparecen en el NT:</p>
+          <h3>Nominativo pendens (nominativus pendens)</h3>
+          <p>Se anticipa un sustantivo en nominativo al inicio de la oración, y luego la oración lo retoma con un pronombre en el caso requerido. Es frecuente en el griego semitizante del NT.</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">πᾶς ὁ πιστεύων εἰς αὐτὸν ἵνα μὴ ἀπόληται</span> – "todo el que cree en él, para que no perezca" (Juan 3:16).<br>
+            En Juan 3:16, <span class="greek-word">πᾶς ὁ πιστεύων</span> está en nominativo, pero la cláusula siguiente lo retoma implícitamente.
+          </div>
+          <h3>Nominativo predicativo</h3>
+          <p>El predicado nominal (con εἰμί o verbos copulativos) va en nominativo, concordando con el sujeto.</p>
+          <div class="case-box">
+            <strong>Ejemplo:</strong> <span class="greek-word">ὁ θεὸς ἀγάπη ἐστίν</span> – "Dios es amor".<br>
+            <span class="greek-word">ἐγώ εἰμι τὸ φῶς τοῦ κόσμου</span> – "Yo soy la luz del mundo".
+          </div>
+          <button class="btn-reveal" data-target="nominativoEj">Identifica el uso del nominativo</button>
+          <div id="nominativoEj" class="answer-text">
+            <span class="greek-word">πᾶς ὁ πιστεύων ἐν αὐτῷ</span> – nominativo pendens (Juan 3:15).<br>
+            <span class="greek-word">ἐγώ εἰμι ἡ ὁδός</span> – nominativo predicativo (Juan 14:6).<br>
+            <span class="greek-word">ὁ λόγος σὰρξ ἐγένετο</span> – nominativo predicativo (Juan 1:14).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: TABLA COMPARATIVA DE CASOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-layer-group"></i> 5. Resumen de los usos de dativo, acusativo y nominativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Caso</th><th>Usos principales</th><th>Ejemplo del NT</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Nominativo</strong></td><td>Sujeto, predicado, pendens</td><td>ὁ θεὸς φῶς ἐστιν (1 Jn 1:5)</td></tr>
+                <tr><td><strong>Genitivo</strong></td><td>Posesión, descripción, partitivo, etc.</td><td>πίστις Χριστοῦ</td></tr>
+                <tr><td><strong>Dativo</strong></td><td>Interés, instrumental, locativo, esfera</td><td>τῇ χάριτι ἐσώθητε (Ef 2:5)</td></tr>
+                <tr><td><strong>Acusativo</strong></td><td>Objeto directo, extensión, respecto, doble acus.</td><td>τὴν ζωὴν αἰώνιον (Jn 3:16)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="case-box">
+            <strong><i class="fas fa-memory"></i> Clave para el análisis:</strong>
+            <ul>
+              <li>Pregunta <strong>¿con qué?</strong> → dativo instrumental.</li>
+              <li>Pregunta <strong>¿para quién?</strong> → dativo de interés.</li>
+              <li>Pregunta <strong>¿en qué aspecto?</strong> → acusativo de relación.</li>
+              <li>Pregunta <strong>¿cuánto tiempo/espacio?</strong> → acusativo de extensión.</li>
+              <li>Pregunta <strong>¿quién es?</strong> → nominativo predicativo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Términos para el análisis de casos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender los usos sintácticos de los casos en el NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Nota</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Romanos 1:1-7:</strong> <span class="greek-word">Παῦλος δοῦλος Χριστοῦ Ἰησοῦ, κλητὸς ἀπόστολος, ἀφωρισμένος εἰς εὐαγγέλιον θεοῦ</span> – "Pablo, siervo de Cristo Jesús, llamado apóstol, apartado para el evangelio de Dios".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL USO DEL DATIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el uso del dativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="dativoQuizArea"></div>
+          <button id="newDativoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="dativoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL USO DEL ACUSATIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrows-alt-h"></i> 8. Identifica el uso del acusativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="acusativoQuizArea"></div>
+          <button id="newAcusativoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="acusativoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN Y ANÁLISIS DE CASOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce y analiza los casos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transCaseQuizArea"></div>
+          <button id="newTransCaseQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transCaseFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ROMANOS 1 Y JUAN 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Romanos 1:1-7 y Juan 1:1-5</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica el uso de los casos (dativo, acusativo, nominativo).</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 1:1 – δοῦλος Χριστοῦ Ἰησοῦ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Παῦλος δοῦλος Χριστοῦ Ἰησοῦ, κλητὸς ἀπόστολος, ἀφωρισμένος εἰς εὐαγγέλιον θεοῦ</span></p>
+              <button class="btn-reveal" data-target="rm1a">¿Qué caso es <strong>Χριστοῦ Ἰησοῦ</strong>?</button>
+              <div id="rm1a" class="answer-text">Genitivo de posesión (siervo de Cristo Jesús).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 1:5 – εἰς ὑπακοὴν πίστεως</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">εἰς ὑπακοὴν πίστεως ἐν πᾶσιν τοῖς ἔθνεσιν</span></p>
+              <button class="btn-reveal" data-target="rm1b">¿Qué caso es <strong>πίστεως</strong>?</button>
+              <div id="rm1b" class="answer-text">Genitivo de aposición o descripción (la obediencia que es la fe).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:1 – ἐν ἀρχῇ ἦν ὁ λόγος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</span></p>
+              <button class="btn-reveal" data-target="jn1a">¿Qué caso es <strong>ὁ λόγος</strong>?</button>
+              <div id="jn1a" class="answer-text">Nominativo: es el sujeto de las oraciones.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:4 – ἡ ζωὴ ἦν τὸ φῶς</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐν αὐτῷ ζωὴ ἦν, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων</span></p>
+              <button class="btn-reveal" data-target="jn1b">¿Qué caso es <strong>τὸ φῶς</strong>?</button>
+              <div id="jn1b" class="answer-text">Nominativo predicativo (la vida era la luz).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la identificación de dativos (interés, instrumental, locativo, esfera), acusativos (extensión, relación, doble) y nominativos (pendens, predicativo). Lee Romanos 1 y Juan 1 en griego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-40.html"><i class="fas fa-arrow-left"></i> Lección 40</a>
+      <a href="leccion-42.html"><i class="fas fa-arrow-right"></i> Lección 42</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἐν ἀρχῇ ἦν ὁ λόγος</span> (Juan 1:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 41 ==========
+    const vocabData = [
+      { greek: "ἀφ' ἑαυτοῦ", translit: "aph' heautou", spanish: "de sí mismo", note: "reflexivo" },
+      { greek: "ἑαυτόν", translit: "heauton", spanish: "a sí mismo (ref.)", note: "reflexivo" },
+      { greek: "ἀλλήλους", translit: "allēlous", spanish: "los unos a los otros", note: "recíproco" },
+      { greek: "ἐμαυτόν", translit: "emauton", spanish: "a mí mismo", note: "reflexivo 1ª sg." },
+      { greek: "σεαυτόν", translit: "seauton", spanish: "a ti mismo", note: "reflexivo 2ª sg." },
+      { greek: "ἀναφέρω", translit: "anapherō", spanish: "llevar arriba, ofrecer", note: "verbo comp." },
+      { greek: "πάρειμι", translit: "pareimi", spanish: "estar presente", note: "verbo" },
+      { greek: "ἄπειμι", translit: "apeimi", spanish: "estar ausente", note: "verbo" },
+      { greek: "παρουσία", translit: "parousia", spanish: "presencia, venida", note: "sustantivo" },
+      { greek: "ἀπουσία", translit: "apousia", spanish: "ausencia", note: "sustantivo" },
+      { greek: "ἐπιδημέω", translit: "epidēmeō", spanish: "estar de visita", note: "verbo" },
+      { greek: "ξένος", translit: "xenos", spanish: "extranjero, extraño", note: "adjetivo/sust." },
+      { greek: "πάροικος", translit: "paroikos", spanish: "residente extranjero", note: "sustantivo" },
+      { greek: "πολίτης", translit: "politēs", spanish: "ciudadano", note: "sustantivo" },
+      { greek: "συμπολίτης", translit: "sympolitēs", spanish: "conciudadano", note: "sustantivo" },
+      { greek: "σωτήρ", translit: "sōtēr", spanish: "Salvador", note: "sustantivo" },
+      { greek: "δεσπότης", translit: "despotēs", spanish: "señor, amo", note: "sustantivo" },
+      { greek: "ἀρχηγός", translit: "archēgos", spanish: "autor, príncipe", note: "sustantivo" },
+      { greek: "τελειωτής", translit: "teleiōtēs", spanish: "perfeccionador", note: "sustantivo" },
+      { greek: "πρόδρομος", translit: "prodromos", spanish: "precursor, pionero", note: "sustantivo" }
+    ];
+
+    // Ejemplos para identificar uso del dativo
+    const dativoExamples = [
+      { phrase: "ἔδωκεν ἡμῖν", type: "interés", translation: "nos dio" },
+      { phrase: "ἐβαπτίσθη ὕδατι", type: "instrumental", translation: "fue bautizado con agua" },
+      { phrase: "τῇ καρδίᾳ πιστεύεται", type: "instrumental", translation: "con el corazón se cree" },
+      { phrase: "πτωχοὶ τῷ πνεύματι", type: "esfera", translation: "pobres en espíritu" },
+      { phrase: "τῇ πόλει", type: "locativo", translation: "en la ciudad" },
+      { phrase: "τῇ χάριτί ἐστε", type: "instrumental", translation: "por gracia sois" }
+    ];
+
+    // Ejemplos para identificar uso del acusativo
+    const acusativoExamples = [
+      { phrase: "τρεῖς ἡμέρας", type: "extensión temporal", translation: "tres días" },
+      { phrase: "σταδίους δώδεκα", type: "extensión espacial", translation: "doce estadios" },
+      { phrase: "κατὰ σάρκα", type: "relación", translation: "según la carne" },
+      { phrase: "ᾐτήσατο αὐτὸν ζωήν", type: "doble acusativo", translation: "le pidió vida" },
+      { phrase: "τὸ φῶς τῶν ἀνθρώπων", type: "objeto directo", translation: "la luz de los hombres" }
+    ];
+
+    // Frases para traducción y análisis de casos
+    const transCasePhrases = [
+      { greek: "ἐβαπτίσθη ὕδατι", translation: "fue bautizado con agua", analysis: "dativo instrumental" },
+      { greek: "πτωχοὶ τῷ πνεύματι", translation: "pobres en espíritu", analysis: "dativo de esfera" },
+      { greek: "τρεῖς ἡμέρας", translation: "tres días", analysis: "acusativo de extensión temporal" },
+      { greek: "ᾐτήσατο αὐτὸν ζωήν", translation: "le pidió vida", analysis: "doble acusativo" },
+      { greek: "ὁ θεὸς ἀγάπη ἐστίν", translation: "Dios es amor", analysis: "nominativo predicativo" }
+    ];
+
+    let currentDativo = dativoExamples[0];
+    let currentAcusativo = acusativoExamples[0];
+    let currentTransCase = transCasePhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.note}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadDativoQuiz() {
+      const randomIndex = Math.floor(Math.random() * dativoExamples.length);
+      currentDativo = dativoExamples[randomIndex];
+      const container = document.getElementById("dativoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué uso del dativo es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentDativo.phrase}</span><br>
+      <button id="datInteres" class="btn-reveal">Interés</button> <button id="datInst" class="btn-reveal">Instrumental</button>
+      <button id="datLoc" class="btn-reveal">Locativo</button> <button id="datEsfera" class="btn-reveal">Esfera</button>
+      <div id="dativoResult"></div></div>`;
+      const interes = document.getElementById("datInteres");
+      const inst = document.getElementById("datInst");
+      const loc = document.getElementById("datLoc");
+      const esfera = document.getElementById("datEsfera");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("dativoResult");
+          if (expected === currentDativo.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDativo.translation})</span>`;
+            setTimeout(loadDativoQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentDativo.type}</span>`;
+          }
+        });
+      };
+      check(interes, "interés");
+      check(inst, "instrumental");
+      check(loc, "locativo");
+      check(esfera, "esfera");
+    }
+
+    function loadAcusativoQuiz() {
+      const randomIndex = Math.floor(Math.random() * acusativoExamples.length);
+      currentAcusativo = acusativoExamples[randomIndex];
+      const container = document.getElementById("acusativoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué uso del acusativo es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentAcusativo.phrase}</span><br>
+      <button id="acuObj" class="btn-reveal">Objeto directo</button> <button id="acuExt" class="btn-reveal">Extensión</button>
+      <button id="acuRel" class="btn-reveal">Relación</button> <button id="acuDob" class="btn-reveal">Doble acusativo</button>
+      <div id="acusativoResult"></div></div>`;
+      const obj = document.getElementById("acuObj");
+      const ext = document.getElementById("acuExt");
+      const rel = document.getElementById("acuRel");
+      const dob = document.getElementById("acuDob");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("acusativoResult");
+          if (expected === currentAcusativo.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentAcusativo.translation})</span>`;
+            setTimeout(loadAcusativoQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentAcusativo.type}</span>`;
+          }
+        });
+      };
+      check(obj, "objeto directo");
+      check(ext, "extensión temporal");
+      check(ext, "extensión espacial");
+      check(rel, "relación");
+      check(dob, "doble acusativo");
+    }
+
+    function loadTransCaseQuiz() {
+      const randomIndex = Math.floor(Math.random() * transCasePhrases.length);
+      currentTransCase = transCasePhrases[randomIndex];
+      const container = document.getElementById("transCaseQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransCase.greek}</span><br>
+      <input type="text" id="transCaseAnswer" placeholder="traducción + análisis..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransCase" class="btn-reveal">Verificar</button>
+      <div id="transCaseResult"></div></div>`;
+      document.getElementById("checkTransCase").addEventListener("click", () => {
+        const answer = document.getElementById("transCaseAnswer").value.trim().toLowerCase();
+        const correct = currentTransCase.translation.toLowerCase();
+        const analysis = currentTransCase.analysis.toLowerCase();
+        const result = document.getElementById("transCaseResult");
+        if (answer.includes(correct) && answer.includes(analysis)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransCase.translation} – ${currentTransCase.analysis})</span>`;
+          setTimeout(loadTransCaseQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransCase.translation} – ${currentTransCase.analysis}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Dativo que indica el instrumento o medio", opts: ["Instrumental", "Interés", "Locativo", "Esfera"], correct: 0 },
+      { q: "Acusativo que expresa duración de tiempo", opts: ["Extensión temporal", "Relación", "Doble acusativo", "Objeto directo"], correct: 0 },
+      { q: "Nominativo que anticipa un sujeto luego retomado", opts: ["Pendens", "Predicativo", "Sujeto", "Objeto"], correct: 0 },
+      { q: "Dativo que indica a favor de quién se hace algo", opts: ["Interés", "Instrumental", "Locativo", "Esfera"], correct: 0 },
+      { q: "En 'ἐδίδαξεν αὐτοὺς τὸ βάπτισμα', el uso es...", opts: ["Doble acusativo", "Acusativo de relación", "Extensión", "Objeto directo"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransCase" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        // Evitar conflictos con botones de los quizzes
+        if (btn.closest && (btn.closest("#dativoQuizArea") || btn.closest("#acusativoQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadDativoQuiz();
+      loadAcusativoQuiz();
+      loadTransCaseQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newDativoQuiz")?.addEventListener("click", () => {
+        loadDativoQuiz();
+        document.getElementById("dativoFeedback").innerHTML = "";
+      });
+      document.getElementById("newAcusativoQuiz")?.addEventListener("click", () => {
+        loadAcusativoQuiz();
+        document.getElementById("acusativoFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransCaseQuiz")?.addEventListener("click", () => {
+        loadTransCaseQuiz();
+        document.getElementById("transCaseFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

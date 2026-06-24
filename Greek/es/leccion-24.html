@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 24: Perfecto Medio/Pasivo y Pluscuamperfecto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 34%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .perfect-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-23.html"><i class="fas fa-arrow-left"></i> Lección 23</a>
+        <a href="leccion-25.html"><i class="fas fa-arrow-right"></i> Lección 25</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-check-double"></i> Lección 24 · Perfecto Medio/Pasivo y Pluscuamperfecto <span class="hero-badge">Módulo II · Base Gramatical</span></h1>
+      <p>Formación del perfecto medio/pasivo · Terminaciones -μαι, -σαι, -ται · Cambios consonánticos · Pluscuamperfecto activo · Participios perfectos pasivos clave</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 480/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="El perfecto medio/pasivo y el pluscuamperfecto en griego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: El perfecto medio/pasivo – estado resultante en voz media y pasiva</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El perfecto medio/pasivo: visión general</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>perfecto medio/pasivo</strong> expresa una acción completada en el pasado con un <strong>estado presente resultante</strong>, pero en <strong>voz media o pasiva</strong>. Comparte el aspecto de "estado resultante" con el perfecto activo, pero sus terminaciones son diferentes.</p>
+          <div class="perfect-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características:</strong>
+            <ul>
+              <li>Expresa una acción <strong>completada</strong> cuyo <strong>efecto continúa</strong> en el presente.</li>
+              <li>Las formas se distinguen del perfecto activo por sus <strong>terminaciones medias/pasivas</strong>.</li>
+              <li>En el NT, es <strong>muy frecuente</strong> en contextos teológicos: <span class="greek-word">γεγραμμένον ἐστίν</span> ("está escrito"), <span class="greek-word">σεσωσμένοι ἐστέ</span> ("sois salvos").</li>
+              <li>El <strong>pluscuamperfecto</strong> es su equivalente en el pasado: expresa un estado que ya existía en el pasado.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo clave:</strong><br>
+            <span class="greek-word">σεσωσμένοι ἐστέ</span> (Efesios 2:8) – "habéis sido salvos" (perfecto pasivo de σῴζω). El énfasis está en el <strong>estado permanente de salvación</strong> que resulta de la acción pasada.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: FORMACIÓN DEL PERFECTO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Formación del perfecto medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El perfecto medio/pasivo se forma con <strong>reduplicación</strong> (como el perfecto activo) + <strong>tema del perfecto</strong> + <strong>terminaciones medias/pasivas</strong>.</p>
+          <h3>Terminaciones del perfecto medio/pasivo</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Terminación</th><th>Ejemplo (λύω)</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>-μαι</td><td>λέλυμαι</td><td>he sido desatado</td></tr>
+                <tr><td>2ª sg.</td><td>-σαι</td><td>λέλυσαι</td><td>has sido desatado</td></tr>
+                <tr><td>3ª sg.</td><td>-ται</td><td>λέλυται</td><td>ha sido desatado</td></tr>
+                <tr><td>1ª pl.</td><td>-μεθα</td><td>λελύμεθα</td><td>hemos sido desatados</td></tr>
+                <tr><td>2ª pl.</td><td>-σθε</td><td>λέλυσθε</td><td>habéis sido desatados</td></tr>
+                <tr><td>3ª pl.</td><td>-νται</td><td>λέλυνται</td><td>han sido desatados</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="perfect-box">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> La 2ª sg. en -σαι se pronuncia como si fuera -σαι (con acento en la penúltima). La terminación -νται de la 3ª pl. es característica del perfecto medio/pasivo.
+          </div>
+          <button class="btn-reveal" data-target="perfMpForm">Ver conjugación completa de λέλυμαι</button>
+          <div id="perfMpForm" class="answer-text">
+            <span class="greek-word">λέλυμαι, λέλυσαι, λέλυται, λελύμεθα, λέλυσθε, λέλυνται</span>.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: CAMBIOS CONSONÁNTICOS EN EL PERFECTO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-exchange-alt"></i> 3. Cambios consonánticos ante las terminaciones</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Cuando la raíz del perfecto termina en consonante, se producen <strong>cambios fonológicos</strong> al unirse a las terminaciones que comienzan con consonante (-μαι, -σαι, -ται, -σθε, -νται).</p>
+          <div class="perfect-box">
+            <strong><i class="fas fa-memory"></i> Reglas principales:</strong>
+            <ul>
+              <li><strong>Labiales (π, β, φ) + μ</strong> → <strong>μμ</strong> (ej. γέγραπται → γέγραπται, pero βέβλεπται) </li>
+              <li><strong>Velares (κ, γ, χ) + μ</strong> → <strong>γμ</strong> (ej. δέδεγμαι)</li>
+              <li><strong>Dentales (τ, δ, θ) + σ</strong> → <strong>σ</strong> (ej. πέπεισμαι)</li>
+              <li><strong>Labiales + σ</strong> → <strong>ψ</strong> (ej. γέγραψαι)</li>
+              <li><strong>Velares + σ</strong> → <strong>ξ</strong> (ej. δέδεξαι)</li>
+              <li><strong>Dentales + μ</strong> → <strong>σμ</strong> (ej. πεπείσμεθα)</li>
+            </ul>
+          </div>
+          <p><strong>Ejemplos en el NT:</strong></p>
+          <ul>
+            <li><span class="greek-word">γέγραπται</span> – de γράφω (3ª sg. perfecto pasivo)</li>
+            <li><span class="greek-word">δέδεται</span> – de δέω (atar) → 3ª sg. perfecto pasivo</li>
+            <li><span class="greek-word">πέπεισμαι</span> – de πείθω (persuadir) → 1ª sg. perfecto pasivo</li>
+            <li><span class="greek-word">δέδομαι</span> – de δίδωμι (dar) → 1ª sg. perfecto pasivo</li>
+          </ul>
+          <button class="btn-reveal" data-target="cambiosEj">Practica los cambios consonánticos</button>
+          <div id="cambiosEj" class="answer-text">
+            <span class="greek-word">γράφω</span> → <span class="greek-word">γέγραπται</span> (velar + τ → πτ).<br>
+            <span class="greek-word">πείθω</span> → <span class="greek-word">πέπεισμαι</span> (dental + μ → σμ).<br>
+            <span class="greek-word">λύω</span> → <span class="greek-word">λέλυμαι</span> (sin cambio, raíz en vocal).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: PARTICIPIOS PERFECTOS PASIVOS FRECUENTES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-participio"></i> 4. Participios perfectos pasivos clave en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>participios perfectos pasivos</strong> son extremadamente frecuentes en el NT y tienen un alto valor teológico. Se forman con el tema del perfecto + las terminaciones de participio medio/pasivo (-μένος, -μένη, -μένον).</p>
+          <div class="perfect-box">
+            <strong><i class="fas fa-bible"></i> Participios perfectos pasivos más importantes:</strong>
+            <ul>
+              <li><span class="greek-word">γεγραμμένον</span> – "escrito" (de γράφω) – <span class="greek-word">καθὼς γέγραπται</span> ("como está escrito") es una fórmula clave en el NT.</li>
+              <li><span class="greek-word">σεσωσμένοι</span> – "salvados" (de σῴζω) – <span class="greek-word">σεσωσμένοι ἐστέ</span> ("habéis sido salvos", Efesios 2:8).</li>
+              <li><span class="greek-word">ἀπεσταλμένος</span> – "enviado" (de ἀποστέλλω) – Jesús es descrito como "el enviado" (Juan 5:36).</li>
+              <li><span class="greek-word">δεδικαιωμένοι</span> – "justificados" (de δικαιόω) – <span class="greek-word">δικαιωθέντες</span> (participio aoristo pasivo, pero el perfecto aparece en contextos de estado).</li>
+              <li><span class="greek-word">ἡγιασμένοι</span> – "santificados" (de ἁγιάζω) – <span class="greek-word">ἡγιασμένοι ἐν Χριστῷ</span> (1 Corintios 1:2).</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Significado teológico:</strong> Estos participios enfatizan un <strong>estado permanente</strong> que resulta de la acción de Dios. No son meramente acciones pasadas, sino <strong>realidades presentes</strong> que definen la identidad del creyente.
+          </div>
+          <button class="btn-reveal" data-target="partPerfEj">Analiza el participio perfecto pasivo</button>
+          <div id="partPerfEj" class="answer-text">
+            <span class="greek-word">σεσωσμένοι</span> – "habiendo sido salvados" (estado: permanecen salvos).<br>
+            <span class="greek-word">γεγραμμένον</span> – "habiendo sido escrito" (estado: sigue escrito).<br>
+            <span class="greek-word">ἀπεσταλμένος</span> – "habiendo sido enviado" (estado: sigue siendo el enviado).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: EL PLUSCUAMPERFECTO ACTIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-history"></i> 5. El pluscuamperfecto activo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>pluscuamperfecto</strong> es el equivalente del perfecto en el pasado. Expresa una acción que fue completada en el pasado y cuyo <strong>estado resultante existía en ese momento pasado</strong>.</p>
+          <div class="perfect-box">
+            <strong><i class="fas fa-lightbulb"></i> Formación:</strong>
+            <ul>
+              <li><strong>Aumento</strong> (ε- o alargamiento de vocal) + <strong>reduplicación</strong> + tema del perfecto + <strong>terminaciones secundarias activas</strong>.</li>
+              <li>Terminaciones: <span class="greek-word">-ειν, -εις, -ει, -ειμεν, -ειτε, -εισαν</span>.</li>
+            </ul>
+          </div>
+          <h3>Conjugación de ἐλελύκειν (pluscuamperfecto activo de λύω)</h3>
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Forma</th><th>Traducción</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>ἐλελύκειν</td><td>yo había desatado</td></tr>
+                <tr><td>2ª sg.</td><td>ἐλελύκεις</td><td>tú habías desatado</td></tr>
+                <tr><td>3ª sg.</td><td>ἐλελύκει</td><td>él había desatado</td></tr>
+                <tr><td>1ª pl.</td><td>ἐλελύκειμεν</td><td>nosotros habíamos desatado</td></tr>
+                <tr><td>2ª pl.</td><td>ἐλελύκειτε</td><td>vosotros habíais desatado</td></tr>
+                <tr><td>3ª pl.</td><td>ἐλελύκεισαν</td><td>ellos habían desatado</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="perfect-box">
+            <strong><i class="fas fa-bible"></i> Rareza en el NT:</strong> El pluscuamperfecto es <strong>poco frecuente</strong> en el NT (menos de 100 ocurrencias). Aparece principalmente en narraciones para indicar un estado que ya existía antes del momento narrativo.<br>
+            Ejemplo: <span class="greek-word">ἐγεγόνει</span> – "había sido" (Juan 6:17, pluscuamperfecto de γίνομαι).
+          </div>
+          <button class="btn-reveal" data-target="pluscuamEj">Conjuga el pluscuamperfecto de γράφω</button>
+          <div id="pluscuamEj" class="answer-text">
+            <span class="greek-word">ἐγεγράφειν, ἐγεγράφεις, ἐγεγράφει, ἐγεγράφειμεν, ἐγεγράφειτε, ἐγεγράφεισαν</span>.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: COMPARACIÓN DE VOCES EN EL PERFECTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-layer-group"></i> 6. Comparación: perfecto activo, medio y pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Persona</th><th>Perfecto Activo</th><th>Perfecto Medio/Pasivo</th></tr></thead>
+              <tbody>
+                <tr><td>1ª sg.</td><td>λέλυκα</td><td>λέλυμαι</td></tr>
+                <tr><td>2ª sg.</td><td>λέλυκας</td><td>λέλυσαι</td></tr>
+                <tr><td>3ª sg.</td><td>λέλυκε(ν)</td><td>λέλυται</td></tr>
+                <tr><td>1ª pl.</td><td>λελύκαμεν</td><td>λελύμεθα</td></tr>
+                <tr><td>2ª pl.</td><td>λελύκατε</td><td>λέλυσθε</td></tr>
+                <tr><td>3ª pl.</td><td>λελύκασι(ν)</td><td>λέλυνται</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="perfect-box">
+            <strong><i class="fas fa-lightbulb"></i> Diferencias clave:</strong>
+            <ul>
+              <li>El <strong>activo</strong> indica que el sujeto realizó la acción y el estado resultante lo afecta a él.</li>
+              <li>El <strong>medio/pasivo</strong> indica que el sujeto recibió la acción o la realizó para sí mismo (el contexto decide si es medio o pasivo).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="compPerfEj">Compara las formas</button>
+          <div id="compPerfEj" class="answer-text">
+            <span class="greek-word">λέλυκα</span> – "he desatado" (yo lo hice).<br>
+            <span class="greek-word">λέλυμαι</span> – "he sido desatado" (alguien me desató) o "me he desatado" (medio).<br>
+            El contexto distingue medio de pasivo.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Verbos para el perfecto medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen verbos que forman perfectos medios/pasivos importantes en el NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Tipo</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Efesios 2:8-10:</strong> <span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι διὰ πίστεως· καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον· οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται. αὐτοῦ γάρ ἐσμεν ποίημα, κτισθέντες ἐν Χριστῷ Ἰησοῦ ἐπὶ ἔργοις ἀγαθοῖς, οἷς προητοίμασεν ὁ θεὸς ἵνα ἐν αὐτοῖς περιπατήσωμεν.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – CONJUGA EL PERFECTO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 8. Practica: conjuga el perfecto medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="conjPerfMpQuizArea"></div>
+          <button id="newConjPerfMpQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="conjPerfMpFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – IDENTIFICA EL PARTICIPIO PERFECTO PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 9. Identifica el participio perfecto pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="partPerfQuizArea"></div>
+          <button id="newPartPerfQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="partPerfFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – TRADUCCIÓN CON PERFECTO MEDIO/PASIVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 10. Traduce frases con perfecto medio/pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transPerfMpQuizArea"></div>
+          <button id="newTransPerfMpQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transPerfMpFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – EFESIOS 2:8-10 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Lectura programada · Efesios 2:8-10</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee el texto. Identifica los perfectos medio/pasivos y los participios perfectos pasivos.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 2:8 – σεσωσμένοι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι διὰ πίστεως</span></p>
+              <button class="btn-reveal" data-target="ef2a">¿Qué forma de σῴζω es <strong>σεσωσμένοι</strong>?</button>
+              <div id="ef2a" class="answer-text">Participio perfecto pasivo de σῴζω (masculino plural nominativo): "habiendo sido salvados" → "sois salvos" (estado permanente).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 2:10 – κτισθέντες</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">αὐτοῦ γάρ ἐσμεν ποίημα, κτισθέντες ἐν Χριστῷ Ἰησοῦ</span></p>
+              <button class="btn-reveal" data-target="ef2b">¿Qué forma de κτίζω es <strong>κτισθέντες</strong>?</button>
+              <div id="ef2b" class="answer-text">Participio aoristo pasivo de κτίζω: "habiendo sido creados". No es perfecto, pero expresa una acción pasada que define el presente.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 2:8 – θεοῦ τὸ δῶρον</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">θεοῦ τὸ δῶρον</span></p>
+              <button class="btn-reveal" data-target="ef2c">¿Qué sustantivo deriva del perfecto de δίδωμι?</button>
+              <div id="ef2c" class="answer-text"><span class="greek-word">δῶρον</span> – "regalo, don". Está relacionado con la raíz del perfecto de <span class="greek-word">δίδωμι</span> (δέδωκα).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con perfecto pasivo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">γέγραπται</span></p>
+              <button class="btn-reveal" data-target="transPerfMp">Traduce y analiza</button>
+              <div id="transPerfMp" class="answer-text">"Está escrito" – perfecto pasivo de γράφω (3ª sg.). El énfasis está en que la Escritura sigue siendo autoritativa en el presente.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Conjuga λύω en perfecto medio/pasivo. Practica la identificación de participios perfectos pasivos en Efesios 2. Reflexiona sobre el significado teológico de "salvos" como estado permanente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-23.html"><i class="fas fa-arrow-left"></i> Lección 23</a>
+      <a href="leccion-25.html"><i class="fas fa-arrow-right"></i> Lección 25</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι</span> (Efesios 2:8)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 24 ==========
+    const vocabData = [
+      { greek: "ἐνδύω", translit: "endyō", spanish: "vestir, revestir", type: "verbo" },
+      { greek: "ἐκδύω", translit: "ekdyō", spanish: "desnudar, quitarse", type: "verbo" },
+      { greek: "περιπατέω", translit: "peripateō", spanish: "caminar, andar", type: "verbo -έω" },
+      { greek: "τρέχω", translit: "trechō", spanish: "correr", type: "verbo" },
+      { greek: "πλανάω", translit: "planaō", spanish: "engañar, extraviar", type: "verbo -άω" },
+      { greek: "σκοτίζω", translit: "skotizō", spanish: "oscurecer", type: "verbo" },
+      { greek: "φωτίζω", translit: "phōtizō", spanish: "iluminar", type: "verbo" },
+      { greek: "γεμίζω", translit: "gemizō", spanish: "llenar", type: "verbo" },
+      { greek: "κενόω", translit: "kenoō", spanish: "vaciar", type: "verbo -όω" },
+      { greek: "ταπεινόω", translit: "tapeinoō", spanish: "humillar", type: "verbo -όω" },
+      { greek: "ὑψόω", translit: "hypsōō", spanish: "exaltar, levantar", type: "verbo -όω" },
+      { greek: "δοξάζω", translit: "doxazō", spanish: "glorificar", type: "verbo" },
+      { greek: "εὐαγγελίζω", translit: "euangelizō", spanish: "evangelizar, anunciar", type: "verbo" },
+      { greek: "παρρησιάζομαι", translit: "parrēsiazomai", spanish: "hablar con valentía", type: "deponente" },
+      { greek: "τολμάω", translit: "tolmaō", spanish: "atreverse, osar", type: "verbo -άω" },
+      { greek: "ἀντέχω", translit: "antechō", spanish: "afirmar, oponerse", type: "verbo" },
+      { greek: "ὑπομένω", translit: "hypomenō", spanish: "perseverar, soportar", type: "verbo" },
+      { greek: "ἀνέχομαι", translit: "anechomai", spanish: "soportar, tolerar", type: "deponente" },
+      { greek: "καρτερέω", translit: "kartereō", spanish: "perseverar", type: "verbo -έω" },
+      { greek: "ἐπιμένω", translit: "epimenō", spanish: "persistir, continuar", type: "verbo" }
+    ];
+
+    // Palabras para ejercicio de conjugación de perfecto medio/pasivo
+    const conjPerfMpForms = [
+      { verb: "λύω", person: "1ª sg.", form: "λέλυμαι" },
+      { verb: "λύω", person: "2ª sg.", form: "λέλυσαι" },
+      { verb: "λύω", person: "3ª sg.", form: "λέλυται" },
+      { verb: "λύω", person: "1ª pl.", form: "λελύμεθα" },
+      { verb: "λύω", person: "2ª pl.", form: "λέλυσθε" },
+      { verb: "λύω", person: "3ª pl.", form: "λέλυνται" },
+      { verb: "γράφω", person: "3ª sg.", form: "γέγραπται" },
+      { verb: "σῴζω", person: "1ª pl.", form: "σεσώσμεθα" },
+      { verb: "σῴζω", person: "2ª pl.", form: "σέσωσθε" },
+      { verb: "σῴζω", person: "3ª pl.", form: "σέσωνται" },
+      { verb: "ἀποστέλλω", person: "3ª sg.", form: "ἀπέσταλται" },
+      { verb: "δίδωμι", person: "3ª sg.", form: "δέδοται" }
+    ];
+
+    // Ejemplos para identificar participio perfecto pasivo
+    const partPerfExamples = [
+      { form: "γεγραμμένον", verb: "γράφω", meaning: "escrito" },
+      { form: "σεσωσμένοι", verb: "σῴζω", meaning: "salvados" },
+      { form: "ἀπεσταλμένος", verb: "ἀποστέλλω", meaning: "enviado" },
+      { form: "ἡγιασμένοι", verb: "ἁγιάζω", meaning: "santificados" },
+      { form: "δεδικαιωμένοι", verb: "δικαιόω", meaning: "justificados" },
+      { form: "πεπληρωμένοι", verb: "πληρόω", meaning: "llenos" }
+    ];
+
+    // Frases para traducción con perfecto medio/pasivo
+    const transPerfMpPhrases = [
+      { greek: "γέγραπται", translation: "está escrito" },
+      { greek: "σεσωσμένοι ἐστέ", translation: "sois salvos" },
+      { greek: "ἀπέσταλται", translation: "ha sido enviado" },
+      { greek: "δέδοται", translation: "ha sido dado" },
+      { greek: "πεπλήρωται", translation: "ha sido cumplido / está lleno" },
+      { greek: "ἡγίασται", translation: "ha sido santificado" }
+    ];
+
+    let currentConjPerfMp = conjPerfMpForms[0];
+    let currentPartPerf = partPerfExamples[0];
+    let currentTransPerfMp = transPerfMpPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.type}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadConjPerfMpQuiz() {
+      const randomIndex = Math.floor(Math.random() * conjPerfMpForms.length);
+      currentConjPerfMp = conjPerfMpForms[randomIndex];
+      const container = document.getElementById("conjPerfMpQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Escribe la forma de perfecto medio/pasivo de ${currentConjPerfMp.person} de <span class="greek-word">${currentConjPerfMp.verb}</span>:</strong><br>
+      <input type="text" id="conjPerfMpAnswer" placeholder="ej. λέλυμαι" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkConjPerfMp" class="btn-reveal">Verificar</button>
+      <div id="conjPerfMpResult"></div></div>`;
+      document.getElementById("checkConjPerfMp").addEventListener("click", () => {
+        const answer = document.getElementById("conjPerfMpAnswer").value.trim();
+        const result = document.getElementById("conjPerfMpResult");
+        const correct = currentConjPerfMp.form;
+        if (answer === correct) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto!</span>';
+          setTimeout(loadConjPerfMpQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La forma correcta es ${correct}</span>`;
+        }
+      });
+    }
+
+    function loadPartPerfQuiz() {
+      const randomIndex = Math.floor(Math.random() * partPerfExamples.length);
+      currentPartPerf = partPerfExamples[randomIndex];
+      const container = document.getElementById("partPerfQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué verbo forma el participio <span class="greek-word">${currentPartPerf.form}</span>?</strong><br>
+      <input type="text" id="partPerfAnswer" placeholder="ej. γράφω" style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkPartPerf" class="btn-reveal">Verificar</button>
+      <div id="partPerfResult"></div></div>`;
+      document.getElementById("checkPartPerf").addEventListener("click", () => {
+        const answer = document.getElementById("partPerfAnswer").value.trim();
+        const result = document.getElementById("partPerfResult");
+        const correct = currentPartPerf.verb;
+        if (answer === correct) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPartPerf.meaning})</span>`;
+          setTimeout(loadPartPerfQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ El verbo es ${correct}</span>`;
+        }
+      });
+    }
+
+    function loadTransPerfMpQuiz() {
+      const randomIndex = Math.floor(Math.random() * transPerfMpPhrases.length);
+      currentTransPerfMp = transPerfMpPhrases[randomIndex];
+      const container = document.getElementById("transPerfMpQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransPerfMp.greek}</span><br>
+      <input type="text" id="transPerfMpAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem;"> <button id="checkTransPerfMp" class="btn-reveal">Verificar</button>
+      <div id="transPerfMpResult"></div></div>`;
+      document.getElementById("checkTransPerfMp").addEventListener("click", () => {
+        const answer = document.getElementById("transPerfMpAnswer").value.trim().toLowerCase();
+        const correct = currentTransPerfMp.translation.toLowerCase();
+        const result = document.getElementById("transPerfMpResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransPerfMpQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ La respuesta es: ${currentTransPerfMp.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Terminación de la 1ª persona singular del perfecto medio/pasivo", opts: ["-μαι", "-σαι", "-ται", "-νται"], correct: 0 },
+      { q: "Terminación de la 3ª persona singular del perfecto medio/pasivo", opts: ["-ται", "-μαι", "-σαι", "-νται"], correct: 0 },
+      { q: "Participio perfecto pasivo de γράφω (neutro nominativo singular)", opts: ["γεγραμμένον", "γεγραμμένος", "γεγραμμένη", "γεγραμμένοι"], correct: 0 },
+      { q: "Significado de σεσωσμένοι", opts: ["salvados", "escritos", "enviados", "santificados"], correct: 0 },
+      { q: "Pluscuamperfecto activo de λύω (1ª sg.)", opts: ["ἐλελύκειν", "λελύκειν", "ἐλελύκεις", "ἐλελύκει"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkConjPerfMp" || btn.id === "checkPartPerf" || btn.id === "checkTransPerfMp" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadConjPerfMpQuiz();
+      loadPartPerfQuiz();
+      loadTransPerfMpQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newConjPerfMpQuiz")?.addEventListener("click", () => {
+        loadConjPerfMpQuiz();
+        document.getElementById("conjPerfMpFeedback").innerHTML = "";
+      });
+      document.getElementById("newPartPerfQuiz")?.addEventListener("click", () => {
+        loadPartPerfQuiz();
+        document.getElementById("partPerfFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransPerfMpQuiz")?.addEventListener("click", () => {
+        loadTransPerfMpQuiz();
+        document.getElementById("transPerfMpFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

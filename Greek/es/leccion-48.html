@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 48: Vocabulario Cristológico y Soteriológico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 69%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .theo-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .soter-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-47.html"><i class="fas fa-arrow-left"></i> Lección 47</a>
+        <a href="leccion-49.html"><i class="fas fa-arrow-right"></i> Lección 49</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-cross"></i> Lección 48 · Vocabulario Cristológico y Soteriológico <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Términos cristológicos: μορφή, εἰκών, μονογενής, πρωτότοκος, κένωσις · Términos soteriológicos: ἀπολύτρωσις, ἱλασμός, καταλλαγή, δικαίωσις</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 960/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Vocabulario cristológico y soteriológico del NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los términos clave de la cristología y la soteriología del NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Cristología y Soteriología en el vocabulario del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Nuevo Testamento contiene un <strong>vocabulario especializado</strong> para hablar de la <strong>persona de Cristo</strong> (cristología) y de la <strong>obra de salvación</strong> (soteriología). Muchos de estos términos son <strong>únicos</strong> o tienen matices <strong>teológicos específicos</strong> que no se reflejan completamente en las traducciones.</p>
+          <div class="theo-box">
+            <i class="fas fa-lightbulb"></i> <strong>Importancia exegética:</strong>
+            <ul>
+              <li>La <strong>cristología</strong> se expresa a través de términos como <span class="greek-word">μορφή</span>, <span class="greek-word">εἰκών</span>, <span class="greek-word">ὁμοίωμα</span>, <span class="greek-word">μονογενής</span>, <span class="greek-word">πρωτότοκος</span>.</li>
+              <li>La <strong>soteriología</strong> se expresa a través de términos como <span class="greek-word">ἀπολύτρωσις</span>, <span class="greek-word">ἱλασμός</span>, <span class="greek-word">καταλλαγή</span>, <span class="greek-word">δικαίωσις</span>.</li>
+              <li>Estos términos aparecen en <strong>pasajes teológicos clave</strong>: Filipenses 2:5-11, Colosenses 1:15-20, Romanos 3:21-26, Hebreos 1:1-4.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">ὃς ἐν μορφῇ θεοῦ ὑπάρχων</span> – "el cual, existiendo en forma de Dios" (Filipenses 2:6).<br>
+            <span class="greek-word">ἱλασμός</span> – "propiciación" (1 Juan 2:2) – un término que expresa cómo Cristo apacigua la ira de Dios.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: TÉRMINOS CRISTOLÓGICOS – μορφή, εἰκών, ὁμοίωμα -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user-tag"></i> 2. Términos cristológicos I: μορφή, εἰκών, ὁμοίωμα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos tres términos se refieren a la <strong>naturaleza y semejanza</strong> de Cristo con Dios y con los hombres.</p>
+
+          <h3>μορφή (morphē) – "forma, naturaleza"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> Indica la <strong>naturaleza esencial</strong> o la <strong>forma externa que manifiesta una naturaleza interior</strong>.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ὃς ἐν μορφῇ θεοῦ ὑπάρχων</span> (Filipenses 2:6) – "el cual, existiendo en forma de Dios".<br>
+            <strong>Matiz:</strong> No es una mera apariencia externa, sino la <strong>realidad esencial</strong> de la divinidad.
+          </div>
+
+          <h3>εἰκών (eikōn) – "imagen"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> Una <strong>imagen que representa y manifiesta</strong> a su original.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ὅς ἐστιν εἰκὼν τοῦ θεοῦ τοῦ ἀοράτου</span> (Colosenses 1:15) – "el cual es la imagen del Dios invisible".<br>
+            <strong>Matiz:</strong> Cristo es la <strong>representación perfecta</strong> del Padre; verlo a él es ver al Padre (Juan 14:9).
+          </div>
+
+          <h3>ὁμοίωμα (homoiōma) – "semejanza"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> <strong>Semejanza</strong> o <strong>parecido</strong>, pero no identidad esencial.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ἐν ὁμοιώματι σαρκὸς ἁμαρτίας</span> (Romanos 8:3) – "en semejanza de carne de pecado".<br>
+            <strong>Matiz:</strong> Cristo vino <strong>semejante</strong> a los hombres pecadores, pero sin pecado.
+          </div>
+          <button class="btn-reveal" data-target="cristo1Ej">Identifica el término correcto</button>
+          <div id="cristo1Ej" class="answer-text">
+            <span class="greek-word">μορφή</span> – naturaleza esencial (Filipenses 2:6).<br>
+            <span class="greek-word">εἰκών</span> – imagen que manifiesta (Colosenses 1:15).<br>
+            <span class="greek-word">ὁμοίωμα</span> – semejanza (Romanos 8:3).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: TÉRMINOS CRISTOLÓGICOS – μονογενής, πρωτότοκος, ἀπαύγασμα, χαρακτήρ -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user-tag"></i> 3. Términos cristológicos II: μονογενής, πρωτότοκος, ἀπαύγασμα, χαρακτήρ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos términos describen la <strong>relación única</strong> de Cristo con el Padre y su <strong>revelación</strong> de Dios.</p>
+
+          <h3>μονογενής (monogenēs) – "unigénito, único"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> "Único en su clase" o "único engendrado".<br>
+            <strong>Uso clave:</strong> <span class="greek-word">τὸν υἱὸν αὐτοῦ τὸν μονογενῆ</span> (Juan 3:16) – "a su Hijo unigénito".<br>
+            <strong>Matiz:</strong> Expresa la <strong>relación única</strong> de Jesús con el Padre; no es "engendrado" en el sentido humano.
+          </div>
+
+          <h3>πρωτότοκος (prōtotokos) – "primogénito"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> "Primogénito" – indica <strong>preeminencia</strong> y <strong>autoridad</strong>.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">πρωτότοκος πάσης κτίσεως</span> (Colosenses 1:15) – "primogénito de toda creación".<br>
+            <span class="greek-word">πρωτότοκος ἐκ τῶν νεκρῶν</span> (Colosenses 1:18) – "primogénito de entre los muertos".<br>
+            <strong>Matiz:</strong> No significa que Cristo fue <strong>creado</strong>, sino que tiene la <strong>preeminencia</strong> sobre toda la creación.
+          </div>
+
+          <h3>ἀπαύγασμα (apaugasma) – "resplandor"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> "Resplandor" o "destello" de luz.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ὃς ὢν ἀπαύγασμα τῆς δόξης</span> (Hebreos 1:3) – "el cual siendo el resplandor de su gloria".<br>
+            <strong>Matiz:</strong> Cristo es el <strong>resplandor mismo</strong> de la gloria de Dios, no un reflejo separado.
+          </div>
+
+          <h3>χαρακτήρ (charaktēr) – "imagen exacta, sello"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> "Impresión" o "sello" que reproduce exactamente el original.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">χαρακτὴρ τῆς ὑποστάσεως αὐτοῦ</span> (Hebreos 1:3) – "la imagen exacta de su sustancia".<br>
+            <strong>Matiz:</strong> Cristo es la <strong>reproducción exacta</strong> de la naturaleza de Dios.
+          </div>
+          <button class="btn-reveal" data-target="cristo2Ej">Identifica el término</button>
+          <div id="cristo2Ej" class="answer-text">
+            <span class="greek-word">μονογενής</span> – Hijo único (Juan 3:16).<br>
+            <span class="greek-word">πρωτότοκος</span> – primogénito, preeminente (Colosenses 1:15,18).<br>
+            <span class="greek-word">ἀπαύγασμα</span> – resplandor (Hebreos 1:3).<br>
+            <span class="greek-word">χαρακτήρ</span> – imagen exacta (Hebreos 1:3).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: TÉRMINOS CRISTOLÓGICOS – κένωσις, ταπείνωσις, ὑπερύψωσις -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user-tag"></i> 4. Términos cristológicos III: κένωσις, ταπείνωσις, ὑπερύψωσις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos tres términos describen el <strong>movimiento</strong> de Cristo: <strong>encarnación, humillación y exaltación</strong>.</p>
+
+          <h3>κένωσις (kenōsis) – "vaciamiento"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> "Vaciamiento" o "despojamiento".<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ἑαυτὸν ἐκένωσεν</span> (Filipenses 2:7) – "se despojó a sí mismo".<br>
+            <strong>Matiz:</strong> Cristo <strong>no se despojó de su divinidad</strong>, sino de la <strong>manifestación externa</strong> de su gloria para tomar forma de siervo.
+          </div>
+
+          <h3>ταπείνωσις (tapeinōsis) – "humillación"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> "Humillación", "abajamiento".<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ἐταπείνωσεν ἑαυτόν</span> (Filipenses 2:8) – "se humilló a sí mismo".<br>
+            <strong>Matiz:</strong> La humillación de Cristo fue <strong>voluntaria</strong> y llegó hasta la muerte en cruz.
+          </div>
+
+          <h3>ὑπερύψωσις (hyperhypsōsis) – "exaltación suprema"</h3>
+          <div class="theo-box">
+            <strong>Significado:</strong> "Exaltación suprema" o "sublimación".<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ὁ θεὸς αὐτὸν ὑπερύψωσεν</span> (Filipenses 2:9) – "Dios lo exaltó sobremanera".<br>
+            <strong>Matiz:</strong> La exaltación de Cristo es la <strong>respuesta divina</strong> a su humillación voluntaria.
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Filipenses 2:5-11:</strong><br>
+            <span class="greek-word">μορφή</span> → <span class="greek-word">κένωσις</span> → <span class="greek-word">ταπείνωσις</span> → <span class="greek-word">ὑπερύψωσις</span>.<br>
+            Este es el <strong>quiasmo cristológico</strong> de Pablo: la humillación voluntaria de Cristo y su posterior exaltación por parte del Padre.
+          </div>
+          <button class="btn-reveal" data-target="cristo3Ej">Ordena el movimiento cristológico</button>
+          <div id="cristo3Ej" class="answer-text">
+            1. <span class="greek-word">μορφή</span> – existencia en forma de Dios.<br>
+            2. <span class="greek-word">κένωσις</span> – se despojó a sí mismo.<br>
+            3. <span class="greek-word">ταπείνωσις</span> – se humilló hasta la cruz.<br>
+            4. <span class="greek-word">ὑπερύψωσις</span> – Dios lo exaltó sobremanera.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: TÉRMINOS SOTERIOLÓGICOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-hand-holding-heart"></i> 5. Términos soteriológicos: ἀπολύτρωσις, ἱλασμός, ἱλαστήριον, καταλλαγή, δικαίωσις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos términos describen los <strong>aspectos de la obra salvadora</strong> de Cristo.</p>
+
+          <h3>ἀπολύτρωσις (apolytrōsis) – "redención"</h3>
+          <div class="soter-box">
+            <strong>Significado:</strong> "Redención", "rescate" mediante el pago de un precio.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ἐν ᾧ ἔχομεν τὴν ἀπολύτρωσιν</span> (Colosenses 1:14) – "en quien tenemos la redención".<br>
+            <strong>Matiz:</strong> Implica <strong>liberación</strong> de la esclavitud del pecado mediante el <strong>pago de un rescate</strong> (la sangre de Cristo).
+          </div>
+
+          <h3>ἱλασμός (hilasmos) – "propiciación"</h3>
+          <div class="soter-box">
+            <strong>Significado:</strong> "Propiciación" – acción que <strong>aplaca la ira</strong> y <strong>restaura la comunión</strong>.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">αὐτὸς ἱλασμός ἐστιν τῶν ἁμαρτιῶν ἡμῶν</span> (1 Juan 2:2) – "él es la propiciación por nuestros pecados".<br>
+            <strong>Matiz:</strong> Cristo es el <strong>medio</strong> por el cual la ira de Dios es apartada y la comunión es restaurada.
+          </div>
+
+          <h3>ἱλαστήριον (hilastērion) – "propiciatorio"</h3>
+          <div class="soter-box">
+            <strong>Significado:</strong> "Propiciatorio" – el lugar donde se hace expiación.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">ὃν προέθετο ὁ θεὸς ἱλαστήριον</span> (Romanos 3:25) – "a quien Dios puso como propiciación".<br>
+            <strong>Matiz:</strong> Cristo es el <strong>nuevo propiciatorio</strong>, el lugar donde Dios y el hombre se encuentran.
+          </div>
+
+          <h3>καταλλαγή (katallagē) – "reconciliación"</h3>
+          <div class="soter-box">
+            <strong>Significado:</strong> "Reconciliación" – restauración de la relación rota.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">τὴν διακονίαν τῆς καταλλαγῆς</span> (2 Corintios 5:18) – "el ministerio de la reconciliación".<br>
+            <strong>Matiz:</strong> Dios <strong>reconcilia</strong> al mundo consigo mismo en Cristo, no imputando los pecados.
+          </div>
+
+          <h3>δικαίωσις (dikaiōsis) – "justificación"</h3>
+          <div class="soter-box">
+            <strong>Significado:</strong> "Justificación" – el acto de <strong>declarar justo</strong> al pecador.<br>
+            <strong>Uso clave:</strong> <span class="greek-word">τοὺς πιστεύοντας εἰς δικαίωσιν</span> (Romanos 4:5) – "a los que creen para justificación".<br>
+            <strong>Matiz:</strong> La justificación es un <strong>acto legal</strong> de Dios que <strong>declara</strong> al pecador justo sobre la base de la fe en Cristo.
+          </div>
+          <button class="btn-reveal" data-target="soterEj">Identifica el término soteriológico</button>
+          <div id="soterEj" class="answer-text">
+            <span class="greek-word">ἀπολύτρωσις</span> – redención (liberación mediante rescate).<br>
+            <span class="greek-word">ἱλασμός</span> – propiciación (aplacar la ira).<br>
+            <span class="greek-word">καταλλαγή</span> – reconciliación (restaurar la relación).<br>
+            <span class="greek-word">δικαίωσις</span> – justificación (declarar justo).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Términos cristológicos y soteriológicos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen los términos clave de la cristología y la soteriología del NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Campo semántico</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Filipenses 2:5-11:</strong> <span class="greek-word">τοῦτο φρονεῖτε ἐν ὑμῖν ὃ καὶ ἐν Χριστῷ Ἰησοῦ, ὃς ἐν μορφῇ θεοῦ ὑπάρχων οὐχ ἁρπαγμὸν ἡγήσατο τὸ εἶναι ἴσα θεῷ, ἀλλὰ ἑαυτὸν ἐκένωσεν μορφὴν δούλου λαβών, ἐν ὁμοιώματι ἀνθρώπων γενόμενος· καὶ σχήματι εὑρεθεὶς ὡς ἄνθρωπος ἐταπείνωσεν ἑαυτόν γενόμενος ὑπήκοος μέχρι θανάτου, θανάτου δὲ σταυροῦ. διὸ καὶ ὁ θεὸς αὐτὸν ὑπερύψωσεν καὶ ἐχαρίσατο αὐτῷ τὸ ὄνομα τὸ ὑπὲρ πᾶν ὄνομα, ἵνα ἐν τῷ ὀνόματι Ἰησοῦ πᾶν γόνυ κάμψῃ ἐπουρανίων καὶ ἐπιγείων καὶ καταχθονίων, καὶ πᾶσα γλῶσσα ἐξομολογήσηται ὅτι κύριος Ἰησοῦς Χριστὸς εἰς δόξαν θεοῦ πατρός.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL TÉRMINO CRISTOLÓGICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el término cristológico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="cristoQuizArea"></div>
+          <button id="newCristoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="cristoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL TÉRMINO SOTERIOLÓGICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-hand-holding-heart"></i> 8. Identifica el término soteriológico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="soterQuizArea"></div>
+          <button id="newSoterQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="soterFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN EN CONTEXTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases con vocabulario teológico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transTheoQuizArea"></div>
+          <button id="newTransTheoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transTheoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – FILIPENSES 2:5-11, COLOSENSES 1:15-20, HEBREOS 1:1-4 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Himnos cristológicos del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los himnos cristológicos. Identifica los términos clave de cristología y soteriología.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Filipenses 2:6 – μορφή θεοῦ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὃς ἐν μορφῇ θεοῦ ὑπάρχων οὐχ ἁρπαγμὸν ἡγήσατο τὸ εἶναι ἴσα θεῷ</span></p>
+              <button class="btn-reveal" data-target="flp2a">¿Qué significa <strong>μορφή θεοῦ</strong>?</button>
+              <div id="flp2a" class="answer-text">"Forma de Dios" – indica la <strong>naturaleza esencial</strong> de Cristo como Dios. No es una mera apariencia, sino su <strong>verdadera identidad</strong>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Filipenses 2:7 – κένωσις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀλλὰ ἑαυτὸν ἐκένωσεν μορφὴν δούλου λαβών</span></p>
+              <button class="btn-reveal" data-target="flp2b">¿Qué verbo describe la <strong>κένωσις</strong>?</button>
+              <div id="flp2b" class="answer-text"><span class="greek-word">ἐκένωσεν</span> – "se despojó a sí mismo" (aoristo de κενόω). No significa que dejó de ser Dios, sino que <strong>renunció a la manifestación externa</strong> de su gloria.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Colosenses 1:15 – εἰκών</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὅς ἐστιν εἰκὼν τοῦ θεοῦ τοῦ ἀοράτου, πρωτότοκος πάσης κτίσεως</span></p>
+              <button class="btn-reveal" data-target="col1a">¿Qué significa <strong>εἰκών</strong> aquí?</button>
+              <div id="col1a" class="answer-text">"Imagen" – Cristo es la <strong>representación visible</strong> del Dios invisible. Ver a Cristo es ver al Padre.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hebreos 1:3 – ἀπαύγασμα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὃς ὢν ἀπαύγασμα τῆς δόξης καὶ χαρακτὴρ τῆς ὑποστάσεως αὐτοῦ</span></p>
+              <button class="btn-reveal" data-target="heb1a">¿Qué dos términos cristológicos aparecen aquí?</button>
+              <div id="heb1a" class="answer-text"><span class="greek-word">ἀπαύγασμα</span> ("resplandor") y <span class="greek-word">χαρακτήρ</span> ("imagen exacta"). Cristo es el <strong>resplandor mismo</strong> de la gloria de Dios y la <strong>reproducción exacta</strong> de su naturaleza.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Filipenses 2:5-11, Colosenses 1:15-20 y Hebreos 1:1-4 en griego. Identifica todos los términos cristológicos y soteriológicos. Reflexiona sobre su significado teológico.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-47.html"><i class="fas fa-arrow-left"></i> Lección 47</a>
+      <a href="leccion-49.html"><i class="fas fa-arrow-right"></i> Lección 49</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ὃς ἐν μορφῇ θεοῦ ὑπάρχων</span> (Filipenses 2:6)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 48 ==========
+    const vocabData = [
+      { greek: "μορφή", translit: "morphē", spanish: "forma, naturaleza", field: "cristología" },
+      { greek: "εἰκών", translit: "eikōn", spanish: "imagen", field: "cristología" },
+      { greek: "ὁμοίωμα", translit: "homoiōma", spanish: "semejanza", field: "cristología" },
+      { greek: "μονογενής", translit: "monogenēs", spanish: "unigénito, único", field: "cristología" },
+      { greek: "πρωτότοκος", translit: "prōtotokos", spanish: "primogénito, preeminente", field: "cristología" },
+      { greek: "ἀπαύγασμα", translit: "apaugasma", spanish: "resplandor", field: "cristología" },
+      { greek: "χαρακτήρ", translit: "charaktēr", spanish: "imagen exacta, sello", field: "cristología" },
+      { greek: "ὑπόστασις", translit: "hypostasis", spanish: "sustancia, persona", field: "cristología" },
+      { greek: "κένωσις", translit: "kenōsis", spanish: "vaciamiento, despojo", field: "cristología" },
+      { greek: "ταπείνωσις", translit: "tapeinōsis", spanish: "humillación", field: "cristología" },
+      { greek: "ὑπερύψωσις", translit: "hyperhypsōsis", spanish: "exaltación suprema", field: "cristología" },
+      { greek: "κύριος", translit: "kyrios", spanish: "Señor", field: "cristología" },
+      { greek: "υἱός θεοῦ", translit: "huios theou", spanish: "Hijo de Dios", field: "cristología" },
+      { greek: "υἱὸς ἀνθρώπου", translit: "huios anthrōpou", spanish: "Hijo del Hombre", field: "cristología" },
+      { greek: "χριστός", translit: "christos", spanish: "Cristo, Ungido", field: "cristología" },
+      { greek: "ἀπολύτρωσις", translit: "apolytrōsis", spanish: "redención", field: "soteriología" },
+      { greek: "ἱλασμός", translit: "hilasmos", spanish: "propiciación", field: "soteriología" },
+      { greek: "ἱλαστήριον", translit: "hilastērion", spanish: "propiciatorio", field: "soteriología" },
+      { greek: "καταλλαγή", translit: "katallagē", spanish: "reconciliación", field: "soteriología" },
+      { greek: "δικαίωσις", translit: "dikaiōsis", spanish: "justificación", field: "soteriología" }
+    ];
+
+    // Ejemplos para identificar términos cristológicos
+    const cristoQuizExamples = [
+      { term: "μορφή", definition: "forma, naturaleza esencial", field: "cristología" },
+      { term: "εἰκών", definition: "imagen que representa al original", field: "cristología" },
+      { term: "ὁμοίωμα", definition: "semejanza, parecido", field: "cristología" },
+      { term: "μονογενής", definition: "unigénito, único", field: "cristología" },
+      { term: "πρωτότοκος", definition: "primogénito, preeminente", field: "cristología" },
+      { term: "ἀπαύγασμα", definition: "resplandor", field: "cristología" },
+      { term: "χαρακτήρ", definition: "imagen exacta, sello", field: "cristología" },
+      { term: "κένωσις", definition: "vaciamiento, despojo", field: "cristología" },
+      { term: "ταπείνωσις", definition: "humillación", field: "cristología" },
+      { term: "ὑπερύψωσις", definition: "exaltación suprema", field: "cristología" }
+    ];
+
+    // Ejemplos para identificar términos soteriológicos
+    const soterQuizExamples = [
+      { term: "ἀπολύτρωσις", definition: "redención (rescate)", field: "soteriología" },
+      { term: "ἱλασμός", definition: "propiciación (aplacar la ira)", field: "soteriología" },
+      { term: "ἱλαστήριον", definition: "propiciatorio (lugar de expiación)", field: "soteriología" },
+      { term: "καταλλαγή", definition: "reconciliación (restaurar la relación)", field: "soteriología" },
+      { term: "δικαίωσις", definition: "justificación (declarar justo)", field: "soteriología" }
+    ];
+
+    // Frases para traducción con vocabulario teológico
+    const transTheoPhrases = [
+      { greek: "ὃς ἐν μορφῇ θεοῦ ὑπάρχων", translation: "el cual, existiendo en forma de Dios", analysis: "μορφή – forma/naturaleza" },
+      { greek: "ὅς ἐστιν εἰκὼν τοῦ θεοῦ", translation: "el cual es la imagen de Dios", analysis: "εἰκών – imagen" },
+      { greek: "ἐν ὁμοιώματι σαρκὸς ἁμαρτίας", translation: "en semejanza de carne de pecado", analysis: "ὁμοίωμα – semejanza" },
+      { greek: "τὸν υἱὸν αὐτοῦ τὸν μονογενῆ", translation: "a su Hijo unigénito", analysis: "μονογενής – unigénito" },
+      { greek: "πρωτότοκος πάσης κτίσεως", translation: "primogénito de toda creación", analysis: "πρωτότοκος – primogénito" },
+      { greek: "ὃς ὢν ἀπαύγασμα τῆς δόξης", translation: "siendo el resplandor de la gloria", analysis: "ἀπαύγασμα – resplandor" },
+      { greek: "χαρακτὴρ τῆς ὑποστάσεως αὐτοῦ", translation: "la imagen exacta de su sustancia", analysis: "χαρακτήρ – imagen exacta" },
+      { greek: "ἑαυτὸν ἐκένωσεν", translation: "se despojó a sí mismo", analysis: "κένωσις – vaciamiento" },
+      { greek: "ἐταπείνωσεν ἑαυτόν", translation: "se humilló a sí mismo", analysis: "ταπείνωσις – humillación" },
+      { greek: "ὁ θεὸς αὐτὸν ὑπερύψωσεν", translation: "Dios lo exaltó sobremanera", analysis: "ὑπερύψωσις – exaltación" },
+      { greek: "ἔχομεν τὴν ἀπολύτρωσιν", translation: "tenemos la redención", analysis: "ἀπολύτρωσις – redención" },
+      { greek: "αὐτὸς ἱλασμός ἐστιν", translation: "él es la propiciación", analysis: "ἱλασμός – propiciación" },
+      { greek: "τὴν διακονίαν τῆς καταλλαγῆς", translation: "el ministerio de la reconciliación", analysis: "καταλλαγή – reconciliación" },
+      { greek: "εἰς δικαίωσιν", translation: "para justificación", analysis: "δικαίωσις – justificación" }
+    ];
+
+    let currentCristo = cristoQuizExamples[0];
+    let currentSoter = soterQuizExamples[0];
+    let currentTransTheo = transTheoPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.field}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadCristoQuiz() {
+      const randomIndex = Math.floor(Math.random() * cristoQuizExamples.length);
+      currentCristo = cristoQuizExamples[randomIndex];
+      const container = document.getElementById("cristoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué término cristológico es <span class="greek-word">${currentCristo.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Campo: ${currentCristo.field}</span><br>
+      <input type="text" id="cristoAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkCristo" class="btn-reveal">Verificar</button>
+      <div id="cristoResult"></div></div>`;
+      document.getElementById("checkCristo").addEventListener("click", () => {
+        const answer = document.getElementById("cristoAnswer").value.trim().toLowerCase();
+        const correct = currentCristo.definition.toLowerCase();
+        const result = document.getElementById("cristoResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentCristo.definition})</span>`;
+          setTimeout(loadCristoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentCristo.definition}</span>`;
+        }
+      });
+    }
+
+    function loadSoterQuiz() {
+      const randomIndex = Math.floor(Math.random() * soterQuizExamples.length);
+      currentSoter = soterQuizExamples[randomIndex];
+      const container = document.getElementById("soterQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué término soteriológico es <span class="greek-word">${currentSoter.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Campo: ${currentSoter.field}</span><br>
+      <input type="text" id="soterAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkSoter" class="btn-reveal">Verificar</button>
+      <div id="soterResult"></div></div>`;
+      document.getElementById("checkSoter").addEventListener("click", () => {
+        const answer = document.getElementById("soterAnswer").value.trim().toLowerCase();
+        const correct = currentSoter.definition.toLowerCase();
+        const result = document.getElementById("soterResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentSoter.definition})</span>`;
+          setTimeout(loadSoterQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentSoter.definition}</span>`;
+        }
+      });
+    }
+
+    function loadTransTheoQuiz() {
+      const randomIndex = Math.floor(Math.random() * transTheoPhrases.length);
+      currentTransTheo = transTheoPhrases[randomIndex];
+      const container = document.getElementById("transTheoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransTheo.greek}</span><br>
+      <input type="text" id="transTheoAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransTheo" class="btn-reveal">Verificar</button>
+      <div id="transTheoResult"></div></div>`;
+      document.getElementById("checkTransTheo").addEventListener("click", () => {
+        const answer = document.getElementById("transTheoAnswer").value.trim().toLowerCase();
+        const correct = currentTransTheo.translation.toLowerCase();
+        const result = document.getElementById("transTheoResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransTheo.analysis})</span>`;
+          setTimeout(loadTransTheoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransTheo.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Término que significa 'forma, naturaleza esencial'", opts: ["μορφή", "εἰκών", "ὁμοίωμα", "χαρακτήρ"], correct: 0 },
+      { q: "Término que significa 'imagen que representa al original'", opts: ["εἰκών", "μορφή", "ὁμοίωμα", "ἀπαύγασμα"], correct: 0 },
+      { q: "Término soteriológico que significa 'propiciación'", opts: ["ἱλασμός", "ἀπολύτρωσις", "καταλλαγή", "δικαίωσις"], correct: 0 },
+      { q: "Término que significa 'vaciamiento, despojo'", opts: ["κένωσις", "ταπείνωσις", "ὑπερύψωσις", "μορφή"], correct: 0 },
+      { q: "Término que significa 'primogénito, preeminente'", opts: ["πρωτότοκος", "μονογενής", "ἀπαύγασμα", "χαρακτήρ"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkCristo" || btn.id === "checkSoter" || btn.id === "checkTransTheo" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadCristoQuiz();
+      loadSoterQuiz();
+      loadTransTheoQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newCristoQuiz")?.addEventListener("click", () => {
+        loadCristoQuiz();
+        document.getElementById("cristoFeedback").innerHTML = "";
+      });
+      document.getElementById("newSoterQuiz")?.addEventListener("click", () => {
+        loadSoterQuiz();
+        document.getElementById("soterFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransTheoQuiz")?.addEventListener("click", () => {
+        loadTransTheoQuiz();
+        document.getElementById("transTheoFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

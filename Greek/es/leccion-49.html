@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 49: Escatología y Apocalíptica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 70%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .eschat-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .judgment-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-48.html"><i class="fas fa-arrow-left"></i> Lección 48</a>
+        <a href="leccion-50.html"><i class="fas fa-arrow-right"></i> Lección 50</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-fire"></i> Lección 49 · Escatología y Apocalíptica <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Tiempos finales (ἔσχατος, συντέλεια, παρουσία, ἀποκάλυψις) · Juicio (κρίσις, βῆμα, θρόνος) · Resurrección y vida eterna (ἀνάστασις, νέκρος, ζωὴ αἰώνιος)</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 980/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Vocabulario escatológico y apocalíptico del NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los términos clave de la escatología y la apocalíptica del NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Escatología y Apocalíptica en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>escatología</strong> (del griego <span class="greek-word">ἔσχατος</span> = "último") es la doctrina de los <strong>tiempos finales</strong>. La <strong>apocalíptica</strong> (del griego <span class="greek-word">ἀποκάλυψις</span> = "revelación") es un género literario que revela verdades divinas sobre el fin de los tiempos mediante visiones y símbolos.</p>
+          <div class="eschat-box">
+            <i class="fas fa-lightbulb"></i> <strong>Importancia exegética:</strong>
+            <ul>
+              <li>La escatología está <strong>presente en todo el NT</strong>, no solo en el Apocalipsis.</li>
+              <li>Jesús habló extensamente sobre el fin (Mateo 24-25, Marcos 13).</li>
+              <li>Pablo dedicó secciones enteras a la resurrección (1 Corintios 15) y la parusía (1 Tesalonicenses 4-5).</li>
+              <li>El vocabulario escatológico es <strong>clave para la teología del NT</strong>.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">ἔσχατος</span> – "último" (aparece en <span class="greek-word">ἔσχατος ἐχθρός</span> – "el último enemigo", 1 Corintios 15:26).<br>
+            <span class="greek-word">παρουσία</span> – "venida" (la segunda venida de Cristo, Mateo 24:3).<br>
+            <span class="greek-word">ἀνάστασις</span> – "resurrección" (Juan 11:25).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: TIEMPOS FINALES – ἔσχατος, συντέλεια, παρουσία, ἀποκάλυψις -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-clock"></i> 2. Términos de los tiempos finales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos cuatro términos son fundamentales para entender la escatología del NT.</p>
+
+          <h3>ἔσχατος (eschatos) – "último, postrero"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Último" en tiempo, orden o calidad.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἔσχατος ἐχθρός</span> – "el último enemigo" (1 Corintios 15:26) – la muerte.</li>
+              <li><span class="greek-word">ἐν ταῖς ἐσχάταις ἡμέραις</span> – "en los últimos días" (Hechos 2:17).</li>
+              <li><span class="greek-word">οἱ ἔσχατοι</span> – "los últimos" (Mateo 20:16 – "los primeros serán últimos").</li>
+            </ul>
+          </div>
+
+          <h3>συντέλεια (synteleia) – "consumación, fin"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Consumación", "fin completo" o "culminación".<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">συντέλεια τοῦ αἰῶνος</span> – "el fin del siglo" (Mateo 13:39,40,49; 24:3; 28:20).</li>
+              <li>Indica el <strong>punto culminante</strong> de la historia, no solo su final.</li>
+            </ul>
+          </div>
+
+          <h3>παρουσία (parousia) – "venida, presencia"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Presencia" o "venida" (de un rey o persona importante).<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">παρουσία τοῦ κυρίου</span> – "la venida del Señor" (1 Tesalonicenses 4:15).</li>
+              <li>Indica la <strong>segunda venida</strong> de Cristo en gloria.</li>
+              <li>Distinto de <span class="greek-word">ἔρχομαι</span> (venir), enfatiza la <strong>presencia real</strong> y la <strong>manifestación</strong>.</li>
+            </ul>
+          </div>
+
+          <h3>ἀποκάλυψις (apokalypsis) – "revelación"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Revelación", "descubrimiento" o "manifestación".<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἀποκάλυψις Ἰησοῦ Χριστοῦ</span> – "Revelación de Jesucristo" (Apocalipsis 1:1).</li>
+              <li><span class="greek-word">ἀποκάλυψις υἱῶν θεοῦ</span> – "la revelación de los hijos de Dios" (Romanos 8:19).</li>
+              <li>En la escatología, se refiere a la <strong>manifestación final</strong> de Cristo y de su gloria.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="tiemposEj">Identifica el término</button>
+          <div id="tiemposEj" class="answer-text">
+            <span class="greek-word">ἔσχατος</span> – último (días finales).<br>
+            <span class="greek-word">συντέλεια</span> – consumación, fin.<br>
+            <span class="greek-word">παρουσία</span> – venida, presencia.<br>
+            <span class="greek-word">ἀποκάλυψις</span> – revelación, manifestación.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: VOCABULARIO DEL JUICIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gavel"></i> 3. Términos del juicio: κρίσις, κρίνω, κατακρίνω, βῆμα, θρόνος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El juicio es un tema central en la escatología del NT.</p>
+
+          <h3>κρίσις (krisis) – "juicio"</h3>
+          <div class="judgment-box">
+            <strong>Significado:</strong> "Juicio", "sentencia" o "acto de juzgar".<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἡμέρα κρίσεως</span> – "día del juicio" (Mateo 10:15).</li>
+              <li><span class="greek-word">κρίσις αἰώνιος</span> – "juicio eterno" (Hebreos 6:2).</li>
+            </ul>
+          </div>
+
+          <h3>κρίνω (krinō) – "juzgar"</h3>
+          <div class="judgment-box">
+            <strong>Significado:</strong> "Juzgar", "decidir", "condenar" o "absolver".<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">κρίνω τὸν ζῶντα καὶ νεκρόν</span> – "juzgar a los vivos y a los muertos" (2 Timoteo 4:1).</li>
+              <li><span class="greek-word">μὴ κρίνετε</span> – "no juzguéis" (Mateo 7:1).</li>
+            </ul>
+          </div>
+
+          <h3>κατακρίνω (katakrinō) – "condenar"</h3>
+          <div class="judgment-box">
+            <strong>Significado:</strong> "Condenar", "sentenciar" (κρίνω + κατά = "juzgar contra").<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ὁ πιστεύων οὐ κρίνεται, ὁ δὲ μὴ πιστεύων ἤδη κέκριται</span> (Juan 3:18) – "el que cree no es condenado".</li>
+              <li><span class="greek-word">οὐδὲν κατάκριμα</span> – "ninguna condenación" (Romanos 8:1).</li>
+            </ul>
+          </div>
+
+          <h3>βῆμα (bēma) – "tribunal"</h3>
+          <div class="judgment-box">
+            <strong>Significado:</strong> "Tribunal" (literalmente, "plataforma" donde se sentaban los jueces).<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">βῆμα τοῦ θεοῦ</span> – "tribunal de Dios" (Romanos 14:10).</li>
+              <li><span class="greek-word">βῆμα τοῦ Χριστοῦ</span> – "tribunal de Cristo" (2 Corintios 5:10).</li>
+            </ul>
+          </div>
+
+          <h3>θρόνος (thronos) – "trono"</h3>
+          <div class="judgment-box">
+            <strong>Significado:</strong> "Trono" – símbolo de autoridad y juicio real.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">θρόνος τοῦ θεοῦ</span> – "trono de Dios" (Apocalipsis 4:2).</li>
+              <li><span class="greek-word">θρόνος δόξης</span> – "trono de gloria" (Mateo 25:31).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="juicioEj">Identifica el término del juicio</button>
+          <div id="juicioEj" class="answer-text">
+            <span class="greek-word">κρίσις</span> – juicio.<br>
+            <span class="greek-word">κρίνω</span> – juzgar.<br>
+            <span class="greek-word">κατακρίνω</span> – condenar.<br>
+            <span class="greek-word">βῆμα</span> – tribunal.<br>
+            <span class="greek-word">θρόνος</span> – trono.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: RESURRECCIÓN Y VIDA ETERNA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-undo-alt"></i> 4. Resurrección y vida eterna</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La resurrección y la vida eterna son el <strong>corazón de la esperanza cristiana</strong>.</p>
+
+          <h3>ἀνάστασις (anastasis) – "resurrección"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Resurrección" (lit. "levantarse de nuevo").<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἀνάστασις νεκρῶν</span> – "resurrección de los muertos" (1 Corintios 15:12).</li>
+              <li><span class="greek-word">ἀνάστασις ζωῆς</span> – "resurrección de vida" (Juan 5:29).</li>
+              <li><span class="greek-word">ἐγώ εἰμι ἡ ἀνάστασις</span> – "Yo soy la resurrección" (Juan 11:25).</li>
+            </ul>
+          </div>
+
+          <h3>νεκρός (nekros) – "muerto"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Muerto", "cadáver".<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἐκ νεκρῶν</span> – "de entre los muertos" (Romanos 1:4).</li>
+              <li><span class="greek-word">νεκροὶ ἀκούσονται</span> – "los muertos oirán" (Juan 5:25).</li>
+            </ul>
+          </div>
+
+          <h3>ζωὴ αἰώνιος (zōē aiōnios) – "vida eterna"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Vida eterna" – no solo duración, sino calidad divina.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἵνα πᾶς ὁ πιστεύων ... ἔχῃ ζωὴν αἰώνιον</span> (Juan 3:15).</li>
+              <li><span class="greek-word">αὕτη ἐστὶν ἡ ζωὴ αἰώνιος</span> – "esta es la vida eterna" (Juan 17:3).</li>
+            </ul>
+          </div>
+
+          <h3>βασιλεία (basileia) – "reino"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Reino" – el dominio y gobierno de Dios.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">βασιλεία τῶν οὐρανῶν</span> – "reino de los cielos" (Mateo).</li>
+              <li><span class="greek-word">βασιλεία τοῦ θεοῦ</span> – "reino de Dios" (Marcos, Lucas).</li>
+              <li>Es tanto <strong>presente</strong> (ya está aquí) como <strong>futuro</strong> (vendrá en plenitud).</li>
+            </ul>
+          </div>
+
+          <h3>ἀφθαρσία (aphtharsia) – "incorrupción, inmortalidad"</h3>
+          <div class="eschat-box">
+            <strong>Significado:</strong> "Incorrupción" o "inmortalidad".<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">οὗτος ἐνδύσασθαι ἀφθαρσίαν</span> – "esto vestirse de incorrupción" (1 Corintios 15:53).</li>
+              <li><span class="greek-word">ὑπὲρ τῆς εἰς ἀφθαρσίαν</span> – "para la inmortalidad" (Romanos 2:7).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="vidaEj">Identifica el término de resurrección/vida</button>
+          <div id="vidaEj" class="answer-text">
+            <span class="greek-word">ἀνάστασις</span> – resurrección.<br>
+            <span class="greek-word">νεκρός</span> – muerto.<br>
+            <span class="greek-word">ζωὴ αἰώνιος</span> – vida eterna.<br>
+            <span class="greek-word">βασιλεία</span> – reino.<br>
+            <span class="greek-word">ἀφθαρσία</span> – incorrupción, inmortalidad.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 5. Vocabulario · Escatología y Apocalíptica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen los términos clave de la escatología y la apocalíptica del NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Campo semántico</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Apocalipsis 1:1-3:</strong> <span class="greek-word">Ἀποκάλυψις Ἰησοῦ Χριστοῦ ἣν ἔδωκεν αὐτῷ ὁ θεὸς δεῖξαι τοῖς δούλοις αὐτοῦ ἃ δεῖ γενέσθαι ἐν τάχει, καὶ ἐσήμανεν ἀποστείλας διὰ τοῦ ἀγγέλου αὐτοῦ τῷ δούλῳ αὐτοῦ Ἰωάννῃ, ὃς ἐμαρτύρησεν τὸν λόγον τοῦ θεοῦ καὶ τὴν μαρτυρίαν Ἰησοῦ Χριστοῦ ὅσα εἶδεν. μακάριος ὁ ἀναγινώσκων καὶ οἱ ἀκούοντες τοὺς λόγους τῆς προφητείας καὶ τηροῦντες τὰ ἐν αὐτῇ γεγραμμένα, ὁ γὰρ καιρὸς ἐγγύς.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: EJERCICIO – IDENTIFICA EL TÉRMINO ESCATOLÓGICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 6. Identifica el término escatológico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="eschatQuizArea"></div>
+          <button id="newEschatQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="eschatFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL TÉRMINO DEL JUICIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gavel"></i> 7. Identifica el término del juicio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="judgmentQuizArea"></div>
+          <button id="newJudgmentQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="judgmentFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – TRADUCCIÓN EN CONTEXTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce frases escatológicas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transEschatQuizArea"></div>
+          <button id="newTransEschatQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transEschatFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 10. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: TEXTO PROGRAMADO – APOCALIPSIS 1 Y 1 TESALONICENSES 4 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 11. Lectura programada · Apocalipsis 1:1-20 y 1 Tesalonicenses 4:13-18</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica el vocabulario escatológico y apocalíptico.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 1:1 – Ἀποκάλυψις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Ἀποκάλυψις Ἰησοῦ Χριστοῦ</span></p>
+              <button class="btn-reveal" data-target="ap1a">¿Qué significa <strong>ἀποκάλυψις</strong>?</button>
+              <div id="ap1a" class="answer-text">"Revelación" – es la manifestación de Jesucristo, el género literario del libro.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 1:3 – ὁ γὰρ καιρὸς ἐγγύς</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">μακάριος ὁ ἀναγινώσκων ... ὁ γὰρ καιρὸς ἐγγύς</span></p>
+              <button class="btn-reveal" data-target="ap1b">¿Qué concepto escatológico se expresa en <strong>ὁ καιρὸς ἐγγύς</strong>?</button>
+              <div id="ap1b" class="answer-text">"El tiempo está cerca" – expresa la <strong>inminencia</strong> de los eventos escatológicos.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Tesalonicenses 4:16 – ἀνάστασις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οἱ νεκροὶ ἐν Χριστῷ ἀναστήσονται πρῶτον</span></p>
+              <button class="btn-reveal" data-target="ts4a">¿Qué verbo relacionado con <strong>ἀνάστασις</strong> aparece?</button>
+              <div id="ts4a" class="answer-text"><span class="greek-word">ἀναστήσονται</span> – futuro pasivo de <span class="greek-word">ἀνίστημι</span> ("resucitarán").</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Tesalonicenses 4:17 – παρουσία</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">εἰς ἀπάντησιν τοῦ κυρίου· καὶ οὕτως πάντοτε σὺν κυρίῳ ἐσόμεθα</span></p>
+              <button class="btn-reveal" data-target="ts4b">¿Qué término escatológico se asocia con esta reunión con el Señor?</button>
+              <div id="ts4b" class="answer-text"><span class="greek-word">παρουσία</span> – la venida del Señor, cuando los creyentes serán reunidos con él.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con vocabulario escatológico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἡμέρα κρίσεως</span></p>
+              <button class="btn-reveal" data-target="transEschat">Traduce y analiza</button>
+              <div id="transEschat" class="answer-text">"Día del juicio" – κρίσις + ἡμέρα. Es un término clave para el fin de los tiempos.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 12. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Apocalipsis 1:1-20 y 1 Tesalonicenses 4:13-18 en griego. Identifica todos los términos escatológicos. Reflexiona sobre la esperanza cristiana en la resurrección y la vida eterna.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-48.html"><i class="fas fa-arrow-left"></i> Lección 48</a>
+      <a href="leccion-50.html"><i class="fas fa-arrow-right"></i> Lección 50</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἀποκάλυψις Ἰησοῦ Χριστοῦ</span> (Apocalipsis 1:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 49 ==========
+    const vocabData = [
+      { greek: "ἀποκάλυψις", translit: "apokalypsis", spanish: "revelación", field: "tiempos finales" },
+      { greek: "παρουσία", translit: "parousia", spanish: "venida, presencia", field: "tiempos finales" },
+      { greek: "ἐπιφάνεια", translit: "epiphaneia", spanish: "manifestación, aparición", field: "tiempos finales" },
+      { greek: "συντέλεια", translit: "synteleia", spanish: "consumación, fin", field: "tiempos finales" },
+      { greek: "βῆμα", translit: "bēma", spanish: "tribunal", field: "juicio" },
+      { greek: "θρόνος", translit: "thronos", spanish: "trono", field: "juicio" },
+      { greek: "κριτήριον", translit: "kritērion", spanish: "tribunal, criterio", field: "juicio" },
+      { greek: "ἀνάστασις", translit: "anastasis", spanish: "resurrección", field: "resurrección/vida" },
+      { greek: "νεκρός", translit: "nekros", spanish: "muerto", field: "resurrección/vida" },
+      { greek: "ἄφθαρτος", translit: "aphthartos", spanish: "incorruptible", field: "resurrección/vida" },
+      { greek: "ἀθανασία", translit: "athanasia", spanish: "inmortalidad", field: "resurrección/vida" },
+      { greek: "ζωὴ αἰώνιος", translit: "zōē aiōnios", spanish: "vida eterna", field: "resurrección/vida" },
+      { greek: "γέεννα", translit: "geenna", spanish: "gehena, infierno", field: "juicio" },
+      { greek: "ᾅδης", translit: "hadēs", spanish: "hades, seol", field: "juicio" },
+      { greek: "οὐρανός", translit: "ouranos", spanish: "cielo", field: "resurrección/vida" },
+      { greek: "νέος", translit: "neos", spanish: "nuevo (renovado)", field: "tiempos finales" },
+      { greek: "καινός", translit: "kainos", spanish: "nuevo (diferente)", field: "tiempos finales" },
+      { greek: "ἀρχαῖος", translit: "archaios", spanish: "antiguo, viejo", field: "tiempos finales" },
+      { greek: "πλάνη", translit: "planē", spanish: "error, engaño", field: "tiempos finales" },
+      { greek: "ψευδοπροφήτης", translit: "pseudoprophētēs", spanish: "falso profeta", field: "tiempos finales" }
+    ];
+
+    // Ejemplos para identificar términos escatológicos
+    const eschatQuizExamples = [
+      { term: "ἀποκάλυψις", definition: "revelación", field: "tiempos finales" },
+      { term: "παρουσία", definition: "venida, presencia", field: "tiempos finales" },
+      { term: "ἐπιφάνεια", definition: "manifestación, aparición", field: "tiempos finales" },
+      { term: "συντέλεια", definition: "consumación, fin", field: "tiempos finales" },
+      { term: "νέος", definition: "nuevo (renovado)", field: "tiempos finales" },
+      { term: "καινός", definition: "nuevo (diferente)", field: "tiempos finales" },
+      { term: "πλάνη", definition: "error, engaño", field: "tiempos finales" },
+      { term: "ψευδοπροφήτης", definition: "falso profeta", field: "tiempos finales" }
+    ];
+
+    // Ejemplos para identificar términos del juicio
+    const judgmentQuizExamples = [
+      { term: "βῆμα", definition: "tribunal", field: "juicio" },
+      { term: "θρόνος", definition: "trono", field: "juicio" },
+      { term: "κριτήριον", definition: "tribunal, criterio", field: "juicio" },
+      { term: "γέεννα", definition: "gehena, infierno", field: "juicio" },
+      { term: "ᾅδης", definition: "hades, seol", field: "juicio" }
+    ];
+
+    // Frases para traducción con vocabulario escatológico
+    const transEschatPhrases = [
+      { greek: "ἡμέρα κρίσεως", translation: "día del juicio", analysis: "κρίσις – juicio" },
+      { greek: "ἀνάστασις νεκρῶν", translation: "resurrección de los muertos", analysis: "ἀνάστασις – resurrección" },
+      { greek: "ζωὴ αἰώνιος", translation: "vida eterna", analysis: "αἰώνιος – eterno" },
+      { greek: "παρουσία τοῦ κυρίου", translation: "la venida del Señor", analysis: "παρουσία – venida" },
+      { greek: "βασιλεία τοῦ θεοῦ", translation: "el reino de Dios", analysis: "βασιλεία – reino" },
+      { greek: "βῆμα τοῦ Χριστοῦ", translation: "el tribunal de Cristo", analysis: "βῆμα – tribunal" },
+      { greek: "ἀποκάλυψις Ἰησοῦ Χριστοῦ", translation: "revelación de Jesucristo", analysis: "ἀποκάλυψις – revelación" },
+      { greek: "συντέλεια τοῦ αἰῶνος", translation: "el fin del siglo", analysis: "συντέλεια – consumación" }
+    ];
+
+    let currentEschat = eschatQuizExamples[0];
+    let currentJudgment = judgmentQuizExamples[0];
+    let currentTransEschat = transEschatPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.field}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadEschatQuiz() {
+      const randomIndex = Math.floor(Math.random() * eschatQuizExamples.length);
+      currentEschat = eschatQuizExamples[randomIndex];
+      const container = document.getElementById("eschatQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué término escatológico es <span class="greek-word">${currentEschat.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Campo: ${currentEschat.field}</span><br>
+      <input type="text" id="eschatAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkEschat" class="btn-reveal">Verificar</button>
+      <div id="eschatResult"></div></div>`;
+      document.getElementById("checkEschat").addEventListener("click", () => {
+        const answer = document.getElementById("eschatAnswer").value.trim().toLowerCase();
+        const correct = currentEschat.definition.toLowerCase();
+        const result = document.getElementById("eschatResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentEschat.definition})</span>`;
+          setTimeout(loadEschatQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentEschat.definition}</span>`;
+        }
+      });
+    }
+
+    function loadJudgmentQuiz() {
+      const randomIndex = Math.floor(Math.random() * judgmentQuizExamples.length);
+      currentJudgment = judgmentQuizExamples[randomIndex];
+      const container = document.getElementById("judgmentQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué término del juicio es <span class="greek-word">${currentJudgment.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Campo: ${currentJudgment.field}</span><br>
+      <input type="text" id="judgmentAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkJudgment" class="btn-reveal">Verificar</button>
+      <div id="judgmentResult"></div></div>`;
+      document.getElementById("checkJudgment").addEventListener("click", () => {
+        const answer = document.getElementById("judgmentAnswer").value.trim().toLowerCase();
+        const correct = currentJudgment.definition.toLowerCase();
+        const result = document.getElementById("judgmentResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentJudgment.definition})</span>`;
+          setTimeout(loadJudgmentQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentJudgment.definition}</span>`;
+        }
+      });
+    }
+
+    function loadTransEschatQuiz() {
+      const randomIndex = Math.floor(Math.random() * transEschatPhrases.length);
+      currentTransEschat = transEschatPhrases[randomIndex];
+      const container = document.getElementById("transEschatQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransEschat.greek}</span><br>
+      <input type="text" id="transEschatAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransEschat" class="btn-reveal">Verificar</button>
+      <div id="transEschatResult"></div></div>`;
+      document.getElementById("checkTransEschat").addEventListener("click", () => {
+        const answer = document.getElementById("transEschatAnswer").value.trim().toLowerCase();
+        const correct = currentTransEschat.translation.toLowerCase();
+        const result = document.getElementById("transEschatResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransEschat.analysis})</span>`;
+          setTimeout(loadTransEschatQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransEschat.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Término que significa 'venida, presencia' (de Cristo)", opts: ["παρουσία", "ἀποκάλυψις", "ἐπιφάνεια", "συντέλεια"], correct: 0 },
+      { q: "Término que significa 'revelación'", opts: ["ἀποκάλυψις", "παρουσία", "ἐπιφάνεια", "συντέλεια"], correct: 0 },
+      { q: "Término que significa 'tribunal'", opts: ["βῆμα", "θρόνος", "κριτήριον", "κατάκρισις"], correct: 0 },
+      { q: "Término que significa 'resurrección'", opts: ["ἀνάστασις", "νεκρός", "ζωὴ αἰώνιος", "βασιλεία"], correct: 0 },
+      { q: "Término que significa 'vida eterna'", opts: ["ζωὴ αἰώνιος", "ἀνάστασις", "βασιλεία", "ἀφθαρσία"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkEschat" || btn.id === "checkJudgment" || btn.id === "checkTransEschat" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadEschatQuiz();
+      loadJudgmentQuiz();
+      loadTransEschatQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newEschatQuiz")?.addEventListener("click", () => {
+        loadEschatQuiz();
+        document.getElementById("eschatFeedback").innerHTML = "";
+      });
+      document.getElementById("newJudgmentQuiz")?.addEventListener("click", () => {
+        loadJudgmentQuiz();
+        document.getElementById("judgmentFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransEschatQuiz")?.addEventListener("click", () => {
+        loadTransEschatQuiz();
+        document.getElementById("transEschatFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

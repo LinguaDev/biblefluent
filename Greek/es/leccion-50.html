@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 50: Vida Ética y Espiritual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 71%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .virtue-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .vice-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c2410c; }
+    .spiritual-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #1a4c61; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-49.html"><i class="fas fa-arrow-left"></i> Lección 49</a>
+        <a href="leccion-51.html"><i class="fas fa-arrow-right"></i> Lección 51</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-leaf"></i> Lección 50 · Vida Ética y Espiritual <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Virtudes y vicios · Fruto del Espíritu (Gálatas 5:22-23) · Obras de la carne (Gálatas 5:19-21) · La nueva vida · La lucha espiritual</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1000/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Vocabulario ético y espiritual del NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los términos clave de la ética y la vida espiritual en el NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. La ética y la vida espiritual en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Nuevo Testamento contiene un <strong>vocabulario ético y espiritual</strong> muy rico. Las cartas paulinas, en particular, presentan una <strong>ética de la nueva creación</strong> que contrasta con la vida antigua.</p>
+          <div class="spiritual-box">
+            <i class="fas fa-lightbulb"></i> <strong>Principios clave:</strong>
+            <ul>
+              <li>La ética cristiana no es un mero <strong>código moral</strong>, sino el resultado de la <strong>obra del Espíritu</strong> en el creyente.</li>
+              <li>Hay un <strong>contraste radical</strong> entre las <strong>obras de la carne</strong> y el <strong>fruto del Espíritu</strong> (Gálatas 5).</li>
+              <li>La <strong>transformación</strong> es un proceso: <span class="greek-word">μεταμορφόω</span> (Romanos 12:2).</li>
+              <li>La vida cristiana se describe como <span class="greek-word">περιπατέω</span> – "caminar" – en la nueva vida.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">ὁ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη, χαρά, εἰρήνη</span> (Gálatas 5:22) – "el fruto del Espíritu es amor, gozo, paz".<br>
+            <span class="greek-word">φανερὰ δέ ἐστιν τὰ ἔργα τῆς σαρκός</span> (Gálatas 5:19) – "manifiestas son las obras de la carne".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: VIRTUDES Y FRUTO DEL ESPÍRITU -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-seedling"></i> 2. Virtudes y fruto del Espíritu (Gálatas 5:22-23)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Pablo enumera <strong>nueve virtudes</strong> que son el resultado de la obra del Espíritu Santo en la vida del creyente.</p>
+
+          <div class="virtue-box">
+            <strong><i class="fas fa-star"></i> El fruto del Espíritu:</strong>
+            <ul>
+              <li><span class="greek-word">ἀγάπη</span> (agapē) – <strong>amor</strong> (amor sacrificial, de elección)</li>
+              <li><span class="greek-word">χαρά</span> (chara) – <strong>gozo</strong> (alegría profunda, no circunstancial)</li>
+              <li><span class="greek-word">εἰρήνη</span> (eirēnē) – <strong>paz</strong> (shalom, bienestar integral)</li>
+              <li><span class="greek-word">μακροθυμία</span> (makrothymia) – <strong>paciencia</strong>, longanimidad</li>
+              <li><span class="greek-word">χρηστότης</span> (chrēstotēs) – <strong>benignidad</strong>, bondad</li>
+              <li><span class="greek-word">ἀγαθωσύνη</span> (agathōsynē) – <strong>bondad</strong> (bondad activa)</li>
+              <li><span class="greek-word">πίστις</span> (pistis) – <strong>fe</strong>, fidelidad</li>
+              <li><span class="greek-word">πραΰτης</span> (praϋtēs) – <strong>mansedumbre</strong>, humildad</li>
+              <li><span class="greek-word">ἐγκράτεια</span> (enkrateia) – <strong>dominio propio</strong>, templanza</li>
+            </ul>
+          </div>
+          <div class="spiritual-box">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> El fruto es <strong>singular</strong> (<span class="greek-word">καρπός</span>), no "frutos" en plural. Es un <strong>conjunto unificado</strong> de virtudes que caracterizan la vida del Espíritu.
+          </div>
+          <button class="btn-reveal" data-target="frutoEj">Identifica las virtudes</button>
+          <div id="frutoEj" class="answer-text">
+            <span class="greek-word">ἀγάπη</span> – amor.<br>
+            <span class="greek-word">χαρά</span> – gozo.<br>
+            <span class="greek-word">εἰρήνη</span> – paz.<br>
+            <span class="greek-word">μακροθυμία</span> – paciencia.<br>
+            <span class="greek-word">χρηστότης</span> – benignidad.<br>
+            <span class="greek-word">ἀγαθωσύνη</span> – bondad.<br>
+            <span class="greek-word">πίστις</span> – fe/fidelidad.<br>
+            <span class="greek-word">πραΰτης</span> – mansedumbre.<br>
+            <span class="greek-word">ἐγκράτεια</span> – dominio propio.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: VICIOS Y OBRAS DE LA CARNE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-skull"></i> 3. Vicios y obras de la carne (Gálatas 5:19-21)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>En contraste con el fruto del Espíritu, Pablo enumera las <strong>obras de la carne</strong> – manifestaciones de la naturaleza caída.</p>
+
+          <div class="vice-box">
+            <strong><i class="fas fa-exclamation-triangle"></i> Obras de la carne:</strong>
+            <ul>
+              <li><span class="greek-word">πορνεία</span> (porneia) – <strong>fornicación</strong>, inmoralidad sexual</li>
+              <li><span class="greek-word">ἀκαθαρσία</span> (akatharsia) – <strong>impureza</strong></li>
+              <li><span class="greek-word">ἀσέλγεια</span> (aselgeia) – <strong>lascivia</strong>, desenfreno</li>
+              <li><span class="greek-word">εἰδωλολατρία</span> (eidōlolatria) – <strong>idolatría</strong></li>
+              <li><span class="greek-word">φαρμακεία</span> (pharmakeia) – <strong>hechicería</strong>, brujería</li>
+              <li><span class="greek-word">ἔχθρα</span> (echthra) – <strong>enemistades</strong></li>
+              <li><span class="greek-word">ἔρις</span> (eris) – <strong>contienda</strong>, discordia</li>
+              <li><span class="greek-word">ζῆλος</span> (zēlos) – <strong>celos</strong> (en sentido negativo)</li>
+              <li><span class="greek-word">θυμός</span> (thymos) – <strong>ira</strong>, furia</li>
+              <li><span class="greek-word">ἐριθεία</span> (eritheia) – <strong>rivalidad</strong>, ambición egoísta</li>
+              <li><span class="greek-word">διχοστασία</span> (dichostasia) – <strong>divisiones</strong></li>
+              <li><span class="greek-word">αἵρεσις</span> (hairesis) – <strong>herejías</strong>, facciones</li>
+              <li><span class="greek-word">φθόνος</span> (phthonos) – <strong>envidia</strong></li>
+              <li><span class="greek-word">μέθη</span> (methē) – <strong>embriaguez</strong></li>
+              <li><span class="greek-word">κῶμος</span> (kōmos) – <strong>orgías</strong>, juergas</li>
+            </ul>
+          </div>
+          <div class="spiritual-box">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> Pablo advierte: <span class="greek-word">οἱ τὰ τοιαῦτα πράσσοντες βασιλείαν θεοῦ οὐ κληρονομήσουσιν</span> – "los que practican tales cosas no heredarán el reino de Dios".
+          </div>
+          <button class="btn-reveal" data-target="viciosEj">Identifica las obras de la carne</button>
+          <div id="viciosEj" class="answer-text">
+            <span class="greek-word">πορνεία</span> – fornicación.<br>
+            <span class="greek-word">εἰδωλολατρία</span> – idolatría.<br>
+            <span class="greek-word">ζῆλος</span> – celos (negativo).<br>
+            <span class="greek-word">θυμός</span> – ira.<br>
+            <span class="greek-word">φθόνος</span> – envidia.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: LA NUEVA VIDA EN CRISTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sync-alt"></i> 4. La nueva vida: περιπατέω, ζάω, ἀνακαινίζω, μεταμορφόω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El NT describe la vida cristiana como una <strong>nueva realidad</strong> que se manifiesta en la conducta y la transformación interior.</p>
+
+          <h3>περιπατέω (peripateō) – "caminar, andar"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Caminar" – metáfora de la <strong>conducta</strong> y el <strong>estilo de vida</strong>.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">περιπατεῖτε ἐν ἀγάπῃ</span> – "caminad en amor" (Efesios 5:2).</li>
+              <li><span class="greek-word">περιπατεῖτε κατὰ πνεῦμα</span> – "caminad según el Espíritu" (Gálatas 5:16).</li>
+            </ul>
+          </div>
+
+          <h3>ζάω (zaō) – "vivir"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Vivir" – la nueva vida en Cristo.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ζῶ δὲ οὐκέτι ἐγώ, ζῇ δὲ ἐν ἐμοὶ Χριστός</span> – "ya no vivo yo, mas vive Cristo en mí" (Gálatas 2:20).</li>
+              <li><span class="greek-word">ἵνα ζήσωμεν τῷ θεῷ</span> – "para que vivamos para Dios" (Romanos 6:10).</li>
+            </ul>
+          </div>
+
+          <h3>ἀνακαινίζω (anakainizō) – "renovar"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Renovar completamente" (de <span class="greek-word">ἀνά</span> + <span class="greek-word">καινός</span>).<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἀνακαινοῦσθε τῷ πνεύματι</span> – "renovaos en el espíritu" (Efesios 4:23).</li>
+              <li>Relacionado con <span class="greek-word">καινός</span> – "nuevo" (en calidad, no en tiempo).</li>
+            </ul>
+          </div>
+
+          <h3>μεταμορφόω (metamorphoō) – "transformar"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Transformar" – cambio de forma o naturaleza.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">μεταμορφοῦσθε τῇ ἀνακαινώσει τοῦ νοός</span> – "transformaos mediante la renovación de vuestra mente" (Romanos 12:2).</li>
+              <li>Es el verbo usado para la <strong>transfiguración</strong> de Jesús (Mateo 17:2).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="nuevaVidaEj">Identifica el término</button>
+          <div id="nuevaVidaEj" class="answer-text">
+            <span class="greek-word">περιπατέω</span> – caminar, vivir.<br>
+            <span class="greek-word">ζάω</span> – vivir.<br>
+            <span class="greek-word">ἀνακαινίζω</span> – renovar.<br>
+            <span class="greek-word">μεταμορφόω</span> – transformar.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: LA LUCHA ESPIRITUAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-shield-alt"></i> 5. La lucha espiritual: πειρασμός, δοκιμή, ὑπομονή, νικάω</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La vida cristiana no está exenta de <strong>pruebas y luchas</strong>. El NT usa estos términos para describir el proceso de crecimiento a través de la adversidad.</p>
+
+          <h3>πειρασμός (peirasmos) – "tentación, prueba"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Tentación" o "prueba" – puede ser positiva (prueba que fortalece) o negativa (tentación al pecado).<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">μακάριος ἀνὴρ ὃς ὑπομένει πειρασμόν</span> – "bienaventurado el hombre que soporta la tentación" (Santiago 1:12).</li>
+              <li><span class="greek-word">μὴ εἰσενέγκῃς ἡμᾶς εἰς πειρασμόν</span> – "no nos metas en tentación" (Mateo 6:13).</li>
+            </ul>
+          </div>
+
+          <h3>δοκιμή (dokimē) – "prueba, carácter"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Prueba" – el resultado de pasar por una prueba, que produce <strong>carácter</strong> y <strong>aprobación</strong>.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἡ δοκιμὴ ὑμῶν ὑπομονὴν κατεργάζεται</span> – "vuestra prueba produce paciencia" (Santiago 1:3).</li>
+              <li>Derivado de <span class="greek-word">δόκιμος</span> – "aprobado".</li>
+            </ul>
+          </div>
+
+          <h3>ὑπομονή (hypomonē) – "perseverancia"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Perseverancia", "constancia" – la capacidad de <strong>permanecer</strong> bajo presión.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">διὰ ὑπομονῆς τρέχωμεν τὸν προκείμενον ἀγῶνα</span> – "con perseverancia corramos la carrera que tenemos por delante" (Hebreos 12:1).</li>
+              <li><span class="greek-word">ἡ ὑπομονὴ ἔργον τέλειον ἐχέτω</span> – "la perseverancia tenga su obra completa" (Santiago 1:4).</li>
+            </ul>
+          </div>
+
+          <h3>νικάω (nikaō) – "vencer"</h3>
+          <div class="spiritual-box">
+            <strong>Significado:</strong> "Vencer", "conquistar" – la <strong>victoria</strong> en la lucha espiritual.<br>
+            <strong>Usos clave:</strong>
+            <ul>
+              <li><span class="greek-word">ἡ νίκη ἡ νικήσασα τὸν κόσμον, ἡ πίστις ἡμῶν</span> – "la victoria que ha vencido al mundo, nuestra fe" (1 Juan 5:4).</li>
+              <li><span class="greek-word">τῷ νικῶντι δώσω αὐτῷ καθίσαι μετʼ ἐμοῦ</span> – "al que venza, le daré que se siente conmigo" (Apocalipsis 3:21).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="luchaEj">Identifica el término</button>
+          <div id="luchaEj" class="answer-text">
+            <span class="greek-word">πειρασμός</span> – tentación, prueba.<br>
+            <span class="greek-word">δοκιμή</span> – prueba, carácter.<br>
+            <span class="greek-word">ὑπομονή</span> – perseverancia.<br>
+            <span class="greek-word">νικάω</span> – vencer.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Ética y vida espiritual</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen los términos clave de la ética y la vida espiritual del NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Campo semántico</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Gálatas 5:16-25:</strong> <span class="greek-word">λέγω δέ, πνεύματι περιπατεῖτε καὶ ἐπιθυμίαν σαρκὸς οὐ μὴ τελέσητε. ἡ γὰρ σὰρξ ἐπιθυμεῖ κατὰ τοῦ πνεύματος, τὸ δὲ πνεῦμα κατὰ τῆς σαρκός· ταῦτα γὰρ ἀλλήλοις ἀντίκειται, ἵνα μὴ ἃ ἐὰν θέλητε ταῦτα ποιῆτε. εἰ δὲ πνεύματι ἄγεσθε, οὐκ ἐστὲ ὑπὸ νόμον. φανερὰ δέ ἐστιν τὰ ἔργα τῆς σαρκός, ἅτινά ἐστιν πορνεία, ἀκαθαρσία, ἀσέλγεια, εἰδωλολατρία, φαρμακεία, ἔχθραι, ἔρις, ζῆλος, θυμοί, ἐριθεῖαι, διχοστασίαι, αἱρέσεις, φθόνοι, μέθαι, κῶμοι καὶ τὰ ὅμοια τούτοις, ἃ προλέγω ὑμῖν, καθὼς προεῖπον, ὅτι οἱ τὰ τοιαῦτα πράσσοντες βασιλείαν θεοῦ οὐ κληρονομήσουσιν. ὁ δὲ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη, χαρά, εἰρήνη, μακροθυμία, χρηστότης, ἀγαθωσύνη, πίστις, πραΰτης, ἐγκράτεια· κατὰ τῶν τοιούτων οὐκ ἔστιν νόμος. οἱ δὲ τοῦ Χριστοῦ Ἰησοῦ τὴν σάρκα ἐσταύρωσαν σὺν τοῖς παθήμασιν καὶ ταῖς ἐπιθυμίαις. εἰ ζῶμεν πνεύματι, πνεύματι καὶ στοιχῶμεν.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA LA VIRTUD O EL VICIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica la virtud o el vicio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="virtudVicioQuizArea"></div>
+          <button id="newVirtudVicioQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="virtudVicioFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL TÉRMINO DE LA NUEVA VIDA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sync-alt"></i> 8. Identifica el término de la nueva vida</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="nuevaVidaQuizArea"></div>
+          <button id="newNuevaVidaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="nuevaVidaFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN EN CONTEXTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce frases éticas y espirituales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transEthicQuizArea"></div>
+          <button id="newTransEthicQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transEthicFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – GÁLATAS 5:16-25 Y ROMANOS 12 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Lectura programada · Gálatas 5:16-25 y Romanos 12:1-2</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica el vocabulario ético y espiritual.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 5:16 – πνεύματι περιπατεῖτε</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πνεύματι περιπατεῖτε καὶ ἐπιθυμίαν σαρκὸς οὐ μὴ τελέσητε</span></p>
+              <button class="btn-reveal" data-target="ga5a">¿Qué verbo describe la conducta del creyente?</button>
+              <div id="ga5a" class="answer-text"><span class="greek-word">περιπατεῖτε</span> – "caminad" (imperativo presente de περιπατέω).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 5:22 – ὁ καρπὸς τοῦ πνεύματος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ δὲ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη, χαρά, εἰρήνη, μακροθυμία, χρηστότης, ἀγαθωσύνη, πίστις, πραΰτης, ἐγκράτεια</span></p>
+              <button class="btn-reveal" data-target="ga5b">¿Cuántas virtudes conforman el fruto del Espíritu?</button>
+              <div id="ga5b" class="answer-text">Nueve virtudes, enumeradas como un <strong>fruto singular</strong> (καρπός).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 12:2 – μεταμορφοῦσθε</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">μεταμορφοῦσθε τῇ ἀνακαινώσει τοῦ νοός</span></p>
+              <button class="btn-reveal" data-target="rm12a">¿Qué verbo describe el cambio del creyente?</button>
+              <div id="rm12a" class="answer-text"><span class="greek-word">μεταμορφοῦσθε</span> – "transformaos" (imperativo presente pasivo de μεταμορφόω).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción con vocabulario ético</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">μακάριος ἀνὴρ ὃς ὑπομένει πειρασμόν</span></p>
+              <button class="btn-reveal" data-target="transEthic">Traduce y analiza</button>
+              <div id="transEthic" class="answer-text">"Bienaventurado el hombre que soporta la tentación" – <span class="greek-word">ὑπομένει</span> (soportar) + <span class="greek-word">πειρασμόν</span> (tentación/prueba).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Gálatas 5:16-25 y Romanos 12:1-2 en griego. Identifica todas las virtudes y vicios. Reflexiona sobre cómo el fruto del Espíritu se manifiesta en tu vida.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-49.html"><i class="fas fa-arrow-left"></i> Lección 49</a>
+      <a href="leccion-51.html"><i class="fas fa-arrow-right"></i> Lección 51</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ὁ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη</span> (Gálatas 5:22)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 50 ==========
+    const vocabData = [
+      { greek: "ἀγάπη", translit: "agapē", spanish: "amor", field: "virtudes" },
+      { greek: "εἰρήνη", translit: "eirēnē", spanish: "paz", field: "virtudes" },
+      { greek: "χαρά", translit: "chara", spanish: "gozo", field: "virtudes" },
+      { greek: "μακροθυμία", translit: "makrothymia", spanish: "paciencia, longanimidad", field: "virtudes" },
+      { greek: "χρηστότης", translit: "chrēstotēs", spanish: "bondad, benignidad", field: "virtudes" },
+      { greek: "ἀγαθωσύνη", translit: "agathōsynē", spanish: "bondad", field: "virtudes" },
+      { greek: "πίστις", translit: "pistis", spanish: "fe, fidelidad", field: "virtudes" },
+      { greek: "πραΰτης", translit: "praϋtēs", spanish: "mansedumbre", field: "virtudes" },
+      { greek: "ἐγκράτεια", translit: "enkrateia", spanish: "dominio propio", field: "virtudes" },
+      { greek: "πορνεία", translit: "porneia", spanish: "fornicación, inmoralidad", field: "vicios" },
+      { greek: "εἰδωλολατρία", translit: "eidōlolatria", spanish: "idolatría", field: "vicios" },
+      { greek: "ζῆλος", translit: "zēlos", spanish: "celo (+ o –)", field: "vicios" },
+      { greek: "ἔρις", translit: "eris", spanish: "contienda, discordia", field: "vicios" },
+      { greek: "θυμός", translit: "thymos", spanish: "ira, furia", field: "vicios" },
+      { greek: "φθόνος", translit: "phthonos", spanish: "envidia", field: "vicios" },
+      { greek: "πειρασμός", translit: "peirasmos", spanish: "tentación, prueba", field: "lucha espiritual" },
+      { greek: "δοκιμή", translit: "dokimē", spanish: "prueba, carácter", field: "lucha espiritual" },
+      { greek: "ὑπομονή", translit: "hypomonē", spanish: "perseverancia", field: "lucha espiritual" },
+      { greek: "νικάω", translit: "nikaō", spanish: "vencer", field: "lucha espiritual" },
+      { greek: "ἀνδρεία", translit: "andreia", spanish: "valentía, virilidad", field: "virtudes" }
+    ];
+
+    // Ejemplos para identificar virtud o vicio
+    const virtudVicioExamples = [
+      { term: "ἀγάπη", type: "virtud", definition: "amor" },
+      { term: "χαρά", type: "virtud", definition: "gozo" },
+      { term: "εἰρήνη", type: "virtud", definition: "paz" },
+      { term: "μακροθυμία", type: "virtud", definition: "paciencia, longanimidad" },
+      { term: "χρηστότης", type: "virtud", definition: "bondad, benignidad" },
+      { term: "ἀγαθωσύνη", type: "virtud", definition: "bondad" },
+      { term: "πίστις", type: "virtud", definition: "fe, fidelidad" },
+      { term: "πραΰτης", type: "virtud", definition: "mansedumbre" },
+      { term: "ἐγκράτεια", type: "virtud", definition: "dominio propio" },
+      { term: "πορνεία", type: "vicio", definition: "fornicación, inmoralidad" },
+      { term: "εἰδωλολατρία", type: "vicio", definition: "idolatría" },
+      { term: "ζῆλος", type: "vicio", definition: "celos (negativos)" },
+      { term: "ἔρις", type: "vicio", definition: "contienda, discordia" },
+      { term: "θυμός", type: "vicio", definition: "ira, furia" },
+      { term: "φθόνος", type: "vicio", definition: "envidia" }
+    ];
+
+    // Ejemplos para identificar términos de la nueva vida
+    const nuevaVidaExamples = [
+      { term: "περιπατέω", definition: "caminar, andar (conducta)" },
+      { term: "ζάω", definition: "vivir (la nueva vida)" },
+      { term: "ἀνακαινίζω", definition: "renovar" },
+      { term: "μεταμορφόω", definition: "transformar" },
+      { term: "ἀνακαίνωσις", definition: "renovación" }
+    ];
+
+    // Frases para traducción
+    const transEthicPhrases = [
+      { greek: "πνεύματι περιπατεῖτε", translation: "caminad según el Espíritu", analysis: "περιπατέω" },
+      { greek: "ὁ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη", translation: "el fruto del Espíritu es amor", analysis: "καρπός" },
+      { greek: "μακάριος ἀνὴρ ὃς ὑπομένει πειρασμόν", translation: "bienaventurado el hombre que soporta la tentación", analysis: "ὑπομονή" },
+      { greek: "μεταμορφοῦσθε τῇ ἀνακαινώσει τοῦ νοός", translation: "transformaos mediante la renovación de vuestra mente", analysis: "μεταμορφόω" },
+      { greek: "ζῶ δὲ οὐκέτι ἐγώ", translation: "ya no vivo yo", analysis: "ζάω" },
+      { greek: "τῷ νικῶντι δώσω", translation: "al que venza, daré", analysis: "νικάω" }
+    ];
+
+    let currentVirtudVicio = virtudVicioExamples[0];
+    let currentNuevaVida = nuevaVidaExamples[0];
+    let currentTransEthic = transEthicPhrases[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.field}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadVirtudVicioQuiz() {
+      const randomIndex = Math.floor(Math.random() * virtudVicioExamples.length);
+      currentVirtudVicio = virtudVicioExamples[randomIndex];
+      const container = document.getElementById("virtudVicioQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Es <span class="greek-word">${currentVirtudVicio.term}</span> una virtud o un vicio?</strong><br>
+      <span style="font-size:0.9rem;">Significado: ${currentVirtudVicio.definition}</span><br>
+      <button id="vvVirtud" class="btn-reveal">Virtud (fruto del Espíritu)</button> <button id="vvVicio" class="btn-reveal">Vicio (obra de la carne)</button>
+      <div id="virtudVicioResult"></div></div>`;
+      const virtud = document.getElementById("vvVirtud");
+      const vicio = document.getElementById("vvVicio");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("virtudVicioResult");
+          if (expected === currentVirtudVicio.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentVirtudVicio.definition})</span>`;
+            setTimeout(loadVirtudVicioQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentVirtudVicio.type}</span>`;
+          }
+        });
+      };
+      check(virtud, "virtud");
+      check(vicio, "vicio");
+    }
+
+    function loadNuevaVidaQuiz() {
+      const randomIndex = Math.floor(Math.random() * nuevaVidaExamples.length);
+      currentNuevaVida = nuevaVidaExamples[randomIndex];
+      const container = document.getElementById("nuevaVidaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué término de la nueva vida es <span class="greek-word">${currentNuevaVida.term}</span>?</strong><br>
+      <input type="text" id="nuevaVidaAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkNuevaVida" class="btn-reveal">Verificar</button>
+      <div id="nuevaVidaResult"></div></div>`;
+      document.getElementById("checkNuevaVida").addEventListener("click", () => {
+        const answer = document.getElementById("nuevaVidaAnswer").value.trim().toLowerCase();
+        const correct = currentNuevaVida.definition.toLowerCase();
+        const result = document.getElementById("nuevaVidaResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentNuevaVida.definition})</span>`;
+          setTimeout(loadNuevaVidaQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentNuevaVida.definition}</span>`;
+        }
+      });
+    }
+
+    function loadTransEthicQuiz() {
+      const randomIndex = Math.floor(Math.random() * transEthicPhrases.length);
+      currentTransEthic = transEthicPhrases[randomIndex];
+      const container = document.getElementById("transEthicQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransEthic.greek}</span><br>
+      <input type="text" id="transEthicAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransEthic" class="btn-reveal">Verificar</button>
+      <div id="transEthicResult"></div></div>`;
+      document.getElementById("checkTransEthic").addEventListener("click", () => {
+        const answer = document.getElementById("transEthicAnswer").value.trim().toLowerCase();
+        const correct = currentTransEthic.translation.toLowerCase();
+        const result = document.getElementById("transEthicResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransEthic.analysis})</span>`;
+          setTimeout(loadTransEthicQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransEthic.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Virtud que significa 'amor sacrificial'", opts: ["ἀγάπη", "χαρά", "εἰρήνη", "μακροθυμία"], correct: 0 },
+      { q: "Vicio que significa 'idolatría'", opts: ["εἰδωλολατρία", "πορνεία", "φθόνος", "θυμός"], correct: 0 },
+      { q: "Término que significa 'perseverancia'", opts: ["ὑπομονή", "πειρασμός", "δοκιμή", "νικάω"], correct: 0 },
+      { q: "Verbo que significa 'caminar, andar' (conducta)", opts: ["περιπατέω", "ζάω", "μεταμορφόω", "ἀνακαινίζω"], correct: 0 },
+      { q: "Verbo que significa 'transformar'", opts: ["μεταμορφόω", "περιπατέω", "ζάω", "νικάω"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkNuevaVida" || btn.id === "checkTransEthic" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && btn.closest("#virtudVicioQuizArea")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadVirtudVicioQuiz();
+      loadNuevaVidaQuiz();
+      loadTransEthicQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newVirtudVicioQuiz")?.addEventListener("click", () => {
+        loadVirtudVicioQuiz();
+        document.getElementById("virtudVicioFeedback").innerHTML = "";
+      });
+      document.getElementById("newNuevaVidaQuiz")?.addEventListener("click", () => {
+        loadNuevaVidaQuiz();
+        document.getElementById("nuevaVidaFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransEthicQuiz")?.addEventListener("click", () => {
+        loadTransEthicQuiz();
+        document.getElementById("transEthicFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 58: Sustantivos Verbales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 83%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .suffix-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .word-family-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-57.html"><i class="fas fa-arrow-left"></i> Lección 57</a>
+        <a href="leccion-59.html"><i class="fas fa-arrow-right"></i> Lección 59</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-puzzle-piece"></i> Lección 58 · Sustantivos Verbales <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Sufijos de acción (-σις, -μα, -μός) · Sufijos de agente (-της, -τήρ, -ων) · Sufijos de estado/cualidad (-σύνη, -ία) · Prefijos privativos · Familias de palabras</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1160/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Sustantivos verbales en griego: sufijos de acción y agente" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los sustantivos verbales – cómo se forman y se usan en el NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Qué son los sustantivos verbales?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>sustantivos verbales</strong> (o <em>nomina actionis</em> y <em>nomina agentis</em>) son sustantivos que derivan de raíces verbales. Nombran la <strong>acción</strong> (nomen actionis) o al <strong>agente</strong> que realiza la acción (nomen agentis). También hay sustantivos que expresan <strong>estado o cualidad</strong>.</p>
+          <div class="suffix-box">
+            <i class="fas fa-lightbulb"></i> <strong>Importancia exegética:</strong>
+            <ul>
+              <li>Reconocer los sufijos te ayuda a <strong>deducir el significado</strong> de palabras desconocidas.</li>
+              <li>Los sustantivos verbales son <strong>teológicamente significativos</strong>: δικαιοσύνη (justicia), σωτηρία (salvación), ἀπολύτρωσις (redención).</li>
+              <li>Comprender la familia de palabras (verbo → sustantivo de acción → sustantivo de agente) enriquece la exégesis.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            Verbo: <span class="greek-word">βαπτίζω</span> (bautizar)<br>
+            Nomen actionis: <span class="greek-word">βάπτισμα</span> (bautismo – la acción)<br>
+            Nomen agentis: <span class="greek-word">βαπτιστής</span> (bautista – el que bautiza)
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: SUFIJOS DE ACCIÓN (NOMEN ACTIONIS) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-running"></i> 2. Sufijos de acción: -σις, -μα, -μός</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>sustantivos de acción</strong> (nomen actionis) nombran el <strong>proceso</strong> o <strong>resultado</strong> de la acción verbal.</p>
+
+          <h3>-σις / -σεως (3ª declinación femenina)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Acción o proceso (abstracto).<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">κρίσις</span> – juicio (de <span class="greek-word">κρίνω</span>)</li>
+              <li><span class="greek-word">ἀνάστασις</span> – resurrección (de <span class="greek-word">ἀνίστημι</span>)</li>
+              <li><span class="greek-word">ἀπολύτρωσις</span> – redención (de <span class="greek-word">ἀπολυτρόω</span>)</li>
+              <li><span class="greek-word">δικαίωσις</span> – justificación (de <span class="greek-word">δικαιόω</span>)</li>
+              <li><span class="greek-word">ἀποκάλυψις</span> – revelación (de <span class="greek-word">ἀποκαλύπτω</span>)</li>
+            </ul>
+          </div>
+
+          <h3>-μα / -ματος (3ª declinación neutra)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Resultado concreto de la acción; o el instrumento.<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">βάπτισμα</span> – bautismo (de <span class="greek-word">βαπτίζω</span>)</li>
+              <li><span class="greek-word">δικαίωμα</span> – decreto justo, justicia (de <span class="greek-word">δικαιόω</span>)</li>
+              <li><span class="greek-word">πλήρωμα</span> – plenitud (de <span class="greek-word">πληρόω</span>)</li>
+              <li><span class="greek-word">σχίσμα</span> – división (de <span class="greek-word">σχίζω</span>)</li>
+              <li><span class="greek-word">φώτισμα</span> – iluminación (de <span class="greek-word">φωτίζω</span>)</li>
+            </ul>
+          </div>
+
+          <h3>-μός (2ª declinación masculina)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Acción o estado (similar a -σις, pero menos abstracto).<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">βαπτισμός</span> – bautismo (de <span class="greek-word">βαπτίζω</span>) – más ritualista que βάπτισμα</li>
+              <li><span class="greek-word">πειρασμός</span> – tentación, prueba (de <span class="greek-word">πειράζω</span>)</li>
+              <li><span class="greek-word">σπαραγμός</span> – desgarramiento (de <span class="greek-word">σπαράσσω</span>)</li>
+              <li><span class="greek-word">χωρισμός</span> – separación (de <span class="greek-word">χωρίζω</span>)</li>
+            </ul>
+          </div>
+
+          <div class="word-family-box">
+            <strong><i class="fas fa-lightbulb"></i> Comparación:</strong>
+            <span class="greek-word">βάπτισμα</span> vs. <span class="greek-word">βαπτισμός</span>.<br>
+            <span class="greek-word">βάπτισμα</span> – el acto de bautizar (el bautismo cristiano).<br>
+            <span class="greek-word">βαπτισμός</span> – la práctica ritual del bautismo (lavamientos judíos).<br>
+            El NT usa <span class="greek-word">βάπτισμα</span> para el bautismo cristiano y <span class="greek-word">βαπτισμός</span> para las abluciones judías (Hebreos 6:2; 9:10).
+          </div>
+          <button class="btn-reveal" data-target="accionEj">Identifica el sufijo de acción</button>
+          <div id="accionEj" class="answer-text">
+            <span class="greek-word">κρίσις</span> – -σις (acción de juzgar).<br>
+            <span class="greek-word">βάπτισμα</span> – -μα (resultado del bautizar).<br>
+            <span class="greek-word">βαπτισμός</span> – -μός (acción ritual).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: SUFIJOS DE AGENTE (NOMEN AGENTIS) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-user"></i> 3. Sufijos de agente: -της, -τήρ, -ων</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>sustantivos de agente</strong> (nomen agentis) nombran a la <strong>persona</strong> que realiza la acción del verbo.</p>
+
+          <h3>-της / -τοῦ (1ª declinación masculina)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Agente (el que hace).<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">βαπτιστής</span> – bautista (de <span class="greek-word">βαπτίζω</span>)</li>
+              <li><span class="greek-word">μαθητής</span> – discípulo (de <span class="greek-word">μανθάνω</span>)</li>
+              <li><span class="greek-word">κριτής</span> – juez (de <span class="greek-word">κρίνω</span>)</li>
+              <li><span class="greek-word">τελώνης</span> – recaudador de impuestos (de <span class="greek-word">τέλος</span> + <span class="greek-word">ὠνέομαι</span>)</li>
+              <li><span class="greek-word">προφήτης</span> – profeta (de <span class="greek-word">πρό</span> + <span class="greek-word">φημί</span>)</li>
+            </ul>
+          </div>
+
+          <h3>-τήρ / -τῆρος (3ª declinación)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Agente (similar a -της, a veces más enfático).<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">σωτήρ</span> – Salvador (de <span class="greek-word">σῴζω</span>)</li>
+              <li><span class="greek-word">ποιμήν</span> – pastor (de <span class="greek-word">ποίμην</span>, relacionado con <span class="greek-word">ποιμαίνω</span>)</li>
+              <li><span class="greek-word">κτήτωρ</span> – poseedor (de <span class="greek-word">κτάομαι</span>)</li>
+              <li><span class="greek-word">λήπτωρ</span> – receptor (de <span class="greek-word">λαμβάνω</span>) – poco común</li>
+            </ul>
+          </div>
+
+          <h3>-ων (participio sustantivado)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> El que hace (participio usado como sustantivo).<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">ὁ πιστεύων</span> – el que cree (creyente)</li>
+              <li><span class="greek-word">ὁ βαπτίζων</span> – el que bautiza</li>
+              <li><span class="greek-word">ὁ σῴζων</span> – el que salva</li>
+            </ul>
+          </div>
+
+          <div class="word-family-box">
+            <strong><i class="fas fa-lightbulb"></i> Familia de palabras:</strong><br>
+            <span class="greek-word">σῴζω</span> (salvar) → <span class="greek-word">σωτηρία</span> (salvación – acción) → <span class="greek-word">σωτήρ</span> (Salvador – agente).<br>
+            <span class="greek-word">βαπτίζω</span> (bautizar) → <span class="greek-word">βάπτισμα</span> (bautismo – acción) → <span class="greek-word">βαπτιστής</span> (bautista – agente).
+          </div>
+          <button class="btn-reveal" data-target="agenteEj">Identifica el sufijo de agente</button>
+          <div id="agenteEj" class="answer-text">
+            <span class="greek-word">βαπτιστής</span> – -της (bautista).<br>
+            <span class="greek-word">σωτήρ</span> – -τήρ (Salvador).<br>
+            <span class="greek-word">ὁ πιστεύων</span> – participio sustantivado (el que cree).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: SUFIJOS DE ESTADO/CUALIDAD -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-balance-scale"></i> 4. Sufijos de estado/cualidad: -σύνη, -ία, -τής</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estos sufijos forman sustantivos que expresan un <strong>estado</strong>, una <strong>cualidad</strong> o una <strong>condición</strong>.</p>
+
+          <h3>-σύνη (sustantivos abstractos femeninos)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Estado o cualidad.<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">δικαιοσύνη</span> – justicia (de <span class="greek-word">δίκαιος</span>)</li>
+              <li><span class="greek-word">χρηστότης</span> – bondad (de <span class="greek-word">χρηστός</span>)</li>
+              <li><span class="greek-word">ἁγιωσύνη</span> – santidad (de <span class="greek-word">ἅγιος</span>)</li>
+              <li><span class="greek-word">ταπεινοφροσύνη</span> – humildad (de <span class="greek-word">ταπεινός</span> + <span class="greek-word">φρήν</span>)</li>
+              <li><span class="greek-word">σωφροσύνη</span> – sobriedad, sensatez (de <span class="greek-word">σώφρων</span>)</li>
+            </ul>
+          </div>
+
+          <h3>-ία (sustantivos abstractos femeninos)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Cualidad o condición.<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">σοφία</span> – sabiduría (de <span class="greek-word">σοφός</span>)</li>
+              <li><span class="greek-word">μακροθυμία</span> – paciencia (de <span class="greek-word">μακρός</span> + <span class="greek-word">θυμός</span>)</li>
+              <li><span class="greek-word">ἐγκράτεια</span> – dominio propio (de <span class="greek-word">ἐγκρατής</span>)</li>
+              <li><span class="greek-word">φιλαδελφία</span> – amor fraternal (de <span class="greek-word">φιλάδελφος</span>)</li>
+              <li><span class="greek-word">φιλοξενία</span> – hospitalidad (de <span class="greek-word">φιλόξενος</span>)</li>
+            </ul>
+          </div>
+
+          <h3>-τής (sustantivos abstractos con -τής)</h3>
+          <div class="suffix-box">
+            <strong>Significado:</strong> Cualidad (similar a -σύνη).<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">χρηστότης</span> – bondad (de <span class="greek-word">χρηστός</span>)</li>
+              <li><span class="greek-word">πραΰτης</span> – mansedumbre (de <span class="greek-word">πραΰς</span>)</li>
+              <li><span class="greek-word">ἁπλότης</span> – sencillez (de <span class="greek-word">ἁπλοῦς</span>)</li>
+            </ul>
+          </div>
+
+          <div class="word-family-box">
+            <strong><i class="fas fa-lightbulb"></i> Familia de palabras:</strong><br>
+            Adjetivo: <span class="greek-word">δίκαιος</span> (justo) → Sustantivo de cualidad: <span class="greek-word">δικαιοσύνη</span> (justicia).<br>
+            Adjetivo: <span class="greek-word">ἅγιος</span> (santo) → Sustantivo de cualidad: <span class="greek-word">ἁγιωσύνη</span> (santidad).
+          </div>
+          <button class="btn-reveal" data-target="cualidadEj">Identifica el sufijo de cualidad</button>
+          <div id="cualidadEj" class="answer-text">
+            <span class="greek-word">δικαιοσύνη</span> – -σύνη (justicia).<br>
+            <span class="greek-word">σοφία</span> – -ία (sabiduría).<br>
+            <span class="greek-word">χρηστότης</span> – -τής (bondad).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: PREFIJOS PRIVATIVOS – ἀ-, ἀν- -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-times"></i> 5. Prefijos privativos: ἀ- y ἀν-</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El prefijo <strong>ἀ-</strong> (o <strong>ἀν-</strong> ante vocal) tiene un significado <strong>privativo</strong>: indica <strong>negación</strong> o <strong>ausencia</strong> de la cualidad expresada por la raíz (similar al prefijo español "in-" o "des-").</p>
+
+          <div class="suffix-box">
+            <strong>Regla:</strong>
+            <ul>
+              <li><span class="greek-word">ἀ-</span> + consonante → <span class="greek-word">ἀ-</span> (ej. <span class="greek-word">ἄδικος</span>)</li>
+              <li><span class="greek-word">ἀν-</span> + vocal → <span class="greek-word">ἀν-</span> (ej. <span class="greek-word">ἀνόητος</span>)</li>
+            </ul>
+          </div>
+
+          <h3>Ejemplos en el NT</h3>
+          <div class="suffix-box">
+            <ul>
+              <li><span class="greek-word">ἄδικος</span> (injusto) – de <span class="greek-word">δίκαιος</span> (justo)</li>
+              <li><span class="greek-word">ἀσεβής</span> (impío) – de <span class="greek-word">σεβής</span> (piadoso)</li>
+              <li><span class="greek-word">ἄπιστος</span> (incrédulo) – de <span class="greek-word">πιστός</span> (fiel)</li>
+              <li><span class="greek-word">ἀθάνατος</span> (inmortal) – de <span class="greek-word">θάνατος</span> (muerte)</li>
+              <li><span class="greek-word">ἀόρατος</span> (invisible) – de <span class="greek-word">ὁρατός</span> (visible)</li>
+              <li><span class="greek-word">ἀνυπόκριτος</span> (sin hipocresía) – de <span class="greek-word">ὑποκριτής</span> (hipócrita)</li>
+              <li><span class="greek-word">ἀμετάνοια</span> (falta de arrepentimiento) – de <span class="greek-word">μετάνοια</span> (arrepentimiento)</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Clave exegética:</strong> Reconocer el prefijo <span class="greek-word">ἀ-</span> te ayuda a identificar el <strong>significado opuesto</strong> de una palabra. Por ejemplo, <span class="greek-word">ἄμεμπτος</span> (irreprensible) es el opuesto de <span class="greek-word">μεμπτός</span> (digno de reproche).
+          </div>
+          <button class="btn-reveal" data-target="privativoEj">Identifica el prefijo privativo</button>
+          <div id="privativoEj" class="answer-text">
+            <span class="greek-word">ἄδικος</span> – injusto (negación de δίκαιος).<br>
+            <span class="greek-word">ἀνυπόκριτος</span> – sin hipocresía (negación de ὑποκριτής).<br>
+            <span class="greek-word">ἀόρατος</span> – invisible (negación de ὁρατός).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: CONSTRUCCIÓN DE FAMILIAS DE PALABRAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 6. Construcción de familias de palabras</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Una <strong>familia de palabras</strong> (o "nido léxico") es un conjunto de palabras que comparten una <strong>raíz común</strong>. Reconocer estas familias te ayuda a expandir tu vocabulario.</p>
+
+          <div class="word-family-box">
+            <strong><i class="fas fa-lightbulb"></i> Familia de <span class="greek-word">δικαιο-</span> (justicia/justificar):</strong>
+            <ul>
+              <li><span class="greek-word">δίκαιος</span> – justo (adjetivo)</li>
+              <li><span class="greek-word">δικαιοσύνη</span> – justicia (sustantivo abstracto)</li>
+              <li><span class="greek-word">δικαιόω</span> – justificar (verbo)</li>
+              <li><span class="greek-word">δικαίωσις</span> – justificación (sustantivo de acción)</li>
+              <li><span class="greek-word">δικαίωμα</span> – decreto justo, acto de justicia (sustantivo)</li>
+              <li><span class="greek-word">ἄδικος</span> – injusto (con prefijo privativo)</li>
+              <li><span class="greek-word">ἀδικία</span> – injusticia (sustantivo abstracto con privativo)</li>
+            </ul>
+          </div>
+
+          <div class="word-family-box">
+            <strong><i class="fas fa-lightbulb"></i> Familia de <span class="greek-word">σῳζο-</span> (salvar):</strong>
+            <ul>
+              <li><span class="greek-word">σῴζω</span> – salvar (verbo)</li>
+              <li><span class="greek-word">σωτηρία</span> – salvación (sustantivo de acción)</li>
+              <li><span class="greek-word">σωτήρ</span> – Salvador (sustantivo de agente)</li>
+              <li><span class="greek-word">σώζων</span> – el que salva (participio sustantivado)</li>
+              <li><span class="greek-word">σωτήριος</span> – salvador (adjetivo)</li>
+            </ul>
+          </div>
+
+          <div class="word-family-box">
+            <strong><i class="fas fa-lightbulb"></i> Familia de <span class="greek-word">ἀγαπ-</span> (amar):</strong>
+            <ul>
+              <li><span class="greek-word">ἀγαπάω</span> – amar (verbo)</li>
+              <li><span class="greek-word">ἀγάπη</span> – amor (sustantivo abstracto)</li>
+              <li><span class="greek-word">ἀγαπητός</span> – amado (adjetivo verbal)</li>
+              <li><span class="greek-word">ἀγαπῶν</span> – el que ama (participio sustantivado)</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Estrategia:</strong> Cuando aprendas un verbo nuevo, <strong>aprende también su familia de palabras</strong>. Esto multiplicará tu vocabulario pasivo y activo.
+          </div>
+          <button class="btn-reveal" data-target="familiaEj">Construye una familia de palabras</button>
+          <div id="familiaEj" class="answer-text">
+            <span class="greek-word">βαπτίζω</span> → <span class="greek-word">βάπτισμα</span>, <span class="greek-word">βαπτισμός</span>, <span class="greek-word">βαπτιστής</span>.<br>
+            <span class="greek-word">κρίνω</span> → <span class="greek-word">κρίσις</span>, <span class="greek-word">κριτής</span>, <span class="greek-word">κατακρίνω</span>.<br>
+            <span class="greek-word">πιστεύω</span> → <span class="greek-word">πίστις</span>, <span class="greek-word">πιστός</span>, <span class="greek-word">ἄπιστος</span>.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Sustantivos verbales y familias de palabras</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen sustantivos verbales y sus familias.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Tipo</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Romanos 5:17-18:</strong> <span class="greek-word">εἰ γὰρ τῷ τοῦ ἑνὸς παραπτώματι ὁ θάνατος ἐβασίλευσεν διὰ τοῦ ἑνός, πολλῷ μᾶλλον οἱ τὴν περισσείαν τῆς χάριτος καὶ τῆς δωρεᾶς τῆς δικαιοσύνης λαμβάνοντες ἐν ζωῇ βασιλεύσουσιν διὰ τοῦ ἑνὸς Ἰησοῦ Χριστοῦ. Ἄρα οὖν ὡς διʼ ἑνὸς παραπτώματος εἰς πάντας ἀνθρώπους εἰς κατάκριμα, οὕτως καὶ διʼ ἑνὸς δικαιώματος εἰς πάντας ἀνθρώπους εἰς δικαίωσιν ζωῆς.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL SUFIJO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el sufijo del sustantivo verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="sufijoQuizArea"></div>
+          <button id="newSufijoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="sufijoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – CONSTRUYE LA FAMILIA DE PALABRAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 9. Construye la familia de palabras</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="familiaQuizArea"></div>
+          <button id="newFamiliaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva raíz</button>
+          <div id="familiaQuizFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – TRADUCCIÓN CON SUSTANTIVOS VERBALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 10. Traduce frases con sustantivos verbales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transSustQuizArea"></div>
+          <button id="newTransSustQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transSustFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – ANÁLISIS DE SUSTANTIVOS VERBALES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Texto programado · Análisis de sustantivos verbales</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los pasajes. Identifica los sustantivos verbales y su tipo.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 1:20 – ἀόρατος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τὰ γὰρ ἀόρατα αὐτοῦ ... καθοράται</span></p>
+              <button class="btn-reveal" data-target="sus1a">¿Qué prefijo tiene <strong>ἀόρατος</strong> y qué significa?</button>
+              <div id="sus1a" class="answer-text"><span class="greek-word">ἀ-</span> es prefijo privativo: "invisible" (negación de <span class="greek-word">ὁρατός</span>).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:22 – δικαιοσύνη</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">δικαιοσύνη δὲ θεοῦ διὰ πίστεως Ἰησοῦ Χριστοῦ</span></p>
+              <button class="btn-reveal" data-target="sus1b">¿Qué tipo de sustantivo es <strong>δικαιοσύνη</strong>?</button>
+              <div id="sus1b" class="answer-text">Sustantivo de <strong>cualidad/estado</strong> (sufijo -σύνη) – "justicia".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:24 – ἀπολύτρωσις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">διὰ τῆς ἀπολυτρώσεως τῆς ἐν Χριστῷ Ἰησοῦ</span></p>
+              <button class="btn-reveal" data-target="sus1c">¿Qué tipo de sustantivo es <strong>ἀπολύτρωσις</strong>?</button>
+              <div id="sus1c" class="answer-text">Sustantivo de <strong>acción</strong> (sufijo -σις) – "redención".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hebreos 1:3 – χαρακτήρ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">χαρακτὴρ τῆς ὑποστάσεως αὐτοῦ</span></p>
+              <button class="btn-reveal" data-target="sus1d">¿Qué tipo de sustantivo es <strong>χαρακτήρ</strong> (sufijo -τήρ)?</button>
+              <div id="sus1d" class="answer-text">Sustantivo de <strong>agente</strong> (sufijo -τήρ) – "imagen exacta, sello".</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la identificación de sufijos en Romanos 1-5. Construye familias de palabras para los verbos más frecuentes. Reflexiona sobre cómo los sustantivos verbales enriquecen la teología del NT.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-57.html"><i class="fas fa-arrow-left"></i> Lección 57</a>
+      <a href="leccion-59.html"><i class="fas fa-arrow-right"></i> Lección 59</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται</span> (Romanos 1:17)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 58 ==========
+    const vocabData = [
+      { greek: "σωτηρία", translit: "sōtēria", spanish: "salvación", type: "acción (-ία)" },
+      { greek: "δικαιοσύνη", translit: "dikaiosynē", spanish: "justicia", type: "cualidad (-σύνη)" },
+      { greek: "χρηστότης", translit: "chrēstotēs", spanish: "bondad", type: "cualidad (-τής)" },
+      { greek: "ἀγαθωσύνη", translit: "agathōsynē", spanish: "bondad", type: "cualidad (-σύνη)" },
+      { greek: "πραΰτης", translit: "praÿtēs", spanish: "mansedumbre", type: "cualidad (-τής)" },
+      { greek: "ταπεινοφροσύνη", translit: "tapeinophrosynē", spanish: "humildad", type: "cualidad (-σύνη)" },
+      { greek: "μακροθυμία", translit: "makrothymia", spanish: "longanimidad", type: "cualidad (-ία)" },
+      { greek: "ἐγκράτεια", translit: "enkrateia", spanish: "dominio propio", type: "cualidad (-ία)" },
+      { greek: "ἁγιωσύνη", translit: "hagiōsynē", spanish: "santidad", type: "cualidad (-σύνη)" },
+      { greek: "εὐσέβεια", translit: "eusebeia", spanish: "piedad, devoción", type: "cualidad (-ία)" },
+      { greek: "φιλαδελφία", translit: "philadelphia", spanish: "amor fraternal", type: "cualidad (-ία)" },
+      { greek: "φιλανθρωπία", translit: "philanthrōpia", spanish: "amor a los hombres", type: "cualidad (-ία)" },
+      { greek: "φιλοξενία", translit: "philoxenia", spanish: "hospitalidad", type: "cualidad (-ία)" },
+      { greek: "σωφροσύνη", translit: "sōphrosynē", spanish: "sobriedad, sensatez", type: "cualidad (-σύνη)" },
+      { greek: "ἐπιεικεία", translit: "epieikeia", spanish: "amabilidad, moderación", type: "cualidad (-ία)" },
+      { greek: "ὁσιότης", translit: "hosiotēs", spanish: "santidad, piedad", type: "cualidad (-τής)" },
+      { greek: "εἰλικρίνεια", translit: "eilikrineia", spanish: "sinceridad", type: "cualidad (-ία)" },
+      { greek: "ἁπλότης", translit: "haplotēs", spanish: "sencillez, generosidad", type: "cualidad (-τής)" },
+      { greek: "ἐλευθερία", translit: "eleutheria", spanish: "libertad", type: "cualidad (-ία)" },
+      { greek: "εἰρηνοποιΐα", translit: "eirēnopoiia", spanish: "construcción de la paz", type: "acción (-ία)" }
+    ];
+
+    // Ejemplos para identificar sufijo
+    const sufijoExamples = [
+      { term: "κρίσις", suffix: "-σις", type: "acción", meaning: "juicio" },
+      { term: "βάπτισμα", suffix: "-μα", type: "acción (resultado)", meaning: "bautismo" },
+      { term: "βαπτισμός", suffix: "-μός", type: "acción (ritual)", meaning: "bautismo (ritual)" },
+      { term: "βαπτιστής", suffix: "-της", type: "agente", meaning: "bautista" },
+      { term: "σωτήρ", suffix: "-τήρ", type: "agente", meaning: "Salvador" },
+      { term: "δικαιοσύνη", suffix: "-σύνη", type: "cualidad", meaning: "justicia" },
+      { term: "σοφία", suffix: "-ία", type: "cualidad", meaning: "sabiduría" },
+      { term: "χρηστότης", suffix: "-τής", type: "cualidad", meaning: "bondad" },
+      { term: "ἄδικος", suffix: "ἀ- (privativo)", type: "negación", meaning: "injusto" },
+      { term: "ἀνυπόκριτος", suffix: "ἀν- (privativo)", type: "negación", meaning: "sin hipocresía" }
+    ];
+
+    // Ejemplos para construir familia de palabras
+    const familiaExamples = [
+      { root: "βαπτίζω", members: "βάπτισμα, βαπτισμός, βαπτιστής", meaning: "bautizar" },
+      { root: "κρίνω", members: "κρίσις, κριτής, κατάκρισις, κατακρίνω", meaning: "juzgar" },
+      { root: "σῴζω", members: "σωτηρία, σωτήρ, σώζων", meaning: "salvar" },
+      { root: "δικαιόω", members: "δικαιοσύνη, δικαίωσις, δικαίωμα, ἄδικος", meaning: "justificar" },
+      { root: "ἀγαπάω", members: "ἀγάπη, ἀγαπητός, ἀγαπῶν", meaning: "amar" }
+    ];
+
+    // Frases para traducción con sustantivos verbales
+    const transSustExamples = [
+      { greek: "ἡ δικαιοσύνη τοῦ θεοῦ", translation: "la justicia de Dios", analysis: "δικαιοσύνη - cualidad" },
+      { greek: "διὰ τῆς ἀπολυτρώσεως", translation: "mediante la redención", analysis: "ἀπολύτρωσις - acción (-σις)" },
+      { greek: "τὸ βάπτισμα τοῦ Ἰωάννου", translation: "el bautismo de Juan", analysis: "βάπτισμα - acción (-μα)" },
+      { greek: "ὁ σωτήρ τοῦ κόσμου", translation: "el Salvador del mundo", analysis: "σωτήρ - agente (-τήρ)" },
+      { greek: "ἄνθρωπος ἄδικος", translation: "hombre injusto", analysis: "ἄδικος - privativo (ἀ-)" }
+    ];
+
+    let currentSufijo = sufijoExamples[0];
+    let currentFamilia = familiaExamples[0];
+    let currentTransSust = transSustExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.type}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadSufijoQuiz() {
+      const randomIndex = Math.floor(Math.random() * sufijoExamples.length);
+      currentSufijo = sufijoExamples[randomIndex];
+      const container = document.getElementById("sufijoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué sufijo o prefijo tiene <span class="greek-word">${currentSufijo.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Significado: ${currentSufijo.meaning}</span><br>
+      <button id="sufAccion" class="btn-reveal">-σις / -μα / -μός</button> <button id="sufAgente" class="btn-reveal">-της / -τήρ</button>
+      <button id="sufCualidad" class="btn-reveal">-σύνη / -ία / -τής</button> <button id="sufPriv" class="btn-reveal">ἀ- / ἀν- (privativo)</button>
+      <div id="sufijoResult"></div></div>`;
+      const accion = document.getElementById("sufAccion");
+      const agente = document.getElementById("sufAgente");
+      const cualidad = document.getElementById("sufCualidad");
+      const priv = document.getElementById("sufPriv");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("sufijoResult");
+          if (expected === currentSufijo.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentSufijo.suffix})</span>`;
+            setTimeout(loadSufijoQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentSufijo.type} (${currentSufijo.suffix})</span>`;
+          }
+        });
+      };
+      check(accion, "acción");
+      check(accion, "acción (resultado)");
+      check(accion, "acción (ritual)");
+      check(agente, "agente");
+      check(cualidad, "cualidad");
+      check(priv, "negación");
+    }
+
+    function loadFamiliaQuiz() {
+      const randomIndex = Math.floor(Math.random() * familiaExamples.length);
+      currentFamilia = familiaExamples[randomIndex];
+      const container = document.getElementById("familiaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Construye la familia de palabras de <span class="greek-word">${currentFamilia.root}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Miembros: ${currentFamilia.members}</span><br>
+      <input type="text" id="familiaAnswer" placeholder="significado de la raíz..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkFamilia" class="btn-reveal">Verificar</button>
+      <div id="familiaResult"></div></div>`;
+      document.getElementById("checkFamilia").addEventListener("click", () => {
+        const answer = document.getElementById("familiaAnswer").value.trim().toLowerCase();
+        const correct = currentFamilia.meaning.toLowerCase();
+        const result = document.getElementById("familiaResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto! (${currentFamilia.meaning})</span>`;
+          setTimeout(loadFamiliaQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentFamilia.meaning}</span>`;
+        }
+      });
+    }
+
+    function loadTransSustQuiz() {
+      const randomIndex = Math.floor(Math.random() * transSustExamples.length);
+      currentTransSust = transSustExamples[randomIndex];
+      const container = document.getElementById("transSustQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransSust.greek}</span><br>
+      <input type="text" id="transSustAnswer" placeholder="traducción + análisis..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransSust" class="btn-reveal">Verificar</button>
+      <div id="transSustResult"></div></div>`;
+      document.getElementById("checkTransSust").addEventListener("click", () => {
+        const answer = document.getElementById("transSustAnswer").value.trim().toLowerCase();
+        const correct = currentTransSust.translation.toLowerCase();
+        const analysis = currentTransSust.analysis.toLowerCase();
+        const result = document.getElementById("transSustResult");
+        if (answer.includes(correct) && answer.includes(analysis)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransSust.translation} – ${currentTransSust.analysis})</span>`;
+          setTimeout(loadTransSustQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransSust.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Sufijo de acción que indica el resultado concreto (ej. βάπτισμα)", opts: ["-μα", "-σις", "-μός", "-σύνη"], correct: 0 },
+      { q: "Sufijo de agente (ej. βαπτιστής)", opts: ["-της", "-τήρ", "-ων", "-μός"], correct: 0 },
+      { q: "Sufijo de cualidad (ej. δικαιοσύνη)", opts: ["-σύνη", "-σις", "-μα", "-τής"], correct: 0 },
+      { q: "Prefijo privativo que significa 'sin' o 'no' (ej. ἄδικος)", opts: ["ἀ-", "ἀν-", "ἐκ-", "ἐπί-"], correct: 0 },
+      { q: "Sustantivo de acción que significa 'redención'", opts: ["ἀπολύτρωσις", "σωτηρία", "δικαιοσύνη", "βάπτισμα"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkFamilia" || btn.id === "checkTransSust" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && btn.closest("#sufijoQuizArea")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadSufijoQuiz();
+      loadFamiliaQuiz();
+      loadTransSustQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newSufijoQuiz")?.addEventListener("click", () => {
+        loadSufijoQuiz();
+        document.getElementById("sufijoFeedback").innerHTML = "";
+      });
+      document.getElementById("newFamiliaQuiz")?.addEventListener("click", () => {
+        loadFamiliaQuiz();
+        document.getElementById("familiaQuizFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransSustQuiz")?.addEventListener("click", () => {
+        loadTransSustQuiz();
+        document.getElementById("transSustFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

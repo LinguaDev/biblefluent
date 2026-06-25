@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 57: Hapax Legomena</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 81%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .hapax-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .method-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-56.html"><i class="fas fa-arrow-left"></i> Lección 56</a>
+        <a href="leccion-58.html"><i class="fas fa-arrow-right"></i> Lección 58</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-search"></i> Lección 57 · Términos Únicos del NT (Hapax Legomena) <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>ἐπιούσιος, θεόπνευστος, ἀρτιγέννητος · Metodología de investigación léxica · Hapax legomena del NT · Análisis de términos compuestos únicos</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1140/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Términos únicos del NT: hapax legomena" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los hapax legomena del NT – términos que aparecen solo una vez</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Qué son los hapax legomena?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">Ἅπαξ λεγόμενα</span> (hapax legomena) es el término griego para palabras que aparecen <strong>solo una vez</strong> en un corpus textual. En el NT, hay aproximadamente <strong>1,500 hapax</strong> (palabras que aparecen una sola vez en todo el NT).</p>
+          <div class="hapax-box">
+            <i class="fas fa-lightbulb"></i> <strong>Importancia teológica:</strong>
+            <ul>
+              <li>Los hapax suelen ser <strong>términos teológicamente significativos</strong> que el autor eligió deliberadamente.</li>
+              <li>Su significado debe determinarse mediante <strong>comparación con la LXX</strong>, el griego clásico, los papiros y el contexto.</li>
+              <li>Algunos hapax son <strong>compuestos únicos</strong> creados por el autor (ej. θεόπνευστος).</li>
+              <li>El <strong>debate exegético</strong> sobre hapax famosos (como ἐπιούσιος) ha durado siglos.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo clásico:</strong><br>
+            <span class="greek-word">ἐπιούσιος</span> (Mateo 6:11) – "nuestro pan de cada día". Esta palabra <strong>solo aparece aquí</strong> y en Lucas 11:3 (el Padre Nuestro). Su significado exacto es objeto de debate: ¿"de cada día", "del mañana" o "superesencial"?</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: METODOLOGÍA DE INVESTIGACIÓN LÉXICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-microscope"></i> 2. Metodología para investigar hapax</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Cuando encuentres un hapax legomenon, sigue estos pasos para determinar su significado:</p>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 1: Análisis morfológico</strong>
+            <ul>
+              <li>Identifica la <strong>raíz</strong> del término.</li>
+              <li>Identifica los <strong>prefijos y sufijos</strong> (ej. θεό-πνευστος = "Dios-soplado").</li>
+              <li>Determina la <strong>categoría gramatical</strong> (sustantivo, adjetivo, verbo, adverbio).</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 2: Búsqueda en la LXX</strong>
+            <ul>
+              <li>La <strong>Septuaginta</strong> es la fuente más importante para el vocabulario del NT.</li>
+              <li>Busca si la palabra <strong>aparece en la LXX</strong> y cómo se usa allí.</li>
+              <li>La LXX a menudo da el <strong>trasfondo semántico</strong> del término.</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 3: Búsqueda en griego clásico y papiros</strong>
+            <ul>
+              <li>Consulta <strong>autores clásicos</strong> (Platón, Aristóteles, etc.) para ver el uso anterior.</li>
+              <li>Los <strong>papiros</strong> (documentos cotidianos) muestran cómo se usaba la palabra en el griego koiné.</li>
+              <li>Herramientas: <strong>BDAG</strong>, <strong>LSJ</strong>, <strong>Moulton-Milligan</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 4: Análisis del contexto inmediato</strong>
+            <ul>
+              <li>Examina el <strong>contexto</strong> del pasaje donde aparece.</li>
+              <li>¿Qué <strong>contraste</strong> o <strong>comparación</strong> establece el autor?</li>
+              <li>El contexto a menudo <strong>define</strong> el significado del hapax.</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 5: Comparación con palabras relacionadas</strong>
+            <ul>
+              <li>Compara el hapax con <strong>palabras de la misma raíz</strong> que sí son comunes.</li>
+              <li>Ejemplo: <span class="greek-word">θεόπνευστος</span> se relaciona con <span class="greek-word">πνεῦμα</span> y <span class="greek-word">πνέω</span>.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="metodoEj">Aplica la metodología</button>
+          <div id="metodoEj" class="answer-text">
+            <span class="greek-word">ἐπιούσιος</span> – análisis morfológico: <span class="greek-word">ἐπί</span> (sobre) + <span class="greek-word">οὐσία</span> (ser, sustancia).<br>
+            LXX: no aparece (palabra única).<br>
+            Contexto: Mateo 6:11 – petición de pan "de cada día".<br>
+            Comparación: <span class="greek-word">οὐσία</span> – "sustancia, ser".<br>
+            Interpretación posible: "superesencial" (Orígenes), "de cada día" (traducción común), "del mañana" (futuro).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: ἐπιούσιος – EL PAN DE CADA DÍA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bread"></i> 3. ἐπιούσιος – el pan de cada día (Mateo 6:11)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Τὸν ἄρτον ἡμῶν τὸν ἐπιούσιον δὸς ἡμῖν σήμερον.</span> (Mateo 6:11)</p>
+            <p><span class="greek-word">τὸν ἄρτον ἡμῶν τὸν ἐπιούσιον δίδου ἡμῖν τὸ καθʼ ἡμέραν.</span> (Lucas 11:3)</p>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-lightbulb"></i> Debate sobre ἐπιούσιος:</strong>
+            <ul>
+              <li><strong>Interpretación 1: "de cada día" (cotidiano)</strong> – La traducción más común en las versiones (RV, NVI). Deriva de <span class="greek-word">ἐπιοῦσα</span> ("el día que viene") → "el pan del día que viene".</li>
+              <li><strong>Interpretación 2: "necesario para la vida"</strong> – Deriva de <span class="greek-word">ἐπί</span> + <span class="greek-word">οὐσία</span> ("sustancia, ser") → "el pan necesario para la existencia".</li>
+              <li><strong>Interpretación 3: "superesencial"</strong> – Orígenes y algunos padres de la iglesia. Deriva de <span class="greek-word">ἐπί</span> (sobre) + <span class="greek-word">οὐσία</span> (ser) → "el pan que está por encima de la sustancia".</li>
+              <li><strong>Interpretación 4: "del mañana"</strong> – Deriva de <span class="greek-word">ἡ ἐπιοῦσα</span> ("el día siguiente") → "el pan de mañana" (confianza en Dios para el futuro).</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Conclusión exegética:</strong> La mayoría de los eruditos hoy optan por la <strong>interpretación 1 o 4</strong>: "el pan de cada día" o "el pan del día que viene". La interpretación "superesencial" es poco probable en el griego koiné. La palabra enfatiza la <strong>dependencia diaria</strong> de Dios.
+          </div>
+          <button class="btn-reveal" data-target="epiousiosEj">¿Qué interpretación prefieres?</button>
+          <div id="epiousiosEj" class="answer-text">
+            "Pan de cada día" – énfasis en la provisión diaria.<br>
+            "Pan del mañana" – énfasis en la confianza en Dios para el futuro.<br>
+            "Pan superesencial" – interpretación teológica (Orígenes).<br>
+            El contexto de Mateo 6 (no preocuparse por el mañana) favorece "de cada día" o "del mañana".
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: θεόπνευστος – INSPIRADO POR DIOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-feather-alt"></i> 4. θεόπνευστος – inspirado por Dios (2 Timoteo 3:16)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">πᾶσα γραφὴ θεόπνευστος καὶ ὠφέλιμος πρὸς διδασκαλίαν, πρὸς ἐλεγμόν, πρὸς ἐπανόρθωσιν, πρὸς παιδείαν τὴν ἐν δικαιοσύνῃ,</span> (2 Timoteo 3:16)</p>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-lightbulb"></i> Análisis morfológico:</strong>
+            <ul>
+              <li><span class="greek-word">θεόπνευστος</span> = <span class="greek-word">θεός</span> (Dios) + <span class="greek-word">πνεύω</span> (soplar, respirar) + sufijo -τος (adjetivo verbal).</li>
+              <li>Literalmente: "<strong>soplado por Dios</strong>" o "<strong>inspirado por Dios</strong>".</li>
+              <li>Es un <strong>compuesto único</strong> que no aparece en la LXX ni en el griego clásico.</li>
+            </ul>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-lightbulb"></i> Significado teológico:</strong>
+            <ul>
+              <li>El término se refiere a la <strong>naturaleza divina</strong> de la Escritura.</li>
+              <li>No significa que Dios <strong>dictó</strong> cada palabra, sino que la Escritura <strong>proviene de Dios</strong> y es <strong>portadora de su aliento</strong>.</li>
+              <li>En el contexto de 2 Timoteo, <span class="greek-word">θεόπνευστος</span> garantiza la <strong>autoridad</strong> y <strong>utilidad</strong> de la Escritura para la enseñanza, la corrección y la formación en justicia.</li>
+              <li>Relacionado con el concepto de <span class="greek-word">πνεῦμα</span> (espíritu) y la <strong>inspiración profética</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Debate:</strong> ¿<span class="greek-word">θεόπνευστος</span> se refiere a toda la Escritura (AT y NT) o solo al AT? El contexto sugiere que Pablo se refiere a la <strong>totalidad de la Escritura</strong> que Timoteo conocía (el AT), con implicaciones para los escritos del NT que ya se estaban considerando como Escritura.
+          </div>
+          <button class="btn-reveal" data-target="theopneustosEj">Analiza θεόπνευστος</button>
+          <div id="theopneustosEj" class="answer-text">
+            <span class="greek-word">θεόπνευστος</span> – "inspirado por Dios" (soplado por Dios).<br>
+            Compuesto: <span class="greek-word">θεός</span> + <span class="greek-word">πνεύω</span>.<br>
+            Implicación: la Escritura es <strong>autoritativa</strong> porque proviene de Dios.<br>
+            Relacionado con <span class="greek-word">πνεῦμα</span> – el Espíritu que inspira.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: ἀρτιγέννητος – RECIÉN NACIDO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-baby"></i> 5. ἀρτιγέννητος – recién nacido (1 Pedro 2:2)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">ὡς ἀρτιγέννητα βρέφη τὸ λογικὸν ἄδολον γάλα ἐπιποθήσατε, ἵνα ἐν αὐτῷ αὐξηθῆτε εἰς σωτηρίαν,</span> (1 Pedro 2:2)</p>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-lightbulb"></i> Análisis morfológico:</strong>
+            <ul>
+              <li><span class="greek-word">ἀρτιγέννητος</span> = <span class="greek-word">ἄρτι</span> (recién, ahora) + <span class="greek-word">γεννάω</span> (engendrar, nacer) + sufijo -τος.</li>
+              <li>Literalmente: "<strong>recién nacido</strong>".</li>
+              <li>Es un <strong>compuesto único</strong> en el NT, aunque la idea es común.</li>
+            </ul>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-lightbulb"></i> Significado teológico:</strong>
+            <ul>
+              <li>Pedro usa esta palabra para describir a los <strong>creyentes recién convertidos</strong>.</li>
+              <li>El énfasis está en la <strong>necesidad de crecimiento</strong> espiritual.</li>
+              <li>Así como un bebé recién nacido <strong>desea la leche</strong>, el creyente debe <strong>desear</strong> la palabra de Dios (<span class="greek-word">τὸ λογικὸν ἄδολον γάλα</span> – "la leche espiritual sin engaño").</li>
+              <li>Relacionado con el <strong>nuevo nacimiento</strong> (1 Pedro 1:3, 23).</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Comparación:</strong> <span class="greek-word">ἀρτιγέννητος</span> es un compuesto con <span class="greek-word">ἄρτι</span> ("ahora, recién"). En el NT, <span class="greek-word">ἄρτι</span> aparece en otros contextos, pero el compuesto es único. Subraya la <strong>inmediatez</strong> del nuevo nacimiento.
+          </div>
+          <button class="btn-reveal" data-target="artigennetosEj">Analiza ἀρτιγέννητος</button>
+          <div id="artigennetosEj" class="answer-text">
+            <span class="greek-word">ἀρτιγέννητος</span> – "recién nacido".<br>
+            Compuesto: <span class="greek-word">ἄρτι</span> + <span class="greek-word">γεννάω</span>.<br>
+            Contexto: los creyentes como <strong>bebés espirituales</strong> que necesitan la leche de la palabra.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: OTROS HAPAX IMPORTANTES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-list"></i> 6. Otros hapax legomena importantes del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Además de los tres hapax ya estudiados, estos términos también aparecen una sola vez en el NT y tienen significado teológico:</p>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-tag"></i> παλιγγενεσία (palingenesia) – "regeneración"</strong>
+            <ul>
+              <li><strong>Pasaje:</strong> Mateo 19:28 – <span class="greek-word">ἐν τῇ παλιγγενεσίᾳ</span> ("en la regeneración").</li>
+              <li><strong>Significado:</strong> "Nuevo nacimiento", "restauración" del mundo.</li>
+              <li><strong>Compuesto:</strong> <span class="greek-word">πάλιν</span> (de nuevo) + <span class="greek-word">γένεσις</span> (nacimiento, origen).</li>
+            </ul>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-tag"></i> ἀποκατάστασις (apokatastasis) – "restauración"</strong>
+            <ul>
+              <li><strong>Pasaje:</strong> Hechos 3:21 – <span class="greek-word">ἀποκαταστάσεως πάντων</span> ("restauración de todas las cosas").</li>
+              <li><strong>Significado:</strong> "Restauración", "restablecimiento" final.</li>
+              <li><strong>Compuesto:</strong> <span class="greek-word">ἀπό</span> (de vuelta) + <span class="greek-word">κατάστασις</span> (establecimiento).</li>
+            </ul>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-tag"></i> ἐξαποστέλλω (exapostellō) – "enviar completamente"</strong>
+            <ul>
+              <li><strong>Pasaje:</strong> Gálatas 4:6 – <span class="greek-word">ἐξαπέστειλεν</span> ("envió").</li>
+              <li><strong>Significado:</strong> "Enviar completamente" (énfasis intensivo).</li>
+              <li><strong>Compuesto:</strong> <span class="greek-word">ἐξ</span> (fuera) + <span class="greek-word">ἀποστέλλω</span> (enviar).</li>
+            </ul>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-tag"></i> ὑπεραυξάνω (hyperauxanō) – "crecer abundantemente"</strong>
+            <ul>
+              <li><strong>Pasaje:</strong> 2 Tesalonicenses 1:3 – <span class="greek-word">ὑπεραυξάνει</span> ("crece abundantemente").</li>
+              <li><strong>Significado:</strong> "Crecer en abundancia", "aumentar grandemente".</li>
+              <li><strong>Compuesto:</strong> <span class="greek-word">ὑπέρ</span> (sobre) + <span class="greek-word">αὐξάνω</span> (crecer).</li>
+            </ul>
+          </div>
+
+          <div class="hapax-box">
+            <strong><i class="fas fa-tag"></i> πλεονάζω (pleonazō) vs. ὑπερπλεονάζω (hyperpleonazō)</strong>
+            <ul>
+              <li><span class="greek-word">ὑπερπλεονάζω</span> – "sobreabundar en extremo" (1 Timoteo 1:14).</li>
+              <li><span class="greek-word">πλεονάζω</span> – "abundar" (más común).</li>
+              <li>El compuesto con <span class="greek-word">ὑπέρ</span> intensifica el significado.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Conclusión:</strong> Muchos hapax del NT son <strong>compuestos con preverbios</strong> que intensifican el significado de palabras más comunes. Presta atención a los <strong>prefijos</strong> (ἀπό, ἐκ, ἐπί, ὑπέρ, παρά, etc.) para deducir el significado.
+          </div>
+          <button class="btn-reveal" data-target="otrosHapaxEj">Identifica el hapax</button>
+          <div id="otrosHapaxEj" class="answer-text">
+            <span class="greek-word">παλιγγενεσία</span> – regeneración (Mateo 19:28).<br>
+            <span class="greek-word">ἀποκατάστασις</span> – restauración (Hechos 3:21).<br>
+            <span class="greek-word">ἐξαποστέλλω</span> – enviar completamente (Gálatas 4:6).<br>
+            <span class="greek-word">ὑπεραυξάνω</span> – crecer abundantemente (2 Tesalonicenses 1:3).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Hapax legomena y términos únicos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen hapax y términos raros del NT con significado teológico.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Pasaje</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>2 Timoteo 3:16:</strong> <span class="greek-word">πᾶσα γραφὴ θεόπνευστος καὶ ὠφέλιμος πρὸς διδασκαλίαν, πρὸς ἐλεγμόν, πρὸς ἐπανόρθωσιν, πρὸς παιδείαν τὴν ἐν δικαιοσύνῃ</span> – "Toda Escritura es inspirada por Dios y útil para enseñar, para redargüir, para corregir, para instruir en justicia".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL HAPAX -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el hapax legomenon</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="hapaxQuizArea"></div>
+          <button id="newHapaxQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="hapaxFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – ANALIZA EL COMPUESTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-puzzle-piece"></i> 9. Analiza el compuesto único</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="compuestoQuizArea"></div>
+          <button id="newCompuestoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo compuesto</button>
+          <div id="compuestoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – TRADUCCIÓN DE PASAJES CON HAPAX -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 10. Traduce pasajes con hapax</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transHapaxQuizArea"></div>
+          <button id="newTransHapaxQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transHapaxFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – ANÁLISIS DE HAPAX -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Texto programado · Análisis de hapax</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los pasajes. Identifica el hapax y analiza su significado.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 6:11 – ἐπιούσιος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τὸν ἄρτον ἡμῶν τὸν ἐπιούσιον δὸς ἡμῖν σήμερον</span></p>
+              <button class="btn-reveal" data-target="hap1a">¿Qué significa <strong>ἐπιούσιος</strong>?</button>
+              <div id="hap1a" class="answer-text">Debate: "de cada día", "del mañana" o "superesencial". El contexto sugiere "de cada día" o "del día que viene" – énfasis en la dependencia diaria de Dios.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 2 Timoteo 3:16 – θεόπνευστος</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πᾶσα γραφὴ θεόπνευστος</span></p>
+              <button class="btn-reveal" data-target="hap2a">¿Qué significa <strong>θεόπνευστος</strong>?</button>
+              <div id="hap2a" class="answer-text">"Inspirada por Dios" (soplada por Dios). Compuesto de <span class="greek-word">θεός</span> + <span class="greek-word">πνεύω</span>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Pedro 2:2 – ἀρτιγέννητα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὡς ἀρτιγέννητα βρέφη</span></p>
+              <button class="btn-reveal" data-target="hap3a">¿Qué significa <strong>ἀρτιγέννητα</strong>?</button>
+              <div id="hap3a" class="answer-text">"Recién nacidos" – compuesto de <span class="greek-word">ἄρτι</span> (recién) + <span class="greek-word">γεννάω</span> (nacer).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 3:21 – ἀποκατάστασις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἄχρι χρόνων ἀποκαταστάσεως πάντων</span></p>
+              <button class="btn-reveal" data-target="hap4a">¿Qué significa <strong>ἀποκατάστασις</strong>?</button>
+              <div id="hap4a" class="answer-text">"Restauración" – compuesto de <span class="greek-word">ἀπό</span> + <span class="greek-word">κατάστασις</span> (establecimiento).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Mateo 6:11, 2 Timoteo 3:16 y 1 Pedro 2:2 en griego. Analiza la formación de los compuestos únicos. Practica la metodología de investigación léxica con otros hapax.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-56.html"><i class="fas fa-arrow-left"></i> Lección 56</a>
+      <a href="leccion-58.html"><i class="fas fa-arrow-right"></i> Lección 58</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">πᾶσα γραφὴ θεόπνευστος</span> (2 Timoteo 3:16)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 57 ==========
+    const vocabData = [
+      { greek: "θεόπνευστος", translit: "theopneustos", spanish: "inspirado por Dios", passage: "2 Timoteo 3:16" },
+      { greek: "ἐπιούσιος", translit: "epiousios", spanish: "de cada día / superesencial", passage: "Mateo 6:11" },
+      { greek: "ἀρτιγέννητος", translit: "artigennetos", spanish: "recién nacido", passage: "1 Pedro 2:2" },
+      { greek: "παλιγγενεσία", translit: "palingenesia", spanish: "regeneración", passage: "Mateo 19:28" },
+      { greek: "ἀποκατάστασις", translit: "apokatastasis", spanish: "restauración", passage: "Hechos 3:21" },
+      { greek: "ἐξαποστέλλω", translit: "exapostellō", spanish: "enviar completamente", passage: "Gálatas 4:6" },
+      { greek: "ὑπεραυξάνω", translit: "hyperauxanō", spanish: "crecer abundantemente", passage: "2 Tesalonicenses 1:3" },
+      { greek: "πλεονάζω", translit: "pleonazō", spanish: "abundar", passage: "Romanos 5:20" },
+      { greek: "ὑπερπλεονάζω", translit: "hyperpleonazō", spanish: "sobreabundar en extremo", passage: "1 Timoteo 1:14" },
+      { greek: "ἀκατάκριτος", translit: "akatakritos", spanish: "sin ser condenado", passage: "Hechos 16:37" },
+      { greek: "ἀκατάπαυστος", translit: "akatapaustos", spanish: "incesante", passage: "2 Pedro 2:14" },
+      { greek: "ἀναπολόγητος", translit: "anapologētos", spanish: "sin excusa", passage: "Romanos 1:20" },
+      { greek: "ἀδιάκριτος", translit: "adiakritos", spanish: "imparcial, sincero", passage: "Santiago 3:17" },
+      { greek: "ἀνυπόκριτος", translit: "anypokritos", spanish: "sin hipocresía", passage: "Romanos 12:9" },
+      { greek: "ἀνεπίλημπτος", translit: "anepilēmptos", spanish: "irreprensible", passage: "1 Timoteo 3:2" },
+      { greek: "ἄμεμπτος", translit: "amemptos", spanish: "irreprochable", passage: "1 Tesalonicenses 2:10" },
+      { greek: "ἄμωμος", translit: "amōmos", spanish: "sin mancha", passage: "Efesios 1:4" },
+      { greek: "ἄσπιλος", translit: "aspilos", spanish: "sin tacha", passage: "1 Timoteo 6:14" },
+      { greek: "ἄμεμπτος", translit: "amemptos", spanish: "sin culpa", passage: "1 Tesalonicenses 2:10" },
+      { greek: "ἐπανόρθωσις", translit: "epanorthōsis", spanish: "corrección", passage: "2 Timoteo 3:16" }
+    ];
+
+    // Ejemplos para identificar hapax
+    const hapaxExamples = [
+      { term: "ἐπιούσιος", meaning: "de cada día / superesencial", passage: "Mateo 6:11" },
+      { term: "θεόπνευστος", meaning: "inspirado por Dios", passage: "2 Timoteo 3:16" },
+      { term: "ἀρτιγέννητος", meaning: "recién nacido", passage: "1 Pedro 2:2" },
+      { term: "παλιγγενεσία", meaning: "regeneración", passage: "Mateo 19:28" },
+      { term: "ἀποκατάστασις", meaning: "restauración", passage: "Hechos 3:21" },
+      { term: "ἐξαποστέλλω", meaning: "enviar completamente", passage: "Gálatas 4:6" }
+    ];
+
+    // Ejemplos para análisis de compuestos
+    const compuestoExamples = [
+      { term: "θεόπνευστος", parts: "θεός + πνεύω", meaning: "inspirado por Dios" },
+      { term: "ἀρτιγέννητος", parts: "ἄρτι + γεννάω", meaning: "recién nacido" },
+      { term: "παλιγγενεσία", parts: "πάλιν + γένεσις", meaning: "regeneración" },
+      { term: "ἀποκατάστασις", parts: "ἀπό + κατάστασις", meaning: "restauración" },
+      { term: "ἐξαποστέλλω", parts: "ἐξ + ἀποστέλλω", meaning: "enviar completamente" },
+      { term: "ὑπεραυξάνω", parts: "ὑπέρ + αὐξάνω", meaning: "crecer abundantemente" }
+    ];
+
+    // Pasajes para traducción con hapax
+    const transHapaxExamples = [
+      { greek: "τὸν ἄρτον ἡμῶν τὸν ἐπιούσιον δὸς ἡμῖν", translation: "el pan nuestro de cada día dánoslo hoy", hapax: "ἐπιούσιος" },
+      { greek: "πᾶσα γραφὴ θεόπνευστος", translation: "toda Escritura es inspirada por Dios", hapax: "θεόπνευστος" },
+      { greek: "ὡς ἀρτιγέννητα βρέφη", translation: "como niños recién nacidos", hapax: "ἀρτιγέννητα" },
+      { greek: "ἐν τῇ παλιγγενεσίᾳ", translation: "en la regeneración", hapax: "παλιγγενεσία" },
+      { greek: "χρόνων ἀποκαταστάσεως πάντων", translation: "tiempos de restauración de todas las cosas", hapax: "ἀποκατάστασις" }
+    ];
+
+    let currentHapax = hapaxExamples[0];
+    let currentCompuesto = compuestoExamples[0];
+    let currentTransHapax = transHapaxExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.passage}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadHapaxQuiz() {
+      const randomIndex = Math.floor(Math.random() * hapaxExamples.length);
+      currentHapax = hapaxExamples[randomIndex];
+      const container = document.getElementById("hapaxQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué significa el hapax <span class="greek-word">${currentHapax.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Pasaje: ${currentHapax.passage}</span><br>
+      <input type="text" id="hapaxAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkHapax" class="btn-reveal">Verificar</button>
+      <div id="hapaxResult"></div></div>`;
+      document.getElementById("checkHapax").addEventListener("click", () => {
+        const answer = document.getElementById("hapaxAnswer").value.trim().toLowerCase();
+        const correct = currentHapax.meaning.toLowerCase();
+        const result = document.getElementById("hapaxResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentHapax.meaning})</span>`;
+          setTimeout(loadHapaxQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentHapax.meaning}</span>`;
+        }
+      });
+    }
+
+    function loadCompuestoQuiz() {
+      const randomIndex = Math.floor(Math.random() * compuestoExamples.length);
+      currentCompuesto = compuestoExamples[randomIndex];
+      const container = document.getElementById("compuestoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza el compuesto <span class="greek-word">${currentCompuesto.term}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Partes: ${currentCompuesto.parts}</span><br>
+      <input type="text" id="compuestoAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkCompuesto" class="btn-reveal">Verificar</button>
+      <div id="compuestoResult"></div></div>`;
+      document.getElementById("checkCompuesto").addEventListener("click", () => {
+        const answer = document.getElementById("compuestoAnswer").value.trim().toLowerCase();
+        const correct = currentCompuesto.meaning.toLowerCase();
+        const result = document.getElementById("compuestoResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentCompuesto.meaning})</span>`;
+          setTimeout(loadCompuestoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentCompuesto.meaning}</span>`;
+        }
+      });
+    }
+
+    function loadTransHapaxQuiz() {
+      const randomIndex = Math.floor(Math.random() * transHapaxExamples.length);
+      currentTransHapax = transHapaxExamples[randomIndex];
+      const container = document.getElementById("transHapaxQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y identifica el hapax:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransHapax.greek}</span><br>
+      <span style="font-size:0.9rem;">Hapax: <span class="greek-word">${currentTransHapax.hapax}</span></span><br>
+      <input type="text" id="transHapaxAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransHapax" class="btn-reveal">Verificar</button>
+      <div id="transHapaxResult"></div></div>`;
+      document.getElementById("checkTransHapax").addEventListener("click", () => {
+        const answer = document.getElementById("transHapaxAnswer").value.trim().toLowerCase();
+        const correct = currentTransHapax.translation.toLowerCase();
+        const result = document.getElementById("transHapaxResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransHapax.hapax})</span>`;
+          setTimeout(loadTransHapaxQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransHapax.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Hapax que significa 'inspirado por Dios'", opts: ["θεόπνευστος", "ἐπιούσιος", "ἀρτιγέννητος", "παλιγγενεσία"], correct: 0 },
+      { q: "Hapax del Padre Nuestro que significa 'de cada día'", opts: ["ἐπιούσιος", "θεόπνευστος", "ἀρτιγέννητος", "παλιγγενεσία"], correct: 0 },
+      { q: "Hapax que significa 'recién nacido'", opts: ["ἀρτιγέννητος", "θεόπνευστος", "ἐπιούσιος", "παλιγγενεσία"], correct: 0 },
+      { q: "Hapax que significa 'regeneración'", opts: ["παλιγγενεσία", "ἀποκατάστασις", "ἐξαποστέλλω", "ὑπεραυξάνω"], correct: 0 },
+      { q: "Hapax que significa 'restauración'", opts: ["ἀποκατάστασις", "παλιγγενεσία", "ἐξαποστέλλω", "ὑπεραυξάνω"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkHapax" || btn.id === "checkCompuesto" || btn.id === "checkTransHapax" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadHapaxQuiz();
+      loadCompuestoQuiz();
+      loadTransHapaxQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newHapaxQuiz")?.addEventListener("click", () => {
+        loadHapaxQuiz();
+        document.getElementById("hapaxFeedback").innerHTML = "";
+      });
+      document.getElementById("newCompuestoQuiz")?.addEventListener("click", () => {
+        loadCompuestoQuiz();
+        document.getElementById("compuestoFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransHapaxQuiz")?.addEventListener("click", () => {
+        loadTransHapaxQuiz();
+        document.getElementById("transHapaxFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

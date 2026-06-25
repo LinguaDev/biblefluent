@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 52: Análisis Textual – Romanos 1–8</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 74%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .analysis-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .pauline-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-51.html"><i class="fas fa-arrow-left"></i> Lección 51</a>
+        <a href="leccion-53.html"><i class="fas fa-arrow-right"></i> Lección 53</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-scroll"></i> Lección 52 · Análisis Textual – Romanos 1–8 <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Tesis de Romanos (1:16-17) · πίστις Χριστοῦ (debate exegético) · Romanos 3:21-26 (soteriología) · Romanos 8:1-11 (participios y pasiva) · Estilo paulino</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1040/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Análisis textual de Romanos 1-8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Análisis exegético de Romanos 1:16-17, 3:21-26 y 8:1-11</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Introducción a Romanos 1–8</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La carta a los Romanos es la <strong>obra maestra teológica</strong> de Pablo. En los capítulos 1–8, desarrolla su teología de la <strong>justificación por la fe</strong>, la <strong>vida en el Espíritu</strong> y la <strong>seguridad del creyente</strong>.</p>
+          <div class="analysis-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características del griego de Pablo en Romanos:</strong>
+            <ul>
+              <li><strong>Períodos largos</strong> – oraciones complejas con múltiples cláusulas subordinadas.</li>
+              <li><strong>Partículas de argumento</strong> – γάρ, οὖν, δέ, ἀλλά estructuran el razonamiento.</li>
+              <li><strong>Vocabulario soteriológico</strong> – δικαιοσύνη, πίστις, χάρις, ἀπολύτρωσις.</li>
+              <li><strong>Uso del optativo</strong> – especialmente en μὴ γένοιτο (Romanos 3, 6, 7, 9, 11).</li>
+              <li><strong>Participios abundantes</strong> – enriquecen la sintaxis y la teología.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Estructura de Romanos 1–8:</strong><br>
+            1:1-17 – Salutación y tesis del evangelio.<br>
+            1:18-3:20 – La ira de Dios y la culpa universal.<br>
+            3:21-5:21 – Justificación por la fe.<br>
+            6:1-8:39 – Santificación y vida en el Espíritu.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: ROMANOS 1:16-17 – LA TESIS DEL EVANGELIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 2. Romanos 1:16-17 – La tesis de Pablo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Οὐ γὰρ ἐπαισχύνομαι τὸ εὐαγγέλιον· δύναμις γὰρ θεοῦ ἐστιν εἰς σωτηρίαν παντὶ τῷ πιστεύοντι, Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι.</span> (1:16)</p>
+            <p><span class="greek-word">δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται ἐκ πίστεως εἰς πίστιν, καθὼς γέγραπται· ὁ δὲ δίκαιος ἐκ πίστεως ζήσεται.</span> (1:17)</p>
+          </div>
+
+          <h3>Análisis de Romanos 1:16-17</h3>
+          <div class="analysis-box">
+            <strong>1:16 – <span class="greek-word">οὐ γὰρ ἐπαισχύνομαι</span></strong>
+            <ul>
+              <li><span class="greek-word">γάρ</span> – partícula explicativa: Pablo explica por qué no se avergüenza.</li>
+              <li><span class="greek-word">ἐπαισχύνομαι</span> – presente medio/deponente: "me avergüenzo".</li>
+              <li><span class="greek-word">δύναμις θεοῦ</span> – genitivo subjetivo: "poder de Dios" (el poder que Dios ejerce).</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>1:17 – <span class="greek-word">δικαιοσύνη θεοῦ</span></strong>
+            <ul>
+              <li><span class="greek-word">δικαιοσύνη θεοῦ</span> – "justicia de Dios" – <strong>debate exegético</strong>: ¿subjetiva (la justicia que Dios posee) u objetiva (la justicia que Dios da)?</li>
+              <li><span class="greek-word">ἀποκαλύπτεται</span> – presente pasivo de ἀποκαλύπτω: "es revelada".</li>
+              <li><span class="greek-word">ἐκ πίστεως εἰς πίστιν</span> – "de fe en fe" (progresión de la fe).</li>
+              <li><span class="greek-word">γέγραπται</span> – perfecto pasivo de γράφω: "está escrito" (estado resultante: sigue siendo autoritativo).</li>
+            </ul>
+          </div>
+          <div class="pauline-box">
+            <strong><i class="fas fa-lightbulb"></i> Debate exegético sobre <span class="greek-word">δικαιοσύνη θεοῦ</span>:</strong><br>
+            <strong>Interpretación subjetiva:</strong> la justicia que Dios posee como atributo.<br>
+            <strong>Interpretación objetiva:</strong> la justicia que Dios da al creyente (justificación).<br>
+            La mayoría de los eruditos hoy optan por una <strong>combinación</strong>: la justicia de Dios es su <strong>acto salvífico</strong> que establece una relación justa con el creyente.
+          </div>
+          <button class="btn-reveal" data-target="rm1a">¿Qué verbo en 1:17 está en perfecto pasivo?</button>
+          <div id="rm1a" class="answer-text"><span class="greek-word">γέγραπται</span> – perfecto pasivo de γράφω ("está escrito").</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: ROMANOS 3:21-26 – LA JUSTIFICACIÓN POR LA FE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 3. Romanos 3:21-26 – La justificación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Νυνὶ δὲ χωρὶς νόμου δικαιοσύνη θεοῦ πεφανέρωται, μαρτυρουμένη ὑπὸ τοῦ νόμου καὶ τῶν προφητῶν,</span> (3:21)</p>
+            <p><span class="greek-word">δικαιοσύνη δὲ θεοῦ διὰ πίστεως Ἰησοῦ Χριστοῦ εἰς πάντας τοὺς πιστεύοντας.</span> (3:22)</p>
+            <p><span class="greek-word">πάντες γὰρ ἥμαρτον καὶ ὑστεροῦνται τῆς δόξης τοῦ θεοῦ,</span> (3:23)</p>
+            <p><span class="greek-word">δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι διὰ τῆς ἀπολυτρώσεως τῆς ἐν Χριστῷ Ἰησοῦ·</span> (3:24)</p>
+            <p><span class="greek-word">ὃν προέθετο ὁ θεὸς ἱλαστήριον διὰ πίστεως ἐν τῷ αὐτοῦ αἵματι, εἰς ἔνδειξιν τῆς δικαιοσύνης αὐτοῦ, διὰ τὴν πάρεσιν τῶν προγεγονότων ἁμαρτημάτων</span> (3:25)</p>
+            <p><span class="greek-word">ἐν τῇ ἀνοχῇ τοῦ θεοῦ, πρὸς τὴν ἔνδειξιν τῆς δικαιοσύνης αὐτοῦ ἐν τῷ νῦν καιρῷ, εἰς τὸ εἶναι αὐτὸν δίκαιον καὶ δικαιοῦντα τὸν ἐκ πίστεως Ἰησοῦ.</span> (3:26)</p>
+          </div>
+
+          <h3>Análisis de Romanos 3:21-26</h3>
+          <div class="analysis-box">
+            <strong>3:21 – <span class="greek-word">πεφανέρωται</span></strong>
+            <ul>
+              <li><span class="greek-word">πεφανέρωται</span> – perfecto pasivo de φανερόω: "ha sido manifestada" (estado: sigue siendo revelada).</li>
+              <li><span class="greek-word">χωρὶς νόμου</span> – "sin ley" (independientemente de la ley).</li>
+              <li><span class="greek-word">μαρτυρουμένη</span> – participio presente pasivo: "siendo atestiguada".</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>3:22 – <span class="greek-word">πίστεως Ἰησοῦ Χριστοῦ</span></strong>
+            <ul>
+              <li><span class="greek-word">πίστεως Ἰησοῦ Χριστοῦ</span> – <strong>debate exegético clave</strong>: ¿genitivo objetivo ("fe en Jesucristo") o subjetivo ("fe de Jesucristo")?</li>
+              <li>La mayoría de los eruditos hoy interpretan <span class="greek-word">πίστις Χριστοῦ</span> como <strong>genitivo objetivo</strong> ("fe en Cristo"), aunque el debate continúa.</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>3:24 – <span class="greek-word">δικαιούμενοι</span></strong>
+            <ul>
+              <li><span class="greek-word">δικαιούμενοι</span> – participio presente pasivo de δικαιόω: "siendo justificados".</li>
+              <li><span class="greek-word">δωρεάν</span> – "gratuitamente" (sin mérito).</li>
+              <li><span class="greek-word">τῇ ... χάριτι</span> – dativo instrumental: "por la gracia".</li>
+              <li><span class="greek-word">ἀπολυτρώσεως</span> – "redención" (liberación mediante rescate).</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>3:25 – <span class="greek-word">ἱλαστήριον</span></strong>
+            <ul>
+              <li><span class="greek-word">ἱλαστήριον</span> – "propiciatorio" (el lugar de expiación).</li>
+              <li><span class="greek-word">προέθετο</span> – aoristo medio de προτίθημι: "propuso, presentó".</li>
+              <li><span class="greek-word">προγεγονότων</span> – participio perfecto de προγίνομαι: "habiendo sido cometidos antes".</li>
+            </ul>
+          </div>
+          <div class="pauline-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> Pablo emplea aquí una <strong>cadena de términos soteriológicos</strong>: δικαιοσύνη (justicia), πίστις (fe), χάρις (gracia), ἀπολύτρωσις (redención), ἱλαστήριον (propiciatorio). Cada término aporta un matiz a la obra de Cristo.
+          </div>
+          <button class="btn-reveal" data-target="rm3a">Identifica los participios en 3:21-26</button>
+          <div id="rm3a" class="answer-text">
+            <span class="greek-word">μαρτυρουμένη</span> – presente pasivo (siendo atestiguada).<br>
+            <span class="greek-word">δικαιούμενοι</span> – presente pasivo (siendo justificados).<br>
+            <span class="greek-word">προγεγονότων</span> – perfecto activo (habiendo sido cometidos antes).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: ROMANOS 8:1-11 – VIDA EN EL ESPÍRITU -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 4. Romanos 8:1-11 – Vida en el Espíritu</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Οὐδὲν ἄρα νῦν κατάκριμα τοῖς ἐν Χριστῷ Ἰησοῦ·</span> (8:1)</p>
+            <p><span class="greek-word">ὁ γὰρ νόμος τοῦ πνεύματος τῆς ζωῆς ἐν Χριστῷ Ἰησοῦ ἠλευθέρωσέν σε ἀπὸ τοῦ νόμου τῆς ἁμαρτίας καὶ τοῦ θανάτου.</span> (8:2)</p>
+            <p><span class="greek-word">τὸ γὰρ ἀδύνατον τοῦ νόμου, ἐν ᾧ ἠσθένει διὰ τῆς σαρκός, ὁ θεὸς τὸν ἑαυτοῦ υἱὸν πέμψας ἐν ὁμοιώματι σαρκὸς ἁμαρτίας καὶ περὶ ἁμαρτίας κατέκρινεν τὴν ἁμαρτίαν ἐν τῇ σαρκί,</span> (8:3)</p>
+            <p><span class="greek-word">ἵνα τὸ δικαίωμα τοῦ νόμου πληρωθῇ ἐν ἡμῖν τοῖς μὴ κατὰ σάρκα περιπατοῦσιν ἀλλὰ κατὰ πνεῦμα.</span> (8:4)</p>
+          </div>
+
+          <h3>Análisis de Romanos 8:1-11</h3>
+          <div class="analysis-box">
+            <strong>8:1 – <span class="greek-word">οὐδὲν ... κατάκριμα</span></strong>
+            <ul>
+              <li><span class="greek-word">ἄρα</span> – partícula inferencial: "por tanto" (conclusión de lo anterior).</li>
+              <li><span class="greek-word">κατάκριμα</span> – "condenación" – es un <strong>estado</strong> del que el creyente ha sido liberado.</li>
+              <li><span class="greek-word">τοῖς ἐν Χριστῷ Ἰησοῦ</span> – dativo: "para los que están en Cristo Jesús".</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>8:2 – <span class="greek-word">ἠλευθέρωσέν</span></strong>
+            <ul>
+              <li><span class="greek-word">ἠλευθέρωσέν</span> – aoristo de ἐλευθερόω: "liberó".</li>
+              <li><span class="greek-word">ἀπὸ τοῦ νόμου</span> – "de la ley" (genitivo de separación).</li>
+              <li><span class="greek-word">πνεύματος</span> – genitivo: "del Espíritu" (la ley del Espíritu).</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>8:3 – <span class="greek-word">πέμψας</span></strong>
+            <ul>
+              <li><span class="greek-word">πέμψας</span> – participio aoristo de πέμπω: "habiendo enviado".</li>
+              <li><span class="greek-word">κατέκρινεν</span> – aoristo de κατακρίνω: "condenó".</li>
+              <li><span class="greek-word">ὁμοιώματι</span> – dativo: "en semejanza".</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>8:4 – <span class="greek-word">πληρωθῇ</span></strong>
+            <ul>
+              <li><span class="greek-word">πληρωθῇ</span> – subjuntivo aoristo pasivo de πληρόω: "sea cumplido".</li>
+              <li><span class="greek-word">περιπατοῦσιν</span> – participio presente de περιπατέω: "a los que caminan".</li>
+              <li><span class="greek-word">κατὰ σάρκα</span> – "según la carne" (acusativo de relación).</li>
+              <li><span class="greek-word">κατὰ πνεῦμα</span> – "según el Espíritu" (contraste clave).</li>
+            </ul>
+          </div>
+          <div class="pauline-box">
+            <strong><i class="fas fa-lightbulb"></i> Pasivo divino en 8:3:</strong> <span class="greek-word">κατέκρινεν</span> – "condenó" (Dios es el agente implícito). La carne es condenada en la cruz.
+          </div>
+          <button class="btn-reveal" data-target="rm8a">Identifica el participio en 8:3</button>
+          <div id="rm8a" class="answer-text"><span class="greek-word">πέμψας</span> – participio aoristo de πέμπω ("habiendo enviado").</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: ESTILO DE PABLO – PERÍODOS, OPTATIVO, PARTÍCULAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 5. El estilo de Pablo en Romanos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El estilo de Pablo en Romanos es <strong>único</strong> por su complejidad y profundidad teológica.</p>
+
+          <h3>Períodos largos (oraciones extensas)</h3>
+          <div class="analysis-box">
+            <strong>Ejemplo:</strong> Romanos 3:21-26 es una sola oración en griego de 12 versículos, con múltiples cláusulas subordinadas, participios y relativas.
+          </div>
+
+          <h3>Optativo – μὴ γένοιτο</h3>
+          <div class="pauline-box">
+            <strong>Uso en Romanos:</strong> Pablo usa <span class="greek-word">μὴ γένοιτο</span> (optativo desiderativo) en Romanos 3:4, 6; 6:2, 15; 7:7, 13; 9:14; 11:1, 11.<br>
+            <span class="greek-word">μὴ γένοιτο</span> – "¡De ninguna manera!" – es una <strong>refutación enfática</strong> de conclusiones falsas.
+          </div>
+
+          <h3>Partículas de argumento</h3>
+          <div class="pauline-box">
+            <strong>Partículas clave en Romanos:</strong>
+            <ul>
+              <li><span class="greek-word">γάρ</span> – explica y argumenta.</li>
+              <li><span class="greek-word">οὖν</span> – inferencia y conclusión.</li>
+              <li><span class="greek-word">δέ</span> – transición y contraste.</li>
+              <li><span class="greek-word">ἀλλά</span> – contraste fuerte.</li>
+              <li><span class="greek-word">διό</span> – "por lo cual" (consecuencia).</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>Ejemplo de período largo:</strong><br>
+            <span class="greek-word">δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι διὰ τῆς ἀπολυτρώσεως τῆς ἐν Χριστῷ Ἰησοῦ· ὃν προέθετο ὁ θεὸς ἱλαστήριον διὰ πίστεως ἐν τῷ αὐτοῦ αἵματι</span> (Romanos 3:24-25).<br>
+            Este período contiene: un participio (δικαιούμενοι), una relativa (ὃν), una frase de propósito implícita, y múltiples frases preposicionales.
+          </div>
+          <button class="btn-reveal" data-target="estiloEj">Identifica la partícula</button>
+          <div id="estiloEj" class="answer-text">
+            <span class="greek-word">γάρ</span> – explicativa (porque).<br>
+            <span class="greek-word">οὖν</span> – inferencial (por tanto).<br>
+            <span class="greek-word">ἀλλά</span> – contrastiva (pero, sino).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Romanos 1–8</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para la comprensión de Romanos 1–8.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Frecuencia en Romanos</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Romanos 1:17:</strong> <span class="greek-word">δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται ἐκ πίστεως εἰς πίστιν, καθὼς γέγραπται· ὁ δὲ δίκαιος ἐκ πίστεως ζήσεται.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL TIEMPO Y LA VOZ -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el tiempo y la voz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tiempoRmQuizArea"></div>
+          <button id="newTiempoRmQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tiempoRmFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA LA PARTÍCULA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-link"></i> 8. Identifica la partícula de argumento</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="particulaRmQuizArea"></div>
+          <button id="newParticulaRmQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="particulaRmFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN DE ROMANOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce pasajes de Romanos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transRmQuizArea"></div>
+          <button id="newTransRmQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transRmFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ANÁLISIS DE ROMANOS 3:21-26 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis de Romanos 3:21-26</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee y analiza Romanos 3:21-26. Identifica los verbos, participios y términos soteriológicos.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:21 – πεφανέρωται</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Νυνὶ δὲ χωρὶς νόμου δικαιοσύνη θεοῦ πεφανέρωται</span></p>
+              <button class="btn-reveal" data-target="rm3b">¿Qué tiempo y voz es <strong>πεφανέρωται</strong>?</button>
+              <div id="rm3b" class="answer-text">Perfecto pasivo de φανερόω – "ha sido manifestada" (estado resultante: sigue siendo revelada).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:24 – δικαιούμενοι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι</span></p>
+              <button class="btn-reveal" data-target="rm3c">¿Qué es <strong>δικαιούμενοι</strong>?</button>
+              <div id="rm3c" class="answer-text">Participio presente pasivo de δικαιόω – "siendo justificados" (acción continua: el proceso de ser declarado justo).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:25 – προέθετο</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὃν προέθετο ὁ θεὸς ἱλαστήριον</span></p>
+              <button class="btn-reveal" data-target="rm3d">¿Qué verbo es <strong>προέθετο</strong>?</button>
+              <div id="rm3d" class="answer-text">Aoristo medio de προτίθημι – "propuso, presentó" (acción puntual).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 8:1 – ἄρα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Οὐδὲν ἄρα νῦν κατάκριμα τοῖς ἐν Χριστῷ Ἰησοῦ</span></p>
+              <button class="btn-reveal" data-target="rm8b">¿Qué función tiene <strong>ἄρα</strong>?</button>
+              <div id="rm8b" class="answer-text">Partícula inferencial: "por tanto" – introduce una conclusión lógica de lo anterior.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Romanos 1:16-17, 3:21-26 y 8:1-11 en griego. Identifica todas las formas verbales, partículas y términos soteriológicos. Reflexiona sobre el debate de πίστις Χριστοῦ.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-51.html"><i class="fas fa-arrow-left"></i> Lección 51</a>
+      <a href="leccion-53.html"><i class="fas fa-arrow-right"></i> Lección 53</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται</span> (Romanos 1:17)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 52 ==========
+    const vocabData = [
+      { greek: "δύναμις", translit: "dynamis", spanish: "poder", freq: "11 en Rom" },
+      { greek: "σωτηρία", translit: "sōtēria", spanish: "salvación", freq: "4 en Rom" },
+      { greek: "δικαιοσύνη", translit: "dikaiosynē", spanish: "justicia, justificación", freq: "33 en Rom" },
+      { greek: "πίστις", translit: "pistis", spanish: "fe, fidelidad", freq: "40 en Rom" },
+      { greek: "χάρις", translit: "charis", spanish: "gracia", freq: "24 en Rom" },
+      { greek: "ἀποκάλυψις", translit: "apokalypsis", spanish: "revelación", freq: "2 en Rom" },
+      { greek: "ἁμαρτία", translit: "hamartia", spanish: "pecado", freq: "48 en Rom" },
+      { greek: "νόμος", translit: "nomos", spanish: "ley", freq: "72 en Rom" },
+      { greek: "σάρξ", translit: "sarx", spanish: "carne", freq: "26 en Rom" },
+      { greek: "πνεῦμα", translit: "pneuma", spanish: "espíritu", freq: "34 en Rom" },
+      { greek: "ζωή", translit: "zōē", spanish: "vida", freq: "18 en Rom" },
+      { greek: "θάνατος", translit: "thanatos", spanish: "muerte", freq: "21 en Rom" },
+      { greek: "ἀπολύτρωσις", translit: "apolytrōsis", spanish: "redención", freq: "3 en Rom" },
+      { greek: "ἱλαστήριον", translit: "hilastērion", spanish: "propiciatorio", freq: "1 en Rom (3:25)" },
+      { greek: "κατάκριμα", translit: "katakrima", spanish: "condenación", freq: "3 en Rom" },
+      { greek: "δικαιόω", translit: "dikaioō", spanish: "justificar", freq: "15 en Rom" },
+      { greek: "πληρόω", translit: "plēroō", spanish: "cumplir, llenar", freq: "3 en Rom" },
+      { greek: "περιπατέω", translit: "peripateō", spanish: "caminar, andar", freq: "3 en Rom" },
+      { greek: "ἐλευθερόω", translit: "eleutheroō", spanish: "liberar", freq: "2 en Rom" },
+      { greek: "δοξάζω", translit: "doxazō", spanish: "glorificar", freq: "4 en Rom" }
+    ];
+
+    // Ejemplos para identificar tiempo y voz en Romanos
+    const tiempoRmExamples = [
+      { form: "ἀποκαλύπτεται", verb: "ἀποκαλύπτω", tense: "presente", voice: "pasivo", meaning: "es revelada" },
+      { form: "γέγραπται", verb: "γράφω", tense: "perfecto", voice: "pasivo", meaning: "está escrito" },
+      { form: "πεφανέρωται", verb: "φανερόω", tense: "perfecto", voice: "pasivo", meaning: "ha sido manifestada" },
+      { form: "δικαιούμενοι", verb: "δικαιόω", tense: "presente", voice: "pasivo", meaning: "siendo justificados" },
+      { form: "προέθετο", verb: "προτίθημι", tense: "aoristo", voice: "medio", meaning: "propuso" },
+      { form: "ἠλευθέρωσεν", verb: "ἐλευθερόω", tense: "aoristo", voice: "activo", meaning: "liberó" },
+      { form: "κατέκρινεν", verb: "κατακρίνω", tense: "aoristo", voice: "activo", meaning: "condenó" },
+      { form: "πληρωθῇ", verb: "πληρόω", tense: "subj. aor.", voice: "pasivo", meaning: "sea cumplido" },
+      { form: "περιπατοῦσιν", verb: "περιπατέω", tense: "presente", voice: "activo", meaning: "caminan" },
+      { form: "ἐπαισχύνομαι", verb: "ἐπαισχύνομαι", tense: "presente", voice: "deponente", meaning: "me avergüenzo" }
+    ];
+
+    // Ejemplos para identificar partículas
+    const particulaRmExamples = [
+      { phrase: "Οὐ γὰρ ἐπαισχύνομαι", particle: "γάρ", function: "explicativa", translation: "porque no me avergüenzo" },
+      { phrase: "Οὐδὲν ἄρα νῦν κατάκριμα", particle: "ἄρα", function: "inferencial", translation: "ninguna condenación, por tanto" },
+      { phrase: "Νυνὶ δὲ χωρὶς νόμου", particle: "δέ", function: "transición", translation: "ahora, en cambio, sin ley" },
+      { phrase: "πάντες γὰρ ἥμαρτον", particle: "γάρ", function: "causal", translation: "porque todos pecaron" },
+      { phrase: "οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται", particle: "ἵνα", function: "final", translation: "no de obras, para que nadie se gloríe" },
+      { phrase: "τὸ γὰρ ἀδύνατον τοῦ νόμου", particle: "γάρ", function: "explicativa", translation: "porque lo imposible de la ley" }
+    ];
+
+    // Pasajes para traducción de Romanos
+    const transRmExamples = [
+      { greek: "Οὐ γὰρ ἐπαισχύνομαι τὸ εὐαγγέλιον", translation: "Porque no me avergüenzo del evangelio" },
+      { greek: "δύναμις γὰρ θεοῦ ἐστιν εἰς σωτηρίαν", translation: "Porque es poder de Dios para salvación" },
+      { greek: "δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται", translation: "Porque la justicia de Dios se revela en él" },
+      { greek: "πάντες γὰρ ἥμαρτον καὶ ὑστεροῦνται τῆς δόξης τοῦ θεοῦ", translation: "Porque todos pecaron y están destituidos de la gloria de Dios" },
+      { greek: "δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι", translation: "Siendo justificados gratuitamente por su gracia" },
+      { greek: "οὐδὲν ἄρα νῦν κατάκριμα τοῖς ἐν Χριστῷ Ἰησοῦ", translation: "Ninguna condenación, por tanto, hay para los que están en Cristo Jesús" }
+    ];
+
+    let currentTiempoRm = tiempoRmExamples[0];
+    let currentParticulaRm = particulaRmExamples[0];
+    let currentTransRm = transRmExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.freq}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadTiempoRmQuiz() {
+      const randomIndex = Math.floor(Math.random() * tiempoRmExamples.length);
+      currentTiempoRm = tiempoRmExamples[randomIndex];
+      const container = document.getElementById("tiempoRmQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la forma <span class="greek-word">${currentTiempoRm.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Verbo: ${currentTiempoRm.verb}</span><br>
+      <button id="tiempoRmPres" class="btn-reveal">Presente</button> <button id="tiempoRmAor" class="btn-reveal">Aoristo</button>
+      <button id="tiempoRmPerf" class="btn-reveal">Perfecto</button> <button id="tiempoRmSubj" class="btn-reveal">Subjuntivo</button>
+      <button id="tiempoRmImp" class="btn-reveal">Imperfecto</button>
+      <div id="tiempoRmResult"></div></div>`;
+      const pres = document.getElementById("tiempoRmPres");
+      const aor = document.getElementById("tiempoRmAor");
+      const perf = document.getElementById("tiempoRmPerf");
+      const subj = document.getElementById("tiempoRmSubj");
+      const imp = document.getElementById("tiempoRmImp");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("tiempoRmResult");
+          if (expected === currentTiempoRm.tense) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTiempoRm.meaning})</span>`;
+            setTimeout(loadTiempoRmQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTiempoRm.tense}</span>`;
+          }
+        });
+      };
+      check(pres, "presente");
+      check(aor, "aoristo");
+      check(perf, "perfecto");
+      check(subj, "subj. aor.");
+      check(imp, "imperfecto");
+    }
+
+    function loadParticulaRmQuiz() {
+      const randomIndex = Math.floor(Math.random() * particulaRmExamples.length);
+      currentParticulaRm = particulaRmExamples[randomIndex];
+      const container = document.getElementById("particulaRmQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Identifica la partícula en la frase:</strong><br>
+      <span class="greek-word" style="font-size:1.2rem;">${currentParticulaRm.phrase}</span><br>
+      <button id="partRmGar" class="btn-reveal">γάρ</button> <button id="partRmAra" class="btn-reveal">ἄρα</button>
+      <button id="partRmDe" class="btn-reveal">δέ</button> <button id="partRmHina" class="btn-reveal">ἵνα</button>
+      <div id="particulaRmResult"></div></div>`;
+      const gar = document.getElementById("partRmGar");
+      const ara = document.getElementById("partRmAra");
+      const de = document.getElementById("partRmDe");
+      const hina = document.getElementById("partRmHina");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("particulaRmResult");
+          if (expected === currentParticulaRm.particle) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentParticulaRm.function}: ${currentParticulaRm.translation})</span>`;
+            setTimeout(loadParticulaRmQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentParticulaRm.particle}</span>`;
+          }
+        });
+      };
+      check(gar, "γάρ");
+      check(ara, "ἄρα");
+      check(de, "δέ");
+      check(hina, "ἵνα");
+    }
+
+    function loadTransRmQuiz() {
+      const randomIndex = Math.floor(Math.random() * transRmExamples.length);
+      currentTransRm = transRmExamples[randomIndex];
+      const container = document.getElementById("transRmQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransRm.greek}</span><br>
+      <input type="text" id="transRmAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransRm" class="btn-reveal">Verificar</button>
+      <div id="transRmResult"></div></div>`;
+      document.getElementById("checkTransRm").addEventListener("click", () => {
+        const answer = document.getElementById("transRmAnswer").value.trim().toLowerCase();
+        const correct = currentTransRm.translation.toLowerCase();
+        const result = document.getElementById("transRmResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransRmQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransRm.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Término que significa 'justicia, justificación'", opts: ["δικαιοσύνη", "πίστις", "χάρις", "σωτηρία"], correct: 0 },
+      { q: "Partícula inferencial que significa 'por tanto'", opts: ["ἄρα", "γάρ", "δέ", "ἀλλά"], correct: 0 },
+      { q: "Partícula explicativa que significa 'porque'", opts: ["γάρ", "οὖν", "δέ", "ἄρα"], correct: 0 },
+      { q: "En Romanos 8:1, 'οὐδὲν κατάκριμα' significa...", opts: ["ninguna condenación", "toda condenación", "alguna condenación", "la condenación"], correct: 0 },
+      { q: "El debate exegético sobre πίστις Χριστοῦ es sobre...", opts: ["genitivo objetivo vs. subjetivo", "tiempo verbal", "voz activa vs. pasiva", "género del sustantivo"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransRm" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#tiempoRmQuizArea") || btn.closest("#particulaRmQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadTiempoRmQuiz();
+      loadParticulaRmQuiz();
+      loadTransRmQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newTiempoRmQuiz")?.addEventListener("click", () => {
+        loadTiempoRmQuiz();
+        document.getElementById("tiempoRmFeedback").innerHTML = "";
+      });
+      document.getElementById("newParticulaRmQuiz")?.addEventListener("click", () => {
+        loadParticulaRmQuiz();
+        document.getElementById("particulaRmFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransRmQuiz")?.addEventListener("click", () => {
+        loadTransRmQuiz();
+        document.getElementById("transRmFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

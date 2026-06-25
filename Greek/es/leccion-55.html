@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 55: Hebraísmos y la LXX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 79%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .hebraism-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .lxx-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-54.html"><i class="fas fa-arrow-left"></i> Lección 54</a>
+        <a href="leccion-56.html"><i class="fas fa-arrow-right"></i> Lección 56</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-star-of-david"></i> Lección 55 · Hebraísmos y la LXX <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Hebraísmos léxicos y sintácticos · Influencia de la Septuaginta · Citas del AT · El Magnificat (Lucas 1:46-55) · Análisis comparativo NT/LXX/AT hebreo</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1100/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Hebraísmos y la influencia de la LXX en el NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: La Septuaginta y los hebraísmos en el Nuevo Testamento</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. La Septuaginta (LXX) y el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>Septuaginta</strong> (LXX) es la traducción griega del Antiguo Testamento realizada en Alejandría (siglos III-II a.C.). Fue la <strong>Biblia de los autores del NT</strong> y ejerció una profunda influencia en su vocabulario y sintaxis.</p>
+          <div class="lxx-box">
+            <i class="fas fa-lightbulb"></i> <strong>Datos clave:</strong>
+            <ul>
+              <li>La LXX fue la <strong>versión más usada</strong> por los autores del NT.</li>
+              <li>La mayoría de las <strong>citas del AT en el NT</strong> provienen de la LXX, no del texto hebreo (TM).</li>
+              <li>El griego del NT está <strong>saturado de vocabulario y estructuras de la LXX</strong>.</li>
+              <li>Muchos <strong>términos teológicos</strong> del NT (δικαιοσύνη, χάρις, ἐκκλησία) tienen su trasfondo en la LXX.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">δόξα</span> – en griego clásico significa "opinión, reputación"; en la LXX traduce el hebreo <span class="greek-word">כָּבוֹד</span> (kavod) – "gloria, presencia divina". Este significado teológico pasa al NT.
+          </div>
+          <button class="btn-reveal" data-target="introLXX">Ver más sobre la LXX</button>
+          <div id="introLXX" class="answer-text">
+            <strong>La LXX y el NT:</strong><br>
+            1. Más del 80% de las citas del AT en el NT son de la LXX.<br>
+            2. Muchos <strong>términos técnicos</strong> del NT (ἅγιος, ἐκκλησία, διαθήκη) toman su significado de la LXX.<br>
+            3. La LXX influyó en la <strong>sintaxis</strong> del griego del NT (ej. el genitivo absoluto, el uso de ἵνα).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: HEBRAÍSMOS LÉXICOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 2. Hebraísmos léxicos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Un <strong>hebraísmo léxico</strong> es una palabra griega que ha adoptado un significado influenciado por el hebreo, diferente de su uso en el griego clásico.</p>
+
+          <h3>κοιλία – "vientre, interior"</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> <span class="greek-word">בֶּטֶן</span> (beten) – "vientre, interior, mente".<br>
+            <strong>En la LXX/NT:</strong> Usado para referirse al <strong>interior</strong> de la persona, no solo el órgano físico.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἐκ τῆς κοιλίας αὐτοῦ ῥεύσουσιν ὕδατα ζῶντα</span> – "de su interior correrán ríos de agua viva" (Juan 7:38).
+          </div>
+
+          <h3>δόξα – "gloria"</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> <span class="greek-word">כָּבוֹד</span> (kavod) – "peso, gloria, presencia divina".<br>
+            <strong>En la LXX/NT:</strong> <span class="greek-word">δόξα</span> adquiere el significado de <strong>gloria divina</strong>, la manifestación de la presencia de Dios.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἐθεασάμεθα τὴν δόξαν αὐτοῦ</span> – "contemplamos su gloria" (Juan 1:14).
+          </div>
+
+          <h3>σπλάγχνον – "entrañas, compasión"</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> <span class="greek-word">רַחֲמִים</span> (rachamim) – "entrañas, misericordia".<br>
+            <strong>En la LXX/NT:</strong> <span class="greek-word">σπλάγχνον</span> se usa para la <strong>compasión</strong> (la sede de las emociones).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">σπλαγχνίζομαι</span> – "tener compasión" (Mateo 9:36).
+          </div>
+
+          <h3>καρδία – "corazón"</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> <span class="greek-word">לֵב</span> (lev) – "corazón, mente, voluntad".<br>
+            <strong>En la LXX/NT:</strong> <span class="greek-word">καρδία</span> es la sede de la <strong>voluntad, los pensamientos y las emociones</strong>.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἐν τῇ καρδίᾳ ὑμῶν</span> – "en vuestros corazones" (Mateo 5:8).
+          </div>
+
+          <h3>νεφρός – "riñones"</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> <span class="greek-word">כִּלְיָה</span> (kilyah) – "riñones, emociones íntimas".<br>
+            <strong>En la LXX/NT:</strong> Usado para las <strong>emociones más profundas</strong>.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ὁ ἐρευνῶν τὰς καρδίας καὶ τοὺς νεφροὺς</span> – "el que escudriña los corazones y los riñones" (Apocalipsis 2:23).
+          </div>
+          <button class="btn-reveal" data-target="lexicosEj">Identifica el hebraísmo léxico</button>
+          <div id="lexicosEj" class="answer-text">
+            <span class="greek-word">κοιλία</span> – interior, mente (no solo vientre).<br>
+            <span class="greek-word">δόξα</span> – gloria divina (no solo reputación).<br>
+            <span class="greek-word">σπλάγχνον</span> – compasión (no solo entrañas).<br>
+            <span class="greek-word">καρδία</span> – mente, voluntad (no solo órgano).<br>
+            <span class="greek-word">νεφρός</span> – emociones profundas (no solo riñones).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: HEBRAÍSMOS SINTÁCTICOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-syntax"></i> 3. Hebraísmos sintácticos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los <strong>hebraísmos sintácticos</strong> son estructuras gramaticales del griego que reflejan patrones del hebreo.</p>
+
+          <h3>El infinitivo absoluto hebreo → participio/dativo absoluto griego</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> El <strong>infinitivo absoluto</strong> se usa para enfatizar un verbo.<br>
+            <strong>Griego (LXX/NT):</strong> Se traduce con un <strong>participio</strong> o un <strong>dativo absoluto</strong>.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἀκούων ἀκούσετε</span> – "oyendo oiréis" (Mateo 13:14) – traducción del hebreo <span class="greek-word">שָׁמֹעַ תִּשְׁמְעוּ</span> (shamo'a tishme'u).
+          </div>
+
+          <h3>El uso pleonástico de καί</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> El <span class="greek-word">ו</span> (waw) se usa para coordinar cláusulas.<br>
+            <strong>Griego (LXX/NT):</strong> <span class="greek-word">καί</span> se usa de manera similar, creando estructuras <strong>paratácticas</strong>.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">καὶ ἐγένετο ... καὶ ... καὶ ...</span> – estructura típica del griego de Marcos, influenciada por la LXX.
+          </div>
+
+          <h3>El genitivo de "temor" y otros sustantivos abstractos</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> Construcciones como <span class="greek-word">יִרְאַת יְהוָה</span> (yir'at YHWH) – "temor de YHWH".<br>
+            <strong>Griego (LXX/NT):</strong> <span class="greek-word">φόβος κυρίου</span> – "temor del Señor" (genitivo subjetivo).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">φόβος θεοῦ</span> – "temor de Dios" (Hechos 9:31).
+          </div>
+
+          <h3>La construcción "καὶ ἐγένετο" + infinitivo</h3>
+          <div class="hebraism-box">
+            <strong>Hebreo:</strong> <span class="greek-word">וַיְהִי</span> (vayhi) + verbo – "y sucedió que...".<br>
+            <strong>Griego (LXX/NT):</strong> <span class="greek-word">καὶ ἐγένετο</span> + infinitivo (con o sin sujeto acusativo).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">καὶ ἐγένετο ἐν ταῖς ἡμέραις ἐκείναις</span> – "y sucedió en aquellos días" (Lucas 2:1).
+          </div>
+          <button class="btn-reveal" data-target="sintacticosEj">Identifica el hebraísmo sintáctico</button>
+          <div id="sintacticosEj" class="answer-text">
+            <span class="greek-word">ἀκούων ἀκούσετε</span> – infinitivo absoluto hebreo traducido como participio + verbo.<br>
+            <span class="greek-word">καὶ ... καὶ ...</span> – parataxis influenciada por el waw hebreo.<br>
+            <span class="greek-word">φόβος θεοῦ</span> – genitivo de sustantivo abstracto.<br>
+            <span class="greek-word">καὶ ἐγένετο</span> – traducción del vayhi hebreo.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: CITAS DEL AT EN EL NT -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-quote-right"></i> 4. Citas del AT en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los autores del NT citan el AT de varias maneras. La mayoría de las citas provienen de la <strong>LXX</strong>, no del texto hebreo (TM).</p>
+
+          <h3>Tipos de citas</h3>
+          <div class="lxx-box">
+            <strong>1. Citas literales de la LXX</strong><br>
+            <span class="greek-word">καθὼς γέγραπται</span> – "como está escrito".<br>
+            <strong>Ejemplo:</strong> Romanos 1:17 cita Habacuc 2:4 de la LXX.
+          </div>
+          <div class="lxx-box">
+            <strong>2. Adaptaciones de la LXX (con cambios)</strong><br>
+            Los autores del NT <strong>adaptan</strong> las citas de la LXX para enfatizar un punto teológico.<br>
+            <strong>Ejemplo:</strong> Mateo 2:15 cita Oseas 11:1 con una interpretación cristológica.
+          </div>
+          <div class="lxx-box">
+            <strong>3. Citas del TM (texto hebreo)</strong><br>
+            Algunas citas siguen el texto hebreo en lugar de la LXX.<br>
+            <strong>Ejemplo:</strong> Mateo 2:6 cita Miqueas 5:2 más cercano al TM que a la LXX.
+          </div>
+          <div class="lxx-box">
+            <strong>4. Alusiones y ecos del AT</strong><br>
+            Muchos pasajes del NT <strong>aluden</strong> al AT sin citarlo explícitamente.<br>
+            <strong>Ejemplo:</strong> Juan 1:14 alude a Éxodo 40:34-35 (la gloria que llena el tabernáculo).
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Importancia exegética:</strong> Identificar la <strong>fuente</strong> de una cita del AT (LXX, TM, targum) es esencial para entender cómo el autor del NT está interpretando el texto.
+          </div>
+          <button class="btn-reveal" data-target="citasEj">Analiza la cita</button>
+          <div id="citasEj" class="answer-text">
+            <span class="greek-word">καθὼς γέγραπται</span> – fórmula de cita de la LXX.<br>
+            <span class="greek-word">ἵνα πληρωθῇ</span> – fórmula de cumplimiento en Mateo.<br>
+            La mayoría de las citas son de la LXX, no del TM.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: EL MAGNIFICAT (LUCAS 1:46-55) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 5. El Magnificat – análisis del griego de Lucas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>Magnificat</strong> (Lucas 1:46-55) es el himno de María, compuesto enteramente en el <strong>estilo de la LXX</strong>. Es un ejemplo perfecto de cómo el griego del NT está saturado de la Septuaginta.</p>
+
+          <div class="greek-passage">
+            <p><span class="greek-word">Μεγαλύνει ἡ ψυχή μου τὸν κύριον,</span> (1:46)</p>
+            <p><span class="greek-word">καὶ ἠγαλλίασεν τὸ πνεῦμά μου ἐπὶ τῷ θεῷ τῷ σωτῆρί μου,</span> (1:47)</p>
+            <p><span class="greek-word">ὅτι ἐπέβλεψεν ἐπὶ τὴν ταπείνωσιν τῆς δούλης αὐτοῦ.</span> (1:48)</p>
+            <p><span class="greek-word">ἰδοὺ γὰρ ἀπὸ τοῦ νῦν μακαριοῦσίν με πᾶσαι αἱ γενεαί·</span> (1:48)</p>
+            <p><span class="greek-word">ὅτι ἐποίησέν μοι μεγάλα ὁ δυνατός, καὶ ἅγιον τὸ ὄνομα αὐτοῦ,</span> (1:49)</p>
+            <p><span class="greek-word">καὶ τὸ ἔλεος αὐτοῦ εἰς γενεὰς καὶ γενεὰς τοῖς φοβουμένοις αὐτόν.</span> (1:50)</p>
+          </div>
+
+          <h3>Análisis de hebraísmos en el Magnificat</h3>
+          <div class="hebraism-box">
+            <strong>1:46 – <span class="greek-word">μεγαλύνει ἡ ψυχή μου</span></strong><br>
+            <strong>Hebreo:</strong> <span class="greek-word">תְּגַדֵּל נַפְשִׁי</span> (tegaldel nafshi) – "engrandece mi alma".<br>
+            <span class="greek-word">ψυχή</span> aquí usa el sentido hebreo de <span class="greek-word">נֶפֶשׁ</span> (nefesh) – "ser, alma, vida interior".
+          </div>
+          <div class="hebraism-box">
+            <strong>1:47 – <span class="greek-word">ἠγαλλίασεν τὸ πνεῦμά μου</span></strong><br>
+            <strong>Hebreo:</strong> <span class="greek-word">וַתָּעָלֶץ רוּחִי</span> (vatta'aletz ruchi) – "se regocijó mi espíritu".<br>
+            <span class="greek-word">πνεῦμα</span> aquí refleja el uso hebreo de <span class="greek-word">רוּחַ</span> (ruach) – "espíritu".
+          </div>
+          <div class="hebraism-box">
+            <strong>1:48 – <span class="greek-word">τὴν ταπείνωσιν τῆς δούλης</span></strong><br>
+            <strong>Hebreo:</strong> <span class="greek-word">עֲנִיַּת אֲמָה</span> (aniyat amah) – "la humillación de la sierva".<br>
+            <span class="greek-word">δούλη</span> (sierva) refleja el concepto hebreo de <span class="greek-word">אָמָה</span> (amah).
+          </div>
+          <div class="hebraism-box">
+            <strong>1:50 – <span class="greek-word">εἰς γενεὰς καὶ γενεὰς</span></strong><br>
+            <strong>Hebreo:</strong> <span class="greek-word">לְדֹר וָדֹר</span> (ledor vador) – "por generaciones y generaciones".<br>
+            Traducción literal de la expresión hebrea.
+          </div>
+          <div class="lxx-box">
+            <strong><i class="fas fa-lightbulb"></i> Conclusión:</strong> El Magnificat es <strong>prácticamente una composición de la LXX</strong>. Más del 90% de sus palabras y frases se encuentran en la Septuaginta. Lucas está componiendo en el <strong>estilo de la Biblia griega</strong>.
+          </div>
+          <button class="btn-reveal" data-target="magnificatEj">Analiza un hebraísmo en el Magnificat</button>
+          <div id="magnificatEj" class="answer-text">
+            <span class="greek-word">μεγαλύνει ἡ ψυχή μου</span> – <span class="greek-word">ψυχή</span> = "ser, alma" (hebraísmo).<br>
+            <span class="greek-word">ἠγαλλίασεν τὸ πνεῦμά μου</span> – <span class="greek-word">πνεῦμα</span> = "espíritu" (hebraísmo).<br>
+            <span class="greek-word">εἰς γενεὰς καὶ γενεὰς</span> – expresión hebrea literal.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Hebraísmos y términos de la LXX</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen términos hebreos transliterados y palabras griegas con significado influenciado por la LXX.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Hebreo/Arameo subyacente</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Lucas 1:46-47:</strong> <span class="greek-word">Μεγαλύνει ἡ ψυχή μου τὸν κύριον, καὶ ἠγαλλίασεν τὸ πνεῦμά μου ἐπὶ τῷ θεῷ τῷ σωτῆρί μου</span> – "Engrandece mi alma al Señor, y mi espíritu se regocija en Dios mi Salvador".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL HEBRAÍSMO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el hebraísmo léxico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="hebLexQuizArea"></div>
+          <button id="newHebLexQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="hebLexFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA LA ESTRUCTURA SINTÁCTICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-syntax"></i> 8. Identifica el hebraísmo sintáctico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="hebSinQuizArea"></div>
+          <button id="newHebSinQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="hebSinFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – ANÁLISIS DEL MAGNIFICAT -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 9. Analiza el Magnificat</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="magnificatQuizArea"></div>
+          <button id="newMagnificatQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo versículo</button>
+          <div id="magnificatFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – MAGNIFICAT Y MATEO 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis de hebraísmos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los textos. Identifica los hebraísmos léxicos y sintácticos.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Lucas 1:46 – μεγαλύνει ἡ ψυχή μου</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Μεγαλύνει ἡ ψυχή μου τὸν κύριον</span></p>
+              <button class="btn-reveal" data-target="lc1a">¿Qué hebraísmo léxico aparece en <strong>ψυχή</strong>?</button>
+              <div id="lc1a" class="answer-text"><span class="greek-word">ψυχή</span> aquí tiene el sentido hebreo de <span class="greek-word">נֶפֶשׁ</span> (nefesh) – "ser, alma, vida interior", no solo el "alma" como entidad separada.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Lucas 1:47 – ἠγαλλίασεν τὸ πνεῦμά μου</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἠγαλλίασεν τὸ πνεῦμά μου ἐπὶ τῷ θεῷ τῷ σωτῆρί μου</span></p>
+              <button class="btn-reveal" data-target="lc1b">¿Qué hebraísmo léxico aparece en <strong>πνεῦμά</strong>?</button>
+              <div id="lc1b" class="answer-text"><span class="greek-word">πνεῦμα</span> refleja el hebreo <span class="greek-word">רוּחַ</span> (ruach) – "espíritu, aliento".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Lucas 1:48 – ἐπέβλεψεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὅτι ἐπέβλεψεν ἐπὶ τὴν ταπείνωσιν τῆς δούλης αὐτοῦ</span></p>
+              <button class="btn-reveal" data-target="lc1c">¿Qué verbo compuesto con preverbio (hebraísmo sintáctico) aparece?</button>
+              <div id="lc1c" class="answer-text"><span class="greek-word">ἐπέβλεψεν</span> – aoristo de <span class="greek-word">ἐπιβλέπω</span> ("mirar hacia, considerar"). El uso de preverbio + verbo es característico de la LXX y el NT.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 2:15 – ἵνα πληρωθῇ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἵνα πληρωθῇ τὸ ῥηθὲν ὑπὸ κυρίου διὰ τοῦ προφήτου</span></p>
+              <button class="btn-reveal" data-target="mt2a">¿Qué fórmula de cita del AT usa Mateo?</button>
+              <div id="mt2a" class="answer-text"><span class="greek-word">ἵνα πληρωθῇ</span> – fórmula de cumplimiento, típica de Mateo, que refleja la teología del cumplimiento de las Escrituras (influenciada por la LXX).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Lucas 1:46-55 en griego. Identifica todos los hebraísmos léxicos y sintácticos. Compara con la LXX (Salmo 113, 1 Samuel 2). Reflexiona sobre cómo la LXX moldeó el lenguaje del NT.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-54.html"><i class="fas fa-arrow-left"></i> Lección 54</a>
+      <a href="leccion-56.html"><i class="fas fa-arrow-right"></i> Lección 56</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">Μεγαλύνει ἡ ψυχή μου τὸν κύριον</span> (Lucas 1:46)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 55 ==========
+    const vocabData = [
+      { greek: "σάββατον", translit: "sabbaton", spanish: "sábado", hebrew: "שַׁבָּת (shabbat)" },
+      { greek: "πάσχα", translit: "pascha", spanish: "pascua", hebrew: "פֶּסַח (pesach)" },
+      { greek: "ἀλληλούϊα", translit: "allēlouia", spanish: "aleluya", hebrew: "הַלְלוּיָהּ (haleluyah)" },
+      { greek: "ὡσαννά", translit: "hōsanna", spanish: "hosanna", hebrew: "הוֹשַׁענָּא (hosha'na)" },
+      { greek: "ἀμήν", translit: "amēn", spanish: "amén, ciertamente", hebrew: "אָמֵן (amen)" },
+      { greek: "ῥαββί", translit: "rhabbi", spanish: "rabí, maestro", hebrew: "רַבִּי (rabbi)" },
+      { greek: "ῥαββουνί", translit: "rhabbouni", spanish: "raboni, maestro mío", hebrew: "רַבּוּנִי (rabbuni)" },
+      { greek: "Μεσσίας", translit: "Messias", spanish: "Mesías", hebrew: "מָשִׁיחַ (mashiach)" },
+      { greek: "εἰρήνη", translit: "eirēnē", spanish: "paz (shalom)", hebrew: "שָׁלוֹם (shalom)" },
+      { greek: "κοιλία", translit: "koilia", spanish: "vientre, interior", hebrew: "בֶּטֶן (beten)" },
+      { greek: "καρδία", translit: "kardia", spanish: "corazón (mente)", hebrew: "לֵב (lev)" },
+      { greek: "νεφρός", translit: "nephros", spanish: "riñones (emociones)", hebrew: "כִּלְיָה (kilyah)" },
+      { greek: "σπλάγχνον", translit: "splagchnon", spanish: "entrañas (compasión)", hebrew: "רַחַם (racham)" },
+      { greek: "δόξα", translit: "doxa", spanish: "gloria (kavod)", hebrew: "כָּבוֹד (kavod)" },
+      { greek: "ἐλπίς", translit: "elpis", spanish: "esperanza", hebrew: "תִּקְוָה (tikvah)" },
+      { greek: "ἐγώ εἰμι", translit: "egō eimi", spanish: "Yo soy (ehyeh)", hebrew: "אֶהְיֶה (ehyeh)" },
+      { greek: "κύριος", translit: "kyrios", spanish: "Señor (YHWH)", hebrew: "יְהוָה (YHWH)" },
+      { greek: "θεός", translit: "theos", spanish: "Dios (Elohim)", hebrew: "אֱלֹהִים (Elohim)" },
+      { greek: "μακάριος", translit: "makarios", spanish: "bienaventurado", hebrew: "אַשְׁרֵי (ashrei)" },
+      { greek: "δοῦλος κυρίου", translit: "doulos kyriou", spanish: "siervo del Señor", hebrew: "עֶבֶד יְהוָה (eved YHWH)" }
+    ];
+
+    // Ejemplos para identificar hebraísmo léxico
+    const hebLexExamples = [
+      { term: "κοιλία", meaning: "interior, mente", hebrew: "בֶּטֶן" },
+      { term: "δόξα", meaning: "gloria divina", hebrew: "כָּבוֹד" },
+      { term: "σπλάγχνον", meaning: "compasión", hebrew: "רַחַם" },
+      { term: "καρδία", meaning: "mente, voluntad", hebrew: "לֵב" },
+      { term: "νεφρός", meaning: "emociones profundas", hebrew: "כִּלְיָה" },
+      { term: "ψυχή", meaning: "ser, vida interior", hebrew: "נֶפֶשׁ" },
+      { term: "πνεῦμα", meaning: "espíritu, aliento", hebrew: "רוּחַ" },
+      { term: "ἐλπίς", meaning: "esperanza", hebrew: "תִּקְוָה" }
+    ];
+
+    // Ejemplos para identificar hebraísmo sintáctico
+    const hebSinExamples = [
+      { phrase: "ἀκούων ἀκούσετε", type: "infinitivo absoluto", explanation: "participio + verbo conjugado" },
+      { phrase: "καὶ ... καὶ ...", type: "parataxis", explanation: "coordinación con καί (waw hebreo)" },
+      { phrase: "φόβος κυρίου", type: "genitivo abstracto", explanation: "genitivo subjetivo" },
+      { phrase: "καὶ ἐγένετο ...", type: "vayhi", explanation: "traducción de וַיְהִי" },
+      { phrase: "ἵνα πληρωθῇ", type: "fórmula de cumplimiento", explanation: "construcción con ἵνα + subj." },
+      { phrase: "εἰς γενεὰς καὶ γενεάς", type: "repetición", explanation: "expresión hebrea literal" }
+    ];
+
+    // Pasajes del Magnificat para análisis
+    const magnificatExamples = [
+      { verse: "Lucas 1:46", greek: "Μεγαλύνει ἡ ψυχή μου τὸν κύριον", hebraism: "ψυχή = nefesh (ser, alma)" },
+      { verse: "Lucas 1:47", greek: "ἠγαλλίασεν τὸ πνεῦμά μου ἐπὶ τῷ θεῷ", hebraism: "πνεῦμα = ruach (espíritu)" },
+      { verse: "Lucas 1:48", greek: "ἐπέβλεψεν ἐπὶ τὴν ταπείνωσιν", hebraism: "preverbio + verbo (hebraísmo sintáctico)" },
+      { verse: "Lucas 1:50", greek: "εἰς γενεὰς καὶ γενεάς", hebraism: "repetición hebrea (ledor vador)" },
+      { verse: "Lucas 1:52", greek: "καθεῖλεν δυνάστας ἀπὸ θρόνων", hebraism: "lenguaje de la LXX" }
+    ];
+
+    let currentHebLex = hebLexExamples[0];
+    let currentHebSin = hebSinExamples[0];
+    let currentMagnificat = magnificatExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.hebrew}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadHebLexQuiz() {
+      const randomIndex = Math.floor(Math.random() * hebLexExamples.length);
+      currentHebLex = hebLexExamples[randomIndex];
+      const container = document.getElementById("hebLexQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué hebraísmo léxico es <span class="greek-word">${currentHebLex.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Hebreo: ${currentHebLex.hebrew}</span><br>
+      <input type="text" id="hebLexAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkHebLex" class="btn-reveal">Verificar</button>
+      <div id="hebLexResult"></div></div>`;
+      document.getElementById("checkHebLex").addEventListener("click", () => {
+        const answer = document.getElementById("hebLexAnswer").value.trim().toLowerCase();
+        const correct = currentHebLex.meaning.toLowerCase();
+        const result = document.getElementById("hebLexResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentHebLex.meaning})</span>`;
+          setTimeout(loadHebLexQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentHebLex.meaning}</span>`;
+        }
+      });
+    }
+
+    function loadHebSinQuiz() {
+      const randomIndex = Math.floor(Math.random() * hebSinExamples.length);
+      currentHebSin = hebSinExamples[randomIndex];
+      const container = document.getElementById("hebSinQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué hebraísmo sintáctico es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentHebSin.phrase}</span><br>
+      <button id="hsInf" class="btn-reveal">Infinitivo absoluto</button> <button id="hsPara" class="btn-reveal">Parataxis</button>
+      <button id="hsGen" class="btn-reveal">Genitivo abstracto</button> <button id="hsVay" class="btn-reveal">Vayhi (καὶ ἐγένετο)</button>
+      <button id="hsFul" class="btn-reveal">Fórmula de cumplimiento</button>
+      <div id="hebSinResult"></div></div>`;
+      const inf = document.getElementById("hsInf");
+      const para = document.getElementById("hsPara");
+      const gen = document.getElementById("hsGen");
+      const vay = document.getElementById("hsVay");
+      const ful = document.getElementById("hsFul");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("hebSinResult");
+          if (expected === currentHebSin.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentHebSin.explanation})</span>`;
+            setTimeout(loadHebSinQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentHebSin.type}</span>`;
+          }
+        });
+      };
+      check(inf, "infinitivo absoluto");
+      check(para, "parataxis");
+      check(gen, "genitivo abstracto");
+      check(vay, "vayhi");
+      check(ful, "fórmula de cumplimiento");
+    }
+
+    function loadMagnificatQuiz() {
+      const randomIndex = Math.floor(Math.random() * magnificatExamples.length);
+      currentMagnificat = magnificatExamples[randomIndex];
+      const container = document.getElementById("magnificatQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza el versículo del Magnificat:</strong><br>
+      <span style="font-weight:600;">${currentMagnificat.verse}</span><br>
+      <span class="greek-word" style="font-size:1.2rem;">${currentMagnificat.greek}</span><br>
+      <span style="font-size:0.9rem;">Hebraísmo: ${currentMagnificat.hebraism}</span><br>
+      <button id="magCorrect" class="btn-reveal">Identificar hebraísmo</button>
+      <div id="magnificatResult"></div></div>`;
+      document.getElementById("magCorrect").addEventListener("click", () => {
+        const result = document.getElementById("magnificatResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Correcto! El hebraísmo es: ${currentMagnificat.hebraism}</span>`;
+        setTimeout(loadMagnificatQuiz, 1500);
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Hebraísmo léxico: κοιλία significa...", opts: ["interior, mente", "vientre solo", "estómago", "corazón"], correct: 0 },
+      { q: "Hebraísmo léxico: δόξα en el NT significa...", opts: ["gloria divina", "reputación", "opinión", "honor"], correct: 0 },
+      { q: "Hebraísmo sintáctico: ἀκούων ἀκούσετε es un...", opts: ["infinitivo absoluto", "parataxis", "genitivo absoluto", "optativo"], correct: 0 },
+      { q: "Hebraísmo sintáctico: καὶ ἐγένετο traduce el hebreo...", opts: ["וַיְהִי (vayhi)", "וְ (waw)", "כִּי (ki)", "לֹא (lo)"], correct: 0 },
+      { q: "Término hebreo transliterado en el NT: 'hosanna' en griego es...", opts: ["ὡσαννά", "ἀλληλούϊα", "ῥαββί", "πάσχα"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkHebLex" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#hebSinQuizArea") || btn.closest("#magnificatQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadHebLexQuiz();
+      loadHebSinQuiz();
+      loadMagnificatQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newHebLexQuiz")?.addEventListener("click", () => {
+        loadHebLexQuiz();
+        document.getElementById("hebLexFeedback").innerHTML = "";
+      });
+      document.getElementById("newHebSinQuiz")?.addEventListener("click", () => {
+        loadHebSinQuiz();
+        document.getElementById("hebSinFeedback").innerHTML = "";
+      });
+      document.getElementById("newMagnificatQuiz")?.addEventListener("click", () => {
+        loadMagnificatQuiz();
+        document.getElementById("magnificatFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

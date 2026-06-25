@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 56: Géneros Literarios del NT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 80%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .genre-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .genre-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .genre-card { background: #f8fafd; border-radius: 1rem; padding: 1rem; border: 1px solid #e2e8f0; }
+    .genre-card .label { font-weight: 700; color: #1a4c61; font-size: 1.1rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-55.html"><i class="fas fa-arrow-left"></i> Lección 55</a>
+        <a href="leccion-57.html"><i class="fas fa-arrow-right"></i> Lección 57</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-book-open"></i> Lección 56 · Géneros Literarios del NT <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Evangelio · Epístola · Apocalipsis · Discurso · Características gramaticales de cada género · Identificación y análisis</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1120/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Géneros literarios del NT y su impacto en la gramática" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Cómo el género literario afecta la gramática y la interpretación del NT</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Los géneros literarios del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Nuevo Testamento contiene una <strong>variedad de géneros literarios</strong>, cada uno con sus propias <strong>características gramaticales y estilísticas</strong>. Reconocer el género es esencial para una correcta interpretación.</p>
+          <div class="genre-box">
+            <i class="fas fa-lightbulb"></i> <strong>Los cuatro géneros principales del NT:</strong>
+            <ul>
+              <li><strong>Evangelio</strong> – narrativa biográfica de la vida de Jesús.</li>
+              <li><strong>Epístola</strong> – carta con enseñanza teológica y ética.</li>
+              <li><strong>Apocalipsis</strong> – literatura de revelación visionaria.</li>
+              <li><strong>Discurso</strong> – oratoria y sermones (especialmente en Hechos).</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Importancia exegética:</strong> El género literario <strong>determina cómo interpretamos</strong> un texto. Un mismo término gramatical puede tener un significado diferente en una epístola que en un apocalipsis.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: EL EVANGELIO – NARRATIVA Y DISCURSO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-book"></i> 2. El Evangelio: narrativa biográfica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los evangelios son <strong>narraciones biográficas</strong> que presentan la vida, muerte y resurrección de Jesús. Su gramática refleja su carácter narrativo.</p>
+
+          <div class="genre-grid">
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-clock"></i> Imperfecto histórico</div>
+              <p style="font-size:0.9rem;">Uso del imperfecto para acciones <strong>en progreso</strong> en el pasado, creando un <strong>fondo narrativo</strong>.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">ἐδίδασκεν</span> (enseñaba) – acción continua.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-comment"></i> Discurso directo</div>
+              <p style="font-size:0.9rem;">Abundancia de <strong>diálogos</strong> y <strong>citas directas</strong> de Jesús y otros personajes.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">λέγει αὐτῷ</span> (le dice) – introducción de discurso.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-list"></i> Vocabulario narrativo</div>
+              <p style="font-size:0.9rem;">Verbos de <strong>movimiento</strong> y <strong>acción</strong>: ἔρχομαι, πορεύομαι, λέγω, ποιέω.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">καὶ ἦλθεν</span> (y vino) – estructura típica.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-bookmark"></i> Parataxis</div>
+              <p style="font-size:0.9rem;">Coordinación de cláusulas con <span class="greek-word">καί</span> y <span class="greek-word">δέ</span>, especialmente en Marcos.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">καὶ ... καὶ ...</span> – estilo narrativo.</p>
+            </div>
+          </div>
+
+          <div class="genre-box">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplo de gramática evangélica:</strong><br>
+            <span class="greek-word">καὶ ἐγένετο ἐν τῷ βαπτισθῆναι ἅπαντα τὸν λαὸν καὶ Ἰησοῦ βαπτισθέντος καὶ προσευχομένου ἀνεῳχθῆναι τὸν οὐρανόν</span> (Lucas 3:21).<br>
+            Uso del <strong>infinitivo articular</strong> (<span class="greek-word">ἐν τῷ βαπτισθῆναι</span>) y del <strong>genitivo absoluto</strong> (<span class="greek-word">Ἰησοῦ βαπτισθέντος</span>) – construcciones típicas de Lucas.
+          </div>
+          <button class="btn-reveal" data-target="evangelioEj">Identifica la característica evangélica</button>
+          <div id="evangelioEj" class="answer-text">
+            <span class="greek-word">ἐδίδασκεν</span> – imperfecto histórico.<br>
+            <span class="greek-word">λέγει</span> – discurso directo (presente histórico).<br>
+            <span class="greek-word">καὶ ... καὶ</span> – parataxis narrativa.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: LA EPÍSTOLA – ARGUMENTACIÓN Y PARENESIS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-envelope"></i> 3. La Epístola: carta teológica y ética</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las epístolas del NT (especialmente las de Pablo) son <strong>cartas</strong> que combinan <strong>enseñanza teológica</strong> (doctrina) y <strong>exhortación ética</strong> (paránesis).</p>
+
+          <div class="genre-grid">
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-envelope-open"></i> Estructura epistolar</div>
+              <p style="font-size:0.9rem;">Salutación (<span class="greek-word">χάρις καὶ εἰρήνη</span>), acción de gracias (<span class="greek-word">εὐχαριστέω</span>), cuerpo doctrinal, paránesis, despedida.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-gavel"></i> Partículas de argumento</div>
+              <p style="font-size:0.9rem;"><span class="greek-word">γάρ</span> (porque), <span class="greek-word">οὖν</span> (por tanto), <span class="greek-word">ἀλλά</span> (sino) – estructuran el razonamiento.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-hand-peace"></i> Paránesis</div>
+              <p style="font-size:0.9rem;">Exhortaciones éticas en <strong>imperativo presente</strong> (acción continua) y <strong>aoristo</strong> (acción puntual).</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">περιπατεῖτε</span> (caminad) – presente continuo.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-cross"></i> Optativo y μὴ γένοιτο</div>
+              <p style="font-size:0.9rem;">Uso del optativo en <strong>exclamaciones</strong> y <strong>argumentación</strong> (especialmente en Romanos).</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">μὴ γένοιτο</span> – "¡De ninguna manera!"</p>
+            </div>
+          </div>
+
+          <div class="genre-box">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplo de gramática epistolar:</strong><br>
+            <span class="greek-word">οὐ γάρ ἐστιν δικαιοσύνη θεοῦ διὰ πίστεως Ἰησοῦ Χριστοῦ</span> (Romanos 3:22).<br>
+            Uso de <span class="greek-word">γάρ</span> (explicativo), genitivo (<span class="greek-word">πίστεως</span>), y estructura de argumento.
+          </div>
+          <button class="btn-reveal" data-target="epistolaEj">Identifica la característica epistolar</button>
+          <div id="epistolaEj" class="answer-text">
+            <span class="greek-word">χάρις καὶ εἰρήνη</span> – salutación epistolar.<br>
+            <span class="greek-word">γάρ</span> – partícula de argumento.<br>
+            <span class="greek-word">περιπατεῖτε</span> – imperativo presente (paránesis).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: EL APOCALIPSIS – VISIÓN Y SÍMBOLO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-eye"></i> 4. El Apocalipsis: literatura visionaria</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Apocalipsis de Juan es un ejemplo único de <strong>literatura apocalíptica</strong> en el NT, con un griego <strong>semitizante</strong> y un vocabulario <strong>simbólico</strong>.</p>
+
+          <div class="genre-grid">
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-clock"></i> Presente histórico</div>
+              <p style="font-size:0.9rem;">Uso del <strong>presente</strong> para describir visiones pasadas, creando <strong>inmediatez</strong>.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">καὶ βλέπω</span> (y veo) – presente visionario.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-synagogue"></i> Estilo semitizante</div>
+              <p style="font-size:0.9rem;">Griego con <strong>hebraísmos</strong> sintácticos: <span class="greek-word">καί</span> frecuente, nominativos colgantes.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">καὶ ... καὶ ...</span> – parataxis.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-hashtag"></i> Números simbólicos</div>
+              <p style="font-size:0.9rem;">Uso de <strong>números</strong> con significado simbólico: 7, 12, 24, 144,000, 666.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">ἑπτά</span> (7) – perfección divina.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-feather-alt"></i> Vocabulario visionario</div>
+              <p style="font-size:0.9rem;">Términos como <span class="greek-word">θρόνος</span> (trono), <span class="greek-word">ἀρνίον</span> (cordero), <span class="greek-word">θηρίον</span> (bestia).</p>
+            </div>
+          </div>
+
+          <div class="genre-box">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplo de gramática apocalíptica:</strong><br>
+            <span class="greek-word">καὶ εἶδον ... καὶ ἤκουσα ... καὶ ἰδοὺ</span> (Apocalipsis 1:10-12).<br>
+            Uso del <strong>presente histórico</strong> (<span class="greek-word">βλέπω</span>), <strong>hebraísmos</strong> (<span class="greek-word">καὶ ...</span>), y <strong>vocabulario simbólico</strong>.
+          </div>
+          <button class="btn-reveal" data-target="apocalipsisEj">Identifica la característica apocalíptica</button>
+          <div id="apocalipsisEj" class="answer-text">
+            <span class="greek-word">καὶ εἶδον</span> – presente/histórico visionario.<br>
+            <span class="greek-word">ἑπτά</span> – número simbólico.<br>
+            <span class="greek-word">θηρίον</span> – vocabulario simbólico.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: EL DISCURSO – ORATORIA Y SERMONES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-chalkboard"></i> 5. El Discurso: oratoria en Hechos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El libro de Hechos contiene <strong>discursos</strong> (sermones) de Pedro, Pablo y Esteban. Estos discursos tienen características retóricas y gramaticales distintivas.</p>
+
+          <div class="genre-grid">
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-quote-right"></i> Citas del AT</div>
+              <p style="font-size:0.9rem;">Los discursos en Hechos <strong>citan frecuentemente</strong> el AT (LXX) para argumentar.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">καθὼς γέγραπται</span> – fórmula de cita.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-microphone-alt"></i> Optativo en discurso</div>
+              <p style="font-size:0.9rem;">Lucas usa el <strong>optativo</strong> en discursos para expresar <strong>deseo</strong> o <strong>posibilidad</strong>.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> <span class="greek-word">εἴη</span> – "sea" (optativo de εἰμί).</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-gavel"></i> Estructura retórica</div>
+              <p style="font-size:0.9rem;">Los discursos tienen <strong>introducción</strong>, <strong>argumentación</strong> y <strong>conclusión</strong>.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> Hechos 2:14-36 – estructura de sermón.</p>
+            </div>
+            <div class="genre-card">
+              <div class="label"><i class="fas fa-pen-fancy"></i> Vocabulario retórico</div>
+              <p style="font-size:0.9rem;">Términos de <strong>persuasión</strong> y <strong>argumentación</strong>: <span class="greek-word">μαρτύρομαι</span>, <span class="greek-word">παρακαλέω</span>.</p>
+            </div>
+          </div>
+
+          <div class="genre-box">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplo de gramática discursiva:</strong><br>
+            <span class="greek-word">ἄνδρες Ἰουδαῖοι ... ἀκούσατε ... Ἰησοῦν τὸν Ναζωραῖον</span> (Hechos 2:22).<br>
+            Uso del <strong>vocativo</strong> (<span class="greek-word">ἄνδρες</span>), <strong>imperativo</strong> (<span class="greek-word">ἀκούσατε</span>), y <strong>estructura retórica</strong>.
+          </div>
+          <button class="btn-reveal" data-target="discursoEj">Identifica la característica discursiva</button>
+          <div id="discursoEj" class="answer-text">
+            <span class="greek-word">ἄνδρες ...</span> – vocativo (apelación directa).<br>
+            <span class="greek-word">ἀκούσατε</span> – imperativo aoristo (acción puntual).<br>
+            <span class="greek-word">καθὼς γέγραπται</span> – cita del AT.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: COMPARACIÓN DE GÉNEROS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-layer-group"></i> 6. Comparación de géneros literarios</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Género</th><th>Verbos dominantes</th><th>Partículas</th><th>Vocabulario característico</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Evangelio</strong></td><td>Imperfecto, aoristo, presente histórico</td><td>καί, δέ</td><td>ἔρχομαι, ποιέω, λέγω</td></tr>
+                <tr><td><strong>Epístola</strong></td><td>Presente, imperativo, optativo</td><td>γάρ, οὖν, ἀλλά</td><td>δικαιοσύνη, πίστις, χάρις</td></tr>
+                <tr><td><strong>Apocalipsis</strong></td><td>Presente histórico, aoristo</td><td>καί (frecuente)</td><td>ἀρνίον, θρόνος, θηρίον</td></tr>
+                <tr><td><strong>Discurso</strong></td><td>Imperativo, vocativo, optativo</td><td>γάρ, οὖν</td><td>μαρτύρομαι, παρακαλέω</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Clave exegética:</strong> Identificar el género ayuda a <strong>interpretar correctamente</strong> el texto. Por ejemplo, el <span class="greek-word">καί</span> en el Apocalipsis no tiene el mismo peso que en las epístolas.
+          </div>
+          <button class="btn-reveal" data-target="comparacionEj">Compara los géneros</button>
+          <div id="comparacionEj" class="answer-text">
+            Evangelio: <span class="greek-word">καὶ ἦλθεν</span> – narrativa.<br>
+            Epístola: <span class="greek-word">γάρ</span> – argumentación.<br>
+            Apocalipsis: <span class="greek-word">καὶ εἶδον</span> – visión.<br>
+            Discurso: <span class="greek-word">ἀκούσατε</span> – exhortación.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Géneros literarios</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender los géneros literarios del NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Género asociado</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Apocalipsis 1:1-3:</strong> <span class="greek-word">Ἀποκάλυψις Ἰησοῦ Χριστοῦ ἣν ἔδωκεν αὐτῷ ὁ θεὸς δεῖξαι τοῖς δούλοις αὐτοῦ ἃ δεῖ γενέσθαι ἐν τάχει, καὶ ἐσήμανεν ἀποστείλας διὰ τοῦ ἀγγέλου αὐτοῦ τῷ δούλῳ αὐτοῦ Ἰωάννῃ, ὃς ἐμαρτύρησεν τὸν λόγον τοῦ θεοῦ καὶ τὴν μαρτυρίαν Ἰησοῦ Χριστοῦ ὅσα εἶδεν. μακάριος ὁ ἀναγινώσκων καὶ οἱ ἀκούοντες τοὺς λόγους τῆς προφητείας καὶ τηροῦντες τὰ ἐν αὐτῇ γεγραμμένα, ὁ γὰρ καιρὸς ἐγγύς.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL GÉNERO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el género literario</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="generoQuizArea"></div>
+          <button id="newGeneroQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="generoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – IDENTIFICA LA CARACTERÍSTICA GRAMATICAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-microscope"></i> 9. Identifica la característica gramatical</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="gramaticaQuizArea"></div>
+          <button id="newGramaticaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva característica</button>
+          <div id="gramaticaFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – TRADUCCIÓN POR GÉNERO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 10. Traduce según el género</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transGeneroQuizArea"></div>
+          <button id="newTransGeneroQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transGeneroFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – ANÁLISIS POR GÉNERO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Texto programado · Análisis de géneros</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los pasajes. Identifica el género y sus características gramaticales.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Evangelio – Mateo 5:1-2</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Ἰδὼν δὲ τοὺς ὄχλους ἀνέβη εἰς τὸ ὄρος· καὶ καθίσαντος αὐτοῦ προσῆλθαν αὐτῷ οἱ μαθηταὶ αὐτοῦ· καὶ ἀνοίξας τὸ στόμα αὐτοῦ ἐδίδασκεν αὐτοὺς λέγων</span></p>
+              <button class="btn-reveal" data-target="gen1a">¿Qué características evangélicas ves?</button>
+              <div id="gen1a" class="answer-text"><span class="greek-word">ἐδίδασκεν</span> – imperfecto narrativo; <span class="greek-word">καθίσαντος</span> – genitivo absoluto; discurso directo (λέγων).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Epístola – Romanos 1:16-17</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Οὐ γὰρ ἐπαισχύνομαι τὸ εὐαγγέλιον· δύναμις γὰρ θεοῦ ἐστιν εἰς σωτηρίαν παντὶ τῷ πιστεύοντι, Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι. δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται ἐκ πίστεως εἰς πίστιν</span></p>
+              <button class="btn-reveal" data-target="gen1b">¿Qué características epistolares ves?</button>
+              <div id="gen1b" class="answer-text"><span class="greek-word">γάρ</span> – partícula explicativa; terminología teológica (δύναμις, σωτηρία, δικαιοσύνη, πίστις).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis – Apocalipsis 1:9-10</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐγένετο ... ἐν τῇ νήσῳ τῇ καλουμένῃ Πάτμῳ ... ἤμην ἐν πνεύματι ἐν τῇ κυριακῇ ἡμέρᾳ καὶ ἤκουσα φωνὴν μεγάλην ὡς σάλπιγγος</span></p>
+              <button class="btn-reveal" data-target="gen1c">¿Qué características apocalípticas ves?</button>
+              <div id="gen1c" class="answer-text">Visiones (<span class="greek-word">ἤκουσα</span> – presente histórico); vocabulario simbólico (<span class="greek-word">φωνὴν σάλπιγγος</span>).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Discurso – Hechos 2:22</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἄνδρες Ἰσραηλῖται, ἀκούσατε τοὺς λόγους τούτους· Ἰησοῦν τὸν Ναζωραῖον, ἄνδρα ἀπὸ τοῦ θεοῦ ἀποδεδειγμένον εἰς ὑμᾶς δυνάμεσι καὶ τέρασι καὶ σημείοις</span></p>
+              <button class="btn-reveal" data-target="gen1d">¿Qué características discursivas ves?</button>
+              <div id="gen1d" class="answer-text">Vocativo (<span class="greek-word">ἄνδρες</span>); imperativo (<span class="greek-word">ἀκούσατε</span>); vocabulario de poder (<span class="greek-word">δυνάμεσι</span>).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee un pasaje de cada género (Mateo 5, Romanos 1, Apocalipsis 1, Hechos 2). Identifica las características gramaticales de cada género. Reflexiona sobre cómo el género afecta la interpretación.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-55.html"><i class="fas fa-arrow-left"></i> Lección 55</a>
+      <a href="leccion-57.html"><i class="fas fa-arrow-right"></i> Lección 57</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">πᾶσα γραφὴ θεόπνευστος</span> (2 Timoteo 3:16)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 56 ==========
+    const vocabData = [
+      { greek: "ἐπιστολή", translit: "epistolē", spanish: "carta", genre: "Epístola" },
+      { greek: "χαίρειν", translit: "chairein", spanish: "saludos (en cartas)", genre: "Epístola" },
+      { greek: "εἰρήνη", translit: "eirēnē", spanish: "paz (en salutación)", genre: "Epístola" },
+      { greek: "χάρις", translit: "charis", spanish: "gracia (en salutación)", genre: "Epístola" },
+      { greek: "εὐχαριστέω", translit: "eucharisteō", spanish: "dar gracias", genre: "Epístola" },
+      { greek: "πρεσβύτης", translit: "presbytēs", spanish: "anciano", genre: "Epístola" },
+      { greek: "τέκνον", translit: "teknon", spanish: "hijo (en cartas)", genre: "Epístola" },
+      { greek: "παρακαλέω", translit: "parakaleō", spanish: "exhortar", genre: "Epístola/Discursos" },
+      { greek: "βούλομαι", translit: "boulomai", spanish: "desear (en cartas)", genre: "Epístola" },
+      { greek: "οὐ θέλω ἀγνοεῖν", translit: "ou thelō agnoein", spanish: "no quiero que ignoréis", genre: "Epístola" },
+      { greek: "ἀσπάζομαι", translit: "aspazomai", spanish: "saludar", genre: "Epístola" },
+      { greek: "ἀσπασμός", translit: "aspasmos", spanish: "saludo", genre: "Epístola" },
+      { greek: "ῥήτωρ", translit: "rhētōr", spanish: "orador", genre: "Discursos" },
+      { greek: "λόγος", translit: "logos", spanish: "discurso, palabra", genre: "Discursos" },
+      { greek: "ἀπολογία", translit: "apologia", spanish: "defensa", genre: "Discursos" },
+      { greek: "προοίμιον", translit: "prooimion", spanish: "introducción", genre: "Discursos" },
+      { greek: "ἐπίλογος", translit: "epilogos", spanish: "conclusión", genre: "Discursos" },
+      { greek: "πρόλογος", translit: "prologos", spanish: "prólogo", genre: "Discursos" },
+      { greek: "κλίμαξ", translit: "klimax", spanish: "clímax", genre: "Discursos" },
+      { greek: "ἀντιθέτον", translit: "antitheton", spanish: "antítesis", genre: "Discursos" }
+    ];
+
+    // Ejemplos para identificar género
+    const generoExamples = [
+      { passage: "καὶ ἦλθεν καὶ ἐδίδασκεν", genre: "Evangelio", reason: "narrativa con imperfecto" },
+      { passage: "χάρις ὑμῖν καὶ εἰρήνη", genre: "Epístola", reason: "salutación epistolar" },
+      { passage: "καὶ εἶδον ... καὶ ἤκουσα", genre: "Apocalipsis", reason: "visión con presente histórico" },
+      { passage: "ἄνδρες Ἰουδαῖοι, ἀκούσατε", genre: "Discurso", reason: "vocativo + imperativo" },
+      { passage: "ὁ καρπὸς τοῦ πνεύματός ἐστιν", genre: "Epístola", reason: "enseñanza doctrinal" },
+      { passage: "εὐθὺς ἦλθεν ... καὶ ἐθεράπευσεν", genre: "Evangelio", reason: "parataxis y εὐθύς" },
+      { passage: "ἰδοὺ θρόνος ἐτέθη ἐν τῷ οὐρανῷ", genre: "Apocalipsis", reason: "visión simbólica" }
+    ];
+
+    // Ejemplos para identificar característica gramatical
+    const gramaticaExamples = [
+      { feature: "imperfecto narrativo", example: "ἐδίδασκεν", genre: "Evangelio" },
+      { feature: "salutación epistolar", example: "χάρις καὶ εἰρήνη", genre: "Epístola" },
+      { feature: "presente histórico visionario", example: "βλέπω", genre: "Apocalipsis" },
+      { feature: "vocativo", example: "ἄνδρες", genre: "Discurso" },
+      { feature: "partícula γάρ (explicativa)", example: "γάρ", genre: "Epístola" },
+      { feature: "parataxis con καί", example: "καὶ ... καὶ", genre: "Evangelio" },
+      { feature: "número simbólico", example: "ἑπτά", genre: "Apocalipsis" },
+      { feature: "imperativo aoristo", example: "ἀκούσατε", genre: "Discurso" }
+    ];
+
+    // Pasajes para traducción por género
+    const transGeneroExamples = [
+      { greek: "καὶ ἐδίδασκεν αὐτοὺς λέγων", translation: "y les enseñaba diciendo", genre: "Evangelio" },
+      { greek: "χάρις ὑμῖν καὶ εἰρήνη ἀπὸ θεοῦ πατρὸς ἡμῶν", translation: "Gracia y paz a vosotros de Dios nuestro Padre", genre: "Epístola" },
+      { greek: "καὶ εἶδον ἕτερον σημεῖον ἐν τῷ οὐρανῷ", translation: "Y vi otra señal en el cielo", genre: "Apocalipsis" },
+      { greek: "ἄνδρες ἀδελφοί, ἐξόν μοι εἰπεῖν", translation: "Varones hermanos, me es permitido decir", genre: "Discurso" },
+      { greek: "οὐ γάρ ἐστιν δικαιοσύνη θεοῦ", translation: "Porque no es la justicia de Dios", genre: "Epístola" }
+    ];
+
+    let currentGenero = generoExamples[0];
+    let currentGramatica = gramaticaExamples[0];
+    let currentTransGenero = transGeneroExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.genre}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadGeneroQuiz() {
+      const randomIndex = Math.floor(Math.random() * generoExamples.length);
+      currentGenero = generoExamples[randomIndex];
+      const container = document.getElementById("generoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿A qué género literario pertenece este pasaje?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentGenero.passage}</span><br>
+      <button id="genEv" class="btn-reveal">Evangelio</button> <button id="genEp" class="btn-reveal">Epístola</button>
+      <button id="genAp" class="btn-reveal">Apocalipsis</button> <button id="genDi" class="btn-reveal">Discurso</button>
+      <div id="generoResult"></div></div>`;
+      const ev = document.getElementById("genEv");
+      const ep = document.getElementById("genEp");
+      const ap = document.getElementById("genAp");
+      const di = document.getElementById("genDi");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("generoResult");
+          if (expected === currentGenero.genre) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentGenero.reason})</span>`;
+            setTimeout(loadGeneroQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentGenero.genre}</span>`;
+          }
+        });
+      };
+      check(ev, "Evangelio");
+      check(ep, "Epístola");
+      check(ap, "Apocalipsis");
+      check(di, "Discurso");
+    }
+
+    function loadGramaticaQuiz() {
+      const randomIndex = Math.floor(Math.random() * gramaticaExamples.length);
+      currentGramatica = gramaticaExamples[randomIndex];
+      const container = document.getElementById("gramaticaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué característica gramatical es <span class="greek-word">${currentGramatica.example}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Ejemplo: ${currentGramatica.example}</span><br>
+      <button id="gramImp" class="btn-reveal">Imperfecto narrativo</button> <button id="gramSal" class="btn-reveal">Salutación epistolar</button>
+      <button id="gramPres" class="btn-reveal">Presente histórico</button> <button id="gramVoc" class="btn-reveal">Vocativo</button>
+      <button id="gramPar" class="btn-reveal">Parataxis</button> <button id="gramNum" class="btn-reveal">Número simbólico</button>
+      <button id="gramGar" class="btn-reveal">Partícula γάρ</button> <button id="gramImpAor" class="btn-reveal">Imperativo aoristo</button>
+      <div id="gramaticaResult"></div></div>`;
+      const imp = document.getElementById("gramImp");
+      const sal = document.getElementById("gramSal");
+      const pres = document.getElementById("gramPres");
+      const voc = document.getElementById("gramVoc");
+      const par = document.getElementById("gramPar");
+      const num = document.getElementById("gramNum");
+      const gar = document.getElementById("gramGar");
+      const impAor = document.getElementById("gramImpAor");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("gramaticaResult");
+          if (expected === currentGramatica.feature) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentGramatica.feature} – ${currentGramatica.genre})</span>`;
+            setTimeout(loadGramaticaQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentGramatica.feature}</span>`;
+          }
+        });
+      };
+      check(imp, "imperfecto narrativo");
+      check(sal, "salutación epistolar");
+      check(pres, "presente histórico visionario");
+      check(voc, "vocativo");
+      check(par, "parataxis con καί");
+      check(num, "número simbólico");
+      check(gar, "partícula γάρ (explicativa)");
+      check(impAor, "imperativo aoristo");
+    }
+
+    function loadTransGeneroQuiz() {
+      const randomIndex = Math.floor(Math.random() * transGeneroExamples.length);
+      currentTransGenero = transGeneroExamples[randomIndex];
+      const container = document.getElementById("transGeneroQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español (género: ${currentTransGenero.genre}):</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransGenero.greek}</span><br>
+      <input type="text" id="transGeneroAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransGenero" class="btn-reveal">Verificar</button>
+      <div id="transGeneroResult"></div></div>`;
+      document.getElementById("checkTransGenero").addEventListener("click", () => {
+        const answer = document.getElementById("transGeneroAnswer").value.trim().toLowerCase();
+        const correct = currentTransGenero.translation.toLowerCase();
+        const result = document.getElementById("transGeneroResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransGenero.genre})</span>`;
+          setTimeout(loadTransGeneroQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransGenero.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Género caracterizado por imperfecto narrativo y parataxis", opts: ["Evangelio", "Epístola", "Apocalipsis", "Discurso"], correct: 0 },
+      { q: "Género caracterizado por salutaciones y partículas de argumento", opts: ["Epístola", "Evangelio", "Apocalipsis", "Discurso"], correct: 0 },
+      { q: "Género caracterizado por presente histórico y números simbólicos", opts: ["Apocalipsis", "Evangelio", "Epístola", "Discurso"], correct: 0 },
+      { q: "Género caracterizado por vocativos e imperativos", opts: ["Discurso", "Evangelio", "Epístola", "Apocalipsis"], correct: 0 },
+      { q: "Palabra que significa 'saludo' (en cartas)", opts: ["ἀσπασμός", "χάρις", "εἰρήνη", "μαρτυρία"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransGenero" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#generoQuizArea") || btn.closest("#gramaticaQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadGeneroQuiz();
+      loadGramaticaQuiz();
+      loadTransGeneroQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newGeneroQuiz")?.addEventListener("click", () => {
+        loadGeneroQuiz();
+        document.getElementById("generoFeedback").innerHTML = "";
+      });
+      document.getElementById("newGramaticaQuiz")?.addEventListener("click", () => {
+        loadGramaticaQuiz();
+        document.getElementById("gramaticaFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransGeneroQuiz")?.addEventListener("click", () => {
+        loadTransGeneroQuiz();
+        document.getElementById("transGeneroFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

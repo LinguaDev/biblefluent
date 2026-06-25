@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 51: Análisis Textual – Juan 1–4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 73%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .analysis-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .exegetical-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.1rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.2rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-50.html"><i class="fas fa-arrow-left"></i> Lección 50</a>
+        <a href="leccion-52.html"><i class="fas fa-arrow-right"></i> Lección 52</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-scroll"></i> Lección 51 · Análisis Textual – Juan 1–4 <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Prólogo (Juan 1:1-18) · Nicodemo (Juan 3:1-21) · La samaritana (Juan 4:1-42) · Análisis morfosintáctico y exegético</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1020/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Análisis textual del Evangelio de Juan (capítulos 1-4)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Análisis exegético del Prólogo de Juan, Nicodemo y la samaritana</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Introducción al Evangelio de Juan</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Evangelio de Juan es <strong>único</strong> entre los evangelios. Su griego es <strong>sencillo pero profundo</strong>, con un vocabulario teológico rico y una estructura literaria cuidadosamente diseñada.</p>
+          <div class="analysis-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características del griego de Juan:</strong>
+            <ul>
+              <li>Vocabulario <strong>limitado pero teológicamente denso</strong> (ej. λόγος, ζωή, φῶς, σκοτία).</li>
+              <li>Uso de <strong>contrastes binarios</strong>: luz/tinieblas, vida/muerte, verdad/mentira.</li>
+              <li>Estructura de <strong>quiásmos y repeticiones</strong> que enfatizan los temas clave.</li>
+              <li>Uso del <strong>"ἐγώ εἰμι"</strong> (Yo Soy) como fórmula de auto-revelación divina.</li>
+              <li>Discurso <strong>directo</strong> abundante, con diálogos largos (Nicodemo, samaritana).</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Estructura de Juan 1-4:</strong><br>
+            1:1-18 – Prólogo (himno al Verbo)<br>
+            1:19-51 – Testimonio de Juan el Bautista y llamado de los discípulos<br>
+            2:1-25 – Primeras señales: bodas de Caná, purificación del templo<br>
+            3:1-36 – Diálogo con Nicodemo<br>
+            4:1-54 – Diálogo con la samaritana y sanidad del oficial
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: JUAN 1:1-18 – EL PRÓLOGO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 2. Juan 1:1-18 – El Prólogo (análisis)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</span> (1:1)</p>
+            <p><span class="greek-word">οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν.</span> (1:2)</p>
+            <p><span class="greek-word">πάντα διʼ αὐτοῦ ἐγένετο, καὶ χωρὶς αὐτοῦ ἐγένετο οὐδὲ ἕν. ὃ γέγονεν</span> (1:3)</p>
+            <p><span class="greek-word">ἐν αὐτῷ ζωὴ ἦν, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων·</span> (1:4)</p>
+            <p><span class="greek-word">καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει, καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν.</span> (1:5)</p>
+          </div>
+
+          <h3>Análisis de Juan 1:1-5</h3>
+          <div class="analysis-box">
+            <strong>1:1 – Ἐν ἀρχῇ ἦν ὁ λόγος</strong>
+            <ul>
+              <li><span class="greek-word">ἦν</span> – imperfecto de εἰμί (aspecto lineal: existencia continua)</li>
+              <li><span class="greek-word">ὁ λόγος</span> – nominativo, sujeto. "El Verbo" – revelación de Dios.</li>
+              <li><span class="greek-word">πρὸς τὸν θεόν</span> – "hacia Dios" (relación personal con el Padre).</li>
+              <li><span class="greek-word">θεὸς ἦν ὁ λόγος</span> – orden de palabras enfático: "Dios era el Verbo".</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>1:3-4 – πάντα διʼ αὐτοῦ ἐγένετο</strong>
+            <ul>
+              <li><span class="greek-word">ἐγένετο</span> – aoristo medio de γίνομαι (acción puntual: creación).</li>
+              <li><span class="greek-word">ὃ γέγονεν</span> – perfecto de γίνομαι: lo que llegó a ser (estado resultante).</li>
+              <li><span class="greek-word">ζωὴ ἦν</span> – imperfecto: la vida estaba (continuamente) en él.</li>
+            </ul>
+          </div>
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> El Prólogo es un <strong>himno</strong> que presenta a Jesús como el Verbo eterno, el Creador, la Vida y la Luz. El contraste entre <span class="greek-word">φῶς</span> (luz) y <span class="greek-word">σκοτία</span> (tinieblas) es el primer par binario que estructura todo el evangelio.
+          </div>
+          <button class="btn-reveal" data-target="jn1a">¿Qué forma de γίνομαι aparece en 1:3 y 1:4?</button>
+          <div id="jn1a" class="answer-text">
+            <span class="greek-word">ἐγένετο</span> – aoristo (creación puntual).<br>
+            <span class="greek-word">γέγονεν</span> – perfecto (lo que llegó a ser y sigue siendo).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: JUAN 3:1-21 – NICODEMO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 3. Juan 3:1-21 – Nicodemo (análisis)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">ἦν δὲ ἄνθρωπος ἐκ τῶν Φαρισαίων, Νικόδημος ὄνομα αὐτῷ, ἄρχων τῶν Ἰουδαίων·</span> (3:1)</p>
+            <p><span class="greek-word">οὗτος ἦλθεν πρὸς αὐτὸν νυκτὸς καὶ εἶπεν αὐτῷ· ῥαββί, οἴδαμεν ὅτι ἀπὸ θεοῦ ἐλήλυθας διδάσκαλος· οὐδεὶς γὰρ δύναται ταῦτα τὰ σημεῖα ποιεῖν ἃ σὺ ποιεῖς, ἐὰν μὴ ᾖ ὁ θεὸς μετʼ αὐτοῦ.</span> (3:2)</p>
+            <p><span class="greek-word">ἀπεκρίθη Ἰησοῦς καὶ εἶπεν αὐτῷ· ἀμὴν ἀμὴν λέγω σοι, ἐὰν μή τις γεννηθῇ ἄνωθεν, οὐ δύναται ἰδεῖν τὴν βασιλείαν τοῦ θεοῦ.</span> (3:3)</p>
+          </div>
+
+          <h3>Análisis de Juan 3:1-8</h3>
+          <div class="analysis-box">
+            <strong>3:1 – ἦν ... ἄνθρωπος</strong>
+            <ul>
+              <li><span class="greek-word">ἦν</span> – imperfecto: "había un hombre" (presentación narrativa).</li>
+              <li><span class="greek-word">Νικόδημος</span> – nominativo, sujeto de la oración.</li>
+              <li><span class="greek-word">ἄρχων</span> – "gobernante" (miembro del Sanedrín).</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>3:2 – ἦλθεν, εἶπεν, οἴδαμεν, ἐλήλυθας</strong>
+            <ul>
+              <li><span class="greek-word">ἦλθεν</span> – aoristo de ἔρχομαι (acción puntual: vino).</li>
+              <li><span class="greek-word">εἶπεν</span> – aoristo de λέγω (dijo).</li>
+              <li><span class="greek-word">οἴδαμεν</span> – perfecto con significado presente: "sabemos".</li>
+              <li><span class="greek-word">ἐλήλυθας</span> – perfecto de ἔρχομαι: "has venido (y permaneces aquí)".</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>3:3 – γεννηθῇ, ἰδεῖν, δύναται</strong>
+            <ul>
+              <li><span class="greek-word">γεννηθῇ</span> – subjuntivo aoristo pasivo de γεννάω (sea engendrado).</li>
+              <li><span class="greek-word">ἰδεῖν</span> – infinitivo aoristo de ὁράω (ver).</li>
+              <li><span class="greek-word">δύναται</span> – presente: "puede" (capacidad).</li>
+              <li><span class="greek-word">ἄνωθεν</span> – adverbio clave: "de nuevo" o "desde arriba" (doble significado).</li>
+            </ul>
+          </div>
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> El diálogo con Nicodemo gira en torno al <strong>nuevo nacimiento</strong> (γεννηθῇ ἄνωθεν). La palabra <span class="greek-word">ἄνωθεν</span> tiene un <strong>doble sentido</strong> que Nicodemo no comprende: "de nuevo" y "desde arriba" (del cielo).
+          </div>
+          <button class="btn-reveal" data-target="jn3a">Identifica las formas verbales en Juan 3:2</button>
+          <div id="jn3a" class="answer-text">
+            <span class="greek-word">ἦλθεν</span> – aoristo de ἔρχομαι (vino).<br>
+            <span class="greek-word">εἶπεν</span> – aoristo de λέγω (dijo).<br>
+            <span class="greek-word">οἴδαμεν</span> – perfecto de οἶδα (sabemos).<br>
+            <span class="greek-word">ἐλήλυθας</span> – perfecto de ἔρχομαι (has venido).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: JUAN 4:1-42 – LA SAMARITANA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 4. Juan 4:1-42 – La samaritana (análisis)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Ὡς οὖν ἔγνω ὁ κύριος ὅτι ἤκουσαν οἱ Φαρισαῖοι ὅτι Ἰησοῦς πλείονας μαθητὰς ποιεῖ καὶ βαπτίζει ἢ Ἰωάννης</span> (4:1)</p>
+            <p><span class="greek-word">— καίτοι γε Ἰησοῦς αὐτὸς οὐκ ἐβάπτιζεν ἀλλʼ οἱ μαθηταὶ αὐτοῦ —</span> (4:2)</p>
+            <p><span class="greek-word">ἀφῆκεν τὴν Ἰουδαίαν καὶ ἀπῆλθεν πάλιν εἰς τὴν Γαλιλαίαν.</span> (4:3)</p>
+            <p><span class="greek-word">ἔδει δὲ αὐτὸν διέρχεσθαι διὰ τῆς Σαμαρείας.</span> (4:4)</p>
+          </div>
+
+          <h3>Análisis de Juan 4:1-26</h3>
+          <div class="analysis-box">
+            <strong>4:1 – ἔγνω, ἤκουσαν, ποιεῖ, βαπτίζει</strong>
+            <ul>
+              <li><span class="greek-word">ἔγνω</span> – aoristo de γινώσκω (conoció).</li>
+              <li><span class="greek-word">ἤκουσαν</span> – aoristo de ἀκούω (oyeron).</li>
+              <li><span class="greek-word">ποιεῖ</span> – presente de ποιέω (hace).</li>
+              <li><span class="greek-word">βαπτίζει</span> – presente de βαπτίζω (bautiza).</li>
+            </ul>
+          </div>
+          <div class="analysis-box">
+            <strong>4:3-4 – ἀφῆκεν, ἀπῆλθεν, ἔδει, διέρχεσθαι</strong>
+            <ul>
+              <li><span class="greek-word">ἀφῆκεν</span> – aoristo de ἀφίημι (dejó).</li>
+              <li><span class="greek-word">ἀπῆλθεν</span> – aoristo de ἀπέρχομαι (se fue).</li>
+              <li><span class="greek-word">ἔδει</span> – imperfecto de δεῖ (era necesario).</li>
+              <li><span class="greek-word">διέρχεσθαι</span> – presente infinitivo de διέρχομαι (atravesar).</li>
+            </ul>
+          </div>
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> El verbo <span class="greek-word">ἔδει</span> ("era necesario") es clave en Juan. Indica la <strong>voluntad divina</strong> que guía los pasos de Jesús. El encuentro con la samaritana no es casualidad, sino <strong>parte del plan de Dios</strong>.
+          </div>
+          <div class="analysis-box">
+            <strong>El diálogo con la samaritana (4:7-26):</strong>
+            <ul>
+              <li>Jesús usa el <strong>presente</strong> para acciones continuas.</li>
+              <li>La samaritana usa <strong>aoristos</strong> para eventos pasados.</li>
+              <li>Jesús revela su identidad con <span class="greek-word">ἐγώ εἰμι</span> (4:26).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="jn4a">Identifica los verbos en Juan 4:1-3</button>
+          <div id="jn4a" class="answer-text">
+            <span class="greek-word">ἔγνω</span> – aoristo de γινώσκω.<br>
+            <span class="greek-word">ἤκουσαν</span> – aoristo de ἀκούω.<br>
+            <span class="greek-word">ποιεῖ</span> – presente de ποιέω.<br>
+            <span class="greek-word">βαπτίζει</span> – presente de βαπτίζω.<br>
+            <span class="greek-word">ἀφῆκεν</span> – aoristo de ἀφίημι.<br>
+            <span class="greek-word">ἀπῆλθεν</span> – aoristo de ἀπέρχομαι.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: ANÁLISIS DE FORMAS VERBALES CLAVE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 5. Formas verbales clave en Juan 1–4</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las siguientes formas verbales aparecen con frecuencia en Juan 1–4 y son esenciales para la comprensión del texto:</p>
+
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Forma</th><th>Verbo</th><th>Tiempo/Voz</th><th>Contexto</th></tr></thead>
+              <tbody>
+                <tr><td>ἦν</td><td>εἰμί</td><td>imperfecto</td><td>1:1, 1:4, 1:9, 3:1</td></tr>
+                <tr><td>ἐγένετο</td><td>γίνομαι</td><td>aoristo</td><td>1:3, 1:14, 1:17</td></tr>
+                <tr><td>γέγονεν</td><td>γίνομαι</td><td>perfecto</td><td>1:3</td></tr>
+                <tr><td>ἦλθεν</td><td>ἔρχομαι</td><td>aoristo</td><td>1:11, 3:2, 4:3</td></tr>
+                <tr><td>ἐλήλυθας</td><td>ἔρχομαι</td><td>perfecto</td><td>3:2</td></tr>
+                <tr><td>οἴδαμεν</td><td>οἶδα</td><td>perfecto (pres.)</td><td>3:2, 4:22</td></tr>
+                <tr><td>εἶπεν</td><td>λέγω</td><td>aoristo</td><td>1:38, 3:3, 4:7</td></tr>
+                <tr><td>ἀπεκρίθη</td><td>ἀποκρίνομαι</td><td>aoristo</td><td>1:26, 3:3, 4:10</td></tr>
+                <tr><td>γεννηθῇ</td><td>γεννάω</td><td>subj. aor. pas.</td><td>3:3, 3:5</td></tr>
+                <tr><td>δύναται</td><td>δύναμαι</td><td>presente</td><td>3:2, 3:3</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Observación:</strong> Juan usa el <strong>perfecto</strong> para expresar <strong>estados resultantes</strong> (ἐλήλυθας = "has venido y permaneces"). El <strong>subjuntivo</strong> aparece en oraciones de propósito y condiciones.
+          </div>
+          <button class="btn-reveal" data-target="formasEj">Identifica la forma verbal</button>
+          <div id="formasEj" class="answer-text">
+            <span class="greek-word">γέγονεν</span> – perfecto de γίνομαι (estado resultante).<br>
+            <span class="greek-word">οἴδαμεν</span> – perfecto de οἶδα (sabemos).<br>
+            <span class="greek-word">γεννηθῇ</span> – subjuntivo aoristo pasivo de γεννάω.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Juan 1–4</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para la comprensión de Juan 1–4.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Frecuencia en Juan</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Juan 3:16:</strong> <span class="greek-word">οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον, ὥστε τὸν υἱὸν αὐτοῦ τὸν μονογενῆ ἔδωκεν, ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλʼ ἔχῃ ζωὴν αἰώνιον.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL TIEMPO VERBAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el tiempo y la voz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tiempoQuizArea"></div>
+          <button id="newTiempoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tiempoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – TRADUCCIÓN DE JUAN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce pasajes de Juan</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transJuanQuizArea"></div>
+          <button id="newTransJuanQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transJuanFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – ANÁLISIS MORFOSINTÁCTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-microscope"></i> 9. Análisis morfosintáctico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="analisisQuizArea"></div>
+          <button id="newAnalisisQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="analisisFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ANÁLISIS DETALLADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis de Juan 1:1-18</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee y analiza el Prólogo de Juan. Identifica cada forma verbal y su función.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:1 – ἦν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος</span></p>
+              <button class="btn-reveal" data-target="pr1a">¿Qué tiempo y aspecto tiene <strong>ἦν</strong>?</button>
+              <div id="pr1a" class="answer-text">Imperfecto de εἰμί – <strong>aspecto lineal</strong>: la existencia del Verbo es <strong>continua y eterna</strong>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:3 – ἐγένετο</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πάντα διʼ αὐτοῦ ἐγένετο</span></p>
+              <button class="btn-reveal" data-target="pr1b">¿Qué tiempo y aspecto tiene <strong>ἐγένετο</strong>?</button>
+              <div id="pr1b" class="answer-text">Aoristo de γίνομαι – <strong>aspecto puntual</strong>: la creación es un <strong>evento único</strong> que ocurrió en el pasado.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:14 – σάρξ ἐγένετο</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ λόγος σὰρξ ἐγένετο</span></p>
+              <button class="btn-reveal" data-target="pr1c">¿Qué tiempo y aspecto tiene <strong>ἐγένετο</strong> aquí?</button>
+              <div id="pr1c" class="answer-text">Aoristo de γίνομαι – <strong>aspecto puntual</strong>: la encarnación es un <strong>evento histórico único</strong>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 1:14 – ἐσκήνωσεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ ἐσκήνωσεν ἐν ἡμῖν</span></p>
+              <button class="btn-reveal" data-target="pr1d">¿Qué verbo es <strong>ἐσκήνωσεν</strong> y qué significa?</button>
+              <div id="pr1d" class="answer-text">Aoristo de <span class="greek-word">σκηνόω</span> – "habitó en tabernáculo". Evoca el <strong>tabernáculo del AT</strong> donde Dios habitaba entre su pueblo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Juan 1:1-18 en griego en voz alta. Identifica todas las formas verbales y su tiempo/aspecto. Reflexiona sobre el significado teológico del Prólogo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-50.html"><i class="fas fa-arrow-left"></i> Lección 50</a>
+      <a href="leccion-52.html"><i class="fas fa-arrow-right"></i> Lección 52</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος</span> (Juan 1:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 51 ==========
+    const vocabData = [
+      { greek: "ἀρχή", translit: "archē", spanish: "principio", freq: "18 en Juan" },
+      { greek: "σκηνόω", translit: "skēnoō", spanish: "habitar (en tabernáculo)", freq: "1 en Juan (1:14)" },
+      { greek: "πλήρης", translit: "plērēs", spanish: "lleno", freq: "2 en Juan" },
+      { greek: "ὁ ἐρχόμενος", translit: "ho erchomenos", spanish: "el que viene", freq: "frecuente" },
+      { greek: "μαρτυρία", translit: "martyria", spanish: "testimonio", freq: "14 en Juan" },
+      { greek: "λύχνος", translit: "lychnos", spanish: "lámpara, luz", freq: "1 en Juan (5:35)" },
+      { greek: "τεκνία", translit: "teknia", spanish: "hijitos", freq: "1 en Juan (13:33)" },
+      { greek: "νηπιάζω", translit: "nēpiazō", spanish: "actuar infantilmente", freq: "hapax en Juan" },
+      { greek: "τελειόω", translit: "teleioō", spanish: "perfeccionar", freq: "2 en Juan" },
+      { greek: "ἄνωθεν", translit: "anōthen", spanish: "de nuevo, desde arriba", freq: "5 en Juan" },
+      { greek: "γεννάω", translit: "gennaō", spanish: "engendrar, nacer", freq: "4 en Juan 3" },
+      { greek: "ὕδωρ ζῶν", translit: "hydōr zōn", spanish: "agua viva", freq: "Juan 4" },
+      { greek: "προσκυνέω", translit: "proskyneō", spanish: "adorar, postrarse", freq: "4 en Juan" },
+      { greek: "πνεῦμα", translit: "pneuma", spanish: "espíritu", freq: "24 en Juan" },
+      { greek: "ἀληθής", translit: "alēthēs", spanish: "verdadero", freq: "14 en Juan" },
+      { greek: "θεωρέω", translit: "theōreō", spanish: "contemplar, ver", freq: "8 en Juan" },
+      { greek: "δεῖ", translit: "dei", spanish: "es necesario", freq: "8 en Juan" },
+      { greek: "ζωή", translit: "zōē", spanish: "vida", freq: "36 en Juan" },
+      { greek: "κόσμος", translit: "kosmos", spanish: "mundo", freq: "78 en Juan" },
+      { greek: "σωτήρ", translit: "sōtēr", spanish: "Salvador", freq: "1 en Juan (4:42)" }
+    ];
+
+    // Ejemplos para identificar tiempo y voz
+    const tiempoExamples = [
+      { form: "ἦν", verb: "εἰμί", tense: "imperfecto", voice: "activo", meaning: "era" },
+      { form: "ἐγένετο", verb: "γίνομαι", tense: "aoristo", voice: "medio", meaning: "llegó a ser" },
+      { form: "γέγονεν", verb: "γίνομαι", tense: "perfecto", voice: "activo", meaning: "ha llegado a ser" },
+      { form: "ἦλθεν", verb: "ἔρχομαι", tense: "aoristo", voice: "activo", meaning: "vino" },
+      { form: "ἐλήλυθας", verb: "ἔρχομαι", tense: "perfecto", voice: "activo", meaning: "has venido" },
+      { form: "οἴδαμεν", verb: "οἶδα", tense: "perfecto", voice: "activo", meaning: "sabemos" },
+      { form: "εἶπεν", verb: "λέγω", tense: "aoristo", voice: "activo", meaning: "dijo" },
+      { form: "γεννηθῇ", verb: "γεννάω", tense: "subj. aor.", voice: "pasivo", meaning: "sea engendrado" },
+      { form: "δύναται", verb: "δύναμαι", tense: "presente", voice: "deponente", meaning: "puede" }
+    ];
+
+    // Pasajes para traducción de Juan
+    const transJuanExamples = [
+      { greek: "Ἐν ἀρχῇ ἦν ὁ λόγος", translation: "En el principio era el Verbo" },
+      { greek: "ὁ λόγος σὰρξ ἐγένετο", translation: "El Verbo se hizo carne" },
+      { greek: "ἐσκήνωσεν ἐν ἡμῖν", translation: "habitó entre nosotros" },
+      { greek: "οὕτως ἠγάπησεν ὁ θεὸς τὸν κόσμον", translation: "Tanto amó Dios al mundo" },
+      { greek: "γεννηθῇ ἄνωθεν", translation: "sea engendrado de nuevo/desde arriba" },
+      { greek: "πνεῦμα ὁ θεός", translation: "Dios es espíritu" }
+    ];
+
+    // Frases para análisis morfosintáctico
+    const analisisExamples = [
+      { phrase: "ὁ λόγος ἦν πρὸς τὸν θεόν", analysis: "sujeto: ὁ λόγος; verbo: ἦν (imperf.); complemento: πρὸς τὸν θεόν", translation: "El Verbo estaba hacia Dios" },
+      { phrase: "πάντα διʼ αὐτοῦ ἐγένετο", analysis: "sujeto: πάντα; verbo: ἐγένετο (aor.); διʼ αὐτοῦ: agente", translation: "Todas las cosas fueron hechas por medio de él" },
+      { phrase: "ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων", analysis: "sujeto: ζωή; verbo: ἦν; predicado: τὸ φῶς (nom.)", translation: "La vida era la luz de los hombres" },
+      { phrase: "οὐδεὶς δύναται ἰδεῖν τὴν βασιλείαν", analysis: "sujeto: οὐδείς; verbo: δύναται; inf. ἰδεῖν; objeto: τὴν βασιλείαν", translation: "Nadie puede ver el reino" }
+    ];
+
+    let currentTiempo = tiempoExamples[0];
+    let currentTransJuan = transJuanExamples[0];
+    let currentAnalisis = analisisExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.freq}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadTiempoQuiz() {
+      const randomIndex = Math.floor(Math.random() * tiempoExamples.length);
+      currentTiempo = tiempoExamples[randomIndex];
+      const container = document.getElementById("tiempoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la forma <span class="greek-word">${currentTiempo.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Verbo: ${currentTiempo.verb}</span><br>
+      <button id="tiempoPres" class="btn-reveal">Presente</button> <button id="tiempoImperf" class="btn-reveal">Imperfecto</button>
+      <button id="tiempoAor" class="btn-reveal">Aoristo</button> <button id="tiempoPerf" class="btn-reveal">Perfecto</button>
+      <button id="tiempoSubj" class="btn-reveal">Subjuntivo</button>
+      <div id="tiempoResult"></div></div>`;
+      const pres = document.getElementById("tiempoPres");
+      const imperf = document.getElementById("tiempoImperf");
+      const aor = document.getElementById("tiempoAor");
+      const perf = document.getElementById("tiempoPerf");
+      const subj = document.getElementById("tiempoSubj");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("tiempoResult");
+          if (expected === currentTiempo.tense) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTiempo.meaning})</span>`;
+            setTimeout(loadTiempoQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTiempo.tense}</span>`;
+          }
+        });
+      };
+      check(pres, "presente");
+      check(imperf, "imperfecto");
+      check(aor, "aoristo");
+      check(perf, "perfecto");
+      check(subj, "subj. aor.");
+    }
+
+    function loadTransJuanQuiz() {
+      const randomIndex = Math.floor(Math.random() * transJuanExamples.length);
+      currentTransJuan = transJuanExamples[randomIndex];
+      const container = document.getElementById("transJuanQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransJuan.greek}</span><br>
+      <input type="text" id="transJuanAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransJuan" class="btn-reveal">Verificar</button>
+      <div id="transJuanResult"></div></div>`;
+      document.getElementById("checkTransJuan").addEventListener("click", () => {
+        const answer = document.getElementById("transJuanAnswer").value.trim().toLowerCase();
+        const correct = currentTransJuan.translation.toLowerCase();
+        const result = document.getElementById("transJuanResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransJuanQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransJuan.translation}</span>`;
+        }
+      });
+    }
+
+    function loadAnalisisQuiz() {
+      const randomIndex = Math.floor(Math.random() * analisisExamples.length);
+      currentAnalisis = analisisExamples[randomIndex];
+      const container = document.getElementById("analisisQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la frase:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentAnalisis.phrase}</span><br>
+      <span style="font-size:0.9rem;">${currentAnalisis.analysis}</span><br>
+      <input type="text" id="analisisAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkAnalisis" class="btn-reveal">Verificar</button>
+      <div id="analisisResult"></div></div>`;
+      document.getElementById("checkAnalisis").addEventListener("click", () => {
+        const answer = document.getElementById("analisisAnswer").value.trim().toLowerCase();
+        const correct = currentAnalisis.translation.toLowerCase();
+        const result = document.getElementById("analisisResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto</span>`;
+          setTimeout(loadAnalisisQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentAnalisis.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Forma verbal que expresa aspecto lineal en el pasado", opts: ["Imperfecto", "Aoristo", "Perfecto", "Presente"], correct: 0 },
+      { q: "Forma verbal que expresa estado resultante", opts: ["Perfecto", "Aoristo", "Imperfecto", "Presente"], correct: 0 },
+      { q: "En Juan 1:1, 'ἦν' es...", opts: ["Imperfecto", "Aoristo", "Perfecto", "Presente"], correct: 0 },
+      { q: "En Juan 1:14, 'σὰρξ ἐγένετο' significa...", opts: ["se hizo carne", "era carne", "ha sido carne", "será carne"], correct: 0 },
+      { q: "La palabra 'ἄνωθεν' en Juan 3:3 significa...", opts: ["de nuevo / desde arriba", "abajo", "fuera", "dentro"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransJuan" || btn.id === "checkAnalisis" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && btn.closest("#tiempoQuizArea")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadTiempoQuiz();
+      loadTransJuanQuiz();
+      loadAnalisisQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newTiempoQuiz")?.addEventListener("click", () => {
+        loadTiempoQuiz();
+        document.getElementById("tiempoFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransJuanQuiz")?.addEventListener("click", () => {
+        loadTransJuanQuiz();
+        document.getElementById("transJuanFeedback").innerHTML = "";
+      });
+      document.getElementById("newAnalisisQuiz")?.addEventListener("click", () => {
+        loadAnalisisQuiz();
+        document.getElementById("analisisFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

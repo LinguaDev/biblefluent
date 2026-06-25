@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 59: Retórica Greco-Romana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 84%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .rhetoric-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .chiasmus-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-58.html"><i class="fas fa-arrow-left"></i> Lección 58</a>
+        <a href="leccion-60.html"><i class="fas fa-arrow-right"></i> Lección 60</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-comment-dots"></i> Lección 59 · Retórica Greco-Romana y el NT <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Quiasmo, inclusión, anáfora, paranomasia · Estructura retórica de las epístolas · Ironía y diatriba · Análisis de Gálatas, 1 Corintios y Romanos</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1180/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Retórica greco-romana en el NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los recursos retóricos del mundo greco-romano en el Nuevo Testamento</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. La retórica en el mundo greco-romano</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>retórica</strong> (del griego <span class="greek-word">ῥητορική</span>) era el <strong>arte de la persuasión</strong> en el mundo greco-romano. Los autores del NT, especialmente Pablo, fueron <strong>educados en este arte</strong> y lo usaron para comunicar el evangelio de manera efectiva.</p>
+          <div class="rhetoric-box">
+            <i class="fas fa-lightbulb"></i> <strong>Importancia exegética:</strong>
+            <ul>
+              <li>Los autores del NT usaban <strong>figuras retóricas</strong> para enfatizar, persuadir y estructurar su mensaje.</li>
+              <li>Reconocer estas figuras ayuda a <strong>entender el argumento</strong> y la <strong>intención del autor</strong>.</li>
+              <li>La retórica no es un "adorno" sino una <strong>herramienta de comunicación</strong> esencial.</li>
+              <li>Pasajes como 1 Corintios 1-2, Gálatas 2-3 y Romanos 8 están <strong>estructurados retóricamente</strong>.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">ὅπου σοφός, ὅπου γραμματεύς, ὅπου συζητητὴς τοῦ αἰῶνος τούτου;</span> (1 Corintios 1:20).<br>
+            Pablo usa una <strong>anáfora</strong> (repetición de <span class="greek-word">ὅπου</span>) para enfatizar la necedad de la sabiduría humana.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: FIGURAS RETÓRICAS I – QUIASMO Y INCLUSIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrows-left-right"></i> 2. Quiasmo e inclusión</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>quiasmo</strong> y la <strong>inclusión</strong> son figuras retóricas que <strong>estructuran</strong> el texto en patrones simétricos.</p>
+
+          <h3>Quiasmo (estructura en cruz)</h3>
+          <div class="chiasmus-box">
+            <strong>Estructura:</strong> A - B - C - B' - A' (donde A' corresponde a A, B' a B, etc.)<br>
+            <strong>Función:</strong> Enfatiza el <strong>centro</strong> (C) de la estructura.<br>
+            <strong>Ejemplo (Juan 1:1):</strong><br>
+            A: <span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος</span> (En el principio era el Verbo)<br>
+            B: <span class="greek-word">καὶ ὁ λόγος ἦν πρὸς τὸν θεόν</span> (y el Verbo estaba con Dios)<br>
+            C: <span class="greek-word">καὶ θεὸς ἦν ὁ λόγος</span> (y Dios era el Verbo)<br>
+            B': <span class="greek-word">οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν</span> (este estaba en el principio con Dios)<br>
+            A': <span class="greek-word">πάντα διʼ αὐτοῦ ἐγένετο</span> (todas las cosas fueron hechas por él)<br>
+            <strong>Centro:</strong> <span class="greek-word">θεὸς ἦν ὁ λόγος</span> – la divinidad de Cristo.
+          </div>
+
+          <h3>Inclusión (marco o anillo)</h3>
+          <div class="chiasmus-box">
+            <strong>Estructura:</strong> A ... A' (el texto comienza y termina con el mismo tema o palabra).<br>
+            <strong>Función:</strong> Crea un <strong>marco</strong> que unifica el pasaje.<br>
+            <strong>Ejemplo (Filipenses 2:5-11):</strong><br>
+            A: <span class="greek-word">τοῦτο φρονεῖτε ἐν ὑμῖν ὃ καὶ ἐν Χριστῷ Ἰησοῦ</span> (Tened este sentir en vosotros que hubo en Cristo Jesús).<br>
+            ... [himno cristológico] ...<br>
+            A': <span class="greek-word">εἰς δόξαν θεοῦ πατρός</span> (para gloria de Dios Padre).<br>
+            La inclusión une el pasaje: comenzar con el ejemplo de Cristo y terminar con la gloria de Dios.
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Clave exegética:</strong> Identificar el <strong>centro de un quiasmo</strong> te ayuda a encontrar el <strong>punto principal</strong> del autor. En Juan 1:1, el centro es la afirmación de que el Verbo es Dios.
+          </div>
+          <button class="btn-reveal" data-target="quiasmoEj">Identifica el quiasmo</button>
+          <div id="quiasmoEj" class="answer-text">
+            Mateo 7:6 – <span class="greek-word">μὴ δῶτε ... μηδὲ βάλητε</span> – estructura quiástica.<br>
+            Lucas 1:46-55 – el Magnificat tiene una estructura quiástica.<br>
+            Romanos 8:29-30 – <span class="greek-word">προέγνω ... προώρισεν ... ἐκάλεσεν ... ἐδικαίωσεν ... ἐδόξασεν</span> – cadena quiástica.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: FIGURAS RETÓRICAS II – ANÁFORA Y PARANOMASIA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-repeat"></i> 3. Anáfora y paranomasia</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>anáfora</strong> y la <strong>paranomasia</strong> son figuras retóricas que juegan con la <strong>repetición</strong> de palabras o sonidos.</p>
+
+          <h3>Anáfora (repetición inicial)</h3>
+          <div class="rhetoric-box">
+            <strong>Estructura:</strong> Repetición de la misma palabra al comienzo de cláusulas consecutivas.<br>
+            <strong>Función:</strong> Crea <strong>énfasis</strong> y <strong>ritmo</strong>.<br>
+            <strong>Ejemplo (1 Corintios 1:20):</strong><br>
+            <span class="greek-word">ὅπου σοφός; ὅπου γραμματεύς; ὅπου συζητητὴς τοῦ αἰῶνος τούτου;</span><br>
+            ("¿Dónde está el sabio? ¿Dónde está el escriba? ¿Dónde está el disputador de este siglo?")<br>
+            La repetición de <span class="greek-word">ὅπου</span> enfatiza la <strong>ausencia</strong> de sabiduría humana.
+          </div>
+
+          <h3>Paranomasia (juego de palabras)</h3>
+          <div class="rhetoric-box">
+            <strong>Estructura:</strong> Uso de palabras con <strong>sonido similar</strong> pero <strong>significado diferente</strong>.<br>
+            <strong>Función:</strong> Crea un <strong>efecto poético</strong> o <strong>irónico</strong>.<br>
+            <strong>Ejemplo (Romanos 1:23):</strong><br>
+            <span class="greek-word">ἤλλαξαν τὴν δόξαν τοῦ ἀφθάρτου θεοῦ ἐν ὁμοιώματι εἰκόνος φθαρτοῦ ἀνθρώπου</span><br>
+            ("Cambiaron la gloria del Dios incorruptible por la semejanza de imagen de hombre corruptible")<br>
+            El juego entre <span class="greek-word">ἄφθαρτος</span> (incorruptible) y <span class="greek-word">φθαρτός</span> (corruptible) enfatiza la <strong>ironía</strong> de la idolatría.
+          </div>
+
+          <button class="btn-reveal" data-target="anforaEj">Identifica la figura retórica</button>
+          <div id="anforaEj" class="answer-text">
+            <span class="greek-word">ὅπου ... ὅπου ... ὅπου</span> – anáfora.<br>
+            <span class="greek-word">ἄφθαρτος ... φθαρτός</span> – paranomasia.<br>
+            <span class="greek-word">μὴ ... μηδὲ</span> – anáfora en Mateo 7:6.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: IRONÍA Y DIATRIBA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-smile-wink"></i> 4. Ironía y diatriba</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>ironía</strong> y la <strong>diatriba</strong> son técnicas retóricas que Pablo usa con frecuencia en sus cartas.</p>
+
+          <h3>Ironía</h3>
+          <div class="rhetoric-box">
+            <strong>Estructura:</strong> Decir lo <strong>contrario</strong> de lo que se quiere decir, para <strong>criticar</strong> o <strong>enfatizar</strong>.<br>
+            <strong>Función:</strong> Crea <strong>tensión</strong> y <strong>persuasión</strong>.<br>
+            <strong>Ejemplo (1 Corintios 4:8):</strong><br>
+            <span class="greek-word">ἤδη κεκορεσμένοι ἐστέ, ἤδη ἐπλουτήσατε, χωρὶς ἡμῶν ἐβασιλεύσατε</span><br>
+            ("Ya estáis saciados, ya os habéis enriquecido, ya reináis sin nosotros")<br>
+            Pablo usa la <strong>ironía</strong> para corregir la arrogancia de los corintios.
+          </div>
+
+          <h3>Diatriba (estilo de debate)</h3>
+          <div class="rhetoric-box">
+            <strong>Estructura:</strong> Diálogo imaginario con un <strong>oponente</strong> o <strong>interlocutor</strong>.<br>
+            <strong>Función:</strong> Presenta y refuta <strong>objeciones</strong>.<br>
+            <strong>Ejemplo (Romanos 9:19-20):</strong><br>
+            <span class="greek-word">ἐρεῖς μοι οὖν· τί ἔτι μέμφεται; τῷ γὰρ βουλήματι αὐτοῦ τίς ἀνθέστηκεν;</span><br>
+            ("Me dirás entonces: ¿Por qué todavía se queja? Porque ¿quién ha resistido a su voluntad?")<br>
+            Pablo usa la diatriba para <strong>plantear y responder</strong> objeciones.<br>
+            Otros ejemplos: Romanos 2:17-24; 3:1-9; 6:1-2; 7:7.
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Clave exegética:</strong> Reconocer la ironía y la diatriba te ayuda a entender <strong>por qué Pablo dice lo que dice</strong> – no siempre está afirmando, a veces está <strong>citando</strong> o <strong>refutando</strong> a un oponente.
+          </div>
+          <button class="btn-reveal" data-target="ironiaEj">Identifica la técnica retórica</button>
+          <div id="ironiaEj" class="answer-text">
+            <span class="greek-word">ἤδη ἐβασιλεύσατε</span> – ironía (1 Corintios 4:8).<br>
+            <span class="greek-word">τί οὖν ἐροῦμεν;</span> – diatriba (Romanos 6:1).<br>
+            <span class="greek-word">μὴ γένοιτο</span> – respuesta a una objeción en la diatriba.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: ESTRUCTURA RETÓRICA DE LAS EPÍSTOLAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 5. Estructura retórica de las epístolas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Las epístolas paulinas a menudo siguen la <strong>estructura retórica greco-romana</strong>, que consta de cuatro partes principales:</p>
+
+          <div class="rhetoric-box">
+            <strong><i class="fas fa-arrow-right"></i> 1. Propositio (tesis)</strong>
+            <ul>
+              <li>La <strong>declaración principal</strong> o <strong>tesis</strong> de la carta.</li>
+              <li><strong>Ejemplo:</strong> Romanos 1:16-17 – <span class="greek-word">δικαιοσύνη γὰρ θεοῦ ... ἀποκαλύπτεται</span> (la justicia de Dios se revela).</li>
+            </ul>
+          </div>
+
+          <div class="rhetoric-box">
+            <strong><i class="fas fa-arrow-right"></i> 2. Narratio (exposición)</strong>
+            <ul>
+              <li>Exposición de los <strong>hechos</strong> y el <strong>contexto</strong>.</li>
+              <li><strong>Ejemplo:</strong> Romanos 1:18-3:20 – la universalidad del pecado.</li>
+            </ul>
+          </div>
+
+          <div class="rhetoric-box">
+            <strong><i class="fas fa-arrow-right"></i> 3. Probatio (argumentación)</strong>
+            <ul>
+              <li>La <strong>argumentación</strong> central que demuestra la tesis.</li>
+              <li><strong>Ejemplo:</strong> Romanos 3:21-8:39 – justificación por la fe y vida en el Espíritu.</li>
+            </ul>
+          </div>
+
+          <div class="rhetoric-box">
+            <strong><i class="fas fa-arrow-right"></i> 4. Peroratio (conclusión)</strong>
+            <ul>
+              <li><strong>Conclusión</strong> y <strong>exhortación</strong> final.</li>
+              <li><strong>Ejemplo:</strong> Romanos 12:1-15:13 – paránesis ética.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Aplicación:</strong> Esta estructura no es rígida, pero reconocerla te ayuda a <strong>seguir el argumento</strong> de Pablo. La <span class="greek-word">propositio</span> (tesis) es especialmente importante para entender el propósito de la carta.
+          </div>
+          <button class="btn-reveal" data-target="estructuraEj">Identifica la parte retórica</button>
+          <div id="estructuraEj" class="answer-text">
+            <span class="greek-word">δικαιοσύνη γὰρ θεοῦ ...</span> – propositio (tesis).<br>
+            <span class="greek-word">πάντες γὰρ ἥμαρτον</span> – narratio (exposición).<br>
+            <span class="greek-word">δικαιούμενοι δωρεάν</span> – probatio (argumentación).<br>
+            <span class="greek-word">παρακαλῶ οὖν ὑμᾶς</span> – peroratio (exhortación).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Términos retóricos y de argumentación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras incluyen términos retóricos y de argumentación del NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Campo semántico</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>1 Corintios 1:18-25:</strong> <span class="greek-word">ὁ λόγος γὰρ ὁ τοῦ σταυροῦ τοῖς μὲν ἀπολλυμένοις μωρία ἐστίν, τοῖς δὲ σῳζομένοις ἡμῖν δύναμις θεοῦ ἐστιν. γέγραπται γάρ· ἀπολῶ τὴν σοφίαν τῶν σοφῶν, καὶ τὴν σύνεσιν τῶν συνετῶν ἀθετήσω. ποῦ σοφός; ποῦ γραμματεύς; ποῦ συζητητὴς τοῦ αἰῶνος τούτου; οὐχὶ ἐμώρανεν ὁ θεὸς τὴν σοφίαν τοῦ κόσμου; ἐπειδὴ γὰρ ἐν τῇ σοφίᾳ τοῦ θεοῦ οὐκ ἔγνω ὁ κόσμος διὰ τῆς σοφίας τὸν θεόν, εὐδόκησεν ὁ θεὸς διὰ τῆς μωρίας τοῦ κηρύγματος σῶσαι τοὺς πιστεύοντας. ἐπειδὴ καὶ Ἰουδαῖοι σημεῖα αἰτοῦσιν καὶ Ἕλληνες σοφίαν ζητοῦσιν· ἡμεῖς δὲ κηρύσσομεν Χριστὸν ἐσταυρωμένον, Ἰουδαίοις μὲν σκάνδαλον, ἔθνεσιν δὲ μωρίαν, αὐτοῖς δὲ τοῖς κλητοῖς, Ἰουδαίοις τε καὶ Ἕλλησιν, Χριστὸν θεοῦ δύναμιν καὶ θεοῦ σοφίαν.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA LA FIGURA RETÓRICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica la figura retórica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="figuraQuizArea"></div>
+          <button id="newFiguraQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="figuraFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA LA ESTRUCTURA RETÓRICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 8. Identifica la parte de la estructura retórica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="estructuraRhetQuizArea"></div>
+          <button id="newEstructuraRhetQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="estructuraRhetFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN Y ANÁLISIS RETÓRICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce y analiza retóricamente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transRhetQuizArea"></div>
+          <button id="newTransRhetQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transRhetFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ANÁLISIS RETÓRICO DE PASAJES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis retórico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los pasajes. Identifica las figuras retóricas y la estructura argumentativa.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Corintios 1:20 – ἀνάφορα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ποῦ σοφός; ποῦ γραμματεύς; ποῦ συζητητὴς τοῦ αἰῶνος τούτου;</span></p>
+              <button class="btn-reveal" data-target="ret1a">¿Qué figura retórica usa Pablo aquí?</button>
+              <div id="ret1a" class="answer-text"><strong>Anáfora</strong> – repetición de <span class="greek-word">ποῦ</span> al inicio de cada cláusula para enfatizar la ausencia de sabiduría humana.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Corintios 1:25 – σκάνδαλον</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Χριστὸν ἐσταυρωμένον, Ἰουδαίοις μὲν σκάνδαλον, ἔθνεσιν δὲ μωρίαν</span></p>
+              <button class="btn-reveal" data-target="ret1b">¿Qué figura retórica aparece en el contraste entre <strong>σκάνδαλον</strong> y <strong>μωρίαν</strong>?</button>
+              <div id="ret1b" class="answer-text"><strong>Paranomasia</strong> – juego de palabras entre <span class="greek-word">σκάνδαλον</span> (tropiezo) y <span class="greek-word">μωρία</span> (necedad), ambos términos que describen la reacción humana ante la cruz.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 6:1 – διατριβή</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τί οὖν ἐροῦμεν; ἐπιμένωμεν τῇ ἁμαρτίᾳ, ἵνα ἡ χάρις πλεονάσῃ;</span></p>
+              <button class="btn-reveal" data-target="ret1c">¿Qué técnica retórica es esta?</button>
+              <div id="ret1c" class="answer-text"><strong>Diatriba</strong> – Pablo plantea una objeción imaginaria para responderla (estilo de debate).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 1:16-17 – propositio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Οὐ γὰρ ἐπαισχύνομαι τὸ εὐαγγέλιον· δύναμις γὰρ θεοῦ ἐστιν εἰς σωτηρίαν παντὶ τῷ πιστεύοντι, Ἰουδαίῳ τε πρῶτον καὶ Ἕλληνι. δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται ἐκ πίστεως εἰς πίστιν</span></p>
+              <button class="btn-reveal" data-target="ret1d">¿Qué parte de la estructura retórica es Romanos 1:16-17?</button>
+              <div id="ret1d" class="answer-text"><strong>Propositio</strong> (tesis) – la declaración principal de la carta: el evangelio revela la justicia de Dios.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee 1 Corintios 1:18-25 y Romanos 1:16-17 en griego. Identifica las figuras retóricas y la estructura argumentativa. Reflexiona sobre cómo la retórica ayuda a la persuasión del mensaje del evangelio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-58.html"><i class="fas fa-arrow-left"></i> Lección 58</a>
+      <a href="leccion-60.html"><i class="fas fa-arrow-right"></i> Lección 60</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">τὸ μωρὸν τοῦ θεοῦ σοφώτερον τῶν ἀνθρώπων ἐστίν</span> (1 Corintios 1:25)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 59 ==========
+    const vocabData = [
+      { greek: "σοφία", translit: "sophia", spanish: "sabiduría", field: "retórica/sabiduría" },
+      { greek: "γνῶσις", translit: "gnōsis", spanish: "conocimiento", field: "retórica/sabiduría" },
+      { greek: "μωρία", translit: "mōria", spanish: "necedad, locura", field: "retórica/sabiduría" },
+      { greek: "μωρός", translit: "mōros", spanish: "necio, tonto", field: "retórica/sabiduría" },
+      { greek: "σκάνδαλον", translit: "skandalon", spanish: "tropiezo, escándalo", field: "retórica/sabiduría" },
+      { greek: "εὐμορφία", translit: "eumorphia", spanish: "elegancia, belleza", field: "retórica" },
+      { greek: "πειθώ", translit: "peithō", spanish: "persuasión", field: "retórica" },
+      { greek: "ἀπόδειξις", translit: "apodeixis", spanish: "demostración", field: "retórica" },
+      { greek: "συλλογισμός", translit: "syllogismos", spanish: "razonamiento", field: "retórica" },
+      { greek: "ψευδολογέω", translit: "pseudologeō", spanish: "mentir", field: "retórica" },
+      { greek: "κολακεία", translit: "kolakeia", spanish: "adulación, lisonja", field: "retórica" },
+      { greek: "πλεονεξία", translit: "pleonexia", spanish: "avaricia, codicia", field: "retórica" },
+      { greek: "πλεονέκτης", translit: "pleonektēs", spanish: "avaro", field: "retórica" },
+      { greek: "κερδαίνω", translit: "kerdainō", spanish: "ganar", field: "retórica" },
+      { greek: "κέρδος", translit: "kerdos", spanish: "ganancia", field: "retórica" },
+      { greek: "ζημία", translit: "zēmia", spanish: "pérdida", field: "retórica" },
+      { greek: "ἀγώνισμα", translit: "agōnisma", spanish: "resultado del combate", field: "retórica" },
+      { greek: "θρίαμβος", translit: "triambos", spanish: "triunfo, procesión", field: "retórica" },
+      { greek: "ὀσμή", translit: "osmē", spanish: "olor, aroma", field: "retórica" },
+      { greek: "θυμίαμα", translit: "thymiama", spanish: "incienso, perfume", field: "retórica" }
+    ];
+
+    // Ejemplos para identificar figura retórica
+    const figuraExamples = [
+      { phrase: "ποῦ σοφός; ποῦ γραμματεύς; ποῦ συζητητὴς", figure: "anáfora", reason: "repetición de ποῦ" },
+      { phrase: "ἄφθαρτος ... φθαρτός", figure: "paranomasia", reason: "juego de sonidos" },
+      { phrase: "ἤδη κεκορεσμένοι ἐστέ, ἤδη ἐπλουτήσατε", figure: "ironía", reason: "decir lo contrario de lo que se quiere decir" },
+      { phrase: "τί οὖν ἐροῦμεν;", figure: "diatriba", reason: "diálogo imaginario con un oponente" },
+      { phrase: "δικαιοσύνη γὰρ θεοῦ ... ἀποκαλύπτεται", figure: "quiasmo", reason: "estructura en cruz (A-B-B'-A')" },
+      { phrase: "οἱ μὲν ... οἱ δὲ", figure: "parataxis estructurada", reason: "contraste con μέν...δέ" }
+    ];
+
+    // Ejemplos para identificar estructura retórica
+    const estructuraRhetExamples = [
+      { phrase: "δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται", part: "propositio", reason: "tesis de Romanos" },
+      { phrase: "πάντες γὰρ ἥμαρτον καὶ ὑστεροῦνται", part: "narratio", reason: "exposición del pecado universal" },
+      { phrase: "δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι", part: "probatio", reason: "argumentación de la justificación" },
+      { phrase: "παρακαλῶ οὖν ὑμᾶς, ἀδελφοί", part: "peroratio", reason: "exhortación final" },
+      { phrase: "Χριστὸς ... σταυρωθεὶς", part: "probatio", reason: "argumento central" }
+    ];
+
+    // Frases para traducción y análisis retórico
+    const transRhetExamples = [
+      { greek: "ποῦ σοφός; ποῦ γραμματεύς;", translation: "¿Dónde está el sabio? ¿Dónde está el escriba?", figure: "anáfora" },
+      { greek: "ἤδη κεκορεσμένοι ἐστέ", translation: "Ya estáis saciados", figure: "ironía" },
+      { greek: "τί οὖν ἐροῦμεν;", translation: "¿Qué diremos, pues?", figure: "diatriba" },
+      { greek: "δικαιοσύνη γὰρ θεοῦ", translation: "Porque la justicia de Dios", figure: "propositio" },
+      { greek: "πάντες γὰρ ἥμαρτον", translation: "Porque todos pecaron", figure: "narratio" }
+    ];
+
+    let currentFigura = figuraExamples[0];
+    let currentEstructuraRhet = estructuraRhetExamples[0];
+    let currentTransRhet = transRhetExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.field}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadFiguraQuiz() {
+      const randomIndex = Math.floor(Math.random() * figuraExamples.length);
+      currentFigura = figuraExamples[randomIndex];
+      const container = document.getElementById("figuraQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué figura retórica es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentFigura.phrase}</span><br>
+      <button id="figAna" class="btn-reveal">Anáfora</button> <button id="figPara" class="btn-reveal">Paranomasia</button>
+      <button id="figIron" class="btn-reveal">Ironía</button> <button id="figDia" class="btn-reveal">Diatriba</button>
+      <button id="figQui" class="btn-reveal">Quiasmo</button>
+      <div id="figuraResult"></div></div>`;
+      const ana = document.getElementById("figAna");
+      const para = document.getElementById("figPara");
+      const iron = document.getElementById("figIron");
+      const dia = document.getElementById("figDia");
+      const qui = document.getElementById("figQui");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("figuraResult");
+          if (expected === currentFigura.figure) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentFigura.reason})</span>`;
+            setTimeout(loadFiguraQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentFigura.figure}</span>`;
+          }
+        });
+      };
+      check(ana, "anáfora");
+      check(para, "paranomasia");
+      check(iron, "ironía");
+      check(dia, "diatriba");
+      check(qui, "quiasmo");
+    }
+
+    function loadEstructuraRhetQuiz() {
+      const randomIndex = Math.floor(Math.random() * estructuraRhetExamples.length);
+      currentEstructuraRhet = estructuraRhetExamples[randomIndex];
+      const container = document.getElementById("estructuraRhetQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué parte de la estructura retórica es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentEstructuraRhet.phrase}</span><br>
+      <button id="estProp" class="btn-reveal">Propositio (tesis)</button> <button id="estNar" class="btn-reveal">Narratio (exposición)</button>
+      <button id="estProb" class="btn-reveal">Probatio (argumentación)</button> <button id="estPer" class="btn-reveal">Peroratio (conclusión)</button>
+      <div id="estructuraRhetResult"></div></div>`;
+      const prop = document.getElementById("estProp");
+      const nar = document.getElementById("estNar");
+      const prob = document.getElementById("estProb");
+      const per = document.getElementById("estPer");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("estructuraRhetResult");
+          if (expected === currentEstructuraRhet.part) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentEstructuraRhet.reason})</span>`;
+            setTimeout(loadEstructuraRhetQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentEstructuraRhet.part}</span>`;
+          }
+        });
+      };
+      check(prop, "propositio");
+      check(nar, "narratio");
+      check(prob, "probatio");
+      check(per, "peroratio");
+    }
+
+    function loadTransRhetQuiz() {
+      const randomIndex = Math.floor(Math.random() * transRhetExamples.length);
+      currentTransRhet = transRhetExamples[randomIndex];
+      const container = document.getElementById("transRhetQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza la figura retórica:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransRhet.greek}</span><br>
+      <input type="text" id="transRhetAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransRhet" class="btn-reveal">Verificar</button>
+      <div id="transRhetResult"></div></div>`;
+      document.getElementById("checkTransRhet").addEventListener("click", () => {
+        const answer = document.getElementById("transRhetAnswer").value.trim().toLowerCase();
+        const correct = currentTransRhet.translation.toLowerCase();
+        const result = document.getElementById("transRhetResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransRhet.figure})</span>`;
+          setTimeout(loadTransRhetQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransRhet.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Figura retórica que repite la misma palabra al inicio de cláusulas", opts: ["Anáfora", "Paranomasia", "Ironía", "Diatriba"], correct: 0 },
+      { q: "Figura retórica que usa palabras con sonido similar pero significado diferente", opts: ["Paranomasia", "Anáfora", "Ironía", "Quiasmo"], correct: 0 },
+      { q: "Técnica retórica de dialogar con un oponente imaginario", opts: ["Diatriba", "Anáfora", "Ironía", "Paranomasia"], correct: 0 },
+      { q: "Estructura retórica que presenta la tesis de la carta", opts: ["Propositio", "Narratio", "Probatio", "Peroratio"], correct: 0 },
+      { q: "Término griego que significa 'necedad, locura'", opts: ["μωρία", "σοφία", "σκάνδαλον", "γνῶσις"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransRhet" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#figuraQuizArea") || btn.closest("#estructuraRhetQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadFiguraQuiz();
+      loadEstructuraRhetQuiz();
+      loadTransRhetQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newFiguraQuiz")?.addEventListener("click", () => {
+        loadFiguraQuiz();
+        document.getElementById("figuraFeedback").innerHTML = "";
+      });
+      document.getElementById("newEstructuraRhetQuiz")?.addEventListener("click", () => {
+        loadEstructuraRhetQuiz();
+        document.getElementById("estructuraRhetFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransRhetQuiz")?.addEventListener("click", () => {
+        loadTransRhetQuiz();
+        document.getElementById("transRhetFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 53: Evangelios Sinópticos y Hechos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 76%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .synoptic-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .comparison-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    .synoptic-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .synoptic-compare .comp-card { background: #f8fafd; border-radius: 1rem; padding: 1rem; border: 1px solid #e2e8f0; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-52.html"><i class="fas fa-arrow-left"></i> Lección 52</a>
+        <a href="leccion-54.html"><i class="fas fa-arrow-right"></i> Lección 54</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-bible"></i> Lección 53 · Evangelios Sinópticos y Hechos <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Marcos: parataxis y εὐθύς · Mateo: citas de cumplimiento · Lucas-Hechos: griego literario y vocabulario médico · Comparación sinóptica</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1060/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Análisis textual de los Evangelios Sinópticos y Hechos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Los estilos literarios de Mateo, Marcos, Lucas y Hechos</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Introducción a los Evangelios Sinópticos y Hechos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los Evangelios Sinópticos (Mateo, Marcos, Lucas) y Hechos de los Apóstoles presentan <strong>estilos literarios distintos</strong> que reflejan sus autores, audiencias y propósitos teológicos.</p>
+          <div class="synoptic-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características generales:</strong>
+            <ul>
+              <li><strong>Marcos:</strong> griego <strong>paratáctico</strong>, rápido, uso frecuente de <span class="greek-word">εὐθύς</span> ("inmediatamente").</li>
+              <li><strong>Mateo:</strong> griego <strong>semitizante</strong>, citas del AT con <span class="greek-word">ἵνα πληρωθῇ</span>, discursos estructurados.</li>
+              <li><strong>Lucas:</strong> griego <strong>literario</strong>, vocabulario <strong>médico</strong>, uso del optativo, estilo más elaborado.</li>
+              <li><strong>Hechos:</strong> estilo de Lucas, con <strong>discursos</strong> y <strong>secciones "nosotros"</strong> (viajes de Pablo).</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> El problema sinóptico:</strong> Los tres evangelios comparten material, pero cada uno tiene su propio estilo y énfasis. La <strong>comparación sinóptica</strong> revela las intenciones teológicas de cada autor.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: MARCOS – ESTILO PARATÁCTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-book"></i> 2. Marcos: parataxis, εὐθύς e imperfecto narrativo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Evangelio de Marcos es el más <strong>breve y dinámico</strong>. Su griego es <strong>simple</strong> y <strong>directo</strong>, con características muy marcadas.</p>
+
+          <h3>Parataxis (coordinación con καί)</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Oraciones cortas unidas con <span class="greek-word">καί</span> ("y").<br>
+            <strong>Ejemplo (Marcos 1:21):</strong><br>
+            <span class="greek-word">καὶ εἰσπορεύονται εἰς Καφαρναούμ· καὶ εὐθὺς τοῖς σάββασιν εἰσελθὼν εἰς τὴν συναγωγὴν ἐδίδασκεν.</span><br>
+            "Y entran en Cafarnaúm; y al instante, entrando en la sinagoga en sábado, enseñaba."
+          </div>
+
+          <h3>εὐθύς / εὐθέως – "inmediatamente"</h3>
+          <div class="synoptic-box">
+            <strong>Frecuencia:</strong> Marcos usa <span class="greek-word">εὐθύς</span> o <span class="greek-word">εὐθέως</span> más de 40 veces (frente a 10 en Mateo y 7 en Lucas).<br>
+            <strong>Función:</strong> Da <strong>ritmo rápido</strong> a la narración, enfatizando la <strong>urgencia</strong> del ministerio de Jesús.
+          </div>
+
+          <h3>Imperfecto narrativo</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Uso frecuente del imperfecto para describir acciones en progreso.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἐδίδασκεν</span> (enseñaba), <span class="greek-word">ἐθεράπευσεν</span> (sanaba) – imperfecto para acciones continuas.<br>
+            <strong>Función:</strong> Crea una <strong>sensación de inmediatez</strong> y <strong>acción continua</strong>.
+          </div>
+          <button class="btn-reveal" data-target="marcosEj">Identifica la característica de Marcos</button>
+          <div id="marcosEj" class="answer-text">
+            <span class="greek-word">καὶ εὐθὺς ... καὶ ...</span> – parataxis con καί y εὐθύς.<br>
+            <span class="greek-word">ἐδίδασκεν</span> – imperfecto narrativo (acción continua).<br>
+            <span class="greek-word">εὐθὺς</span> – palabra característica de Marcos.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: MATEO – CITAS DE CUMPLIMIENTO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-book"></i> 3. Mateo: citas del AT y discursos estructurados</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Evangelio de Mateo presenta a Jesús como el <strong>cumplimiento</strong> del Antiguo Testamento y el <strong>nuevo Moisés</strong>.</p>
+
+          <h3>Fórmula de cumplimiento: <span class="greek-word">ἵνα πληρωθῇ</span></h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Mateo usa la fórmula <span class="greek-word">ἵνα πληρωθῇ</span> ("para que se cumpliera") para conectar eventos de la vida de Jesús con profecías del AT.<br>
+            <strong>Ejemplo (Mateo 1:22):</strong><br>
+            <span class="greek-word">Τοῦτο δὲ ὅλον γέγονεν ἵνα πληρωθῇ τὸ ῥηθὲν ὑπὸ κυρίου διὰ τοῦ προφήτου λέγοντος·</span><br>
+            "Todo esto sucedió para que se cumpliera lo que el Señor dijo por medio del profeta."
+          </div>
+
+          <h3>Discursos estructurados (5 bloques)</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Mateo organiza el material de Jesús en <strong>5 grandes discursos</strong>, similar a los 5 libros del Pentateuco.<br>
+            <strong>Los 5 discursos:</strong>
+            <ol>
+              <li>El Sermón del Monte (caps. 5-7)</li>
+              <li>Instrucciones a los discípulos (cap. 10)</li>
+              <li>Parábolas del reino (cap. 13)</li>
+              <li>Instrucciones sobre la comunidad (cap. 18)</li>
+              <li>Discurso escatológico (caps. 24-25)</li>
+            </ol>
+          </div>
+
+          <h3>Lenguaje semitizante</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Mateo usa un griego con <strong>influencia hebrea</strong>: construcciones con <span class="greek-word">καί</span> (parataxis) y expresiones idiomáticas del hebreo.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">βασιλεία τῶν οὐρανῶν</span> ("reino de los cielos") – término típicamente mateano (en lugar de "reino de Dios").
+          </div>
+          <button class="btn-reveal" data-target="mateoEj">Identifica la característica de Mateo</button>
+          <div id="mateoEj" class="answer-text">
+            <span class="greek-word">ἵνα πληρωθῇ</span> – fórmula de cumplimiento.<br>
+            <span class="greek-word">βασιλεία τῶν οὐρανῶν</span> – semitismo mateano.<br>
+            5 discursos – estructura literaria.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: LUCAS-HECHOS – GRIEGO LITERARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-book"></i> 4. Lucas-Hechos: griego literario y vocabulario médico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Lucas es considerado el <strong>mejor escritor</strong> del NT en términos de estilo griego. Su griego es <strong>literario</strong> y <strong>cuidadoso</strong>.</p>
+
+          <h3>Griego literario</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Lucas usa un griego más <strong>elaborado</strong>, con períodos más largos, vocabulario variado y construcciones clásicas.<br>
+            <strong>Ejemplo (Lucas 1:1-4):</strong> Un prólogo literario en estilo griego clásico, con períodos bien construidos.
+          </div>
+
+          <h3>Uso del optativo</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Lucas usa el <strong>optativo</strong> más que cualquier otro autor del NT (excepto Pablo).<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">μὴ γένοιτο</span> (Lucas 20:16) y optativos en discursos.
+          </div>
+
+          <h3>Vocabulario médico</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> Lucas, como médico, usa términos <strong>técnicos médicos</strong> que otros evangelistas no usan.<br>
+            <strong>Ejemplos:</strong>
+            <ul>
+              <li><span class="greek-word">συνεστραμμένη</span> – "encorvada" (Lucas 13:11) – término médico preciso.</li>
+              <li><span class="greek-word">πυρετός</span> – "fiebre" (Lucas 4:38) – termino médico.</li>
+              <li><span class="greek-word">ἀσθένεια</span> – "enfermedad" (Lucas 5:15).</li>
+            </ul>
+          </div>
+
+          <h3>Las secciones "nosotros" en Hechos</h3>
+          <div class="synoptic-box">
+            <strong>Característica:</strong> En Hechos, Lucas incluye secciones en <strong>primera persona plural</strong> ("nosotros"), indicando que él mismo era compañero de viaje de Pablo.<br>
+            <strong>Ejemplo:</strong> <span class="greek-word">ἡμεῖς</span> en Hechos 16:10-17; 20:5-15; 21:1-18; 27:1-28:16.
+          </div>
+          <button class="btn-reveal" data-target="lucasEj">Identifica la característica de Lucas</button>
+          <div id="lucasEj" class="answer-text">
+            Prólogo literario (Lucas 1:1-4) – griego elaborado.<br>
+            <span class="greek-word">πυρετός</span> – vocabulario médico.<br>
+            Secciones "nosotros" – participación de Lucas en Hechos.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: COMPARACIÓN SINÓPTICA – LA TRANSFIGURACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrows-left-right"></i> 5. Comparación sinóptica: la Transfiguración</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La Transfiguración de Jesús (Mateo 17:1-8; Marcos 9:2-8; Lucas 9:28-36) es un excelente ejemplo para comparar los estilos de los tres sinópticos.</p>
+
+          <div class="synoptic-compare">
+            <div class="comp-card">
+              <h4><i class="fas fa-book"></i> Mateo 17:2</h4>
+              <p><span class="greek-word">καὶ μετεμορφώθη ἔμπροσθεν αὐτῶν, καὶ ἔλαμψεν τὸ πρόσωπον αὐτοῦ ὡς ὁ ἥλιος, τὰ δὲ ἱμάτια αὐτοῦ ἐγένετο λευκὰ ὡς τὸ φῶς.</span></p>
+              <p><strong>Observación:</strong> Mateo añade detalles visuales: "su rostro resplandeció como el sol". Lenguaje más elaborado.</p>
+            </div>
+            <div class="comp-card">
+              <h4><i class="fas fa-book"></i> Marcos 9:2-3</h4>
+              <p><span class="greek-word">καὶ μετεμορφώθη ἔμπροσθεν αὐτῶν, καὶ τὰ ἱμάτια αὐτοῦ ἐγένετο στίλβοντα λευκὰ λίαν οἷα γναφεὺς ἐπὶ τῆς γῆς οὐ δύναται οὕτως λευκᾶναι.</span></p>
+              <p><strong>Observación:</strong> Marcos usa la comparación con el batanero ("como ningún batanero en la tierra puede blanquear así"). Estilo más vivo y popular.</p>
+            </div>
+            <div class="comp-card">
+              <h4><i class="fas fa-book"></i> Lucas 9:29</h4>
+              <p><span class="greek-word">καὶ ἐγένετο ἐν τῷ προσεύχεσθαι αὐτὸν τὸ εἶδος τοῦ προσώπου αὐτοῦ ἕτερον καὶ ὁ ἱματισμὸς αὐτοῦ λευκὸς ἐξαστράπτων.</span></p>
+              <p><strong>Observación:</strong> Lucas usa el término <span class="greek-word">ἐξαστράπτων</span> ("resplandeciente") – vocabulario literario. También sitúa la Transfiguración en el contexto de la oración.</p>
+            </div>
+          </div>
+
+          <div class="comparison-box">
+            <strong><i class="fas fa-lightbulb"></i> Análisis comparativo:</strong>
+            <ul>
+              <li><strong>Mateo:</strong> énfasis en la gloria (rostro como sol) – revelación de la divinidad.</li>
+              <li><strong>Marcos:</strong> énfasis en el asombro (batanero) – reacción humana.</li>
+              <li><strong>Lucas:</strong> énfasis en la oración y la gloria (<span class="greek-word">ἐξαστράπτων</span>) – estilo literario.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="transfiguracionEj">Compara las versiones</button>
+          <div id="transfiguracionEj" class="answer-text">
+            Mateo: "rostro como el sol" – gloria divina.<br>
+            Marcos: "como ningún batanero puede blanquear" – asombro humano.<br>
+            Lucas: "resplandeciente" (ἐξαστράπτων) – vocabulario literario.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Evangelios Sinópticos y Hechos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para la comprensión de los Evangelios Sinópticos y Hechos.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Contexto</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Marcos 1:21-22:</strong> <span class="greek-word">καὶ εἰσπορεύονται εἰς Καφαρναούμ· καὶ εὐθὺς τοῖς σάββασιν εἰσελθὼν εἰς τὴν συναγωγὴν ἐδίδασκεν. καὶ ἐξεπλήσσοντο ἐπὶ τῇ διδαχῇ αὐτοῦ· ἦν γὰρ διδάσκων αὐτοὺς ὡς ἐξουσίαν ἔχων, καὶ οὐχ ὡς οἱ γραμματεῖς.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL EVANGELIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el evangelio por su estilo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="evangelioQuizArea"></div>
+          <button id="newEvangelioQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="evangelioFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – TRADUCCIÓN SINÓPTICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce pasajes sinópticos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transSynopticQuizArea"></div>
+          <button id="newTransSynopticQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transSynopticFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – COMPARACIÓN SINÓPTICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrows-left-right"></i> 9. Compara los textos sinópticos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="compareSynopticQuizArea"></div>
+          <button id="newCompareSynopticQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva comparación</button>
+          <div id="compareSynopticFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ANÁLISIS DE LA TRANSFIGURACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis sinóptico de la Transfiguración</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee las tres versiones de la Transfiguración. Identifica las diferencias estilísticas y teológicas.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 17:1-2 – μετεμορφώθη</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ μετεμορφώθη ἔμπροσθεν αὐτῶν, καὶ ἔλαμψεν τὸ πρόσωπον αὐτοῦ ὡς ὁ ἥλιος</span></p>
+              <button class="btn-reveal" data-target="mt17a">¿Qué verbo describe la transformación?</button>
+              <div id="mt17a" class="answer-text"><span class="greek-word">μετεμορφώθη</span> – aoristo pasivo de μεταμορφόω ("fue transformado").</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Marcos 9:3 – στίλβοντα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τὰ ἱμάτια αὐτοῦ ἐγένετο στίλβοντα λευκὰ λίαν</span></p>
+              <button class="btn-reveal" data-target="mk9a">¿Qué significa <strong>στίλβοντα</strong>?</button>
+              <div id="mk9a" class="answer-text">"Resplandecientes" – participio presente de στίλβω (brillar). Vocabulario vívido de Marcos.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Lucas 9:29 – ἐξαστράπτων</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ ἱματισμὸς αὐτοῦ λευκὸς ἐξαστράπτων</span></p>
+              <button class="btn-reveal" data-target="lk9a">¿Qué término literario usa Lucas?</button>
+              <div id="lk9a" class="answer-text"><span class="greek-word">ἐξαστράπτων</span> – "resplandeciente" (verbo compuesto de ἐκ + ἀστράπτω). Es un vocabulario más literario.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Traducción de Hechos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐκστάσει</span></p>
+              <button class="btn-reveal" data-target="transHch">Traduce y analiza</button>
+              <div id="transHch" class="answer-text"><span class="greek-word">ἔκστασις</span> – "asombro, trance". En Hechos 10:10, Pedro entra en éxtasis. Típico de Lucas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee la Transfiguración (Mateo 17:1-8; Marcos 9:2-8; Lucas 9:28-36) en griego. Compara los tres textos. Identifica las características estilísticas de cada evangelista.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-52.html"><i class="fas fa-arrow-left"></i> Lección 52</a>
+      <a href="leccion-54.html"><i class="fas fa-arrow-right"></i> Lección 54</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">καὶ μετεμορφώθη ἔμπροσθεν αὐτῶν</span> (Mateo 17:2)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 53 ==========
+    const vocabData = [
+      { greek: "ἐν τάχει", translit: "en tachei", spanish: "pronto, con rapidez", context: "Hechos/Lucas" },
+      { greek: "κατά τε ἡμέραν", translit: "kata te hēmeran", spanish: "día tras día", context: "Hechos" },
+      { greek: "ἔκστασις", translit: "ekstasis", spanish: "asombro, trance", context: "Lucas/Hechos" },
+      { greek: "θαῦμα", translit: "thauma", spanish: "asombro, maravilla", context: "Sinópticos" },
+      { greek: "θαυμάζω", translit: "thaumazō", spanish: "admirar, asombrarse", context: "Sinópticos" },
+      { greek: "ἐκπλήσσομαι", translit: "ekplēssomai", spanish: "asombrarse", context: "Sinópticos" },
+      { greek: "σπεύδω", translit: "speudō", spanish: "apresurarse", context: "Lucas" },
+      { greek: "εὐθύς", translit: "euthys", spanish: "inmediatamente", context: "Marcos" },
+      { greek: "παραχρῆμα", translit: "parachrēma", spanish: "al instante", context: "Lucas" },
+      { greek: "ὥρα", translit: "hōra", spanish: "hora", context: "Sinópticos" },
+      { greek: "ἀγγέλλω", translit: "angellō", spanish: "anunciar", context: "Sinópticos" },
+      { greek: "ἀναγγέλλω", translit: "anangellō", spanish: "anunciar, declarar", context: "Hechos" },
+      { greek: "ὑπαντάω", translit: "hypantaō", spanish: "salir al encuentro", context: "Sinópticos" },
+      { greek: "ἀπαντάω", translit: "apantaō", spanish: "encontrar, salir al paso", context: "Hechos" },
+      { greek: "συναντάω", translit: "synantaō", spanish: "encontrarse con", context: "Hechos" },
+      { greek: "εἶδον", translit: "eidon", spanish: "vi (aoristo de ὁράω)", context: "Sinópticos" },
+      { greek: "θεάομαι", translit: "theaomai", spanish: "contemplar, ver", context: "Lucas/Hechos" },
+      { greek: "ὀπτάνομαι", translit: "optanomai", spanish: "aparecer, ser visto", context: "Hechos" },
+      { greek: "ὀπτασία", translit: "optasia", spanish: "visión, aparición", context: "Lucas/Hechos" },
+      { greek: "ὅραμα", translit: "horama", spanish: "visión, lo que se ve", context: "Hechos" }
+    ];
+
+    // Ejemplos para identificar el evangelio por su estilo
+    const evangelioExamples = [
+      { phrase: "καὶ εὐθὺς ... καὶ ...", style: "Marcos", reason: "parataxis y εὐθύς" },
+      { phrase: "ἵνα πληρωθῇ", style: "Mateo", reason: "fórmula de cumplimiento" },
+      { phrase: "βασιλεία τῶν οὐρανῶν", style: "Mateo", reason: "semitismo mateano" },
+      { phrase: "ἐξαστράπτων", style: "Lucas", reason: "vocabulario literario" },
+      { phrase: "ἐγένετο ἐν τῷ προσεύχεσθαι", style: "Lucas", reason: "infinitivo articular" },
+      { phrase: "στίλβοντα", style: "Marcos", reason: "vocabulario vívido" },
+      { phrase: "πυρετός", style: "Lucas", reason: "vocabulario médico" },
+      { phrase: "εἰσπορεύονται", style: "Marcos", reason: "presente histórico" }
+    ];
+
+    // Pasajes para traducción sinóptica
+    const transSynopticExamples = [
+      { greek: "καὶ εὐθὺς ἐκέλευσεν τοὺς μαθητάς", translation: "y al instante mandó a los discípulos", source: "Marcos" },
+      { greek: "τοῦτο γέγονεν ἵνα πληρωθῇ", translation: "esto sucedió para que se cumpliera", source: "Mateo" },
+      { greek: "ἐγένετο δὲ ἐν τῷ προσεύχεσθαι", translation: "mientras oraba", source: "Lucas" },
+      { greek: "κατά τε ἡμέραν", translation: "día tras día", source: "Hechos" },
+      { greek: "ἐξεπλήσσοντο ἐπὶ τῇ διδαχῇ", translation: "se asombraban de su enseñanza", source: "Sinópticos" }
+    ];
+
+    // Ejemplos para comparación sinóptica
+    const compareSynopticExamples = [
+      { mt: "ἔλαμψεν τὸ πρόσωπον αὐτοῦ ὡς ὁ ἥλιος", mk: "στίλβοντα λευκὰ λίαν", lk: "ἐξαστράπτων", feature: "vocabulario de gloria" },
+      { mt: "ἵνα πληρωθῇ", mk: "καὶ εὐθύς", lk: "ἐγένετο ἐν τῷ", feature: "estilo literario" },
+      { mt: "βασιλεία τῶν οὐρανῶν", mk: "βασιλεία τοῦ θεοῦ", lk: "βασιλεία τοῦ θεοῦ", feature: "término para el reino" }
+    ];
+
+    let currentEvangelio = evangelioExamples[0];
+    let currentTransSynoptic = transSynopticExamples[0];
+    let currentCompareSynoptic = compareSynopticExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.context}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadEvangelioQuiz() {
+      const randomIndex = Math.floor(Math.random() * evangelioExamples.length);
+      currentEvangelio = evangelioExamples[randomIndex];
+      const container = document.getElementById("evangelioQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué evangelio se caracteriza por esta frase?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentEvangelio.phrase}</span><br>
+      <button id="evMat" class="btn-reveal">Mateo</button> <button id="evMc" class="btn-reveal">Marcos</button>
+      <button id="evLc" class="btn-reveal">Lucas/Hechos</button>
+      <div id="evangelioResult"></div></div>`;
+      const mat = document.getElementById("evMat");
+      const mc = document.getElementById("evMc");
+      const lc = document.getElementById("evLc");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("evangelioResult");
+          if (expected === currentEvangelio.style) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentEvangelio.reason})</span>`;
+            setTimeout(loadEvangelioQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentEvangelio.style}</span>`;
+          }
+        });
+      };
+      check(mat, "Mateo");
+      check(mc, "Marcos");
+      check(lc, "Lucas/Hechos");
+    }
+
+    function loadTransSynopticQuiz() {
+      const randomIndex = Math.floor(Math.random() * transSynopticExamples.length);
+      currentTransSynoptic = transSynopticExamples[randomIndex];
+      const container = document.getElementById("transSynopticQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransSynoptic.greek}</span><br>
+      <span style="font-size:0.9rem;">(Fuente: ${currentTransSynoptic.source})</span><br>
+      <input type="text" id="transSynopticAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransSynoptic" class="btn-reveal">Verificar</button>
+      <div id="transSynopticResult"></div></div>`;
+      document.getElementById("checkTransSynoptic").addEventListener("click", () => {
+        const answer = document.getElementById("transSynopticAnswer").value.trim().toLowerCase();
+        const correct = currentTransSynoptic.translation.toLowerCase();
+        const result = document.getElementById("transSynopticResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransSynopticQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransSynoptic.translation}</span>`;
+        }
+      });
+    }
+
+    function loadCompareSynopticQuiz() {
+      const randomIndex = Math.floor(Math.random() * compareSynopticExamples.length);
+      currentCompareSynoptic = compareSynopticExamples[randomIndex];
+      const container = document.getElementById("compareSynopticQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Compara las versiones sinópticas:</strong><br>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;font-size:0.9rem;">
+        <div><strong>Mateo:</strong> <span class="greek-word">${currentCompareSynoptic.mt}</span></div>
+        <div><strong>Marcos:</strong> <span class="greek-word">${currentCompareSynoptic.mk}</span></div>
+        <div><strong>Lucas:</strong> <span class="greek-word">${currentCompareSynoptic.lk}</span></div>
+      </div>
+      <span style="font-size:0.9rem;">Rasgo comparado: ${currentCompareSynoptic.feature}</span><br>
+      <button id="compMat" class="btn-reveal">Mateo destaca</button> <button id="compMc" class="btn-reveal">Marcos destaca</button>
+      <button id="compLc" class="btn-reveal">Lucas destaca</button>
+      <div id="compareSynopticResult"></div></div>`;
+      // Para este ejercicio, las respuestas son variadas. Haremos preguntas sobre qué evangelio usa qué término.
+      const result = document.getElementById("compareSynopticResult");
+      const mat = document.getElementById("compMat");
+      const mc = document.getElementById("compMc");
+      const lc = document.getElementById("compLc");
+
+      // Configurar según el ejemplo específico
+      const setup = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          // Verificar si el usuario seleccionó el evangelio que corresponde al término destacado
+          // En este caso, el término que destaca es subjetivo, así que usamos una verificación flexible
+          if (expected === "Mateo" && currentCompareSynoptic.mt.includes("ἵνα")) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (Mateo usa la fórmula de cumplimiento)</span>`;
+            setTimeout(loadCompareSynopticQuiz, 1500);
+          } else if (expected === "Marcos" && currentCompareSynoptic.mk.includes("εὐθύς")) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (Marcos usa εὐθύς)</span>`;
+            setTimeout(loadCompareSynopticQuiz, 1500);
+          } else if (expected === "Lucas" && currentCompareSynoptic.lk.includes("ἐγένετο")) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (Lucas usa ἐγένετο)</span>`;
+            setTimeout(loadCompareSynopticQuiz, 1500);
+          } else {
+            // Respuesta flexible - cualquier selección es válida si el usuario justifica
+            result.innerHTML = `<span class="correct-feedback">✓ Buena observación. Cada evangelista tiene su estilo propio.</span>`;
+            setTimeout(loadCompareSynopticQuiz, 1500);
+          }
+        });
+      };
+      setup(mat, "Mateo");
+      setup(mc, "Marcos");
+      setup(lc, "Lucas");
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Evangelio caracterizado por el uso frecuente de εὐθύς", opts: ["Marcos", "Mateo", "Lucas", "Juan"], correct: 0 },
+      { q: "Evangelio que usa la fórmula ἵνα πληρωθῇ para citas del AT", opts: ["Mateo", "Marcos", "Lucas", "Hechos"], correct: 0 },
+      { q: "Evangelio con el griego más literario y vocabulario médico", opts: ["Lucas", "Marcos", "Mateo", "Juan"], correct: 0 },
+      { q: "Término que significa 'asombro, trance' (típico de Lucas/Hechos)", opts: ["ἔκστασις", "θαῦμα", "εὐθύς", "παραχρῆμα"], correct: 0 },
+      { q: "Palabra que significa 'inmediatamente' (característica de Marcos)", opts: ["εὐθύς", "παραχρῆμα", "ἐν τάχει", "ὡσαύτως"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransSynoptic" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#evangelioQuizArea") || btn.closest("#compareSynopticQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadEvangelioQuiz();
+      loadTransSynopticQuiz();
+      loadCompareSynopticQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newEvangelioQuiz")?.addEventListener("click", () => {
+        loadEvangelioQuiz();
+        document.getElementById("evangelioFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransSynopticQuiz")?.addEventListener("click", () => {
+        loadTransSynopticQuiz();
+        document.getElementById("transSynopticFeedback").innerHTML = "";
+      });
+      document.getElementById("newCompareSynopticQuiz")?.addEventListener("click", () => {
+        loadCompareSynopticQuiz();
+        document.getElementById("compareSynopticFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

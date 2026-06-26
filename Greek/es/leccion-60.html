@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 60: Herramientas Exegéticas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 86%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .tool-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .software-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-59.html"><i class="fas fa-arrow-left"></i> Lección 59</a>
+        <a href="leccion-61.html"><i class="fas fa-arrow-right"></i> Lección 61</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-tools"></i> Lección 60 · Herramientas Exegéticas <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>BDAG, Thayer, TDNT · Estructura del artículo lexicográfico · Logos, Accordance, BibleWorks · Alternativas gratuitas · Léxico personal</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1200/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Herramientas exegéticas para el estudio del NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Cómo usar léxicos, concordancias y software bíblico para la exégesis</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Introducción a las herramientas exegéticas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>exégesis</strong> (del griego <span class="greek-word">ἐξήγησις</span>) es el proceso de <strong>extraer el significado</strong> de un texto. Para hacer una exégesis sólida del NT, necesitas herramientas que te ayuden a entender el <strong>significado de las palabras</strong>, su <strong>uso en contexto</strong> y su <strong>trasfondo teológico</strong>.</p>
+          <div class="tool-box">
+            <i class="fas fa-lightbulb"></i> <strong>Las herramientas principales:</strong>
+            <ul>
+              <li><strong>Léxicos</strong> – diccionarios del griego del NT (BDAG, Thayer, Louw-Nida).</li>
+              <li><strong>Concordancias</strong> – índices de todas las ocurrencias de una palabra.</li>
+              <li><strong>Software bíblico</strong> – herramientas digitales para el estudio del texto (Logos, Accordance, BibleWorks, Biblehub).</li>
+              <li><strong>TDNT</strong> – Diccionario Teológico del Nuevo Testamento (Kittel).</li>
+              <li><strong>Léxico personal</strong> – tu propio registro de vocabulario organizado por frecuencia y campo semántico.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Principio exegético:</strong> <span class="greek-word">τὸ κείμενον ἐν τῷ πλαισίῳ</span> – "el texto en su contexto". Las herramientas deben usarse para <strong>entender el texto</strong>, no para imponer significados.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: BDAG – EL LÉXICO ESTÁNDAR -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-book"></i> 2. BDAG (Bauer-Danker-Arndt-Gingrich)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>BDAG</strong> (A Greek-English Lexicon of the New Testament and Other Early Christian Literature) es el <strong>léxico estándar</strong> para el estudio del griego del NT. Su nombre proviene de los editores: Bauer, Danker, Arndt, Gingrich.</p>
+
+          <h3>Estructura de un artículo lexicográfico en BDAG</h3>
+          <div class="tool-box">
+            <strong><i class="fas fa-list"></i> Elementos de un artículo:</strong>
+            <ol>
+              <li><strong>Entrada</strong> – la palabra en griego con su transliteración.</li>
+              <li><strong>Categoría gramatical</strong> – sustantivo, verbo, adjetivo, etc.</li>
+              <li><strong>Definiciones</strong> – ordenadas por <strong>sentido</strong> (no por orden alfabético).</li>
+              <li><strong>Citas</strong> – ejemplos del NT, LXX, Padres de la Iglesia y literatura extrabíblica.</li>
+              <li><strong>Notas gramaticales</strong> – información sobre formas irregulares.</li>
+              <li><strong>Etimología</strong> – origen de la palabra (cuando es relevante).</li>
+            </ol>
+          </div>
+
+          <h3>Ejemplo: artículo de δικαιοσύνη</h3>
+          <div class="tool-box">
+            <strong><span class="greek-word">δικαιοσύνη</span> (dikaiosynē), -ης, ἡ</strong><br>
+            <strong>1.</strong> la cualidad de ser justo/recto, <em>justicia</em>.<br>
+            &nbsp;&nbsp;&nbsp; <strong>a.</strong> en un sentido ético: <em>justicia, rectitud</em>.<br>
+            &nbsp;&nbsp;&nbsp; <strong>b.</strong> en un sentido teológico: <em>la justicia que viene de Dios</em>.<br>
+            <strong>2.</strong> la acción de hacer justicia, <em>acto de justicia</em>.<br>
+            <strong>3.</strong> el veredicto de justificación, <em>justificación</em>.<br>
+            <strong>Citas:</strong> Mateo 5:6, Romanos 1:17, 3:21-22, Filipenses 3:9.
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Cómo usar BDAG:</strong>
+            <ul>
+              <li>Lee la <strong>primera definición</strong> – es la más común.</li>
+              <li>Presta atención a las <strong>citas</strong> – muestran el uso en contexto.</li>
+              <li>Las <strong>abreviaturas</strong> al inicio del artículo indican las obras citadas.</li>
+              <li>BDAG también incluye <strong>referencias a la LXX</strong> y literatura extrabíblica.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="bdagEj">Analiza el artículo de BDAG</button>
+          <div id="bdagEj" class="answer-text">
+            <span class="greek-word">δικαιοσύνη</span> – la definición principal es "justicia".<br>
+            Tiene <strong>tres sentidos</strong>: ético, teológico y como acto de justicia.<br>
+            Las citas muestran el <strong>uso teológico</strong> en Pablo (Romanos 3:21-22) y el uso ético en Mateo 5:6.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: THAYER Y LOUW-NIDA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-book"></i> 3. Thayer y Louw-Nida</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Además del BDAG, existen otros léxicos útiles con <strong>enfoques diferentes</strong>.</p>
+
+          <h3>Thayer (A Greek-English Lexicon of the New Testament)</h3>
+          <div class="tool-box">
+            <strong>Características:</strong>
+            <ul>
+              <li>Publicado en el siglo XIX (1889), pero sigue siendo <strong>útil</strong> y está disponible de <strong>forma gratuita</strong> en línea.</li>
+              <li>Incluye <strong>referencias extensas</strong> al AT hebreo y la LXX.</li>
+              <li>Tiene un enfoque más <strong>etimológico</strong> que el BDAG.</li>
+              <li>Limitación: no incluye los descubrimientos de los papiros del siglo XX.</li>
+            </ul>
+          </div>
+
+          <h3>Louw-Nida (Greek-English Lexicon based on Semantic Domains)</h3>
+          <div class="tool-box">
+            <strong>Características:</strong>
+            <ul>
+              <li>Organizado por <strong>campos semánticos</strong>, no alfabéticamente.</li>
+              <li>Agrupa las palabras por <strong>significado</strong> (ej. "amor", "ira", "justicia").</li>
+              <li>Excelente para <strong>estudios temáticos</strong> y de campo semántico.</li>
+              <li>Muy útil para entender los <strong>matices</strong> entre palabras similares.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Recomendación:</strong>
+            <ul>
+              <li><strong>BDAG</strong> – para la investigación exegética más rigurosa.</li>
+              <li><strong>Thayer</strong> – como referencia rápida y gratuita.</li>
+              <li><strong>Louw-Nida</strong> – para estudios semánticos y temáticos.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="lexicosEj">Compara los léxicos</button>
+          <div id="lexicosEj" class="answer-text">
+            BDAG – léxico estándar (actualizado).<br>
+            Thayer – más etimológico, gratuito.<br>
+            Louw-Nida – organizado por campos semánticos.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: TDNT – DICCIONARIO TEOLÓGICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 4. TDNT (Diccionario Teológico del Nuevo Testamento)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>TDNT</strong> (Theological Dictionary of the New Testament), editado por Gerhard Kittel, es una obra monumental de <strong>10 volúmenes</strong> que analiza el <strong>significado teológico</strong> de las palabras clave del NT.</p>
+
+          <div class="tool-box">
+            <strong><i class="fas fa-lightbulb"></i> Estructura del TDNT:</strong>
+            <ul>
+              <li>Cada artículo sigue el desarrollo de la palabra desde el <strong>griego clásico</strong> → <strong>LXX</strong> → <strong>NT</strong> → <strong>Padres de la iglesia</strong>.</li>
+              <li>Incluye <strong>análisis filológico</strong>, <strong>histórico</strong> y <strong>teológico</strong>.</li>
+              <li>Es una herramienta <strong>excelente</strong> para entender el <strong>trasfondo teológico</strong> de los términos.</li>
+              <li>Limitación: algunos artículos están desactualizados; el <strong>NIDNTT</strong> (New International Dictionary of New Testament Theology) es una alternativa más reciente.</li>
+            </ul>
+          </div>
+
+          <h3>Ejemplo: artículo de <span class="greek-word">ἀγάπη</span> en TDNT</h3>
+          <div class="tool-box">
+            <strong><span class="greek-word">ἀγάπη</span> (amor)</strong><br>
+            <ul>
+              <li><strong>Griego clásico:</strong> <span class="greek-word">ἀγάπη</span> era un término poco usado; se prefería <span class="greek-word">φιλία</span> (amistad) o <span class="greek-word">ἔρως</span> (amor erótico).</li>
+              <li><strong>LXX:</strong> <span class="greek-word">ἀγάπη</span> traduce el hebreo <span class="greek-word">אַהֲבָה</span> (ahavah) – el amor de Dios por su pueblo.</li>
+              <li><strong>NT:</strong> <span class="greek-word">ἀγάπη</span> se convierte en el término principal para el amor <strong>divino, sacrificial y de elección</strong>.</li>
+              <li><strong>Padres:</strong> la <span class="greek-word">ἀγάπη</span> se desarrolla como el <strong>amor ágape</strong> que caracteriza a la comunidad cristiana.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Cómo usar TDNT:</strong>
+            <ul>
+              <li>Úsalo para <strong>palabras teológicamente importantes</strong> (δικαιοσύνη, χάρις, πίστις, etc.).</li>
+              <li>Lee la <strong>sección del NT</strong> – es la más relevante para la exégesis.</li>
+              <li>Combina TDNT con <strong>BDAG</strong> para una comprensión completa.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="tdntEj">¿Qué estudia TDNT?</button>
+          <div id="tdntEj" class="answer-text">
+            TDNT estudia el <strong>significado teológico</strong> de las palabras del NT, rastreando su desarrollo desde el griego clásico hasta los Padres de la iglesia.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: SOFTWARE BÍBLICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-laptop"></i> 5. Software bíblico para el estudio del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>software bíblico</strong> ha revolucionado el estudio del NT. Aquí están las principales opciones:</p>
+
+          <div class="software-box">
+            <strong><i class="fas fa-star"></i> Opciones principales:</strong>
+            <ul>
+              <li><strong>Logos Bible Software</strong> – el más completo; incluye BDAG, TDNT, NA28, UBS5, y miles de recursos. (Pagado)</li>
+              <li><strong>Accordance</strong> – excelente para estudio de textos bíblicos y lenguas originales. (Pagado)</li>
+              <li><strong>BibleWorks</strong> – ya no está en desarrollo, pero sigue siendo útil. (Pagado, discontinuado)</li>
+              <li><strong>Biblehub</strong> – gratuito, con acceso a léxicos (Thayer, Strong), interlineal y comentarios.</li>
+              <li><strong>Blue Letter Bible</strong> – gratuito, con léxicos, concordancias y herramientas de estudio.</li>
+              <li><strong>Koine Greek Reader</strong> – gratuito, enfocado en la lectura de textos del NT.</li>
+            </ul>
+          </div>
+
+          <h3>Funcionalidades clave del software</h3>
+          <div class="software-box">
+            <ul>
+              <li><strong>Búsqueda morfológica</strong> – encontrar formas verbales específicas.</li>
+              <li><strong>Concordancias</strong> – todas las ocurrencias de una palabra.</li>
+              <li><strong>Interlineares</strong> – texto griego con traducción palabra por palabra.</li>
+              <li><strong>Análisis gramatical</strong> – identificación de casos, tiempos, modos.</li>
+              <li><strong>Léxicos integrados</strong> – BDAG, Thayer, Louw-Nida, TDNT.</li>
+              <li><strong>Comparación de versiones</strong> – comparar el texto griego con diferentes traducciones.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Recomendación para estudiantes:</strong>
+            <ul>
+              <li>Comienza con <strong>Biblehub</strong> o <strong>Blue Letter Bible</strong> (gratuitos).</li>
+              <li>Si puedes invertir, <strong>Logos</strong> o <strong>Accordance</strong> son inversiones que valen la pena para el estudio serio.</li>
+              <li>Aprende a usar las <strong>funciones de búsqueda</strong> – son la clave para la exégesis.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="softwareEj">¿Qué software es gratuito?</button>
+          <div id="softwareEj" class="answer-text">
+            <strong>Biblehub</strong> y <strong>Blue Letter Bible</strong> son gratuitos.<br>
+            <strong>Logos</strong> y <strong>Accordance</strong> son pagados.<br>
+            <strong>Koine Greek Reader</strong> es gratuito y enfocado en lectura.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: CONSTRUCCIÓN DE UN LÉXICO PERSONAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-pen-fancy"></i> 6. Construcción de un léxico personal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Un <strong>léxico personal</strong> es tu propio registro de vocabulario, organizado de manera que te sea útil para el estudio y la memorización.</p>
+
+          <div class="tool-box">
+            <strong><i class="fas fa-lightbulb"></i> Pasos para construir tu léxico personal:</strong>
+            <ol>
+              <li><strong>Organiza por frecuencia</strong> – comienza con las palabras más frecuentes del NT.</li>
+              <li><strong>Incluye información clave</strong> – la palabra, su transliteración, significado principal, y el pasaje donde la encontraste.</li>
+              <li><strong>Agrupa por campos semánticos</strong> – justicia, amor, salvación, pecado, etc.</li>
+              <li><strong>Añade notas personales</strong> – observaciones exegéticas, conexiones con el AT, usos especiales.</li>
+              <li><strong>Revisa y actualiza</strong> – tu léxico crecerá a medida que avances.</li>
+            </ol>
+          </div>
+
+          <h3>Ejemplo de entrada en un léxico personal</h3>
+          <div class="tool-box">
+            <strong><span class="greek-word">δικαιοσύνη</span> (dikaiosynē) – "justicia"</strong><br>
+            <strong>Frecuencia:</strong> 92 veces en el NT.<br>
+            <strong>Raíz:</strong> <span class="greek-word">δίκαιος</span> (justo) + sufijo -σύνη (cualidad).<br>
+            <strong>Usos principales:</strong>
+            <ul>
+              <li>Justicia ética (Mateo 5:6 – "hambre y sed de justicia").</li>
+              <li>Justicia teológica (Romanos 1:17 – "la justicia de Dios se revela").</li>
+              <li>Justificación (Romanos 3:21-22 – "la justicia de Dios por medio de la fe").</li>
+            </ul>
+            <strong>Nota:</strong> En Pablo, <span class="greek-word">δικαιοσύνη</span> es un <strong>estado</strong> que Dios otorga al creyente (justificación), no solo una cualidad ética.
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Consejo práctico:</strong> Dedica <strong>5 minutos al día</strong> a actualizar tu léxico personal. Con el tiempo, tendrás un recurso valioso adaptado a tus necesidades de estudio.
+          </div>
+          <button class="btn-reveal" data-target="lexicoPersonalEj">Construye una entrada</button>
+          <div id="lexicoPersonalEj" class="answer-text">
+            <span class="greek-word">ἀγάπη</span> – "amor"<br>
+            Frecuencia: 116 veces.<br>
+            Raíz: <span class="greek-word">ἀγαπάω</span> (amar).<br>
+            Usos: amor divino (Juan 3:16), amor fraternal (1 Pedro 1:22), amor como fruto del Espíritu (Gálatas 5:22).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Herramientas y métodos exegéticos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender las herramientas y métodos exegéticos.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Contexto</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>2 Timoteo 2:15:</strong> <span class="greek-word">σπούδασον σεαυτὸν δόκιμον παραστῆσαι τῷ θεῷ, ἐργάτην ἀνεπαίσχυντον, ὀρθοτομοῦντα τὸν λόγον τῆς ἀληθείας.</span> – "Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que maneja bien la palabra de verdad."</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – ANALIZA EL ARTÍCULO LEXICOGRÁFICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Analiza el artículo lexicográfico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="lexicoQuizArea"></div>
+          <button id="newLexicoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva entrada</button>
+          <div id="lexicoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – IDENTIFICA LA HERRAMIENTA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-tools"></i> 9. Identifica la herramienta exegética</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="herramientaQuizArea"></div>
+          <button id="newHerramientaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva herramienta</button>
+          <div id="herramientaFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – TRADUCCIÓN Y USO DE HERRAMIENTAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 10. Traduce y analiza con herramientas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transHerramientaQuizArea"></div>
+          <button id="newTransHerramientaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transHerramientaFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – INVESTIGACIÓN LÉXICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Texto programado · Investigación léxica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los pasajes. Investiga las palabras clave usando las herramientas exegéticas.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Romanos 3:24 – ἀπολύτρωσις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι διὰ τῆς ἀπολυτρώσεως τῆς ἐν Χριστῷ Ἰησοῦ</span></p>
+              <button class="btn-reveal" data-target="her1a">¿Qué significa <strong>ἀπολύτρωσις</strong> y qué recurso exegético usarías?</button>
+              <div id="her1a" class="answer-text"><span class="greek-word">ἀπολύτρωσις</span> = "redención" (liberación mediante rescate). Usarías <strong>BDAG</strong> para la definición y <strong>TDNT</strong> para el trasfondo teológico.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 5:22 – καρπός</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ δὲ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη, χαρά, εἰρήνη</span></p>
+              <button class="btn-reveal" data-target="her1b">¿Qué significado tiene <strong>καρπός</strong> en este contexto? ¿Qué herramienta usarías?</button>
+              <div id="her1b" class="answer-text"><span class="greek-word">καρπός</span> = "fruto" (resultado, producto). Usarías <strong>Louw-Nida</strong> para el campo semántico y <strong>BDAG</strong> para el uso en el NT.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 2:8 – χάρις</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι</span></p>
+              <button class="btn-reveal" data-target="her1c">¿Qué significado teológico tiene <strong>χάρις</strong>? ¿Qué recurso usarías?</button>
+              <div id="her1c" class="answer-text"><span class="greek-word">χάρις</span> = "gracia" (favor inmerecido). Usarías <strong>TDNT</strong> para el trasfondo teológico y <strong>BDAG</strong> para las definiciones.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Construcción de léxico personal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πίστις</span></p>
+              <button class="btn-reveal" data-target="her1d">Construye una entrada para tu léxico personal.</button>
+              <div id="her1d" class="answer-text">
+                <span class="greek-word">πίστις</span> – "fe, fidelidad"<br>
+                Frecuencia: 244 veces.<br>
+                Raíz: <span class="greek-word">πείθω</span> (persuadir, confiar).<br>
+                Usos: fe en Cristo (Romanos 3:22), fidelidad (Gálatas 5:22), como don de Dios (Efesios 2:8).<br>
+                Nota: En Pablo, <span class="greek-word">πίστις</span> es el medio por el cual el creyente recibe la justificación.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica el uso de BDAG y TDNT con palabras clave de Romanos. Construye tu léxico personal con 5 palabras nuevas cada semana. Reflexiona sobre cómo las herramientas exegéticas enriquecen la comprensión del texto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-59.html"><i class="fas fa-arrow-left"></i> Lección 59</a>
+      <a href="leccion-61.html"><i class="fas fa-arrow-right"></i> Lección 61</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">σπούδασον ... ὀρθοτομοῦντα τὸν λόγον</span> (2 Timoteo 2:15)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 60 ==========
+    const vocabData = [
+      { greek: "λεξικόν", translit: "lexikon", spanish: "léxico, diccionario", context: "herramientas" },
+      { greek: "συμφωνία", translit: "symphōnia", spanish: "concordancia", context: "herramientas" },
+      { greek: "ἐξήγησις", translit: "exēgēsis", spanish: "exégesis, interpretación", context: "métodos" },
+      { greek: "εἰσήγησις", translit: "eisēgēsis", spanish: "eiségesis (leer en el texto)", context: "métodos" },
+      { greek: "ἑρμηνευτική", translit: "hermēneutikē", spanish: "hermenéutica", context: "métodos" },
+      { greek: "κριτική", translit: "kritikē", spanish: "crítica, análisis", context: "métodos" },
+      { greek: "φιλολογία", translit: "philologia", spanish: "filología", context: "herramientas" },
+      { greek: "γλωσσολογία", translit: "glōssologia", spanish: "lingüística", context: "herramientas" },
+      { greek: "σημασιολογία", translit: "sēmasiologia", spanish: "semántica", context: "herramientas" },
+      { greek: "συντακτικόν", translit: "syntaktikon", spanish: "sintaxis", context: "herramientas" },
+      { greek: "μορφολογία", translit: "morphologia", spanish: "morfología", context: "herramientas" },
+      { greek: "ἐτυμολογία", translit: "etymologia", spanish: "etimología", context: "herramientas" },
+      { greek: "πραγματολογία", translit: "pragmatologia", spanish: "pragmática", context: "herramientas" },
+      { greek: "διαλεκτολογία", translit: "dialektologia", spanish: "dialectología", context: "herramientas" },
+      { greek: "παλαιογραφία", translit: "palaiographia", spanish: "paleografía", context: "herramientas" },
+      { greek: "κωδικολογία", translit: "kōdikologia", spanish: "codicología", context: "herramientas" },
+      { greek: "παπυρολογία", translit: "papyrologia", spanish: "papirología", context: "herramientas" },
+      { greek: "ἐπιγραφική", translit: "epigraphikē", spanish: "epigrafía", context: "herramientas" },
+      { greek: "νομισματική", translit: "nomismatikē", spanish: "numismática", context: "herramientas" },
+      { greek: "ἀρχαιολογία", translit: "archaiologia", spanish: "arqueología", context: "herramientas" }
+    ];
+
+    // Ejemplos para analizar artículo lexicográfico
+    const lexicoExamples = [
+      { term: "δικαιοσύνη", meaning: "justicia", senses: "ética, teológica, justificación", usage: "Romanos 1:17, 3:21-22" },
+      { term: "ἀγάπη", meaning: "amor", senses: "divino, fraternal, como fruto del Espíritu", usage: "Juan 3:16, 1 Juan 4:8" },
+      { term: "χάρις", meaning: "gracia", senses: "favor divino, don, acción de gracias", usage: "Efesios 2:8, Romanos 3:24" },
+      { term: "πίστις", meaning: "fe, fidelidad", senses: "fe en Cristo, fidelidad de Dios, confianza", usage: "Romanos 3:22, Gálatas 5:22" },
+      { term: "ἀπολύτρωσις", meaning: "redención", senses: "rescate, liberación, redención", usage: "Romanos 3:24, Efesios 1:7" }
+    ];
+
+    // Ejemplos para identificar herramienta exegética
+    const herramientaExamples = [
+      { tool: "BDAG", description: "léxico estándar del NT", use: "definiciones y citas" },
+      { tool: "Thayer", description: "léxico del siglo XIX", use: "etimología y referencias al AT" },
+      { tool: "Louw-Nida", description: "léxico por campos semánticos", use: "estudios temáticos" },
+      { tool: "TDNT", description: "Diccionario Teológico del NT", use: "trasfondo teológico" },
+      { tool: "Logos", description: "software bíblico", use: "búsquedas y recursos integrados" },
+      { tool: "Biblehub", description: "herramienta gratuita en línea", use: "interlineal y léxicos" }
+    ];
+
+    // Frases para traducción con herramientas
+    const transHerramientaExamples = [
+      { greek: "τῇ χάριτί ἐστε σεσωσμένοι", translation: "por gracia sois salvos", analysis: "χάρις – gracia (BDAG/TDNT)" },
+      { greek: "πιστεύομεν εἰς τὸν κύριον", translation: "creemos en el Señor", analysis: "πιστεύω – creer (definición con preposición)" },
+      { greek: "ἡ ἀγάπη τοῦ θεοῦ", translation: "el amor de Dios", analysis: "ἀγάπη – amor (genitivo subjetivo/objetivo)" },
+      { greek: "δικαιοσύνη θεοῦ", translation: "la justicia de Dios", analysis: "δικαιοσύνη – justicia (debate exegético)" }
+    ];
+
+    let currentLexico = lexicoExamples[0];
+    let currentHerramienta = herramientaExamples[0];
+    let currentTransHerramienta = transHerramientaExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.context}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadLexicoQuiz() {
+      const randomIndex = Math.floor(Math.random() * lexicoExamples.length);
+      currentLexico = lexicoExamples[randomIndex];
+      const container = document.getElementById("lexicoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza el artículo de <span class="greek-word">${currentLexico.term}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Significado principal: ${currentLexico.meaning}</span><br>
+      <span style="font-size:0.9rem;">Usos: ${currentLexico.senses}</span><br>
+      <input type="text" id="lexicoAnswer" placeholder="¿Qué pasajes la usan?" style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkLexico" class="btn-reveal">Verificar</button>
+      <div id="lexicoResult"></div></div>`;
+      document.getElementById("checkLexico").addEventListener("click", () => {
+        const answer = document.getElementById("lexicoAnswer").value.trim().toLowerCase();
+        const correct = currentLexico.usage.toLowerCase();
+        const result = document.getElementById("lexicoResult");
+        if (answer.includes(correct) || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto! Usos en: ${currentLexico.usage}</span>`;
+          setTimeout(loadLexicoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Pasajes: ${currentLexico.usage}</span>`;
+        }
+      });
+    }
+
+    function loadHerramientaQuiz() {
+      const randomIndex = Math.floor(Math.random() * herramientaExamples.length);
+      currentHerramienta = herramientaExamples[randomIndex];
+      const container = document.getElementById("herramientaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué herramienta exegética es?</strong><br>
+      <span style="font-size:1.1rem;">${currentHerramienta.description}</span><br>
+      <span style="font-size:0.9rem;">Uso: ${currentHerramienta.use}</span><br>
+      <button id="herBDAG" class="btn-reveal">BDAG</button> <button id="herThayer" class="btn-reveal">Thayer</button>
+      <button id="herLouw" class="btn-reveal">Louw-Nida</button> <button id="herTDNT" class="btn-reveal">TDNT</button>
+      <button id="herLogos" class="btn-reveal">Logos</button> <button id="herBiblehub" class="btn-reveal">Biblehub</button>
+      <div id="herramientaResult"></div></div>`;
+      const bdag = document.getElementById("herBDAG");
+      const thayer = document.getElementById("herThayer");
+      const louw = document.getElementById("herLouw");
+      const tdnt = document.getElementById("herTDNT");
+      const logos = document.getElementById("herLogos");
+      const biblehub = document.getElementById("herBiblehub");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("herramientaResult");
+          if (expected === currentHerramienta.tool) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentHerramienta.tool})</span>`;
+            setTimeout(loadHerramientaQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentHerramienta.tool}</span>`;
+          }
+        });
+      };
+      check(bdag, "BDAG");
+      check(thayer, "Thayer");
+      check(louw, "Louw-Nida");
+      check(tdnt, "TDNT");
+      check(logos, "Logos");
+      check(biblehub, "Biblehub");
+    }
+
+    function loadTransHerramientaQuiz() {
+      const randomIndex = Math.floor(Math.random() * transHerramientaExamples.length);
+      currentTransHerramienta = transHerramientaExamples[randomIndex];
+      const container = document.getElementById("transHerramientaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza con herramientas:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransHerramienta.greek}</span><br>
+      <span style="font-size:0.9rem;">Análisis: ${currentTransHerramienta.analysis}</span><br>
+      <input type="text" id="transHerramientaAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransHerramienta" class="btn-reveal">Verificar</button>
+      <div id="transHerramientaResult"></div></div>`;
+      document.getElementById("checkTransHerramienta").addEventListener("click", () => {
+        const answer = document.getElementById("transHerramientaAnswer").value.trim().toLowerCase();
+        const correct = currentTransHerramienta.translation.toLowerCase();
+        const result = document.getElementById("transHerramientaResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransHerramienta.analysis})</span>`;
+          setTimeout(loadTransHerramientaQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransHerramienta.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Léxico estándar del NT (Bauer-Danker-Arndt-Gingrich)", opts: ["BDAG", "Thayer", "Louw-Nida", "TDNT"], correct: 0 },
+      { q: "Léxico organizado por campos semánticos", opts: ["Louw-Nida", "BDAG", "Thayer", "TDNT"], correct: 0 },
+      { q: "Diccionario teológico del NT (Kittel)", opts: ["TDNT", "BDAG", "Thayer", "Louw-Nida"], correct: 0 },
+      { q: "Término que significa 'exégesis, interpretación'", opts: ["ἐξήγησις", "εἰσήγησις", "ἑρμηνευτική", "κριτική"], correct: 0 },
+      { q: "Herramienta gratuita en línea para estudio del NT", opts: ["Biblehub", "Logos", "Accordance", "BibleWorks"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkLexico" || btn.id === "checkTransHerramienta" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#herramientaQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadLexicoQuiz();
+      loadHerramientaQuiz();
+      loadTransHerramientaQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newLexicoQuiz")?.addEventListener("click", () => {
+        loadLexicoQuiz();
+        document.getElementById("lexicoFeedback").innerHTML = "";
+      });
+      document.getElementById("newHerramientaQuiz")?.addEventListener("click", () => {
+        loadHerramientaQuiz();
+        document.getElementById("herramientaFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransHerramientaQuiz")?.addEventListener("click", () => {
+        loadTransHerramientaQuiz();
+        document.getElementById("transHerramientaFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

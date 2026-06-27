@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 63: Lectura del Apocalipsis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 90%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .apoc-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .vision-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-62.html"><i class="fas fa-arrow-left"></i> Lección 62</a>
+        <a href="leccion-64.html"><i class="fas fa-arrow-right"></i> Lección 64</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-eye"></i> Lección 63 · Lectura del Apocalipsis <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Griego semitizante · Nominativos colgantes · Apocalipsis 1:1-20 y 21:1-22:5 · Vocabulario simbólico · Ya y todavía no · Uso de la LXX</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1260/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Griego apocalíptico: lectura del Apocalipsis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Análisis del griego del Apocalipsis – estilo semitizante y vocabulario simbólico</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El griego del Apocalipsis</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Apocalipsis de Juan es el libro del NT con el griego más <strong>peculiar y semitizante</strong>. Su estilo refleja la influencia del <strong>hebreo y arameo</strong>, y su vocabulario es <strong>simbólico y visionario</strong>.</p>
+          <div class="apoc-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características del griego apocalíptico:</strong>
+            <ul>
+              <li><strong>Hebraísmos sintácticos:</strong> uso excesivo de <span class="greek-word">καί</span> (parataxis), nominativos colgantes.</li>
+              <li><strong>Violaciones gramaticales:</strong> cambios inesperados de caso, género y número.</li>
+              <li><strong>Vocabulario simbólico:</strong> términos con significado teológico y visionario.</li>
+              <li><strong>Uso de la LXX:</strong> citas y alusiones constantes al Antiguo Testamento.</li>
+              <li><strong>Presente histórico:</strong> uso del presente para describir visiones pasadas.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo de hebraísmo:</strong><br>
+            <span class="greek-word">καὶ ἰδοὺ θρόνος</span> (Apocalipsis 4:2) – "y he aquí, un trono".<br>
+            <span class="greek-word">ἰδοὺ</span> es un hebraísmo (הנה) que Juan usa frecuentemente para introducir visiones.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: NOMINATIVOS COLGANTES Y CAMBIOS DE CASO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-exclamation-triangle"></i> 2. Nominativos colgantes y cambios de caso</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Una de las características más notables del Apocalipsis es el <strong>nominativo colgante</strong> (<em>nominativus pendens</em>): un sustantivo en nominativo al inicio de la oración que luego es retomado por un pronombre en otro caso.</p>
+
+          <h3>Ejemplos de nominativos colgantes</h3>
+          <div class="vision-box">
+            <strong>Apocalipsis 3:12 – <span class="greek-word">ὁ νικῶν</span></strong>
+            <ul>
+              <li><span class="greek-word">ὁ νικῶν</span> – nominativo (el que vence).</li>
+              <li>Luego retomado con <span class="greek-word">αὐτόν</span> en acusativo: <span class="greek-word">ποιήσω αὐτὸν στῦλον</span> ("lo haré columna").</li>
+            </ul>
+          </div>
+          <div class="vision-box">
+            <strong>Apocalipsis 2:26-27 – <span class="greek-word">ὁ νικῶν</span></strong>
+            <ul>
+              <li><span class="greek-word">ὁ νικῶν</span> – nominativo.</li>
+              <li>Luego: <span class="greek-word">δώσω αὐτῷ</span> ("le daré") – dativo <span class="greek-word">αὐτῷ</span>.</li>
+            </ul>
+          </div>
+
+          <h3>Cambios de caso inesperados</h3>
+          <div class="vision-box">
+            <strong>Apocalipsis 1:4 – <span class="greek-word">Ἰησοῦ Χριστοῦ</span></strong>
+            <ul>
+              <li><span class="greek-word">ἀπὸ ὁ ὢν καὶ ὁ ἦν καὶ ὁ ἐρχόμενος</span> – "de parte del que es y que era y que viene".</li>
+              <li>Se esperaría genitivo después de <span class="greek-word">ἀπό</span> (de parte de), pero Juan usa nominativo.</li>
+              <li>Explicación: influencia del hebreo donde el nombre divino es indeclinable.</li>
+            </ul>
+          </div>
+
+          <div class="apoc-box">
+            <strong><i class="fas fa-lightbulb"></i> Causa de estos fenómenos:</strong> El griego del Apocalipsis está <strong>semitizado</strong> – el autor piensa en hebreo pero escribe en griego. Esto produce construcciones que serían "incorrectas" en griego clásico, pero que son <strong>intencionales</strong> y <strong>significativas</strong>.
+          </div>
+          <button class="btn-reveal" data-target="nominativoEj">Identifica el nominativo colgante</button>
+          <div id="nominativoEj" class="answer-text">
+            <span class="greek-word">ὁ νικῶν ... δώσω αὐτῷ</span> – nominativo colgante.<br>
+            <span class="greek-word">ὁ πιστεύων ... ἔχει ζωήν</span> – nominativo colgante en Juan (estilo semitizante).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: APOCALIPSIS 1:1-20 – LA VISIÓN INAUGURAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 3. Apocalipsis 1:1-20 – La visión inaugural</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Ἀποκάλυψις Ἰησοῦ Χριστοῦ ἣν ἔδωκεν αὐτῷ ὁ θεὸς δεῖξαι τοῖς δούλοις αὐτοῦ ἃ δεῖ γενέσθαι ἐν τάχει, καὶ ἐσήμανεν ἀποστείλας διὰ τοῦ ἀγγέλου αὐτοῦ τῷ δούλῳ αὐτοῦ Ἰωάννῃ,</span> (1:1)</p>
+            <p><span class="greek-word">ὃς ἐμαρτύρησεν τὸν λόγον τοῦ θεοῦ καὶ τὴν μαρτυρίαν Ἰησοῦ Χριστοῦ ὅσα εἶδεν.</span> (1:2)</p>
+            <p><span class="greek-word">μακάριος ὁ ἀναγινώσκων καὶ οἱ ἀκούοντες τοὺς λόγους τῆς προφητείας καὶ τηροῦντες τὰ ἐν αὐτῇ γεγραμμένα, ὁ γὰρ καιρὸς ἐγγύς.</span> (1:3)</p>
+            <p><span class="greek-word">Ἰωάννης ταῖς ἑπτὰ ἐκκλησίαις ταῖς ἐν τῇ Ἀσίᾳ· χάρις ὑμῖν καὶ εἰρήνη ἀπὸ ὁ ὢν καὶ ὁ ἦν καὶ ὁ ἐρχόμενος, καὶ ἀπὸ τῶν ἑπτὰ πνευμάτων ἃ ἐνώπιον τοῦ θρόνου αὐτοῦ,</span> (1:4)</p>
+          </div>
+
+          <h3>Análisis de Apocalipsis 1:1-5</h3>
+          <div class="apoc-box">
+            <strong>1:1 – <span class="greek-word">Ἀποκάλυψις ... ἣν ἔδωκεν ... δεῖξαι</span></strong>
+            <ul>
+              <li><span class="greek-word">ἀποκάλυψις</span> – "revelación" (género literario).</li>
+              <li><span class="greek-word">ἣν ἔδωκεν</span> – aoristo de δίδωμι (dio).</li>
+              <li><span class="greek-word">δεῖξαι</span> – infinitivo aoristo de δείκνυμι (mostrar).</li>
+              <li><span class="greek-word">ἃ δεῖ γενέσθαι</span> – "las cosas que deben suceder" (subjuntivo de necesidad).</li>
+            </ul>
+          </div>
+          <div class="apoc-box">
+            <strong>1:3 – <span class="greek-word">μακάριος ... τηροῦντες ... γεγραμμένα</span></strong>
+            <ul>
+              <li><span class="greek-word">μακάριος</span> – "bienaventurado" (macarismo).</li>
+              <li><span class="greek-word">ἀναγινώσκων</span> – participio presente (el que lee).</li>
+              <li><span class="greek-word">ἀκούοντες</span> – participio presente (los que oyen).</li>
+              <li><span class="greek-word">τηροῦντες</span> – participio presente (los que guardan).</li>
+              <li><span class="greek-word">γεγραμμένα</span> – participio perfecto pasivo (lo que está escrito).</li>
+              <li><span class="greek-word">καιρὸς ἐγγύς</span> – "el tiempo está cerca" (inminencia).</li>
+            </ul>
+          </div>
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> El Apocalipsis comienza con una <strong>bienaventuranza</strong> (μακάριος) – una de las siete bienaventuranzas del libro. La inminencia (<span class="greek-word">ἐγγύς</span>) es clave para la escatología apocalíptica: los eventos del fin están <strong>cerca</strong>, pero no necesariamente <strong>inmediatos</strong>.
+          </div>
+          <button class="btn-reveal" data-target="ap1a">Identifica las formas verbales en Apocalipsis 1:1-3</button>
+          <div id="ap1a" class="answer-text">
+            <span class="greek-word">ἔδωκεν</span> – aoristo (dio).<br>
+            <span class="greek-word">δεῖξαι</span> – infinitivo aoristo (mostrar).<br>
+            <span class="greek-word">δεῖ</span> – impersonal (es necesario).<br>
+            <span class="greek-word">γενέσθαι</span> – infinitivo aoristo (suceder).<br>
+            <span class="greek-word">γεγραμμένα</span> – participio perfecto pasivo (está escrito).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: APOCALIPSIS 21:1-22:5 – NUEVO CIELO Y NUEVA TIERRA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 4. Apocalipsis 21:1-22:5 – Nuevo cielo y nueva tierra</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Καὶ εἶδον οὐρανὸν καινὸν καὶ γῆν καινήν· ὁ γὰρ πρῶτος οὐρανὸς καὶ ἡ πρώτη γῆ ἀπῆλθαν, καὶ ἡ θάλασσα οὐκ ἔστιν ἔτι.</span> (21:1)</p>
+            <p><span class="greek-word">καὶ τὴν πόλιν τὴν ἁγίαν Ἰερουσαλὴμ καινὴν εἶδον καταβαίνουσαν ἐκ τοῦ οὐρανοῦ ἀπὸ τοῦ θεοῦ, ἡτοιμασμένην ὡς νύμφην κεκοσμημένην τῷ ἀνδρὶ αὐτῆς.</span> (21:2)</p>
+            <p><span class="greek-word">καὶ ἤκουσα φωνῆς μεγάλης ἐκ τοῦ θρόνου λεγούσης· ἰδοὺ ἡ σκηνὴ τοῦ θεοῦ μετὰ τῶν ἀνθρώπων, καὶ σκηνώσει μετʼ αὐτῶν, καὶ αὐτοὶ λαοὶ αὐτοῦ ἔσονται, καὶ αὐτὸς ὁ θεὸς μετʼ αὐτῶν ἔσται.</span> (21:3)</p>
+            <p><span class="greek-word">καὶ ἐξαλείψει πᾶν δάκρυον ἐκ τῶν ὀφθαλμῶν αὐτῶν, καὶ ὁ θάνατος οὐκ ἔσται ἔτι, οὔτε πένθος οὔτε κραυγὴ οὔτε πόνος οὐκ ἔσται ἔτι· [ὅτι] τὰ πρῶτα ἀπῆλθαν.</span> (21:4)</p>
+          </div>
+
+          <h3>Análisis de Apocalipsis 21:1-5</h3>
+          <div class="apoc-box">
+            <strong>21:1 – <span class="greek-word">καινὸν ... καινήν</span></strong>
+            <ul>
+              <li><span class="greek-word">καινός</span> – "nuevo" (en calidad, no en tiempo).</li>
+              <li>Distinto de <span class="greek-word">νέος</span> (nuevo en tiempo).</li>
+              <li><span class="greek-word">ἀπῆλθαν</span> – aoristo de ἀπέρχομαι (se fueron, pasaron).</li>
+            </ul>
+          </div>
+          <div class="apoc-box">
+            <strong>21:2 – <span class="greek-word">καταβαίνουσαν ... ἡτοιμασμένην ... κεκοσμημένην</span></strong>
+            <ul>
+              <li><span class="greek-word">καταβαίνουσαν</span> – participio presente (descendiendo).</li>
+              <li><span class="greek-word">ἡτοιμασμένην</span> – participio perfecto pasivo (preparada).</li>
+              <li><span class="greek-word">κεκοσμημένην</span> – participio perfecto pasivo (adornada).</li>
+            </ul>
+          </div>
+          <div class="apoc-box">
+            <strong>21:3 – <span class="greek-word">σκηνώσει</span></strong>
+            <ul>
+              <li><span class="greek-word">σκηνώσει</span> – futuro de σκηνόω (habitar, poner tienda).</li>
+              <li>Evoca el <span class="greek-word">tabernáculo</span> (σκηνή) del AT.</li>
+              <li><span class="greek-word">λαοὶ</span> – pueblos (plural, universalidad).</li>
+            </ul>
+          </div>
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> La visión de la nueva Jerusalén es el <strong>clímax del Apocalipsis</strong>. La ciudad desciende del cielo (21:2), Dios habita con su pueblo (21:3), y todas las cosas son hechas nuevas (21:5). El verbo <span class="greek-word">σκηνώσει</span> conecta con el tabernáculo del AT, mostrando que Dios <strong>permanentemente</strong> habitará con su pueblo.
+          </div>
+          <button class="btn-reveal" data-target="ap21a">Identifica los participios en Apocalipsis 21:2</button>
+          <div id="ap21a" class="answer-text">
+            <span class="greek-word">καταβαίνουσαν</span> – participio presente (descendiendo).<br>
+            <span class="greek-word">ἡτοιμασμένην</span> – perfecto pasivo (preparada).<br>
+            <span class="greek-word">κεκοσμημένην</span> – perfecto pasivo (adornada).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: VOCABULARIO SIMBÓLICO DEL APOCALIPSIS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-symbol"></i> 5. Vocabulario simbólico del Apocalipsis</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Apocalipsis utiliza un <strong>vocabulario simbólico</strong> que proviene en gran parte del AT, especialmente de Daniel, Ezequiel e Isaías.</p>
+
+          <div class="vision-box">
+            <strong><i class="fas fa-tag"></i> Símbolos clave:</strong>
+            <ul>
+              <li><span class="greek-word">θρόνος</span> – trono (autoridad divina)</li>
+              <li><span class="greek-word">ἀρνίον</span> – cordero (Cristo sacrificado y victorioso)</li>
+              <li><span class="greek-word">θηρίον</span> – bestia (poderes opuestos a Dios)</li>
+              <li><span class="greek-word">δράκων</span> – dragón (Satanás)</li>
+              <li><span class="greek-word">πόρνη</span> – ramera (Babilonia, poder corrupto)</li>
+              <li><span class="greek-word">νύμφη</span> – novia (la iglesia/ciudad celestial)</li>
+              <li><span class="greek-word">νυμφίος</span> – novio (Cristo)</li>
+              <li><span class="greek-word">λίμνη πυρός</span> – lago de fuego (castigo final)</li>
+              <li><span class="greek-word">παντοκράτωρ</span> – Todopoderoso (título divino)</li>
+              <li><span class="greek-word">ἄλφα καὶ ὦ</span> – Alfa y Omega (primero y último)</li>
+            </ul>
+          </div>
+
+          <div class="apoc-box">
+            <strong><i class="fas fa-lightbulb"></i> Importancia exegética:</strong> Estos símbolos no deben interpretarse <strong>literalmente</strong>, sino como <strong>representaciones teológicas</strong> de realidades espirituales. El contexto del AT y la tradición apocalíptica judía son clave para entender su significado.
+          </div>
+          <button class="btn-reveal" data-target="simbolosEj">Identifica el símbolo</button>
+          <div id="simbolosEj" class="answer-text">
+            <span class="greek-word">ἀρνίον</span> – cordero (Cristo).<br>
+            <span class="greek-word">θηρίον</span> – bestia (poder anticristiano).<br>
+            <span class="greek-word">νύμφη</span> – novia (la iglesia).<br>
+            <span class="greek-word">παντοκράτωρ</span> – Todopoderoso.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Apocalipsis</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para la comprensión del Apocalipsis.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Contexto simbólico</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Apocalipsis 1:8:</strong> <span class="greek-word">Ἐγώ εἰμι τὸ Ἄλφα καὶ τὸ Ὦ, λέγει κύριος ὁ θεός, ὁ ὢν καὶ ὁ ἦν καὶ ὁ ἐρχόμενος, ὁ παντοκράτωρ.</span> – "Yo soy el Alfa y la Omega, dice el Señor Dios, el que es y que era y que viene, el Todopoderoso."</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL HEBRAÍSMO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el hebraísmo o construcción semitizante</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="hebApocQuizArea"></div>
+          <button id="newHebApocQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="hebApocFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL SÍMBOLO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-symbol"></i> 8. Identifica el símbolo apocalíptico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="simboloApocQuizArea"></div>
+          <button id="newSimboloApocQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo símbolo</button>
+          <div id="simboloApocFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN DEL APOCALIPSIS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce pasajes del Apocalipsis</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transApocQuizArea"></div>
+          <button id="newTransApocQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transApocFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ANÁLISIS DE APOCALIPSIS 1 Y 21 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis de Apocalipsis 1 y 21</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee y analiza los pasajes. Identifica los hebraísmos y el vocabulario simbólico.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 1:4 – ἀπὸ ὁ ὢν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">χάρις ὑμῖν καὶ εἰρήνη ἀπὸ ὁ ὢν καὶ ὁ ἦν καὶ ὁ ἐρχόμενος</span></p>
+              <button class="btn-reveal" data-target="ap1b">¿Qué construcción gramatical problemática aparece aquí?</button>
+              <div id="ap1b" class="answer-text"><strong>Nominativo después de preposición</strong> (<span class="greek-word">ἀπὸ</span> + nominativo en lugar de genitivo). Es un hebraísmo: el nombre divino es indeclinable.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 1:3 – καιρὸς ἐγγύς</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ γὰρ καιρὸς ἐγγύς</span></p>
+              <button class="btn-reveal" data-target="ap1c">¿Qué concepto escatológico expresa <strong>ἐγγύς</strong>?</button>
+              <div id="ap1c" class="answer-text">"Cerca" – expresa la <strong>inminencia</strong> de los eventos escatológicos. Los eventos del fin están cerca, aunque no necesariamente inmediatos.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 21:1 – καινός</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οὐρανὸν καινὸν καὶ γῆν καινήν</span></p>
+              <button class="btn-reveal" data-target="ap21b">¿Qué matiz tiene <strong>καινός</strong> en comparación con <strong>νέος</strong>?</button>
+              <div id="ap21b" class="answer-text"><span class="greek-word">καινός</span> significa "nuevo en calidad" (diferente, renovado), mientras que <span class="greek-word">νέος</span> significa "nuevo en tiempo" (joven, reciente). La nueva creación es <strong>cualitativamente</strong> diferente.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Apocalipsis 21:3 – σκηνώσει</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἰδοὺ ἡ σκηνὴ τοῦ θεοῦ μετὰ τῶν ἀνθρώπων, καὶ σκηνώσει μετʼ αὐτῶν</span></p>
+              <button class="btn-reveal" data-target="ap21c">¿Qué conexión con el AT tiene <strong>σκηνώσει</strong>?</button>
+              <div id="ap21c" class="answer-text">Evoca el <span class="greek-word">tabernáculo</span> (σκηνή) del AT, donde Dios habitaba entre su pueblo. En la nueva creación, Dios <strong>habitará permanentemente</strong> con su pueblo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Apocalipsis 1:1-20 y 21:1-22:5 en griego. Identifica los hebraísmos sintácticos y el vocabulario simbólico. Reflexiona sobre el significado teológico de la nueva creación.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-62.html"><i class="fas fa-arrow-left"></i> Lección 62</a>
+      <a href="leccion-64.html"><i class="fas fa-arrow-right"></i> Lección 64</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἰδοὺ ἡ σκηνὴ τοῦ θεοῦ μετὰ τῶν ἀνθρώπων</span> (Apocalipsis 21:3)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 63 ==========
+    const vocabData = [
+      { greek: "ἀποκάλυψις", translit: "apokalypsis", spanish: "revelación", context: "género literario" },
+      { greek: "ὁ ὢν καὶ ὁ ἦν καὶ ὁ ἐρχόμενος", translit: "ho ōn kai ho ēn kai ho erchomenos", spanish: "el que es, era y viene", context: "título divino" },
+      { greek: "παντοκράτωρ", translit: "pantokratōr", spanish: "Todopoderoso", context: "título divino" },
+      { greek: "ἄλφα καὶ ὦ", translit: "alpha kai ō", spanish: "Alfa y Omega", context: "primero y último" },
+      { greek: "πρωτότοκος", translit: "prōtotokos", spanish: "primogénito", context: "título cristológico" },
+      { greek: "ἄρχων", translit: "archōn", spanish: "príncipe, gobernante", context: "poderes" },
+      { greek: "βασιλεία", translit: "basileia", spanish: "reino", context: "reino de Dios" },
+      { greek: "ἱερεύς", translit: "hiereus", spanish: "sacerdote", context: "oficio sacerdotal" },
+      { greek: "ἱλασμός", translit: "hilasmos", spanish: "propiciación", context: "expiación" },
+      { greek: "λύχνος / λυχνία", translit: "lychnos / lychnia", spanish: "lámpara / candelero", context: "símbolos" },
+      { greek: "ψηφίζω", translit: "psēphizō", spanish: "calcular, contar", context: "número de la bestia" },
+      { greek: "χάραγμα", translit: "charagma", spanish: "marca, sello", context: "marca de la bestia" },
+      { greek: "ἀρνίον", translit: "arnion", spanish: "corderito", context: "símbolo de Cristo" },
+      { greek: "θηρίον", translit: "thērion", spanish: "bestia", context: "poder anticristiano" },
+      { greek: "πόρνη", translit: "pornē", spanish: "ramera", context: "Babilonia" },
+      { greek: "δράκων", translit: "drakōn", spanish: "dragón", context: "Satanás" },
+      { greek: "κόλασις", translit: "kolasis", spanish: "castigo", context: "juicio" },
+      { greek: "λίμνη πυρός", translit: "limnē pyros", spanish: "lago de fuego", context: "castigo final" },
+      { greek: "νύμφη", translit: "nymphē", spanish: "novia, esposa", context: "la iglesia" },
+      { greek: "νυμφίος", translit: "nymphios", spanish: "novio, esposo", context: "Cristo" }
+    ];
+
+    // Ejemplos para identificar hebraísmos
+    const hebApocExamples = [
+      { phrase: "ἀπὸ ὁ ὢν", type: "nominativo después de preposición", explanation: "se espera genitivo, pero se usa nominativo (indec linable divino)" },
+      { phrase: "ὁ νικῶν ... δώσω αὐτῷ", type: "nominativo colgante", explanation: "sujeto en nominativo, retomado con pronombre en otro caso" },
+      { phrase: "καὶ ἰδοὺ", type: "hebraísmo", explanation: "traducción de הִנֵּה (hinneh) – 'he aquí'" },
+      { phrase: "ἐγώ εἰμι", type: "hebraísmo", explanation: "traducción de אֶהְיֶה (ehyeh) – 'Yo soy'" },
+      { phrase: "ὁ ὢν καὶ ὁ ἦν καὶ ὁ ἐρχόμενος", type: "nombre divino indeclinable", explanation: "título divino que no se declina" }
+    ];
+
+    // Ejemplos para identificar símbolos
+    const simboloApocExamples = [
+      { term: "ἀρνίον", meaning: "cordero", reference: "Cristo sacrificado y victorioso" },
+      { term: "θηρίον", meaning: "bestia", reference: "poderes opuestos a Dios" },
+      { term: "δράκων", meaning: "dragón", reference: "Satanás" },
+      { term: "πόρνη", meaning: "ramera", reference: "Babilonia, poder corrupto" },
+      { term: "νύμφη", meaning: "novia", reference: "la iglesia / ciudad celestial" },
+      { term: "νυμφίος", meaning: "novio", reference: "Cristo" },
+      { term: "λίμνη πυρός", meaning: "lago de fuego", reference: "castigo final" },
+      { term: "παντοκράτωρ", meaning: "Todopoderoso", reference: "título divino" }
+    ];
+
+    // Pasajes para traducción
+    const transApocExamples = [
+      { greek: "Ἀποκάλυψις Ἰησοῦ Χριστοῦ", translation: "Revelación de Jesucristo" },
+      { greek: "μακάριος ὁ ἀναγινώσκων", translation: "Bienaventurado el que lee" },
+      { greek: "ὁ καιρὸς ἐγγύς", translation: "El tiempo está cerca" },
+      { greek: "ἰδοὺ ἡ σκηνὴ τοῦ θεοῦ", translation: "He aquí el tabernáculo de Dios" },
+      { greek: "σκηνώσει μετʼ αὐτῶν", translation: "Habitará con ellos" },
+      { greek: "τὰ πρῶτα ἀπῆλθαν", translation: "Las primeras cosas pasaron" }
+    ];
+
+    let currentHebApoc = hebApocExamples[0];
+    let currentSimboloApoc = simboloApocExamples[0];
+    let currentTransApoc = transApocExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.context}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadHebApocQuiz() {
+      const randomIndex = Math.floor(Math.random() * hebApocExamples.length);
+      currentHebApoc = hebApocExamples[randomIndex];
+      const container = document.getElementById("hebApocQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza el hebraísmo:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentHebApoc.phrase}</span><br>
+      <span style="font-size:0.9rem;">${currentHebApoc.explanation}</span><br>
+      <button id="hebOk" class="btn-reveal">Entendido</button>
+      <div id="hebApocResult"></div></div>`;
+      document.getElementById("hebOk").addEventListener("click", () => {
+        const result = document.getElementById("hebApocResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Correcto! El hebraísmo es: ${currentHebApoc.type}</span>`;
+        setTimeout(loadHebApocQuiz, 1500);
+      });
+    }
+
+    function loadSimboloApocQuiz() {
+      const randomIndex = Math.floor(Math.random() * simboloApocExamples.length);
+      currentSimboloApoc = simboloApocExamples[randomIndex];
+      const container = document.getElementById("simboloApocQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué símbolo es <span class="greek-word">${currentSimboloApoc.term}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Referencia: ${currentSimboloApoc.reference}</span><br>
+      <input type="text" id="simboloApocAnswer" placeholder="significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkSimboloApoc" class="btn-reveal">Verificar</button>
+      <div id="simboloApocResult"></div></div>`;
+      document.getElementById("checkSimboloApoc").addEventListener("click", () => {
+        const answer = document.getElementById("simboloApocAnswer").value.trim().toLowerCase();
+        const correct = currentSimboloApoc.meaning.toLowerCase();
+        const result = document.getElementById("simboloApocResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentSimboloApoc.meaning})</span>`;
+          setTimeout(loadSimboloApocQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentSimboloApoc.meaning}</span>`;
+        }
+      });
+    }
+
+    function loadTransApocQuiz() {
+      const randomIndex = Math.floor(Math.random() * transApocExamples.length);
+      currentTransApoc = transApocExamples[randomIndex];
+      const container = document.getElementById("transApocQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransApoc.greek}</span><br>
+      <input type="text" id="transApocAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransApoc" class="btn-reveal">Verificar</button>
+      <div id="transApocResult"></div></div>`;
+      document.getElementById("checkTransApoc").addEventListener("click", () => {
+        const answer = document.getElementById("transApocAnswer").value.trim().toLowerCase();
+        const correct = currentTransApoc.translation.toLowerCase();
+        const result = document.getElementById("transApocResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransApocQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransApoc.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Hebraísmo que significa 'he aquí'", opts: ["ἰδοὺ", "καί", "ὅτι", "ἐγώ"], correct: 0 },
+      { q: "Símbolo del Apocalipsis para el cordero (Cristo)", opts: ["ἀρνίον", "θηρίον", "δράκων", "νύμφη"], correct: 0 },
+      { q: "Símbolo del Apocalipsis para Satanás", opts: ["δράκων", "ἀρνίον", "θηρίον", "πόρνη"], correct: 0 },
+      { q: "Título divino que significa 'Todopoderoso'", opts: ["παντοκράτωρ", "ἄλφα καὶ ὦ", "κύριος", "θεός"], correct: 0 },
+      { q: "En Apocalipsis 21:1, 'καινός' significa...", opts: ["nuevo en calidad", "nuevo en tiempo", "viejo", "grande"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkSimboloApoc" || btn.id === "checkTransApoc" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && btn.closest("#hebApocQuizArea")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadHebApocQuiz();
+      loadSimboloApocQuiz();
+      loadTransApocQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newHebApocQuiz")?.addEventListener("click", () => {
+        loadHebApocQuiz();
+        document.getElementById("hebApocFeedback").innerHTML = "";
+      });
+      document.getElementById("newSimboloApocQuiz")?.addEventListener("click", () => {
+        loadSimboloApocQuiz();
+        document.getElementById("simboloApocFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransApocQuiz")?.addEventListener("click", () => {
+        loadTransApocQuiz();
+        document.getElementById("transApocFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

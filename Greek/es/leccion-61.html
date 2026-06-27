@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 61: Lectura Continua – Juan 11–21</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 87%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .juan-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .exegetical-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-60.html"><i class="fas fa-arrow-left"></i> Lección 60</a>
+        <a href="leccion-62.html"><i class="fas fa-arrow-right"></i> Lección 62</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-scroll"></i> Lección 61 · Lectura Continua – Juan 11–21 <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Juan 11:1-44 (Lázaro) · Juan 17 (Oración Sacerdotal) · Juan 19-21 (Perfectos teológicos) · Juan 20:28 (Análisis exegético)</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1220/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Lectura continua del Evangelio de Juan (capítulos 11-21)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Análisis exegético de Juan 11, 17, 19-21 y 20:28</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Juan 11–21: La culminación del evangelio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La segunda mitad del Evangelio de Juan (capítulos 11-21) es la <strong>culminación</strong> del ministerio de Jesús. Contiene la <strong>resurrección de Lázaro</strong> (Juan 11), la <strong>oración sacerdotal</strong> (Juan 17), la <strong>pasión y muerte</strong> (Juan 18-19) y la <strong>resurrección</strong> (Juan 20-21).</p>
+          <div class="juan-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características del griego de Juan 11-21:</strong>
+            <ul>
+              <li>Uso abundante de <strong>verbos en subjuntivo</strong> (especialmente en Juan 17).</li>
+              <li><strong>Participios</strong> que enriquecen la narrativa y la teología.</li>
+              <li><strong>Perfectos teológicos</strong> que expresan estado resultante (especialmente en Juan 19-21).</li>
+              <li>Diálogos <strong>densos</strong> y discursos <strong>profundos</strong> (Juan 14-17).</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Estructura de Juan 11-21:</strong><br>
+            11:1-44 – Resurrección de Lázaro (la séptima señal)<br>
+            11:45-12:50 – Conspiración y unción<br>
+            13:1-17:26 – Discurso de despedida y Oración Sacerdotal<br>
+            18:1-19:42 – Pasión y muerte<br>
+            20:1-21:25 – Resurrección y epílogo
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: JUAN 11:1-44 – RESURRECCIÓN DE LÁZARO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 2. Juan 11:1-44 – La resurrección de Lázaro</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Ἦν δέ τις ἀσθενῶν, Λάζαρος ἀπὸ Βηθανίας, ἐκ τῆς κώμης Μαρίας καὶ Μάρθας τῆς ἀδελφῆς αὐτῆς.</span> (11:1)</p>
+            <p><span class="greek-word">ἡ δὲ Μαρία ἦν ἡ ἀλείψασα τὸν κύριον μύρῳ καὶ ἐκμάξασα τοὺς πόδας αὐτοῦ ταῖς θριξὶν αὐτῆς, ἧς ὁ ἀδελφὸς Λάζαρος ἠσθένει.</span> (11:2)</p>
+            <p><span class="greek-word">ἀπέστειλαν οὖν αἱ ἀδελφαὶ πρὸς αὐτὸν λέγουσαι· κύριε, ἴδε ὃν φιλεῖς ἀσθενεῖ.</span> (11:3)</p>
+            <p><span class="greek-word">ἀκούσας δὲ ὁ Ἰησοῦς εἶπεν· αὕτη ἡ ἀσθένεια οὐκ ἔστιν πρὸς θάνατον, ἀλλʼ ὑπὲρ τῆς δόξης τοῦ θεοῦ, ἵνα δοξασθῇ ὁ υἱὸς τοῦ θεοῦ διʼ αὐτῆς.</span> (11:4)</p>
+          </div>
+
+          <h3>Análisis de tiempos verbales en Juan 11</h3>
+          <div class="juan-box">
+            <strong>11:1 – <span class="greek-word">ἦν ... ἀσθενῶν</span></strong>
+            <ul>
+              <li><span class="greek-word">ἦν</span> – imperfecto de εἰμί (aspecto lineal: "había").</li>
+              <li><span class="greek-word">ἀσθενῶν</span> – participio presente de ἀσθενέω (aspecto lineal: "estando enfermo").</li>
+            </ul>
+          </div>
+          <div class="juan-box">
+            <strong>11:3 – <span class="greek-word">ἀπέστειλαν ... λέγουσαι ... φιλεῖς</span></strong>
+            <ul>
+              <li><span class="greek-word">ἀπέστειλαν</span> – aoristo de ἀποστέλλω (acción puntual: "enviaron").</li>
+              <li><span class="greek-word">λέγουσαι</span> – participio presente de λέγω (acción simultánea: "diciendo").</li>
+              <li><span class="greek-word">φιλεῖς</span> – presente de φιλέω (acción continua: "amas").</li>
+            </ul>
+          </div>
+          <div class="juan-box">
+            <strong>11:4 – <span class="greek-word">ἵνα δοξασθῇ</span></strong>
+            <ul>
+              <li><span class="greek-word">δοξασθῇ</span> – subjuntivo aoristo pasivo de δοξάζω (propósito: "para que sea glorificado").</li>
+            </ul>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> La resurrección de Lázaro es la <strong>séptima señal</strong> en Juan y el <strong>clímax</strong> de las señales. El propósito de la señal es <span class="greek-word">ἵνα δοξασθῇ ὁ υἱὸς τοῦ θεοῦ</span> ("para que el Hijo de Dios sea glorificado"). El verbo en <strong>subjuntivo aoristo pasivo</strong> (<span class="greek-word">δοξασθῇ</span>) indica una acción puntual que glorificará a Jesús.
+          </div>
+          <button class="btn-reveal" data-target="juan11a">Identifica los tiempos verbales en Juan 11:1-4</button>
+          <div id="juan11a" class="answer-text">
+            <span class="greek-word">ἦν</span> – imperfecto (había).<br>
+            <span class="greek-word">ἀσθενῶν</span> – participio presente (estando enfermo).<br>
+            <span class="greek-word">ἀπέστειλαν</span> – aoristo (enviaron).<br>
+            <span class="greek-word">λέγουσαι</span> – participio presente (diciendo).<br>
+            <span class="greek-word">δοξασθῇ</span> – subjuntivo aoristo pasivo (sea glorificado).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: JUAN 17 – LA ORACIÓN SACERDOTAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 3. Juan 17 – La oración sacerdotal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Ταῦτα ἐλάλησεν Ἰησοῦς, καὶ ἐπάρας τοὺς ὀφθαλμοὺς αὐτοῦ εἰς τὸν οὐρανὸν εἶπεν· πάτερ, ἐλήλυθεν ἡ ὥρα· δόξασόν σου τὸν υἱόν, ἵνα ὁ υἱὸς δοξάσῃ σέ,</span> (17:1)</p>
+            <p><span class="greek-word">καθὼς ἔδωκας αὐτῷ ἐξουσίαν πάσης σαρκός, ἵνα πᾶν ὃ δέδωκας αὐτῷ δώσῃ αὐτοῖς ζωὴν αἰώνιον.</span> (17:2)</p>
+            <p><span class="greek-word">αὕτη δέ ἐστιν ἡ αἰώνιος ζωή, ἵνα γινώσκωσιν σὲ τὸν μόνον ἀληθινὸν θεὸν καὶ ὃν ἀπέστειλας Ἰησοῦν Χριστόν.</span> (17:3)</p>
+          </div>
+
+          <h3>Análisis de subjuntivos y participios en Juan 17</h3>
+          <div class="juan-box">
+            <strong>17:1 – <span class="greek-word">ἐλήλυθεν, δόξασόν, δοξάσῃ</span></strong>
+            <ul>
+              <li><span class="greek-word">ἐλήλυθεν</span> – perfecto de ἔρχομαι (estado resultante: "ha llegado" y permanece).</li>
+              <li><span class="greek-word">δόξασόν</span> – imperativo aoristo de δοξάζω (acción puntual: "glorifica").</li>
+              <li><span class="greek-word">δοξάσῃ</span> – subjuntivo aoristo de δοξάζω (propósito: "para que glorifique").</li>
+            </ul>
+          </div>
+          <div class="juan-box">
+            <strong>17:2 – <span class="greek-word">ἔδωκας, δέδωκας, δώσῃ</span></strong>
+            <ul>
+              <li><span class="greek-word">ἔδωκας</span> – aoristo de δίδωμι (acción puntual: "diste").</li>
+              <li><span class="greek-word">δέδωκας</span> – perfecto de δίδωμι (estado resultante: "has dado" y permanece).</li>
+              <li><span class="greek-word">δώσῃ</span> – subjuntivo aoristo de δίδωμι (propósito: "para que dé").</li>
+            </ul>
+          </div>
+          <div class="juan-box">
+            <strong>17:3 – <span class="greek-word">αὕτη ... ἐστιν ... ἵνα γινώσκωσιν</span></strong>
+            <ul>
+              <li><span class="greek-word">ἐστιν</span> – presente de εἰμί (identificación).</li>
+              <li><span class="greek-word">γινώσκωσιν</span> – subjuntivo presente de γινώσκω (propósito: "para que conozcan").</li>
+            </ul>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> La oración sacerdotal de Juan 17 está llena de <strong>subjuntivos de propósito</strong> (ἵνα + subjuntivo). Jesús ora para que el Padre lo glorifique (17:1), para que él glorifique al Padre (17:1), para que dé vida eterna (17:2), y para que los discípulos conozcan a Dios (17:3). El subjuntivo expresa la <strong>voluntad</strong> y el <strong>propósito</strong> de la oración.
+          </div>
+          <button class="btn-reveal" data-target="juan17a">Identifica los subjuntivos en Juan 17:1-3</button>
+          <div id="juan17a" class="answer-text">
+            <span class="greek-word">δοξάσῃ</span> – subjuntivo aoristo (para que glorifique).<br>
+            <span class="greek-word">δώσῃ</span> – subjuntivo aoristo (para que dé).<br>
+            <span class="greek-word">γινώσκωσιν</span> – subjuntivo presente (para que conozcan).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: JUAN 19-21 – PERFECTOS TEOLÓGICOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 4. Juan 19-21 – Perfectos teológicos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>En la narrativa de la pasión y resurrección, Juan usa <strong>perfectos teológicos</strong> que expresan un <strong>estado resultante</strong> de gran significado teológico.</p>
+
+          <div class="greek-passage">
+            <p><span class="greek-word">ὅτε οὖν ἔλαβεν τὸ ὄξος ὁ Ἰησοῦς εἶπεν· τετέλεσται· καὶ κλίνας τὴν κεφαλὴν παρέδωκεν τὸ πνεῦμα.</span> (19:30)</p>
+            <p><span class="greek-word">καὶ λέγει αὐτῷ· σὺ εἶπες ὅτι βασιλεύς εἰμι. ἐγὼ εἰς τοῦτο γεγέννημαι καὶ εἰς τοῦτο ἐλήλυθα εἰς τὸν κόσμον, ἵνα μαρτυρήσω τῇ ἀληθείᾳ.</span> (18:37)</p>
+            <p><span class="greek-word">ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή· ὁ πιστεύων εἰς ἐμὲ κἂν ἀποθάνῃ ζήσεται,</span> (11:25)</p>
+          </div>
+
+          <h3>Perfectos clave en Juan 19-21</h3>
+          <div class="juan-box">
+            <strong>19:30 – <span class="greek-word">τετέλεσται</span></strong>
+            <ul>
+              <li><span class="greek-word">τετέλεσται</span> – perfecto pasivo de τελέω (3ª sg.).</li>
+              <li><strong>Significado:</strong> "Está consumado" – la obra de la redención está <strong>completada</strong> y su <strong>efecto permanece</strong>.</li>
+              <li><strong>Importancia teológica:</strong> Es la <strong>declaración final</strong> de la obra de Cristo en la cruz.</li>
+            </ul>
+          </div>
+
+          <div class="juan-box">
+            <strong>18:37 – <span class="greek-word">γεγέννημαι, ἐλήλυθα</span></strong>
+            <ul>
+              <li><span class="greek-word">γεγέννημαι</span> – perfecto pasivo de γεννάω (1ª sg.): "he nacido" (estado de ser).</li>
+              <li><span class="greek-word">ἐλήλυθα</span> – perfecto de ἔρχομαι (1ª sg.): "he venido" (estado de haber venido).</li>
+              <li><strong>Significado:</strong> Jesús declara su <strong>identidad eterna</strong> y su <strong>misón</strong> en el mundo.</li>
+            </ul>
+          </div>
+
+          <div class="juan-box">
+            <strong>11:25 – <span class="greek-word">ἐγώ εἰμι</span></strong>
+            <ul>
+              <li><span class="greek-word">ἐγώ εἰμι</span> – presente de εἰμί (identidad divina).</li>
+              <li><span class="greek-word">ἀνάστασις</span> y <span class="greek-word">ζωή</span> – sustantivos que definen a Jesús.</li>
+              <li><strong>Importancia:</strong> Jesús es la <strong>resurrección</strong> y la <strong>vida</strong> – una declaración de su naturaleza divina.</li>
+            </ul>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> El perfecto <span class="greek-word">τετέλεσται</span> (Juan 19:30) es el <strong>perfecto teológico</strong> por excelencia. No solo dice que algo se completó en el pasado, sino que <strong>sigue estando completado</strong> en el presente. La obra de la cruz es <strong>eternamente efectiva</strong>.
+          </div>
+          <button class="btn-reveal" data-target="juan19a">Identifica los perfectos en Juan 19:30 y 18:37</button>
+          <div id="juan19a" class="answer-text">
+            <span class="greek-word">τετέλεσται</span> – perfecto pasivo de τελέω (está consumado).<br>
+            <span class="greek-word">γεγέννημαι</span> – perfecto pasivo de γεννάω (he nacido).<br>
+            <span class="greek-word">ἐλήλυθα</span> – perfecto de ἔρχομαι (he venido).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: JUAN 20:28 – ANÁLISIS EXEGÉTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 5. Juan 20:28 – ὁ κύριός μου καὶ ὁ θεός μου</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">ἀπεκρίθη Θωμᾶς καὶ εἶπεν αὐτῷ· ὁ κύριός μου καὶ ὁ θεός μου.</span> (20:28)</p>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Análisis exegético de Juan 20:28:</strong>
+            <ul>
+              <li><span class="greek-word">ὁ κύριός μου</span> – "¡Señor mío!" (el título mesiánico y divino).</li>
+              <li><span class="greek-word">καὶ ὁ θεός μου</span> – "¡y Dios mío!" (la confesión más explícita de la divinidad de Jesús en los Evangelios).</li>
+              <li><strong>Contexto:</strong> Tomás había dudado de la resurrección (20:25). Al ver a Jesús resucitado, pronuncia esta confesión.</li>
+              <li><strong>Significado teológico:</strong> Es la <strong>confesión culminante</strong> del Evangelio de Juan: Jesús es <strong>Señor y Dios</strong>.</li>
+              <li><strong>Gramática:</strong> El artículo definido (<span class="greek-word">ὁ</span>) enfatiza la identidad: "el Señor mío y el Dios mío".</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Conexión con Juan 1:1:</strong><br>
+            <span class="greek-word">θεὸς ἦν ὁ λόγος</span> (Juan 1:1) – "Dios era el Verbo".<br>
+            <span class="greek-word">ὁ κύριός μου καὶ ὁ θεός μου</span> (Juan 20:28) – "¡Señor mío y Dios mío!".<br>
+            El Evangelio de Juan comienza y termina con la <strong>afirmación de la divinidad de Cristo</strong>.
+          </div>
+          <button class="btn-reveal" data-target="juan20a">Analiza la confesión de Tomás</button>
+          <div id="juan20a" class="answer-text">
+            <span class="greek-word">ὁ κύριός μου</span> – Señor mío (confesión de señorío).<br>
+            <span class="greek-word">ὁ θεός μου</span> – Dios mío (confesión de divinidad).<br>
+            Es la <strong>confesión culminante</strong> del Evangelio de Juan.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Juan 11–21</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para la comprensión de Juan 11–21.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Frecuencia en Juan</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Juan 20:28:</strong> <span class="greek-word">ἀπεκρίθη Θωμᾶς καὶ εἶπεν αὐτῷ· ὁ κύριός μου καὶ ὁ θεός μου.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL TIEMPO VERBAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el tiempo verbal en Juan</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tiempoJuanQuizArea"></div>
+          <button id="newTiempoJuanQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tiempoJuanFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL PARTICIPIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-participio"></i> 8. Identifica el participio en Juan</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="partJuanQuizArea"></div>
+          <button id="newPartJuanQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo participio</button>
+          <div id="partJuanFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN DE JUAN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce pasajes de Juan 11-21</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transJuan11QuizArea"></div>
+          <button id="newTransJuan11Quiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transJuan11Feedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – ANÁLISIS DE PERFECTOS TEOLÓGICOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-check-double"></i> 10. Analiza el perfecto teológico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="perfTeoQuizArea"></div>
+          <button id="newPerfTeoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo perfecto</button>
+          <div id="perfTeoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: TEXTO PROGRAMADO – ANÁLISIS DE JUAN 20:28 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 13. Texto programado · Análisis de Juan 20:28</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee y analiza Juan 20:28 en su contexto. Identifica las formas verbales y su significado teológico.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 20:28 – ἀπεκρίθη</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀπεκρίθη Θωμᾶς καὶ εἶπεν αὐτῷ· ὁ κύριός μου καὶ ὁ θεός μου.</span></p>
+              <button class="btn-reveal" data-target="j20a">¿Qué tiempo es <strong>ἀπεκρίθη</strong>?</button>
+              <div id="j20a" class="answer-text">Aoristo pasivo de <span class="greek-word">ἀποκρίνομαι</span> (respondió).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 20:28 – εἶπεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">εἶπεν</span></p>
+              <button class="btn-reveal" data-target="j20b">¿Qué tiempo es <strong>εἶπεν</strong>?</button>
+              <div id="j20b" class="answer-text">Aoristo de <span class="greek-word">λέγω</span> (dijo).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 20:28 – ὁ κύριός μου</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὁ κύριός μου καὶ ὁ θεός μου</span></p>
+              <button class="btn-reveal" data-target="j20c">¿Qué significado teológico tiene esta confesión?</button>
+              <div id="j20c" class="answer-text">Es la <strong>confesión culminante</strong> de la divinidad de Jesús: "Señor mío y Dios mío". Juan comienza (1:1) y termina (20:28) con la afirmación de que Jesús es Dios.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Juan 19:30 – τετέλεσται</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τετέλεσται</span></p>
+              <button class="btn-reveal" data-target="j19a">¿Qué tiempo y aspecto tiene <strong>τετέλεσται</strong>?</button>
+              <div id="j19a" class="answer-text">Perfecto pasivo de τελέω (3ª sg.) – "está consumado". Aspecto de <strong>estado resultante</strong>: la obra de la redención está completada y sus efectos permanecen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Juan 11:1-44, Juan 17:1-26, Juan 19:30 y Juan 20:28 en griego. Identifica todos los verbos y sus tiempos. Reflexiona sobre el significado teológico de los perfectos y los subjuntivos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-60.html"><i class="fas fa-arrow-left"></i> Lección 60</a>
+      <a href="leccion-62.html"><i class="fas fa-arrow-right"></i> Lección 62</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ὁ κύριός μου καὶ ὁ θεός μου</span> (Juan 20:28)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 61 ==========
+    const vocabData = [
+      { greek: "ἔγκαρδιος", translit: "enkardia", spanish: "en el corazón", freq: "1 en Juan" },
+      { greek: "ἐνεργέω", translit: "energeō", spanish: "obrar, actuar", freq: "2 en Juan" },
+      { greek: "ἐνέργεια", translit: "energeia", spanish: "actividad, operación", freq: "1 en Juan" },
+      { greek: "ἐνεργής", translit: "energēs", spanish: "eficaz, activo", freq: "1 en Juan" },
+      { greek: "ἐνεργούμενος", translit: "energoumenos", spanish: "que actúa", freq: "1 en Juan" },
+      { greek: "ἀποτελέω", translit: "apoteleō", spanish: "completar, acabar", freq: "1 en Juan" },
+      { greek: "κατεργάζομαι", translit: "katergazomai", spanish: "producir, realizar", freq: "1 en Juan" },
+      { greek: "συνεργέω", translit: "synergeō", spanish: "cooperar, colaborar", freq: "1 en Juan" },
+      { greek: "συνεργός", translit: "synergos", spanish: "colaborador", freq: "1 en Juan" },
+      { greek: "ἐκτελέω", translit: "ekteleō", spanish: "completar, llevar a cabo", freq: "1 en Juan" },
+      { greek: "κατορθόω", translit: "katorthoō", spanish: "hacer bien, tener éxito", freq: "1 en Juan" },
+      { greek: "πρᾶγμα", translit: "pragma", spanish: "asunto, hecho", freq: "1 en Juan" },
+      { greek: "πρᾶξις", translit: "praxis", spanish: "acción, práctica", freq: "1 en Juan" },
+      { greek: "διαπράσσω", translit: "diaprassō", spanish: "llevar a cabo", freq: "1 en Juan" },
+      { greek: "κατεργάζομαι", translit: "katergazomai", spanish: "obrar, producir", freq: "1 en Juan" },
+      { greek: "ἔργον", translit: "ergon", spanish: "obra", freq: "frecuente en Juan" },
+      { greek: "ἔργα νόμου", translit: "erga nomou", spanish: "obras de la ley", freq: "1 en Juan" },
+      { greek: "ἔργα πίστεως", translit: "erga pisteōs", spanish: "obras de fe", freq: "1 en Juan" },
+      { greek: "ἐνεργεῖ ἐν ὑμῖν", translit: "energei en hymin", spanish: "obra en vosotros", freq: "1 en Juan" },
+      { greek: "ὁ ἐνεργῶν", translit: "ho energōn", spanish: "el que obra", freq: "1 en Juan" }
+    ];
+
+    // Ejemplos para identificar tiempo verbal en Juan
+    const tiempoJuanExamples = [
+      { form: "ἦν", verb: "εἰμί", tense: "imperfecto", meaning: "era" },
+      { form: "ἀπέστειλαν", verb: "ἀποστέλλω", tense: "aoristo", meaning: "enviaron" },
+      { form: "ἐλήλυθεν", verb: "ἔρχομαι", tense: "perfecto", meaning: "ha venido" },
+      { form: "δοξάσῃ", verb: "δοξάζω", tense: "subj. aor.", meaning: "para que glorifique" },
+      { form: "γινώσκωσιν", verb: "γινώσκω", tense: "subj. presente", meaning: "para que conozcan" },
+      { form: "τετέλεσται", verb: "τελέω", tense: "perfecto pas.", meaning: "está consumado" },
+      { form: "ἀπεκρίθη", verb: "ἀποκρίνομαι", tense: "aoristo pas.", meaning: "respondió" },
+      { form: "εἶπεν", verb: "λέγω", tense: "aoristo", meaning: "dijo" },
+      { form: "ἀσθενῶν", verb: "ἀσθενέω", tense: "participio presente", meaning: "estando enfermo" },
+      { form: "λέγουσαι", verb: "λέγω", tense: "participio presente", meaning: "diciendo" }
+    ];
+
+    // Ejemplos para identificar participios en Juan
+    const partJuanExamples = [
+      { form: "ἀσθενῶν", verb: "ἀσθενέω", tense: "presente", meaning: "estando enfermo" },
+      { form: "λέγουσαι", verb: "λέγω", tense: "presente", meaning: "diciendo" },
+      { form: "ἀκούσας", verb: "ἀκούω", tense: "aoristo", meaning: "habiendo oído" },
+      { form: "ἀλείψασα", verb: "ἀλείφω", tense: "aoristo", meaning: "habiendo ungido" },
+      { form: "κλίνας", verb: "κλίνω", tense: "aoristo", meaning: "habiendo inclinado" },
+      { form: "πιστεύων", verb: "πιστεύω", tense: "presente", meaning: "el que cree" },
+      { form: "ἀγαπῶν", verb: "ἀγαπάω", tense: "presente", meaning: "amando" }
+    ];
+
+    // Pasajes para traducción de Juan 11-21
+    const transJuan11Examples = [
+      { greek: "Λάζαρος ἠσθένει", translation: "Lázaro estaba enfermo" },
+      { greek: "ἵνα δοξασθῇ ὁ υἱὸς τοῦ θεοῦ", translation: "para que el Hijo de Dios sea glorificado" },
+      { greek: "τετέλεσται", translation: "está consumado" },
+      { greek: "ὁ κύριός μου καὶ ὁ θεός μου", translation: "¡Señor mío y Dios mío!" },
+      { greek: "ἐλήλυθεν ἡ ὥρα", translation: "ha llegado la hora" },
+      { greek: "ἵνα γινώσκωσίν σε τὸν μόνον ἀληθινὸν θεόν", translation: "para que te conozcan a ti, el único Dios verdadero" }
+    ];
+
+    // Ejemplos para análisis de perfectos teológicos
+    const perfTeoExamples = [
+      { form: "τετέλεσται", verb: "τελέω", meaning: "está consumado", significance: "la obra de la redención está completada y su efecto permanece" },
+      { form: "ἐλήλυθεν", verb: "ἔρχομαι", meaning: "ha venido", significance: "Jesús ha llegado y permanece" },
+      { form: "δέδωκας", verb: "δίδωμι", meaning: "has dado", significance: "el don de Dios permanece" },
+      { form: "γεγέννημαι", verb: "γεννάω", meaning: "he nacido", significance: "el nacimiento de Jesús como estado permanente" },
+      { form: "γέγραπται", verb: "γράφω", meaning: "está escrito", significance: "la Escritura sigue siendo autoritativa" }
+    ];
+
+    let currentTiempoJuan = tiempoJuanExamples[0];
+    let currentPartJuan = partJuanExamples[0];
+    let currentTransJuan11 = transJuan11Examples[0];
+    let currentPerfTeo = perfTeoExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.freq}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadTiempoJuanQuiz() {
+      const randomIndex = Math.floor(Math.random() * tiempoJuanExamples.length);
+      currentTiempoJuan = tiempoJuanExamples[randomIndex];
+      const container = document.getElementById("tiempoJuanQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la forma <span class="greek-word">${currentTiempoJuan.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Verbo: ${currentTiempoJuan.verb}</span><br>
+      <button id="tjImp" class="btn-reveal">Imperfecto</button> <button id="tjAor" class="btn-reveal">Aoristo</button>
+      <button id="tjPerf" class="btn-reveal">Perfecto</button> <button id="tjSubj" class="btn-reveal">Subjuntivo</button>
+      <button id="tjPart" class="btn-reveal">Participio</button>
+      <div id="tiempoJuanResult"></div></div>`;
+      const imp = document.getElementById("tjImp");
+      const aor = document.getElementById("tjAor");
+      const perf = document.getElementById("tjPerf");
+      const subj = document.getElementById("tjSubj");
+      const part = document.getElementById("tjPart");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("tiempoJuanResult");
+          if (expected === currentTiempoJuan.tense) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTiempoJuan.meaning})</span>`;
+            setTimeout(loadTiempoJuanQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTiempoJuan.tense}</span>`;
+          }
+        });
+      };
+      check(imp, "imperfecto");
+      check(aor, "aoristo");
+      check(perf, "perfecto");
+      check(perf, "perfecto pas.");
+      check(subj, "subj. aor.");
+      check(subj, "subj. presente");
+      check(part, "participio presente");
+    }
+
+    function loadPartJuanQuiz() {
+      const randomIndex = Math.floor(Math.random() * partJuanExamples.length);
+      currentPartJuan = partJuanExamples[randomIndex];
+      const container = document.getElementById("partJuanQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza el participio <span class="greek-word">${currentPartJuan.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Verbo: ${currentPartJuan.verb}</span><br>
+      <button id="pjPres" class="btn-reveal">Presente</button> <button id="pjAor" class="btn-reveal">Aoristo</button>
+      <div id="partJuanResult"></div></div>`;
+      const pres = document.getElementById("pjPres");
+      const aor = document.getElementById("pjAor");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("partJuanResult");
+          if (expected === currentPartJuan.tense) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPartJuan.meaning})</span>`;
+            setTimeout(loadPartJuanQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentPartJuan.tense}</span>`;
+          }
+        });
+      };
+      check(pres, "presente");
+      check(aor, "aoristo");
+    }
+
+    function loadTransJuan11Quiz() {
+      const randomIndex = Math.floor(Math.random() * transJuan11Examples.length);
+      currentTransJuan11 = transJuan11Examples[randomIndex];
+      const container = document.getElementById("transJuan11QuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransJuan11.greek}</span><br>
+      <input type="text" id="transJuan11Answer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransJuan11" class="btn-reveal">Verificar</button>
+      <div id="transJuan11Result"></div></div>`;
+      document.getElementById("checkTransJuan11").addEventListener("click", () => {
+        const answer = document.getElementById("transJuan11Answer").value.trim().toLowerCase();
+        const correct = currentTransJuan11.translation.toLowerCase();
+        const result = document.getElementById("transJuan11Result");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransJuan11Quiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransJuan11.translation}</span>`;
+        }
+      });
+    }
+
+    function loadPerfTeoQuiz() {
+      const randomIndex = Math.floor(Math.random() * perfTeoExamples.length);
+      currentPerfTeo = perfTeoExamples[randomIndex];
+      const container = document.getElementById("perfTeoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza el perfecto teológico <span class="greek-word">${currentPerfTeo.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Verbo: ${currentPerfTeo.verb}</span><br>
+      <span style="font-size:0.9rem;">Significado: ${currentPerfTeo.meaning}</span><br>
+      <button id="ptSign" class="btn-reveal">Ver significado teológico</button>
+      <div id="perfTeoResult"></div></div>`;
+      document.getElementById("ptSign").addEventListener("click", () => {
+        const result = document.getElementById("perfTeoResult");
+        result.innerHTML = `<span class="correct-feedback">✓ ${currentPerfTeo.significance}</span>`;
+        setTimeout(loadPerfTeoQuiz, 1500);
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Forma verbal en Juan 19:30 que significa 'está consumado'", opts: ["τετέλεσται", "ἐλήλυθεν", "γεγέννημαι", "ἀπεκρίθη"], correct: 0 },
+      { q: "En Juan 17:3, 'ἵνα γινώσκωσιν' es un...", opts: ["subjuntivo presente", "imperfecto", "aoristo", "perfecto"], correct: 0 },
+      { q: "Participio presente en Juan 11:1 ('ἀσθενῶν') significa...", opts: ["estando enfermo", "habiendo enfermado", "enfermará", "enfermó"], correct: 0 },
+      { q: "Confesión de Tomás en Juan 20:28", opts: ["ὁ κύριός μου καὶ ὁ θεός μου", "ἐγώ εἰμι", "σύ εἶ ὁ Χριστός", "μαράνα θά"], correct: 0 },
+      { q: "Perfecto de ἔρχομαι (3ª sg.) en Juan 17:1", opts: ["ἐλήλυθεν", "τετέλεσται", "γεγέννημαι", "δέδωκας"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransJuan11" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#tiempoJuanQuizArea") || btn.closest("#partJuanQuizArea") || btn.closest("#perfTeoQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadTiempoJuanQuiz();
+      loadPartJuanQuiz();
+      loadTransJuan11Quiz();
+      loadPerfTeoQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newTiempoJuanQuiz")?.addEventListener("click", () => {
+        loadTiempoJuanQuiz();
+        document.getElementById("tiempoJuanFeedback").innerHTML = "";
+      });
+      document.getElementById("newPartJuanQuiz")?.addEventListener("click", () => {
+        loadPartJuanQuiz();
+        document.getElementById("partJuanFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransJuan11Quiz")?.addEventListener("click", () => {
+        loadTransJuan11Quiz();
+        document.getElementById("transJuan11Feedback").innerHTML = "";
+      });
+      document.getElementById("newPerfTeoQuiz")?.addEventListener("click", () => {
+        loadPerfTeoQuiz();
+        document.getElementById("perfTeoFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

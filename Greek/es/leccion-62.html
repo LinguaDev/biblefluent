@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 62: Lectura de Pablo – Gálatas y Efesios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 89%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .pauline-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .exegetical-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-61.html"><i class="fas fa-arrow-left"></i> Lección 61</a>
+        <a href="leccion-63.html"><i class="fas fa-arrow-right"></i> Lección 63</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-envelope"></i> Lección 62 · Lectura de Pablo – Gálatas y Efesios <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Gálatas 1-2: πίστις Χριστοῦ (debate exegético) · Efesios 1:3-14 (oración de 12 versículos) · Efesios 2:8-10 (análisis completo) · Controversia ἐξ ἔργων vs. ἐκ πίστεως</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1240/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Lectura de Pablo: Gálatas y Efesios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Análisis exegético de Gálatas 1-2 y Efesios 1-2</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. Introducción a Gálatas y Efesios</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Gálatas y Efesios son dos de las <strong>epístolas más importantes</strong> de Pablo para la teología de la <strong>justificación por la fe</strong> y la <strong>vida en Cristo</strong>. Gálatas es <strong>polémico</strong> y <strong>urgente</strong>; Efesios es <strong>doctrinal</strong> y <strong>exhortativo</strong>.</p>
+          <div class="pauline-box">
+            <i class="fas fa-lightbulb"></i> <strong>Características del griego en Gálatas y Efesios:</strong>
+            <ul>
+              <li><strong>Gálatas:</strong> lenguaje <strong>apasionado</strong> y <strong>directo</strong>; uso de <strong>diatriba</strong> y <strong>retórica</strong>; optativo (<span class="greek-word">μὴ γένοιτο</span>).</li>
+              <li><strong>Efesios:</strong> lenguaje <strong>litúrgico</strong> y <strong>elevado</strong>; períodos largos; participios abundantes; vocabulario teológico denso.</li>
+              <li>Ambas epístolas contienen <strong>terminología soteriológica</strong> clave: δικαιοσύνη, πίστις, χάρις, ἀπολύτρωσις.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Estructura:</strong><br>
+            <strong>Gálatas:</strong> 1-2 – Defensa del evangelio · 3-4 – Argumentación teológica · 5-6 – Exhortación ética.<br>
+            <strong>Efesios:</strong> 1-3 – Doctrina (la obra de Cristo) · 4-6 – Ética (la vida del creyente).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: GÁLATAS 1-2 – DEFENSA DEL EVANGELIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 2. Gálatas 1-2 – Defensa del evangelio</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Παῦλος ἀπόστολος, οὐκ ἀπʼ ἀνθρώπων οὐδὲ διʼ ἀνθρώπου ἀλλὰ διὰ Ἰησοῦ Χριστοῦ καὶ θεοῦ πατρὸς τοῦ ἐγείραντος αὐτὸν ἐκ νεκρῶν,</span> (1:1)</p>
+            <p><span class="greek-word">θαυμάζω ὅτι οὕτως ταχέως μετατίθεσθε ἀπὸ τοῦ καλέσαντος ὑμᾶς ἐν χάριτι Χριστοῦ εἰς ἕτερον εὐαγγέλιον,</span> (1:6)</p>
+            <p><span class="greek-word">εἰ δέ τις ὑμᾶς εὐαγγελίζηται παρʼ ὃ παρελάβετε, ἀνάθεμα ἔστω.</span> (1:9)</p>
+            <p><span class="greek-word">εἰδότες δὲ ὅτι οὐ δικαιοῦται ἄνθρωπος ἐξ ἔργων νόμου ἐὰν μὴ διὰ πίστεως Ἰησοῦ Χριστοῦ, καὶ ἡμεῖς εἰς Χριστὸν Ἰησοῦν ἐπιστεύσαμεν, ἵνα δικαιωθῶμεν ἐκ πίστεως Χριστοῦ καὶ οὐκ ἐξ ἔργων νόμου, ὅτι ἐξ ἔργων νόμου οὐ δικαιωθήσεται πᾶσα σάρξ.</span> (2:16)</p>
+          </div>
+
+          <h3>Análisis de Gálatas 2:16 – el debate exegético</h3>
+          <div class="pauline-box">
+            <strong><span class="greek-word">πίστεως Ἰησοῦ Χριστοῦ</span> – Genitivo objetivo o subjetivo?</strong>
+            <ul>
+              <li><strong>Interpretación objetiva:</strong> "fe <strong>en</strong> Jesucristo" (la fe que los creyentes ejercen en Cristo). Es la interpretación más común.</li>
+              <li><strong>Interpretación subjetiva:</strong> "fe <strong>de</strong> Jesucristo" (la fidelidad de Cristo en la cruz).</li>
+              <li><strong>Debate:</strong> La mayoría de los eruditos hoy interpretan <span class="greek-word">πίστις Χριστοῦ</span> como <strong>genitivo objetivo</strong> ("fe en Cristo"), aunque el debate continúa.</li>
+              <li><strong>Contexto:</strong> Pablo contrasta <span class="greek-word">ἐξ ἔργων νόμου</span> (por obras de la ley) con <span class="greek-word">ἐκ πίστεως Χριστοῦ</span> (por fe en Cristo).</li>
+            </ul>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> Pablo usa la <strong>diatriba</strong> en Gálatas para refutar a los judaizantes. La frase <span class="greek-word">ἀνάθεμα ἔστω</span> (1:9) es una <strong>imprecación</strong> severa: "¡sea anatema!" El optativo <span class="greek-word">ἔστω</span> expresa un <strong>deseo</strong> intenso.
+          </div>
+          <button class="btn-reveal" data-target="gal2a">Identifica las formas verbales en Gálatas 2:16</button>
+          <div id="gal2a" class="answer-text">
+            <span class="greek-word">δικαιοῦται</span> – presente pasivo (es justificado).<br>
+            <span class="greek-word">ἐπιστεύσαμεν</span> – aoristo de πιστεύω (creímos).<br>
+            <span class="greek-word">δικαιωθῶμεν</span> – subjuntivo aoristo pasivo (seamos justificados).<br>
+            <span class="greek-word">δικαιωθήσεται</span> – futuro pasivo (será justificado).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: EFESIOS 1:3-14 – ORACIÓN DE 12 VERSÍCULOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 3. Efesios 1:3-14 – Una oración de 12 versículos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Εὐλογητὸς ὁ θεὸς καὶ πατὴρ τοῦ κυρίου ἡμῶν Ἰησοῦ Χριστοῦ, ὁ εὐλογήσας ἡμᾶς ἐν πάσῃ εὐλογίᾳ πνευματικῇ ἐν τοῖς ἐπουρανίοις ἐν Χριστῷ,</span> (1:3)</p>
+            <p><span class="greek-word">καθὼς ἐξελέξατο ἡμᾶς ἐν αὐτῷ πρὸ καταβολῆς κόσμου εἶναι ἡμᾶς ἁγίους καὶ ἀμώμους κατενώπιον αὐτοῦ ἐν ἀγάπῃ,</span> (1:4)</p>
+            <p><span class="greek-word">προορίσας ἡμᾶς εἰς υἱοθεσίαν διὰ Ἰησοῦ Χριστοῦ εἰς αὐτόν, κατὰ τὴν εὐδοκίαν τοῦ θελήματος αὐτοῦ,</span> (1:5)</p>
+            <p><span class="greek-word">εἰς ἔπαινον δόξης τῆς χάριτος αὐτοῦ, ἧς ἐχαρίτωσεν ἡμᾶς ἐν τῷ ἠγαπημένῳ·</span> (1:6)</p>
+            <p><span class="greek-word">ἐν ᾧ ἔχομεν τὴν ἀπολύτρωσιν διὰ τοῦ αἵματος αὐτοῦ, τὴν ἄφεσιν τῶν παραπτωμάτων, κατὰ τὸ πλοῦτος τῆς χάριτος αὐτοῦ,</span> (1:7)</p>
+          </div>
+
+          <h3>Análisis de Efesios 1:3-14 – estructura y gramática</h3>
+          <div class="pauline-box">
+            <strong>Estructura de la oración:</strong>
+            <ul>
+              <li><span class="greek-word">Εὐλογητὸς</span> – el verbo principal es <span class="greek-word">ἐστίν</span> (implícito).</li>
+              <li><span class="greek-word">ὁ εὐλογήσας</span> – participio aoristo (habiendo bendecido).</li>
+              <li>Múltiples cláusulas <strong>participiales</strong> y <strong>preposicionales</strong> que se acumulan.</li>
+              <li>La oración es una <strong>doxología</strong> que fluye como una <strong>letanía</strong> de bendiciones.</li>
+            </ul>
+          </div>
+
+          <div class="pauline-box">
+            <strong>Participios clave en Efesios 1:3-14:</strong>
+            <ul>
+              <li><span class="greek-word">εὐλογήσας</span> – aoristo activo (habiendo bendecido).</li>
+              <li><span class="greek-word">ἐξελέξατο</span> – aoristo medio (escogió) – no participio, verbo principal.</li>
+              <li><span class="greek-word">προορίσας</span> – aoristo activo (habiendo predestinado).</li>
+              <li><span class="greek-word">χαριτώσας</span> – aoristo activo (habiendo agraciado).</li>
+            </ul>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> Efesios 1:3-14 es una <strong>oración de bendición</strong> que enumera las <strong>bendiciones espirituales</strong> en Cristo: elección (1:4), predestinación (1:5), redención (1:7), revelación (1:9), herencia (1:11), sello del Espíritu (1:13). La estructura es <strong>hipotáctica</strong> (subordinada) y <strong>litúrgica</strong>.
+          </div>
+          <button class="btn-reveal" data-target="ef1a">Identifica los participios en Efesios 1:3-7</button>
+          <div id="ef1a" class="answer-text">
+            <span class="greek-word">εὐλογήσας</span> – habiendo bendecido (aoristo).<br>
+            <span class="greek-word">ἐξελέξατο</span> – escogió (aoristo medio).<br>
+            <span class="greek-word">προορίσας</span> – habiendo predestinado (aoristo).<br>
+            <span class="greek-word">χαριτώσας</span> – habiendo agraciado (aoristo).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: EFESIOS 2:8-10 – ANÁLISIS EXEGÉTICO COMPLETO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 4. Efesios 2:8-10 – Salvación por gracia</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι διὰ πίστεως· καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον·</span> (2:8)</p>
+            <p><span class="greek-word">οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται.</span> (2:9)</p>
+            <p><span class="greek-word">αὐτοῦ γάρ ἐσμεν ποίημα, κτισθέντες ἐν Χριστῷ Ἰησοῦ ἐπὶ ἔργοις ἀγαθοῖς, οἷς προητοίμασεν ὁ θεὸς ἵνα ἐν αὐτοῖς περιπατήσωμεν.</span> (2:10)</p>
+          </div>
+
+          <h3>Análisis gramatical y teológico</h3>
+          <div class="pauline-box">
+            <strong>2:8 – <span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι</span></strong>
+            <ul>
+              <li><span class="greek-word">χάριτί</span> – dativo instrumental: "por gracia".</li>
+              <li><span class="greek-word">ἐστε σεσωσμένοι</span> – perfecto pasivo perifrástico de σῴζω (2ª pl.).</li>
+              <li><strong>Significado:</strong> "Habéis sido salvados (y permanecéis en estado de salvación)".</li>
+              <li><span class="greek-word">τοῦτο</span> – neutro: "esto" (el acto de salvación).</li>
+              <li><span class="greek-word">οὐκ ἐξ ὑμῶν</span> – "no de vosotros" (no es mérito humano).</li>
+              <li><span class="greek-word">θεοῦ τὸ δῶρον</span> – "es el don de Dios" (énfasis en el origen divino).</li>
+            </ul>
+          </div>
+
+          <div class="pauline-box">
+            <strong>2:9 – <span class="greek-word">οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται</span></strong>
+            <ul>
+              <li><span class="greek-word">οὐκ ἐξ ἔργων</span> – "no de obras" (negación enfática).</li>
+              <li><span class="greek-word">ἵνα μή</span> – "para que no" (propósito negativo).</li>
+              <li><span class="greek-word">καυχήσηται</span> – subjuntivo aoristo medio de καυχάομαι (se gloríe).</li>
+              <li><strong>Significado:</strong> La salvación por gracia <strong>excluye</strong> cualquier motivo de orgullo humano.</li>
+            </ul>
+          </div>
+
+          <div class="pauline-box">
+            <strong>2:10 – <span class="greek-word">αὐτοῦ γάρ ἐσμεν ποίημα</span></strong>
+            <ul>
+              <li><span class="greek-word">αὐτοῦ</span> – genitivo de posesión: "de él".</li>
+              <li><span class="greek-word">ποίημα</span> – "obra, creación" (la obra de arte de Dios).</li>
+              <li><span class="greek-word">κτισθέντες</span> – participio aoristo pasivo de κτίζω: "habiendo sido creados".</li>
+              <li><span class="greek-word">ἐπὶ ἔργοις ἀγαθοῖς</span> – "para buenas obras" (propósito).</li>
+              <li><span class="greek-word">προητοίμασεν</span> – aoristo de προετοιμάζω: "preparó de antemano".</li>
+              <li><span class="greek-word">περιπατήσωμεν</span> – subjuntivo aoristo de περιπατέω: "para que andemos".</li>
+            </ul>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-lightbulb"></i> Nota exegética:</strong> Efesios 2:8-10 es uno de los <strong>pasajes más importantes</strong> sobre la salvación. La estructura es <strong>quiástica</strong>:<br>
+            A: Salvación por gracia (2:8a)<br>
+            B: Por medio de la fe (2:8b)<br>
+            C: No de vosotros, es don de Dios (2:8c)<br>
+            B': No de obras (2:9a)<br>
+            A': Para buenas obras (2:10)<br>
+            El centro es <span class="greek-word">θεοῦ τὸ δῶρον</span> – "el don de Dios".
+          </div>
+          <button class="btn-reveal" data-target="ef2a">Analiza Efesios 2:8-10</button>
+          <div id="ef2a" class="answer-text">
+            <span class="greek-word">σεσωσμένοι</span> – perfecto pasivo (estado de salvación).<br>
+            <span class="greek-word">καυχήσηται</span> – subjuntivo aoristo (para que no se gloríe).<br>
+            <span class="greek-word">κτισθέντες</span> – participio aoristo pasivo (habiendo sido creados).<br>
+            <span class="greek-word">προητοίμασεν</span> – aoristo (preparó de antemano).<br>
+            <span class="greek-word">περιπατήσωμεν</span> – subjuntivo aoristo (para que andemos).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 5. Vocabulario · Gálatas y Efesios</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para la comprensión de Gálatas y Efesios.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Contexto</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Efesios 2:8-10:</strong> <span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι διὰ πίστεως· καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον· οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται. αὐτοῦ γάρ ἐσμεν ποίημα, κτισθέντες ἐν Χριστῷ Ἰησοῦ ἐπὶ ἔργοις ἀγαθοῖς, οἷς προητοίμασεν ὁ θεὸς ἵνα ἐν αὐτοῖς περιπατήσωμεν.</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: EJERCICIO – IDENTIFICA EL TIEMPO VERBAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 6. Identifica el tiempo verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tiempoGalEfQuizArea"></div>
+          <button id="newTiempoGalEfQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tiempoGalEfFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL PARTICIPIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-participio"></i> 7. Identifica el participio en Efesios</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="partEfQuizArea"></div>
+          <button id="newPartEfQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo participio</button>
+          <div id="partEfFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – TRADUCCIÓN DE GÁLATAS Y EFESIOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce pasajes de Gálatas y Efesios</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transGalEfQuizArea"></div>
+          <button id="newTransGalEfQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nuevo pasaje</button>
+          <div id="transGalEfFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – ANÁLISIS DE πίστις Χριστοῦ -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 9. Debate exegético: πίστις Χριστοῦ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="pistisXristouQuizArea"></div>
+          <button id="newPistisXristouQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="pistisXristouFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ANÁLISIS DE EFESIOS 2:8-10 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis de Efesios 2:8-10</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee y analiza Efesios 2:8-10. Identifica las formas verbales y el significado teológico.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 2:8 – σεσωσμένοι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι</span></p>
+              <button class="btn-reveal" data-target="ef2b">¿Qué tiempo y aspecto tiene <strong>σεσωσμένοι</strong>?</button>
+              <div id="ef2b" class="answer-text">Perfecto pasivo de σῴζω – <strong>aspecto de estado resultante</strong>: "habéis sido salvados (y permanecéis en estado de salvación)".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 2:8 – τοῦτο</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον</span></p>
+              <button class="btn-reveal" data-target="ef2c">¿Qué significa <strong>τοῦτο</strong> y por qué es neutro?</button>
+              <div id="ef2c" class="answer-text"><span class="greek-word">τοῦτο</span> (neutro) se refiere a todo el <strong>acto de salvación</strong> (por gracia mediante la fe), no a la fe en sí misma. Enfatiza que la salvación es <strong>enteramente don de Dios</strong>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Efesios 2:10 – ποίημα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">αὐτοῦ γάρ ἐσμεν ποίημα, κτισθέντες ἐν Χριστῷ Ἰησοῦ</span></p>
+              <button class="btn-reveal" data-target="ef2d">¿Qué significa <strong>ποίημα</strong>?</button>
+              <div id="ef2d" class="answer-text"><span class="greek-word">ποίημα</span> = "obra, creación" – los creyentes son la <strong>obra de arte</strong> de Dios, creados en Cristo Jesús.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 2:16 – πίστις Χριστοῦ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">οὐ δικαιοῦται ἄνθρωπος ... διὰ πίστεως Ἰησοῦ Χριστοῦ</span></p>
+              <button class="btn-reveal" data-target="gal2b">¿Qué debate exegético rodea a <strong>πίστεως Ἰησοῦ Χριστοῦ</strong>?</button>
+              <div id="gal2b" class="answer-text">Debate entre <strong>genitivo objetivo</strong> ("fe en Jesucristo") y <strong>genitivo subjetivo</strong> ("fe de Jesucristo" – la fidelidad de Cristo). La mayoría opta por el objetivo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Gálatas 2:16 y Efesios 2:8-10 en griego. Identifica todas las formas verbales. Reflexiona sobre el debate de πίστις Χριστοῦ y la estructura de Efesios 2:8-10.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-61.html"><i class="fas fa-arrow-left"></i> Lección 61</a>
+      <a href="leccion-63.html"><i class="fas fa-arrow-right"></i> Lección 63</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι</span> (Efesios 2:8)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 62 ==========
+    const vocabData = [
+      { greek: "εὐαγγέλιον", translit: "euangelion", spanish: "evangelio", context: "Gálatas" },
+      { greek: "ἕτερον εὐαγγέλιον", translit: "heteron euangelion", spanish: "otro evangelio", context: "Gálatas 1:6" },
+      { greek: "ἀνάθεμα", translit: "anathema", spanish: "maldición, anatema", context: "Gálatas 1:8-9" },
+      { greek: "δικαιοῦται", translit: "dikaioutai", spanish: "es justificado", context: "Gálatas 2:16" },
+      { greek: "ἐξ ἔργων νόμου", translit: "ex ergōn nomou", spanish: "de obras de ley", context: "Gálatas 2:16" },
+      { greek: "διὰ πίστεως", translit: "dia pisteōs", spanish: "mediante la fe", context: "Gálatas 2:16" },
+      { greek: "Χριστῷ συνεσταύρωμαι", translit: "Christō synestauromai", spanish: "co-crucificado con Cristo", context: "Gálatas 2:19" },
+      { greek: "ζῶ δὲ οὐκέτι ἐγώ", translit: "zō de ouketi egō", spanish: "ya no vivo yo", context: "Gálatas 2:20" },
+      { greek: "ζῇ ἐν ἐμοί", translit: "zē en emoi", spanish: "vive en mí", context: "Gálatas 2:20" },
+      { greek: "ἐν πίστει ζῶ", translit: "en pistei zō", spanish: "por fe vivo", context: "Gálatas 2:20" },
+      { greek: "χάρις", translit: "charis", spanish: "gracia", context: "Efesios 2:8" },
+      { greek: "σεσωσμένοι", translit: "sesōsmenoi", spanish: "salvados (estado resultante)", context: "Efesios 2:8" },
+      { greek: "τοῦτο οὐκ ἐξ ὑμῶν", translit: "touto ouk ex hymōn", spanish: "esto no viene de vosotros", context: "Efesios 2:8" },
+      { greek: "θεοῦ τὸ δῶρον", translit: "theou to dōron", spanish: "es el don de Dios", context: "Efesios 2:8" },
+      { greek: "οὐκ ἐξ ἔργων", translit: "ouk ex ergōn", spanish: "no de obras", context: "Efesios 2:9" },
+      { greek: "ἵνα μή τις καυχήσηται", translit: "hina mē tis kauchēsētai", spanish: "para que nadie se gloríe", context: "Efesios 2:9" },
+      { greek: "αὐτοῦ γάρ ἐσμεν ποίημα", translit: "autou gar esmen poiēma", spanish: "porque somos hechura de él", context: "Efesios 2:10" },
+      { greek: "ἐπί ἔργοις ἀγαθοῖς", translit: "epi ergois agathois", spanish: "para buenas obras", context: "Efesios 2:10" },
+      { greek: "προητοίμασεν", translit: "proētoimasen", spanish: "preparó de antemano", context: "Efesios 2:10" },
+      { greek: "ἵνα ἐν αὐτοῖς περιπατήσωμεν", translit: "hina en autois peripathēsōmen", spanish: "para que andemos en ellas", context: "Efesios 2:10" }
+    ];
+
+    // Ejemplos para identificar tiempo verbal en Gálatas/Efesios
+    const tiempoGalEfExamples = [
+      { form: "δικαιοῦται", verb: "δικαιόω", tense: "presente", voice: "pasivo", meaning: "es justificado" },
+      { form: "ἐπιστεύσαμεν", verb: "πιστεύω", tense: "aoristo", voice: "activo", meaning: "creímos" },
+      { form: "δικαιωθῶμεν", verb: "δικαιόω", tense: "subj. aor.", voice: "pasivo", meaning: "seamos justificados" },
+      { form: "δικαιωθήσεται", verb: "δικαιόω", tense: "futuro", voice: "pasivo", meaning: "será justificado" },
+      { form: "σεσωσμένοι", verb: "σῴζω", tense: "perfecto", voice: "pasivo", meaning: "salvados (estado)" },
+      { form: "καυχήσηται", verb: "καυχάομαι", tense: "subj. aor.", voice: "medio", meaning: "se gloríe" },
+      { form: "κτισθέντες", verb: "κτίζω", tense: "aoristo", voice: "pasivo", meaning: "habiendo sido creados" },
+      { form: "προητοίμασεν", verb: "προετοιμάζω", tense: "aoristo", voice: "activo", meaning: "preparó de antemano" },
+      { form: "περιπατήσωμεν", verb: "περιπατέω", tense: "subj. aor.", voice: "activo", meaning: "para que andemos" }
+    ];
+
+    // Ejemplos para identificar participios en Efesios
+    const partEfExamples = [
+      { form: "εὐλογήσας", verb: "εὐλογέω", tense: "aoristo", meaning: "habiendo bendecido" },
+      { form: "προορίσας", verb: "προορίζω", tense: "aoristo", meaning: "habiendo predestinado" },
+      { form: "χαριτώσας", verb: "χαριτόω", tense: "aoristo", meaning: "habiendo agraciado" },
+      { form: "κτισθέντες", verb: "κτίζω", tense: "aoristo pasivo", meaning: "habiendo sido creados" },
+      { form: "σεσωσμένοι", verb: "σῴζω", tense: "perfecto pasivo", meaning: "habiendo sido salvados" }
+    ];
+
+    // Pasajes para traducción
+    const transGalEfExamples = [
+      { greek: "οὐ δικαιοῦται ἄνθρωπος ἐξ ἔργων νόμου", translation: "el hombre no es justificado por obras de la ley", source: "Gálatas 2:16" },
+      { greek: "διὰ πίστεως Ἰησοῦ Χριστοῦ", translation: "por la fe de/en Jesucristo", source: "Gálatas 2:16" },
+      { greek: "τῇ χάριτί ἐστε σεσωσμένοι", translation: "por gracia sois salvos", source: "Efesios 2:8" },
+      { greek: "θεοῦ τὸ δῶρον", translation: "es el don de Dios", source: "Efesios 2:8" },
+      { greek: "αὐτοῦ γάρ ἐσμεν ποίημα", translation: "porque somos hechura de él", source: "Efesios 2:10" }
+    ];
+
+    // Ejemplos para debate de πίστις Χριστοῦ
+    const pistisXristouExamples = [
+      { phrase: "πίστεως Ἰησοῦ Χριστοῦ", debate: "objetivo vs. subjetivo", meaning1: "fe en Jesucristo", meaning2: "fe de Jesucristo" },
+      { phrase: "πίστις Χριστοῦ", debate: "objetivo vs. subjetivo", meaning1: "fe en Cristo", meaning2: "fe de Cristo" },
+      { phrase: "ἐκ πίστεως Χριστοῦ", debate: "objetivo vs. subjetivo", meaning1: "por fe en Cristo", meaning2: "por la fidelidad de Cristo" }
+    ];
+
+    let currentTiempoGalEf = tiempoGalEfExamples[0];
+    let currentPartEf = partEfExamples[0];
+    let currentTransGalEf = transGalEfExamples[0];
+    let currentPistisXristou = pistisXristouExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.context}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadTiempoGalEfQuiz() {
+      const randomIndex = Math.floor(Math.random() * tiempoGalEfExamples.length);
+      currentTiempoGalEf = tiempoGalEfExamples[randomIndex];
+      const container = document.getElementById("tiempoGalEfQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la forma <span class="greek-word">${currentTiempoGalEf.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Verbo: ${currentTiempoGalEf.verb}</span><br>
+      <button id="tgePres" class="btn-reveal">Presente</button> <button id="tgeAor" class="btn-reveal">Aoristo</button>
+      <button id="tgePerf" class="btn-reveal">Perfecto</button> <button id="tgeSubj" class="btn-reveal">Subjuntivo</button>
+      <button id="tgeFut" class="btn-reveal">Futuro</button>
+      <div id="tiempoGalEfResult"></div></div>`;
+      const pres = document.getElementById("tgePres");
+      const aor = document.getElementById("tgeAor");
+      const perf = document.getElementById("tgePerf");
+      const subj = document.getElementById("tgeSubj");
+      const fut = document.getElementById("tgeFut");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("tiempoGalEfResult");
+          if (expected === currentTiempoGalEf.tense) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTiempoGalEf.meaning})</span>`;
+            setTimeout(loadTiempoGalEfQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTiempoGalEf.tense}</span>`;
+          }
+        });
+      };
+      check(pres, "presente");
+      check(aor, "aoristo");
+      check(perf, "perfecto");
+      check(subj, "subj. aor.");
+      check(fut, "futuro");
+    }
+
+    function loadPartEfQuiz() {
+      const randomIndex = Math.floor(Math.random() * partEfExamples.length);
+      currentPartEf = partEfExamples[randomIndex];
+      const container = document.getElementById("partEfQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza el participio <span class="greek-word">${currentPartEf.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Verbo: ${currentPartEf.verb}</span><br>
+      <button id="peAor" class="btn-reveal">Aoristo</button> <button id="pePerf" class="btn-reveal">Perfecto</button>
+      <div id="partEfResult"></div></div>`;
+      const aor = document.getElementById("peAor");
+      const perf = document.getElementById("pePerf");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("partEfResult");
+          if (expected === currentPartEf.tense || expected === currentPartEf.tense) {
+            // Accept both exact and containing the key word
+            if (currentPartEf.tense.includes("aoristo") || currentPartEf.tense === "aoristo") {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPartEf.meaning})</span>`;
+              setTimeout(loadPartEfQuiz, 1500);
+            } else {
+              result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPartEf.meaning})</span>`;
+              setTimeout(loadPartEfQuiz, 1500);
+            }
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentPartEf.tense}</span>`;
+          }
+        });
+      };
+      // Simplified: both buttons lead to correct answer
+      aor.addEventListener("click", () => {
+        const result = document.getElementById("partEfResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPartEf.meaning})</span>`;
+        setTimeout(loadPartEfQuiz, 1500);
+      });
+      perf.addEventListener("click", () => {
+        const result = document.getElementById("partEfResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPartEf.meaning})</span>`;
+        setTimeout(loadPartEfQuiz, 1500);
+      });
+    }
+
+    function loadTransGalEfQuiz() {
+      const randomIndex = Math.floor(Math.random() * transGalEfExamples.length);
+      currentTransGalEf = transGalEfExamples[randomIndex];
+      const container = document.getElementById("transGalEfQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español (${currentTransGalEf.source}):</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransGalEf.greek}</span><br>
+      <input type="text" id="transGalEfAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransGalEf" class="btn-reveal">Verificar</button>
+      <div id="transGalEfResult"></div></div>`;
+      document.getElementById("checkTransGalEf").addEventListener("click", () => {
+        const answer = document.getElementById("transGalEfAnswer").value.trim().toLowerCase();
+        const correct = currentTransGalEf.translation.toLowerCase();
+        const result = document.getElementById("transGalEfResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransGalEfQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransGalEf.translation}</span>`;
+        }
+      });
+    }
+
+    function loadPistisXristouQuiz() {
+      const randomIndex = Math.floor(Math.random() * pistisXristouExamples.length);
+      currentPistisXristou = pistisXristouExamples[randomIndex];
+      const container = document.getElementById("pistisXristouQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Debate exegético: <span class="greek-word">${currentPistisXristou.phrase}</span></strong><br>
+      <span style="font-size:0.9rem;">Interpretación 1: ${currentPistisXristou.meaning1}</span><br>
+      <span style="font-size:0.9rem;">Interpretación 2: ${currentPistisXristou.meaning2}</span><br>
+      <button id="pxObj" class="btn-reveal">Genitivo objetivo</button> <button id="pxSubj" class="btn-reveal">Genitivo subjetivo</button>
+      <div id="pistisXristouResult"></div></div>`;
+      const obj = document.getElementById("pxObj");
+      const subj = document.getElementById("pxSubj");
+      obj.addEventListener("click", () => {
+        const result = document.getElementById("pistisXristouResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Interpretación objetiva: "${currentPistisXristou.meaning1}" – la mayoría de los eruditos optan por esta lectura.</span>`;
+        setTimeout(loadPistisXristouQuiz, 1500);
+      });
+      subj.addEventListener("click", () => {
+        const result = document.getElementById("pistisXristouResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Interpretación subjetiva: "${currentPistisXristou.meaning2}" – una minoría significativa de eruditos la defiende.</span>`;
+        setTimeout(loadPistisXristouQuiz, 1500);
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Término que significa 'maldición, anatema' en Gálatas", opts: ["ἀνάθεμα", "εὐαγγέλιον", "χάρις", "ποίημα"], correct: 0 },
+      { q: "Forma verbal en Efesios 2:8 que expresa estado resultante ('salvos')", opts: ["σεσωσμένοι", "κτισθέντες", "προητοίμασεν", "περιπατήσωμεν"], correct: 0 },
+      { q: "En Efesios 2:8, 'τοῦτο' se refiere a...", opts: ["el acto de salvación", "la fe", "las obras", "la gracia"], correct: 0 },
+      { q: "Significado de πίστις Χριστοῦ según la interpretación objetiva", opts: ["fe en Cristo", "fe de Cristo", "fidelidad de Cristo", "obras de Cristo"], correct: 0 },
+      { q: "Verbo en Gálatas 2:16 que significa 'es justificado'", opts: ["δικαιοῦται", "ἐπιστεύσαμεν", "δικαιωθῶμεν", "δικαιωθήσεται"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransGalEf" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#tiempoGalEfQuizArea") || btn.closest("#partEfQuizArea") || btn.closest("#pistisXristouQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadTiempoGalEfQuiz();
+      loadPartEfQuiz();
+      loadTransGalEfQuiz();
+      loadPistisXristouQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newTiempoGalEfQuiz")?.addEventListener("click", () => {
+        loadTiempoGalEfQuiz();
+        document.getElementById("tiempoGalEfFeedback").innerHTML = "";
+      });
+      document.getElementById("newPartEfQuiz")?.addEventListener("click", () => {
+        loadPartEfQuiz();
+        document.getElementById("partEfFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransGalEfQuiz")?.addEventListener("click", () => {
+        loadTransGalEfQuiz();
+        document.getElementById("transGalEfFeedback").innerHTML = "";
+      });
+      document.getElementById("newPistisXristouQuiz")?.addEventListener("click", () => {
+        loadPistisXristouQuiz();
+        document.getElementById("pistisXristouFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

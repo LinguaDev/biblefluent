@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 65: Exégesis Independiente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 93%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .method-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .tree-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-64.html"><i class="fas fa-arrow-left"></i> Lección 64</a>
+        <a href="leccion-66.html"><i class="fas fa-arrow-right"></i> Lección 66</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-microscope"></i> Lección 65 · Exégesis Independiente <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Proceso exegético completo · Diagramación de oraciones · Relación gramática-teología · Redacción de comentario exegético · 2 Timoteo 2:15</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1300/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Metodología completa de exégesis independiente" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Cómo hacer una exégesis completa e independiente del NT griego</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. La exégesis independiente: el objetivo final</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El objetivo de todo el curso es capacitar al estudiante para realizar una <strong>exégesis independiente</strong> de cualquier pasaje del NT griego. La exégesis (<span class="greek-word">ἐξήγησις</span>) es el proceso de <strong>extraer el significado</strong> del texto, no de imponerlo (eiségesis).</p>
+          <div class="method-box">
+            <i class="fas fa-lightbulb"></i> <strong>Principios fundamentales:</strong>
+            <ul>
+              <li>El texto griego es la <strong>base primaria</strong> – no una traducción.</li>
+              <li>La gramática y la sintaxis <strong>guían</strong> la interpretación, no la reemplazan.</li>
+              <li>La exégesis es <strong>teológica</strong>: busca entender lo que Dios ha dicho.</li>
+              <li>La exégesis es <strong>humilde</strong>: reconoce los límites del conocimiento.</li>
+              <li>La eiségesis (leer en el texto) es el <strong>enemigo</strong> de la exégesis.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> 2 Timoteo 2:15:</strong><br>
+            <span class="greek-word">σπούδασον σεαυτὸν δόκιμον παραστῆσαι τῷ θεῷ, ἐργάτην ἀνεπαίσχυντον, ὀρθοτομοῦντα τὸν λόγον τῆς ἀληθείας.</span><br>
+            "Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que <strong>maneja bien</strong> (<span class="greek-word">ὀρθοτομοῦντα</span>) la palabra de verdad."
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: EL PROCESO EXEGÉTICO – SEIS PASOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 2. El proceso exegético: seis pasos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La exégesis independiente sigue un proceso sistemático de seis pasos:</p>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 1: Delimitación del pasaje</strong>
+            <ul>
+              <li>Define los <strong>límites</strong> del texto a analizar (¿dónde comienza y termina?).</li>
+              <li>Considera el <strong>contexto</strong> (capítulos anteriores y posteriores).</li>
+              <li>Identifica la <strong>unidad literaria</strong> (perícopa).</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 2: Crítica textual</strong>
+            <ul>
+              <li>¿Hay <strong>variantes textuales</strong> significativas en el pasaje?</li>
+              <li>Consulta el <strong>aparato crítico</strong> (NA28/UBS5).</li>
+              <li>Determina el <strong>texto más probable</strong> para la exégesis.</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 3: Análisis morfosintáctico</strong>
+            <ul>
+              <li>Identifica cada <strong>forma verbal</strong> (tiempo, voz, modo, persona).</li>
+              <li>Identifica cada <strong>sustantivo</strong> (caso, género, número).</li>
+              <li>Analiza las <strong>cláusulas</strong> y su <strong>relación</strong>.</li>
+              <li>Diagrama la oración (método del árbol).</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 4: Análisis léxico</strong>
+            <ul>
+              <li>Investiga las <strong>palabras clave</strong> (BDAG, TDNT).</li>
+              <li>Examina su <strong>uso en contexto</strong> (LXX, literatura extrabíblica).</li>
+              <li>Considera el <strong>campo semántico</strong> (Louw-Nida).</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 5: Análisis discursivo</strong>
+            <ul>
+              <li>Identifica la <strong>estructura retórica</strong> (quiasmo, inclusión, etc.).</li>
+              <li>Analiza las <strong>partículas</strong> y conectores (γάρ, οὖν, δέ).</li>
+              <li>Examina el <strong>flujo argumentativo</strong> del autor.</li>
+            </ul>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-arrow-right"></i> Paso 6: Integración teológica</strong>
+            <ul>
+              <li>¿Qué <strong>enseñanza teológica</strong> se deriva del pasaje?</li>
+              <li>¿Cómo se relaciona con <strong>otros textos</strong> del NT?</li>
+              <li>¿Cómo se <strong>aplica</strong> a la vida y la iglesia?</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Clave:</strong> Los pasos <strong>3-5</strong> (morfosintaxis, léxico, discurso) son el <strong>corazón</strong> de la exégesis gramatical. Los pasos 1, 2 y 6 proporcionan el <strong>contexto</strong> y la <strong>aplicación</strong>.
+          </div>
+          <button class="btn-reveal" data-target="procesoEj">Recuerda los seis pasos</button>
+          <div id="procesoEj" class="answer-text">
+            1. Delimitación del pasaje<br>
+            2. Crítica textual<br>
+            3. Análisis morfosintáctico<br>
+            4. Análisis léxico<br>
+            5. Análisis discursivo<br>
+            6. Integración teológica
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: DIAGRAMACIÓN DE ORACIONES (ÁRBOL DE ORACIÓN) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-tree"></i> 3. Método del árbol de oración (sentence diagramming)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>diagramación</strong> es una herramienta visual que ayuda a entender la <strong>estructura sintáctica</strong> de una oración. Es especialmente útil para los períodos largos de Pablo y Juan.</p>
+
+          <div class="tree-box">
+            <strong><i class="fas fa-lightbulb"></i> Principios del árbol de oración:</strong>
+            <ul>
+              <li>El <strong>verbo principal</strong> es la <strong>raíz</strong> del árbol.</li>
+              <li>El <strong>sujeto</strong> y el <strong>objeto</strong> son <strong>ramas</strong> que cuelgan del verbo.</li>
+              <li>Las <strong>cláusulas subordinadas</strong> son <strong>ramas secundarias</strong>.</li>
+              <li>Los <strong>modificadores</strong> (adjetivos, adverbios) son <strong>ramas más pequeñas</strong>.</li>
+            </ul>
+          </div>
+
+          <h3>Ejemplo: diagrama de Efesios 2:8 (simplificado)</h3>
+          <div class="tree-box">
+            <pre style="font-family: monospace; font-size: 0.85rem; background: #f8fafd; padding: 0.8rem; border-radius: 0.5rem;">
+            <strong>VERBO PRINCIPAL:</strong> ἐστε σεσωσμένοι (sois salvos)
+            │
+            ├── <strong>SUJETO:</strong> ὑμεῖς (implícito en la terminación -εστε)
+            │
+            ├── <strong>COMPLEMENTO INSTRUMENTAL:</strong> τῇ χάριτι (por gracia)
+            │
+            ├── <strong>COMPLEMENTO DE MEDIO:</strong> διὰ πίστεως (mediante la fe)
+            │
+            └── <strong>CLÁUSULA SUBORDINADA:</strong> καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον
+                │
+                ├── <strong>PARTÍCULA:</strong> γάρ (porque) – conecta con lo anterior
+                │
+                ├── <strong>NEGACIÓN:</strong> οὐκ (no)
+                │
+                ├── <strong>COMPLEMENTO:</strong> ἐξ ὑμῶν (de vosotros)
+                │
+                └── <strong>APOSICIÓN:</strong> θεοῦ τὸ δῶρον (don de Dios)
+            </pre>
+          </div>
+
+          <div class="method-box">
+            <strong><i class="fas fa-lightbulb"></i> Ventajas de la diagramación:</strong>
+            <ul>
+              <li>Revela la <strong>estructura</strong> de la oración.</li>
+              <li>Ayuda a <strong>identificar</strong> relaciones gramaticales.</li>
+              <li>Prepara el terreno para la <strong>exégesis</strong>.</li>
+              <li>Útil para <strong>oraciones largas</strong> (Efesios 1:3-14, Romanos 8:28-39).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="diagramaEj">Practica la diagramación</button>
+          <div id="diagramaEj" class="answer-text">
+            <span class="greek-word">ὁ θεὸς ἀγάπη ἐστίν</span> (1 Juan 4:8)<br>
+            <strong>Verbo principal:</strong> ἐστίν (es)<br>
+            <strong>Sujeto:</strong> ὁ θεὸς (Dios)<br>
+            <strong>Predicado:</strong> ἀγάπη (amor)<br>
+            Estructura: Sujeto + Verbo copulativo + Predicado nominal.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: RELACIÓN GRAMÁTICA-TEOLOGÍA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cross"></i> 4. De la gramática a la teología</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La gramática es el <strong>instrumento</strong> que nos lleva a la teología. La exégesis adecuada conecta la <strong>estructura gramatical</strong> con el <strong>significado teológico</strong>.</p>
+
+          <div class="method-box">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplos de conexión gramática-teología:</strong>
+            <ul>
+              <li><strong>Perfecto</strong> (σεσωσμένοι): estado de salvación → teología de la seguridad eterna.</li>
+              <li><strong>Dativo instrumental</strong> (τῇ χάριτι): la gracia como <strong>medio</strong> de salvación → énfasis en la obra de Dios.</li>
+              <li><strong>Genitivo</strong> (πίστις Χριστοῦ): debate objetivo/subjetivo → teología de la fe.</li>
+              <li><strong>Subjuntivo</strong> (ἵνα δοξασθῇ): propósito → teología de la gloria de Dios.</li>
+            </ul>
+          </div>
+
+          <div class="tree-box">
+            <strong><i class="fas fa-arrow-right"></i> Principio exegético:</strong>
+            <ul>
+              <li>La gramática <strong>no</strong> determina la teología de manera mecánica.</li>
+              <li>La teología <strong>informa</strong> la interpretación gramatical.</li>
+              <li>Hay una <strong>relación dialéctica</strong> entre gramática y teología.</li>
+              <li>La <strong>regla de fe</strong> (analogía de la fe) guía la interpretación.</li>
+            </ul>
+          </div>
+
+          <div class="exegetical-box">
+            <strong><i class="fas fa-bible"></i> Ejemplo: Efesios 2:8-9</strong><br>
+            <span class="greek-word">τῇ γὰρ χάριτί ἐστε σεσωσμένοι διὰ πίστεως· καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον· οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται.</span><br>
+            <strong>Gramática:</strong> Perfecto pasivo (σεσωσμένοι) + dativo instrumental (χάριτι) + subjuntivo de propósito negativo (ἵνα μή ... καυχήσηται).<br>
+            <strong>Teología:</strong> La salvación es <strong>completa</strong> (perfecto), <strong>por gracia</strong> (dativo instrumental), y <strong>excluye el orgullo</strong> (subjuntivo negativo). La gramática <strong>fundamenta</strong> la teología.
+          </div>
+          <button class="btn-reveal" data-target="gramTeoEj">Conecta gramática y teología</button>
+          <div id="gramTeoEj" class="answer-text">
+            <span class="greek-word">σεσωσμένοι</span> – perfecto pasivo → salvación como <strong>estado permanente</strong>.<br>
+            <span class="greek-word">χάριτι</span> – dativo instrumental → gracia como <strong>medio</strong> de salvación.<br>
+            <span class="greek-word">ἵνα μή ... καυχήσηται</span> – subjuntivo → <strong>exclusión del orgullo</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 5. Vocabulario · Exégesis y hermenéutica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para la exégesis y la hermenéutica.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Contexto</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>2 Timoteo 2:15:</strong> <span class="greek-word">σπούδασον σεαυτὸν δόκιμον παραστῆσαι τῷ θεῷ, ἐργάτην ἀνεπαίσχυντον, ὀρθοτομοῦντα τὸν λόγον τῆς ἀληθείας.</span> – "Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que maneja bien la palabra de verdad."</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: EJERCICIO – IDENTIFICA EL PASO EXEGÉTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 6. Identifica el paso exegético</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="pasoExeQuizArea"></div>
+          <button id="newPasoExeQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva pregunta</button>
+          <div id="pasoExeFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – DIAGRAMA LA ORACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-tree"></i> 7. Diagrama la oración</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="diagramaQuizArea"></div>
+          <button id="newDiagramaQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva oración</button>
+          <div id="diagramaFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – TRADUCCIÓN Y ANÁLISIS EXEGÉTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 8. Traduce y analiza exegéticamente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transExeQuizArea"></div>
+          <button id="newTransExeQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transExeFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 10. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: TEXTO PROGRAMADO – 2 TIMOTEO 2:15 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 11. Texto programado · Análisis de 2 Timoteo 2:15</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Aplica el proceso exegético de seis pasos a 2 Timoteo 2:15.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 2 Timoteo 2:15 – σπούδασον</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">σπούδασον σεαυτὸν δόκιμον παραστῆσαι τῷ θεῷ</span></p>
+              <button class="btn-reveal" data-target="ex1a">¿Qué verbo es <strong>σπούδασον</strong> y qué tiempo/modo?</button>
+              <div id="ex1a" class="answer-text">Imperativo aoristo de <span class="greek-word">σπουδάζω</span> (2ª sg.) – "procura, esfuérzate".</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 2 Timoteo 2:15 – παραστῆσαι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">παραστῆσαι</span></p>
+              <button class="btn-reveal" data-target="ex1b">¿Qué forma verbal es <strong>παραστῆσαι</strong>?</button>
+              <div id="ex1b" class="answer-text">Infinitivo aoristo de <span class="greek-word">παρίστημι</span> ("presentar, poner delante").</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 2 Timoteo 2:15 – ὀρθοτομοῦντα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὀρθοτομοῦντα τὸν λόγον τῆς ἀληθείας</span></p>
+              <button class="btn-reveal" data-target="ex1c">¿Qué es <strong>ὀρθοτομοῦντα</strong> y qué significa?</button>
+              <div id="ex1c" class="answer-text">Participio presente de <span class="greek-word">ὀρθοτομέω</span> – "cortar recto, manejar bien" (la palabra de verdad).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 2 Timoteo 2:15 – δόκιμον</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">σεαυτὸν δόκιμον παραστῆσαι τῷ θεῷ</span></p>
+              <button class="btn-reveal" data-target="ex1d">¿Qué función tiene <strong>δόκιμον</strong>?</button>
+              <div id="ex1d" class="answer-text">Acusativo predicativo (doble acusativo): "presentarte a ti mismo <strong>aprobado</strong> a Dios".</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 12. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Aplica los seis pasos exegéticos a 2 Timoteo 2:15 y a Romanos 1:16-17. Practica la diagramación de oraciones. Reflexiona sobre cómo la gramática fundamenta la teología.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-64.html"><i class="fas fa-arrow-left"></i> Lección 64</a>
+      <a href="leccion-66.html"><i class="fas fa-arrow-right"></i> Lección 66</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ὀρθοτομοῦντα τὸν λόγον τῆς ἀληθείας</span> (2 Timoteo 2:15)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 65 ==========
+    const vocabData = [
+      { greek: "ἑρμηνεύω", translit: "hermēneuō", spanish: "interpretar", context: "hermenéutica" },
+      { greek: "εἰσηγέομαι", translit: "eisēgeomai", spanish: "introducir (eiségesis)", context: "métodos" },
+      { greek: "ἐξηγέομαι", translit: "exēgeomai", spanish: "explicar, narrar (exégesis)", context: "métodos" },
+      { greek: "ἐξήγησις", translit: "exēgēsis", spanish: "exégesis", context: "métodos" },
+      { greek: "διαιρέω", translit: "diaireō", spanish: "dividir, distinguir", context: "métodos" },
+      { greek: "ὀρθοτομέω", translit: "orthotomeō", spanish: "cortar recto, manejar bien", context: "métodos" },
+      { greek: "ἀναλύω", translit: "analyō", spanish: "analizar, partir", context: "métodos" },
+      { greek: "συντίθημι", translit: "syntithēmi", spanish: "componer, acordar", context: "métodos" },
+      { greek: "παρατίθεμαι", translit: "paratithemi", spanish: "presentar, exponer", context: "métodos" },
+      { greek: "ἀποδείκνυμι", translit: "apodeiknymi", spanish: "demostrar", context: "métodos" },
+      { greek: "σύνεσις", translit: "synesis", spanish: "comprensión, entendimiento", context: "exégesis" },
+      { greek: "νοῦς", translit: "nous", spanish: "mente, intelecto", context: "exégesis" },
+      { greek: "διάνοια", translit: "dianoia", spanish: "entendimiento, mente", context: "exégesis" },
+      { greek: "φρόνησις", translit: "phronēsis", spanish: "prudencia, sabiduría práctica", context: "exégesis" },
+      { greek: "λόγος τοῦ θεοῦ", translit: "logos tou theou", spanish: "palabra de Dios", context: "exégesis" },
+      { greek: "ὁ λόγος ζῶν", translit: "ho logos zōn", spanish: "la palabra viva", context: "exégesis" },
+      { greek: "τομός", translit: "tomos", spanish: "cortante", context: "exégesis" },
+      { greek: "ἐνεργής", translit: "energēs", spanish: "eficaz", context: "exégesis" },
+      { greek: "κριτικός", translit: "kritikos", spanish: "capaz de juzgar", context: "exégesis" },
+      { greek: "ἐνθυμήσεων", translit: "enthymēseōn", spanish: "pensamientos, intenciones", context: "exégesis" }
+    ];
+
+    // Ejemplos para identificar el paso exegético
+    const pasoExeExamples = [
+      { description: "Definir los límites del texto y su contexto", step: "Delimitación del pasaje" },
+      { description: "Consultar el aparato crítico para determinar el texto original", step: "Crítica textual" },
+      { description: "Identificar tiempos, voces y casos gramaticales", step: "Análisis morfosintáctico" },
+      { description: "Investigar el significado de palabras clave en BDAG", step: "Análisis léxico" },
+      { description: "Identificar quiasmos y estructuras retóricas", step: "Análisis discursivo" },
+      { description: "Extraer enseñanzas teológicas y aplicar a la vida", step: "Integración teológica" }
+    ];
+
+    // Ejemplos para diagramación
+    const diagramaExamples = [
+      { phrase: "ὁ θεὸς ἀγάπη ἐστίν", structure: "Sujeto + Verbo copulativo + Predicado nominal" },
+      { phrase: "ἐν ἀρχῇ ἦν ὁ λόγος", structure: "Complemento circunstancial + Verbo + Sujeto" },
+      { phrase: "τῇ χάριτί ἐστε σεσωσμένοι", structure: "Complemento instrumental + Verbo principal (perífrasis)" },
+      { phrase: "πιστεύομεν εἰς τὸν κύριον", structure: "Sujeto + Verbo + Complemento de dirección" }
+    ];
+
+    // Frases para traducción y análisis exegético
+    const transExeExamples = [
+      { greek: "ὀρθοτομοῦντα τὸν λόγον τῆς ἀληθείας", translation: "manejando bien la palabra de verdad", analysis: "participio presente + objeto + genitivo" },
+      { greek: "σπούδασον σεαυτὸν δόκιμον παραστῆσαι τῷ θεῷ", translation: "procura presentarte a Dios aprobado", analysis: "imperativo aoristo + infinitivo + doble acusativo" },
+      { greek: "τῇ χάριτί ἐστε σεσωσμένοι", translation: "por gracia sois salvos", analysis: "dativo instrumental + perfecto pasivo perifrástico" },
+      { greek: "οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται", translation: "no de obras, para que nadie se gloríe", analysis: "negación + subjuntivo de propósito" }
+    ];
+
+    let currentPasoExe = pasoExeExamples[0];
+    let currentDiagrama = diagramaExamples[0];
+    let currentTransExe = transExeExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.context}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadPasoExeQuiz() {
+      const randomIndex = Math.floor(Math.random() * pasoExeExamples.length);
+      currentPasoExe = pasoExeExamples[randomIndex];
+      const container = document.getElementById("pasoExeQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué paso exegético es?</strong><br>
+      <span style="font-size:1.1rem;">${currentPasoExe.description}</span><br>
+      <button id="peDelim" class="btn-reveal">Delimitación</button> <button id="peCrit" class="btn-reveal">Crítica textual</button>
+      <button id="peMorf" class="btn-reveal">Morfosintaxis</button> <button id="peLex" class="btn-reveal">Léxico</button>
+      <button id="peDisc" class="btn-reveal">Discurso</button> <button id="peTeo" class="btn-reveal">Teología</button>
+      <div id="pasoExeResult"></div></div>`;
+      const delim = document.getElementById("peDelim");
+      const crit = document.getElementById("peCrit");
+      const morf = document.getElementById("peMorf");
+      const lex = document.getElementById("peLex");
+      const disc = document.getElementById("peDisc");
+      const teo = document.getElementById("peTeo");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("pasoExeResult");
+          if (expected === currentPasoExe.step) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentPasoExe.step})</span>`;
+            setTimeout(loadPasoExeQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentPasoExe.step}</span>`;
+          }
+        });
+      };
+      check(delim, "Delimitación del pasaje");
+      check(crit, "Crítica textual");
+      check(morf, "Análisis morfosintáctico");
+      check(lex, "Análisis léxico");
+      check(disc, "Análisis discursivo");
+      check(teo, "Integración teológica");
+    }
+
+    function loadDiagramaQuiz() {
+      const randomIndex = Math.floor(Math.random() * diagramaExamples.length);
+      currentDiagrama = diagramaExamples[randomIndex];
+      const container = document.getElementById("diagramaQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la estructura de:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentDiagrama.phrase}</span><br>
+      <span style="font-size:0.9rem;">${currentDiagrama.structure}</span><br>
+      <button id="diagOk" class="btn-reveal">Entendido</button>
+      <div id="diagramaResult"></div></div>`;
+      document.getElementById("diagOk").addEventListener("click", () => {
+        const result = document.getElementById("diagramaResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Correcto! Estructura: ${currentDiagrama.structure}</span>`;
+        setTimeout(loadDiagramaQuiz, 1500);
+      });
+    }
+
+    function loadTransExeQuiz() {
+      const randomIndex = Math.floor(Math.random() * transExeExamples.length);
+      currentTransExe = transExeExamples[randomIndex];
+      const container = document.getElementById("transExeQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransExe.greek}</span><br>
+      <span style="font-size:0.9rem;">Análisis: ${currentTransExe.analysis}</span><br>
+      <input type="text" id="transExeAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransExe" class="btn-reveal">Verificar</button>
+      <div id="transExeResult"></div></div>`;
+      document.getElementById("checkTransExe").addEventListener("click", () => {
+        const answer = document.getElementById("transExeAnswer").value.trim().toLowerCase();
+        const correct = currentTransExe.translation.toLowerCase();
+        const result = document.getElementById("transExeResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransExe.analysis})</span>`;
+          setTimeout(loadTransExeQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransExe.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Paso exegético que identifica tiempos, voces y casos", opts: ["Morfosintaxis", "Léxico", "Discurso", "Teología"], correct: 0 },
+      { q: "Paso exegético que investiga el significado de palabras", opts: ["Léxico", "Morfosintaxis", "Discurso", "Teología"], correct: 0 },
+      { q: "Verbo que significa 'cortar recto, manejar bien'", opts: ["ὀρθοτομέω", "διαιρέω", "ἀναλύω", "συντίθημι"], correct: 0 },
+      { q: "Técnica visual para entender la estructura de la oración", opts: ["Diagramación", "Crítica textual", "Análisis léxico", "Delimitación"], correct: 0 },
+      { q: "Término que significa 'exégesis, interpretación'", opts: ["ἐξήγησις", "εἰσήγησις", "ἑρμηνευτική", "κριτική"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransExe" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#pasoExeQuizArea") || btn.closest("#diagramaQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadPasoExeQuiz();
+      loadDiagramaQuiz();
+      loadTransExeQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newPasoExeQuiz")?.addEventListener("click", () => {
+        loadPasoExeQuiz();
+        document.getElementById("pasoExeFeedback").innerHTML = "";
+      });
+      document.getElementById("newDiagramaQuiz")?.addEventListener("click", () => {
+        loadDiagramaQuiz();
+        document.getElementById("diagramaFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransExeQuiz")?.addEventListener("click", () => {
+        loadTransExeQuiz();
+        document.getElementById("transExeFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

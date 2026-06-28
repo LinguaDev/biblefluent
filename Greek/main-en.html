@@ -4,10 +4,379 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>New Testament Greek | BibleFluent - 70 lessons</title>
-  <meta name="description" content="Complete Koine Greek course in 70 lessons using programmed reading method. Learn grammar, 1050 vocabulary words, and read the NT. Free.">
+  <meta name="description" content="Complete Koine Greek course in 70 lessons. Programmed reading method. Learn grammar, 1400 words, and NT reading. Free.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=EB+Garamond:ital@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="../src/main-language.css">
+  <style>
+    /* ========== RESET & BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: #fefcf5;
+      color: #1e2a2e;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f3b2c;
+    }
+    .logo-icon { font-size: 1.8rem; }
+    .logo-text em { font-style: normal; color: #c6a43b; }
+    .main-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link, .nav-cta {
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-link { color: #2c3e2f; }
+    .nav-link:hover, .nav-cta:hover { color: #c6a43b; }
+    .nav-cta {
+      background: #c6a43b;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      color: #1f3b2c;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1f3b2c;
+    }
+    @media (max-width: 900px) {
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        transition: 0.3s;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 99;
+      }
+      .main-nav.open { left: 0; }
+      .nav-toggle { display: block; }
+      .header-inner { padding: 0.8rem 1.5rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(105deg, #fff7ea 0%, #e9e0cf 100%);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c6a43b;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-family: 'Cinzel', serif;
+      margin: 1rem 0;
+      line-height: 1.2;
+    }
+    .hero-greek-quote {
+      font-size: 1.8rem;
+      font-family: 'EB Garamond', serif;
+      margin: 1rem 0;
+    }
+    .hero-greek-trans {
+      font-style: italic;
+      color: #4a5b4a;
+    }
+    .hero-desc {
+      max-width: 700px;
+      margin: 1.5rem auto;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-ghost {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: #1f3b2c;
+      color: white;
+    }
+    .btn-primary:hover { background: #2a4a38; }
+    .btn-ghost {
+      background: transparent;
+      border: 2px solid #1f3b2c;
+      color: #1f3b2c;
+    }
+    .btn-ghost:hover { background: #1f3b2c; color: white; }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 700; display: block; }
+    .stat-label { font-size: 0.8rem; text-transform: uppercase; }
+    .stat-divider { width: 1px; background: #c6a43b; }
+    /* Video placeholder */
+    .hero-video-placeholder {
+      max-width: 800px;
+      margin: 2rem auto 0;
+      background: #1a2a1f;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero-video-placeholder:hover { transform: scale(1.01); }
+    .video-preview {
+      position: relative;
+      background: #0f1a0c;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .video-preview i {
+      font-size: 4rem;
+      color: #c6a43b;
+      transition: 0.2s;
+    }
+    .video-preview i:hover { transform: scale(1.1); }
+    .video-preview span {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+    }
+    /* ========== ABOUT ========== */
+    .about-section { padding: 4rem 0; background: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #c6a43b;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-family: 'Cinzel', serif;
+      margin: 0.5rem 0 1rem;
+    }
+    .about-text p { margin-bottom: 1rem; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #c6a43b;
+      font-weight: 600;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: #fefcf5;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .feature-icon { font-size: 2rem; color: #c6a43b; margin-bottom: 1rem; }
+    /* ========== ACCORDION (color-coded dropdown menu) ========== */
+    .lessons-section { padding: 4rem 0; background: #faf8f0; }
+    .lessons-header { text-align: center; margin-bottom: 2rem; }
+    .accordion-selector {
+      background: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .accordion-selector h3 { font-size: 1.5rem; text-align: center; margin-bottom: 1rem; color: #1f3b2c; }
+    .accordion-selector p { text-align: center; margin-bottom: 1.5rem; color: #4a5b4a; }
+    .accordion-group {
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background: #fefcf5;
+      border: 1px solid #e0d6c6;
+    }
+    .accordion-group-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .accordion-group-header i { transition: transform 0.3s; }
+    .accordion-group.open .accordion-group-header i { transform: rotate(180deg); }
+    .accordion-group-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: white;
+    }
+    .accordion-group.open .accordion-group-content { max-height: 600px; overflow-y: auto; }
+    .lesson-options { list-style: none; padding: 0.5rem 0; margin: 0; }
+    .lesson-options li {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #f0e7d6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: 0.1s;
+      gap: 0.5rem;
+    }
+    .lesson-options li:hover { background: #fef9e6; }
+    .lesson-options li .lesson-num {
+      font-size: 0.8rem;
+      background: #eef3fa;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      min-width: 45px;
+      text-align: center;
+    }
+    .lesson-options li .lesson-title { flex: 1; font-weight: 500; word-break: break-word; }
+    .lesson-options li i { color: #c6a43b; font-size: 0.8rem; opacity: 0.6; flex-shrink: 0; }
+    /* Module colors */
+    .accordion-group[data-module="1"] .accordion-group-header { background: #e8dcc8; }
+    .accordion-group[data-module="2"] .accordion-group-header { background: #d9e6d9; }
+    .accordion-group[data-module="3"] .accordion-group-header { background: #f0e6d2; }
+    .accordion-group[data-module="4"] .accordion-group-header { background: #e6d9e6; }
+    .accordion-group[data-module="5"] .accordion-group-header { background: #d9e6f0; }
+    .lessons-cta { text-align: center; margin-top: 2rem; }
+    /* ========== METHOD ========== */
+    .method-section { padding: 4rem 0; background: white; }
+    .method-header { text-align: center; margin-bottom: 2rem; }
+    .method-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+    .method-step { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .step-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #c6a43b;
+      min-width: 50px;
+    }
+    /* ========== VERSE SECTION ========== */
+    .verse-section {
+      background: #1f3b2c;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .verse-greek {
+      font-size: 1.6rem;
+      font-family: 'EB Garamond', serif;
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+    /* ========== FINAL CTA ========== */
+    .final-cta-section {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .final-cta-greek { font-size: 1.5rem; margin-bottom: 1rem; }
+    .final-cta-title { font-size: 2rem; margin-bottom: 1rem; }
+    .final-cta-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+    /* ========== FOOTER ========== */
+    .site-footer {
+      background: #111c16;
+      color: #cdd9cf;
+      padding: 3rem 1rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .footer-brand .logo { color: #cdd9cf; font-size: 1.3rem; }
+    .footer-nav ul { list-style: none; margin-top: 1rem; }
+    .footer-nav li { margin-bottom: 0.5rem; }
+    .footer-nav a { color: #cdd9cf; text-decoration: none; }
+    .footer-nav a:hover { color: #c6a43b; }
+    .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #2a3a2e; }
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .about-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2rem; }
+      .hero-greek-quote { font-size: 1.3rem; }
+      .section-title { font-size: 1.8rem; }
+      .accordion-selector { padding: 1.5rem; }
+      .accordion-group-header { padding: 0.8rem 1rem; font-size: 1rem; }
+      .lesson-options li { padding: 0.5rem 0.8rem; }
+      .lesson-options li .lesson-num { min-width: 40px; font-size: 0.7rem; }
+      .method-step { gap: 1rem; }
+      .step-number { font-size: 1.5rem; min-width: 40px; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +390,8 @@
         <a href="#about" class="nav-link">About</a>
         <a href="#lessons" class="nav-link">Lessons</a>
         <a href="#method" class="nav-link">Method</a>
-        <a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador</a>
+        <a href="https://idclatam.org" target="_blank" class="nav-link">Church of Christ</a>
+        <a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador Family</a>
         <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Contribute</a>
         <a href="https://biblefluent.org" class="nav-cta">Home</a>
       </nav>
@@ -37,8 +407,8 @@
         <p class="hero-eyebrow">New Testament Greek</p>
         <h1 class="hero-title">Read the New Testament<br>in its original language</h1>
         <p class="hero-greek-quote">Ἐν ἀρχῇ ἦν ὁ λόγος</p>
-        <p class="hero-greek-trans">«In the beginning was the Word» — John 1:1</p>
-        <p class="hero-desc">A complete Koine Greek course in <strong>70 lessons</strong> based on the <strong>programmed reading method</strong>. Each lesson includes <strong>7 micro-lessons</strong>, <strong>15 vocabulary words</strong>, and interactive exercises. No prior knowledge required. Learn to read the Greek New Testament from the first week.</p>
+        <p class="hero-greek-trans">"In the beginning was the Word" — John 1:1</p>
+        <p class="hero-desc">A complete Koine Greek course in <strong>70 lessons</strong> based on the <strong>programmed reading method</strong>. Each lesson includes <strong>7 micro-lessons</strong>, <strong>20 vocabulary words</strong>, and interactive exercises. No prerequisites. Start reading the Greek New Testament from the first week.</p>
         <div class="hero-actions">
           <a href="#lessons" class="btn-primary">View all 70 lessons <i class="fas fa-arrow-right"></i></a>
           <a href="#about" class="btn-ghost">What will I learn?</a>
@@ -46,9 +416,15 @@
         <div class="hero-stats">
           <div class="stat"><span class="stat-num">70</span><span class="stat-label">Lessons</span></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="stat-num">7</span><span class="stat-label">Micro‑lessons/lesson</span></div>
+          <div class="stat"><span class="stat-num">7</span><span class="stat-label">Micro-lessons/lesson</span></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="stat-num">1050</span><span class="stat-label">Vocabulary words</span></div>
+          <div class="stat"><span class="stat-num">1400</span><span class="stat-label">Vocabulary words</span></div>
+        </div>
+        <div class="hero-video-placeholder" id="videoPlaceholder">
+          <div class="video-preview">
+            <i class="fas fa-play-circle"></i>
+            <span>Watch course introduction</span>
+          </div>
         </div>
       </div>
     </section>
@@ -59,15 +435,16 @@
           <div class="about-text">
             <span class="section-label">The course</span>
             <h2 class="section-title">Why learn Koine Greek?</h2>
-            <p>The New Testament was written in Koine Greek, the common language of the Mediterranean world in the first century. Reading it in its original language gives you access to nuances, structures, and emphases that no translation can fully convey.</p>
-            <p>This course starts from zero: you will learn the alphabet, phonology, noun and verb morphology, and basic syntax of New Testament Greek — all explained clearly in English. Our method integrates three simultaneous approaches: grammar, vocabulary (1050 most frequent words), and progressive reading of the New Testament.</p>
-            <a href="Lesson-1.html" class="text-link">Start with lesson 1 <i class="fas fa-arrow-right"></i></a>
+            <p>The New Testament was written in Koine Greek. Reading it in its original language gives you access to nuances that no translation can fully convey. Our course uses the <strong>programmed reading method</strong>, which breaks learning down into small units (micro-lessons) so you can advance steadily and confidently.</p>
+            <p>This course starts from scratch: you will learn the alphabet, phonology, nominal and verbal morphology, and basic syntax of New Testament Greek — all explained clearly in Spanish. We integrate three simultaneous approaches: grammar, vocabulary (1400 most frequent words, covering 90% of the NT), and progressive reading of the New Testament.</p>
+            <p>Structured in <strong>5 modules</strong> and <strong>70 lessons</strong>, with a cumulative vocabulary of 1400 words (96% of the NT).</p>
+            <a href="en/lesson-1.html" class="text-link">Start with lesson 1 <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="about-features">
-            <div class="feature-card"><i class="fas fa-book feature-icon"></i><h3>Original text</h3><p>Learn to read the Greek New Testament directly.</p></div>
-            <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>Practical focus</h3><p>Each lesson introduces 15 high‑frequency words.</p></div>
-            <div class="feature-card"><i class="fas fa-brain feature-icon"></i><h3>Programmed reading</h3><p>7 micro‑lessons per lesson with step‑by‑step exercises.</p></div>
-            <div class="feature-card"><i class="fas fa-dove feature-icon"></i><h3>Spiritual depth</h3><p>Every lesson connects grammar to real New Testament passages.</p></div>
+            <div class="feature-card"><i class="fas fa-book feature-icon"></i><h3>Original text</h3><p>Learn to read the Greek text of the New Testament directly.</p></div>
+            <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>Practical focus</h3><p>Each lesson introduces 20 high-frequency words.</p></div>
+            <div class="feature-card"><i class="fas fa-brain feature-icon"></i><h3>Programmed reading</h3><p>7 micro-lessons per lesson with step-by-step exercises.</p></div>
+            <div class="feature-card"><i class="fas fa-dove feature-icon"></i><h3>Spiritual depth</h3><p>Each lesson connects with real passages from the New Testament.</p></div>
           </div>
         </div>
       </div>
@@ -76,15 +453,20 @@
     <section id="lessons" class="lessons-section">
       <div class="container">
         <div class="lessons-header">
-          <span class="section-label">Complete content</span>
+          <span class="section-label">Full content</span>
           <h2 class="section-title">The 70 lessons of the course</h2>
-          <p class="section-desc">Carefully designed progression: from the alphabet to fluent reading of New Testament texts. Each lesson contains 7 micro‑lessons, interactive exercises, and 15 vocabulary words.</p>
+          <p class="section-desc">Carefully designed progression: from the alphabet to fluent reading of New Testament texts.</p>
         </div>
-        <div class="lessons-grid" id="lessonsGrid">
-          <div class="loading">Loading lesson index...</div>
+
+        <!-- ACCORDION DROPDOWN MENU -->
+        <div class="accordion-selector">
+          <h3><i class="fas fa-folder-tree"></i> Select your lesson</h3>
+          <p>Click any lesson to open it directly.</p>
+          <div id="accordionContainer"></div>
         </div>
+
         <div class="lessons-cta">
-          <a href="Lesson-1.html" class="btn-primary">Start the course <i class="fas fa-arrow-right"></i></a>
+          <a href="en/lesson-1.html" class="btn-primary">Start course from Lesson 1 <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -93,11 +475,11 @@
       <div class="container">
         <div class="method-header"><span class="section-label">Methodology</span><h2 class="section-title">How you will learn</h2></div>
         <div class="method-steps">
-          <div class="method-step"><div class="step-number">I</div><div><h3>Learn the system, not the exception</h3><p>Greek grammar has a coherent internal logic. Each lesson explains patterns so you can recognize new forms without having seen them before.</p></div></div>
-          <div class="method-step"><div class="step-number">II</div><div><h3>Strategic vocabulary (1050 words)</h3><p>The 1050 most frequent words of the New Testament cover more than 90% of the text. This course prioritizes this high‑impact vocabulary, introducing 15 words per lesson.</p></div></div>
-          <div class="method-step"><div class="step-number">III</div><div><h3>7 micro‑lessons per lesson</h3><p>Each lesson is divided into 7 thematic micro‑lessons with drag‑and‑drop, flashcards, matching, and self‑assessment exercises to reinforce learning.</p></div></div>
-          <div class="method-step"><div class="step-number">IV</div><div><h3>Programmed reading</h3><p>The programmed reading method breaks down content into small steps (micro‑lessons) that ensure steady progress and avoid cognitive overload.</p></div></div>
-          <div class="method-step"><div class="step-number">V</div><div><h3>Cumulative progression</h3><p>Each lesson builds on the previous one. By lesson 70 you will have covered 95% of the grammatical structures of New Testament Greek.</p></div></div>
+          <div class="method-step"><div class="step-number">I</div><div><h3>Programmed text</h3><p>Each lesson is divided into small units with immediate response, ensuring steady progress without overload.</p></div></div>
+          <div class="method-step"><div class="step-number">II</div><div><h3>Strategic vocabulary (1400 words)</h3><p>The 1400 most frequent words in the New Testament cover more than 96% of the text. The course prioritizes this high-impact vocabulary, introducing 20 words per lesson.</p></div></div>
+          <div class="method-step"><div class="step-number">III</div><div><h3>Inductive reading</h3><p>Learn grammar and vocabulary in their natural context by reading real NT passages from the early lessons.</p></div></div>
+          <div class="method-step"><div class="step-number">IV</div><div><h3>Spaced Repetition (SRS)</h3><p>Integrated spaced repetition system to solidify vocabulary long-term with growing intervals.</p></div></div>
+          <div class="method-step"><div class="step-number">V</div><div><h3>Contextual analysis</h3><p>Each lesson includes exercises for recognizing forms and analyzing NT clauses, preparing you for exegesis.</p></div></div>
         </div>
       </div>
     </section>
@@ -105,19 +487,8 @@
     <section class="verse-section">
       <div class="verse-inner">
         <blockquote class="verse-greek">πᾶσα γραφὴ θεόπνευστος καὶ ὠφέλιμος πρὸς διδασκαλίαν</blockquote>
-        <p class="verse-trans">«All Scripture is inspired by God and profitable for teaching»</p>
+        <p class="verse-trans">"All Scripture is breathed out by God and profitable for teaching"</p>
         <cite class="verse-ref">2 Timothy 3:16</cite>
-      </div>
-    </section>
-
-    <section id="testimonials" class="testimonials-section">
-      <div class="container">
-        <div class="testimonials-header"><span class="section-label">Students</span><h2 class="section-title">What our learners say</h2></div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«The programmed reading method makes Greek truly accessible. Each micro‑lesson is a small but confident step forward.»</p><div class="testimonial-author"><strong>Mark R.</strong><span>Preacher · Colombia</span></div></div>
-          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«The best part is that everything is in English. The 7 micro‑lessons per lesson let me study without feeling overwhelmed.»</p><div class="testimonial-author"><strong>Anna L.</strong><span>Theology student · Mexico</span></div></div>
-          <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>«By lesson 3 I could already read complete words. The vocabulary of 15 words per lesson is just right.»</p><div class="testimonial-author"><strong>Robert E.</strong><span>Brother in the faith · Spain</span></div></div>
-        </div>
       </div>
     </section>
 
@@ -125,10 +496,10 @@
       <div class="container">
         <div class="final-cta-inner">
           <p class="final-cta-greek">Ἄρχου · Μάνθανε · Ἀνάγνωθι</p>
-          <h2 class="final-cta-title">Start your study of Biblical Greek today</h2>
+          <h2 class="final-cta-title">Start your study of biblical Greek today</h2>
           <p class="final-cta-desc">Free access to all 70 lessons. No registration required.</p>
           <div class="final-cta-actions">
-            <a href="Lesson-1.html" class="btn-primary">Go to the full course <i class="fas fa-arrow-right"></i></a>
+            <a href="en/lesson-1.html" class="btn-primary">Go to the full course <i class="fas fa-arrow-right"></i></a>
             <a href="https://biblefluent.org" class="btn-ghost">All courses</a>
           </div>
         </div>
@@ -137,7 +508,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="footer-grid">
       <div class="footer-brand">
         <a href="https://biblefluent.org" class="logo"><span class="logo-icon">📖</span><span class="logo-text">Bible<em>Fluent</em></span></a>
         <p>Resources for studying the biblical text in its original languages.</p>
@@ -160,57 +531,228 @@
   </footer>
 
   <script>
-    // List of 70 lesson titles (grammar basics to intermediate, programmed reading)
-    const lessons = [
-      "The Greek alphabet", "Vowels, diphthongs and accents", "The definite article",
-      "Second declension (masculine)", "Second declension (neuter)", "First declension (feminine)",
-      "Adjectives of the first and second declension", "The verb εἰμί (to be)", "Present active indicative",
-      "Present middle/passive indicative", "Imperfect active indicative", "Imperfect middle/passive indicative",
-      "First aorist active", "First aorist middle", "Aorist passive",
-      "Future active", "Future middle", "Future passive",
-      "Third declension (consonant stems)", "Third declension (vowel stems)", "Third declension adjectives",
-      "Personal pronouns", "Demonstrative pronouns", "Relative pronouns",
-      "Present active participle", "Present middle/passive participle", "Aorist active participle",
-      "Aorist passive participle", "Perfect participle", "The infinitive",
-      "Subjunctive mood (present)", "Subjunctive mood (aorist)", "Imperative mood (present)",
-      "Imperative mood (aorist)", "Conditional sentences (first class)", "Conditional sentences (second class)",
-      "Conditional sentences (third class)", "Purpose clauses", "Result clauses",
-      "Genitive absolute", "Prepositions with genitive", "Prepositions with dative and accusative",
-      "Cardinal numbers", "Ordinal numbers", "Regular comparatives and superlatives",
-      "Irregular comparatives and superlatives", "Contract verbs (-αω)", "Contract verbs (-εω)",
-      "Contract verbs (-οω)", "Perfect active", "Perfect middle/passive",
-      "Pluperfect active", "Deponent verbs (present)", "Deponent verbs (aorist)",
-      "The verb οἶδα (to know)", "Reading of John 1:1-5", "Reading of John 3:16",
-      "Reading of Romans 1:16-17", "Reading of Romans 8:28-30", "Reading of Matthew 5:3-12",
-      "Reading of 1 Corinthians 13", "Reading of Ephesians 2:8-10", "Reading of Philippians 2:5-11",
-      "Reading of Hebrews 11:1-6", "Reading of Revelation 1:8-18", "Translation of selected passages I",
-      "Translation of selected passages II", "Textual analysis with digital tools", "Final project: Continuous reading of John"
-    ];
-    while(lessons.length < 70) lessons.push(`Lesson ${lessons.length+1}: Review and reading`);
+    (function() {
+      // ==================== DATA FOR 70 LESSONS (based on lecciones.md) ====================
+      const modulesData = [
+        { title: "Module I — Fundamentals (L01–L15)", moduleId: 1, start: 1, lessons: [
+          "NT Greek: History and writing system",
+          "The Greek Alphabet: Letters, names, and sounds",
+          "Pronunciation, accents, and breathings",
+          "Vowels, diphthongs, and consonant system",
+          "The case system: The 5 cases of Greek",
+          "The definite article: Complete paradigm and uses",
+          "First declension: Feminine (-η, -ης, -α, -ας)",
+          "First declension: Masculine (-ης, -ας)",
+          "Second declension: Masculine (-ος) and neuter (-ον)",
+          "Adjectives of the 1st and 2nd declension (type 2-1-2)",
+          "The verb: Present active indicative (paradigm -ω)",
+          "The verb εἰμί and the present middle/passive",
+          "Personal pronouns and the adjective αὐτός",
+          "The imperfect: Active and middle/passive",
+          "Demonstrative pronouns and numbers"
+        ]},
+        { title: "Module II — Grammatical Foundation (L16–L30)", moduleId: 2, start: 16, lessons: [
+          "Third declension I: Stems in stops",
+          "Third declension II: Stems in nasal, liquid, and sibilant",
+          "Third declension III: Stems in -ι, -υ, and irregulars",
+          "Adjectives of the 3rd declension: πᾶς, μέγας, πολύς",
+          "The future indicative: Active, middle, and liquid",
+          "The first aorist: Active and middle",
+          "The second aorist and the aorist passive",
+          "The perfect active: Reduplication and aspect",
+          "The perfect middle/passive and the pluperfect",
+          "Relative, interrogative, and indefinite pronouns",
+          "The subjunctive mood: Present and aorist forms",
+          "Uses of the subjunctive: Purpose, condition, exhortation",
+          "The imperative present and aorist",
+          "The infinitive: Forms and main uses",
+          "Conditional sentences: The four classes"
+        ]},
+        { title: "Module III — Development (L31–L45)", moduleId: 3, start: 31, lessons: [
+          "The present active participle",
+          "The present middle/passive participle and the genitive absolute",
+          "The aorist participle: Active, middle, and passive",
+          "The perfect participle and advanced uses of the participle",
+          "The -μι verbs I: Introduction and δίδωμι",
+          "The -μι verbs II: τίθημι, ἵστημι, ἀφίημι",
+          "Contract verbs: -έω and -άω",
+          "Contract verbs -όω and advanced deponent verbs",
+          "The passive voice: Complete system and expression of agent",
+          "Advanced syntax of the genitive",
+          "Syntax of the dative, accusative, and nominative",
+          "The optative and indirect discourse",
+          "Particles and discourse connectors in the NT",
+          "Verbal aspect: Time vs. aspect in depth",
+          "The six principal parts of verbs"
+        ]},
+        { title: "Module IV — Consolidation (L46–L60)", moduleId: 4, start: 46, lessons: [
+          "Sentence syntax: Nominal, verbal, and relative clauses",
+          "Compound verbs and preverbs",
+          "Vocabulary by semantic fields I: Christology and soteriology",
+          "Vocabulary by semantic fields II: Eschatology and apocalyptic",
+          "Vocabulary by semantic fields III: Ethical and spiritual life",
+          "Textual analysis: The Gospel of John (chapters 1–4)",
+          "Textual analysis: The Pauline epistles (Romans 1–8)",
+          "Textual analysis: The Synoptic Gospels and Acts",
+          "NT textual criticism: Introduction to manuscripts",
+          "Hebraisms and the Greek of the LXX in the NT",
+          "Literary genres of the NT and their impact on grammar",
+          "Advanced theological lexicon: Unique NT terms (hapax)",
+          "Verbal nouns: Nomen actionis and nomen agentis",
+          "Greco-Roman rhetoric and the NT",
+          "Exegetical tools: Lexicons, concordances, and Bible software"
+        ]},
+        { title: "Module V — Mastery (L61–L70)", moduleId: 5, start: 61, lessons: [
+          "Continuous reading of the Gospel of John (John 11–21)",
+          "Reading Paul: Galatians and Ephesians",
+          "Reading Revelation: Apocalyptic Greek",
+          "Reading Hebrews: The most literary Greek of the NT",
+          "Independent exegesis: Complete methodology",
+          "NT Greek and Hebrew/Aramaic: Connections with the OT",
+          "Historical grammar: From Proto-Indo-European to Koine Greek",
+          "Comprehensive morphological review: Synthesis of 70 lessons",
+          "Final exegetical project: Complete analysis of a passage",
+          "From grammar to preaching: Living Greek in the church"
+        ]}
+      ];
 
-    const gridContainer = document.getElementById('lessonsGrid');
-    if (gridContainer) {
-      let html = '';
-      for (let i = 0; i < 70; i++) {
-        const num = i + 1;
-        const numStr = num.toString().padStart(2, '0');
-        const title = lessons[i] || `Lesson ${numStr}`;
-        html += `
-          <a href="Lesson-${num}.html" class="lesson-card">
-            <span class="lesson-num">${numStr}</span>
-            <div class="lesson-info">
-              <h3>${title}</h3>
-              <p>7 micro-lessons · 15 new words</p>
+      function buildAccordion() {
+        const container = document.getElementById('accordionContainer');
+        if (!container) return;
+        let html = '';
+        modulesData.forEach((mod, idx) => {
+          const openClass = (idx === 0) ? 'open' : '';
+          html += `
+            <div class="accordion-group ${openClass}" data-module="${mod.moduleId}">
+              <div class="accordion-group-header">
+                <span><i class="fas fa-folder-open"></i> ${mod.title}</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-group-content">
+                <ul class="lesson-options">
+          `;
+          mod.lessons.forEach((lesson, lIdx) => {
+            const lessonNum = mod.start + lIdx;
+            const numStr = lessonNum.toString().padStart(2, '0');
+            html += `
+              <li data-lesson="${lessonNum}">
+                <span class="lesson-num">${numStr}</span>
+                <span class="lesson-title">${lesson}</span>
+                <i class="fas fa-chevron-right"></i>
+              </li>
+            `;
+          });
+          html += `
+                </ul>
+              </div>
             </div>
-            <i class="fas fa-arrow-right lesson-arrow"></i>
-          </a>
-        `;
-      }
-      gridContainer.innerHTML = html;
-    }
+          `;
+        });
+        container.innerHTML = html;
 
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
+        document.querySelectorAll('.accordion-group-header').forEach(header => {
+          header.removeEventListener('click', toggleAccordion);
+          header.addEventListener('click', toggleAccordion);
+        });
+        document.querySelectorAll('.lesson-options li').forEach(li => {
+          li.removeEventListener('click', redirectToLesson);
+          li.addEventListener('click', redirectToLesson);
+        });
+      }
+
+      function toggleAccordion(e) {
+        const group = this.closest('.accordion-group');
+        if (group) group.classList.toggle('open');
+      }
+
+      function redirectToLesson(e) {
+        e.stopPropagation();
+        const li = this;
+        const lessonNum = parseInt(li.dataset.lesson);
+        if (!isNaN(lessonNum)) {
+          window.location.href = `en/lesson-${lessonNum}`;
+        }
+      }
+
+      // Initialization
+      document.addEventListener('DOMContentLoaded', () => {
+        buildAccordion();
+
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        if (videoPlaceholder) {
+          videoPlaceholder.addEventListener('click', () => {
+            window.open('https://www.youtube.com/watch?v=TUjY-s6rvdU', '_blank');
+          });
+        }
+
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+        if (navToggle && mainNav) {
+          navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.contains('open');
+            mainNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', !isOpen);
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              if (!isOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+              } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            }
+          });
+
+          const navLinks = mainNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mainNav.classList.remove('open');
+              navToggle.setAttribute('aria-expanded', 'false');
+              const icon = navToggle.querySelector('i');
+              if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            });
+          });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.pushState(null, null, targetId);
+            }
+          });
+        });
+
+        const header = document.getElementById('site-header');
+        if (header) {
+          window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 40 ? '0 2px 10px rgba(0,0,0,0.05)' : 'none';
+          });
+        }
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 900 && mainNav.classList.contains('open')) {
+            mainNav.classList.remove('open');
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      });
+    })();
   </script>
-  <script src="../src/main-language.js"></script>
 </body>
 </html>

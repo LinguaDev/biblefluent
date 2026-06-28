@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · NT Greek · Lesson 1: Koine Greek and Its Foundations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional styles specific to this lesson (do not replace global) */
+    .greek-writing-practice {
+      background: #f0f4f8;
+      border-radius: 1rem;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 1.2rem;
+    }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .case-card-small {
+      background: #eef2fa;
+      border-radius: 1rem;
+      padding: 0.8rem;
+      text-align: center;
+    }
+    .highlight {
+      background: #fff3cd;
+      padding: 0.2rem 0.4rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area">
+        <i class="fas fa-scroll logo-icon"></i>
+        <span class="logo-text">Koiné Academy</span>
+      </div>
+      <div class="nav-links">
+        <a href="lesson-2"><i class="fas fa-arrow-right"></i> Lesson 2</a>
+        <a href="https://biblefluent.org/Greek/main.html" target="_blank"><i class="fas fa-language"></i> NT Greek Course</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contact</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-scroll"></i> ΚΟΙΝΗ · Lesson 1 <span class="hero-badge">Module I · Foundations</span></h1>
+      <p>History, writing system, and the 20 most frequent words of the New Testament</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill" style="width:15%"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulary: 20/20 · 1 of 70</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTORY VIDEO -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe src="https://www.youtube.com/embed/s7q0Xol9Awk" title="Introduction to Koine Greek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Why study Koine Greek?</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECTION 1: HISTORICAL CONTEXT (expanded) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-globe-americas"></i> 1. Historical Context: Koine Greek</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>The <strong>New Testament</strong> was written in <span class="greek-word">κοινή (koiné)</span>, which means <strong>‘common’</strong> or <strong>‘universal’</strong>. This form of Greek became the <strong>lingua franca</strong> of the eastern Mediterranean from the conquests of Alexander the Great (3rd century BC) until the 4th century AD.</p>
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Key fact:</strong> Alexander the Great spread Greek culture and language across Egypt, Persia, and India. After his death, Koine Greek remained the language of trade, government, and education.
+          </div>
+          <h3><i class="fas fa-layer-group"></i> The three major periods of Greek</h3>
+          <div class="timeline" style="margin-bottom: 1rem;">
+            <div class="timeline-node" style="background:#e8dcc8;"><strong>Classical</strong><br>800–300 BC<br>Homer, Plato</div>
+            <div class="timeline-node" style="background:#d9e6d9;"><strong>Koine</strong><br>300 BC–400 AD<br>NT, LXX, Papyri</div>
+            <div class="timeline-node" style="background:#f0e6d2;"><strong>Modern</strong><br>400 AD–present<br>Modern Greece</div>
+          </div>
+          <p><strong>NT Koine Greek</strong> is not the pure Attic of Plato, but neither is it vulgar. It is a <strong>living, flexible, and precise</strong> language, ideal for communicating the gospel to all nations.</p>
+          <div class="card-highlight"><i class="fas fa-question-circle"></i> <strong>QUESTION:</strong> What are the three periods of Greek, and in which one was the NT written?</div>
+          <button class="btn-reveal" data-target="resp1"><i class="fas fa-eye"></i> Show answer</button>
+          <div id="resp1" class="answer-text"><strong>✓ Answer:</strong> Classical (800–300 BC), Koine (300 BC–400 AD), Modern (400 AD–present). The NT was written in <strong>Koine Greek</strong>.</div>
+          
+          <h3><i class="fas fa-church"></i> Why Greek instead of Hebrew or Aramaic?</h3>
+          <ul>
+            <li><strong>Universality:</strong> Koine Greek was the lingua franca of the eastern Roman Empire.</li>
+            <li><strong>Mission to the Gentiles:</strong> The early church expanded rapidly among non-Jews who spoke Greek.</li>
+            <li><strong>The Septuagint (LXX):</strong> The Greek translation of the OT was already the Bible of Hellenistic synagogues.</li>
+            <li><strong>Jewish Diaspora:</strong> Jews scattered around the Mediterranean used Greek as their everyday language.</li>
+          </ul>
+          <button class="btn-reveal" data-target="resp2"><i class="fas fa-plus-circle"></i> + Detailed reasons</button>
+          <div id="resp2" class="answer-text">Koine enabled the gospel to reach people of all cultures without immediate translation. The LXX (Greek OT) was a providential tool for NT writers, who quote extensively from it.</div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: INFLECTIONAL LANGUAGE AND CASES (expanded with examples) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-brain"></i> 2. Greek as an Inflected Language and the Five Cases</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Unlike Spanish, which is <strong>analytic</strong> (uses prepositions and word order to indicate grammatical function), Greek is <strong>inflectional or synthetic</strong>: <span class="highlight">a single word changes its ending</span> to show its function in the sentence.</p>
+          <div class="card-highlight">
+            <i class="fas fa-exchange-alt"></i> <strong>Comparative example:</strong><br>
+            Spanish: <em>“del hombre”</em> (preposition + noun)<br>
+            Greek: <span class="greek-word">ἀνθρώπου</span> (one word, genitive)
+          </div>
+          <h3><i class="fas fa-tag"></i> The five Greek cases</h3>
+          <div class="case-grid">
+            <div class="case-card-small"><strong>Nominative</strong><br>Subject<br><span class="greek-word">ὁ λόγος</span> (the word)</div>
+            <div class="case-card-small"><strong>Genitive</strong><br>Possession / origin<br><span class="greek-word">τοῦ λόγου</span> (of the word)</div>
+            <div class="case-card-small"><strong>Dative</strong><br>Indirect object / instrument<br><span class="greek-word">τῷ λόγῳ</span> (to the word)</div>
+            <div class="case-card-small"><strong>Accusative</strong><br>Direct object<br><span class="greek-word">τὸν λόγον</span> (the word as object)</div>
+            <div class="case-card-small"><strong>Vocative</strong><br>Direct address<br><span class="greek-word">λόγε</span> (O word!)</div>
+          </div>
+          <p>In Greek, <strong>word order does not determine function</strong>. For example, <span class="greek-word">ὁ θεὸς ἀγαπᾷ τὸν κόσμον</span> means “God loves the world,” but if we invert the order (<span class="greek-word">τὸν κόσμον ἀγαπᾷ ὁ θεός</span>) it still means “God loves the world,” because the cases tell us who is the subject and who is the object.</p>
+          <button class="btn-reveal" data-target="casosEj2">Try a recognition exercise</button>
+          <div id="casosEj2" class="answer-text">
+            <strong>Exercise:</strong> Identify the case of the following words (use the article as a clue):<br>
+            - <span class="greek-word">τοῦ ἀνθρώπου</span> → genitive (“of the man”)<br>
+            - <span class="greek-word">τὴν βασιλείαν</span> → accusative (“the kingdom” as object)<br>
+            - <span class="greek-word">κύριε</span> → vocative (“O Lord!”)
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: MANUSCRIPTS AND TEXTUAL CRITICISM (more detailed) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-parchment"></i> 3. NT Manuscripts and Textual Criticism</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>The text of the Greek NT has been transmitted through thousands of manuscripts. The main types are:</p>
+          <ul>
+            <li><strong>Papyri (P)</strong>: the oldest (2nd–4th century AD). E.g., <strong>P52</strong> (fragment of John, c. AD 125).</li>
+            <li><strong>Uncials (majuscules)</strong>: parchment with capital letters (4th–10th century). E.g., Codex Vaticanus (B), Codex Sinaiticus (ℵ).</li>
+            <li><strong>Minuscules</strong>: cursive script (9th century onward).</li>
+            <li><strong>Lectionaries</strong>: books of liturgical readings.</li>
+          </ul>
+          <p>Modern editions of the Greek NT, such as <strong>Nestle-Aland (NA28)</strong> and <strong>United Bible Societies (UBS5)</strong>, reconstruct the original text by comparing all these sources and applying principles of textual criticism.</p>
+          <div class="card-highlight">What is the practical difference between NA28 and UBS5?</div>
+          <button class="btn-reveal" data-target="respManu2">Reveal</button>
+          <div id="respManu2" class="answer-text">Both have the <strong>same Greek text</strong>. NA28 includes a full critical apparatus (for scholars), while UBS5 has a selective apparatus geared toward translators, with a certainty rating (A, B, C, D) for each textual variant.</div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: VOCABULARY (20 words with more context) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 4. The 20 Most Frequent Words in the NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>These 20 words represent approximately <strong>5% of the entire NT vocabulary</strong> and appear thousands of times. Mastering them gives you a solid foundation for reading the original text.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Greek</th><th>Transliteration</th><th>English</th><th>Approx. Frequency</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Memory tip:</strong> Write each word three times while pronouncing it aloud. Associate each term with a familiar verse (e.g. <span class="greek-word">ἀγάπη</span> → 1 Corinthians 13).
+          </div>
+          <button class="btn-reveal" data-target="tablaNota">Note on the definite article</button>
+          <div id="tablaNota" class="answer-text">The definite article (<span class="greek-word">ὁ, ἡ, τό</span>) is the most frequent word (over 19,000 times). In Greek it is even used with proper names: <span class="greek-word">ὁ Ἰησοῦς</span> (Jesus).</div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: CONJUNCTIONS, PREPOSITIONS, PARTICLES (more exercises) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-cubes"></i> 5. Connectives, Prepositions, and Negation</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">καί</span> (and, also) and <span class="greek-word">δέ</span> (but, and, now) are the most important connectives. <span class="greek-word">καί</span> joins elements additively; <span class="greek-word">δέ</span> introduces contrast or narrative transition.</p>
+          <div class="card-highlight">
+            <strong>Key prepositions:</strong><br>
+            <span class="greek-word">ἐν</span> (in, within) + dative → position<br>
+            <span class="greek-word">εἰς</span> (to, into, for) + accusative → direction<br>
+            <span class="greek-word">ἐκ/ἐξ</span> (from, out of) + genitive → origin<br>
+            <span class="greek-word">ἀπό</span> (from, away from) + genitive → separation
+          </div>
+          <p><strong>Negation:</strong> <span class="greek-word">οὐ / οὐκ</span> (not). <span class="greek-word">οὐκ</span> is used before a vowel, <span class="greek-word">οὐ</span> before a consonant.</p>
+          <p><strong>The particle ὅτι:</strong> means <em>“that”</em> (declarative) or <em>“because”</em> (causal).</p>
+          <button class="btn-reveal" data-target="preposEj">Translation exercise with prepositions</button>
+          <div id="preposEj" class="answer-text">
+            Translate: <span class="greek-word">ἐν τῷ κόσμῳ</span> → “in the world”<br>
+            <span class="greek-word">εἰς τὴν ἐκκλησίαν</span> → “into the church”<br>
+            <span class="greek-word">ἐξ οὐρανοῦ</span> → “from heaven”
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 6: CONTEXTUAL READINGS (more analysis) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 6. Contextual NT Readings</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>John 1:1 – The Prologue of the Word</h3>
+          <p class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</p>
+          <button class="btn-reveal" data-target="juan11det">Translation and analysis</button>
+          <div id="juan11det" class="answer-text">
+            <strong>Literal translation:</strong> “In (the) beginning was the Word, and the Word was with God, and God was the Word.”<br>
+            <strong>Words you already know:</strong> ἐν, ἀρχῇ (beginning, dative), ἦν (was), ὁ (the), λόγος (Word), καί (and), πρός (with), τόν (the accusative), θεόν (God accusative), θεός (God nominative).<br>
+            <strong>Theological note:</strong> The absence of the article in <span class="greek-word">θεός</span> (third clause) emphasises the <em>quality</em> of divinity of the Word, without identifying him completely with the Father (“the Word was divine” or “was God by nature”).
+          </div>
+
+          <h3>John 3:16 – The central verse</h3>
+          <p class="greek-word">Οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον, ὥστε τὸν υἱὸν τὸν μονογενῆ ἔδωκεν, ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλʼ ἔχῃ ζωὴν αἰώνιον.</p>
+          <button class="btn-reveal" data-target="juan316det">Identify the words studied</button>
+          <div id="juan316det" class="answer-text">
+            <strong>Recognisable words:</strong> ὁ θεός, τὸν (accusative), ἵνα (so that), πᾶς (all), ὁ (the), πιστεύων (the one who believes), εἰς (into/upon), αὐτόν (him), μή (not, with subjunctive), ἀλλʼ (but), ζωὴν (life accusative).<br>
+            <strong>ζωὴν αἰώνιον</strong> = “eternal life”.
+          </div>
+
+          <h3>Galatians 2:16 – Justification by faith</h3>
+          <p class="greek-word">… οὐ δικαιοῦται ἄνθρωπος ἐξ ἔργων νόμου ἐὰν μὴ διὰ πίστεως Ἰησοῦ Χριστοῦ…</p>
+          <button class="btn-reveal" data-target="galatasdet">Analysis of the genitive πίστεως Ἰησοῦ</button>
+          <div id="galatasdet" class="answer-text">
+            <strong>Translation:</strong> “…a person is not justified by works of the law but through faith in Jesus Christ / the faithfulness of Jesus Christ.”<br>
+            The genitive <span class="greek-word">Ἰησοῦ Χριστοῦ</span> can be interpreted as subjective (faith that Christ has) or objective (faith in Christ). This is a key theological debate in Pauline exegesis.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 7: SELF-ASSESSMENT AND INTERACTIVE EXERCISES (expanded) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-check-double"></i> 7. Self-Assessment and Practice</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3><i class="fas fa-history"></i> Historical review questions</h3>
+          <p>1. What does the word <em>koiné</em> mean? <button class="btn-reveal" data-target="aq1">Show</button></p><div id="aq1" class="answer-text">“Common” or “universal”.</div>
+          <p>2. What was the key factor that spread Greek across the eastern Mediterranean? <button class="btn-reveal" data-target="aq2">Show</button></p><div id="aq2" class="answer-text">The conquests of Alexander the Great (4th century BC).</div>
+          <p>3. Give two reasons why the NT was written in Greek instead of Aramaic. <button class="btn-reveal" data-target="aq3">Show</button></p><div id="aq3" class="answer-text">(1) It was the lingua franca of the Roman Empire; (2) The Septuagint (LXX) existed; (3) The church expanded among Gentiles.</div>
+
+          <h3><i class="fas fa-question-circle"></i> Vocabulary quiz (multiple choice)</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+
+          <h3><i class="fas fa-keyboard"></i> Random translation drill</h3>
+          <div id="translationQuiz"></div>
+
+          <h3><i class="fas fa-random"></i> Quick review: 20‑word test</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generate random question</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+
+          <h3><i class="fas fa-pen-alt"></i> Case writing exercise</h3>
+          <div id="caseWritingQuiz"></div>
+          <button id="newCaseQuestion" class="btn-reveal"><i class="fas fa-sync-alt"></i> New word</button>
+        </div>
+      </div>
+
+      <!-- SECTION 8: INTERACTIVE TIMELINE (more detailed) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-chart-line"></i> 8. Timeline of Greek and the NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="timeline">
+            <div class="timeline-node"><strong>1200-800 BC</strong><br>Mycenaean Greek<br>Linear B</div>
+            <div class="timeline-node"><strong>800-300 BC</strong><br>Classical Greek<br>Homer, Plato</div>
+            <div class="timeline-node"><strong>330-30 BC</strong><br>Early Koine<br>Alexander, LXX</div>
+            <div class="timeline-node"><strong>30 BC-AD 100</strong><br>NT Koine<br>Jesus, apostles</div>
+            <div class="timeline-node"><strong>AD 100-300</strong><br>Late Koine<br>Apostolic Fathers</div>
+            <div class="timeline-node"><strong>AD 300-1453</strong><br>Byzantine Greek<br>Patristic texts</div>
+            <div class="timeline-node"><strong>1453-present</strong><br>Modern Greek</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 9: FLASHCARDS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 9. Interactive Flashcards</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Click each card to flip and see the translation.</small></p>
+        </div>
+      </div>
+
+      <!-- SECTION 10: SPACED REPETITION (SRS) with concrete instructions -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 10. Spaced Repetition Plan (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Research on memory shows that reviewing at increasing intervals locks in long‑term knowledge. Follow this plan:</p>
+          <ul>
+            <li><strong>Review 1:</strong> tomorrow (24 hours later)</li>
+            <li><strong>Review 2:</strong> in 3 days</li>
+            <li><strong>Review 3:</strong> in 7 days</li>
+            <li><strong>Review 4:</strong> in 14 days</li>
+            <li><strong>Review 5:</strong> in 30 days</li>
+          </ul>
+          <div class="card-highlight">
+            <i class="far fa-clock"></i> <strong>Technique for each review:</strong><br>
+            1. Cover the English column and translate from Greek.<br>
+            2. Cover the Greek column and write from memory.<br>
+            3. Read each word aloud 3 times.<br>
+            4. If you miss a word, restart the cycle for that word.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAMMED TEXT FINAL (more comprehensive) -->
+    <div class="programmed-text" style="margin: 2rem 0 3rem;">
+      <div class="card-highlight" style="background: #eef3fa; border-left-color: #2c7a6e;">
+        <h3><i class="fas fa-graduation-cap"></i> Programmed text · Analysis of John 1:1-5</h3>
+        <p>Apply what you have learned. Answer each question before revealing the answer. This method ensures active comprehension.</p>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Step 1: Identify all the words you know</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</span></p>
+          <button class="btn-reveal" data-target="prog1">Show analysis</button>
+          <div id="prog1" class="answer-text">
+            <strong>Words you know:</strong> ἐν (in), ἀρχῇ (beginning – dative), ἦν (was, 3rd sg. imperfect of εἰμί), ὁ (art. nom. masc. sg.), λόγος (word/Word), καί (and), πρός (with, toward + accusative), τόν (art. acc. masc.), θεόν (God acc.), θεός (God nom.).<br>
+            <strong>Translation:</strong> “In the beginning was the Word, and the Word was with God, and the Word was God.”
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Step 2: What function does ἦν have?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν.</span></p>
+          <button class="btn-reveal" data-target="prog2">Show explanation</button>
+          <div id="prog2" class="answer-text"><span class="greek-word">ἦν</span> is the verb “was” (3rd person singular of the imperfect of εἰμί, “to be”). It indicates existence or state in the past with continuous aspect. In this context, it points to the pre‑existence of the Word.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Step 3: Analyse the case of πάντα</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">πάντα διʼ αὐτοῦ ἐγένετο, καὶ χωρὶς αὐτοῦ ἐγένετο οὐδὲ ἕν.</span></p>
+          <button class="btn-reveal" data-target="prog3">Show explanation</button>
+          <div id="prog3" class="answer-text"><strong>πάντα</strong> is nominative/accusative neuter plural (“all things”). It functions as the subject of ἐγένετο (“came into being”). Translation: “All things were made through him, and without him nothing was made that has been made.”</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Step 4: Translate ζωή and φῶς in context</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">ἐν αὐτῷ ζωὴ ἦν, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων.</span></p>
+          <button class="btn-reveal" data-target="prog4">Answer</button>
+          <div id="prog4" class="answer-text">“In him was life, and the life was the light of men.” <strong>ζωή</strong> = life (eternal, full); <strong>φῶς</strong> = light (spiritual illumination).</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Step 5: What additional meaning does φῶς have in the NT?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει, καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν.</span></p>
+          <button class="btn-reveal" data-target="prog5">Theological reflection</button>
+          <div id="prog5" class="answer-text">“The light shines in the darkness, and the darkness has not overcome it.” <strong>φῶς</strong> represents Christ as divine revelation that overcomes the darkness of sin and ignorance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="lesson-2"><i class="fas fa-arrow-right"></i> Lesson 2</a>
+      <a href="https://biblefluent.org/Greek/main.html" target="_blank"><i class="fas fa-language"></i> NT Greek Course</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · All resources are free for the glory of God.</p>
+    <p><small>“For I am not ashamed of the gospel, for it is the power of God for salvation” (Romans 1:16)</small></p>
+  </footer>
+
+  <script>
+    // Lesson data (vocabulary extended with frequency column)
+    window.lessonData = {
+      vocab: [
+        { greek: "ὁ, ἡ, τό", translit: "ho, hē, to", spanish: "the (article)", freq: "19,000+" },
+        { greek: "καί", translit: "kai", spanish: "and, also", freq: "9,000+" },
+        { greek: "δέ", translit: "de", spanish: "but, and, now", freq: "2,700+" },
+        { greek: "ἐν", translit: "en", spanish: "in, within", freq: "2,700+" },
+        { greek: "εἰς", translit: "eis", spanish: "to, into, for", freq: "1,700+" },
+        { greek: "ἐκ / ἐξ", translit: "ek/ex", spanish: "from, out of", freq: "900+" },
+        { greek: "ὅτι", translit: "hoti", spanish: "that, because", freq: "1,300+" },
+        { greek: "οὐ / οὐκ", translit: "ou/ouk", spanish: "not", freq: "1,600+" },
+        { greek: "ἀπό", translit: "apo", spanish: "from, away from", freq: "650+" },
+        { greek: "κύριος", translit: "kyrios", spanish: "Lord", freq: "700+" },
+        { greek: "Ἰησοῦς", translit: "Iēsous", spanish: "Jesus", freq: "900+" },
+        { greek: "Χριστός", translit: "Christos", spanish: "Christ", freq: "500+" },
+        { greek: "θεός", translit: "theos", spanish: "God", freq: "1,300+" },
+        { greek: "λόγος", translit: "logos", spanish: "word, Word", freq: "330+" },
+        { greek: "πνεῦμα", translit: "pneuma", spanish: "spirit, breath", freq: "380+" },
+        { greek: "εἰρήνη", translit: "eirēnē", spanish: "peace", freq: "90+" },
+        { greek: "ἀγάπη", translit: "agapē", spanish: "love (sacrificial)", freq: "110+" },
+        { greek: "χάρις", translit: "charis", spanish: "grace", freq: "150+" },
+        { greek: "πίστις", translit: "pistis", spanish: "faith, trust", freq: "240+" },
+        { greek: "ζωή", translit: "zōē", spanish: "life (eternal, full)", freq: "130+" }
+      ],
+      quiz: [
+        { question: "What does 'λόγος' mean?", options: ["Lord", "Word", "Love", "Peace"], correct: 1 },
+        { question: "Translate 'ἀγάπη'", options: ["Faith", "Grace", "Sacrificial love", "Life"], correct: 2 },
+        { question: "Which word means 'Lord' in Greek?", options: ["κύριος", "θεός", "Χριστός", "Ἰησοῦς"], correct: 0 },
+        { question: "Which preposition means 'to/into' (with accusative)?", options: ["ἐν", "ἐκ", "εἰς", "ἀπό"], correct: 2 },
+        { question: "Negation in Greek (before a consonant):", options: ["οὐκ", "οὐ", "μή", "οὔτε"], correct: 1 },
+        { question: "Which case expresses possession or belonging?", options: ["Nominative", "Genitive", "Dative", "Accusative"], correct: 1 },
+        { question: "Which Greek word means 'life' in the eternal sense?", options: ["βίος", "ζωή", "ψυχή", "πνεῦμα"], correct: 1 },
+        { question: "Which of these is a contrastive connective (but/now)?", options: ["καί", "δέ", "ὅτι", "οὐ"], correct: 1 }
+      ],
+      // Custom exercises for case writing
+      customInit: function() {
+        const vocab = this.vocab.slice(0,10);
+        const caseContainer = document.getElementById('caseWritingQuiz');
+        if (caseContainer) {
+          function loadCaseQuestion() {
+            const randomWord = vocab[Math.floor(Math.random() * vocab.length)];
+            caseContainer.innerHTML = `
+              <div class="card-highlight">
+                <strong>Write the genitive singular of:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+                <small>Hint: if it's a Lesson 1 word, most are indeclinable or have irregular forms. For adjectives, think about the stem.</small><br>
+                <input type="text" id="caseAnswer" placeholder="e.g. λόγου" style="margin-top:0.5rem; padding:0.5rem;">
+                <button id="checkCase" class="btn-reveal">Check</button>
+                <span id="caseResult"></span>
+              </div>
+            `;
+            const checkBtn = document.getElementById('checkCase');
+            if (checkBtn) {
+              checkBtn.addEventListener('click', () => {
+                const answer = document.getElementById('caseAnswer').value.trim();
+                const feedback = document.getElementById('caseResult');
+                feedback.innerHTML = '<span class="correct-feedback">✓ For Lesson 1 words, the genitive will be covered in later lessons. Keep going!</span>';
+                setTimeout(() => loadCaseQuestion(), 2000);
+              });
+            }
+          }
+          loadCaseQuestion();
+          document.getElementById('newCaseQuestion')?.addEventListener('click', loadCaseQuestion);
+        }
+        
+        // Random vocabulary test
+        const randomBtn = document.getElementById('randomTestBtn');
+        const fullVocab = this.vocab;
+        if (randomBtn) {
+          randomBtn.addEventListener('click', () => {
+            const randomWord = fullVocab[Math.floor(Math.random() * fullVocab.length)];
+            const area = document.getElementById('randomQuestionArea');
+            area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> Surprise test:</strong> What does <span class="greek-word">${randomWord.greek}</span> mean?<br>
+            <input type="text" id="randomAnswerInput" placeholder="your answer..."> <button id="submitRandom" class="btn-reveal">Check</button>
+            <div id="randomResult"></div></div>`;
+            const submit = document.getElementById('submitRandom');
+            if (submit) {
+              submit.addEventListener('click', () => {
+                const userAnswer = document.getElementById('randomAnswerInput').value.trim().toLowerCase();
+                const expected = randomWord.spanish.toLowerCase();
+                const resultDiv = document.getElementById('randomResult');
+                if (userAnswer === expected || expected.includes(userAnswer) || (randomWord.spanish === "love (sacrificial)" && userAnswer.includes("love"))) {
+                  resultDiv.innerHTML = "<span class='correct-feedback'><i class='fas fa-trophy'></i> Perfect! ✅</span>";
+                } else {
+                  resultDiv.innerHTML = `<span class='wrong-feedback'><i class='fas fa-exclamation-triangle'></i> The correct answer is: ${randomWord.spanish}</span>`;
+                }
+              });
+            }
+          });
+        }
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · NT Greek · Lesson 2: The Greek Alphabet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional styles specific to this lesson */
+    .alphabet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .letter-card {
+      background: #f8fafd;
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+      transition: 0.2s;
+    }
+    .letter-card:hover {
+      background: #eef3fa;
+      transform: translateY(-2px);
+    }
+    .greek-letter {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif;
+      margin-bottom: 0.3rem;
+    }
+    .pronunciation-guide {
+      background: #eef2fa;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .consonant-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+    .consonant-card {
+      background: #f1f5f9;
+      border-radius: 1rem;
+      padding: 0.8rem;
+      text-align: center;
+      min-width: 100px;
+    }
+    .writing-practice {
+      background: #fff8e7;
+      border: 1px solid #f0dbb4;
+      border-radius: 1rem;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area">
+        <i class="fas fa-scroll logo-icon"></i>
+        <span class="logo-text">Koiné Academy</span>
+      </div>
+      <div class="nav-links">
+        <a href="lesson-1"><i class="fas fa-arrow-left"></i> Lesson 1</a>
+        <a href="lesson-3"><i class="fas fa-arrow-right"></i> Lesson 3</a>
+        <a href="https://biblefluent.org/Greek/main.html" target="_blank"><i class="fas fa-language"></i> NT Greek Course</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contact</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-font"></i> Lesson 2 · The Greek Alphabet <span class="hero-badge">Module I · Foundations</span></h1>
+      <p>The 24 letters · Names and pronunciation · Final sigma · Diphthongs and breathings</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill" style="width:30%"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulary: 40/140 · Lesson 2 of 70</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTORY VIDEO: The Greek Alphabet -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ydJqGlJLJrk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-play-circle"></i> Video: Learn to pronounce each Greek letter (Erasmian system)</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECTION 1: COMPLETE ALPHABET TABLE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 1. The 24 Greek letters</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>The Greek alphabet consists of <strong>24 letters</strong>, each with its uppercase, lowercase, name, and standard sound (Erasmian system, used in NT studies).</p>
+          <div id="alphabetGrid" class="alphabet-grid"></div>
+          <div class="card-highlight">
+            <i class="fas fa-info-circle"></i> <strong>Note on sigma (Σ, σ, ς):</strong> The letter sigma has two lowercase forms: <span class="greek-word">σ</span> is used in the middle or at the beginning of a word, and <span class="greek-word">ς</span> (final sigma) is used <strong>only at the end of a word</strong>. Example: <span class="greek-word">Ἰησοῦς</span> (Jesus).
+          </div>
+          <button class="btn-reveal" data-target="alfabetoNota">See writing example</button>
+          <div id="alfabetoNota" class="answer-text">
+            <strong>Practice writing:</strong> <span class="greek-word">λόγος</span> (word) – observe the final sigma ς.<br>
+            <span class="greek-word">ἀγάπη</span> (love) – ends with η, not sigma.<br>
+            <span class="greek-word">πίστις</span> (faith) – ends with ς (final sigma).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: PRONUNCIATION, DIPHTHONGS, BREATHINGS, ACCENTS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-microphone-alt"></i> 2. Pronunciation, diphthongs, and breathings</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3><i class="fas fa-link"></i> Diphthongs (combined sounds)</h3>
+          <div class="dip-grid">
+            <div class="dip-card">αι (ai)</div><div class="dip-card">ει (ei)</div><div class="dip-card">οι (oi)</div>
+            <div class="dip-card">υι (yi)</div><div class="dip-card">αυ (au)</div><div class="dip-card">ευ (eu)</div>
+            <div class="dip-card">ου (ou)</div><div class="dip-card">ηυ (ēu)</div>
+          </div>
+          <p><strong>Improper diphthongs (iota subscript):</strong> ᾳ (ᾱι), ῃ (ηι), ῳ (ωι) – pronounced as long α, η, ω respectively.</p>
+
+          <h3><i class="fas fa-tint"></i> Breathings (smooth ᾿ and rough ῾)</h3>
+          <p>Every word beginning with a vowel or diphthong carries a breathing. The <strong>smooth breathing</strong> is not pronounced; the <strong>rough breathing</strong> is pronounced like an 'h' aspiration. Example: <span class="greek-word">ἀγάπη</span> (agapē) – smooth; <span class="greek-word">ἡμέρα</span> (hēmera) – rough (read "hēmera").</p>
+
+          <h3><i class="fas fa-accusoft"></i> Accents</h3>
+          <p>Greek has three accents: <strong>acute (´)</strong>, <strong>grave (`)</strong>, and <strong>circumflex (῀)</strong>. They indicate pitch accent. In practice, they are all pronounced as a stress accent.</p>
+          <div class="pronunciation-guide">
+            <strong><i class="fas fa-headphones"></i> Pronunciation practice:</strong> Try reading aloud:
+            <span class="greek-word">θεός</span> (theós), <span class="greek-word">καλός</span> (kalós), <span class="greek-word">λόγος</span> (lógos).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: CLASSIFICATION OF CONSONANTS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-divide"></i> 3. Classification of consonants</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Greek consonants are classified according to their place of articulation. This is useful for understanding phonetic changes in verbs and nouns.</p>
+          <div class="consonant-group">
+            <div class="consonant-card"><strong>Labials</strong><br>π, β, φ<br>(p, b, ph)</div>
+            <div class="consonant-card"><strong>Dentals</strong><br>τ, δ, θ<br>(t, d, th)</div>
+            <div class="consonant-card"><strong>Velars</strong><br>κ, γ, χ<br>(k, g, kh)</div>
+            <div class="consonant-card"><strong>Liquids</strong><br>λ, μ, ν, ρ<br>(l, m, n, r)</div>
+            <div class="consonant-card"><strong>Sibilants</strong><br>σ, ζ, ξ, ψ<br>(s, z, ks, ps)</div>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Practical rule:</strong> When a stem ends in a labial (π,β,φ) and -σ is added (future, aorist), it forms ψ (e.g. γράφω → γράψω). Velars (κ,γ,χ) + σ → ξ (ἄγω → ἄξω). Dentals (τ,δ,θ) + σ → σ (πείθω → πείσω).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: NEW VOCABULARY (20 words from Lesson 2) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 4. New vocabulary (20 words)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>These words correspond to Lessons 2 and 3 of the curriculum. Many are fundamental nouns for reading the NT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Greek</th><th>Transliteration</th><th>English</th><th>Approx. Frequency</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-church"></i> <strong>Fact:</strong> <span class="greek-word">ἐκκλησία</span> (church) appears over 110 times in the NT. <span class="greek-word">εὐαγγέλιον</span> (gospel) is the center of the Christian message.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: INTERACTIVE EXERCISE: IDENTIFY THE LETTER -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 5. Exercise: Identify the letter</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="letterQuizArea"></div>
+          <button id="newLetterQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> New letter</button>
+          <div id="letterFeedback" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECTION 6: DIPHTHONG PRACTICE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-link"></i> 6. Practice diphthongs</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="diphthongQuizArea"></div>
+          <button id="newDiphthongQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> New word</button>
+          <div id="diphthongFeedback" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECTION 7: SELF-ASSESSMENT AND QUIZ -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-check-double"></i> 7. Self-assessment and practice</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3><i class="fas fa-question-circle"></i> Vocabulary quiz (multiple choice)</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+
+          <h3><i class="fas fa-keyboard"></i> Random translation drill</h3>
+          <div id="translationQuiz"></div>
+
+          <h3><i class="fas fa-random"></i> Surprise test: What word is this?</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generate random question</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+
+          <h3><i class="fas fa-pen-alt"></i> Uppercase letter writing</h3>
+          <div class="writing-practice">
+            <p><strong>Write the uppercase form of:</strong> <span id="capitalQuestion">α</span></p>
+            <input type="text" id="capitalAnswer" placeholder="e.g. Α" style="padding:0.5rem; width:150px;">
+            <button id="checkCapital" class="btn-reveal">Check</button>
+            <span id="capitalFeedback"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 8: FLASHCARDS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 8. Vocabulary flashcards</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Click each card to see the translation.</small></p>
+        </div>
+      </div>
+
+      <!-- SECTION 9: SPACED REPETITION PLAN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 9. Spaced repetition plan (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Review 1:</strong> tomorrow (24 hours)</li>
+            <li><strong>Review 2:</strong> in 3 days</li>
+            <li><strong>Review 3:</strong> in 7 days</li>
+            <li><strong>Review 4:</strong> in 14 days</li>
+            <li><strong>Review 5:</strong> in 30 days</li>
+          </ul>
+          <div class="card-highlight">
+            <i class="far fa-clock"></i> <strong>Technique:</strong> Write each word three times aloud. Use the digital flashcards and quiz to self-assess.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAMMED TEXT FINAL: Word analysis with alphabet -->
+    <div class="programmed-text" style="margin: 2rem 0 3rem;">
+      <div class="card-highlight" style="background: #eef3fa; border-left-color: #2c7a6e;">
+        <h3><i class="fas fa-graduation-cap"></i> Programmed text · Reading Greek words</h3>
+        <p>Now that you know the letters, practice reading and recognizing vocabulary words. Answer before revealing.</p>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Word 1: How is it read and what does it mean?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">ἄνθρωπος</span></p>
+          <button class="btn-reveal" data-target="progPal1">Answer</button>
+          <div id="progPal1" class="answer-text"><strong>Reading:</strong> ánthrōpos (ant-ro-pos). <strong>Meaning:</strong> man, person. Appears over 550 times in the NT.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Word 2: Identify the final sigma and its meaning</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">σταυρός</span></p>
+          <button class="btn-reveal" data-target="progPal2">Answer</button>
+          <div id="progPal2" class="answer-text"><strong>Reading:</strong> staurós. <strong>Meaning:</strong> cross. The word ends in <strong>ς</strong> (final sigma).</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Word 3: Which diphthong does it contain and what does it mean?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><span class="greek-word">εὐαγγέλιον</span></p>
+          <button class="btn-reveal" data-target="progPal3">Answer</button>
+          <div id="progPal3" class="answer-text"><strong>Reading:</strong> euangélion. It contains the diphthong <strong>ευ</strong> (eu). <strong>Meaning:</strong> gospel, good news.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Word 4: Practice writing – write "peace" in Greek</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p><strong>The Greek word for "peace" is:</strong></p>
+          <button class="btn-reveal" data-target="progPal4">Show answer</button>
+          <div id="progPal4" class="answer-text"><span class="greek-word">εἰρήνη</span> (eirēnē). Note the diphthong ει at the beginning and the long eta (η).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="lesson-1"><i class="fas fa-arrow-left"></i> Lesson 1</a>
+      <a href="lesson-3"><i class="fas fa-arrow-right"></i> Lesson 3</a>
+      <a href="https://biblefluent.org/Greek/main.html" target="_blank"><i class="fas fa-language"></i> NT Greek Course</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · “ἡ ἀγάπη ἐκ τοῦ θεοῦ” (love comes from God)</p>
+    <p><small>“For I am not ashamed of the gospel” (Romans 1:16)</small></p>
+  </footer>
+
+  <script>
+    // Lesson 2 data (translated to English)
+    window.lessonData = {
+      // Vocabulary from Lesson 2 (according to the curriculum: L02 and L03)
+      vocab: [
+        { greek: "ἄνθρωπος", translit: "anthrōpos", spanish: "man, person", freq: "550+" },
+        { greek: "κόσμος", translit: "kosmos", spanish: "world", freq: "180+" },
+        { greek: "ἐκκλησία", translit: "ekklēsia", spanish: "church, assembly", freq: "110+" },
+        { greek: "εὐαγγέλιον", translit: "euangelion", spanish: "gospel, good news", freq: "76+" },
+        { greek: "βασιλεία", translit: "basileia", spanish: "kingdom", freq: "160+" },
+        { greek: "νόμος", translit: "nomos", spanish: "law", freq: "190+" },
+        { greek: "ἁμαρτία", translit: "hamartia", spanish: "sin", freq: "170+" },
+        { greek: "υἱός", translit: "huios", spanish: "son", freq: "370+" },
+        { greek: "πατήρ", translit: "patēr", spanish: "father", freq: "400+" },
+        { greek: "ὄνομα", translit: "onoma", spanish: "name", freq: "230+" },
+        { greek: "οὐρανός", translit: "ouranos", spanish: "heaven", freq: "270+" },
+        { greek: "γῆ", translit: "gē", spanish: "earth", freq: "250+" },
+        { greek: "ἡμέρα", translit: "hēmera", spanish: "day", freq: "380+" },
+        { greek: "ἔργον", translit: "ergon", spanish: "work, deed", freq: "170+" },
+        { greek: "λαός", translit: "laos", spanish: "people", freq: "140+" },
+        { greek: "ὁδός", translit: "hodos", spanish: "way, road", freq: "100+" },
+        { greek: "ἀλήθεια", translit: "alētheia", spanish: "truth", freq: "100+" },
+        { greek: "σάρξ", translit: "sarx", spanish: "flesh", freq: "150+" },
+        { greek: "αἷμα", translit: "haima", spanish: "blood", freq: "100+" },
+        { greek: "δόξα", translit: "doxa", spanish: "glory", freq: "160+" }
+      ],
+      quiz: [
+        { question: "What does 'ἄνθρωπος' mean?", options: ["World", "Man", "Angel", "Apostle"], correct: 1 },
+        { question: "Translate 'ἐκκλησία'", options: ["Synagogue", "Church", "Temple", "House"], correct: 1 },
+        { question: "Which word means 'gospel'?", options: ["εὐαγγέλιον", "βασιλεία", "νόμος", "ἁμαρτία"], correct: 0 },
+        { question: "Identify 'πατήρ'", options: ["Mother", "Brother", "Father", "Son"], correct: 2 },
+        { question: "What does 'ἀλήθεια' mean?", options: ["Life", "Truth", "Peace", "Faith"], correct: 1 },
+        { question: "Which word means 'heaven'?", options: ["γῆ", "οὐρανός", "κόσμος", "δόξα"], correct: 1 }
+      ],
+      customInit: function() {
+        // Alphabet grid
+        const alphabet = [
+          { upper: "Α", lower: "α", name: "Alpha", sound: "a" },
+          { upper: "Β", lower: "β", name: "Beta", sound: "b" },
+          { upper: "Γ", lower: "γ", name: "Gamma", sound: "g" },
+          { upper: "Δ", lower: "δ", name: "Delta", sound: "d" },
+          { upper: "Ε", lower: "ε", name: "Epsilon", sound: "short e" },
+          { upper: "Ζ", lower: "ζ", name: "Zeta", sound: "dz/z" },
+          { upper: "Η", lower: "η", name: "Eta", sound: "long e" },
+          { upper: "Θ", lower: "θ", name: "Theta", sound: "aspirated th" },
+          { upper: "Ι", lower: "ι", name: "Iota", sound: "i" },
+          { upper: "Κ", lower: "κ", name: "Kappa", sound: "k" },
+          { upper: "Λ", lower: "λ", name: "Lambda", sound: "l" },
+          { upper: "Μ", lower: "μ", name: "Mu", sound: "m" },
+          { upper: "Ν", lower: "ν", name: "Nu", sound: "n" },
+          { upper: "Ξ", lower: "ξ", name: "Xi", sound: "ks" },
+          { upper: "Ο", lower: "ο", name: "Omicron", sound: "short o" },
+          { upper: "Π", lower: "π", name: "Pi", sound: "p" },
+          { upper: "Ρ", lower: "ρ", name: "Rho", sound: "rolled r" },
+          { upper: "Σ", lower: "σ / ς", name: "Sigma", sound: "s (final ς)" },
+          { upper: "Τ", lower: "τ", name: "Tau", sound: "t" },
+          { upper: "Υ", lower: "υ", name: "Upsilon", sound: "u/y" },
+          { upper: "Φ", lower: "φ", name: "Phi", sound: "ph" },
+          { upper: "Χ", lower: "χ", name: "Chi", sound: "kh (hard h)" },
+          { upper: "Ψ", lower: "ψ", name: "Psi", sound: "ps" },
+          { upper: "Ω", lower: "ω", name: "Omega", sound: "long o" }
+        ];
+        
+        const gridContainer = document.getElementById('alphabetGrid');
+        if (gridContainer) {
+          alphabet.forEach(letter => {
+            const card = document.createElement('div');
+            card.className = 'letter-card';
+            card.innerHTML = `<div class="greek-letter">${letter.upper} ${letter.lower}</div>
+                             <strong>${letter.name}</strong><br><small>${letter.sound}</small>`;
+            gridContainer.appendChild(card);
+          });
+        }
+        
+        // Letter identification exercise (lowercase)
+        const letterQuizArea = document.getElementById('letterQuizArea');
+        const letterFeedback = document.getElementById('letterFeedback');
+        let currentLetter = alphabet[0];
+        
+        function loadLetterQuiz() {
+          currentLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+          letterQuizArea.innerHTML = `<div class="card-highlight"><strong>What is the name of this letter?</strong><br>
+          <span class="greek-word" style="font-size:2.5rem;">${currentLetter.lower}</span><br>
+          <input type="text" id="letterAnswer" placeholder="Letter name" style="margin-top:0.5rem; padding:0.5rem;">
+          <button id="submitLetter" class="btn-reveal">Check</button></div>`;
+          const submit = document.getElementById('submitLetter');
+          if (submit) {
+            submit.addEventListener('click', () => {
+              const answer = document.getElementById('letterAnswer').value.trim().toLowerCase();
+              const correct = currentLetter.name.toLowerCase();
+              if (answer === correct) {
+                letterFeedback.innerHTML = '<span class="correct-feedback">✓ Correct!</span>';
+                setTimeout(loadLetterQuiz, 1500);
+              } else {
+                letterFeedback.innerHTML = `<span class="wrong-feedback">✗ The answer is: ${currentLetter.name}</span>`;
+              }
+            });
+          }
+        }
+        loadLetterQuiz();
+        document.getElementById('newLetterQuiz')?.addEventListener('click', loadLetterQuiz);
+        
+        // Diphthong exercise
+        const diphthongs = [
+          { word: "αἰών", dip: "αι", meaning: "age" },
+          { word: "εἰρήνη", dip: "ει", meaning: "peace" },
+          { word: "οἶκος", dip: "οι", meaning: "house" },
+          { word: "υἱός", dip: "υι", meaning: "son" },
+          { word: "αὐτός", dip: "αυ", meaning: "himself" },
+          { word: "εὐαγγέλιον", dip: "ευ", meaning: "gospel" },
+          { word: "οὐρανός", dip: "ου", meaning: "heaven" }
+        ];
+        let currentDip = diphthongs[0];
+        const dipArea = document.getElementById('diphthongQuizArea');
+        const dipFeedback = document.getElementById('diphthongFeedback');
+        
+        function loadDiphthongQuiz() {
+          currentDip = diphthongs[Math.floor(Math.random() * diphthongs.length)];
+          dipArea.innerHTML = `<div class="card-highlight"><strong>What diphthong does this word have?</strong><br>
+          <span class="greek-word" style="font-size:1.8rem;">${currentDip.word}</span><br>
+          <input type="text" id="dipAnswer" placeholder="e.g. αι, ει, etc." style="margin-top:0.5rem; padding:0.5rem;">
+          <button id="submitDip" class="btn-reveal">Check</button></div>`;
+          const submit = document.getElementById('submitDip');
+          if (submit) {
+            submit.addEventListener('click', () => {
+              const answer = document.getElementById('dipAnswer').value.trim().toLowerCase();
+              if (answer === currentDip.dip) {
+                dipFeedback.innerHTML = '<span class="correct-feedback">✓ Correct!</span>';
+                setTimeout(loadDiphthongQuiz, 1500);
+              } else {
+                dipFeedback.innerHTML = `<span class="wrong-feedback">✗ The diphthong is: ${currentDip.dip}</span>`;
+              }
+            });
+          }
+        }
+        loadDiphthongQuiz();
+        document.getElementById('newDiphthongQuiz')?.addEventListener('click', loadDiphthongQuiz);
+        
+        // Uppercase writing exercise
+        const lowerCases = ['α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η', 'θ', 'ι', 'κ', 'λ', 'μ', 'ν', 'ξ', 'ο', 'π', 'ρ', 'σ', 'τ', 'υ', 'φ', 'χ', 'ψ', 'ω'];
+        const upperCases = ['Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 'Ω'];
+        let currentLower = 'α';
+        const capitalQuestion = document.getElementById('capitalQuestion');
+        const capitalAnswer = document.getElementById('capitalAnswer');
+        const capitalFeedbackSpan = document.getElementById('capitalFeedback');
+        
+        function loadCapitalQuiz() {
+          const idx = Math.floor(Math.random() * lowerCases.length);
+          currentLower = lowerCases[idx];
+          capitalQuestion.textContent = currentLower;
+          capitalAnswer.value = '';
+          capitalFeedbackSpan.innerHTML = '';
+        }
+        loadCapitalQuiz();
+        document.getElementById('checkCapital')?.addEventListener('click', () => {
+          const answer = capitalAnswer.value.trim();
+          const idx = lowerCases.indexOf(currentLower);
+          const correct = upperCases[idx];
+          if (answer === correct) {
+            capitalFeedbackSpan.innerHTML = '<span class="correct-feedback">✓ Correct!</span>';
+            setTimeout(loadCapitalQuiz, 1200);
+          } else {
+            capitalFeedbackSpan.innerHTML = `<span class="wrong-feedback">✗ The uppercase is ${correct}</span>`;
+          }
+        });
+        
+        // Random vocabulary test
+        const randomBtn = document.getElementById('randomTestBtn');
+        if (randomBtn) {
+          randomBtn.addEventListener('click', () => {
+            const randomWord = this.vocab[Math.floor(Math.random() * this.vocab.length)];
+            const area = document.getElementById('randomQuestionArea');
+            area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> What does this mean?</strong> <span class="greek-word">${randomWord.greek}</span><br>
+            <input type="text" id="randomAnswer" placeholder="your answer..."> <button id="submitRandom" class="btn-reveal">Check</button>
+            <div id="randomResult"></div></div>`;
+            document.getElementById('submitRandom')?.addEventListener('click', () => {
+              const ans = document.getElementById('randomAnswer').value.trim().toLowerCase();
+              const correct = randomWord.spanish.toLowerCase();
+              const res = document.getElementById('randomResult');
+              if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+                res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> Perfect!</span>';
+              } else {
+                res.innerHTML = `<span class="wrong-feedback">✗ Answer: ${randomWord.spanish}</span>`;
+              }
+            });
+          });
+        }
+      }
+    };
+  </script>
+  <script src="script.js"></script>
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+</body>
+</html>

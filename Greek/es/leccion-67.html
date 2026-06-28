@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 67: Gramática Histórica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 96%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .hist-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .pie-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    .cognate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .cognate-card { background: #f8fafd; border-radius: 1rem; padding: 1rem; border: 1px solid #e2e8f0; }
+    .cognate-card .label { font-weight: 700; color: #1a4c61; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-66.html"><i class="fas fa-arrow-left"></i> Lección 66</a>
+        <a href="leccion-68.html"><i class="fas fa-arrow-right"></i> Lección 68</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-history"></i> Lección 67 · Gramática Histórica <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Proto-Indoeuropeo · 8 casos → 5 casos · Pérdida del digamma (ϝ) · οἶδα y perfectos con significado presente · Griego koiné → moderno · Raíces PIE</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1340/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Gramática histórica: del proto-indoeuropeo al griego koiné" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: La historia del griego – del PIE al koiné y al griego moderno</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. ¿Por qué estudiar gramática histórica?</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>gramática histórica</strong> (o lingüística histórica) estudia cómo las lenguas <strong>cambian</strong> a lo largo del tiempo. Comprender estos cambios ayuda a <strong>explicar las irregularidades</strong> del griego del NT y a <strong>conectar</strong> el griego con otras lenguas.</p>
+          <div class="hist-box">
+            <i class="fas fa-lightbulb"></i> <strong>Beneficios para el estudiante del NT:</strong>
+            <ul>
+              <li>Explica <strong>por qué</strong> ciertas formas son irregulares (ej. οἶδα es un perfecto con significado presente).</li>
+              <li>Ayuda a <strong>memorizar</strong> vocabulario al entender su etimología.</li>
+              <li>Conecta el griego con el <strong>latín</strong>, el <strong>inglés</strong> y otras lenguas indoeuropeas.</li>
+              <li>Proporciona <strong>perspectiva</strong> sobre la evolución del griego desde Homero hasta el griego moderno.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">οἶδα</span> (sé) – en griego es un <strong>perfecto</strong> con significado de <strong>presente</strong>. Esto se debe a que originalmente significaba "he visto" → "sé" (ver → saber). Compárese con el latín <em>vidēre</em> (ver) y el inglés <em>wit</em> (saber).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: PROTO-INDOEUROPEO – ORIGEN Y EXPANSIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-tree"></i> 2. El proto-indoeuropeo (PIE)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>proto-indoeuropeo</strong> (PIE) es la lengua ancestral de la que descienden el griego, el latín, el sánscrito, las lenguas germánicas, celtas, eslavas, etc. Se habló aproximadamente entre el 4500 y el 2500 a.C.</p>
+          <div class="pie-box">
+            <strong><i class="fas fa-arrow-right"></i> Características del PIE:</strong>
+            <ul>
+              <li><strong>8 casos</strong> gramaticales (nominativo, vocativo, acusativo, genitivo, dativo, ablativo, locativo, instrumental).</li>
+              <li>Tres géneros (masculino, femenino, neutro).</li>
+              <li><strong>Verbos</strong> con conjugaciones complejas.</li>
+              <li>Palabras formadas por <strong>raíces</strong> (raíz + sufijos + desinencias).</li>
+            </ul>
+          </div>
+          <div class="pie-box">
+            <strong><i class="fas fa-arrow-right"></i> Evolución del PIE al griego:</strong>
+            <ul>
+              <li>El griego <strong>redujo</strong> los 8 casos del PIE a <strong>5 casos</strong> (nominativo, genitivo, dativo, acusativo, vocativo).</li>
+              <li>El ablativo se <strong>fusionó</strong> con el genitivo.</li>
+              <li>El locativo se <strong>fusionó</strong> con el dativo.</li>
+              <li>El instrumental se <strong>fusionó</strong> con el dativo.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Tabla de casos PIE → griego:</strong><br>
+            <table style="font-size:0.85rem;">
+              <thead><tr><th>PIE</th><th>Griego</th><th>Función</th></tr></thead>
+              <tbody>
+                <tr><td>Nominativo</td><td>Nominativo</td><td>Sujeto</td></tr>
+                <tr><td>Vocativo</td><td>Vocativo</td><td>Apelación</td></tr>
+                <tr><td>Acusativo</td><td>Acusativo</td><td>Objeto directo</td></tr>
+                <tr><td>Genitivo</td><td>Genitivo</td><td>Posesión</td></tr>
+                <tr><td>Ablativo</td><td>→ Genitivo</td><td>Separación</td></tr>
+                <tr><td>Dativo</td><td>Dativo</td><td>Objeto indirecto</td></tr>
+                <tr><td>Locativo</td><td>→ Dativo</td><td>Lugar</td></tr>
+                <tr><td>Instrumental</td><td>→ Dativo</td><td>Instrumento/medio</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn-reveal" data-target="pieEj">Compara los casos del PIE y el griego</button>
+          <div id="pieEj" class="answer-text">
+            PIE: 8 casos – Nominativo, Vocativo, Acusativo, Genitivo, Ablativo, Dativo, Locativo, Instrumental.<br>
+            Griego: 5 casos – Nominativo, Vocativo, Acusativo, Genitivo, Dativo.<br>
+            El ablativo se fusionó con el genitivo; el locativo e instrumental se fusionaron con el dativo.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: LA PÉRDIDA DEL DIGAMMA (ϝ) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-font"></i> 3. La pérdida del digamma (ϝ)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>digamma</strong> (<span class="greek-word">ϝ</span>, <em>wau</em>) era una letra del alfabeto griego arcaico que representaba el sonido /w/. Se perdió en la mayoría de los dialectos griegos antes del período clásico, pero dejó <strong>huellas</strong> en la morfología y el vocabulario.</p>
+
+          <div class="hist-box">
+            <strong><i class="fas fa-lightbulb"></i> Efectos de la pérdida del digamma:</strong>
+            <ul>
+              <li>Explica <strong>contracciones</strong> y <strong>alargamientos</strong> vocálicos en la conjugación y declinación.</li>
+              <li>Explica la <strong>forma</strong> de ciertas palabras irregulares.</li>
+              <li>Ayuda a <strong>entender</strong> las formas homéricas y su relación con el griego koiné.</li>
+            </ul>
+          </div>
+
+          <div class="pie-box">
+            <strong><i class="fas fa-arrow-right"></i> Ejemplos de palabras con digamma perdido:</strong>
+            <ul>
+              <li><span class="greek-word">οἶνος</span> (vino) – originalmente <span class="greek-word">ϝοῖνος</span> (cf. latín <em>vīnum</em>, inglés <em>wine</em>).</li>
+              <li><span class="greek-word">οἶδα</span> (sé) – originalmente <span class="greek-word">ϝοῖδα</span> (cf. latín <em>vidēre</em> "ver", inglés <em>wit</em> "saber").</li>
+              <li><span class="greek-word">ἔπος</span> (palabra) – originalmente <span class="greek-word">ϝέπος</span> (cf. latín <em>vox</em> "voz", inglés <em>voice</em>).</li>
+              <li><span class="greek-word">οἰκεῖος</span> (de la casa) – originalmente <span class="greek-word">ϝοικεῖος</span> (cf. latín <em>vīcus</em> "pueblo", inglés <em>wick</em>).</li>
+              <li><span class="greek-word">ἀεί</span> (siempre) – originalmente <span class="greek-word">ἀϝεί</span>.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Importancia exegética:</strong> Conocer el digamma ayuda a <strong>explicar</strong> la forma de algunas palabras que de otro modo parecerían irregulares. Por ejemplo, <span class="greek-word">οἶδα</span> es un perfecto de la raíz *<span class="greek-word">ϝιδ-</span> (ver). La pérdida de la <span class="greek-word">ϝ</span> inicial explica por qué la reduplicación es <span class="greek-word">οἶ</span> en lugar de <span class="greek-word">ϝοί</span>.
+          </div>
+          <button class="btn-reveal" data-target="digammaEj">Identifica la palabra con digamma perdido</button>
+          <div id="digammaEj" class="answer-text">
+            <span class="greek-word">οἶνος</span> – original <span class="greek-word">ϝοῖνος</span> (vino).<br>
+            <span class="greek-word">οἶδα</span> – original <span class="greek-word">ϝοῖδα</span> (sé).<br>
+            <span class="greek-word">ἔπος</span> – original <span class="greek-word">ϝέπος</span> (palabra).<br>
+            <span class="greek-word">οἰκεῖος</span> – original <span class="greek-word">ϝοικεῖος</span> (de la casa).<br>
+            <span class="greek-word">ἀεί</span> – original <span class="greek-word">ἀϝεί</span> (siempre).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: VERBOS IRREGULARES – PERFECTOS CON SIGNIFICADO PRESENTE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-brain"></i> 4. Perfectos con significado presente: οἶδα, εἶδον, ἕστηκα, etc.</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Algunos verbos griegos tienen la forma de un <strong>perfecto</strong> pero con <strong>significado de presente</strong>. Esto se debe a que originalmente expresaban un estado resultante que se convirtió en la acción misma.</p>
+
+          <div class="hist-box">
+            <strong><i class="fas fa-lightbulb"></i> Explicación histórica:</strong>
+            <ul>
+              <li>En PIE, el perfecto expresaba un <strong>estado</strong> resultante de una acción pasada.</li>
+              <li>Con el tiempo, algunos perfectos <strong>cambiaron</strong> su significado a una acción presente.</li>
+              <li>Esto explica por qué verbos como <span class="greek-word">οἶδα</span> tienen significado de presente a pesar de su forma de perfecto.</li>
+            </ul>
+          </div>
+
+          <div class="pie-box">
+            <strong><i class="fas fa-arrow-right"></i> Ejemplos en el NT:</strong>
+            <ul>
+              <li><span class="greek-word">οἶδα</span> (sé) – perfecto de la raíz *<span class="greek-word">ϝιδ-</span> (ver) → "he visto" → "sé".</li>
+              <li><span class="greek-word">εἶδον</span> (vi) – aoristo de la misma raíz (no es perfecto, pero está relacionado).</li>
+              <li><span class="greek-word">ἕστηκα</span> (estoy de pie) – perfecto de <span class="greek-word">ἵστημι</span> → "he estado de pie" → "estoy de pie".</li>
+              <li><span class="greek-word">ἀνήρ</span> no es un verbo, pero muestra la raíz *<span class="greek-word">h₂nēr</span> (hombre) que también aparece en otras lenguas.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Conjugación de οἶδα (sé):</strong><br>
+            1ª sg. <span class="greek-word">οἶδα</span> – sé<br>
+            2ª sg. <span class="greek-word">οἶδας</span> – sabes<br>
+            3ª sg. <span class="greek-word">οἶδε(ν)</span> – sabe<br>
+            1ª pl. <span class="greek-word">οἴδαμεν</span> – sabemos<br>
+            2ª pl. <span class="greek-word">οἴδατε</span> – sabéis<br>
+            3ª pl. <span class="greek-word">οἴδασι(ν)</span> – saben
+          </div>
+          <button class="btn-reveal" data-target="perfPresEj">Identifica el perfecto con significado presente</button>
+          <div id="perfPresEj" class="answer-text">
+            <span class="greek-word">οἶδα</span> – "sé" (perfecto, significado presente).<br>
+            <span class="greek-word">ἕστηκα</span> – "estoy de pie" (perfecto, significado presente).<br>
+            <span class="greek-word">δέδια</span> – "temo" (perfecto de δείδω, significado presente).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: EVOLUCIÓN DEL GRIEGO KOINÉ AL GRIEGO MODERNO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-arrow-right"></i> 5. Del griego koiné al griego moderno</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El griego ha pasado por varias etapas desde el período koiné hasta el griego moderno. Comprender esta evolución ayuda a apreciar la <strong>continuidad</strong> y el <strong>cambio</strong> de la lengua.</p>
+
+          <div class="hist-box">
+            <strong><i class="fas fa-arrow-right"></i> Etapas del griego:</strong>
+            <ul>
+              <li><strong>Griego micénico</strong> (1600-1100 a.C.) – el griego más antiguo conocido.</li>
+              <li><strong>Griego clásico</strong> (500-300 a.C.) – el griego de Platón, Aristóteles, los trágicos.</li>
+              <li><strong>Griego koiné</strong> (300 a.C.-300 d.C.) – el griego del NT, de Alejandro Magno y del mundo helenístico.</li>
+              <li><strong>Griego bizantino</strong> (300-1453 d.C.) – el griego del Imperio Bizantino.</li>
+              <li><strong>Griego moderno</strong> (1453-presente) – el griego hablado hoy en Grecia y Chipre.</li>
+            </ul>
+          </div>
+
+          <div class="pie-box">
+            <strong><i class="fas fa-arrow-right"></i> Cambios del koiné al griego moderno:</strong>
+            <ul>
+              <li><strong>Pronunciación:</strong> cambio de sonidos (ej. <span class="greek-word">β</span> de /b/ a /v/, <span class="greek-word">δ</span> de /d/ a /ð/, <span class="greek-word">γ</span> de /g/ a /ɣ/).</li>
+              <li><strong>Sistema de casos:</strong> el dativo prácticamente <strong>desapareció</strong> en el griego moderno (sobrevive en expresiones fijas).</li>
+              <li><strong>Verbos:</strong> la mayoría de los verbos <span class="greek-word">-μι</span> se convirtieron en verbos <span class="greek-word">-ω</span> (ej. <span class="greek-word">δίδωμι</span> → <span class="greek-word">δίνω</span> en griego moderno).</li>
+              <li><strong>Vocabulario:</strong> muchas palabras del griego koiné <strong>sobreviven</strong> en el griego moderno, aunque con cambios de significado.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplo de cambio:</strong><br>
+            <span class="greek-word">ἀγάπη</span> (amor) en el griego koiné → <span class="greek-word">αγάπη</span> en griego moderno (mismo significado, diferente pronunciación).<br>
+            <span class="greek-word">εἰρήνη</span> (paz) → <span class="greek-word">ειρήνη</span> en griego moderno.<br>
+            <span class="greek-word">πίστις</span> (fe) → <span class="greek-word">πίστη</span> en griego moderno (pérdida de la declinación).
+          </div>
+          <button class="btn-reveal" data-target="evoEj">Compara el koiné y el griego moderno</button>
+          <div id="evoEj" class="answer-text">
+            Koiné: <span class="greek-word">δίδωμι</span> → Moderno: <span class="greek-word">δίνω</span>.<br>
+            Koiné: <span class="greek-word">ἡμεῖς</span> → Moderno: <span class="greek-word">εμείς</span>.<br>
+            Koiné: <span class="greek-word">τῇ χάριτι</span> (dativo) → Moderno: <span class="greek-word">με τη χάρη</span> (con preposición).<br>
+            El dativo desapareció, reemplazado por preposiciones.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO – RAÍCES PIE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Raíces PIE y sus cognados</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras muestran la conexión entre el griego y otras lenguas indoeuropeas a través de raíces comunes.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Raíz PIE</th><th>Cognados</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Juan 1:1:</strong> <span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</span> – "En el principio era el Verbo, y el Verbo estaba con Dios, y Dios era el Verbo."</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA LA RAÍZ PIE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica la raíz PIE</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="raizPIEQuizArea"></div>
+          <button id="newRaizPIEQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="raizPIEFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL CAMBIO HISTÓRICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-history"></i> 8. Identifica el cambio histórico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="cambioHistQuizArea"></div>
+          <button id="newCambioHistQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva pregunta</button>
+          <div id="cambioHistFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN Y ANÁLISIS ETIMOLÓGICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce y analiza etimológicamente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transEtiQuizArea"></div>
+          <button id="newTransEtiQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="transEtiFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – ANÁLISIS ETIMOLÓGICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis etimológico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee las palabras y analiza su raíz PIE y cognados.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> πατήρ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">πατήρ</span> – "padre"</p>
+              <button class="btn-reveal" data-target="et1a">¿Cuál es la raíz PIE y qué cognados tiene?</button>
+              <div id="et1a" class="answer-text">Raíz PIE: *<span class="greek-word">pəter</span>. Cognados: latín <em>pater</em>, inglés <em>father</em>, sánscrito <em>pitṛ</em>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> μήτηρ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">μήτηρ</span> – "madre"</p>
+              <button class="btn-reveal" data-target="et1b">¿Cuál es la raíz PIE y qué cognados tiene?</button>
+              <div id="et1b" class="answer-text">Raíz PIE: *<span class="greek-word">mater</span>. Cognados: latín <em>mater</em>, inglés <em>mother</em>, sánscrito <em>mātṛ</em>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> γυνή</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">γυνή</span> – "mujer"</p>
+              <button class="btn-reveal" data-target="et1c">¿Cuál es la raíz PIE y qué cognados tiene?</button>
+              <div id="et1c" class="answer-text">Raíz PIE: *<span class="greek-word">gweneh</span>. Cognados: inglés <em>queen</em>, sánscrito <em>janī</em>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> θεός</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">θεός</span> – "Dios"</p>
+              <button class="btn-reveal" data-target="et1d">¿Cuál es la raíz PIE y qué cognados tiene?</button>
+              <div id="et1d" class="answer-text">Raíz PIE: *<span class="greek-word">dhh₁s</span> (relacionado con <em>dheh₁</em> "poner, hacer"). Cognados: latín <em>deus</em>, sánscrito <em>deva</em>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Practica la identificación de raíces PIE en palabras del NT. Reflexiona sobre cómo la historia de la lengua explica las irregularidades del griego koiné. Compara palabras griegas con cognados en tu propio idioma.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-66.html"><i class="fas fa-arrow-left"></i> Lección 66</a>
+      <a href="leccion-68.html"><i class="fas fa-arrow-right"></i> Lección 68</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἐν ἀρχῇ ἦν ὁ λόγος</span> (Juan 1:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 67 ==========
+    const vocabData = [
+      { greek: "πατήρ", translit: "patēr", spanish: "padre", pie: "*pəter", cognates: "latín pater, inglés father" },
+      { greek: "μήτηρ", translit: "mētēr", spanish: "madre", pie: "*mater", cognates: "latín mater, inglés mother" },
+      { greek: "ἀδελφός", translit: "adelphos", spanish: "hermano", pie: "*dhelph (vientre)", cognates: "sánscrito dhar" },
+      { greek: "θυγάτηρ", translit: "thygatēr", spanish: "hija", pie: "*dhuHgHter", cognates: "inglés daughter" },
+      { greek: "γυνή", translit: "gynē", spanish: "mujer", pie: "*gweneh", cognates: "inglés queen" },
+      { greek: "ἀνήρ", translit: "anēr", spanish: "hombre", pie: "*h₂nēr", cognates: "inglés man" },
+      { greek: "υἱός", translit: "huios", spanish: "hijo", pie: "*suh₁yós", cognates: "sánscrito sūnu" },
+      { greek: "θεός", translit: "theos", spanish: "Dios", pie: "*dhh₁s", cognates: "latín deus" },
+      { greek: "νέος", translit: "neos", spanish: "nuevo (renovado)", pie: "*new-os", cognates: "inglés new" },
+      { greek: "εἶναι", translit: "einai", spanish: "ser", pie: "*h₁es", cognates: "latín esse, inglés is" },
+      { greek: "οἶδα", translit: "oida", spanish: "saber", pie: "*weyd (ver)", cognates: "latín vidēre, inglés wit" },
+      { greek: "φέρω", translit: "pherō", spanish: "llevar", pie: "*bher", cognates: "inglés bear, latín fero" },
+      { greek: "ἔχω", translit: "echō", spanish: "tener", pie: "*segh", cognates: "latín sequor" },
+      { greek: "ζωή", translit: "zōē", spanish: "vida", pie: "*g̑ōyeh", cognates: "latín vita" },
+      { greek: "γεν-", translit: "gen-", spanish: "nacer, género", pie: "*gen (nacer)", cognates: "latín genus, inglés kin" },
+      { greek: "λόγος", translit: "logos", spanish: "palabra", pie: "*leg (reunir, decir)", cognates: "latín legō" },
+      { greek: "ἐσθίω", translit: "esthiō", spanish: "comer", pie: "*h₁ed", cognates: "latín edō, inglés eat" },
+      { greek: "πίνω", translit: "pinō", spanish: "beber", pie: "*peh₃", cognates: "latín pōtō" },
+      { greek: "εἰρήνη", translit: "eirēnē", spanish: "paz", pie: "*reh₁ (unir)", cognates: "sánscrito rāy" },
+      { greek: "ἀγαθός", translit: "agathos", spanish: "bueno", pie: "*agathos", cognates: "no claros" }
+    ];
+
+    // Ejemplos para identificar raíz PIE
+    const raizPIEExamples = [
+      { word: "πατήρ", pie: "*pəter", cognates: "latín pater, inglés father" },
+      { word: "μήτηρ", pie: "*mater", cognates: "latín mater, inglés mother" },
+      { word: "γυνή", pie: "*gweneh", cognates: "inglés queen" },
+      { word: "θεός", pie: "*dhh₁s", cognates: "latín deus" },
+      { word: "οἶδα", pie: "*weyd (ver)", cognates: "latín vidēre, inglés wit" },
+      { word: "φέρω", pie: "*bher", cognates: "inglés bear, latín fero" },
+      { word: "ἔχω", pie: "*segh", cognates: "latín sequor" },
+      { word: "λόγος", pie: "*leg (reunir, decir)", cognates: "latín legō" }
+    ];
+
+    // Ejemplos para identificar cambio histórico
+    const cambioHistExamples = [
+      { question: "Reducción de casos: ¿cuántos casos tenía el PIE y cuántos tiene el griego?", answer: "8 → 5" },
+      { question: "Letra perdida que representaba el sonido /w/", answer: "digamma (ϝ)" },
+      { question: "Verbo que es un perfecto con significado presente", answer: "οἶδα (sé)" },
+      { question: "Caso que se fusionó con el genitivo", answer: "ablativo" },
+      { question: "Casos que se fusionaron con el dativo", answer: "locativo e instrumental" }
+    ];
+
+    // Frases para análisis etimológico
+    const transEtiExamples = [
+      { greek: "πατήρ", analysis: "Raíz PIE: *pəter (padre), cognado latín pater, inglés father" },
+      { greek: "μήτηρ", analysis: "Raíz PIE: *mater (madre), cognado latín mater, inglés mother" },
+      { greek: "γυνή", analysis: "Raíz PIE: *gweneh (mujer), cognado inglés queen" },
+      { greek: "θεός", analysis: "Raíz PIE: *dhh₁s (Dios), cognado latín deus" },
+      { greek: "οἶδα", analysis: "Raíz PIE: *weyd (ver), perfecto con significado presente (sé)" },
+      { greek: "φέρω", analysis: "Raíz PIE: *bher (llevar), cognado inglés bear" }
+    ];
+
+    let currentRaizPIE = raizPIEExamples[0];
+    let currentCambioHist = cambioHistExamples[0];
+    let currentTransEti = transEtiExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.pie}</td><td>${v.cognates}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadRaizPIEQuiz() {
+      const randomIndex = Math.floor(Math.random() * raizPIEExamples.length);
+      currentRaizPIE = raizPIEExamples[randomIndex];
+      const container = document.getElementById("raizPIEQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Cuál es la raíz PIE de <span class="greek-word">${currentRaizPIE.word}</span>?</strong><br>
+      <span style="font-size:0.9rem;">Cognados: ${currentRaizPIE.cognates}</span><br>
+      <input type="text" id="raizPIEAnswer" placeholder="raíz PIE..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkRaizPIE" class="btn-reveal">Verificar</button>
+      <div id="raizPIEResult"></div></div>`;
+      document.getElementById("checkRaizPIE").addEventListener("click", () => {
+        const answer = document.getElementById("raizPIEAnswer").value.trim();
+        const correct = currentRaizPIE.pie;
+        const result = document.getElementById("raizPIEResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentRaizPIE.pie})</span>`;
+          setTimeout(loadRaizPIEQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentRaizPIE.pie}</span>`;
+        }
+      });
+    }
+
+    function loadCambioHistQuiz() {
+      const randomIndex = Math.floor(Math.random() * cambioHistExamples.length);
+      currentCambioHist = cambioHistExamples[randomIndex];
+      const container = document.getElementById("cambioHistQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>${currentCambioHist.question}</strong><br>
+      <input type="text" id="cambioHistAnswer" placeholder="tu respuesta..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkCambioHist" class="btn-reveal">Verificar</button>
+      <div id="cambioHistResult"></div></div>`;
+      document.getElementById("checkCambioHist").addEventListener("click", () => {
+        const answer = document.getElementById("cambioHistAnswer").value.trim().toLowerCase();
+        const correct = currentCambioHist.answer.toLowerCase();
+        const result = document.getElementById("cambioHistResult");
+        if (answer === correct || correct.includes(answer) || answer.includes(correct)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentCambioHist.answer})</span>`;
+          setTimeout(loadCambioHistQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentCambioHist.answer}</span>`;
+        }
+      });
+    }
+
+    function loadTransEtiQuiz() {
+      const randomIndex = Math.floor(Math.random() * transEtiExamples.length);
+      currentTransEti = transEtiExamples[randomIndex];
+      const container = document.getElementById("transEtiQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza etimológicamente <span class="greek-word">${currentTransEti.greek}</span>:</strong><br>
+      <input type="text" id="transEtiAnswer" placeholder="análisis..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransEti" class="btn-reveal">Verificar</button>
+      <div id="transEtiResult"></div></div>`;
+      document.getElementById("checkTransEti").addEventListener("click", () => {
+        const answer = document.getElementById("transEtiAnswer").value.trim().toLowerCase();
+        const correct = currentTransEti.analysis.toLowerCase();
+        const result = document.getElementById("transEtiResult");
+        if (answer.includes(correct) || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransEti.analysis})</span>`;
+          setTimeout(loadTransEtiQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransEti.analysis}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Número de casos en el proto-indoeuropeo", opts: ["8", "5", "6", "7"], correct: 0 },
+      { q: "Letra perdida que representaba el sonido /w/", opts: ["digamma (ϝ)", "zeta (ζ)", "theta (θ)", "xi (ξ)"], correct: 0 },
+      { q: "Verbo que es un perfecto con significado presente", opts: ["οἶδα", "γράφω", "λύω", "λέγω"], correct: 0 },
+      { q: "Caso del PIE que se fusionó con el genitivo en griego", opts: ["ablativo", "locativo", "instrumental", "vocativo"], correct: 0 },
+      { q: "Raíz PIE de 'πατήρ'", opts: ["*pəter", "*mater", "*gweneh", "*dhh₁s"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkRaizPIE" || btn.id === "checkCambioHist" || btn.id === "checkTransEti" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadRaizPIEQuiz();
+      loadCambioHistQuiz();
+      loadTransEtiQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newRaizPIEQuiz")?.addEventListener("click", () => {
+        loadRaizPIEQuiz();
+        document.getElementById("raizPIEFeedback").innerHTML = "";
+      });
+      document.getElementById("newCambioHistQuiz")?.addEventListener("click", () => {
+        loadCambioHistQuiz();
+        document.getElementById("cambioHistFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransEtiQuiz")?.addEventListener("click", () => {
+        loadTransEtiQuiz();
+        document.getElementById("transEtiFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

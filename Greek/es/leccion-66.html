@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 66: Conexiones con el AT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 94%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .at-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .midrash-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    .citation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .citation-card { background: #f8fafd; border-radius: 1rem; padding: 1rem; border: 1px solid #e2e8f0; }
+    .citation-card .label { font-weight: 700; color: #1a4c61; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-65.html"><i class="fas fa-arrow-left"></i> Lección 65</a>
+        <a href="leccion-67.html"><i class="fas fa-arrow-right"></i> Lección 67</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-star-of-david"></i> Lección 66 · Conexiones con el AT <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Citas del AT: literal LXX, kata Christón, targúmica · Salmos en las epístolas · Mateo 1-2 y Lucas 1-2 · Midrash y pesher</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1320/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Conexiones entre el NT y el AT: hebreo, arameo y LXX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Cómo los autores del NT usan el Antiguo Testamento</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El AT en el NT: una relación viva</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El Nuevo Testamento está <strong>saturado</strong> del Antiguo. Los autores del NT citan, aluden y se refieren al AT constantemente. Esta relación es <strong>fundamental</strong> para entender la teología del NT.</p>
+          <div class="at-box">
+            <i class="fas fa-lightbulb"></i> <strong>Datos clave:</strong>
+            <ul>
+              <li>Hay más de <strong>300 citas directas</strong> del AT en el NT.</li>
+              <li>Hay más de <strong>1000 alusiones</strong> y referencias indirectas.</li>
+              <li>La mayoría de las citas provienen de la <strong>LXX</strong>, no del texto hebreo (TM).</li>
+              <li>Los autores del NT usan el AT de maneras <strong>diversas</strong>: literal, tipológica, midrásica, pesher.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Ejemplo:</strong><br>
+            <span class="greek-word">καθὼς γέγραπται</span> – "como está escrito" (Romanos 1:17).<br>
+            <span class="greek-word">ἵνα πληρωθῇ</span> – "para que se cumpliera" (Mateo 1:22).<br>
+            Ambas fórmulas introducen citas del AT, pero con diferentes énfasis teológicos.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: TIPOS DE CITAS DEL AT EN EL NT -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-quote-right"></i> 2. Tipos de citas del AT en el NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los autores del NT citan el AT de tres maneras principales:</p>
+
+          <div class="citation-grid">
+            <div class="citation-card">
+              <div class="label"><i class="fas fa-book"></i> Cita literal de la LXX</div>
+              <p style="font-size:0.9rem;">El autor cita <strong>directamente</strong> la Septuaginta, a veces con pequeñas adaptaciones.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> Romanos 1:17 cita Habacuc 2:4 – <span class="greek-word">ὁ δὲ δίκαιος ἐκ πίστεως ζήσεται</span>.</p>
+            </div>
+            <div class="citation-card">
+              <div class="label"><i class="fas fa-pen-fancy"></i> Cita kata Christón (adaptación cristológica)</div>
+              <p style="font-size:0.9rem;">El autor <strong>adapta</strong> la cita para enfatizar su cumplimiento en Cristo.</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> Mateo 2:15 cita Oseas 11:1 – <span class="greek-word">ἐξ Αἰγύπτου ἐκάλεσα τὸν υἱόν μου</span> (adaptación cristológica).</p>
+            </div>
+            <div class="citation-card">
+              <div class="label"><i class="fas fa-torah"></i> Interpretación targúmica</div>
+              <p style="font-size:0.9rem;">La cita refleja la <strong>interpretación</strong> del AT en el judaísmo de la época (targum).</p>
+              <p style="font-size:0.85rem;"><strong>Ejemplo:</strong> Hechos 2:17-21 cita Joel 3:1-5 con matices targúmicos.</p>
+            </div>
+          </div>
+
+          <div class="at-box">
+            <strong><i class="fas fa-lightbulb"></i> ¿Cómo identificar el tipo de cita?</strong>
+            <ul>
+              <li>Compara la cita del NT con la <strong>LXX</strong> y el <strong>TM</strong>.</li>
+              <li>Si coincide con la LXX → cita literal.</li>
+              <li>Si tiene cambios significativos → adaptación o targum.</li>
+              <li>Si se usa como cumplimiento mesiánico → kata Christón.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="citasEj">Identifica el tipo de cita</button>
+          <div id="citasEj" class="answer-text">
+            <span class="greek-word">καθὼς γέγραπται</span> – cita literal de la LXX.<br>
+            <span class="greek-word">ἵνα πληρωθῇ</span> – cita kata Christón (cumplimiento mesiánico).<br>
+            <span class="greek-word">καὶ ἔσται ...</span> – interpretación targúmica (Hechos 2:17).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: LOS SALMOS EN LAS EPÍSTOLAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-music"></i> 3. Los Salmos en las epístolas del NT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los Salmos son el libro del AT <strong>más citado</strong> en el NT. Aparecen en todos los géneros del NT, pero especialmente en las epístolas.</p>
+
+          <div class="at-box">
+            <strong><i class="fas fa-bible"></i> Ejemplos de citas de los Salmos:</strong>
+            <ul>
+              <li><strong>Salmo 2</strong> – citado en Hechos 4:25-26; 13:33; Hebreos 1:5; 5:5.</li>
+              <li><strong>Salmo 8</strong> – citado en Mateo 21:16; 1 Corintios 15:27; Hebreos 2:6-8.</li>
+              <li><strong>Salmo 22</strong> – citado en Mateo 27:46; Marcos 15:34; Hebreos 2:12.</li>
+              <li><strong>Salmo 110</strong> – citado en Mateo 22:44; Hechos 2:34-35; Hebreos 1:13; 5:6; 7:17.</li>
+              <li><strong>Salmo 118</strong> – citado en Mateo 21:42; Marcos 12:10-11; Hechos 4:11; 1 Pedro 2:7.</li>
+            </ul>
+          </div>
+
+          <div class="midrash-box">
+            <strong><i class="fas fa-lightbulb"></i> Importancia exegética:</strong> Los Salmos son <strong>mesiánicos</strong> para los autores del NT. Ven a Cristo en los Salmos de manera <strong>tipológica</strong> y <strong>profética</strong>. Por ejemplo, el Salmo 110 es interpretado como una profecía de la <strong>suma sacerdocio</strong> de Cristo (Hebreos 5-7).
+          </div>
+          <button class="btn-reveal" data-target="salmosEj">Identifica el Salmo citado</button>
+          <div id="salmosEj" class="answer-text">
+            <span class="greek-word">κάθου ἐκ δεξιῶν μου</span> – Salmo 110 (Hebreos 1:13).<br>
+            <span class="greek-word">ὁ θεός μου ὁ θεός μου</span> – Salmo 22 (Mateo 27:46).<br>
+            <span class="greek-word">λίθον ὃν ἀπεδοκίμασαν</span> – Salmo 118 (Mateo 21:42).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: MATEO 1-2 Y LUCAS 1-2 – CITAS DEL AT -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 4. Mateo 1-2 y Lucas 1-2 – Evangelios de la Infancia</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los Evangelios de la Infancia (Mateo 1-2, Lucas 1-2) están <strong>saturados</strong> de citas y alusiones al AT. Cada autor usa el AT de manera diferente.</p>
+
+          <h3>Mateo 1-2 – Citas de cumplimiento (ἵνα πληρωθῇ)</h3>
+          <div class="at-box">
+            <strong>Citas en Mateo 1-2:</strong>
+            <ul>
+              <li><span class="greek-word">ἵνα πληρωθῇ τὸ ῥηθὲν</span> – Mateo 1:22 (Isaías 7:14 – la virgen concebirá).</li>
+              <li><span class="greek-word">ἵνα πληρωθῇ</span> – Mateo 2:15 (Oseas 11:1 – de Egipto llamé a mi hijo).</li>
+              <li><span class="greek-word">τότε ἐπληρώθη</span> – Mateo 2:17 (Jeremías 31:15 – Raquel llora por sus hijos).</li>
+              <li><span class="greek-word">ἵνα πληρωθῇ</span> – Mateo 2:23 (Isaías 11:1 – nazareno).</li>
+            </ul>
+          </div>
+
+          <h3>Lucas 1-2 – Alusiones y ecos del AT</h3>
+          <div class="at-box">
+            <strong>Alusiones en Lucas 1-2:</strong>
+            <ul>
+              <li><span class="greek-word">Μεγαλύνει ἡ ψυχή μου</span> – Lucas 1:46 (eco de 1 Samuel 2:1-10 – el cántico de Ana).</li>
+              <li><span class="greek-word">καθὼς ἐλάλησεν</span> – Lucas 1:55 (cita de Abraham y los patriarcas).</li>
+              <li><span class="greek-word">ἐν πνεύματι ἁγίῳ</span> – Lucas 1:67 (profecía de Zacarías).</li>
+              <li><span class="greek-word">κατὰ τὰς γραφάς</span> – Lucas 2:23-24 (referencia a la ley de Moisés).</li>
+            </ul>
+          </div>
+
+          <div class="midrash-box">
+            <strong><i class="fas fa-lightbulb"></i> Comparación:</strong>
+            <ul>
+              <li><strong>Mateo</strong> usa el AT para <strong>demostrar</strong> que Jesús es el <strong>cumplimiento</strong> de las profecías.</li>
+              <li><strong>Lucas</strong> usa el AT para <strong>mostrar</strong> que la historia de Jesús <strong>continúa</strong> la historia de salvación del AT.</li>
+              <li>Mateo es más <strong>explícito</strong> (fórmulas de cumplimiento); Lucas es más <strong>implícito</strong> (alusiones y ecos).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="infanciaEj">Identifica la cita en Mateo 1-2</button>
+          <div id="infanciaEj" class="answer-text">
+            <span class="greek-word">ἵνα πληρωθῇ</span> – Mateo 1:22 (Isaías 7:14).<br>
+            <span class="greek-word">ἐξ Αἰγύπτου ἐκάλεσα</span> – Mateo 2:15 (Oseas 11:1).<br>
+            <span class="greek-word">φωνὴ ... κλαυθμός</span> – Mateo 2:18 (Jeremías 31:15).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: MÉTODOS DE INTERPRETACIÓN – MIDRASH Y PESHER -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-scroll"></i> 5. Métodos de interpretación rabínica: midrash y pesher</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los autores del NT usaban <strong>métodos de interpretación</strong> comunes en el judaísmo del Segundo Templo, especialmente el <strong>midrash</strong> y el <strong>pesher</strong>.</p>
+
+          <h3>Midrash – interpretación expansiva</h3>
+          <div class="midrash-box">
+            <strong>Definición:</strong> El midrash es un método de interpretación que <strong>expande</strong> el texto bíblico, aplicándolo a nuevas situaciones.<br>
+            <strong>Característica:</strong> Busca el <strong>significado profundo</strong> del texto, a menudo mediante <strong>juegos de palabras</strong> y <strong>conexiones</strong> entre textos.<br>
+            <strong>Ejemplo en el NT:</strong> Gálatas 3:16 – Pablo interpreta la promesa a Abraham y su "simiente" (<span class="greek-word">σπέρμα</span>) como una referencia a <strong>Cristo</strong>, no a la multitud de descendientes.<br>
+            <strong>Gálatas 3:16:</strong> <span class="greek-word">τῷ Ἀβραὰμ ἐρρέθησαν αἱ ἐπαγγελίαι καὶ τῷ σπέρματι αὐτοῦ. οὐ λέγει· καὶ τοῖς σπέρμασιν, ὡς ἐπὶ πολλῶν, ἀλλʼ ὡς ἐφʼ ἑνός· καὶ τῷ σπέρματί σου, ὅς ἐστιν Χριστός.</span> ("A Abraham fueron hechas las promesas, y a su simiente. No dice: 'y a las simientes', como si fueran muchas, sino como de una: 'y a tu simiente', que es Cristo.")
+          </div>
+
+          <h3>Pesher – interpretación de cumplimiento</h3>
+          <div class="midrash-box">
+            <strong>Definición:</strong> El pesher es un método de interpretación que <strong>aplica</strong> el texto profético al <strong>presente</strong> del intérprete, viendo el <strong>cumplimiento</strong> en eventos contemporáneos.<br>
+            <strong>Característica:</strong> El texto del AT es visto como <strong>profecía</strong> que se cumple en el momento del intérprete.<br>
+            <strong>Ejemplo en el NT:</strong> Hechos 2:16-21 – Pedro interpreta el derramamiento del Espíritu en Pentecostés como el <strong>cumplimiento</strong> de Joel 3:1-5.<br>
+            <strong>Hechos 2:16-17:</strong> <span class="greek-word">ἀλλὰ τοῦτό ἐστιν τὸ εἰρημένον διὰ τοῦ προφήτου Ἰωήλ· καὶ ἔσται ἐν ταῖς ἐσχάταις ἡμέραις, λέγει ὁ θεός, ἐκχεῶ ἀπὸ τοῦ πνεύματός μου ἐπὶ πᾶσαν σάρκα.</span> ("Esto es lo que fue dicho por el profeta Joel: 'Y será en los postreros días, dice Dios, que derramaré de mi Espíritu sobre toda carne.'")
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Resumen:</strong>
+            <ul>
+              <li><strong>Midrash:</strong> interpretación <strong>expansiva</strong> del texto (Gálatas 3:16).</li>
+              <li><strong>Pesher:</strong> interpretación de <strong>cumplimiento</strong> (Hechos 2:16-21).</li>
+              <li>Ambos métodos son <strong>comunes</strong> en el NT y reflejan la <strong>hermenéutica judía</strong> del siglo I.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="midrashEj">Identifica el método de interpretación</button>
+          <div id="midrashEj" class="answer-text">
+            <span class="greek-word">τῷ σπέρματί σου, ὅς ἐστιν Χριστός</span> – midrash (Gálatas 3:16).<br>
+            <span class="greek-word">τοῦτό ἐστιν τὸ εἰρημένον</span> – pesher (Hechos 2:16).<br>
+            Ambos métodos interpretan el AT a la luz de Cristo y la comunidad cristiana.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Conexiones con el AT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para entender las conexiones entre el NT y el AT.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Contexto</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Mateo 1:22-23:</strong> <span class="greek-word">Τοῦτο δὲ ὅλον γέγονεν ἵνα πληρωθῇ τὸ ῥηθὲν ὑπὸ κυρίου διὰ τοῦ προφήτου λέγοντος· ἰδοὺ ἡ παρθένος ἐν γαστρὶ ἕξει καὶ τέξεται υἱόν, καὶ καλέσουσιν τὸ ὄνομα αὐτοῦ Ἐμμανουήλ, ὅ ἐστιν μεθερμηνευόμενον μεθʼ ἡμῶν ὁ θεός.</span> – "Todo esto sucedió para que se cumpliera lo que el Señor dijo por medio del profeta: 'He aquí, la virgen concebirá y dará a luz un hijo, y llamarán su nombre Emanuel, que traducido es: Dios con nosotros.'"</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA EL TIPO DE CITA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica el tipo de cita del AT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="citaATQuizArea"></div>
+          <button id="newCitaATQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva cita</button>
+          <div id="citaATFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL MÉTODO DE INTERPRETACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-scroll"></i> 8. Identifica el método de interpretación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="metodoQuizArea"></div>
+          <button id="newMetodoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="metodoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCCIÓN Y ANÁLISIS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce y analiza citas del AT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transATQuizArea"></div>
+          <button id="newTransATQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva cita</button>
+          <div id="transATFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: TEXTO PROGRAMADO – MATEO 1-2 Y HECHOS 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-graduation-cap"></i> 12. Texto programado · Análisis de citas del AT</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa;">
+            <p>Lee los pasajes. Identifica las citas del AT y el método de interpretación.</p>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 1:22-23 – ἵνα πληρωθῇ</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Τοῦτο δὲ ὅλον γέγονεν ἵνα πληρωθῇ τὸ ῥηθὲν ὑπὸ κυρίου διὰ τοῦ προφήτου λέγοντος· ἰδοὺ ἡ παρθένος ...</span></p>
+              <button class="btn-reveal" data-target="at1a">¿Qué tipo de cita es esta?</button>
+              <div id="at1a" class="answer-text">Cita <strong>kata Christón</strong> (cumplimiento mesiánico) – adaptada para mostrar que Jesús es el cumplimiento de Isaías 7:14.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Hechos 2:16-17 – τοῦτό ἐστιν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἀλλὰ τοῦτό ἐστιν τὸ εἰρημένον διὰ τοῦ προφήτου Ἰωήλ</span></p>
+              <button class="btn-reveal" data-target="at2a">¿Qué método de interpretación usa Pedro aquí?</button>
+              <div id="at2a" class="answer-text"><strong>Pesher</strong> – Pedro aplica la profecía de Joel al evento de Pentecostés, viendo su cumplimiento en el presente.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Gálatas 3:16 – τῷ σπέρματί σου</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">τῷ Ἀβραὰμ ἐρρέθησαν αἱ ἐπαγγελίαι καὶ τῷ σπέρματι αὐτοῦ ... ὅς ἐστιν Χριστός.</span></p>
+              <button class="btn-reveal" data-target="at3a">¿Qué método de interpretación usa Pablo?</button>
+              <div id="at3a" class="answer-text"><strong>Midrash</strong> – Pablo hace una interpretación expansiva de la palabra <span class="greek-word">σπέρμα</span> (simiente), identificándola con Cristo.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> Mateo 2:15 – ἐξ Αἰγύπτου</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἐξ Αἰγύπτου ἐκάλεσα τὸν υἱόν μου</span></p>
+              <button class="btn-reveal" data-target="at4a">¿Qué tipo de cita es esta y a qué profeta se refiere?</button>
+              <div id="at4a" class="answer-text">Cita de <strong>Oseas 11:1</strong>, adaptada como <strong>kata Christón</strong> – Mateo ve el cumplimiento en el regreso de Jesús de Egipto.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 13. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee Mateo 1-2 y Lucas 1-2 en griego. Identifica todas las citas y alusiones al AT. Compara el uso del AT en Mateo y Lucas. Reflexiona sobre cómo los autores del NT interpretan el AT a la luz de Cristo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-65.html"><i class="fas fa-arrow-left"></i> Lección 65</a>
+      <a href="leccion-67.html"><i class="fas fa-arrow-right"></i> Lección 67</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἰδοὺ ἡ παρθένος ἐν γαστρὶ ἕξει</span> (Mateo 1:23)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 66 ==========
+    const vocabData = [
+      { greek: "πλήρωσις", translit: "plērōsis", spanish: "cumplimiento", context: "citas del AT" },
+      { greek: "πλήρωμα", translit: "plērōma", spanish: "plenitud", context: "citas del AT" },
+      { greek: "ἵνα πληρωθῇ", translit: "hina plērōthē", spanish: "para que se cumpla", context: "fórmula de Mateo" },
+      { greek: "καθὼς γέγραπται", translit: "kathōs gegraptai", spanish: "como está escrito", context: "fórmula de cita" },
+      { greek: "οὕτως γέγραπται", translit: "houtōs gegraptai", spanish: "así está escrito", context: "fórmula de cita" },
+      { greek: "λέγει ἡ γραφή", translit: "legei hē graphē", spanish: "dice la Escritura", context: "fórmula de cita" },
+      { greek: "ἐν τῇ γραφῇ", translit: "en tē graphē", spanish: "en la Escritura", context: "fórmula de cita" },
+      { greek: "τύπος", translit: "typos", spanish: "tipo, figura", context: "tipología" },
+      { greek: "ἀντίτυπος", translit: "antitypos", spanish: "antitipo, correspondencia", context: "tipología" },
+      { greek: "σκιά", translit: "skia", spanish: "sombra", context: "tipología" },
+      { greek: "εἰκών", translit: "eikōn", spanish: "imagen, realidad", context: "tipología" },
+      { greek: "προφητεία", translit: "prophēteia", spanish: "profecía", context: "profecía" },
+      { greek: "προφητεύω", translit: "prophēteuō", spanish: "profetizar", context: "profecía" },
+      { greek: "προφήτης", translit: "prophētēs", spanish: "profeta", context: "profecía" },
+      { greek: "ψαλμός", translit: "psalmos", spanish: "salmo", context: "Salmos" },
+      { greek: "νόμος", translit: "nomos", spanish: "ley", context: "Ley" },
+      { greek: "νομοθεσία", translit: "nomothesia", spanish: "legislación, dar la ley", context: "Ley" },
+      { greek: "ἐντολή", translit: "entolē", spanish: "mandamiento", context: "Ley" },
+      { greek: "πρόσταγμα", translit: "prostagma", spanish: "decreto, mandamiento", context: "Ley" },
+      { greek: "δικαίωμα", translit: "dikaiōma", spanish: "decreto justo, justicia", context: "Ley" }
+    ];
+
+    // Ejemplos para identificar el tipo de cita
+    const citaATExamples = [
+      { phrase: "καθὼς γέγραπται", type: "literal LXX", explanation: "cita directa de la Septuaginta" },
+      { phrase: "ἵνα πληρωθῇ", type: "kata Christón", explanation: "cita de cumplimiento mesiánico" },
+      { phrase: "τοῦτό ἐστιν τὸ εἰρημένον", type: "pesher", explanation: "interpretación de cumplimiento" },
+      { phrase: "τῷ σπέρματί σου", type: "midrash", explanation: "interpretación expansiva" },
+      { phrase: "καὶ ἔσται ...", type: "targúmica", explanation: "interpretación targúmica" }
+    ];
+
+    // Ejemplos para identificar método de interpretación
+    const metodoExamples = [
+      { phrase: "τῷ σπέρματί σου, ὅς ἐστιν Χριστός", method: "midrash", explanation: "interpretación expansiva de σπέρμα" },
+      { phrase: "τοῦτό ἐστιν τὸ εἰρημένον διὰ τοῦ προφήτου", method: "pesher", explanation: "aplicación de profecía al presente" },
+      { phrase: "τύπος ... ἀντίτυπος", method: "tipología", explanation: "sombra y realidad" },
+      { phrase: "νόμος ... σκιά τῶν μελλόντων", method: "tipología", explanation: "la ley como sombra de lo venidero" }
+    ];
+
+    // Frases para traducción y análisis
+    const transATExamples = [
+      { greek: "ἰδοὺ ἡ παρθένος ἐν γαστρὶ ἕξει", translation: "He aquí, la virgen concebirá", source: "Mateo 1:23 (Isaías 7:14)" },
+      { greek: "ἐξ Αἰγύπτου ἐκάλεσα τὸν υἱόν μου", translation: "De Egipto llamé a mi hijo", source: "Mateo 2:15 (Oseas 11:1)" },
+      { greek: "φωνὴ ἐν Ῥαμὰ ἠκούσθη", translation: "Voz fue oída en Ramá", source: "Mateo 2:18 (Jeremías 31:15)" },
+      { greek: "καθὼς γέγραπται", translation: "Como está escrito", source: "fórmula de cita" },
+      { greek: "τῷ σπέρματί σου, ὅς ἐστιν Χριστός", translation: "A tu simiente, que es Cristo", source: "Gálatas 3:16" }
+    ];
+
+    let currentCitaAT = citaATExamples[0];
+    let currentMetodo = metodoExamples[0];
+    let currentTransAT = transATExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.context}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadCitaATQuiz() {
+      const randomIndex = Math.floor(Math.random() * citaATExamples.length);
+      currentCitaAT = citaATExamples[randomIndex];
+      const container = document.getElementById("citaATQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué tipo de cita es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentCitaAT.phrase}</span><br>
+      <button id="catLiteral" class="btn-reveal">Literal LXX</button> <button id="catKata" class="btn-reveal">Kata Christón</button>
+      <button id="catPesher" class="btn-reveal">Pesher</button> <button id="catMidrash" class="btn-reveal">Midrash</button>
+      <button id="catTargum" class="btn-reveal">Targúmica</button>
+      <div id="citaATResult"></div></div>`;
+      const literal = document.getElementById("catLiteral");
+      const kata = document.getElementById("catKata");
+      const pesher = document.getElementById("catPesher");
+      const midrash = document.getElementById("catMidrash");
+      const targum = document.getElementById("catTargum");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("citaATResult");
+          if (expected === currentCitaAT.type) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentCitaAT.explanation})</span>`;
+            setTimeout(loadCitaATQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentCitaAT.type}</span>`;
+          }
+        });
+      };
+      check(literal, "literal LXX");
+      check(kata, "kata Christón");
+      check(pesher, "pesher");
+      check(midrash, "midrash");
+      check(targum, "targúmica");
+    }
+
+    function loadMetodoQuiz() {
+      const randomIndex = Math.floor(Math.random() * metodoExamples.length);
+      currentMetodo = metodoExamples[randomIndex];
+      const container = document.getElementById("metodoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿Qué método de interpretación es?</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentMetodo.phrase}</span><br>
+      <button id="metMid" class="btn-reveal">Midrash</button> <button id="metPesh" class="btn-reveal">Pesher</button>
+      <button id="metTipo" class="btn-reveal">Tipología</button>
+      <div id="metodoResult"></div></div>`;
+      const mid = document.getElementById("metMid");
+      const pesh = document.getElementById("metPesh");
+      const tipo = document.getElementById("metTipo");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("metodoResult");
+          if (expected === currentMetodo.method) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentMetodo.explanation})</span>`;
+            setTimeout(loadMetodoQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentMetodo.method}</span>`;
+          }
+        });
+      };
+      check(mid, "midrash");
+      check(pesh, "pesher");
+      check(tipo, "tipología");
+    }
+
+    function loadTransATQuiz() {
+      const randomIndex = Math.floor(Math.random() * transATExamples.length);
+      currentTransAT = transATExamples[randomIndex];
+      const container = document.getElementById("transATQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español (${currentTransAT.source}):</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransAT.greek}</span><br>
+      <input type="text" id="transATAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransAT" class="btn-reveal">Verificar</button>
+      <div id="transATResult"></div></div>`;
+      document.getElementById("checkTransAT").addEventListener("click", () => {
+        const answer = document.getElementById("transATAnswer").value.trim().toLowerCase();
+        const correct = currentTransAT.translation.toLowerCase();
+        const result = document.getElementById("transATResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto</span>`;
+          setTimeout(loadTransATQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransAT.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Fórmula de Mateo para citas de cumplimiento", opts: ["ἵνα πληρωθῇ", "καθὼς γέγραπται", "λέγει ἡ γραφή", "οὕτως γέγραπται"], correct: 0 },
+      { q: "Método de interpretación que aplica profecías al presente", opts: ["Pesher", "Midrash", "Tipología", "Literal"], correct: 0 },
+      { q: "Método de interpretación que expande el significado del texto", opts: ["Midrash", "Pesher", "Tipología", "Literal"], correct: 0 },
+      { q: "Salmo más citado en el NT", opts: ["Salmo 110", "Salmo 22", "Salmo 8", "Salmo 118"], correct: 0 },
+      { q: "Cita de Oseas 11:1 en Mateo 2:15", opts: ["ἐξ Αἰγύπτου ἐκάλεσα τὸν υἱόν μου", "ἰδοὺ ἡ παρθένος", "φωνὴ ἐν Ῥαμὰ", "κάθου ἐκ δεξιῶν μου"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTransAT" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#citaATQuizArea") || btn.closest("#metodoQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadCitaATQuiz();
+      loadMetodoQuiz();
+      loadTransATQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newCitaATQuiz")?.addEventListener("click", () => {
+        loadCitaATQuiz();
+        document.getElementById("citaATFeedback").innerHTML = "";
+      });
+      document.getElementById("newMetodoQuiz")?.addEventListener("click", () => {
+        loadMetodoQuiz();
+        document.getElementById("metodoFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransATQuiz")?.addEventListener("click", () => {
+        loadTransATQuiz();
+        document.getElementById("transATFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 69: Proyecto Exegético Final</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 99%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .project-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .rubric-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    .analysis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .analysis-card { background: #f8fafd; border-radius: 1rem; padding: 1rem; border: 1px solid #e2e8f0; }
+    .analysis-card .label { font-weight: 700; color: #1a4c61; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-68.html"><i class="fas fa-arrow-left"></i> Lección 68</a>
+        <a href="leccion-70.html"><i class="fas fa-arrow-right"></i> Lección 70</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-tasks"></i> Lección 69 · Proyecto Exegético Final <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Selección del pasaje · Análisis morfológico · Análisis sintáctico · Informe exegético de 1000 palabras · Rúbrica de evaluación · Ejemplo: Romanos 3:21-26</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1380/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Proyecto exegético final: análisis completo de un pasaje" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Cómo realizar un proyecto exegético completo e independiente</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. El proyecto exegético final</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>proyecto exegético final</strong> es la culminación de todo el curso. Demostrarás tu capacidad para realizar un <strong>análisis exegético completo e independiente</strong> de un pasaje del NT griego.</p>
+          <div class="project-box">
+            <i class="fas fa-lightbulb"></i> <strong>Objetivos del proyecto:</strong>
+            <ul>
+              <li>Seleccionar un pasaje de <strong>5-10 versículos</strong> del NT.</li>
+              <li>Realizar un <strong>análisis morfológico</strong> completo de cada forma verbal y nominal.</li>
+              <li>Realizar un <strong>análisis sintáctico</strong> identificando todas las cláusulas y sus relaciones.</li>
+              <li>Elaborar un <strong>informe exegético de 1000 palabras</strong> integrando gramática y teología.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Pasajes sugeridos:</strong>
+            <ul>
+              <li>Romanos 3:21-26 (la justificación)</li>
+              <li>Efesios 2:8-10 (salvación por gracia)</li>
+              <li>Gálatas 2:16-21 (justificación por la fe)</li>
+              <li>Filipenses 2:5-11 (himno cristológico)</li>
+              <li>Juan 1:1-5 (el Prólogo)</li>
+              <li>1 Juan 1:1-4 (el testimonio)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: GUÍA PARA LA SELECCIÓN DEL PASAJE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-search"></i> 2. Guía para la selección del pasaje</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Elige un pasaje que sea <strong>teológicamente significativo</strong> y que tenga una <strong>variedad de formas gramaticales</strong> para analizar.</p>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> Criterios de selección:</strong>
+            <ul>
+              <li><strong>Extensión:</strong> 5-10 versículos (ni demasiado corto ni demasiado largo).</li>
+              <li><strong>Variedad gramatical:</strong> incluye diferentes tiempos, modos, voces y casos.</li>
+              <li><strong>Significado teológico:</strong> el pasaje debe tener peso doctrinal.</li>
+              <li><strong>Contexto:</strong> debe ser un pasaje que puedas entender dentro de su contexto literario.</li>
+              <li><strong>Recursos:</strong> debe haber recursos disponibles para el análisis (BDAG, TDNT, etc.).</li>
+            </ul>
+          </div>
+
+          <div class="rubric-box">
+            <strong><i class="fas fa-lightbulb"></i> Pasajes recomendados para el proyecto:</strong>
+            <ul>
+              <li><strong>Romanos 3:21-26</strong> – la justificación por la fe (ricos en terminología soteriológica).</li>
+              <li><strong>Efesios 2:8-10</strong> – salvación por gracia mediante la fe (perfecto pasivo + subjuntivo).</li>
+              <li><strong>Gálatas 2:16-21</strong> – el debate de la justificación (πιστις Χριστοῦ).</li>
+              <li><strong>Filipenses 2:5-11</strong> – el himno cristológico (participios, subjuntivos, perfectos).</li>
+              <li><strong>Juan 1:1-5</strong> – el Prólogo (imperfectos, aoristos, perfectos).</li>
+              <li><strong>1 Juan 1:1-4</strong> – el testimonio (perfectos, participios, subjuntivos).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="seleccionEj">Pasajes sugeridos</button>
+          <div id="seleccionEj" class="answer-text">
+            Romanos 3:21-26 · Efesios 2:8-10 · Gálatas 2:16-21 · Filipenses 2:5-11 · Juan 1:1-5 · 1 Juan 1:1-4
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: PROCESO DE ANÁLISIS MORFOLÓGICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Análisis morfológico completo</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>análisis morfológico</strong> consiste en identificar cada forma verbal y nominal en el pasaje, incluyendo su tiempo, voz, modo, persona, caso, género y número.</p>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> Para cada verbo, identifica:</strong>
+            <ul>
+              <li><strong>Forma</strong> (la palabra exacta en el texto).</li>
+              <li><strong>Verbo</strong> (el lema, o forma de diccionario).</li>
+              <li><strong>Tiempo</strong> (presente, imperfecto, futuro, aoristo, perfecto, pluscuamperfecto).</li>
+              <li><strong>Voz</strong> (activa, media, pasiva).</li>
+              <li><strong>Modo</strong> (indicativo, subjuntivo, optativo, imperativo, infinitivo, participio).</li>
+              <li><strong>Persona</strong> (1ª, 2ª, 3ª) y <strong>número</strong> (singular, plural).</li>
+            </ul>
+          </div>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> Para cada sustantivo/adjetivo, identifica:</strong>
+            <ul>
+              <li><strong>Forma</strong> (la palabra exacta en el texto).</li>
+              <li><strong>Lema</strong> (la forma de diccionario).</li>
+              <li><strong>Caso</strong> (nominativo, genitivo, dativo, acusativo, vocativo).</li>
+              <li><strong>Género</strong> (masculino, femenino, neutro).</li>
+              <li><strong>Número</strong> (singular, plural).</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplo de análisis morfológico:</strong><br>
+            <span class="greek-word">δικαιούμενοι</span> – participio presente pasivo, nominativo plural masculino, de <span class="greek-word">δικαιόω</span> ("justificar").<br>
+            <span class="greek-word">χάριτι</span> – dativo singular femenino, de <span class="greek-word">χάρις</span> ("gracia").
+          </div>
+          <button class="btn-reveal" data-target="morfologiaEj">Ver ejemplo de análisis</button>
+          <div id="morfologiaEj" class="answer-text">
+            <span class="greek-word">ἐστε σεσωσμένοι</span> – perfecto pasivo perifrástico, 2ª pl. de σῴζω ("sois salvos").<br>
+            <span class="greek-word">προητοίμασεν</span> – aoristo activo, 3ª sg. de προετοιμάζω ("preparó de antemano").
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: ANÁLISIS SINTÁCTICO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 4. Análisis sintáctico</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>análisis sintáctico</strong> identifica cómo se relacionan las cláusulas y las palabras dentro del pasaje.</p>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> Componentes del análisis sintáctico:</strong>
+            <ul>
+              <li><strong>Cláusulas principales:</strong> identifica el verbo principal y su sujeto.</li>
+              <li><strong>Cláusulas subordinadas:</strong> identifica las cláusulas dependientes (relativas, temporales, causales, finales, condicionales, etc.).</li>
+              <li><strong>Conjunciones y partículas:</strong> identifica cómo se conectan las cláusulas (γάρ, οὖν, δέ, ὅτι, ἵνα, etc.).</li>
+              <li><strong>Participios:</strong> identifica su función (atributiva, predicativa, circunstancial, sustantiva).</li>
+              <li><strong>Genitivos absolutos:</strong> identifica cualquier genitivo absoluto.</li>
+              <li><strong>Construcciones especiales:</strong> identifica doble acusativo, dativo instrumental, etc.</li>
+            </ul>
+          </div>
+
+          <div class="rubric-box">
+            <strong><i class="fas fa-lightbulb"></i> Método de diagramación:</strong> Usa el <strong>método del árbol de oración</strong> (aprendido en la Lección 65) para visualizar la estructura sintáctica del pasaje.
+          </div>
+          <button class="btn-reveal" data-target="sintaxisEj">Ver ejemplo de análisis sintáctico</button>
+          <div id="sintaxisEj" class="answer-text">
+            Efesios 2:8-10:<br>
+            <strong>Cláusula principal:</strong> <span class="greek-word">ἐστε σεσωσμένοι</span> (sois salvos).<br>
+            <strong>Complementos:</strong> <span class="greek-word">τῇ χάριτι</span> (por gracia), <span class="greek-word">διὰ πίστεως</span> (mediante la fe).<br>
+            <strong>Cláusula subordinada:</strong> <span class="greek-word">ἵνα μή τις καυχήσηται</span> (para que nadie se gloríe).<br>
+            <strong>Participio:</strong> <span class="greek-word">κτισθέντες</span> (habiendo sido creados).
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: INFORME EXEGÉTICO DE 1000 PALABRAS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-file-alt"></i> 5. Estructura del informe exegético</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El <strong>informe exegético de 1000 palabras</strong> debe integrar la gramática y la teología del pasaje. Debe tener la siguiente estructura:</p>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> 1. Introducción (100-150 palabras)</strong>
+            <ul>
+              <li>Presenta el pasaje y su contexto.</li>
+              <li>Declara la tesis de tu análisis.</li>
+            </ul>
+          </div>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> 2. Análisis morfológico y sintáctico (300-400 palabras)</strong>
+            <ul>
+              <li>Analiza las formas verbales y nominales clave.</li>
+              <li>Describe la estructura sintáctica del pasaje.</li>
+              <li>Identifica las cláusulas principales y subordinadas.</li>
+            </ul>
+          </div>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> 3. Análisis léxico y teológico (300-400 palabras)</strong>
+            <ul>
+              <li>Analiza las palabras clave (ej. δικαιοσύνη, πίστις, χάρις).</li>
+              <li>Conecta el significado con la teología del autor.</li>
+              <li>Relaciona el pasaje con otros textos del NT.</li>
+            </ul>
+          </div>
+
+          <div class="project-box">
+            <strong><i class="fas fa-arrow-right"></i> 4. Conclusión y aplicación (100-150 palabras)</strong>
+            <ul>
+              <li>Resume las conclusiones teológicas.</li>
+              <li>Aplica el pasaje a la vida y la iglesia.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Consejos para el informe:</strong>
+            <ul>
+              <li>Usa el <strong>texto griego</strong> como base (incluye citas en griego).</li>
+              <li>No te limites a una traducción – explica <strong>por qué</strong> la gramática apoya tu interpretación.</li>
+              <li>Conecta la gramática con la <strong>teología</strong> del pasaje.</li>
+              <li>Usa <strong>BDAG</strong>, <strong>TDNT</strong> y otras herramientas.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="informeEj">Ver estructura del informe</button>
+          <div id="informeEj" class="answer-text">
+            <strong>Estructura:</strong> Introducción → Análisis morfosintáctico → Análisis léxico-teológico → Conclusión.<br>
+            <strong>Extensión:</strong> 1000 palabras.<br>
+            <strong>Incluye:</strong> texto griego, análisis gramatical, conexión teológica.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: RÚBRICA DE EVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-clipboard-list"></i> 6. Rúbrica de evaluación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El proyecto será evaluado según los siguientes criterios:</p>
+
+          <div class="rubric-box">
+            <table style="font-size:0.85rem;">
+              <thead><tr><th>Criterio</th><th>Excelente (4)</th><th>Bueno (3)</th><th>Satisfactorio (2)</th><th>Necesita mejora (1)</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Análisis morfológico</strong></td><td>Identifica correctamente <strong>todas</strong> las formas</td><td>Identifica la mayoría (80-90%)</td><td>Identifica algunas (60-79%)</td><td>Identifica pocas (menos del 60%)</td></tr>
+                <tr><td><strong>Análisis sintáctico</strong></td><td>Diagrama y explica <strong>todas</strong> las relaciones</td><td>Explica la mayoría de las relaciones</td><td>Explica algunas relaciones</td><td>No explica las relaciones</td></tr>
+                <tr><td><strong>Análisis léxico</strong></td><td>Usa BDAG/TDNT correctamente, con citas</td><td>Usa léxicos, con algunas citas</td><td>Usa léxicos pero sin citas</td><td>No usa léxicos</td></tr>
+                <tr><td><strong>Integración teológica</strong></td><td>Conecta gramática y teología <strong>profundamente</strong></td><td>Conecta gramática y teología adecuadamente</td><td>Conecta gramática y teología superficialmente</td><td>No conecta gramática y teología</td></tr>
+                <tr><td><strong>Redacción y estructura</strong></td><td>Clara, organizada, estilo académico</td><td>Clara, organizada</td><td>Algo confusa</td><td>Confusa, desorganizada</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Puntuación total:</strong> 20 puntos (5 criterios × 4 puntos).<br>
+            18-20: Excelente · 15-17: Bueno · 12-14: Satisfactorio · 0-11: Necesita mejora.
+          </div>
+          <button class="btn-reveal" data-target="rubricaEj">Ver rúbrica completa</button>
+          <div id="rubricaEj" class="answer-text">
+            <strong>Criterios:</strong> Análisis morfológico, sintáctico, léxico, integración teológica, redacción.<br>
+            <strong>Puntuación:</strong> 20 puntos totales.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJEMPLO COMPLETO – ROMANOS 3:21-26 -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 7. Ejemplo: Análisis de Romanos 3:21-26</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Νυνὶ δὲ χωρὶς νόμου δικαιοσύνη θεοῦ πεφανέρωται, μαρτυρουμένη ὑπὸ τοῦ νόμου καὶ τῶν προφητῶν,</span> (3:21)</p>
+            <p><span class="greek-word">δικαιοσύνη δὲ θεοῦ διὰ πίστεως Ἰησοῦ Χριστοῦ εἰς πάντας τοὺς πιστεύοντας.</span> (3:22)</p>
+            <p><span class="greek-word">πάντες γὰρ ἥμαρτον καὶ ὑστεροῦνται τῆς δόξης τοῦ θεοῦ,</span> (3:23)</p>
+            <p><span class="greek-word">δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι διὰ τῆς ἀπολυτρώσεως τῆς ἐν Χριστῷ Ἰησοῦ·</span> (3:24)</p>
+            <p><span class="greek-word">ὃν προέθετο ὁ θεὸς ἱλαστήριον διὰ πίστεως ἐν τῷ αὐτοῦ αἵματι, εἰς ἔνδειξιν τῆς δικαιοσύνης αὐτοῦ, διὰ τὴν πάρεσιν τῶν προγεγονότων ἁμαρτημάτων</span> (3:25)</p>
+            <p><span class="greek-word">ἐν τῇ ἀνοχῇ τοῦ θεοῦ, πρὸς τὴν ἔνδειξιν τῆς δικαιοσύνης αὐτοῦ ἐν τῷ νῦν καιρῷ, εἰς τὸ εἶναι αὐτὸν δίκαιον καὶ δικαιοῦντα τὸν ἐκ πίστεως Ἰησοῦ.</span> (3:26)</p>
+          </div>
+
+          <h3>Análisis morfológico selecto</h3>
+          <div class="analysis-grid">
+            <div class="analysis-card">
+              <div class="label"><i class="fas fa-check"></i> πεφανέρωται</div>
+              <p style="font-size:0.9rem;"><strong>Verbo:</strong> φανερόω<br>
+              <strong>Tiempo:</strong> perfecto<br>
+              <strong>Voz:</strong> pasivo<br>
+              <strong>Persona:</strong> 3ª sg.<br>
+              <strong>Significado:</strong> "ha sido manifestada" (estado resultante).</p>
+            </div>
+            <div class="analysis-card">
+              <div class="label"><i class="fas fa-check"></i> μαρτυρουμένη</div>
+              <p style="font-size:0.9rem;"><strong>Verbo:</strong> μαρτυρέω<br>
+              <strong>Tiempo:</strong> presente<br>
+              <strong>Voz:</strong> pasiva<br>
+              <strong>Modo:</strong> participio<br>
+              <strong>Significado:</strong> "siendo atestiguada".</p>
+            </div>
+            <div class="analysis-card">
+              <div class="label"><i class="fas fa-check"></i> δικαιούμενοι</div>
+              <p style="font-size:0.9rem;"><strong>Verbo:</strong> δικαιόω<br>
+              <strong>Tiempo:</strong> presente<br>
+              <strong>Voz:</strong> pasiva<br>
+              <strong>Modo:</strong> participio<br>
+              <strong>Significado:</strong> "siendo justificados".</p>
+            </div>
+            <div class="analysis-card">
+              <div class="label"><i class="fas fa-check"></i> προέθετο</div>
+              <p style="font-size:0.9rem;"><strong>Verbo:</strong> προτίθημι<br>
+              <strong>Tiempo:</strong> aoristo<br>
+              <strong>Voz:</strong> media<br>
+              <strong>Persona:</strong> 3ª sg.<br>
+              <strong>Significado:</strong> "propuso, presentó".</p>
+            </div>
+            <div class="analysis-card">
+              <div class="label"><i class="fas fa-check"></i> προγεγονότων</div>
+              <p style="font-size:0.9rem;"><strong>Verbo:</strong> προγίνομαι<br>
+              <strong>Tiempo:</strong> perfecto<br>
+              <strong>Voz:</strong> activa<br>
+              <strong>Modo:</strong> participio<br>
+              <strong>Significado:</strong> "habiendo sido cometidos antes".</p>
+            </div>
+          </div>
+
+          <h3>Análisis sintáctico</h3>
+          <div class="project-box">
+            <strong>Estructura del pasaje:</strong>
+            <ul>
+              <li><strong>3:21:</strong> <span class="greek-word">δικαιοσύνη θεοῦ πεφανέρωται</span> (cláusula principal – la justicia de Dios ha sido manifestada).</li>
+              <li><strong>3:22:</strong> <span class="greek-word">δικαιοσύνη ... διὰ πίστεως</span> (explicación del medio).</li>
+              <li><strong>3:23:</strong> <span class="greek-word">πάντες ἥμαρτον</span> (cláusula de razón – todos pecaron).</li>
+              <li><strong>3:24:</strong> <span class="greek-word">δικαιούμενοι ... χάριτι</span> (participio + dativo instrumental – siendo justificados por gracia).</li>
+              <li><strong>3:25:</strong> <span class="greek-word">ὃν προέθετο ... ἱλαστήριον</span> (cláusula relativa – a quien Dios puso como propiciación).</li>
+              <li><strong>3:26:</strong> <span class="greek-word">εἰς τὸ εἶναι</span> (infinitivo final – para ser).</li>
+            </ul>
+          </div>
+
+          <h3>Análisis léxico-teológico</h3>
+          <div class="rubric-box">
+            <strong><i class="fas fa-lightbulb"></i> Palabras clave:</strong>
+            <ul>
+              <li><span class="greek-word">δικαιοσύνη θεοῦ</span> – "justicia de Dios" (el acto de Dios de declarar justo al pecador).</li>
+              <li><span class="greek-word">πίστις Ἰησοῦ Χριστοῦ</span> – "fe de/en Jesucristo" (debate objetivo/subjetivo).</li>
+              <li><span class="greek-word">χάρις</span> – "gracia" (el favor inmerecido de Dios).</li>
+              <li><span class="greek-word">ἀπολύτρωσις</span> – "redención" (liberación mediante rescate).</li>
+              <li><span class="greek-word">ἱλαστήριον</span> – "propiciatorio" (el lugar de expiación).</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Conclusión teológica:</strong> Romanos 3:21-26 es el <strong>corazón</strong> de la teología de Pablo. La justificación es <strong>obra de Dios</strong> (perfecto pasivo <span class="greek-word">πεφανέρωται</span>), <strong>por gracia</strong> (dativo instrumental <span class="greek-word">χάριτι</span>), <strong>mediante la fe</strong> (<span class="greek-word">πίστις</span>), y <strong>en Cristo</strong> (<span class="greek-word">ἱλαστήριον</span>). La gramática <strong>fundamenta</strong> la teología.
+          </div>
+          <button class="btn-reveal" data-target="ejemploEj">Ver ejemplo completo</button>
+          <div id="ejemploEj" class="answer-text">
+            <strong>Pasaje:</strong> Romanos 3:21-26.<br>
+            <strong>Formas clave:</strong> πεφανέρωται (perfecto pasivo), δικαιούμενοι (participio presente pasivo), προέθετο (aoristo medio).<br>
+            <strong>Teología:</strong> justificación por gracia mediante la fe.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 8. Vocabulario · Exégesis y análisis</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras son clave para el análisis exegético y el proyecto final.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Contexto exegético</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Romanos 3:24:</strong> <span class="greek-word">δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι διὰ τῆς ἀπολυτρώσεως τῆς ἐν Χριστῷ Ἰησοῦ</span> – "siendo justificados gratuitamente por su gracia, mediante la redención que es en Cristo Jesús".</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – ANALIZA MORFOLÓGICAMENTE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 9. Analiza la forma verbal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="morfoQuizArea"></div>
+          <button id="newMorfoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="morfoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – IDENTIFICA LA ESTRUCTURA SINTÁCTICA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-sitemap"></i> 10. Identifica la estructura sintáctica</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="sintaxisProyectoQuizArea"></div>
+          <button id="newSintaxisProyectoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="sintaxisProyectoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: EJERCICIO – TRADUCCIÓN Y ANÁLISIS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 11. Traduce y analiza exegéticamente</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transProyectoQuizArea"></div>
+          <button id="newTransProyectoQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transProyectoFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 12. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 13. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Elige tu pasaje para el proyecto final. Practica el análisis morfológico y sintáctico. Revisa el ejemplo de Romanos 3:21-26. Reflexiona sobre cómo la gramática fundamenta la teología.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-68.html"><i class="fas fa-arrow-left"></i> Lección 68</a>
+      <a href="leccion-70.html"><i class="fas fa-arrow-right"></i> Lección 70</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">σπούδασον ... ὀρθοτομοῦντα τὸν λόγον</span> (2 Timoteo 2:15)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 69 ==========
+    const vocabData = [
+      { greek: "δικαιοσύνη", translit: "dikaiosynē", spanish: "justicia, justificación", context: "soteriología" },
+      { greek: "πίστις", translit: "pistis", spanish: "fe, fidelidad", context: "soteriología" },
+      { greek: "χάρις", translit: "charis", spanish: "gracia", context: "soteriología" },
+      { greek: "ἀπολύτρωσις", translit: "apolytrōsis", spanish: "redención", context: "soteriología" },
+      { greek: "ἱλαστήριον", translit: "hilastērion", spanish: "propiciatorio", context: "soteriología" },
+      { greek: "δικαιόω", translit: "dikaioō", spanish: "justificar", context: "verbos" },
+      { greek: "φανερόω", translit: "phaneroō", spanish: "manifestar, revelar", context: "verbos" },
+      { greek: "προτίθημι", translit: "protithēmi", spanish: "proponer, presentar", context: "verbos -μι" },
+      { greek: "παρίστημι", translit: "paristēmi", spanish: "presentar, poner delante", context: "verbos -μι" },
+      { greek: "σπουδάζω", translit: "spoudazō", spanish: "procurar, esforzarse", context: "verbos" },
+      { greek: "ὀρθοτομέω", translit: "orthotomeō", spanish: "cortar recto, manejar bien", context: "verbos" },
+      { greek: "ἐξηγέομαι", translit: "exēgeomai", spanish: "explicar, narrar (exégesis)", context: "hermenéutica" },
+      { greek: "διαιρέω", translit: "diaireō", spanish: "dividir, distinguir", context: "hermenéutica" },
+      { greek: "ἀναλύω", translit: "analyō", spanish: "analizar, partir", context: "hermenéutica" },
+      { greek: "συντίθημι", translit: "syntithēmi", spanish: "componer, acordar", context: "hermenéutica" },
+      { greek: "παρατίθεμαι", translit: "paratithemi", spanish: "presentar, exponer", context: "hermenéutica" },
+      { greek: "ἀποδείκνυμι", translit: "apodeiknymi", spanish: "demostrar", context: "hermenéutica" },
+      { greek: "σύνεσις", translit: "synesis", spanish: "comprensión, entendimiento", context: "exégesis" },
+      { greek: "φρόνησις", translit: "phronēsis", spanish: "prudencia, sabiduría práctica", context: "exégesis" },
+      { greek: "κριτικός", translit: "kritikos", spanish: "capaz de juzgar", context: "exégesis" }
+    ];
+
+    // Ejemplos para análisis morfológico
+    const morfoExamples = [
+      { form: "πεφανέρωται", verb: "φανερόω", tense: "perfecto", voice: "pasivo", person: "3ª sg.", meaning: "ha sido manifestada" },
+      { form: "δικαιούμενοι", verb: "δικαιόω", tense: "presente", voice: "pasivo", mode: "participio", meaning: "siendo justificados" },
+      { form: "προέθετο", verb: "προτίθημι", tense: "aoristo", voice: "medio", person: "3ª sg.", meaning: "propuso" },
+      { form: "προγεγονότων", verb: "προγίνομαι", tense: "perfecto", voice: "activo", mode: "participio", meaning: "habiendo sido cometidos antes" },
+      { form: "ἥμαρτον", verb: "ἁμαρτάνω", tense: "aoristo", voice: "activo", person: "3ª pl.", meaning: "pecaron" },
+      { form: "ἀποκαλύπτεται", verb: "ἀποκαλύπτω", tense: "presente", voice: "pasivo", person: "3ª sg.", meaning: "es revelada" }
+    ];
+
+    // Ejemplos para identificar estructura sintáctica
+    const sintaxisProyectoExamples = [
+      { phrase: "δικαιοσύνη θεοῦ πεφανέρωται", structure: "Sujeto + Verbo principal", analysis: "la justicia de Dios ha sido manifestada" },
+      { phrase: "δικαιούμενοι δωρεὰν τῇ χάριτι", structure: "Participio + Complementos", analysis: "siendo justificados gratuitamente por gracia" },
+      { phrase: "ὃν προέθετο ὁ θεὸς ἱλαστήριον", structure: "Cláusula relativa", analysis: "a quien Dios puso como propiciación" },
+      { phrase: "εἰς τὸ εἶναι αὐτὸν δίκαιον", structure: "Infinitivo final", analysis: "para ser él justo" }
+    ];
+
+    // Frases para traducción y análisis
+    const transProyectoExamples = [
+      { greek: "δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι", translation: "siendo justificados gratuitamente por su gracia", analysis: "participio presente pasivo + dativo instrumental" },
+      { greek: "ὃν προέθετο ὁ θεὸς ἱλαστήριον", translation: "a quien Dios puso como propiciación", analysis: "cláusula relativa + aoristo medio" },
+      { greek: "πάντες γὰρ ἥμαρτον", translation: "porque todos pecaron", analysis: "aoristo activo 3ª pl." },
+      { greek: "τῇ χάριτί ἐστε σεσωσμένοι", translation: "por gracia sois salvos", analysis: "perfecto pasivo perifrástico + dativo instrumental" }
+    ];
+
+    let currentMorfo = morfoExamples[0];
+    let currentSintaxisProyecto = sintaxisProyectoExamples[0];
+    let currentTransProyecto = transProyectoExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.context}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadMorfoQuiz() {
+      const randomIndex = Math.floor(Math.random() * morfoExamples.length);
+      currentMorfo = morfoExamples[randomIndex];
+      const container = document.getElementById("morfoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza morfológicamente <span class="greek-word">${currentMorfo.form}</span>:</strong><br>
+      <input type="text" id="morfoAnswer" placeholder="ej. φανερόω, perfecto, pasivo, 3ª sg." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkMorfo" class="btn-reveal">Verificar</button>
+      <div id="morfoResult"></div></div>`;
+      document.getElementById("checkMorfo").addEventListener("click", () => {
+        const answer = document.getElementById("morfoAnswer").value.trim().toLowerCase();
+        const correct = `${currentMorfo.verb}, ${currentMorfo.tense}, ${currentMorfo.voice}`;
+        const result = document.getElementById("morfoResult");
+        if (answer.includes(currentMorfo.verb) && answer.includes(currentMorfo.tense)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentMorfo.meaning})</span>`;
+          setTimeout(loadMorfoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentMorfo.verb}, ${currentMorfo.tense}, ${currentMorfo.voice}</span>`;
+        }
+      });
+    }
+
+    function loadSintaxisProyectoQuiz() {
+      const randomIndex = Math.floor(Math.random() * sintaxisProyectoExamples.length);
+      currentSintaxisProyecto = sintaxisProyectoExamples[randomIndex];
+      const container = document.getElementById("sintaxisProyectoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Identifica la estructura sintáctica:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentSintaxisProyecto.phrase}</span><br>
+      <span style="font-size:0.9rem;">${currentSintaxisProyecto.analysis}</span><br>
+      <button id="sinProjOk" class="btn-reveal">Entendido</button>
+      <div id="sintaxisProyectoResult"></div></div>`;
+      document.getElementById("sinProjOk").addEventListener("click", () => {
+        const result = document.getElementById("sintaxisProyectoResult");
+        result.innerHTML = `<span class="correct-feedback">✓ Correcto! Estructura: ${currentSintaxisProyecto.structure}</span>`;
+        setTimeout(loadSintaxisProyectoQuiz, 1500);
+      });
+    }
+
+    function loadTransProyectoQuiz() {
+      const randomIndex = Math.floor(Math.random() * transProyectoExamples.length);
+      currentTransProyecto = transProyectoExamples[randomIndex];
+      const container = document.getElementById("transProyectoQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce y analiza:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransProyecto.greek}</span><br>
+      <span style="font-size:0.9rem;">Análisis: ${currentTransProyecto.analysis}</span><br>
+      <input type="text" id="transProyectoAnswer" placeholder="traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransProyecto" class="btn-reveal">Verificar</button>
+      <div id="transProyectoResult"></div></div>`;
+      document.getElementById("checkTransProyecto").addEventListener("click", () => {
+        const answer = document.getElementById("transProyectoAnswer").value.trim().toLowerCase();
+        const correct = currentTransProyecto.translation.toLowerCase();
+        const result = document.getElementById("transProyectoResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTransProyecto.analysis})</span>`;
+          setTimeout(loadTransProyectoQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransProyecto.translation}</span>`;
+        }
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Término que significa 'justicia, justificación'", opts: ["δικαιοσύνη", "πίστις", "χάρις", "ἀπολύτρωσις"], correct: 0 },
+      { q: "Forma verbal en Romanos 3:21 que significa 'ha sido manifestada'", opts: ["πεφανέρωται", "δικαιούμενοι", "προέθετο", "ἥμαρτον"], correct: 0 },
+      { q: "Caso que expresa el instrumento o medio ('por gracia')", opts: ["Dativo", "Genitivo", "Acusativo", "Nominativo"], correct: 0 },
+      { q: "Participio en Romanos 3:24 que significa 'siendo justificados'", opts: ["δικαιούμενοι", "μαρτυρουμένη", "προγεγονότων", "πιστεύοντας"], correct: 0 },
+      { q: "Extensión recomendada para el informe exegético final", opts: ["1000 palabras", "500 palabras", "2000 palabras", "300 palabras"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkMorfo" || btn.id === "checkTransProyecto" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#sintaxisProyectoQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadMorfoQuiz();
+      loadSintaxisProyectoQuiz();
+      loadTransProyectoQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newMorfoQuiz")?.addEventListener("click", () => {
+        loadMorfoQuiz();
+        document.getElementById("morfoFeedback").innerHTML = "";
+      });
+      document.getElementById("newSintaxisProyectoQuiz")?.addEventListener("click", () => {
+        loadSintaxisProyectoQuiz();
+        document.getElementById("sintaxisProyectoFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransProyectoQuiz")?.addEventListener("click", () => {
+        loadTransProyectoQuiz();
+        document.getElementById("transProyectoFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

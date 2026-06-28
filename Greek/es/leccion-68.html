@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 68: Revisión Morfológica Integral</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 97%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .review-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .table-responsive { overflow-x: auto; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-67.html"><i class="fas fa-arrow-left"></i> Lección 67</a>
+        <a href="leccion-69.html"><i class="fas fa-arrow-right"></i> Lección 69</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-trophy"></i> Lección 68 · Revisión Morfológica Integral <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Tablas maestras de declinación · Tablas maestras de tiempos, modos y voces · Pronombres y adjetivos irregulares · Verbos -μι · Evaluación con texto no preparado</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1360/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="Revisión morfológica integral del griego del NT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Síntesis completa de toda la morfología del curso</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. La síntesis del curso</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Esta lección es la <strong>síntesis</strong> de todo el curso. Aquí consolidamos toda la <strong>morfología</strong> que has aprendido en las 67 lecciones anteriores: declinaciones, verbos, pronombres, adjetivos, partículas y más.</p>
+          <div class="review-box">
+            <i class="fas fa-lightbulb"></i> <strong>Objetivos de esta lección:</strong>
+            <ul>
+              <li>Repasar <strong>todas las declinaciones</strong> (1ª, 2ª, 3ª) con paradigmas completos.</li>
+              <li>Repasar <strong>todos los tiempos, modos y voces</strong> verbales.</li>
+              <li>Repasar <strong>pronombres, adjetivos irregulares y verbos -μι</strong>.</li>
+              <li>Evaluar el nivel de dominio con un <strong>texto no preparado</strong> del NT.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Texto de evaluación:</strong><br>
+            <span class="greek-word">1 Juan 1:1-4</span> – un texto que contiene una <strong>variedad de formas</strong> (participios, tiempos, casos) para evaluar tu dominio.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: TABLA MAESTRA DE DECLINACIONES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 2. Tabla maestra de declinaciones</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Esta tabla resume las <strong>tres declinaciones</strong> del griego del NT con sus paradigmas completos.</p>
+
+          <div class="paradigm-table">
+            <table>
+              <caption><strong>1ª Declinación</strong></caption>
+              <thead><tr><th>Caso</th><th>Fem. -η (φωνή)</th><th>Fem. -α (καρδία)</th><th>Fem. -α corta (θάλασσα)</th><th>Masc. -ης (μαθητής)</th></tr></thead>
+              <tbody>
+                <tr><td>Nom. sg.</td><td>φωνή</td><td>καρδία</td><td>θάλασσα</td><td>μαθητής</td></tr>
+                <tr><td>Gen. sg.</td><td>φωνῆς</td><td>καρδίας</td><td>θαλάσσης</td><td>μαθητοῦ</td></tr>
+                <tr><td>Dat. sg.</td><td>φωνῇ</td><td>καρδίᾳ</td><td>θαλάσσῃ</td><td>μαθητῇ</td></tr>
+                <tr><td>Ac. sg.</td><td>φωνήν</td><td>καρδίαν</td><td>θάλασσαν</td><td>μαθητήν</td></tr>
+                <tr><td>Voc. sg.</td><td>φωνή</td><td>καρδία</td><td>θάλασσα</td><td>μαθητά</td></tr>
+                <tr><td>Nom. pl.</td><td>φωναί</td><td>καρδίαι</td><td>θάλασσαι</td><td>μαθηταί</td></tr>
+                <tr><td>Gen. pl.</td><td>φωνῶν</td><td>καρδιῶν</td><td>θαλασσῶν</td><td>μαθητῶν</td></tr>
+                <tr><td>Dat. pl.</td><td>φωναῖς</td><td>καρδίαις</td><td>θαλάσσαις</td><td>μαθηταῖς</td></tr>
+                <tr><td>Ac. pl.</td><td>φωνάς</td><td>καρδίας</td><td>θαλάσσας</td><td>μαθητάς</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paradigm-table">
+            <table>
+              <caption><strong>2ª Declinación</strong></caption>
+              <thead><tr><th>Caso</th><th>Masc. -ος (λόγος)</th><th>Neut. -ον (ἔργον)</th></tr></thead>
+              <tbody>
+                <tr><td>Nom. sg.</td><td>λόγος</td><td>ἔργον</td></tr>
+                <tr><td>Gen. sg.</td><td>λόγου</td><td>ἔργου</td></tr>
+                <tr><td>Dat. sg.</td><td>λόγῳ</td><td>ἔργῳ</td></tr>
+                <tr><td>Ac. sg.</td><td>λόγον</td><td>ἔργον</td></tr>
+                <tr><td>Voc. sg.</td><td>λόγε</td><td>ἔργον</td></tr>
+                <tr><td>Nom. pl.</td><td>λόγοι</td><td>ἔργα</td></tr>
+                <tr><td>Gen. pl.</td><td>λόγων</td><td>ἔργων</td></tr>
+                <tr><td>Dat. pl.</td><td>λόγοις</td><td>ἔργοις</td></tr>
+                <tr><td>Ac. pl.</td><td>λόγους</td><td>ἔργα</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paradigm-table">
+            <table>
+              <caption><strong>3ª Declinación (ejemplos selectos)</strong></caption>
+              <thead><tr><th>Caso</th><th>σάρξ (carne)</th><th>βασιλεύς (rey)</th><th>πόλις (ciudad)</th><th>σῶμα (cuerpo)</th></tr></thead>
+              <tbody>
+                <tr><td>Nom. sg.</td><td>σάρξ</td><td>βασιλεύς</td><td>πόλις</td><td>σῶμα</td></tr>
+                <tr><td>Gen. sg.</td><td>σαρκός</td><td>βασιλέως</td><td>πόλεως</td><td>σώματος</td></tr>
+                <tr><td>Dat. sg.</td><td>σαρκί</td><td>βασιλεῖ</td><td>πόλει</td><td>σώματι</td></tr>
+                <tr><td>Ac. sg.</td><td>σάρκα</td><td>βασιλέα</td><td>πόλιν</td><td>σῶμα</td></tr>
+                <tr><td>Voc. sg.</td><td>σάρξ</td><td>βασιλεῦ</td><td>πόλι</td><td>σῶμα</td></tr>
+                <tr><td>Nom. pl.</td><td>σάρκες</td><td>βασιλεῖς</td><td>πόλεις</td><td>σώματα</td></tr>
+                <tr><td>Gen. pl.</td><td>σαρκῶν</td><td>βασιλέων</td><td>πόλεων</td><td>σωμάτων</td></tr>
+                <tr><td>Dat. pl.</td><td>σαρξί(ν)</td><td>βασιλεῦσι(ν)</td><td>πόλεσι(ν)</td><td>σώμασι(ν)</td></tr>
+                <tr><td>Ac. pl.</td><td>σάρκας</td><td>βασιλεῖς</td><td>πόλεις</td><td>σώματα</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn-reveal" data-target="decEj">Repasa las declinaciones</button>
+          <div id="decEj" class="answer-text">
+            1ª declinación: femeninos en -η/-α y masculinos en -ης/-ας.<br>
+            2ª declinación: masculinos en -ος y neutros en -ον.<br>
+            3ª declinación: temas en oclusiva, nasal, líquida, silbante, -ι, -υ, y los irregulares.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: TABLA MAESTRA DE VERBOS -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 3. Tabla maestra de verbos</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Esta tabla resume los <strong>tiempos, modos y voces</strong> del sistema verbal griego con el verbo <span class="greek-word">λύω</span> (desatar).</p>
+
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Tiempo</th><th>Activo</th><th>Medio/Pasivo</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Presente</strong></td><td>λύω, λύεις, λύει, λύομεν, λύετε, λύουσι</td><td>λύομαι, λύῃ, λύεται, λυόμεθα, λύεσθε, λύονται</td></tr>
+                <tr><td><strong>Imperfecto</strong></td><td>ἔλυον, ἔλυες, ἔλυε, ἐλύομεν, ἐλύετε, ἔλυον</td><td>ἐλυόμην, ἐλύου, ἐλύετο, ἐλυόμεθα, ἐλύεσθε, ἐλύοντο</td></tr>
+                <tr><td><strong>Futuro</strong></td><td>λύσω, λύσεις, λύσει, λύσομεν, λύσετε, λύσουσι</td><td>λύσομαι, λύσῃ, λύσεται, λυσόμεθα, λύσεσθε, λύσονται</td></tr>
+                <tr><td><strong>Aoristo</strong></td><td>ἔλυσα, ἔλυσας, ἔλυσε, ἐλύσαμεν, ἐλύσατε, ἔλυσαν</td><td>ἐλυσάμην, ἐλύσω, ἐλύσατο, ἐλυσάμεθα, ἐλύσασθε, ἐλύσαντο</td></tr>
+                <tr><td><strong>Perfecto</strong></td><td>λέλυκα, λέλυκας, λέλυκε, λελύκαμεν, λελύκατε, λελύκασι</td><td>λέλυμαι, λέλυσαι, λέλυται, λελύμεθα, λέλυσθε, λέλυνται</td></tr>
+                <tr><td><strong>Pluscuamperfecto</strong></td><td>ἐλελύκειν, ἐλελύκεις, ἐλελύκει, ἐλελύκειμεν, ἐλελύκειτε, ἐλελύκεισαν</td><td>—</td></tr>
+                <tr><td><strong>Futuro Pasivo</strong></td><td>—</td><td>λυθήσομαι, λυθήσῃ, λυθήσεται, λυθησόμεθα, λυθήσεσθε, λυθήσονται</td></tr>
+                <tr><td><strong>Aoristo Pasivo</strong></td><td>—</td><td>ἐλύθην, ἐλύθης, ἐλύθη, ἐλύθημεν, ἐλύθητε, ἐλύθησαν</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="review-box">
+            <strong><i class="fas fa-lightbulb"></i> Modos verbales:</strong>
+            <ul>
+              <li><strong>Indicativo:</strong> afirmación (hecho) – tiempos principales (presente, futuro, perfecto) y secundarios (imperfecto, aoristo, pluscuamperfecto).</li>
+              <li><strong>Subjuntivo:</strong> posibilidad, propósito (vocal larga de unión: ω/η).</li>
+              <li><strong>Optativo:</strong> deseo, posibilidad remota (marca -οι-).</li>
+              <li><strong>Imperativo:</strong> mandato (2ª y 3ª persona).</li>
+              <li><strong>Infinitivo:</strong> forma nominal del verbo.</li>
+              <li><strong>Participio:</strong> forma adjetival del verbo.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="verbEj">Repasa los tiempos verbales</button>
+          <div id="verbEj" class="answer-text">
+            Presente: acción continua.<br>
+            Aoristo: acción puntual.<br>
+            Perfecto: estado resultante.<br>
+            Futuro: acción futura.<br>
+            Imperfecto: acción continua en el pasado.<br>
+            Pluscuamperfecto: estado resultante en el pasado.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: PRONOMBRES Y ADJETIVOS IRREGULARES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 4. Pronombres y adjetivos irregulares</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los pronombres y adjetivos irregulares más importantes del NT:</p>
+
+          <div class="paradigm-table">
+            <table>
+              <caption><strong>Pronombres personales</strong></caption>
+              <thead><tr><th>Caso</th><th>1ª sg. (yo)</th><th>2ª sg. (tú)</th><th>3ª sg. (él/ella/ello)</th></tr></thead>
+              <tbody>
+                <tr><td>Nom.</td><td>ἐγώ</td><td>σύ</td><td>αὐτός</td></tr>
+                <tr><td>Gen.</td><td>μου (ἐμοῦ)</td><td>σου (σοῦ)</td><td>αὐτοῦ</td></tr>
+                <tr><td>Dat.</td><td>μοι (ἐμοί)</td><td>σοι (σοί)</td><td>αὐτῷ</td></tr>
+                <tr><td>Ac.</td><td>με (ἐμέ)</td><td>σε (σέ)</td><td>αὐτόν</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paradigm-table">
+            <table>
+              <caption><strong>Adjetivos irregulares: πᾶς, μέγας, πολύς</strong></caption>
+              <thead><tr><th>Caso</th><th>πᾶς (todo)</th><th>μέγας (grande)</th><th>πολύς (mucho)</th></tr></thead>
+              <tbody>
+                <tr><td>Nom. sg. masc.</td><td>πᾶς</td><td>μέγας</td><td>πολύς</td></tr>
+                <tr><td>Gen. sg. masc.</td><td>παντός</td><td>μεγάλου</td><td>πολλοῦ</td></tr>
+                <tr><td>Dat. sg. masc.</td><td>παντί</td><td>μεγάλῳ</td><td>πολλῷ</td></tr>
+                <tr><td>Ac. sg. masc.</td><td>πάντα</td><td>μέγαν</td><td>πολύν</td></tr>
+                <tr><td>Nom. sg. fem.</td><td>πᾶσα</td><td>μεγάλη</td><td>πολλή</td></tr>
+                <tr><td>Nom. sg. neut.</td><td>πᾶν</td><td>μέγα</td><td>πολύ</td></tr>
+                <tr><td>Nom. pl. masc.</td><td>πάντες</td><td>μεγάλοι</td><td>πολλοί</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="review-box">
+            <strong><i class="fas fa-lightbulb"></i> Pronombres relativos, interrogativos e indefinidos:</strong>
+            <ul>
+              <li><strong>Relativo:</strong> <span class="greek-word">ὅς, ἥ, ὅ</span> (que, quien).</li>
+              <li><strong>Interrogativo:</strong> <span class="greek-word">τίς, τί</span> (¿quién?, ¿qué?) – con acento.</li>
+              <li><strong>Indefinido:</strong> <span class="greek-word">τις, τι</span> (alguien, cierto) – enclítico.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="pronEj">Repasa los pronombres</button>
+          <div id="pronEj" class="answer-text">
+            <span class="greek-word">ἐγώ</span> – yo · <span class="greek-word">σύ</span> – tú · <span class="greek-word">αὐτός</span> – él/mismo.<br>
+            <span class="greek-word">πᾶς</span> – todo · <span class="greek-word">μέγας</span> – grande · <span class="greek-word">πολύς</span> – mucho.<br>
+            <span class="greek-word">ὅς</span> – que · <span class="greek-word">τίς</span> – ¿quién? · <span class="greek-word">τις</span> – alguien.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: VERBOS -MI -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-table"></i> 5. Verbos -μι (revisión)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Los verbos <span class="greek-word">-μι</span> más importantes del NT:</p>
+
+          <div class="paradigm-table">
+            <table>
+              <thead><tr><th>Verbo</th><th>Presente</th><th>Aoristo</th><th>Significado</th></tr></thead>
+              <tbody>
+                <tr><td>δίδωμι</td><td>δίδωμι, δίδως, δίδωσι, δίδομεν, δίδοτε, διδόασι</td><td>ἔδωκα, ἔδωκας, ἔδωκε, ἐδώκαμεν, ἐδώκατε, ἔδωκαν</td><td>dar</td></tr>
+                <tr><td>τίθημι</td><td>τίθημι, τίθης, τίθησι, τίθεμεν, τίθετε, τιθέασι</td><td>ἔθηκα, ἔθηκας, ἔθηκε, ἐθήκαμεν, ἐθήκατε, ἔθηκαν</td><td>poner</td></tr>
+                <tr><td>ἵστημι</td><td>ἵστημι, ἵστης, ἵστησι, ἵσταμεν, ἵστατε, ἱστάσι</td><td>ἔστησα (trans.) / ἔστην (intrans.)</td><td>poner / estar de pie</td></tr>
+                <tr><td>ἀφίημι</td><td>ἀφίημι, ἀφίης, ἀφίησι, ἀφίεμεν, ἀφίετε, ἀφιᾶσι</td><td>ἀφῆκα, ἀφῆκας, ἀφῆκε, ἀφήκαμεν, ἀφήκατε, ἀφῆκαν</td><td>perdonar, dejar</td></tr>
+                <tr><td>δείκνυμι</td><td>δείκνυμι, δείκνυς, δείκνυσι, δείκνυμεν, δείκνυτε, δεικνύασι</td><td>ἔδειξα</td><td>mostrar</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="review-box">
+            <strong><i class="fas fa-lightbulb"></i> Características de los verbos -μι:</strong>
+            <ul>
+              <li>Reduplicación en presente (δι-, τι-, ι-, αφι-).</li>
+              <li>Vocal del tema: larga en singular (ω/η), corta en plural (ο/ε).</li>
+              <li>Terminaciones directas (sin vocal de unión).</li>
+              <li>Aoristo con -κα (forma de aoristo primero).</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="miEj">Repasa los verbos -μι</button>
+          <div id="miEj" class="answer-text">
+            <span class="greek-word">δίδωμι</span> – dar · <span class="greek-word">τίθημι</span> – poner · <span class="greek-word">ἵστημι</span> – poner/estar de pie.<br>
+            <span class="greek-word">ἀφίημι</span> – perdonar · <span class="greek-word">δείκνυμι</span> – mostrar.<br>
+            Todos tienen reduplicación y aoristo en -κα.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 6. Vocabulario · Síntesis del curso</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras representan la <strong>culminación</strong> del vocabulario del curso. Son términos teológicos clave que integran todo lo aprendido.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Categoría</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>1 Juan 1:1-4:</strong> <span class="greek-word">Ὃ ἦν ἀπʼ ἀρχῆς, ὃ ἀκηκόαμεν, ὃ ἑωράκαμεν τοῖς ὀφθαλμοῖς ἡμῶν, ὃ ἐθεασάμεθα καὶ αἱ χεῖρες ἡμῶν ἐψηλάφησαν, περὶ τοῦ λόγου τῆς ζωῆς·</span> (el texto de evaluación).</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: EJERCICIO – IDENTIFICA LA DECLINACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 7. Identifica la declinación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="decQuizArea"></div>
+          <button id="newDecQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva palabra</button>
+          <div id="decFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL TIEMPO VERBAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el tiempo y la voz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="tiempoRevQuizArea"></div>
+          <button id="newTiempoRevQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="tiempoRevFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TEXTO NO PREPARADO (1 JUAN 1:1-4) -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 9. Evaluación: 1 Juan 1:1-4</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Ὃ ἦν ἀπʼ ἀρχῆς, ὃ ἀκηκόαμεν, ὃ ἑωράκαμεν τοῖς ὀφθαλμοῖς ἡμῶν, ὃ ἐθεασάμεθα καὶ αἱ χεῖρες ἡμῶν ἐψηλάφησαν, περὶ τοῦ λόγου τῆς ζωῆς·</span> (1:1)</p>
+            <p><span class="greek-word">καὶ ἡ ζωὴ ἐφανερώθη, καὶ ἑωράκαμεν καὶ μαρτυροῦμεν καὶ ἀπαγγέλλομεν ὑμῖν τὴν ζωὴν τὴν αἰώνιον, ἥτις ἦν πρὸς τὸν πατέρα καὶ ἐφανερώθη ἡμῖν·</span> (1:2)</p>
+            <p><span class="greek-word">ὃ ἑωράκαμεν καὶ ἀκηκόαμεν, ἀπαγγέλλομεν καὶ ὑμῖν, ἵνα καὶ ὑμεῖς κοινωνίαν ἔχητε μεθʼ ἡμῶν· καὶ ἡ κοινωνία δὲ ἡ ἡμετέρα μετὰ τοῦ πατρὸς καὶ μετὰ τοῦ υἱοῦ αὐτοῦ Ἰησοῦ Χριστοῦ.</span> (1:3)</p>
+            <p><span class="greek-word">καὶ ταῦτα γράφομεν ἡμεῖς, ἵνα ἡ χαρὰ ἡμῶν ᾖ πεπληρωμένη.</span> (1:4)</p>
+          </div>
+
+          <div class="review-box">
+            <strong><i class="fas fa-lightbulb"></i> Instrucciones:</strong> Lee el texto sin ayuda. Identifica las formas verbales, los casos, los pronombres y las cláusulas. Este es un texto <strong>no preparado</strong> para evaluar tu dominio.
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Juan 1:1 – ἦν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">Ὃ ἦν ἀπʼ ἀρχῆς</span></p>
+              <button class="btn-reveal" data-target="eval1a">¿Qué tiempo es <strong>ἦν</strong>?</button>
+              <div id="eval1a" class="answer-text">Imperfecto de εἰμί (era, había) – aspecto lineal.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Juan 1:1 – ἀκηκόαμεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὃ ἀκηκόαμεν</span></p>
+              <button class="btn-reveal" data-target="eval1b">¿Qué tiempo es <strong>ἀκηκόαμεν</strong>?</button>
+              <div id="eval1b" class="answer-text">Perfecto de ἀκούω (1ª pl.) – "hemos oído" (estado resultante).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Juan 1:1 – ἑωράκαμεν</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ὃ ἑωράκαμεν τοῖς ὀφθαλμοῖς</span></p>
+              <button class="btn-reveal" data-target="eval1c">¿Qué tiempo es <strong>ἑωράκαμεν</strong> y qué caso es <strong>τοῖς ὀφθαλμοῖς</strong>?</button>
+              <div id="eval1c" class="answer-text"><span class="greek-word">ἑωράκαμεν</span> – perfecto de ὁράω (hemos visto). <span class="greek-word">τοῖς ὀφθαλμοῖς</span> – dativo instrumental (con los ojos).</div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="margin-bottom: 0.5rem;">
+            <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 1 Juan 1:4 – ἵνα ... ᾖ πεπληρωμένη</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+            <div class="accordion-content">
+              <p><span class="greek-word">ἵνα ἡ χαρὰ ἡμῶν ᾖ πεπληρωμένη</span></p>
+              <button class="btn-reveal" data-target="eval1d">¿Qué construcción es <strong>ᾖ πεπληρωμένη</strong>?</button>
+              <div id="eval1d" class="answer-text">Perfecto pasivo perifrástico con subjuntivo (<span class="greek-word">ᾖ</span> + participio perfecto pasivo): "para que nuestro gozo sea completado/lleno".</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 10. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 11. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: REPASO ESPACIADO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 12. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica: Lee 1 Juan 1:1-4 en voz alta. Identifica cada forma verbal. Repasa las tablas maestras. Evalúa tu dominio: ¿puedes leer el texto sin ayuda?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-67.html"><i class="fas fa-arrow-left"></i> Lección 67</a>
+      <a href="leccion-69.html"><i class="fas fa-arrow-right"></i> Lección 69</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">Ὃ ἦν ἀπʼ ἀρχῆς</span> (1 Juan 1:1)</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 68 ==========
+    const vocabData = [
+      { greek: "ἀρχή", translit: "archē", spanish: "principio", category: "sustantivo" },
+      { greek: "λόγος", translit: "logos", spanish: "palabra, Verbo", category: "sustantivo" },
+      { greek: "ζωή", translit: "zōē", spanish: "vida", category: "sustantivo" },
+      { greek: "φῶς", translit: "phōs", spanish: "luz", category: "sustantivo" },
+      { greek: "σκοτία", translit: "skotia", spanish: "tinieblas", category: "sustantivo" },
+      { greek: "πιστεύω", translit: "pisteuō", spanish: "creer", category: "verbo" },
+      { greek: "ἀγαπάω", translit: "agapaō", spanish: "amar", category: "verbo" },
+      { greek: "σῴζω", translit: "sōzō", spanish: "salvar", category: "verbo" },
+      { greek: "δικαιόω", translit: "dikaioō", spanish: "justificar", category: "verbo" },
+      { greek: "ἁγιάζω", translit: "hagiazō", spanish: "santificar", category: "verbo" },
+      { greek: "καθαρίζω", translit: "katharizō", spanish: "purificar", category: "verbo" },
+      { greek: "γεννάω", translit: "gennaō", spanish: "engendrar", category: "verbo" },
+      { greek: "κτίζω", translit: "ktizō", spanish: "crear", category: "verbo" },
+      { greek: "ἀποκαλύπτω", translit: "apokalyptō", spanish: "revelar", category: "verbo" },
+      { greek: "δοξάζω", translit: "doxazō", spanish: "glorificar", category: "verbo" },
+      { greek: "τελειόω", translit: "teleioō", spanish: "perfeccionar", category: "verbo" },
+      { greek: "πληρόω", translit: "plēroō", spanish: "llenar, cumplir", category: "verbo" },
+      { greek: "δίδωμι", translit: "didōmi", spanish: "dar", category: "verbo -μι" },
+      { greek: "ἀφίημι", translit: "aphiēmi", spanish: "perdonar", category: "verbo -μι" },
+      { greek: "εἰμί", translit: "eimi", spanish: "ser", category: "verbo" }
+    ];
+
+    // Ejemplos para identificar declinación
+    const decQuizExamples = [
+      { word: "φωνή", declension: "1ª", reason: "femenino -η" },
+      { word: "καρδία", declension: "1ª", reason: "femenino -α" },
+      { word: "μαθητής", declension: "1ª masc.", reason: "masculino -ης" },
+      { word: "λόγος", declension: "2ª", reason: "masculino -ος" },
+      { word: "ἔργον", declension: "2ª neut.", reason: "neutro -ον" },
+      { word: "σάρξ", declension: "3ª", reason: "tema en oclusiva" },
+      { word: "βασιλεύς", declension: "3ª", reason: "tema en -ευς" },
+      { word: "πόλις", declension: "3ª", reason: "tema en -ις" },
+      { word: "σῶμα", declension: "3ª", reason: "neutro en -μα" },
+      { word: "πατήρ", declension: "3ª", reason: "tema en -ρ" }
+    ];
+
+    // Ejemplos para identificar tiempo y voz
+    const tiempoRevExamples = [
+      { form: "λύω", tense: "presente", voice: "activo", meaning: "desato" },
+      { form: "ἔλυον", tense: "imperfecto", voice: "activo", meaning: "desataba" },
+      { form: "λύσω", tense: "futuro", voice: "activo", meaning: "desataré" },
+      { form: "ἔλυσα", tense: "aoristo", voice: "activo", meaning: "desaté" },
+      { form: "λέλυκα", tense: "perfecto", voice: "activo", meaning: "he desatado" },
+      { form: "λύομαι", tense: "presente", voice: "medio/pasivo", meaning: "me desato / soy desatado" },
+      { form: "ἐλυόμην", tense: "imperfecto", voice: "medio/pasivo", meaning: "me desataba / era desatado" },
+      { form: "ἐλύθην", tense: "aoristo pasivo", voice: "pasivo", meaning: "fui desatado" },
+      { form: "λυθήσομαι", tense: "futuro pasivo", voice: "pasivo", meaning: "seré desatado" },
+      { form: "λέλυμαι", tense: "perfecto", voice: "medio/pasivo", meaning: "he sido desatado" }
+    ];
+
+    let currentDec = decQuizExamples[0];
+    let currentTiempoRev = tiempoRevExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.category}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadDecQuiz() {
+      const randomIndex = Math.floor(Math.random() * decQuizExamples.length);
+      currentDec = decQuizExamples[randomIndex];
+      const container = document.getElementById("decQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>¿A qué declinación pertenece <span class="greek-word">${currentDec.word}</span>?</strong><br>
+      <span style="font-size:0.9rem;">${currentDec.reason}</span><br>
+      <button id="dec1" class="btn-reveal">1ª</button> <button id="dec2" class="btn-reveal">2ª</button>
+      <button id="dec3" class="btn-reveal">3ª</button>
+      <div id="decResult"></div></div>`;
+      const d1 = document.getElementById("dec1");
+      const d2 = document.getElementById("dec2");
+      const d3 = document.getElementById("dec3");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("decResult");
+          const correct = currentDec.declension;
+          if (expected === correct || (expected === "1ª" && correct === "1ª masc.") || (expected === "2ª" && correct === "2ª neut.")) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentDec.declension})</span>`;
+            setTimeout(loadDecQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentDec.declension}</span>`;
+          }
+        });
+      };
+      check(d1, "1ª");
+      check(d2, "2ª");
+      check(d3, "3ª");
+    }
+
+    function loadTiempoRevQuiz() {
+      const randomIndex = Math.floor(Math.random() * tiempoRevExamples.length);
+      currentTiempoRev = tiempoRevExamples[randomIndex];
+      const container = document.getElementById("tiempoRevQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la forma <span class="greek-word">${currentTiempoRev.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Significado: ${currentTiempoRev.meaning}</span><br>
+      <button id="trPres" class="btn-reveal">Presente</button> <button id="trImperf" class="btn-reveal">Imperfecto</button>
+      <button id="trFut" class="btn-reveal">Futuro</button> <button id="trAor" class="btn-reveal">Aoristo</button>
+      <button id="trPerf" class="btn-reveal">Perfecto</button>
+      <div id="tiempoRevResult"></div></div>`;
+      const pres = document.getElementById("trPres");
+      const imperf = document.getElementById("trImperf");
+      const fut = document.getElementById("trFut");
+      const aor = document.getElementById("trAor");
+      const perf = document.getElementById("trPerf");
+      const check = (btn, expected) => {
+        btn.addEventListener("click", () => {
+          const result = document.getElementById("tiempoRevResult");
+          if (expected === currentTiempoRev.tense) {
+            result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentTiempoRev.voice})</span>`;
+            setTimeout(loadTiempoRevQuiz, 1500);
+          } else {
+            result.innerHTML = `<span class="wrong-feedback">✗ Es ${currentTiempoRev.tense}</span>`;
+          }
+        });
+      };
+      check(pres, "presente");
+      check(imperf, "imperfecto");
+      check(fut, "futuro");
+      check(fut, "futuro pasivo");
+      check(aor, "aoristo");
+      check(aor, "aoristo pasivo");
+      check(perf, "perfecto");
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Número de declinaciones en griego", opts: ["3", "4", "5", "2"], correct: 0 },
+      { q: "Tiempo verbal que expresa acción continua en el pasado", opts: ["Imperfecto", "Aoristo", "Perfecto", "Presente"], correct: 0 },
+      { q: "Verbo -μι que significa 'dar'", opts: ["δίδωμι", "τίθημι", "ἵστημι", "ἀφίημι"], correct: 0 },
+      { q: "Caso que expresa posesión", opts: ["Genitivo", "Dativo", "Acusativo", "Nominativo"], correct: 0 },
+      { q: "En 1 Juan 1:1, 'ἦν' es...", opts: ["Imperfecto", "Aoristo", "Perfecto", "Presente"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && (btn.closest("#decQuizArea") || btn.closest("#tiempoRevQuizArea"))) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadDecQuiz();
+      loadTiempoRevQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newDecQuiz")?.addEventListener("click", () => {
+        loadDecQuiz();
+        document.getElementById("decFeedback").innerHTML = "";
+      });
+      document.getElementById("newTiempoRevQuiz")?.addEventListener("click", () => {
+        loadTiempoRevQuiz();
+        document.getElementById("tiempoRevFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

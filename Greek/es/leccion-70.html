@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Koiné Academy · Griego del NT · Lección 70: De la Gramática a la Predicación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f9fc;
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      border-bottom: 1px solid #e9edf2;
+      margin-bottom: 1.5rem;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 1.8rem; color: #1a4c61; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; color: #0b2b3b; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-links a:hover { color: #c6a43b; }
+    .social-icons-header { display: flex; gap: 0.8rem; }
+    .social-icons-header a { color: #5b6e8c; font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; row-gap: 0.6rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #ffb347; color: #1e2f3a; border-radius: 40px; padding: 0.25rem 0.9rem; font-size: 0.8rem; font-weight: 600; }
+    .progress-section { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between; }
+    .progress-bar-container { flex: 1; background: rgba(255,255,255,0.3); border-radius: 30px; height: 10px; overflow: hidden; }
+    .progress-fill { width: 100%; background: #ffcd7e; height: 100%; border-radius: 30px; }
+    .stats { font-size: 0.85rem; font-weight: 500; }
+    /* ========== VIDEO ========== */
+    .video-section { margin-bottom: 2rem; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    /* ========== ACORDEONES ========== */
+    .accordion { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .accordion-item { background: white; border-radius: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #e9edf2; overflow: hidden; }
+    .accordion-header { background: white; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.2rem; transition: background 0.2s; }
+    .accordion-header:hover { background: #f9fafc; }
+    .accordion-header i:first-child { color: #2c7a6e; margin-right: 0.6rem; }
+    .accordion-header .toggle-icon { color: #2c7a6e; transition: transform 0.3s; }
+    .accordion-item.active .accordion-header .toggle-icon { transform: rotate(180deg); }
+    .accordion-content { max-height: 0; padding: 0 1.5rem; overflow: hidden; transition: max-height 0.35s ease-out; border-top: 0px solid #eef2f6; }
+    .accordion-item.active .accordion-content { max-height: 2500px; padding: 0 1.5rem 1.8rem 1.5rem; border-top: 1px solid #eef2f6; }
+    /* ========== ELEMENTOS COMUNES ========== */
+    .card-highlight { background: #fef9e6; border-left: 6px solid #f4b942; padding: 1rem 1.2rem; border-radius: 1rem; margin: 1rem 0; }
+    .greek-word { font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 600; background: #eef3fa; padding: 0.2rem 0.6rem; border-radius: 16px; display: inline-block; }
+    .btn-reveal { background: #eef2fa; border: none; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 500; cursor: pointer; margin: 0.5rem 0; transition: 0.2s; }
+    .btn-reveal i { margin-right: 0.4rem; }
+    .btn-reveal:hover { background: #dce5f0; }
+    .answer-text { background: #e9f3e6; padding: 0.75rem; border-radius: 1rem; margin-top: 0.6rem; display: none; border-left: 4px solid #3f9e6d; }
+    .answer-text.show { display: block; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #eef2f6; font-weight: 600; }
+    .paradigm-table { overflow-x: auto; }
+    .paradigm-table table th, .paradigm-table table td { text-align: center; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vocab-card { background: #f8fafd; border-radius: 1rem; padding: 0.8rem; text-align: center; cursor: pointer; }
+    .quiz-option { background: #f1f5f9; border-radius: 3rem; padding: 0.6rem 1rem; margin: 0.5rem 0; cursor: pointer; }
+    .quiz-option:hover { background: #e2eaf5; }
+    .correct-feedback { color: #1f7b4d; font-weight: 500; }
+    .wrong-feedback { color: #c2410c; }
+    .preach-box { background: #e8f0e8; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #2c7a6e; }
+    .devotional-box { background: #fef9e6; padding: 0.8rem; border-radius: 0.8rem; margin: 0.5rem 0; border-left: 4px solid #c6a43b; }
+    .greek-passage { background: #eef3fa; padding: 1rem; border-radius: 1rem; margin: 0.8rem 0; font-size: 1.05rem; line-height: 1.8; }
+    .greek-passage .greek-word { font-size: 1.1rem; background: none; padding: 0.1rem 0.2rem; }
+    .plan-card { background: #f8fafd; border-radius: 1rem; padding: 1rem; border: 1px solid #e2e8f0; margin: 0.5rem 0; }
+    /* ========== FOOTER ========== */
+    .main-footer { background: #111c16; color: #cdd9cf; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: #e0d6c6; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-links a:hover { color: #c6a43b; }
+    .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social a { color: #cdd9cf; font-size: 1.4rem; }
+    .footer-social a:hover { color: #c6a43b; }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="container header-container">
+      <div class="logo-area"><i class="fas fa-scroll logo-icon"></i><span class="logo-text">Koiné Academy</span></div>
+      <div class="nav-links">
+        <a href="leccion-69.html"><i class="fas fa-arrow-left"></i> Lección 69</a>
+        <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1><i class="fas fa-church"></i> Lección 70 · De la Gramática a la Predicación <span class="hero-badge">Módulo V · Maestría</span></h1>
+      <p>Usar el griego para enriquecer sermones · Lectura devocional del NT · Límites del conocimiento gramatical · Plan de lectura 12 meses · Juan 21:15-17</p>
+      <div class="progress-section">
+        <div class="progress-bar-container"><div class="progress-fill"></div></div>
+        <div class="stats"><i class="fas fa-check-circle"></i> Vocabulario nuevo: 20 · Acumulado: 1400/1400</div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7XhLq8nVlSo" title="De la gramática a la predicación: griego vivo en la iglesia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;"><i class="fas fa-info-circle"></i> Video: Cómo integrar el griego en la predicación, la enseñanza y la devoción personal</p>
+    </div>
+
+    <div class="accordion" id="mainAccordion">
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-greek-helmet"></i> 1. De la gramática a la predicación</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El objetivo final del estudio del griego del NT no es <strong>acumular conocimiento</strong>, sino <strong>conocer a Dios</strong> más profundamente y <strong>comunicar su mensaje</strong> con mayor fidelidad. Esta lección te ayuda a hacer la transición de <strong>estudiante</strong> a <strong>expositor</strong> y <strong>discípulo</strong>.</p>
+          <div class="preach-box">
+            <i class="fas fa-lightbulb"></i> <strong>Principios clave:</strong>
+            <ul>
+              <li>El griego es un <strong>medio</strong>, no un fin en sí mismo.</li>
+              <li>El conocimiento gramatical <strong>sirve</strong> a la teología, no al revés.</li>
+              <li>La predicación debe ser <strong>fiel al texto</strong>, pero <strong>accesible</strong> a la congregación.</li>
+              <li>El estudio del griego debe nutrir la <strong>devoción personal</strong>.</li>
+            </ul>
+          </div>
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Versículo clave:</strong><br>
+            <span class="greek-word">σπούδασον σεαυτὸν δόκιμον παραστῆσαι τῷ θεῷ, ἐργάτην ἀνεπαίσχυντον, ὀρθοτομοῦντα τὸν λόγον τῆς ἀληθείας.</span> (2 Timoteo 2:15)<br>
+            "Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que maneja bien la palabra de verdad."
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 2: USAR EL GRIEGO PARA ENRIQUECER SERMONES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-chalkboard"></i> 2. Usar el griego para enriquecer sermones (sin alarde)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El griego puede <strong>enriquecer</strong> la predicación sin necesidad de hacer <strong>alarde</strong> de conocimiento. La clave es <strong>integrarlo</strong> de manera natural.</p>
+
+          <div class="preach-box">
+            <strong><i class="fas fa-arrow-right"></i> Cómo usar el griego en la predicación:</strong>
+            <ul>
+              <li><strong>Menciona el griego solo cuando añada claridad</strong> – no por "demostrar" conocimiento.</li>
+              <li><strong>Explica el significado</strong> – no solo la palabra griega, sino su matiz teológico.</li>
+              <li><strong>Conecta con la traducción</strong> – muestra cómo el griego ilumina la traducción.</li>
+              <li><strong>Usa la etimología con cuidado</strong> – no siempre es relevante para el significado actual.</li>
+              <li><strong>Enfócate en el texto</strong> – el sermón es sobre la Palabra, no sobre el griego.</li>
+            </ul>
+          </div>
+
+          <div class="devotional-box">
+            <strong><i class="fas fa-lightbulb"></i> Ejemplo práctico:</strong><br>
+            <span class="greek-word">ἀγαπάω</span> vs. <span class="greek-word">φιλέω</span> en Juan 21:15-17.<br>
+            No digas: "La palabra griega es φιλέω..." y luego continúas en griego.<br>
+            Di: "Jesús pregunta a Pedro: '¿Me amas?' Hay un matiz que se pierde en la traducción. El verbo que Jesús usa en las dos primeras preguntas es <span class="greek-word">ἀγαπάω</span>, que implica un amor sacrificial, de elección. Pedro responde con <span class="greek-word">φιλέω</span>, un amor de amistad. En la tercera pregunta, Jesús baja al nivel de Pedro y usa <span class="greek-word">φιλέω</span>. Esto muestra la gracia de Jesús."<br>
+            <strong>Conclusión:</strong> Explicas el significado sin necesidad de mostrar la gramática en la pantalla.
+          </div>
+          <button class="btn-reveal" data-target="predecirEj">Ver más consejos</button>
+          <div id="predecirEj" class="answer-text">
+            <strong>Consejos adicionales:</strong><br>
+            - No uses el griego para "impresionar" – usa el griego para "iluminar".<br>
+            - Siempre traduce el griego que cites.<br>
+            - No sobrecargues el sermón con demasiados términos griegos.<br>
+            - La aplicación final debe ser clara, sin necesidad de griego.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 3: LECTURA DEVOCIONAL DEL NT EN GRIEGO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-heart"></i> 3. Lectura devocional del NT en griego</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>La <strong>lectura devocional</strong> del NT en griego transforma el estudio académico en <strong>encuentro personal</strong> con Dios. No se trata de "analizar" cada forma gramatical, sino de <strong>leer</strong> y <strong>meditar</strong> en el texto.</p>
+
+          <div class="devotional-box">
+            <strong><i class="fas fa-arrow-right"></i> Consejos para la lectura devocional:</strong>
+            <ul>
+              <li><strong>Lee en voz alta</strong> – el griego está hecho para ser hablado.</li>
+              <li><strong>No te detengas en cada palabra</strong> – fluye con el texto.</li>
+              <li><strong>Medita en las palabras que destacan</strong> – no todas necesitan análisis.</li>
+              <li><strong>Ora el texto</strong> – convierte el texto en oración.</li>
+              <li><strong>Lee un pasaje pequeño</strong> – 5-10 versículos al día.</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> Plan de lectura devocional sugerido:</strong>
+            <ul>
+              <li><strong>Lunes:</strong> Juan 1:1-5</li>
+              <li><strong>Martes:</strong> Juan 3:16-21</li>
+              <li><strong>Miércoles:</strong> Romanos 8:1-11</li>
+              <li><strong>Jueves:</strong> Efesios 2:8-10</li>
+              <li><strong>Viernes:</strong> Filipenses 2:5-11</li>
+              <li><strong>Sábado:</strong> 1 Juan 1:1-4</li>
+              <li><strong>Domingo:</strong> Apocalipsis 21:1-5</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="devocionalEj">Ejemplo de lectura devocional</button>
+          <div id="devocionalEj" class="answer-text">
+            <span class="greek-word">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</span> (Juan 1:1)<br>
+            <strong>Meditación:</strong> El Verbo <span class="greek-word">λόγος</span> no solo era <span class="greek-word">πρὸς τὸν θεόν</span> (con Dios), sino que <span class="greek-word">θεὸς ἦν</span> (era Dios). La persona de Cristo es el centro de la revelación.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 4: LÍMITES DEL CONOCIMIENTO GRAMATICAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-exclamation-triangle"></i> 4. Límites del conocimiento gramatical</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El conocimiento gramatical es <strong>esencial</strong>, pero tiene <strong>límites</strong>. La gramática no es un "talismán" que garantiza la interpretación correcta.</p>
+
+          <div class="preach-box">
+            <strong><i class="fas fa-arrow-right"></i> Límites del análisis gramatical:</strong>
+            <ul>
+              <li><strong>La gramática no determina el significado teológico</strong> – la teología viene del texto completo.</li>
+              <li><strong>La gramática puede ser ambigua</strong> – algunos casos son debatibles (ej. genitivo objetivo/subjetivo).</li>
+              <li><strong>La gramática no reemplaza la obra del Espíritu</strong> – la iluminación espiritual es necesaria.</li>
+              <li><strong>La gramática puede llevar a la arrogancia</strong> – "saber griego" no es igual a "entender la Escritura".</li>
+              <li><strong>La gramática es un medio, no un fin</strong> – el fin es conocer a Dios.</li>
+            </ul>
+          </div>
+
+          <div class="devotional-box">
+            <strong><i class="fas fa-lightbulb"></i> Advertencia:</strong> Es posible tener un <strong>conocimiento perfecto del griego</strong> y <strong>no conocer a Dios</strong>. La gramática debe llevar a la <strong>adoración</strong>, no al <strong>orgullo</strong>.
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-bible"></i> 1 Corintios 8:1:</strong><br>
+            <span class="greek-word">ἡ γνῶσις φυσιοῖ, ἡ δὲ ἀγάπη οἰκοδομεῖ.</span><br>
+            "El conocimiento enorgullece, pero el amor edifica."<br>
+            El conocimiento del griego debe usarse con <strong>humildad</strong> y <strong>amor</strong>.
+          </div>
+          <button class="btn-reveal" data-target="limitesEj">Límites del griego</button>
+          <div id="limitesEj" class="answer-text">
+            - La gramática no resuelve todos los debates exegéticos.<br>
+            - La teología debe ser bíblica, no solo gramatical.<br>
+            - El Espíritu Santo es el intérprete final de la Escritura.<br>
+            - El amor debe guiar el uso del conocimiento.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 5: PLAN DE LECTURA CONTINUA DE 12 MESES -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-check"></i> 5. Plan de lectura continua del NT griego (12 meses)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>El estudio del griego es un <strong>viaje de por vida</strong>. Este plan te ayudará a <strong>mantener</strong> y <strong>profundizar</strong> tu conocimiento del NT griego.</p>
+
+          <div class="plan-card">
+            <strong><i class="fas fa-book"></i> Meses 1-3: Los Evangelios</strong>
+            <ul>
+              <li><strong>Mes 1:</strong> Marcos (lectura completa, 15 capítulos)</li>
+              <li><strong>Mes 2:</strong> Mateo (lectura completa, 28 capítulos)</li>
+              <li><strong>Mes 3:</strong> Lucas (lectura completa, 24 capítulos)</li>
+            </ul>
+          </div>
+
+          <div class="plan-card">
+            <strong><i class="fas fa-book"></i> Meses 4-6: Juan y Hechos</strong>
+            <ul>
+              <li><strong>Mes 4:</strong> Juan (lectura completa, 21 capítulos)</li>
+              <li><strong>Mes 5:</strong> Hechos 1-14 (lectura semanal)</li>
+              <li><strong>Mes 6:</strong> Hechos 15-28 (lectura semanal)</li>
+            </ul>
+          </div>
+
+          <div class="plan-card">
+            <strong><i class="fas fa-book"></i> Meses 7-9: Pablo y las epístolas generales</strong>
+            <ul>
+              <li><strong>Mes 7:</strong> Romanos y Gálatas (lectura semanal)</li>
+              <li><strong>Mes 8:</strong> Efesios, Filipenses, Colosenses (lectura semanal)</li>
+              <li><strong>Mes 9:</strong> 1-2 Corintios (lectura semanal)</li>
+            </ul>
+          </div>
+
+          <div class="plan-card">
+            <strong><i class="fas fa-book"></i> Meses 10-12: Epístolas y Apocalipsis</strong>
+            <ul>
+              <li><strong>Mes 10:</strong> Hebreos, Santiago, 1-2 Pedro (lectura semanal)</li>
+              <li><strong>Mes 11:</strong> 1-2-3 Juan, Judas (lectura semanal)</li>
+              <li><strong>Mes 12:</strong> Apocalipsis (lectura completa, 22 capítulos)</li>
+            </ul>
+          </div>
+
+          <div class="card-highlight">
+            <strong><i class="fas fa-lightbulb"></i> Consejos para el plan de lectura:</strong>
+            <ul>
+              <li>Lee <strong>5-10 versículos</strong> al día.</li>
+              <li>Usa un <strong>NT griego</strong> sin interlineal (NA28 o UBS5).</li>
+              <li>Marca las <strong>palabras que no conoces</strong> y revísalas.</li>
+              <li>Lee en <strong>voz alta</strong> para practicar la pronunciación.</li>
+              <li>Combina la lectura con la <strong>oración</strong> y la <strong>meditación</strong>.</li>
+            </ul>
+          </div>
+          <button class="btn-reveal" data-target="planEj">Ver el plan completo</button>
+          <div id="planEj" class="answer-text">
+            <strong>12 meses:</strong> Meses 1-3 (Evangelios), Meses 4-6 (Juan y Hechos), Meses 7-9 (Pablo), Meses 10-12 (Epístolas y Apocalipsis).<br>
+            <strong>Lectura diaria:</strong> 5-10 versículos.<br>
+            <strong>Objetivo:</strong> Leer todo el NT en griego en un año.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 6: JUAN 21:15-17 – EJERCICIO DE CIERRE -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-bible"></i> 6. Juan 21:15-17 – El llamado final</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="greek-passage">
+            <p><span class="greek-word">Ὅτε οὖν ἠρίστησαν λέγει τῷ Σίμωνι Πέτρῳ ὁ Ἰησοῦς· Σίμων Ἰωάννου, ἀγαπᾷς με πλέον τούτων; λέγει αὐτῷ· ναί, κύριε, σὺ οἶδας ὅτι φιλῶ σε. λέγει αὐτῷ· βόσκε τὰ ἀρνία μου.</span> (21:15)</p>
+            <p><span class="greek-word">λέγει αὐτῷ πάλιν δεύτερον· Σίμων Ἰωάννου, ἀγαπᾷς με; λέγει αὐτῷ· ναί, κύριε, σὺ οἶδας ὅτι φιλῶ σε. λέγει αὐτῷ· ποίμαινε τὰ πρόβατά μου.</span> (21:16)</p>
+            <p><span class="greek-word">λέγει αὐτῷ τὸ τρίτον· Σίμων Ἰωάννου, φιλεῖς με; ἐλυπήθη ὁ Πέτρος ὅτι εἶπεν αὐτῷ τὸ τρίτον· φιλεῖς με; καὶ λέγει αὐτῷ· κύριε, πάντα σὺ οἶδας, σὺ γινώσκεις ὅτι φιλῶ σε. λέγει αὐτῷ· βόσκε τὰ πρόβατά μου.</span> (21:17)</p>
+          </div>
+
+          <h3>Análisis de Juan 21:15-17</h3>
+          <div class="preach-box">
+            <strong><i class="fas fa-lightbulb"></i> El diálogo entre Jesús y Pedro:</strong>
+            <ul>
+              <li><strong>Primera pregunta:</strong> <span class="greek-word">ἀγαπᾷς με</span> – Jesús usa <span class="greek-word">ἀγαπάω</span> (amor divino, sacrificial).</li>
+              <li><strong>Respuesta de Pedro:</strong> <span class="greek-word">φιλῶ σε</span> – Pedro responde con <span class="greek-word">φιλέω</span> (amor de amistad).</li>
+              <li><strong>Segunda pregunta:</strong> <span class="greek-word">ἀγαπᾷς με</span> – Jesús repite el mismo verbo.</li>
+              <li><strong>Respuesta de Pedro:</strong> <span class="greek-word">φιλῶ σε</span> – Pedro insiste en el amor de amistad.</li>
+              <li><strong>Tercera pregunta:</strong> <span class="greek-word">φιλεῖς με</span> – Jesús baja al nivel de Pedro.</li>
+              <li><strong>Reacción de Pedro:</strong> <span class="greek-word">ἐλυπήθη</span> – se entristeció.</li>
+              <li><strong>Llamado final:</strong> <span class="greek-word">βόσκε τὰ πρόβατά μου</span> – "apacienta mis ovejas".</li>
+            </ul>
+          </div>
+
+          <div class="devotional-box">
+            <strong><i class="fas fa-heart"></i> Significado teológico:</strong><br>
+            Jesús no exige un amor perfecto (<span class="greek-word">ἀγάπη</span>) de Pedro; acepta su amor sincero (<span class="greek-word">φιλία</span>). Esto es un mensaje de <strong>restauración</strong> y <strong>gracia</strong> para todos los que han fallado.
+          </div>
+
+          <button class="btn-reveal" data-target="juan21Ej">Analiza la diferencia entre ἀγαπᾷς y φιλεῖς</button>
+          <div id="juan21Ej" class="answer-text">
+            <span class="greek-word">ἀγαπᾷς</span> – amor divino, sacrificial, de elección.<br>
+            <span class="greek-word">φιλεῖς</span> – amor de amistad, cariño personal.<br>
+            Jesús usa <span class="greek-word">ἀγαπάω</span> en las dos primeras preguntas, pero en la tercera usa <span class="greek-word">φιλέω</span>, "bajando" al nivel de Pedro para restaurarlo.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 7: VOCABULARIO NUEVO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-words"></i> 7. Vocabulario · Predicación y vida espiritual</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <p>Estas 20 palabras representan la <strong>culminación</strong> del curso y el vocabulario de la vida espiritual y la predicación.</p>
+          <div style="overflow-x: auto;">
+            <table id="vocabTable">
+              <thead><tr><th>Griego</th><th>Transliteración</th><th>Español</th><th>Significado espiritual</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card-highlight"><i class="fas fa-bible"></i> <strong>Juan 21:15-17:</strong> El diálogo de Jesús y Pedro – un llamado al amor y al servicio pastoral.</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 8: EJERCICIO – IDENTIFICA EL VERBO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-question-circle"></i> 8. Identifica el verbo y su significado</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="verboJuanQuizArea"></div>
+          <button id="newVerboJuanQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva forma</button>
+          <div id="verboJuanFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 9: EJERCICIO – TRADUCE Y ANALIZA -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-language"></i> 9. Traduce y analiza Juan 21:15-17</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="transJuanCierreQuizArea"></div>
+          <button id="newTransJuanCierreQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva frase</button>
+          <div id="transJuanCierreFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 10: EJERCICIO – REFLEXIÓN PERSONAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-heart"></i> 10. Reflexión personal</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="reflexionQuizArea"></div>
+          <button id="newReflexionQuiz" class="btn-reveal"><i class="fas fa-sync-alt"></i> Nueva reflexión</button>
+          <div id="reflexionFeedback" style="margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 11: FLASHCARDS DEL VOCABULARIO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-id-card"></i> 11. Flashcards interactivas</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div id="flashcardGrid" class="vocab-grid"></div>
+          <p><small><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción.</small></p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 12: QUIZ Y AUTOEVALUACIÓN -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-gamepad"></i> 12. Autoevaluación y Quiz</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <h3>Quiz de vocabulario</h3>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" class="card-highlight"></div>
+          <h3>Traducción aleatoria</h3>
+          <div id="translationQuiz"></div>
+          <h3>Test sorpresa</h3>
+          <button id="randomTestBtn" class="btn-reveal"><i class="fas fa-dice-d6"></i> Generar pregunta</button>
+          <div id="randomQuestionArea" style="margin-top: 15px;"></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 13: CIERRE DEL CURSO -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-trophy"></i> 13. El llamado final: ἀκολούθει μοι</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <div class="card-highlight" style="background: #eef3fa; text-align: center; font-size: 1.1rem;">
+            <p><span class="greek-word" style="font-size: 2rem;">ἀκολούθει μοι</span></p>
+            <p><strong>"Sígueme"</strong> (Juan 21:19)</p>
+            <p style="margin-top: 1rem;">Has completado <strong>70 lecciones</strong> de griego del Nuevo Testamento.</p>
+            <p>Has aprendido <strong>1400 palabras</strong> – aproximadamente el <strong>90% del vocabulario del NT</strong>.</p>
+            <p style="margin-top: 1rem;">Pero el verdadero objetivo no es el conocimiento académico, sino <strong>seguir a Cristo</strong>.</p>
+            <p style="margin-top: 0.5rem; font-style: italic;">"Que la palabra de Cristo more en abundancia en vosotros" (Colosenses 3:16).</p>
+            <p style="margin-top: 1rem; font-size: 1.5rem;">🎉 ¡Felicidades!</p>
+          </div>
+          <button class="btn-reveal" data-target="cierreEj">Reflexión final</button>
+          <div id="cierreEj" class="answer-text">
+            <strong>El llamado de Jesús:</strong> <span class="greek-word">ἀκολούθει μοι</span> – "sígueme".<br>
+            <strong>El propósito del curso:</strong> No solo aprender griego, sino <strong>conocer a Cristo</strong> y <strong>hacer discípulos</strong>.<br>
+            <strong>El próximo paso:</strong> Sigue leyendo el NT en griego, enseña a otros, y <strong>vive</strong> la Palabra.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN 14: REPASO ESPACIADO FINAL -->
+      <div class="accordion-item">
+        <div class="accordion-header"><span><i class="fas fa-calendar-week"></i> 14. Plan de repaso (SRS)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight"><i class="far fa-clock"></i> Técnica final: Lee Juan 21:15-19 en griego. Reflexiona sobre el llamado de Jesús a Pedro: <span class="greek-word">ἀκολούθει μοι</span>. Este es el llamado para ti también. Sigue a Cristo, y usa el griego para conocerlo mejor y darlo a conocer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="leccion-69.html"><i class="fas fa-arrow-left"></i> Lección 69</a>
+      <a href="https://biblefluent.org/Greek/main-es.html" target="_blank"><i class="fas fa-language"></i> Curso Griego NT</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 Koiné Academy · <span class="greek-word">ἀκολούθει μοι</span> (Juan 21:19)</p>
+    <p style="font-size: 0.9rem; margin-top: 0.5rem;">¡Felicidades por completar las 70 lecciones! Que el Señor te bendiga en tu estudio continuo de su Palabra.</p>
+  </footer>
+
+  <script>
+    // ========== DATOS DE LA LECCIÓN 70 ==========
+    const vocabData = [
+      { greek: "ἀγαπᾷς", translit: "agapas", spanish: "amas (ágape)", meaning: "amor divino, sacrificial" },
+      { greek: "φιλεῖς", translit: "phileis", spanish: "amas (amistad)", meaning: "amor de amistad, afecto" },
+      { greek: "βοσκε", translit: "boske", spanish: "apacienta", meaning: "cuidar, pastorear" },
+      { greek: "ποίμαινε", translit: "poimaine", spanish: "pastorea", meaning: "cuidar como pastor" },
+      { greek: "ἀρνία", translit: "arnia", spanish: "corderitos", meaning: "jóvenes ovejas" },
+      { greek: "πρόβατα", translit: "probata", spanish: "ovejas", meaning: "rebaño" },
+      { greek: "ἐλυπήθη", translit: "elypēthē", spanish: "se entristeció", meaning: "aoristo pasivo de λυπέω" },
+      { greek: "οἶδας", translit: "oidas", spanish: "sabes", meaning: "perfecto con significado presente" },
+      { greek: "γινώσκεις", translit: "ginōskeis", spanish: "conoces", meaning: "conocimiento personal" },
+      { greek: "κύριε", translit: "kyrie", spanish: "Señor", meaning: "vocativo de κύριος" },
+      { greek: "σύ", translit: "sy", spanish: "tú", meaning: "pronombre enfático" },
+      { greek: "πλέον τούτων", translit: "pleon toutōn", spanish: "más que estos", meaning: "comparación" },
+      { greek: "δεύτερον", translit: "deuteron", spanish: "segunda vez", meaning: "adverbio" },
+      { greek: "τρίτον", translit: "triton", spanish: "tercera vez", meaning: "adverbio" },
+      { greek: "ἠρίστησαν", translit: "ēristēsan", spanish: "comieron", meaning: "aoristo de ἀριστάω" },
+      { greek: "λέγει", translit: "legei", spanish: "dice", meaning: "presente histórico" },
+      { greek: "ναί", translit: "nai", spanish: "sí", meaning: "afirmación" },
+      { greek: "πάντα", translit: "panta", spanish: "todas las cosas", meaning: "acusativo de extensión" },
+      { greek: "ἀκολούθει μοι", translit: "akolouthei moi", spanish: "sígueme", meaning: "llamado final de Jesús" },
+      { greek: "ἀμὴν ἀμήν", translit: "amēn amēn", spanish: "de cierto, de cierto", meaning: "afirmación solemne" }
+    ];
+
+    // Ejemplos para identificar verbos en Juan 21
+    const verboJuanExamples = [
+      { form: "ἀγαπᾷς", verb: "ἀγαπάω", meaning: "amas (ágape)", context: "Jesús pregunta a Pedro" },
+      { form: "φιλῶ", verb: "φιλέω", meaning: "amo (amistad)", context: "Pedro responde a Jesús" },
+      { form: "βοσκε", verb: "βόσκω", meaning: "apacienta", context: "Jesús le ordena" },
+      { form: "ποίμαινε", verb: "ποιμαίνω", meaning: "pastorea", context: "Jesús le ordena" },
+      { form: "ἐλυπήθη", verb: "λυπέω", meaning: "se entristeció", context: "reacción de Pedro" },
+      { form: "οἶδας", verb: "οἶδα", meaning: "sabes", context: "Pedro responde" },
+      { form: "γινώσκεις", verb: "γινώσκω", meaning: "conoces", context: "Pedro responde" }
+    ];
+
+    // Frases para traducción de Juan 21
+    const transJuanCierreExamples = [
+      { greek: "Σίμων Ἰωάννου, ἀγαπᾷς με;", translation: "Simón, hijo de Juan, ¿me amas (ágape)?" },
+      { greek: "σὺ οἶδας ὅτι φιλῶ σε.", translation: "tú sabes que te amo (amistad)" },
+      { greek: "βόσκε τὰ ἀρνία μου.", translation: "apacienta mis corderitos" },
+      { greek: "ποίμαινε τὰ πρόβατά μου.", translation: "pastorea mis ovejas" },
+      { greek: "κύριε, πάντα σὺ οἶδας", translation: "Señor, tú sabes todas las cosas" },
+      { greek: "ἀκολούθει μοι", translation: "sígueme" }
+    ];
+
+    // Reflexiones personales sobre Juan 21
+    const reflexionExamples = [
+      { question: "Jesús pregunta a Pedro: '¿Me amas más que estos?' ¿Qué representa 'estos'?", answer: "Posiblemente los otros discípulos, o la pesca, o la vida anterior." },
+      { question: "¿Por qué Pedro se entristece en la tercera pregunta?", answer: "Porque Jesús usa el mismo verbo que Pedro (φιλέω), mostrando que Jesús 'bajó' a su nivel." },
+      { question: "¿Qué significa 'apacienta mis ovejas' en el contexto pastoral?", answer: "Es un llamado al cuidado y la enseñanza de la comunidad de creyentes." }
+    ];
+
+    let currentVerboJuan = verboJuanExamples[0];
+    let currentTransJuanCierre = transJuanCierreExamples[0];
+    let currentReflexion = reflexionExamples[0];
+
+    function renderVocabTable() {
+      const tbody = document.querySelector("#vocabTable tbody");
+      if (tbody) {
+        vocabData.forEach(v => {
+          const row = `<tr><td class="greek-word">${v.greek}</td><td>${v.translit}</td><td>${v.spanish}</td><td>${v.meaning}</td></tr>`;
+          tbody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+    }
+
+    function buildFlashcards() {
+      const container = document.getElementById("flashcardGrid");
+      if (!container) return;
+      container.innerHTML = "";
+      vocabData.forEach(word => {
+        const card = document.createElement("div");
+        card.className = "vocab-card";
+        card.innerHTML = `<div class="greek-word" style="font-size:1.6rem; font-weight:bold;">${word.greek}</div><div class="translit" style="font-size:0.8rem;">${word.translit}</div><div class="meaning" style="display:none; margin-top:0.5rem;"><i class="fas fa-language"></i> ${word.spanish}</div>`;
+        card.addEventListener("click", () => {
+          const m = card.querySelector(".meaning");
+          m.style.display = m.style.display === "none" ? "block" : "none";
+        });
+        container.appendChild(card);
+      });
+    }
+
+    function loadVerboJuanQuiz() {
+      const randomIndex = Math.floor(Math.random() * verboJuanExamples.length);
+      currentVerboJuan = verboJuanExamples[randomIndex];
+      const container = document.getElementById("verboJuanQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Analiza la forma <span class="greek-word">${currentVerboJuan.form}</span>:</strong><br>
+      <span style="font-size:0.9rem;">Contexto: ${currentVerboJuan.context}</span><br>
+      <input type="text" id="verboJuanAnswer" placeholder="verbo y significado..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkVerboJuan" class="btn-reveal">Verificar</button>
+      <div id="verboJuanResult"></div></div>`;
+      document.getElementById("checkVerboJuan").addEventListener("click", () => {
+        const answer = document.getElementById("verboJuanAnswer").value.trim().toLowerCase();
+        const correct = `${currentVerboJuan.verb} (${currentVerboJuan.meaning})`;
+        const result = document.getElementById("verboJuanResult");
+        if (answer.includes(currentVerboJuan.verb) || answer.includes(currentVerboJuan.meaning)) {
+          result.innerHTML = `<span class="correct-feedback">✓ Correcto (${currentVerboJuan.verb} – ${currentVerboJuan.meaning})</span>`;
+          setTimeout(loadVerboJuanQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentVerboJuan.verb} – ${currentVerboJuan.meaning}</span>`;
+        }
+      });
+    }
+
+    function loadTransJuanCierreQuiz() {
+      const randomIndex = Math.floor(Math.random() * transJuanCierreExamples.length);
+      currentTransJuanCierre = transJuanCierreExamples[randomIndex];
+      const container = document.getElementById("transJuanCierreQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong><br>
+      <span class="greek-word" style="font-size:1.3rem;">${currentTransJuanCierre.greek}</span><br>
+      <input type="text" id="transJuanCierreAnswer" placeholder="tu traducción..." style="margin-top:0.5rem; padding:0.5rem; width:80%;"> <button id="checkTransJuanCierre" class="btn-reveal">Verificar</button>
+      <div id="transJuanCierreResult"></div></div>`;
+      document.getElementById("checkTransJuanCierre").addEventListener("click", () => {
+        const answer = document.getElementById("transJuanCierreAnswer").value.trim().toLowerCase();
+        const correct = currentTransJuanCierre.translation.toLowerCase();
+        const result = document.getElementById("transJuanCierreResult");
+        if (answer === correct || correct.includes(answer)) {
+          result.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTransJuanCierreQuiz, 1500);
+        } else {
+          result.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${currentTransJuanCierre.translation}</span>`;
+        }
+      });
+    }
+
+    function loadReflexionQuiz() {
+      const randomIndex = Math.floor(Math.random() * reflexionExamples.length);
+      currentReflexion = reflexionExamples[randomIndex];
+      const container = document.getElementById("reflexionQuizArea");
+      container.innerHTML = `<div class="card-highlight"><strong>Reflexiona sobre Juan 21:</strong><br>
+      <span style="font-size:1.1rem;">${currentReflexion.question}</span><br>
+      <button id="reflexOk" class="btn-reveal">Ver reflexión</button>
+      <div id="reflexionResult"></div></div>`;
+      document.getElementById("reflexOk").addEventListener("click", () => {
+        const result = document.getElementById("reflexionResult");
+        result.innerHTML = `<span class="correct-feedback">✓ ${currentReflexion.answer}</span>`;
+        setTimeout(loadReflexionQuiz, 1500);
+      });
+    }
+
+    // Quiz
+    const quizQuestions = [
+      { q: "Verbo griego para 'amar' (amor divino, sacrificial)", opts: ["ἀγαπάω", "φιλέω", "ποιμαίνω", "βόσκω"], correct: 0 },
+      { q: "Verbo griego para 'amar' (amor de amistad)", opts: ["φιλέω", "ἀγαπάω", "οἶδα", "γινώσκω"], correct: 0 },
+      { q: "En Juan 21:15-17, Jesús pregunta a Pedro ... veces.", opts: ["tres", "dos", "una", "cuatro"], correct: 0 },
+      { q: "El verbo que Pedro usa para responder a Jesús es ...", opts: ["φιλῶ", "ἀγαπῶ", "οἶδα", "γινώσκω"], correct: 0 },
+      { q: "El llamado final de Jesús a Pedro es ...", opts: ["ἀκολούθει μοι", "βόσκε τὰ ἀρνία μου", "ποίμαινε τὰ πρόβατά μου", "σὺ οἶδας"], correct: 0 }
+    ];
+    let qIndex = 0;
+    function loadQuiz() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+      const q = quizQuestions[qIndex % quizQuestions.length];
+      let html = `<p><strong>${q.q}</strong></p>`;
+      q.opts.forEach((opt, idx) => {
+        html += `<div class="quiz-option" data-opt="${idx}">${opt}</div>`;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll(".quiz-option").forEach(el => {
+        el.addEventListener("click", () => {
+          const selected = parseInt(el.dataset.opt);
+          const feedback = document.getElementById("quizFeedback");
+          if (selected === q.correct) {
+            feedback.innerHTML = '<span class="correct-feedback">✅ Correcto +10 XP</span>';
+            qIndex++;
+            setTimeout(() => { loadQuiz(); feedback.innerHTML = ""; }, 1200);
+          } else {
+            feedback.innerHTML = `<span class="wrong-feedback">❌ Incorrecto. Respuesta: ${q.opts[q.correct]}</span>`;
+          }
+        });
+      });
+    }
+
+    // Traducción aleatoria de vocabulario
+    function loadTranslationQuiz() {
+      const container = document.getElementById("translationQuiz");
+      const randomWord = vocabData[Math.floor(Math.random() * vocabData.length)];
+      container.innerHTML = `<div class="card-highlight"><strong>Traduce al español:</strong> <span class="greek-word">${randomWord.greek}</span><br>
+      <input type="text" id="transAnswer" placeholder="escribe aquí..."> <button id="checkTrans" class="btn-reveal">Comprobar</button> <span id="transFeedback"></span></div>`;
+      document.getElementById("checkTrans").addEventListener("click", () => {
+        const ans = document.getElementById("transAnswer").value.trim().toLowerCase();
+        const correct = randomWord.spanish.toLowerCase();
+        const fb = document.getElementById("transFeedback");
+        if (ans === correct || (correct.includes(ans) && ans.length > 2)) {
+          fb.innerHTML = '<span class="correct-feedback">✓ Correcto</span>';
+          setTimeout(loadTranslationQuiz, 1500);
+        } else {
+          fb.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${randomWord.spanish}</span>`;
+        }
+      });
+    }
+
+    function randomVocabularyTest() {
+      const word = vocabData[Math.floor(Math.random() * vocabData.length)];
+      const area = document.getElementById("randomQuestionArea");
+      area.innerHTML = `<div class="card-highlight"><strong><i class="fas fa-dice-d6"></i> ¿Qué significa?</strong> <span class="greek-word">${word.greek}</span><br>
+      <input type="text" id="randAnswer" placeholder="tu respuesta..."> <button id="submitRand" class="btn-reveal">Verificar</button>
+      <div id="randResult"></div></div>`;
+      document.getElementById("submitRand").addEventListener("click", () => {
+        const ans = document.getElementById("randAnswer").value.trim().toLowerCase();
+        const correct = word.spanish.toLowerCase();
+        const res = document.getElementById("randResult");
+        if (ans === correct || correct.includes(ans)) {
+          res.innerHTML = '<span class="correct-feedback"><i class="fas fa-trophy"></i> ¡Perfecto!</span>';
+        } else {
+          res.innerHTML = `<span class="wrong-feedback">✗ Respuesta: ${word.spanish}</span>`;
+        }
+      });
+    }
+
+    function initAccordions() {
+      document.querySelectorAll(".accordion-item").forEach(item => {
+        const header = item.querySelector(".accordion-header");
+        header.addEventListener("click", () => item.classList.toggle("active"));
+      });
+    }
+
+    function initRevealButtons() {
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        if (btn.id && (btn.id === "checkVerboJuan" || btn.id === "checkTransJuanCierre" || btn.id === "checkTrans" || btn.id === "submitRand")) return;
+        if (btn.closest && btn.closest("#reflexionQuizArea")) return;
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          if (target) document.getElementById(target)?.classList.toggle("show");
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVocabTable();
+      buildFlashcards();
+      loadVerboJuanQuiz();
+      loadTransJuanCierreQuiz();
+      loadReflexionQuiz();
+      loadQuiz();
+      loadTranslationQuiz();
+      initAccordions();
+      initRevealButtons();
+      document.getElementById("newVerboJuanQuiz")?.addEventListener("click", () => {
+        loadVerboJuanQuiz();
+        document.getElementById("verboJuanFeedback").innerHTML = "";
+      });
+      document.getElementById("newTransJuanCierreQuiz")?.addEventListener("click", () => {
+        loadTransJuanCierreQuiz();
+        document.getElementById("transJuanCierreFeedback").innerHTML = "";
+      });
+      document.getElementById("newReflexionQuiz")?.addEventListener("click", () => {
+        loadReflexionQuiz();
+        document.getElementById("reflexionFeedback").innerHTML = "";
+      });
+      document.getElementById("randomTestBtn")?.addEventListener("click", randomVocabularyTest);
+    });
+  </script>
+</body>
+</html>

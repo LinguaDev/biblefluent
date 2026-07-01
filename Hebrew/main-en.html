@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Biblical Hebrew | BibleFluent - 70 lessons</title>
+  <meta name="description" content="Complete Biblical Hebrew course in 70 lessons. Programmed reading method. Learn grammar, 1400 words, and read the Tanakh. Free.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=EB+Garamond:ital@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET & BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: #fefcf5;
+      color: #1e2a2e;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f3b2c;
+    }
+    .logo-icon { font-size: 1.8rem; }
+    .logo-text em { font-style: normal; color: #c6a43b; }
+    .main-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link, .nav-cta {
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-link { color: #2c3e2f; }
+    .nav-link:hover, .nav-cta:hover { color: #c6a43b; }
+    .nav-cta {
+      background: #c6a43b;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      color: #1f3b2c;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1f3b2c;
+    }
+    @media (max-width: 900px) {
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        transition: 0.3s;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 99;
+      }
+      .main-nav.open { left: 0; }
+      .nav-toggle { display: block; }
+      .header-inner { padding: 0.8rem 1.5rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(105deg, #fff7ea 0%, #e9e0cf 100%);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c6a43b;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-family: 'Cinzel', serif;
+      margin: 1rem 0;
+      line-height: 1.2;
+    }
+    .hero-hebrew-quote {
+      font-size: 2rem;
+      font-family: 'EB Garamond', serif;
+      margin: 1rem 0;
+      direction: rtl;
+      letter-spacing: 2px;
+    }
+    .hero-hebrew-trans {
+      font-style: italic;
+      color: #4a5b4a;
+    }
+    .hero-desc {
+      max-width: 700px;
+      margin: 1.5rem auto;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-ghost {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: #1f3b2c;
+      color: white;
+    }
+    .btn-primary:hover { background: #2a4a38; }
+    .btn-ghost {
+      background: transparent;
+      border: 2px solid #1f3b2c;
+      color: #1f3b2c;
+    }
+    .btn-ghost:hover { background: #1f3b2c; color: white; }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 700; display: block; }
+    .stat-label { font-size: 0.8rem; text-transform: uppercase; }
+    .stat-divider { width: 1px; background: #c6a43b; }
+    /* Video placeholder */
+    .hero-video-placeholder {
+      max-width: 800px;
+      margin: 2rem auto 0;
+      background: #1a2a1f;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero-video-placeholder:hover { transform: scale(1.01); }
+    .video-preview {
+      position: relative;
+      background: #0f1a0c;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .video-preview i {
+      font-size: 4rem;
+      color: #c6a43b;
+      transition: 0.2s;
+    }
+    .video-preview i:hover { transform: scale(1.1); }
+    .video-preview span {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+    }
+    /* ========== ABOUT ========== */
+    .about-section { padding: 4rem 0; background: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #c6a43b;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-family: 'Cinzel', serif;
+      margin: 0.5rem 0 1rem;
+    }
+    .about-text p { margin-bottom: 1rem; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #c6a43b;
+      font-weight: 600;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: #fefcf5;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .feature-icon { font-size: 2rem; color: #c6a43b; margin-bottom: 1rem; }
+    /* ========== ACCORDION (color-coded dropdown menu) ========== */
+    .lessons-section { padding: 4rem 0; background: #faf8f0; }
+    .lessons-header { text-align: center; margin-bottom: 2rem; }
+    .accordion-selector {
+      background: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .accordion-selector h3 { font-size: 1.5rem; text-align: center; margin-bottom: 1rem; color: #1f3b2c; }
+    .accordion-selector p { text-align: center; margin-bottom: 1.5rem; color: #4a5b4a; }
+    .accordion-group {
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background: #fefcf5;
+      border: 1px solid #e0d6c6;
+    }
+    .accordion-group-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .accordion-group-header i { transition: transform 0.3s; }
+    .accordion-group.open .accordion-group-header i { transform: rotate(180deg); }
+    .accordion-group-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: white;
+    }
+    .accordion-group.open .accordion-group-content { max-height: 600px; overflow-y: auto; }
+    .lesson-options { list-style: none; padding: 0.5rem 0; margin: 0; }
+    .lesson-options li {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #f0e7d6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: 0.1s;
+      gap: 0.5rem;
+    }
+    .lesson-options li:hover { background: #fef9e6; }
+    .lesson-options li .lesson-num {
+      font-size: 0.8rem;
+      background: #eef3fa;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      min-width: 45px;
+      text-align: center;
+    }
+    .lesson-options li .lesson-title { flex: 1; font-weight: 500; word-break: break-word; }
+    .lesson-options li i { color: #c6a43b; font-size: 0.8rem; opacity: 0.6; flex-shrink: 0; }
+    /* Module colors */
+    .accordion-group[data-module="1"] .accordion-group-header { background: #e8dcc8; }
+    .accordion-group[data-module="2"] .accordion-group-header { background: #d9e6d9; }
+    .accordion-group[data-module="3"] .accordion-group-header { background: #f0e6d2; }
+    .accordion-group[data-module="4"] .accordion-group-header { background: #e6d9e6; }
+    .accordion-group[data-module="5"] .accordion-group-header { background: #d9e6f0; }
+    .lessons-cta { text-align: center; margin-top: 2rem; }
+    /* ========== METHOD ========== */
+    .method-section { padding: 4rem 0; background: white; }
+    .method-header { text-align: center; margin-bottom: 2rem; }
+    .method-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+    .method-step { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .step-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #c6a43b;
+      min-width: 50px;
+    }
+    /* ========== VERSE SECTION ========== */
+    .verse-section {
+      background: #1f3b2c;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .verse-hebrew {
+      font-size: 2rem;
+      font-family: 'EB Garamond', serif;
+      margin-bottom: 1rem;
+      direction: rtl;
+      letter-spacing: 2px;
+    }
+    /* ========== FINAL CTA ========== */
+    .final-cta-section {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4c61 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .final-cta-hebrew { font-size: 1.8rem; margin-bottom: 1rem; direction: rtl; letter-spacing: 2px; }
+    .final-cta-title { font-size: 2rem; margin-bottom: 1rem; }
+    .final-cta-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+    /* ========== FOOTER ========== */
+    .site-footer {
+      background: #111c16;
+      color: #cdd9cf;
+      padding: 3rem 1rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .footer-brand .logo { color: #cdd9cf; font-size: 1.3rem; }
+    .footer-nav ul { list-style: none; margin-top: 1rem; }
+    .footer-nav li { margin-bottom: 0.5rem; }
+    .footer-nav a { color: #cdd9cf; text-decoration: none; }
+    .footer-nav a:hover { color: #c6a43b; }
+    .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #2a3a2e; }
+    .footer-hebrew { direction: rtl; font-size: 1.2rem; letter-spacing: 2px; }
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .about-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2rem; }
+      .hero-hebrew-quote { font-size: 1.5rem; }
+      .section-title { font-size: 1.8rem; }
+      .accordion-selector { padding: 1.5rem; }
+      .accordion-group-header { padding: 0.8rem 1rem; font-size: 1rem; }
+      .lesson-options li { padding: 0.5rem 0.8rem; }
+      .lesson-options li .lesson-num { min-width: 40px; font-size: 0.7rem; }
+      .method-step { gap: 1rem; }
+      .step-number { font-size: 1.5rem; min-width: 40px; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="https://biblefluent.org" class="logo" aria-label="BibleFluent home">
+        <span class="logo-icon">📖</span>
+        <span class="logo-text">Bible<em>Fluent</em></span>
+      </a>
+      <nav class="main-nav" id="main-nav">
+        <a href="#acerca" class="nav-link">About</a>
+        <a href="#lecciones" class="nav-link">Lessons</a>
+        <a href="#metodo" class="nav-link">Method</a>
+        <a href="https://idclatam.org" target="_blank" class="nav-link">Church of Christ</a>
+        <a href="https://pinedaamador.org" target="_blank" class="nav-link">Pineda Amador Family</a>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Contribute</a>
+        <a href="https://biblefluent.org" class="nav-cta">Home</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Biblical Hebrew</p>
+        <h1 class="hero-title">Read the Old Testament<br>in its original language</h1>
+        <p class="hero-hebrew-quote">בְּרֵאשִׁית בָּרָא אֱלֹהִים</p>
+        <p class="hero-hebrew-trans">"In the beginning God created" — Genesis 1:1</p>
+        <p class="hero-desc">A complete course in Biblical Hebrew in <strong>70 lessons</strong>, based on the <strong>programmed reading method</strong>. Each lesson introduces <strong>20 vocabulary words</strong> with progressive exercises. No prerequisites. Learn to read the Hebrew text of the Old Testament from the very first week.</p>
+        <div class="hero-actions">
+          <a href="#lecciones" class="btn-primary">See all 70 lessons <i class="fas fa-arrow-right"></i></a>
+          <a href="#acerca" class="btn-ghost">What will I learn?</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">70</span><span class="stat-label">Lessons</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">20</span><span class="stat-label">Words/lesson</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">1400</span><span class="stat-label">Vocabulary words</span></div>
+        </div>
+        <div class="hero-video-placeholder" id="videoPlaceholder">
+          <div class="video-preview">
+            <i class="fas fa-play-circle"></i>
+            <span>Watch course introduction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="acerca" class="about-section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="section-label">The course</span>
+            <h2 class="section-title">Why learn Biblical Hebrew?</h2>
+            <p>The Old Testament was written in Biblical Hebrew. Reading it in its original language allows you to access nuances that no translation can fully convey. Our course uses the <strong>programmed reading method</strong>, breaking down learning into small, manageable steps so you can progress steadily and confidently.</p>
+            <p>This course starts from scratch: you will learn the alphabet, the vowel system (Masoretic points), nominal and verbal morphology (including the <strong>binyanim</strong>), and the basic syntax of Old Testament Hebrew — all clearly explained in Spanish. We integrate three simultaneous approaches: grammar, vocabulary (1,400 most frequent words, covering over 95% of the Tanakh), and progressive reading of the biblical text.</p>
+            <p>Structured in <strong>5 modules</strong> and <strong>70 lessons</strong>, with a cumulative vocabulary of 1,400 words (96% of the OT).</p>
+            <a href="es/leccion-1.html" class="text-link">Start with lesson 1 <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="about-features">
+            <div class="feature-card"><i class="fas fa-book feature-icon"></i><h3>Original text</h3><p>Learn to read the Hebrew text of the Old Testament directly.</p></div>
+            <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>Practical focus</h3><p>Each lesson introduces 20 high-frequency words.</p></div>
+            <div class="feature-card"><i class="fas fa-brain feature-icon"></i><h3>Programmed reading</h3><p>Small steps with immediate feedback for safe progress.</p></div>
+            <div class="feature-card"><i class="fas fa-dove feature-icon"></i><h3>Spiritual depth</h3><p>Each lesson connects with real passages from the Tanakh.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lecciones" class="lessons-section">
+      <div class="container">
+        <div class="lessons-header">
+          <span class="section-label">Full content</span>
+          <h2 class="section-title">The 70 lessons of the course</h2>
+          <p class="section-desc">Carefully designed progression: from the alphabet to fluent reading of Old Testament texts.</p>
+        </div>
+
+        <!-- ACCORDION DROPDOWN MENU -->
+        <div class="accordion-selector">
+          <h3><i class="fas fa-folder-tree"></i> Select your lesson</h3>
+          <p>Click on any lesson to open it directly.</p>
+          <div id="accordionContainer"></div>
+        </div>
+
+        <div class="lessons-cta">
+          <a href="es/leccion-1.html" class="btn-primary">Start the course from Lesson 1 <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" class="method-section">
+      <div class="container">
+        <div class="method-header"><span class="section-label">Methodology</span><h2 class="section-title">How you will learn</h2></div>
+        <div class="method-steps">
+          <div class="method-step"><div class="step-number">I</div><div><h3>Programmed text</h3><p>Each lesson is divided into small units with immediate feedback, ensuring steady progress without overload.</p></div></div>
+          <div class="method-step"><div class="step-number">II</div><div><h3>Strategic vocabulary (1,400 words)</h3><p>The 1,400 most frequent words of the Old Testament cover over 96% of the text. The course prioritizes this high-impact vocabulary, introducing 20 words per lesson.</p></div></div>
+          <div class="method-step"><div class="step-number">III</div><div><h3>Inductive reading</h3><p>Learn grammar and vocabulary in their natural context, reading real passages from the Tanakh from the earliest lessons.</p></div></div>
+          <div class="method-step"><div class="step-number">IV</div><div><h3>Spaced Repetition (SRS)</h3><p>An integrated spaced repetition system to solidify vocabulary long-term with increasing intervals.</p></div></div>
+          <div class="method-step"><div class="step-number">V</div><div><h3>Contextual analysis</h3><p>Each lesson includes exercises in form recognition and clause analysis from the Tanakh, preparing you for exegesis.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="verse-section">
+      <div class="verse-inner">
+        <blockquote class="verse-hebrew">תּוֹרַת יְהוָה תְּמִימָה מְשִׁיבַת נָפֶשׁ</blockquote>
+        <p class="verse-trans">"The law of the Lord is perfect, restoring the soul"</p>
+        <cite class="verse-ref">Psalm 19:8</cite>
+      </div>
+    </section>
+
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="final-cta-inner">
+          <p class="final-cta-hebrew">שְׁמַע · לְמַד · קְרָא</p>
+          <h2 class="final-cta-title">Start your study of Biblical Hebrew today</h2>
+          <p class="final-cta-desc">Free access to all 70 lessons. No registration required.</p>
+          <div class="final-cta-actions">
+            <a href="es/leccion-1.html" class="btn-primary">Go to the full course <i class="fas fa-arrow-right"></i></a>
+            <a href="https://biblefluent.org" class="btn-ghost">All courses</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="https://biblefluent.org" class="logo"><span class="logo-icon">📖</span><span class="logo-text">Bible<em>Fluent</em></span></a>
+        <p>Resources for studying the biblical text in its original languages.</p>
+        <p class="footer-idclatam">A ministry of <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></p>
+      </div>
+      <nav class="footer-nav">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank">Pineda Amador Ministry</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank">Support this ministry (PayPal)</a></li>
+          <li><a href="https://biblefluent.org">All courses</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year"></span> <a href="https://biblefluent.org">BibleFluent.org</a> · A ministry of <a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></p>
+      <p class="footer-hebrew">כִּי לֹא עַל הַלֶּחֶם לְבַדּוֹ יִחְיֶה הָאָדָם</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ==================== DATA FOR THE 70 LESSONS (based on lecciones.md) ====================
+      const modulesData = [
+        { title: "Module I — Fundamentals (L01–L15)", moduleId: 1, start: 1, lessons: [
+          "Biblical Hebrew: History and Writing System",
+          "The Hebrew Alphabet: 22 Letters, Names and Sounds",
+          "Vowel System: Masoretic Points (Nequdot)",
+          "Syllables, Sheva, and Dagesh",
+          "The Definite Article and the Conjunction Waw",
+          "Independent Personal Pronouns",
+          "Basic Prepositions (בְּ, לְ, מִן, עַל, אֶל)",
+          "Nouns: Singular and Plural (Masculine and Feminine)",
+          "The Construct State (Smikhut)",
+          "Adjectives: Agreement with the Noun",
+          "Verbs: Introduction to Roots and Binyanim – Qal Perfect",
+          "The Qal Perfect: Complete Paradigm and Sentences",
+          "The Qal Imperfect: Formation and Basic Uses",
+          "The Waw Conversive and Narrative",
+          "Nominal and Verbal Sentences – Principles of Syntax"
+        ]},
+        { title: "Module II — Grammatical Base (L16–L30)", moduleId: 2, start: 16, lessons: [
+          "The Binyanim: Introduction to Verb Patterns",
+          "The Nifal Binyan: Passive and Reflexive",
+          "The Piel Binyan: Intensive and Causative",
+          "The Hifil Binyan: Active Causative",
+          "The Passive Binyanim: Pual and Hofal",
+          "The Hitpael: Reflexive and Reciprocal",
+          "Pronominal Suffixes on Nouns (Singular)",
+          "Pronominal Suffixes on Nouns (Plural and Construct)",
+          "Suffixes with Prepositions (ב, ל, מ, עַל, אֶל, אֵת)",
+          "Cardinal Numbers 1–10",
+          "Ordinal Numbers and Use of Numbers in the Text",
+          "The Active and Passive Participle in Qal",
+          "Infinitives: Construct and Absolute",
+          "Verbs with Suffixes: Direct Object",
+          "Weak Verbs: I-Yod Roots (פ״י)"
+        ]},
+        { title: "Module III — Development (L31–L45)", moduleId: 3, start: 31, lessons: [
+          "Weak Verbs: I-Nun Roots (פ״ן)",
+          "Weak Verbs: Lamed-He Roots (ל״ה)",
+          "Weak Verbs: Ayin-Vav / Ayin-Yod Roots (ע״ו/ע״י)",
+          "Weak Verbs: Lamed-Alef (ל״א) and Geminate Roots",
+          "Stative Verbs",
+          "Conditional Sentences and Conditional Particles",
+          "Relative Clauses and the Use of אֲשֶׁר / שֶׁ",
+          "Syntax of the Sentence: Subordination with כִּי, אֲשֶׁר, and Particles",
+          "The Cursus: Accentuation and Cantillation (Ta'amim)",
+          "Vocabulary by Semantic Fields: Worship and Sacrifices",
+          "Vocabulary by Semantic Fields: War and Kingship",
+          "Vocabulary by Semantic Fields: Nature and Geography",
+          "The Song of Moses and Hebrew Poetry",
+          "The Book of Ruth: Reading and Grammatical Analysis",
+          "Exegesis of Genesis 1: Text and Commentary"
+        ]},
+        { title: "Module IV — Consolidation (L46–L60)", moduleId: 4, start: 46, lessons: [
+          "Reading Exodus 3: The Call of Moses",
+          "Reading Psalm 23: Poetry and Theology",
+          "Reading Amos 1–2: Prophecy and Judgment",
+          "Reading Proverbs 1: Wisdom and Discipline",
+          "Reading Isaiah 6: The Vision of the Throne",
+          "Reading Jonah 1–2: Narrative and Prayer",
+          "Reading Malachi 3: Tithes and Justice",
+          "Reading Esther 1–2: Court Narrative",
+          "Textual Criticism and Manuscripts of the OT",
+          "The Qumran Text and the Masoretic Text Compared",
+          "Reading Psalms 1 and 2: Introduction to the Psalter",
+          "Reading Ecclesiastes 1: Vanity of Vanities",
+          "Reading Song of Songs 1: Love Poetry",
+          "Reading Psalm 119 (verses 1–8): The Torah as Light",
+          "Reading Zechariah 9: Messianic Prophecy"
+        ]},
+        { title: "Module V — Mastery (L61–L70)", moduleId: 5, start: 61, lessons: [
+          "Reading Genesis 22: The Sacrifice of Isaac",
+          "Reading Exodus 14: The Crossing of the Red Sea",
+          "Reading Deuteronomy 6: Shema Israel",
+          "Reading Isaiah 53: The Suffering Servant",
+          "Reading Ruth 4: Genealogy of David",
+          "Reading Psalm 110: The Priest-King",
+          "Reading Proverbs 31: The Virtuous Woman (Eshet Chayil)",
+          "Comprehensive Morphological Review: Synthesis of the Binyanim",
+          "Final Exegetical Project: Complete Analysis of a Passage",
+          "From Grammar to Interpretation: Living Hebrew in the Community"
+        ]}
+      ];
+
+      function buildAccordion() {
+        const container = document.getElementById('accordionContainer');
+        if (!container) return;
+        let html = '';
+        modulesData.forEach((mod, idx) => {
+          const openClass = (idx === 0) ? 'open' : '';
+          html += `
+            <div class="accordion-group ${openClass}" data-module="${mod.moduleId}">
+              <div class="accordion-group-header">
+                <span><i class="fas fa-folder-open"></i> ${mod.title}</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-group-content">
+                <ul class="lesson-options">
+          `;
+          mod.lessons.forEach((lesson, lIdx) => {
+            const lessonNum = mod.start + lIdx;
+            const numStr = lessonNum.toString().padStart(2, '0');
+            html += `
+              <li data-lesson="${lessonNum}">
+                <span class="lesson-num">${numStr}</span>
+                <span class="lesson-title">${lesson}</span>
+                <i class="fas fa-chevron-right"></i>
+              </li>
+            `;
+          });
+          html += `
+                </ul>
+              </div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+
+        document.querySelectorAll('.accordion-group-header').forEach(header => {
+          header.removeEventListener('click', toggleAccordion);
+          header.addEventListener('click', toggleAccordion);
+        });
+        document.querySelectorAll('.lesson-options li').forEach(li => {
+          li.removeEventListener('click', redirectToLesson);
+          li.addEventListener('click', redirectToLesson);
+        });
+      }
+
+      function toggleAccordion(e) {
+        const group = this.closest('.accordion-group');
+        if (group) group.classList.toggle('open');
+      }
+
+      function redirectToLesson(e) {
+        e.stopPropagation();
+        const li = this;
+        const lessonNum = parseInt(li.dataset.lesson);
+        if (!isNaN(lessonNum)) {
+          window.location.href = `es/leccion-${lessonNum}`;
+        }
+      }
+
+      // Initialization
+      document.addEventListener('DOMContentLoaded', () => {
+        buildAccordion();
+
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        if (videoPlaceholder) {
+          videoPlaceholder.addEventListener('click', () => {
+            window.open('https://www.youtube.com/watch?v=TUjY-s6rvdU', '_blank');
+          });
+        }
+
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+        if (navToggle && mainNav) {
+          navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.contains('open');
+            mainNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', !isOpen);
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              if (!isOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+              } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            }
+          });
+
+          const navLinks = mainNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mainNav.classList.remove('open');
+              navToggle.setAttribute('aria-expanded', 'false');
+              const icon = navToggle.querySelector('i');
+              if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            });
+          });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.pushState(null, null, targetId);
+            }
+          });
+        });
+
+        const header = document.getElementById('site-header');
+        if (header) {
+          window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 40 ? '0 2px 10px rgba(0,0,0,0.05)' : 'none';
+          });
+        }
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 900 && mainNav.classList.contains('open')) {
+            mainNav.classList.remove('open');
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

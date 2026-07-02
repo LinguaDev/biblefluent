@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>BibleFluent · Inglés Bíblico A1 · Lección 2: I am the Light</title>
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Estilos generales -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Estilos específicos de la lección (mínimos, solo para drag & drop) */
+    .drag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 1rem;
+      border: 2px dashed #ccd8e6;
+      min-height: 80px;
+      align-items: center;
+      justify-content: center;
+    }
+    .drag-item {
+      background: #eef3fa;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      cursor: grab;
+      user-select: none;
+      font-weight: 500;
+      border: 1px solid #bcc8d8;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .drag-item:active {
+      cursor: grabbing;
+    }
+    .drag-item.dragging {
+      opacity: 0.5;
+      transform: scale(0.95);
+    }
+    .drop-zone {
+      background: #f0f6fe;
+      border: 2px dashed #2c7a6e;
+      border-radius: 1rem;
+      padding: 0.8rem 1.2rem;
+      min-height: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0.5rem 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .drop-zone.drag-over {
+      background: #d4e8f0;
+      border-color: #1f5f54;
+    }
+    .drop-zone .drag-item {
+      cursor: default;
+      background: #d4e2f0;
+    }
+    .drop-zone .drag-item.dropped {
+      background: #b8d9c0;
+      border-color: #1f7b4d;
+    }
+    .drop-zone.correct {
+      border-color: #1f7b4d;
+      background: #d4edda;
+    }
+    .drop-zone.wrong {
+      border-color: #c2410c;
+      background: #f8d7da;
+    }
+    .btn-reset-drag {
+      background: #5b6e8c;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-reset-drag:hover {
+      background: #3f4f66;
+    }
+    .drag-feedback {
+      margin-top: 0.8rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-area">
+        <i class="fas fa-scroll logo-icon"></i>
+        <span class="logo-text">BibleFluent</span>
+        <span style="font-size:0.8rem; margin-left:0.5rem; color:#5b6e8c;">· Inglés Bíblico</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="leccion-1"><i class="fas fa-arrow-left"></i> Lección 1</a>
+        <a href="leccion-3"><i class="fas fa-arrow-right"></i> Lección 3</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </nav>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== CONTENIDO PRINCIPAL ========== -->
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <h1>
+        <i class="fas fa-lightbulb" style="color:#f4b942;"></i>
+        Lección 2 · I am the Light of the World
+        <span class="hero-badge">Nivel A1 · Principiante</span>
+      </h1>
+      <p>Verbo <strong>to be</strong> con pronombres personales (I, you, he, she, it, we, they)</p>
+      <div class="progress-section">
+        <div class="progress-bar-container">
+          <div class="progress-fill" style="width:4%;"></div>
+        </div>
+        <div class="stats">
+          <i class="fas fa-check-circle"></i> Vocabulario nuevo: 11 · Acumulado: 19 / 1200
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+        <iframe src="https://www.youtube.com/embed/2lz8pXz2T2I" title="Verbo to be y pronombres personales en inglés" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;">
+        <i class="fas fa-info-circle"></i> Video: Pronombres personales y el verbo "to be" en presente
+      </p>
+    </div>
+
+    <!-- ACORDEÓN PRINCIPAL -->
+    <div class="accordion" id="mainAccordion">
+
+      <!-- ======== 1. VERSÍCULO CLAVE Y LECTURA ======== -->
+      <div class="accordion-item active">
+        <div class="accordion-header">
+          <span><i class="fas fa-bible"></i> 1. Versículo Clave y Lectura</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="verse-box">
+            <p style="font-size:1.4rem; font-weight:700;">
+              “I am the light of the world.”
+              <span style="font-weight:400; font-size:1rem; display:block; margin-top:0.3rem;">— <strong>Juan 8:12</strong> (EasyEnglish Bible)</span>
+            </p>
+          </div>
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem; margin:1rem 0;">
+            <p><strong>📖 Lectura extendida:</strong></p>
+            <p style="font-style:italic; font-size:1.05rem;">
+              “Jesus spoke to the people again. He said, ‘I am the light of the world. Whoever follows me will never walk in darkness. They will have the light that gives life.’”
+            </p>
+            <p style="font-size:0.9rem; color:#4a5a72; margin-top:0.3rem;">— Juan 8:12 (EASY)</p>
+          </div>
+          <button class="btn-reveal" data-target="lectureTranslation2">Ver traducción</button>
+          <div id="lectureTranslation2" class="answer-text">
+            <p><strong>Traducción:</strong> “Jesús habló otra vez a la gente y dijo: ‘Yo soy la luz del mundo. El que me sigue nunca caminará en oscuridad, sino que tendrá la luz que da vida.’”</p>
+          </div>
+          <div class="card-highlight" style="margin-top:1rem;">
+            <i class="fas fa-lightbulb"></i> <strong>Observación:</strong> Jesús usa la frase <em>“I am”</em> para declarar quién es. Esta es una de las famosas declaraciones <em>“Yo soy”</em> en el Evangelio de Juan, que revelan su identidad divina.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 2. VOCABULARIO NUEVO ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-words"></i> 2. Vocabulario nuevo</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Palabras extraídas del texto de Juan 8:12. Escucha su pronunciación y practica escribiéndolas.</p>
+          <div style="overflow-x:auto;">
+            <table id="vocabTable">
+              <thead>
+                <tr><th>Inglés</th><th>Español</th><th>Nota</th></tr>
+              </thead>
+              <tbody>
+                <!-- Los datos se llenan desde script.js con window.lessonData.vocab -->
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-headphones"></i> <strong>Consejo:</strong> Busca cada palabra en un diccionario en línea con audio para escuchar su pronunciación. Repite en voz alta.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 3. GRAMÁTICA: PRONOMBRES PERSONALES + TO BE ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-grammar"></i> 3. Gramática: Pronombres personales y el verbo “to be”</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>En inglés, los pronombres personales son palabras que usamos para referirnos a las personas o cosas sin repetir sus nombres. Son:</p>
+          <div style="background:#eef3fa; border-radius:1rem; padding:0.8rem 1.2rem; margin:0.5rem 0; display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center; font-weight:600;">
+            <span>I</span> <span>you</span> <span>he</span> <span>she</span> <span>it</span> <span>we</span> <span>they</span>
+          </div>
+          <p>Cada pronombre se combina con una forma específica del verbo <strong>to be</strong> (ser / estar) en presente afirmativo. Observa la tabla:</p>
+          <div style="overflow-x:auto; margin:1rem 0;">
+            <table>
+              <thead>
+                <tr><th>Pronombre</th><th>Verbo</th><th>Ejemplo</th><th>Traducción</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>I</strong></td><td><strong>am</strong></td><td>I <strong>am</strong> the light.</td><td>Yo soy la luz.</td></tr>
+                <tr><td><strong>You</strong></td><td><strong>are</strong></td><td>You <strong>are</strong> my friend.</td><td>Tú eres mi amigo.</td></tr>
+                <tr><td><strong>He</strong></td><td><strong>is</strong></td><td>He <strong>is</strong> the teacher.</td><td>Él es el maestro.</td></tr>
+                <tr><td><strong>She</strong></td><td><strong>is</strong></td><td>She <strong>is</strong> a nurse.</td><td>Ella es enfermera.</td></tr>
+                <tr><td><strong>It</strong></td><td><strong>is</strong></td><td>It <strong>is</strong> a book.</td><td>Es un libro.</td></tr>
+                <tr><td><strong>We</strong></td><td><strong>are</strong></td><td>We <strong>are</strong> Christians.</td><td>Nosotros somos cristianos.</td></tr>
+                <tr><td><strong>They</strong></td><td><strong>are</strong></td><td>They <strong>are</strong> in the garden.</td><td>Ellos están en el jardín.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="rule-box">
+            <strong><i class="fas fa-gavel"></i> Regla esencial:</strong>
+            <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+              <li><strong>I</strong> → siempre <strong>am</strong></li>
+              <li><strong>He / She / It</strong> → siempre <strong>is</strong></li>
+              <li><strong>You / We / They</strong> → siempre <strong>are</strong></li>
+            </ul>
+          </div>
+
+          <button class="btn-reveal" data-target="moreExamples2">📖 Ver más ejemplos bíblicos</button>
+          <div id="moreExamples2" class="answer-text">
+            <ul style="list-style-type: none; padding-left:0;">
+              <li style="margin-bottom:0.5rem;">✨ <em>You <strong>are</strong> the light of the world.</em> (Mateo 5:14) – <span style="color:#2c3e50;">Vosotros sois la luz del mundo.</span></li>
+              <li style="margin-bottom:0.5rem;">✨ <em>He <strong>is</strong> the image of the invisible God.</em> (Colosenses 1:15) – <span style="color:#2c3e50;">Él es la imagen de Dios invisible.</span></li>
+              <li style="margin-bottom:0.5rem;">✨ <em>We <strong>are</strong> members of his body.</em> (Efesios 5:30) – <span style="color:#2c3e50;">Nosotros somos miembros de su cuerpo.</span></li>
+              <li style="margin-bottom:0.5rem;">✨ <em>It <strong>is</strong> a faithful saying.</em> (Tito 3:8) – <span style="color:#2c3e50;">Es una declaración fiel.</span></li>
+              <li style="margin-bottom:0.5rem;">✨ <em>They <strong>are</strong> not of the world.</em> (Juan 17:16) – <span style="color:#2c3e50;">Ellos no son del mundo.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 4. APLICACIÓN COTIDIANA ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-comment-dots"></i> 4. Aplicación cotidiana</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Ahora practica usando los pronombres y el verbo <strong>to be</strong> para describir tu vida diaria y a las personas que te rodean:</p>
+          <div class="example-grid">
+            <div class="example-item"><strong>I am</strong> a teacher.</div>
+            <div class="example-item"><strong>You are</strong> very kind.</div>
+            <div class="example-item"><strong>He is</strong> my father.</div>
+            <div class="example-item"><strong>She is</strong> at work.</div>
+            <div class="example-item"><strong>It is</strong> a beautiful day.</div>
+            <div class="example-item"><strong>We are</strong> ready.</div>
+            <div class="example-item"><strong>They are</strong> in the garden.</div>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-pen-fancy"></i> <strong>Practica escrita:</strong> Escribe 5 oraciones sobre personas que conoces (familiares, amigos, compañeros) usando <em>am, is, are</em> y los pronombres adecuados. Ejemplo: <em>“My sister is a doctor.”</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 5. EJERCICIO DE COMPLETAR (FILL-IN) ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-puzzle-piece"></i> 5. Ejercicio: Completa con el pronombre y verbo correctos</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Lee cada oración y escribe el pronombre (I, you, he, she, it, we, they) y la forma correcta del verbo <strong>to be</strong> (am, is, are).</p>
+          <div id="fillExercise"></div>
+          <div class="card-highlight" style="margin-top:1rem;">
+            <i class="fas fa-lightbulb"></i> <strong>Ayuda:</strong> Recuerda: <em>I → am</em>, <em>he/she/it → is</em>, <em>you/we/they → are</em>.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 6. EJERCICIO DE ARRASTRAR (DRAG & DROP) ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-arrows-alt"></i> 6. Ejercicio interactivo: Arrastra para formar oraciones</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Arrastra las palabras sueltas de abajo hacia la zona correspondiente para formar oraciones correctas con el verbo <strong>to be</strong>.</p>
+          <div id="dragExercise"></div>
+          <button id="resetDragBtn" class="btn-reset-drag"><i class="fas fa-redo"></i> Reiniciar ejercicio</button>
+          <div id="dragFeedback" class="drag-feedback"></div>
+        </div>
+      </div>
+
+      <!-- ======== 7. FLASHCARDS ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-id-card"></i> 7. Flashcards interactivas</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción al español.</p>
+          <div class="flashcard-grid" id="flashcardGrid"></div>
+        </div>
+      </div>
+
+      <!-- ======== 8. QUIZ DE VOCABULARIO Y GRAMÁTICA ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-gamepad"></i> 8. Quiz de vocabulario y gramática</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Responde las siguientes preguntas para evaluar tu comprensión. ¡Sigue practicando!</p>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" style="margin-top:0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- ======== 9. REPASO ESPACIADO (SRS) ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-calendar-week"></i> 9. Plan de repaso (SRS)</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Para consolidar el aprendizaje, sigue este plan de repaso espaciado:</p>
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight">
+            <i class="far fa-clock"></i> <strong>Técnica de estudio:</strong> Escribe en una hoja la conjugación completa de <em>to be</em> (I am, you are, he is, she is, it is, we are, they are) tres veces. Luego, crea 5 oraciones con cada pronombre sobre tu vida cotidiana.
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fin accordion -->
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="leccion-1"><i class="fas fa-arrow-left"></i> Lección 1</a>
+      <a href="leccion-3"><i class="fas fa-arrow-right"></i> Lección 3</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 BibleFluent · <span style="font-weight:600;">“I am the light of the world.”</span> (Juan 8:12)</p>
+  </footer>
+
+  <!-- Botón de scroll top -->
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- ========== SCRIPTS ========== -->
+  <!-- Script general (carga vocabulario, quiz, fill, flashcards) -->
+  <script src="script.js"></script>
+
+  <!-- Script inline específico de la lección 2 (datos y drag & drop) -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ============================================================
+      // DATOS DE LA LECCIÓN 2
+      // ============================================================
+      window.lessonData = {
+        vocab: [
+          { en: 'light', es: 'luz' },
+          { en: 'world', es: 'mundo' },
+          { en: 'spoke', es: 'habló (pasado)' },
+          { en: 'people', es: 'gente / pueblo' },
+          { en: 'again', es: 'de nuevo' },
+          { en: 'whoever', es: 'cualquiera que' },
+          { en: 'follows', es: 'sigue' },
+          { en: 'walk', es: 'caminar' },
+          { en: 'never', es: 'nunca' },
+          { en: 'darkness', es: 'oscuridad' },
+          { en: 'gives life', es: 'da vida' }
+        ],
+        quiz: [
+          { question: '¿Qué significa "light"?', options: ['luz', 'oscuridad', 'mundo', 'vida'], correct: 0 },
+          { question: 'La forma de "to be" para "She" es:', options: ['am', 'is', 'are', 'be'], correct: 1 },
+          { question: '¿Cómo se dice "caminar" en inglés?', options: ['walk', 'talk', 'work', 'want'], correct: 0 },
+          { question: 'Traduce "whoever" al español:', options: ['quienquiera', 'alguien', 'nadie', 'todos'], correct: 0 },
+          { question: '¿Cuál es la forma correcta para "We" en presente de "to be"?', options: ['am', 'is', 'are', 'were'], correct: 2 },
+          { question: 'La forma correcta para "They" en presente de "to be" es:', options: ['am', 'is', 'are', 'be'], correct: 2 }
+        ],
+        fill: [
+          { sentence: 'I ____ the light of the world. (soy)', answer: 'am' },
+          { sentence: 'You ____ my best friend. (eres)', answer: 'are' },
+          { sentence: 'He ____ the teacher. (es)', answer: 'is' },
+          { sentence: 'We ____ Christians. (somos)', answer: 'are' },
+          { sentence: 'They ____ in the garden. (están)', answer: 'are' },
+          { sentence: 'She ____ a nurse. (es)', answer: 'is' },
+          { sentence: 'It ____ a beautiful day. (es)', answer: 'is' }
+        ],
+        // Función personalizada para inicializar el ejercicio de arrastrar
+        customInit: function() {
+          initDragExercise();
+        }
+      };
+
+      // ============================================================
+      // EJERCICIO DE ARRASTRAR (DRAG & DROP)
+      // ============================================================
+      function initDragExercise() {
+        var container = document.getElementById('dragExercise');
+        if (!container) return;
+
+        // Definir las oraciones objetivo (cada una con sus palabras)
+        var sentences = [
+          { words: ['I', 'am', 'the', 'light.'], target: 'I am the light.' },
+          { words: ['You', 'are', 'my', 'friend.'], target: 'You are my friend.' },
+          { words: ['He', 'is', 'the', 'teacher.'], target: 'He is the teacher.' }
+        ];
+
+        // Crear un array con todas las palabras y su índice de oración
+        var allWords = [];
+        sentences.forEach(function(s, idx) {
+          s.words.forEach(function(w) {
+            allWords.push({ word: w, sentenceIndex: idx });
+          });
+        });
+
+        // Barajar aleatoriamente
+        function shuffle(arr) {
+          for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+          }
+          return arr;
+        }
+        var shuffled = shuffle(allWords.slice());
+
+        // Crear contenedor de palabras arrastrables
+        var dragContainer = document.createElement('div');
+        dragContainer.className = 'drag-container';
+        dragContainer.id = 'dragSource';
+        dragContainer.setAttribute('aria-label', 'Palabras para arrastrar');
+
+        shuffled.forEach(function(item) {
+          var span = document.createElement('span');
+          span.className = 'drag-item';
+          span.textContent = item.word;
+          span.dataset.sentence = item.sentenceIndex;
+          span.draggable = true;
+          span.addEventListener('dragstart', handleDragStart);
+          span.addEventListener('dragend', handleDragEnd);
+          dragContainer.appendChild(span);
+        });
+
+        // Crear zonas de destino (drop zones) para cada oración
+        var dropContainer = document.createElement('div');
+        dropContainer.style.margin = '1rem 0';
+
+        sentences.forEach(function(s, idx) {
+          var zone = document.createElement('div');
+          zone.className = 'drop-zone';
+          zone.dataset.sentence = idx;
+          zone.dataset.expected = s.words.join(' ');
+          zone.textContent = '🖱️ Arrastra aquí las palabras para formar: "' + s.target + '"';
+          zone.addEventListener('dragover', handleDragOver);
+          zone.addEventListener('dragenter', handleDragEnter);
+          zone.addEventListener('dragleave', handleDragLeave);
+          zone.addEventListener('drop', handleDrop);
+          dropContainer.appendChild(zone);
+        });
+
+        container.appendChild(dragContainer);
+        container.appendChild(dropContainer);
+
+        // Variables de estado para drag
+        var draggedItem = null;
+
+        function handleDragStart(e) {
+          draggedItem = this;
+          this.classList.add('dragging');
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/plain', this.textContent);
+        }
+
+        function handleDragEnd(e) {
+          this.classList.remove('dragging');
+          // Eliminar clases de hover de todas las zonas
+          document.querySelectorAll('.drop-zone').forEach(function(z) {
+            z.classList.remove('drag-over');
+          });
+        }
+
+        function handleDragOver(e) {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+          this.classList.add('drag-over');
+        }
+
+        function handleDragEnter(e) {
+          this.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+          this.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+          e.preventDefault();
+          this.classList.remove('drag-over');
+          var zone = this;
+          var word = e.dataTransfer.getData('text/plain');
+          var sentenceIndex = parseInt(zone.dataset.sentence);
+
+          if (draggedItem) {
+            // Verificar si la palabra pertenece a la oración correcta
+            var wordData = shuffled.find(function(item) {
+              return item.word === word && item.sentenceIndex === sentenceIndex;
+            });
+
+            if (wordData) {
+              // Clonar el elemento y agregarlo a la zona
+              var clone = draggedItem.cloneNode(true);
+              clone.classList.remove('dragging');
+              clone.classList.add('dropped');
+              clone.draggable = false;
+              // Eliminar el original de la fuente
+              draggedItem.remove();
+              zone.appendChild(clone);
+
+              // Verificar si la zona está completa
+              var wordsInZone = zone.querySelectorAll('.drag-item');
+              var expectedWords = zone.dataset.expected.split(' ');
+              if (wordsInZone.length === expectedWords.length) {
+                var formed = [];
+                wordsInZone.forEach(function(el) { formed.push(el.textContent); });
+                if (formed.join(' ') === zone.dataset.expected) {
+                  zone.classList.add('correct');
+                  zone.classList.remove('wrong');
+                  document.getElementById('dragFeedback').innerHTML = '<span class="feedback-correct">✅ ¡Excelente! Has formado la oración: "' + zone.dataset.expected + '"</span>';
+                } else {
+                  zone.classList.add('wrong');
+                  zone.classList.remove('correct');
+                  document.getElementById('dragFeedback').innerHTML = '<span class="feedback-wrong">❌ El orden no es correcto. Revisa la posición de las palabras.</span>';
+                }
+              }
+            } else {
+              // Palabra incorrecta para esta oración
+              zone.classList.add('wrong');
+              document.getElementById('dragFeedback').innerHTML = '<span class="feedback-wrong">❌ Esta palabra no pertenece a esta oración. Intenta con otra.</span>';
+              // Devolver la palabra a la fuente después de un breve momento
+              setTimeout(function() {
+                if (draggedItem && draggedItem.parentNode) {
+                  // Si el elemento aún existe, lo devolvemos a la fuente
+                  var sourceContainer = document.getElementById('dragSource');
+                  if (sourceContainer) {
+                    sourceContainer.appendChild(draggedItem);
+                    draggedItem.classList.remove('dragging');
+                    draggedItem.draggable = true;
+                  }
+                }
+                zone.classList.remove('wrong');
+              }, 1000);
+            }
+          }
+        }
+
+        // Botón de reinicio
+        document.getElementById('resetDragBtn').addEventListener('click', function() {
+          location.reload();
+        });
+      }
+
+    })();
+  </script>
+</body>
+</html>

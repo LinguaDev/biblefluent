@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Inglés Bíblico | BibleFluent - 200 lecciones (A1-C2)</title>
+  <meta name="description" content="Aprende inglés desde cero con la Biblia. Curso completo A1-C2 con 200 lecciones basadas en la Palabra de Dios. Método probado, gratuito y efectivo.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;900&family=EB+Garamond:ital@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: #fefcf5;
+      color: #1e2a2e;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* ========== HEADER ========== */
+    .site-header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f3b2c;
+    }
+    .logo-icon { font-size: 1.8rem; }
+    .logo-text em { font-style: normal; color: #b58d3c; }
+    .main-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link, .nav-cta {
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-link { color: #2c3e2f; }
+    .nav-link:hover, .nav-cta:hover { color: #b58d3c; }
+    .nav-cta {
+      background: #b58d3c;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      color: #1f3b2c;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1f3b2c;
+    }
+    @media (max-width: 900px) {
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        transition: 0.3s;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 99;
+      }
+      .main-nav.open { left: 0; }
+      .nav-toggle { display: block; }
+      .header-inner { padding: 0.8rem 1.5rem; }
+    }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(105deg, #fff7ea 0%, #e9e0cf 100%);
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b58d3c;
+      font-weight: 600;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-family: 'Cinzel', serif;
+      margin: 1rem 0;
+      line-height: 1.2;
+    }
+    .hero-title span { color: #b58d3c; }
+    .hero-sub {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #3a4a3a;
+      margin-bottom: 0.5rem;
+    }
+    .hero-quote {
+      font-size: 1.8rem;
+      font-family: 'EB Garamond', serif;
+      margin: 1.5rem 0 0.5rem;
+      color: #1f3b2c;
+    }
+    .hero-quote-trans {
+      font-style: italic;
+      color: #4a5b4a;
+      font-size: 1.1rem;
+    }
+    .hero-desc {
+      max-width: 700px;
+      margin: 1.5rem auto;
+      font-size: 1.15rem;
+    }
+    .hero-desc strong { color: #1f3b2c; }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .btn-primary, .btn-ghost {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .btn-primary {
+      background: #1f3b2c;
+      color: white;
+      box-shadow: 0 4px 15px rgba(31,59,44,0.3);
+    }
+    .btn-primary:hover { background: #2a4a38; transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      border: 2px solid #1f3b2c;
+      color: #1f3b2c;
+    }
+    .btn-ghost:hover { background: #1f3b2c; color: white; }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2.2rem; font-weight: 700; display: block; color: #1f3b2c; }
+    .stat-label { font-size: 0.8rem; text-transform: uppercase; color: #5a6a5a; }
+    .stat-divider { width: 1px; background: #b58d3c; }
+    /* Video placeholder */
+    .hero-video-placeholder {
+      max-width: 800px;
+      margin: 2rem auto 0;
+      background: #1a2a1f;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero-video-placeholder:hover { transform: scale(1.01); }
+    .video-preview {
+      position: relative;
+      background: #0f1a0c;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .video-preview i {
+      font-size: 4rem;
+      color: #b58d3c;
+      transition: 0.2s;
+    }
+    .video-preview i:hover { transform: scale(1.1); }
+    .video-preview span {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+    }
+    /* ========== ABOUT ========== */
+    .about-section { padding: 4rem 0; background: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #b58d3c;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-family: 'Cinzel', serif;
+      margin: 0.5rem 0 1rem;
+    }
+    .about-text p { margin-bottom: 1rem; font-size: 1.05rem; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #b58d3c;
+      font-weight: 600;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: #fefcf5;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      border: 1px solid #f0e8dc;
+    }
+    .feature-icon { font-size: 2rem; color: #b58d3c; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .feature-card p { font-size: 0.95rem; color: #4a5a4a; }
+    /* ========== ACORDEÓN ========== */
+    .lessons-section { padding: 4rem 0; background: #faf8f0; }
+    .lessons-header { text-align: center; margin-bottom: 2rem; }
+    .accordion-selector {
+      background: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .accordion-selector h3 { font-size: 1.5rem; text-align: center; margin-bottom: 1rem; color: #1f3b2c; }
+    .accordion-selector p { text-align: center; margin-bottom: 1.5rem; color: #4a5b4a; }
+    .accordion-group {
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background: #fefcf5;
+      border: 1px solid #e0d6c6;
+    }
+    .accordion-group-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .accordion-group-header i { transition: transform 0.3s; }
+    .accordion-group.open .accordion-group-header i { transform: rotate(180deg); }
+    .accordion-group-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: white;
+    }
+    .accordion-group.open .accordion-group-content { max-height: 900px; overflow-y: auto; }
+    .lesson-options { list-style: none; padding: 0.5rem 0; margin: 0; }
+    .lesson-options li {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #f0e7d6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: 0.1s;
+      gap: 0.5rem;
+    }
+    .lesson-options li:hover { background: #fef9e6; }
+    .lesson-options li .lesson-num {
+      font-size: 0.8rem;
+      background: #eef3fa;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      min-width: 45px;
+      text-align: center;
+    }
+    .lesson-options li .lesson-title { flex: 1; font-weight: 500; word-break: break-word; }
+    .lesson-options li .lesson-level { 
+      font-size: 0.7rem; 
+      background: #b58d3c; 
+      color: white;
+      padding: 0.1rem 0.6rem;
+      border-radius: 2rem;
+      flex-shrink: 0;
+    }
+    .lesson-options li i { color: #b58d3c; font-size: 0.8rem; opacity: 0.6; flex-shrink: 0; }
+    /* Colores módulos */
+    .accordion-group[data-module="1"] .accordion-group-header { background: #d4d9cc; }
+    .accordion-group[data-module="2"] .accordion-group-header { background: #c9d6c9; }
+    .accordion-group[data-module="3"] .accordion-group-header { background: #e3d9c6; }
+    .accordion-group[data-module="4"] .accordion-group-header { background: #dcd0dc; }
+    .accordion-group[data-module="5"] .accordion-group-header { background: #c4d4e0; }
+    .accordion-group[data-module="6"] .accordion-group-header { background: #e6dcd2; }
+    .accordion-group[data-module="7"] .accordion-group-header { background: #d2d9e6; }
+    .accordion-group[data-module="8"] .accordion-group-header { background: #e8d8d0; }
+    .accordion-group[data-module="9"] .accordion-group-header { background: #d0d4d4; }
+    .accordion-group[data-module="10"] .accordion-group-header { background: #d9cfc4; }
+    .lessons-cta { text-align: center; margin-top: 2rem; }
+    /* ========== MÉTODO ========== */
+    .method-section { padding: 4rem 0; background: white; }
+    .method-header { text-align: center; margin-bottom: 2rem; }
+    .method-steps { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+    .method-step { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .step-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #b58d3c;
+      min-width: 50px;
+    }
+    .method-step h3 { font-size: 1.2rem; }
+    .method-step p { color: #4a5a4a; }
+    /* ========== TESTIMONIAL / VERSE ========== */
+    .verse-section {
+      background: #1f3b2c;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .verse-english {
+      font-size: 1.6rem;
+      font-family: 'EB Garamond', serif;
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+    /* ========== FINAL CTA ========== */
+    .final-cta-section {
+      background: linear-gradient(135deg, #1e3d3a 0%, #2c5e4a 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .final-cta-quote { font-size: 1.5rem; margin-bottom: 1rem; font-style: italic; }
+    .final-cta-title { font-size: 2.2rem; margin-bottom: 1rem; font-family: 'Cinzel', serif; }
+    .final-cta-desc { font-size: 1.1rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
+    .final-cta-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+    /* ========== FOOTER ========== */
+    .site-footer {
+      background: #111c16;
+      color: #cdd9cf;
+      padding: 3rem 1rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .footer-brand .logo { color: #cdd9cf; font-size: 1.3rem; }
+    .footer-nav ul { list-style: none; margin-top: 1rem; }
+    .footer-nav li { margin-bottom: 0.5rem; }
+    .footer-nav a { color: #cdd9cf; text-decoration: none; }
+    .footer-nav a:hover { color: #b58d3c; }
+    .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #2a3a2e; }
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .about-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-sub { font-size: 1.1rem; }
+      .hero-quote { font-size: 1.3rem; }
+      .section-title { font-size: 1.8rem; }
+      .accordion-selector { padding: 1.5rem; }
+      .accordion-group-header { padding: 0.8rem 1rem; font-size: 1rem; }
+      .lesson-options li { padding: 0.5rem 0.8rem; }
+      .lesson-options li .lesson-num { min-width: 40px; font-size: 0.7rem; }
+      .method-step { gap: 1rem; }
+      .step-number { font-size: 1.5rem; min-width: 40px; }
+      .container { padding: 0 1rem; }
+      .hero-stats { gap: 1.5rem; }
+      .stat-num { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="https://biblefluent.org" class="logo" aria-label="BibleFluent inicio">
+        <span class="logo-icon">📖</span>
+        <span class="logo-text">Bible<em>Fluent</em></span>
+      </a>
+      <nav class="main-nav" id="main-nav">
+        <a href="#acerca" class="nav-link">Acerca</a>
+        <a href="#lecciones" class="nav-link">Lecciones</a>
+        <a href="#metodo" class="nav-link">Método</a>
+        <a href="https://idclatam.org" target="_blank" class="nav-link">Iglesia de Cristo</a>
+        <a href="https://pinedaamador.org" target="_blank" class="nav-link">Familia Pineda Amador</a>
+        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" class="nav-link">Contribuir</a>
+        <a href="https://biblefluent.org" class="nav-cta">Inicio</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">📖 Aprende inglés con la Biblia</p>
+        <h1 class="hero-title">Domina el inglés <span>mientras</span> profundizas en la Palabra</h1>
+        <p class="hero-sub">De A1 a C2 — 200 lecciones — 100% basado en la Escritura</p>
+        <p class="hero-quote">"God is love." — 1 Juan 4:8</p>
+        <p class="hero-quote-trans">Empieza a entender tu Biblia en inglés desde la primera lección</p>
+        <p class="hero-desc">
+          <strong>¿Sientes que tu inglés te limita para acceder a recursos, estudios y enseñanzas bíblicas?</strong> 
+          Este curso no es para aprender a leer la Biblia en inglés — es para <strong>aprender inglés a través de la Biblia</strong>. 
+          Cada lección usa un versículo clave para enseñarte gramática, vocabulario y estructuras que <strong>usarás toda la vida</strong>, 
+          mientras tu fe se fortalece.
+        </p>
+        <div class="hero-actions">
+          <a href="#lecciones" class="btn-primary">Ver las 200 lecciones <i class="fas fa-arrow-right"></i></a>
+          <a href="#acerca" class="btn-ghost">¿Cómo funciona?</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">200</span><span class="stat-label">Lecciones</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">A1→C2</span><span class="stat-label">De principiante a avanzado</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Basado en la Escritura</span></div>
+        </div>
+        <div class="hero-video-placeholder" id="videoPlaceholder">
+          <div class="video-preview">
+            <i class="fas fa-play-circle"></i>
+            <span>Ver introducción al curso</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="acerca" class="about-section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="section-label">El curso</span>
+            <h2 class="section-title">¿Por qué <em>inglés a través de la Biblia</em>?</h2>
+            <p>
+              <strong>El inglés es el idioma que conecta a la iglesia global.</strong> Los mejores comentarios, estudios bíblicos, 
+              conferencias y recursos teológicos están disponibles primero en inglés. Si dominas el inglés, 
+              <strong>el mundo del conocimiento bíblico se abre ante ti</strong>.
+            </p>
+            <p>
+              Nuestro método es único: <strong>leemos la Biblia para aprender inglés, y no al revés</strong>. 
+              No estudiamos gramática abstracta; <strong>aprendemos gramática viendo cómo funciona en la Palabra de Dios</strong>. 
+              Cada lección parte de un versículo clave, extrae la estructura gramatical, el vocabulario y las expresiones, 
+              y luego las aplica a tu vida cotidiana.
+            </p>
+            <p>
+              <strong>El resultado:</strong> hablas inglés con fluidez <strong>y</strong> conoces mejor la Escritura. 
+              No es uno o lo otro; es <strong>ambos al mismo tiempo</strong>.
+            </p>
+            <p>
+              <strong>10 módulos · 200 lecciones · Niveles A1 a C2 · Sin registro · Gratuito</strong>
+            </p>
+            <a href="/es/leccion-1" class="text-link">Empieza desde la Lección 1 <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="about-features">
+            <div class="feature-card">
+              <i class="fas fa-graduation-cap feature-icon"></i>
+              <h3>Aprende inglés</h3>
+              <p>Gramática, vocabulario y estructuras que usarás toda la vida.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-bible feature-icon"></i>
+              <h3>Con la Biblia</h3>
+              <p>Cada lección nace de un versículo. Tu fe crece mientras aprendes.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-road feature-icon"></i>
+              <h3>De A1 a C2</h3>
+              <p>Desde cero hasta el dominio. Progresión natural y constante.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-globe-americas feature-icon"></i>
+              <h3>Acceso global</h3>
+              <p>Sin registro, sin costo. Todo el curso disponible para siempre.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lecciones" class="lessons-section">
+      <div class="container">
+        <div class="lessons-header">
+          <span class="section-label">Contenido completo</span>
+          <h2 class="section-title">Las 200 lecciones del curso</h2>
+          <p class="section-desc" style="max-width:700px;margin:0 auto;color:#5a6a5a;">
+            Desde los fundamentos del inglés hasta la lectura fluida de la Biblia en versiones estándar (ESV, NIV, KJV). 
+            <strong>Cada lección te acerca más a tu meta: hablar inglés con confianza.</strong>
+          </p>
+        </div>
+
+        <div class="accordion-selector">
+          <h3><i class="fas fa-folder-tree"></i> Selecciona tu lección</h3>
+          <p>Haz clic en cualquier lección para abrirla directamente.</p>
+          <div id="accordionContainer"></div>
+        </div>
+
+        <div class="lessons-cta">
+          <a href="/es/leccion-1" class="btn-primary">Comenzar curso desde la Lección 1 <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" class="method-section">
+      <div class="container">
+        <div class="method-header"><span class="section-label">Metodología</span><h2 class="section-title">Cómo aprenderás</h2></div>
+        <div class="method-steps">
+          <div class="method-step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Lectura programada — sin frustración</h3>
+              <p>Cada lección se divide en micro-lecciones que te permiten avanzar a tu ritmo. 
+              <strong>Sin sobrecarga, sin estrés</strong>. Solo progreso constante.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Gramática que <em>tiene sentido</em></h3>
+              <p>No memorices reglas abstractas. <strong>La gramática cobra vida</strong> cuando la ves funcionando en versículos reales. 
+              Entiendes el "por qué" y el "cómo" al mismo tiempo.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Vocabulario que <em>usarás</em></h3>
+              <p>Las 1400 palabras más frecuentes del inglés bíblico. <strong>El 90% del texto</strong> que encontrarás en la Biblia 
+              y en recursos teológicos. Aprende lo que realmente importa.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-number">4</div>
+            <div>
+              <h3>Repaso espaciado — para que no olvides</h3>
+              <p>El sistema de repaso integrado asegura que lo que aprendes <strong>se fije en tu memoria a largo plazo</strong>. 
+              No estudias para olvidar; estudias para dominar.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="step-number">5</div>
+            <div>
+              <h3>De la Biblia a tu vida diaria</h3>
+              <p>Lo que aprendes del versículo lo aplicas a tu día a día. <strong>Hablas de tu fe, tu familia, tu trabajo</strong> 
+              en inglés, con naturalidad y confianza.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="verse-section">
+      <div class="verse-inner">
+        <blockquote class="verse-english">"All Scripture is breathed out by God and profitable for teaching."</blockquote>
+        <p class="verse-trans">«Toda la Escritura es inspirada por Dios y útil para enseñar»</p>
+        <cite class="verse-ref">2 Timoteo 3:16 (ESV)</cite>
+        <p style="margin-top:1.5rem;opacity:0.8;font-size:1.1rem;">
+          <strong>Y también para aprender inglés.</strong> Cada palabra te acerca a tu meta.
+        </p>
+      </div>
+    </section>
+
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="final-cta-inner">
+          <p class="final-cta-quote">"The truth will set you free." — Juan 8:32</p>
+          <h2 class="final-cta-title">Domina el inglés. Profundiza en la Palabra.</h2>
+          <p class="final-cta-desc">
+            <strong>200 lecciones gratuitas</strong> que transformarán tu inglés y tu fe. 
+            Empieza hoy, sin registro, sin costo, sin límites.
+          </p>
+          <div class="final-cta-actions">
+            <a href="/es/leccion-1" class="btn-primary" style="background:#b58d3c;color:#1f3b2c;">
+              Empieza ahora <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://biblefluent.org" class="btn-ghost" style="border-color:white;color:white;">
+              Todos los cursos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="https://biblefluent.org" class="logo"><span class="logo-icon">📖</span><span class="logo-text">Bible<em>Fluent</em></span></a>
+        <p style="margin-top:0.5rem;">Aprende inglés con la Biblia. Recursos gratuitos para la iglesia global.</p>
+        <p class="footer-idclatam" style="margin-top:0.5rem;">Un ministerio de <a href="https://idclatam.org" target="_blank" style="color:#b58d3c;">IDCLATAM.org</a></p>
+      </div>
+      <nav class="footer-nav">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="https://idclatam.org" target="_blank">IDCLATAM.org</a></li>
+          <li><a href="https://pinedaamador.org" target="_blank">Pineda Amador Ministry</a></li>
+          <li><a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank">Apoya este ministerio (PayPal)</a></li>
+          <li><a href="https://biblefluent.org">Todos los cursos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year"></span> <a href="https://biblefluent.org" style="color:#b58d3c;">BibleFluent.org</a> · Un ministerio de <a href="https://idclatam.org" target="_blank" style="color:#b58d3c;">IDCLATAM.org</a></p>
+      <p style="font-size:0.9rem;opacity:0.7;margin-top:0.3rem;">"Your word is a lamp to my feet." — Psalm 119:105</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ==================== DATOS DE LAS 200 LECCIONES ====================
+      // Todas las lecciones están en: /es/leccion-1, /es/leccion-2, etc.
+      const modulesData = [
+        // ============ NIVEL A1 (Lecciones 1-50) ============
+        { title: "Nivel A1 — Fundamentos (1-50)", moduleId: 1, start: 1, level: "A1", lessons: [
+          "El verbo TO BE: Afirmativo (God is Love)",
+          "TO BE con pronombres (I am the Light of the World)",
+          "TO BE Negativo (You are My Friends)",
+          "Preguntas con TO BE (Is Anything Too Hard for the Lord?)",
+          "Repaso: El Señor es mi Pastor (Salmo 23)",
+          "El verbo TO HAVE: Afirmativo (I Have a Plan)",
+          "TO HAVE en presente perfecto (The Lord Has Done Great Things)",
+          "Adjetivos posesivos (I Have Called You by Name)",
+          "Negativo y preguntas con TO HAVE (We Have This Hope)",
+          "Repaso: El Reino de Dios está en vosotros",
+          "Presente Simple (God Loves the World)",
+          "Presente Simple: verbos regulares (The Lord Watches Over You)",
+          "Imperativo y negativas (Do Not Worry About Tomorrow)",
+          "Preguntas en Presente Simple (Do You Love Me?)",
+          "Repaso: Amar al Señor tu Dios",
+          "Presente Continuo (The Lord is Building a House)",
+          "Presente Continuo (The Spirit is Moving)",
+          "Presente Continuo: preguntas y negativas (I am Praying for You)",
+          "Estados con presente (He is Alive!)",
+          "Repaso: Estad quietos (Salmo 46)",
+          "Pasado de TO BE: was/were (God was with Joseph)",
+          "Pasado de TO BE: negativo y preguntas (They Were Afraid)",
+          "Describir identidad pasada (The Word was God)",
+          "Pasado de TO BE: descripciones (He was a Murderer...)",
+          "Repaso: Yo era ciego, ahora veo (Juan 9)",
+          "Pasado Simple regular (He Called the Light 'Day')",
+          "Pasado Simple regular (Large Crowds Followed Jesus)",
+          "Pasado Simple regular (He Fasted and Prayed)",
+          "Pasado Simple: negativos y preguntas (He Did Not Sin)",
+          "Repaso: Jesús caminó sobre el mar",
+          "Pasado Simple irregular: say/go/come (Jesus Said, 'Come, Follow Me')",
+          "Pasado Simple irregular: give/have/make (He Gave Us Life)",
+          "Pasado Simple irregular: see/take/know (They Saw the Empty Tomb)",
+          "Pasado Simple irregular: think/understand (He Knew All People)",
+          "Repaso: Dios creó (Génesis 1)",
+          "Futuro con WILL (I Will Give You Rest)",
+          "Negativo con WILL (They Will Not Hurt or Destroy)",
+          "Futuro con GOING TO (I am Going to Prepare a Place)",
+          "Preguntas con WILL (Will You Also Leave?)",
+          "Repaso: Nunca te dejaré (Hebreos 13)",
+          "MODAL: CAN (You Can Come to Me)",
+          "MODAL: MUST (We Must Obey God)",
+          "MODAL: SHOULD (You Should Love One Another)",
+          "Preguntas con modales (Can You Not Watch with Me?)",
+          "Repaso: Todo lo puedo en Cristo (Filipenses 4)",
+          "Adjetivos (Love is Patient, Love is Kind)",
+          "Superlativos (The Greatest of These is Love)",
+          "Preposiciones de lugar (In the Beginning... With God)",
+          "Preposiciones de tiempo (On the Third Day)",
+          "Repaso Final: Ahora vemos por espejo (1 Corintios 13)"
+        ]},
+        // ============ NIVEL A2 (Lecciones 51-90) ============
+        { title: "Nivel A2 — Desarrollo (51-90)", moduleId: 2, start: 51, level: "A2", lessons: [
+          "Comparativos (Love is Greater Than Faith)",
+          "Superlativos (The Greatest Commandment)",
+          "Comparativos irregulares (The Last Will Be First)",
+          "Comparativos de igualdad (As Far as the East is from the West)",
+          "Repaso: Nada es imposible para Dios (Lucas 1)",
+          "MODALES: Could/Might/May (You Could Be Right)",
+          "MODALES: May/Might (You May Ask Me for Anything)",
+          "Probabilidad: Will probably / definitely (He Will Probably Come)",
+          "Consejos: Should / ought to (You Should Love One Another)",
+          "Repaso: Todo lo puedo en Cristo (Filipenses 4)",
+          "Pasado Continuo (While They Were Sleeping)",
+          "Pasado Continuo vs. Pasado Simple (She Was Anointing Jesus)",
+          "Contexto y emociones (I Was Afraid and Hid)",
+          "Acciones simultáneas (They Were Praying and Singing)",
+          "Repaso: Mientras él aún hablaba",
+          "Futuro: WILL vs. GOING TO (I Will Make You Fishers of Men)",
+          "Futuro: GOING TO para planes (I am Going to Prepare a Place)",
+          "Primer condicional (If You Ask, I Will Give)",
+          "Cláusulas temporales (When He Comes, We Will See Him)",
+          "Repaso: Volveré (Juan 14)",
+          "Presente Perfecto: experiencias (I Have Found My Sheep)",
+          "Presente Perfecto: negativo y preguntas (I Have Not Come to Call the Righteous)",
+          "Presente Perfecto vs. Pasado Simple (I Have Been Crucified with Christ)",
+          "For y Since con Presente Perfecto (I Have Written to You)",
+          "Repaso: He vencido al mundo (Juan 16)",
+          "Verbos frasales: LOOK (Look at the Birds of the Air)",
+          "Verbos con preposiciones fijas (Wait for the Lord)",
+          "Verbos frasales: TURN/GIVE/PUT (Turn Away from Evil)",
+          "Verbos con preposiciones fijas (Trust in the Lord)",
+          "Repaso: El que cree en mí (Juan 11)",
+          "Voz Pasiva: presente y pasado (He Was Crucified)",
+          "Voz Pasiva: It is written (It is Written)",
+          "Discurso Indirecto: presente → pasado (He Said That He Would Come)",
+          "Discurso Indirecto: preguntas (He Asked If I Believed)",
+          "Repaso: 'Sígueme' (Mateo 4)",
+          "Primer condicional: repaso (If We Confess Our Sins)",
+          "Segundo condicional: introducción (If I Were a Prophet...)",
+          "Segundo condicional: consejos (What Would Jesus Do?)",
+          "Unless y As long as (Unless You Repent)",
+          "Repaso final: Yo soy el camino (Juan 14)"
+        ]},
+        // ============ NIVEL B1 (Lecciones 91-130) ============
+        { title: "Nivel B1 — Intermedio (91-130)", moduleId: 3, start: 91, level: "B1", lessons: [
+          "Past Perfect: acciones anteriores (God Had Already Planned It)",
+          "Past Perfect en narrativa (She Had Anointed Him for Burial)",
+          "Past Perfect: preguntas y negativas (I Had Heard About You)",
+          "Past Perfect Continuous: duración (Jesus Had Been Teaching All Day)",
+          "Repaso: Yo había planeado esto (Éxodo 32)",
+          "Tercer condicional: pasado hipotético (If He Had Known)",
+          "I wish / If only (If Only I Had Known)",
+          "Tercer condicional: negativo (If We Had Not Sinned)",
+          "Condicionales mixtos (If I Had a Thousand Tongues)",
+          "Repaso: Si no hubiera venido (Juan 15)",
+          "Modales de deducción pasada (He Must Have Been the Messiah)",
+          "Should have / shouldn't have (They Should Have Believed)",
+          "Could have / might have (He Could Have Saved Himself)",
+          "Comparación de modales (I Should Have Listened)",
+          "Repaso: Él debe haber resucitado",
+          "Cláusulas de relativo: who/which/that (The God Who Saves)",
+          "Cláusulas no-definitorias (Jesus, Who Is the Christ)",
+          "Whose, whom, where, when (The Man Whose Faith Was Great)",
+          "Relativas con preposiciones (The Word, Which Became Flesh)",
+          "Repaso: El que tiene oídos (Mateo 11)",
+          "Voz Pasiva: presente (The Gospel Is Preached)",
+          "Voz Pasiva: pasado (The Bible Was Written)",
+          "Voz Pasiva: futuro y presente perfecto (The Gospel Will Be Preached)",
+          "Voz Pasiva: verbos ditransitivos (I Have Been Crucified with Christ)",
+          "Repaso: Nació, crucificado, resucitó",
+          "Discurso Indirecto: backshifting (He Said That He Would Come)",
+          "Discurso Indirecto: preguntas (She Asked If He Had Believed)",
+          "Verbos de reporte + infinitivo (She Suggested That They Pray)",
+          "Verbos de reporte: say/tell/claim (She Said She Had Seen the Lord)",
+          "Repaso: 'Sígueme' (discurso indirecto)",
+          "Gerundios e infinitivos: cambio de significado (He Stopped to Pray)",
+          "Verbos seguidos de gerundio (He Went On Praying)",
+          "Verbos de preferencia (He Avoided Temptation)",
+          "Used to / be used to (He Used to Pray Before Dawn)",
+          "Repaso: Continuó enseñando",
+          "Conectores de contraste (Although He Was Crucified)",
+          "Conectores de causa (For God So Loved the World)",
+          "Conectores de propósito (He Died so That We Might Live)",
+          "Conectores de comparación (He Has Risen, Just as He Said)",
+          "Repaso final: Yo soy el camino (Juan 14)"
+        ]},
+        // ============ NIVEL B2 (Lecciones 131-170) ============
+        { title: "Nivel B2 — Intermedio Alto (131-170)", moduleId: 4, start: 131, level: "B2", lessons: [
+          "Future Perfect (He Will Have Finished the Work)",
+          "Future Perfect Continuous (We Will Have Been Changed)",
+          "Past Perfect Continuous: duración (He Had Been Teaching Them)",
+          "Contrastes temporales (Before Abraham Was, I Am)",
+          "Repaso: El que ha de venir (Apocalipsis 1)",
+          "Voz Pasiva con modales (He Must Have Been Crucified)",
+          "Voz Pasiva con reporting verbs (He Is Said to Have Risen)",
+          "Voz Pasiva con verbos ditransitivos (He Was Given Authority)",
+          "Voz Pasiva con gerundios/infinitivos (Being Led by the Spirit)",
+          "Repaso: Está escrito (Mateo 4)",
+          "Tercer condicional: profundización (If I Had Not Come)",
+          "Condicionales mixtos avanzados (If We Had Not Believed)",
+          "I wish / If only: pasado, presente, futuro (I Wish I Had Known)",
+          "As if / as though + subjuntivo (He Acts as If He Were God)",
+          "Repaso: Ojalá creyerais (Juan 6)",
+          "Inversión con adverbios negativos (Never Have I Seen Such Faith)",
+          "Cleft sentences (It Was Jesus Who Healed Me)",
+          "Inversión con only (Only When We Pray Do We Find Peace)",
+          "Inversión con not only... but also (Not Only Did He Heal)",
+          "Repaso: Nunca he oído",
+          "Gerundios pasivos (I Enjoy Being Loved by God)",
+          "Gerundios perfectivos (I Regret Having Been Angry)",
+          "Worth + gerundio / Need + gerundio (He Is Worth Following)",
+          "Verbos con preposición + gerundio (I Look Forward to Being Healed)",
+          "Repaso: Espero estar con él",
+          "Reporting verbs con infinitivo (He Claimed to Have Seen the Lord)",
+          "Reporting verbs con subjuntivo (She Suggested That They Pray)",
+          "Discurso Indirecto con preguntas complejas (She Asked if He Had Believed)",
+          "Reporting verbs con objeto + infinitivo (He Warned Them Not to Sin)",
+          "Repaso: Afirmaron haber creído",
+          "Conectores de adición (Moreover, He Rose from the Dead)",
+          "Conectores de contraste (Nevertheless, God Was with Him)",
+          "Conectores de causa y consecuencia (Consequently, We Are Saved)",
+          "Conectores de propósito (In Order That We Might Believe)",
+          "Repaso: Sin embargo, tengo esperanza",
+          "Subjuntivo: deseos (I Wish I Were There)",
+          "Subjuntivo: necesidad (It Is Necessary That He Be Born Again)",
+          "Subjuntivo: sugerencia (I Suggest That We Pray Without Ceasing)",
+          "Subjuntivo: as if / it is time (He Acts As If He Had Never Sinned)",
+          "Repaso final: Yo soy la resurrección (Juan 11)"
+        ]},
+        // ============ NIVEL C1 (Lecciones 171-200) ============
+        { title: "Nivel C1 — Avanzado (171-200)", moduleId: 5, start: 171, level: "C1", lessons: [
+          "Inversión condicional (Had I Known, I Would Have Acted Differently)",
+          "Inversión con adverbios negativos (Never Have I Seen Such Righteousness)",
+          "Inversión con so... that / such... that (Such Was His Faith That He Believed)",
+          "Fronting (What God Has Joined Together, Let No One Separate)",
+          "Repaso: Nunca he oído tales palabras",
+          "Conectores de concesión (Notwithstanding, I Have Hope)",
+          "Conectores causales (Inasmuch as He Loved Us)",
+          "Voz Pasiva con verbos de percepción (He Was Seen to Enter the Temple)",
+          "Modales de necesidad en pasado (He Need Not Have Worried)",
+          "Repaso: No debió haber temido",
+          "Discurso Indirecto con infinitivos perfectivos (He Is Believed to Have Written the Letter)",
+          "Discurso Indirecto con subjuntivo (He Suggested That They Wait)",
+          "Discurso Indirecto con preguntas complejas (She Asked Where He Had Gone)",
+          "Discurso Indirecto con modales y condicionales (She Claimed That He Would Return)",
+          "Repaso: Afirmó haber resucitado",
+          "Nominalización (The Salvation of the Lord Is Near)",
+          "Nominalización de verbos (The Belief in God Leads to Salvation)",
+          "Nominalización teológica (The Justification of the Sinner Is by Faith)",
+          "Nominalización de adjetivos (The Knowledge of God Is Eternal Life)",
+          "Repaso: La salvación del Señor",
+          "Participios y frases absolutas (Having Loved His Own, He Loved Them to the End)",
+          "Construcciones con he who / the one who (He Who Believed Was Saved)",
+          "Participios como adjetivos (His Faith, Being Tested, Proved Genuine)",
+          "Participios perfectivos (The Apostle, Having Been Sent, Preached Boldly)",
+          "Repaso: Habiendo sido salvos, vivimos para él",
+          "Modales de deducción (He Must Have Been the Messiah)",
+          "Had it not been for / But for (Had It Not Been for God's Grace)",
+          "Modales de deducción presente/pasado (He Must Have Known the Truth)",
+          "Needn't have / didn't need to (He Needn't Have Done That)",
+          "Repaso: Debe haber creído",
+          "Conectores de concesión (Notwithstanding, He Trusted in God)",
+          "Conectores causales (Inasmuch as He Suffered, He Learned Obedience)",
+          "Conectores de consecuencia (Consequently, We Have Peace with God)",
+          "Conectores de propósito (In Order That We Might Be Saved)",
+          "Repaso: Por consiguiente, tenemos esperanza",
+          "Sintaxis compleja (The Lord, Having Considered the Heart, Saw the Truth)",
+          "Cláusulas relativas anidadas (The Gospel, Which Is the Power of God, Is Preached to All)",
+          "Sintaxis condicional compleja (Should Anyone Ask You, Tell Them...)",
+          "Sintaxis enfática (So Great Was His Love That He Gave His Son)",
+          "Repaso final: El amor de Cristo (Efesios 3)"
+        ]}
+      ];
+
+      function buildAccordion() {
+        const container = document.getElementById('accordionContainer');
+        if (!container) return;
+        let html = '';
+        modulesData.forEach((mod, idx) => {
+          const openClass = (idx === 0) ? 'open' : '';
+          html += `
+            <div class="accordion-group ${openClass}" data-module="${mod.moduleId}">
+              <div class="accordion-group-header">
+                <span><i class="fas fa-folder-open"></i> ${mod.title}</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-group-content">
+                <ul class="lesson-options">
+          `;
+          mod.lessons.forEach((lesson, lIdx) => {
+            const lessonNum = mod.start + lIdx;
+            html += `
+              <li data-lesson="${lessonNum}">
+                <span class="lesson-num">${lessonNum}</span>
+                <span class="lesson-title">${lesson}</span>
+                <span class="lesson-level">${mod.level}</span>
+                <i class="fas fa-chevron-right"></i>
+              </li>
+            `;
+          });
+          html += `
+                </ul>
+              </div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+
+        document.querySelectorAll('.accordion-group-header').forEach(header => {
+          header.removeEventListener('click', toggleAccordion);
+          header.addEventListener('click', toggleAccordion);
+        });
+        document.querySelectorAll('.lesson-options li').forEach(li => {
+          li.removeEventListener('click', redirectToLesson);
+          li.addEventListener('click', redirectToLesson);
+        });
+      }
+
+      function toggleAccordion(e) {
+        const group = this.closest('.accordion-group');
+        if (group) group.classList.toggle('open');
+      }
+
+      function redirectToLesson(e) {
+        e.stopPropagation();
+        const li = this;
+        const lessonNum = li.dataset.lesson;
+        if (lessonNum) {
+          window.location.href = `/es/leccion-${lessonNum}`;
+        }
+      }
+
+      // Inicialización
+      document.addEventListener('DOMContentLoaded', () => {
+        buildAccordion();
+
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        if (videoPlaceholder) {
+          videoPlaceholder.addEventListener('click', () => {
+            window.open('https://www.youtube.com/watch?v=TUjY-s6rvdU', '_blank');
+          });
+        }
+
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+        if (navToggle && mainNav) {
+          navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.contains('open');
+            mainNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', !isOpen);
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              if (!isOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+              } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            }
+          });
+
+          const navLinks = mainNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mainNav.classList.remove('open');
+              navToggle.setAttribute('aria-expanded', 'false');
+              const icon = navToggle.querySelector('i');
+              if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+            });
+          });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.pushState(null, null, targetId);
+            }
+          });
+        });
+
+        const header = document.getElementById('site-header');
+        if (header) {
+          window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 40 ? '0 2px 10px rgba(0,0,0,0.05)' : 'none';
+          });
+        }
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 900 && mainNav.classList.contains('open')) {
+            mainNav.classList.remove('open');
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

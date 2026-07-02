@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>BibleFluent · Inglés Bíblico A1 · Lección 7: The Lord Has Done Great Things</title>
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Estilos generales -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Estilos específicos de la lección (drag & drop) */
+    .drag-container {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; padding: 1rem;
+      background: #f8fafc; border-radius: 1rem; border: 2px dashed #ccd8e6;
+      min-height: 80px; align-items: center; justify-content: center;
+    }
+    .drag-item {
+      background: #eef3fa; padding: 0.4rem 1rem; border-radius: 2rem;
+      cursor: grab; user-select: none; font-weight: 500; border: 1px solid #bcc8d8;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .drag-item:active { cursor: grabbing; }
+    .drag-item.dragging { opacity: 0.5; transform: scale(0.95); }
+    .drop-zone {
+      background: #f0f6fe; border: 2px dashed #2c7a6e; border-radius: 1rem;
+      padding: 0.8rem 1.2rem; min-height: 60px; display: flex; flex-wrap: wrap;
+      gap: 0.5rem; align-items: center; margin: 0.5rem 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .drop-zone.drag-over { background: #d4e8f0; border-color: #1f5f54; }
+    .drop-zone .drag-item { cursor: default; background: #d4e2f0; }
+    .drop-zone .drag-item.dropped { background: #b8d9c0; border-color: #1f7b4d; }
+    .drop-zone.correct { border-color: #1f7b4d; background: #d4edda; }
+    .drop-zone.wrong { border-color: #c2410c; background: #f8d7da; }
+    .btn-reset-drag {
+      background: #5b6e8c; color: #fff; border: none; padding: 0.4rem 1.2rem;
+      border-radius: 2rem; cursor: pointer; font-size: 0.85rem;
+      transition: background 0.2s; display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-reset-drag:hover { background: #3f4f66; }
+    .drag-feedback { margin-top: 0.8rem; font-weight: 500; }
+    .highlight-verb { color: #1f5f54; font-weight: 600; }
+    .possessive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .possessive-item {
+      background: #f8fafc;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      border: 1px solid #e9edf2;
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-area">
+        <i class="fas fa-scroll logo-icon"></i>
+        <span class="logo-text">BibleFluent</span>
+        <span style="font-size:0.8rem; margin-left:0.5rem; color:#5b6e8c;">· Inglés Bíblico</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="leccion-6"><i class="fas fa-arrow-left"></i> Lección 6</a>
+        <a href="leccion-8"><i class="fas fa-arrow-right"></i> Lección 8</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </nav>
+      <div class="social-icons-header">
+        <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== CONTENIDO PRINCIPAL ========== -->
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <h1>
+        <i class="fas fa-star" style="color:#f4b942;"></i>
+        Lección 7 · The Lord Has Done Great Things
+        <span class="hero-badge">Nivel A1 · Principiante</span>
+      </h1>
+      <p>Verbo <strong>have / has</strong> como verbo principal (presente perfecto) · Adjetivos posesivos</p>
+      <div class="progress-section">
+        <div class="progress-bar-container">
+          <div class="progress-fill" style="width:14%;"></div>
+        </div>
+        <div class="stats">
+          <i class="fas fa-check-circle"></i> Vocabulario nuevo: 12 · Acumulado: 69 / 1200
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <div class="video-section" style="margin-bottom: 2rem;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+        <iframe src="https://www.youtube.com/embed/2lz8pXz2T2I" title="Verbo have en inglés - Presente perfecto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+      </div>
+      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;">
+        <i class="fas fa-info-circle"></i> Video: El verbo "have" como verbo principal y los adjetivos posesivos
+      </p>
+    </div>
+
+    <!-- ACORDEÓN PRINCIPAL -->
+    <div class="accordion" id="mainAccordion">
+
+      <!-- ======== 1. VERSÍCULO CLAVE Y LECTURA ======== -->
+      <div class="accordion-item active">
+        <div class="accordion-header">
+          <span><i class="fas fa-bible"></i> 1. Versículo Clave y Lectura</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div class="verse-box">
+            <p style="font-size:1.4rem; font-weight:700;">
+              “The Lord has done great things for us.”
+              <span style="font-weight:400; font-size:1rem; display:block; margin-top:0.3rem;">— <strong>Salmo 126:3</strong> (EasyEnglish Bible)</span>
+            </p>
+          </div>
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem; margin:1rem 0;">
+            <p><strong>📖 Lectura extendida (Salmo 126:1-3):</strong></p>
+            <p style="font-style:italic; font-size:1.05rem;">
+              “When the Lord brought back the captives to Zion, we were like people who dreamed. Our mouths were filled with laughter. The Lord has done great things for us, and we are filled with joy.”
+            </p>
+            <p style="font-size:0.9rem; color:#4a5a72; margin-top:0.3rem;">— Salmo 126:1-3 (EASY)</p>
+          </div>
+          <button class="btn-reveal" data-target="lectureTranslation7">Ver traducción</button>
+          <div id="lectureTranslation7" class="answer-text">
+            <p><strong>Traducción:</strong> “Cuando el Señor trajo de vuelta a los cautivos a Sión, éramos como los que sueñan. Nuestras bocas se llenaron de risa. El Señor ha hecho grandes cosas por nosotros, y estamos llenos de alegría.”</p>
+          </div>
+          <div class="card-highlight" style="margin-top:1rem;">
+            <i class="fas fa-lightbulb"></i> <strong>Observación:</strong> La frase <em>“has done”</em> es el foco gramatical de esta lección. Usamos <strong>have/has + participio pasado</strong> para hablar de acciones pasadas con relevancia en el presente. En este caso, celebramos lo que Dios ha hecho por nosotros.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 2. VOCABULARIO NUEVO ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-words"></i> 2. Vocabulario nuevo</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Palabras extraídas del Salmo 126:1-3. Aprende su significado y pronunciación.</p>
+          <div style="overflow-x:auto;">
+            <table id="vocabTable">
+              <thead>
+                <tr><th>Inglés</th><th>Español</th><th>Nota</th></tr>
+              </thead>
+              <tbody>
+                <!-- Los datos se llenan desde script.js con window.lessonData.vocab -->
+              </tbody>
+            </table>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-headphones"></i> <strong>Consejo:</strong> Presta atención a la pronunciación de “done” /dʌn/, “great” /ɡreɪt/, “captives” /ˈkæptɪvz/, “laughter” /ˈlæftər/.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 3. GRAMÁTICA: HAVE / HAS COMO VERBO PRINCIPAL ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-grammar"></i> 3. Gramática: El verbo “have” como verbo principal</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>El verbo <strong>have</strong> puede significar <em>tener</em> o <em>haber</em>. En esta lección, lo usamos como verbo principal para expresar acciones pasadas con relevancia presente. La estructura es:</p>
+          <div style="background:#eef3fa; border-radius:1rem; padding:1rem; margin:0.8rem 0; text-align:center; font-size:1.1rem;">
+            <strong>Sujeto + have/has + participio pasado</strong>
+          </div>
+          <p>El participio pasado de los verbos regulares se forma añadiendo <strong>-ed</strong> (ej: <em>worked, played</em>). Los verbos irregulares tienen formas especiales (ej: <em>done, seen, gone</em>).</p>
+          <div style="overflow-x:auto; margin:1rem 0;">
+            <table>
+              <thead>
+                <tr><th>Pronombre</th><th>Verbo auxiliar</th><th>Participio pasado</th><th>Ejemplo</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>I</td><td><strong>have</strong></td><td>done</td><td>I <span class="highlight-verb">have done</span> my homework.</td></tr>
+                <tr><td>You</td><td><strong>have</strong></td><td>done</td><td>You <span class="highlight-verb">have done</span> a good job.</td></tr>
+                <tr><td>He / She / It</td><td><strong>has</strong></td><td>done</td><td>She <span class="highlight-verb">has done</span> her work.</td></tr>
+                <tr><td>We</td><td><strong>have</strong></td><td>done</td><td>We <span class="highlight-verb">have done</span> the shopping.</td></tr>
+                <tr><td>They</td><td><strong>have</strong></td><td>done</td><td>They <span class="highlight-verb">have done</span> everything.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="rule-box">
+            <strong><i class="fas fa-gavel"></i> Regla clave:</strong>
+            <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+              <li><strong>I / You / We / They</strong> → <strong>have</strong></li>
+              <li><strong>He / She / It</strong> → <strong>has</strong></li>
+              <li>El participio pasado de <strong>do</strong> es <strong>done</strong></li>
+            </ul>
+          </div>
+
+          <h4 style="margin-top:1.2rem; color:#1f5f54;">📌 Adjetivos posesivos</h4>
+          <p>Los adjetivos posesivos indican pertenencia. Van antes del sustantivo:</p>
+          <div class="possessive-grid">
+            <div class="possessive-item"><strong>my</strong> = mi</div>
+            <div class="possessive-item"><strong>your</strong> = tu / su (de usted)</div>
+            <div class="possessive-item"><strong>his</strong> = su (de él)</div>
+            <div class="possessive-item"><strong>her</strong> = su (de ella)</div>
+            <div class="possessive-item"><strong>our</strong> = nuestro</div>
+            <div class="possessive-item"><strong>their</strong> = su (de ellos)</div>
+          </div>
+          <p>El pronombre posesivo <strong>mine</strong> significa <em>mío</em> y va solo, sin sustantivo: <em>“This book is mine.”</em></p>
+
+          <button class="btn-reveal" data-target="moreExamples7">📖 Ver más ejemplos bíblicos con "has done" y posesivos</button>
+          <div id="moreExamples7" class="answer-text">
+            <ul style="list-style-type: none; padding-left:0;">
+              <li style="margin-bottom:0.5rem;">✨ <em>He <span class="highlight-verb">has done</span> all things well.</em> (Marcos 7:37) – Él ha hecho todo bien.</li>
+              <li style="margin-bottom:0.5rem;">✨ <em>God <span class="highlight-verb">has done</span> it, so that people will fear him.</em> (Eclesiastés 3:14) – Dios lo ha hecho para que la gente le tema.</li>
+              <li style="margin-bottom:0.5rem;">✨ <em>The Lord <span class="highlight-verb">has done</span> what he planned.</em> (Lamentaciones 2:17) – El Señor ha hecho lo que planeó.</li>
+              <li style="margin-bottom:0.5rem;">✨ <em><span style="color:#1f5f54;">My</span> sheep listen to <span style="color:#1f5f54;">my</span> voice.</em> (Juan 10:27) – Mis ovejas oyen mi voz.</li>
+              <li style="margin-bottom:0.5rem;">✨ <em><span style="color:#1f5f54;">Your</span> word is a lamp for <span style="color:#1f5f54;">my</span> feet.</em> (Salmo 119:105) – Tu palabra es lámpara para mis pies.</li>
+              <li style="margin-bottom:0.5rem;">✨ <em><span style="color:#1f5f54;">His</span> mercy lasts forever.</em> (Salmo 136:1) – Su misericordia dura para siempre.</li>
+              <li style="margin-bottom:0.5rem;">✨ <em><span style="color:#1f5f54;">Our</span> Father in heaven.</em> (Mateo 6:9) – Padre nuestro que estás en los cielos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 4. APLICACIÓN COTIDIANA ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-comment-dots"></i> 4. Aplicación cotidiana</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Practica usando <strong>have / has done</strong> y los adjetivos posesivos en situaciones cotidianas:</p>
+          <div class="example-grid">
+            <div class="example-item"><strong>I have done</strong> my homework.</div>
+            <div class="example-item"><strong>She has done</strong> a good job.</div>
+            <div class="example-item"><strong>We have done</strong> the shopping.</div>
+            <div class="example-item"><strong>He has done</strong> everything we asked.</div>
+            <div class="example-item"><strong>My</strong> house is big.</div>
+            <div class="example-item"><strong>Your</strong> book is here.</div>
+            <div class="example-item"><strong>Our</strong> car is old.</div>
+            <div class="example-item"><strong>Their</strong> children are in the garden.</div>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-pen-fancy"></i> <strong>Practica escrita:</strong> Escribe 3 oraciones con <em>have/has done</em> y 3 oraciones usando adjetivos posesivos sobre tu familia y posesiones.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 5. EJERCICIO DE COMPLETAR (FILL-IN) ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-puzzle-piece"></i> 5. Ejercicio: Completa con have, has o el posesivo correcto</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Completa cada oración con <strong>have</strong> o <strong>has</strong> (y el participio pasado <strong>done</strong>) o el adjetivo posesivo adecuado.</p>
+          <div id="fillExercise"></div>
+          <div class="card-highlight" style="margin-top:1rem;">
+            <i class="fas fa-lightbulb"></i> <strong>Ayuda:</strong> Recuerda: <em>I/you/we/they → have</em>; <em>he/she/it → has</em>. Los adjetivos posesivos: <em>my, your, his, her, our, their</em>.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== 6. EJERCICIO DE ARRASTRAR (DRAG & DROP) ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-arrows-alt"></i> 6. Ejercicio interactivo: Arrastra para formar oraciones</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Arrastra las palabras sueltas para formar oraciones correctas con <strong>have / has done</strong>.</p>
+          <div id="dragExercise"></div>
+          <button id="resetDragBtn" class="btn-reset-drag"><i class="fas fa-redo"></i> Reiniciar ejercicio</button>
+          <div id="dragFeedback" class="drag-feedback"></div>
+        </div>
+      </div>
+
+      <!-- ======== 7. FLASHCARDS ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-id-card"></i> 7. Flashcards interactivas</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción al español.</p>
+          <div class="flashcard-grid" id="flashcardGrid"></div>
+        </div>
+      </div>
+
+      <!-- ======== 8. QUIZ DE VOCABULARIO Y GRAMÁTICA ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-gamepad"></i> 8. Quiz de vocabulario y gramática</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Responde las siguientes preguntas para evaluar tu comprensión de la lección.</p>
+          <div id="quizContainer"></div>
+          <div id="quizFeedback" style="margin-top:0.8rem;"></div>
+        </div>
+      </div>
+
+      <!-- ======== 9. REPASO ESPACIADO (SRS) ======== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-calendar-week"></i> 9. Plan de repaso (SRS)</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Sigue este plan para consolidar el aprendizaje:</p>
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight">
+            <i class="far fa-clock"></i> <strong>Técnica de estudio:</strong> Escribe 5 oraciones con <em>have/has done</em> sobre cosas que has hecho hoy. Luego, escribe 5 oraciones con adjetivos posesivos sobre tu familia y pertenencias.
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fin accordion -->
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="leccion-6"><i class="fas fa-arrow-left"></i> Lección 6</a>
+      <a href="leccion-8"><i class="fas fa-arrow-right"></i> Lección 8</a>
+      <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+      <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61589698336913" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@IdCAmericaLatina" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 BibleFluent · <span style="font-weight:600;">“The Lord has done great things for us.”</span> (Salmo 126:3)</p>
+  </footer>
+
+  <!-- Botón de scroll top -->
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- ========== SCRIPTS ========== -->
+  <!-- Script general -->
+  <script src="script.js"></script>
+
+  <!-- Script inline específico de la lección 7 -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ============================================================
+      // DATOS DE LA LECCIÓN 7
+      // ============================================================
+      window.lessonData = {
+        vocab: [
+          { en: 'done', es: 'hecho (participio de do)' },
+          { en: 'great', es: 'grande / excelente' },
+          { en: 'things', es: 'cosas' },
+          { en: 'brought back', es: 'trajo de vuelta' },
+          { en: 'captives', es: 'cautivos' },
+          { en: 'dreamed', es: 'soñaron' },
+          { en: 'mouths', es: 'bocas' },
+          { en: 'filled', es: 'llenas / llenas' },
+          { en: 'laughter', es: 'risa' },
+          { en: 'joy', es: 'alegría' },
+          { en: 'homework', es: 'tarea' },
+          { en: 'shopping', es: 'compras' }
+        ],
+        quiz: [
+          { question: '¿Qué significa "has done"?', options: ['ha hecho', 'hizo', 'hará', 'tiene'], correct: 0 },
+          { question: 'La forma correcta para "She" con el verbo "have" es:', options: ['has', 'have', 'had', 'having'], correct: 0 },
+          { question: '¿Qué adjetivo posesivo significa "mi"?', options: ['my', 'your', 'his', 'her'], correct: 0 },
+          { question: 'Traduce "great" al español:', options: ['grande', 'pequeño', 'bueno', 'malo'], correct: 0 },
+          { question: '¿Cuál es el participio pasado de "do"?', options: ['done', 'did', 'doing', 'does'], correct: 0 },
+          { question: 'El adjetivo posesivo para "ellos" es:', options: ['their', 'our', 'your', 'his'], correct: 0 }
+        ],
+        fill: [
+          { sentence: 'I ____ done my homework. (he)', answer: 'have' },
+          { sentence: 'She ____ done a good job. (ha)', answer: 'has' },
+          { sentence: 'We ____ done the shopping. (hemos)', answer: 'have' },
+          { sentence: 'He ____ done everything we asked. (ha)', answer: 'has' },
+          { sentence: '____ house is big. (Mi)', answer: 'My' },
+          { sentence: '____ book is here. (Tu)', answer: 'Your' },
+          { sentence: '____ car is old. (Nuestro)', answer: 'Our' },
+          { sentence: '____ children are in the garden. (Sus de ellos)', answer: 'Their' }
+        ],
+        customInit: function() {
+          initDragExercise();
+        }
+      };
+
+      // ============================================================
+      // EJERCICIO DE ARRASTRAR (DRAG & DROP)
+      // ============================================================
+      function initDragExercise() {
+        var container = document.getElementById('dragExercise');
+        if (!container) return;
+
+        var sentences = [
+          { words: ['I', 'have', 'done', 'my', 'homework.'], target: 'I have done my homework.' },
+          { words: ['She', 'has', 'done', 'a', 'good', 'job.'], target: 'She has done a good job.' },
+          { words: ['We', 'have', 'done', 'the', 'shopping.'], target: 'We have done the shopping.' }
+        ];
+
+        var allWords = [];
+        sentences.forEach(function(s, idx) {
+          s.words.forEach(function(w) {
+            allWords.push({ word: w, sentenceIndex: idx });
+          });
+        });
+
+        function shuffle(arr) {
+          for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+          }
+          return arr;
+        }
+        var shuffled = shuffle(allWords.slice());
+
+        var dragContainer = document.createElement('div');
+        dragContainer.className = 'drag-container';
+        dragContainer.id = 'dragSource';
+
+        shuffled.forEach(function(item) {
+          var span = document.createElement('span');
+          span.className = 'drag-item';
+          span.textContent = item.word;
+          span.dataset.sentence = item.sentenceIndex;
+          span.draggable = true;
+          span.addEventListener('dragstart', handleDragStart);
+          span.addEventListener('dragend', handleDragEnd);
+          dragContainer.appendChild(span);
+        });
+
+        var dropContainer = document.createElement('div');
+        dropContainer.style.margin = '1rem 0';
+
+        sentences.forEach(function(s, idx) {
+          var zone = document.createElement('div');
+          zone.className = 'drop-zone';
+          zone.dataset.sentence = idx;
+          zone.dataset.expected = s.words.join(' ');
+          zone.textContent = '🖱️ Arrastra aquí para formar: "' + s.target + '"';
+          zone.addEventListener('dragover', handleDragOver);
+          zone.addEventListener('dragenter', handleDragEnter);
+          zone.addEventListener('dragleave', handleDragLeave);
+          zone.addEventListener('drop', handleDrop);
+          dropContainer.appendChild(zone);
+        });
+
+        container.appendChild(dragContainer);
+        container.appendChild(dropContainer);
+
+        var draggedItem = null;
+
+        function handleDragStart(e) {
+          draggedItem = this;
+          this.classList.add('dragging');
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/plain', this.textContent);
+        }
+
+        function handleDragEnd(e) {
+          this.classList.remove('dragging');
+          document.querySelectorAll('.drop-zone').forEach(function(z) {
+            z.classList.remove('drag-over');
+          });
+        }
+
+        function handleDragOver(e) {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+          this.classList.add('drag-over');
+        }
+
+        function handleDragEnter(e) {
+          this.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+          this.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+          e.preventDefault();
+          this.classList.remove('drag-over');
+          var zone = this;
+          var word = e.dataTransfer.getData('text/plain');
+          var sentenceIndex = parseInt(zone.dataset.sentence);
+
+          if (draggedItem) {
+            var wordData = shuffled.find(function(item) {
+              return item.word === word && item.sentenceIndex === sentenceIndex;
+            });
+
+            if (wordData) {
+              var clone = draggedItem.cloneNode(true);
+              clone.classList.remove('dragging');
+              clone.classList.add('dropped');
+              clone.draggable = false;
+              draggedItem.remove();
+              zone.appendChild(clone);
+
+              var wordsInZone = zone.querySelectorAll('.drag-item');
+              var expectedWords = zone.dataset.expected.split(' ');
+              if (wordsInZone.length === expectedWords.length) {
+                var formed = [];
+                wordsInZone.forEach(function(el) { formed.push(el.textContent); });
+                if (formed.join(' ') === zone.dataset.expected) {
+                  zone.classList.add('correct');
+                  zone.classList.remove('wrong');
+                  document.getElementById('dragFeedback').innerHTML = '<span class="feedback-correct">✅ ¡Excelente! Has formado la oración: "' + zone.dataset.expected + '"</span>';
+                } else {
+                  zone.classList.add('wrong');
+                  zone.classList.remove('correct');
+                  document.getElementById('dragFeedback').innerHTML = '<span class="feedback-wrong">❌ El orden no es correcto. Revisa la posición de las palabras.</span>';
+                }
+              }
+            } else {
+              zone.classList.add('wrong');
+              document.getElementById('dragFeedback').innerHTML = '<span class="feedback-wrong">❌ Esta palabra no pertenece a esta oración.</span>';
+              setTimeout(function() {
+                if (draggedItem && draggedItem.parentNode) {
+                  var sourceContainer = document.getElementById('dragSource');
+                  if (sourceContainer) {
+                    sourceContainer.appendChild(draggedItem);
+                    draggedItem.classList.remove('dragging');
+                    draggedItem.draggable = true;
+                  }
+                }
+                zone.classList.remove('wrong');
+              }, 1000);
+            }
+          }
+        }
+
+        document.getElementById('resetDragBtn').addEventListener('click', function() {
+          location.reload();
+        });
+      }
+
+    })();
+  </script>
+</body>
+</html>

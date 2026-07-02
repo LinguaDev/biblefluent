@@ -162,12 +162,14 @@
       background: #1f3b2c;
       color: white;
       box-shadow: 0 4px 15px rgba(31,59,44,0.3);
+      transition: 0.2s;
     }
     .btn-primary:hover { background: #2a4a38; transform: translateY(-2px); }
     .btn-ghost {
       background: transparent;
       border: 2px solid #1f3b2c;
       color: #1f3b2c;
+      transition: 0.2s;
     }
     .btn-ghost:hover { background: #1f3b2c; color: white; }
     .hero-stats {
@@ -654,10 +656,10 @@
 
   <script>
     (function() {
+      "use strict";
+      
       // ==================== DATOS DE LAS 200 LECCIONES ====================
-      // Todas las lecciones están en: /es/leccion-1, /es/leccion-2, etc.
       const modulesData = [
-        // ============ NIVEL A1 (Lecciones 1-50) ============
         { title: "Nivel A1 — Fundamentos (1-50)", moduleId: 1, start: 1, level: "A1", lessons: [
           "El verbo TO BE: Afirmativo (God is Love)",
           "TO BE con pronombres (I am the Light of the World)",
@@ -710,7 +712,6 @@
           "Preposiciones de tiempo (On the Third Day)",
           "Repaso Final: Ahora vemos por espejo (1 Corintios 13)"
         ]},
-        // ============ NIVEL A2 (Lecciones 51-90) ============
         { title: "Nivel A2 — Desarrollo (51-90)", moduleId: 2, start: 51, level: "A2", lessons: [
           "Comparativos (Love is Greater Than Faith)",
           "Superlativos (The Greatest Commandment)",
@@ -753,7 +754,6 @@
           "Unless y As long as (Unless You Repent)",
           "Repaso final: Yo soy el camino (Juan 14)"
         ]},
-        // ============ NIVEL B1 (Lecciones 91-130) ============
         { title: "Nivel B1 — Intermedio (91-130)", moduleId: 3, start: 91, level: "B1", lessons: [
           "Past Perfect: acciones anteriores (God Had Already Planned It)",
           "Past Perfect en narrativa (She Had Anointed Him for Burial)",
@@ -796,7 +796,6 @@
           "Conectores de comparación (He Has Risen, Just as He Said)",
           "Repaso final: Yo soy el camino (Juan 14)"
         ]},
-        // ============ NIVEL B2 (Lecciones 131-170) ============
         { title: "Nivel B2 — Intermedio Alto (131-170)", moduleId: 4, start: 131, level: "B2", lessons: [
           "Future Perfect (He Will Have Finished the Work)",
           "Future Perfect Continuous (We Will Have Been Changed)",
@@ -839,7 +838,6 @@
           "Subjuntivo: as if / it is time (He Acts As If He Had Never Sinned)",
           "Repaso final: Yo soy la resurrección (Juan 11)"
         ]},
-        // ============ NIVEL C1 (Lecciones 171-200) ============
         { title: "Nivel C1 — Avanzado (171-200)", moduleId: 5, start: 171, level: "C1", lessons: [
           "Inversión condicional (Had I Known, I Would Have Acted Differently)",
           "Inversión con adverbios negativos (Never Have I Seen Such Righteousness)",
@@ -885,85 +883,96 @@
       ];
 
       function buildAccordion() {
-        const container = document.getElementById('accordionContainer');
-        if (!container) return;
-        let html = '';
-        modulesData.forEach((mod, idx) => {
-          const openClass = (idx === 0) ? 'open' : '';
-          html += `
-            <div class="accordion-group ${openClass}" data-module="${mod.moduleId}">
-              <div class="accordion-group-header">
-                <span><i class="fas fa-folder-open"></i> ${mod.title}</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-group-content">
-                <ul class="lesson-options">
-          `;
-          mod.lessons.forEach((lesson, lIdx) => {
-            const lessonNum = mod.start + lIdx;
-            html += `
-              <li data-lesson="${lessonNum}">
-                <span class="lesson-num">${lessonNum}</span>
-                <span class="lesson-title">${lesson}</span>
-                <span class="lesson-level">${mod.level}</span>
-                <i class="fas fa-chevron-right"></i>
-              </li>
-            `;
-          });
-          html += `
-                </ul>
-              </div>
-            </div>
-          `;
-        });
+        var container = document.getElementById('accordionContainer');
+        if (!container) {
+          console.warn('No se encontró el contenedor #accordionContainer');
+          return;
+        }
+        var html = '';
+        for (var idx = 0; idx < modulesData.length; idx++) {
+          var mod = modulesData[idx];
+          var openClass = (idx === 0) ? 'open' : '';
+          html += '<div class="accordion-group ' + openClass + '" data-module="' + mod.moduleId + '">';
+          html += '<div class="accordion-group-header">';
+          html += '<span><i class="fas fa-folder-open"></i> ' + mod.title + '</span>';
+          html += '<i class="fas fa-chevron-down"></i>';
+          html += '</div>';
+          html += '<div class="accordion-group-content">';
+          html += '<ul class="lesson-options">';
+          for (var lIdx = 0; lIdx < mod.lessons.length; lIdx++) {
+            var lessonNum = mod.start + lIdx;
+            html += '<li data-lesson="' + lessonNum + '">';
+            html += '<span class="lesson-num">' + lessonNum + '</span>';
+            html += '<span class="lesson-title">' + mod.lessons[lIdx] + '</span>';
+            html += '<span class="lesson-level">' + mod.level + '</span>';
+            html += '<i class="fas fa-chevron-right"></i>';
+            html += '</li>';
+          }
+          html += '</ul></div></div>';
+        }
         container.innerHTML = html;
 
-        document.querySelectorAll('.accordion-group-header').forEach(header => {
-          header.removeEventListener('click', toggleAccordion);
-          header.addEventListener('click', toggleAccordion);
-        });
-        document.querySelectorAll('.lesson-options li').forEach(li => {
-          li.removeEventListener('click', redirectToLesson);
-          li.addEventListener('click', redirectToLesson);
-        });
+        // Event listeners para los headers del acordeón
+        var headers = document.querySelectorAll('.accordion-group-header');
+        for (var h = 0; h < headers.length; h++) {
+          headers[h].addEventListener('click', toggleAccordion);
+        }
+
+        // Event listeners para los items de las lecciones
+        var items = document.querySelectorAll('.lesson-options li');
+        for (var i = 0; i < items.length; i++) {
+          items[i].addEventListener('click', redirectToLesson);
+        }
       }
 
       function toggleAccordion(e) {
-        const group = this.closest('.accordion-group');
-        if (group) group.classList.toggle('open');
+        var group = this.closest('.accordion-group');
+        if (group) {
+          group.classList.toggle('open');
+        }
       }
 
       function redirectToLesson(e) {
         e.stopPropagation();
-        const li = this;
-        const lessonNum = li.dataset.lesson;
+        var li = this;
+        var lessonNum = li.getAttribute('data-lesson');
         if (lessonNum) {
-          window.location.href = `/es/leccion-${lessonNum}`;
+          window.location.href = '/es/leccion-' + lessonNum;
         }
       }
 
-      // Inicialización
-      document.addEventListener('DOMContentLoaded', () => {
+      // ==================== INICIALIZACIÓN ====================
+      // Ejecutar cuando el DOM esté listo
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        // DOM ya está listo, ejecutar inmediatamente
+        init();
+      }
+
+      function init() {
         buildAccordion();
 
-        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        var videoPlaceholder = document.getElementById('videoPlaceholder');
         if (videoPlaceholder) {
-          videoPlaceholder.addEventListener('click', () => {
+          videoPlaceholder.addEventListener('click', function() {
             window.open('https://www.youtube.com/watch?v=TUjY-s6rvdU', '_blank');
           });
         }
 
-        const footerYear = document.getElementById('footer-year');
-        if (footerYear) footerYear.textContent = new Date().getFullYear();
+        var footerYear = document.getElementById('footer-year');
+        if (footerYear) {
+          footerYear.textContent = new Date().getFullYear();
+        }
 
-        const navToggle = document.getElementById('nav-toggle');
-        const mainNav = document.getElementById('main-nav');
+        var navToggle = document.getElementById('nav-toggle');
+        var mainNav = document.getElementById('main-nav');
         if (navToggle && mainNav) {
-          navToggle.addEventListener('click', () => {
-            const isOpen = mainNav.classList.contains('open');
+          navToggle.addEventListener('click', function() {
+            var isOpen = mainNav.classList.contains('open');
             mainNav.classList.toggle('open');
             navToggle.setAttribute('aria-expanded', !isOpen);
-            const icon = navToggle.querySelector('i');
+            var icon = navToggle.querySelector('i');
             if (icon) {
               if (!isOpen) {
                 icon.classList.remove('fa-bars');
@@ -975,51 +984,53 @@
             }
           });
 
-          const navLinks = mainNav.querySelectorAll('a');
-          navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+          var navLinks = mainNav.querySelectorAll('a');
+          for (var n = 0; n < navLinks.length; n++) {
+            navLinks[n].addEventListener('click', function() {
               mainNav.classList.remove('open');
               navToggle.setAttribute('aria-expanded', 'false');
-              const icon = navToggle.querySelector('i');
+              var icon = navToggle.querySelector('i');
               if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
               }
             });
-          });
+          }
         }
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
+        // Smooth scroll para enlaces internos
+        var anchors = document.querySelectorAll('a[href^="#"]');
+        for (var a = 0; a < anchors.length; a++) {
+          anchors[a].addEventListener('click', function(e) {
+            var targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            const target = document.querySelector(targetId);
+            var target = document.querySelector(targetId);
             if (target) {
               e.preventDefault();
               target.scrollIntoView({ behavior: 'smooth', block: 'start' });
               history.pushState(null, null, targetId);
             }
           });
-        });
+        }
 
-        const header = document.getElementById('site-header');
+        var header = document.getElementById('site-header');
         if (header) {
-          window.addEventListener('scroll', () => {
+          window.addEventListener('scroll', function() {
             header.style.boxShadow = window.scrollY > 40 ? '0 2px 10px rgba(0,0,0,0.05)' : 'none';
           });
         }
 
-        window.addEventListener('resize', () => {
+        window.addEventListener('resize', function() {
           if (window.innerWidth > 900 && mainNav.classList.contains('open')) {
             mainNav.classList.remove('open');
-            const icon = navToggle.querySelector('i');
+            var icon = navToggle.querySelector('i');
             if (icon) {
               icon.classList.remove('fa-times');
               icon.classList.add('fa-bars');
             }
           }
         });
-      });
+      }
     })();
   </script>
 </body>

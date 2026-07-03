@@ -4,46 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>BibleFluent · Inglés Bíblico A1 · Lección 5: The Lord is my Shepherd</title>
-  <!-- Fuentes e iconos -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Estilos generales -->
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Estilos específicos de la lección (drag & drop) */
-    .drag-container {
-      display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; padding: 1rem;
-      background: #f8fafc; border-radius: 1rem; border: 2px dashed #ccd8e6;
-      min-height: 80px; align-items: center; justify-content: center;
+    .watch-summary-text { display: none; }
+    .dialogue-speaker { font-weight: 600; color: #1f5f54; display: inline-block; min-width: 70px; }
+    .dialogue-line { padding: 0.5rem 0; border-bottom: 1px solid #e9edf2; }
+    .dialogue-line:last-child { border-bottom: none; }
+    .audio-only-btn {
+      background: #1f5f54;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.3rem 0;
     }
-    .drag-item {
-      background: #eef3fa; padding: 0.4rem 1rem; border-radius: 2rem;
-      cursor: grab; user-select: none; font-weight: 500; border: 1px solid #bcc8d8;
-      transition: background 0.15s, transform 0.1s;
-    }
-    .drag-item:active { cursor: grabbing; }
-    .drag-item.dragging { opacity: 0.5; transform: scale(0.95); }
-    .drop-zone {
-      background: #f0f6fe; border: 2px dashed #2c7a6e; border-radius: 1rem;
-      padding: 0.8rem 1.2rem; min-height: 60px; display: flex; flex-wrap: wrap;
-      gap: 0.5rem; align-items: center; margin: 0.5rem 0;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .drop-zone.drag-over { background: #d4e8f0; border-color: #1f5f54; }
-    .drop-zone .drag-item { cursor: default; background: #d4e2f0; }
-    .drop-zone .drag-item.dropped { background: #b8d9c0; border-color: #1f7b4d; }
-    .drop-zone.correct { border-color: #1f7b4d; background: #d4edda; }
-    .drop-zone.wrong { border-color: #c2410c; background: #f8d7da; }
-    .btn-reset-drag {
-      background: #5b6e8c; color: #fff; border: none; padding: 0.4rem 1.2rem;
-      border-radius: 2rem; cursor: pointer; font-size: 0.85rem;
-      transition: background 0.2s; display: inline-flex; align-items: center; gap: 0.4rem;
-    }
-    .btn-reset-drag:hover { background: #3f4f66; }
-    .drag-feedback { margin-top: 0.8rem; font-weight: 500; }
-    .highlight-affirm { color: #1f7b4d; font-weight: 600; }
-    .highlight-neg { color: #c2410c; font-weight: 600; }
-    .highlight-quest { color: #1f5f54; font-weight: 600; }
+    .audio-only-btn:hover { background: #154b41; }
+    .audio-only-btn.es { background: #2c7a6e; }
+    .audio-only-btn.es:hover { background: #1f5f54; }
+    .audio-only-btn.playing { background: #c2410c; opacity: 0.7; }
     .review-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -62,13 +48,13 @@
   </style>
 </head>
 <body>
-  <!-- ========== HEADER ========== -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-container">
       <div class="logo-area">
         <i class="fas fa-scroll logo-icon"></i>
         <span class="logo-text">BibleFluent</span>
-        <span style="font-size:0.8rem; margin-left:0.5rem; color:#5b6e8c;">· Inglés Bíblico</span>
+        <span class="logo-sub">· Inglés Bíblico</span>
       </div>
       <nav class="nav-links">
         <a href="../main-es"><i class="fas fa-home"></i> Inicio</a>
@@ -86,7 +72,7 @@
     </div>
   </header>
 
-  <!-- ========== CONTENIDO PRINCIPAL ========== -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main class="container">
     <!-- HERO -->
     <section class="hero">
@@ -106,223 +92,292 @@
       </div>
     </section>
 
-    <!-- VIDEO -->
-    <div class="video-section" style="margin-bottom: 2rem;">
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-        <iframe src="https://www.youtube.com/embed/2lz8pXz2T2I" title="Repaso del verbo to be" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-      </div>
-      <p class="text-center" style="margin-top: 0.5rem; font-size: 0.9rem; color: #5b6e8c;">
-        <i class="fas fa-info-circle"></i> Video: Repaso completo del verbo "to be" en presente
-      </p>
-    </div>
-
     <!-- ACORDEÓN PRINCIPAL -->
     <div class="accordion" id="mainAccordion">
 
-      <!-- ======== 1. VERSÍCULO CLAVE Y LECTURA ======== -->
+      <!-- ===== 1. WATCH ===== -->
       <div class="accordion-item active">
         <div class="accordion-header">
-          <span><i class="fas fa-bible"></i> 1. Versículo Clave y Lectura</span>
+          <span><i class="fas fa-play-circle"></i> 1. Watch · Objetivos y resumen</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
-          <div class="verse-box">
-            <p style="font-size:1.4rem; font-weight:700;">
-              “The Lord is my shepherd; I shall not want.”
-              <span style="font-weight:400; font-size:1rem; display:block; margin-top:0.3rem;">— <strong>Salmo 23:1</strong> (EasyEnglish Bible)</span>
-            </p>
-          </div>
-          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem; margin:1rem 0;">
-            <p><strong>📖 Lectura extendida (Salmo 23:1-3):</strong></p>
-            <p style="font-style:italic; font-size:1.05rem;">
-              “The Lord is my shepherd. I have everything I need. He lets me rest in green fields. He leads me beside calm water. He makes me strong again. He leads me along the right path, for his name's sake.”
-            </p>
-            <p style="font-size:0.9rem; color:#4a5a72; margin-top:0.3rem;">— Salmo 23:1-3 (EASY)</p>
-          </div>
-          <button class="btn-reveal" data-target="lectureTranslation5">Ver traducción</button>
-          <div id="lectureTranslation5" class="answer-text">
-            <p><strong>Traducción:</strong> “El Señor es mi pastor; nada me falta. Él me hace descansar en verdes pastos; me guía junto a aguas tranquilas. Me da nuevas fuerzas; me guía por caminos rectos, por amor a su nombre.”</p>
-          </div>
-          <div class="card-highlight" style="margin-top:1rem;">
-            <i class="fas fa-lightbulb"></i> <strong>Observación:</strong> Este es el Salmo más conocido. La primera frase contiene el verbo <em>“is”</em> (afirmativo) y la segunda usa <em>“shall not”</em> (negativo con un verbo modal arcaico). Esta lección repasa todas las formas de <strong>to be</strong> que hemos visto en la Unidad 1.
-          </div>
-        </div>
-      </div>
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem; margin-bottom:1rem;">
+            <h3 style="color:#1f5f54; margin-bottom:0.5rem;">🎯 Objetivo principal</h3>
+            <p>Repasar todo lo aprendido en la Unidad 1: el verbo <strong>to be</strong> en sus formas <strong>afirmativa, negativa e interrogativa</strong>, con todos los pronombres personales.</p>
 
-      <!-- ======== 2. VOCABULARIO DE REPASO ======== -->
-      <div class="accordion-item">
-        <div class="accordion-header">
-          <span><i class="fas fa-words"></i> 2. Vocabulario de repaso</span>
-          <i class="fas fa-chevron-down toggle-icon"></i>
-        </div>
-        <div class="accordion-content">
-          <p>Palabras clave de las lecciones 1 a 4. Repasa su significado y pronunciación.</p>
-          <div style="overflow-x:auto;">
-            <table id="vocabTable">
-              <thead>
-                <tr><th>Inglés</th><th>Español</th><th>Lección</th></tr>
-              </thead>
-              <tbody>
-                <!-- Los datos se llenan desde script.js con window.lessonData.vocab -->
-              </tbody>
-            </table>
-          </div>
-          <div class="card-highlight">
-            <i class="fas fa-headphones"></i> <strong>Consejo:</strong> Repasa la pronunciación de todas las palabras. Presta atención a las palabras nuevas de esta lección: <em>shepherd</em>, <em>want</em>, <em>green</em>, <em>fields</em>, <em>leads</em>, <em>calm</em>, <em>strong</em>, <em>path</em>.
-          </div>
-        </div>
-      </div>
-
-      <!-- ======== 3. GRAMÁTICA: REPASO DE TO BE ======== -->
-      <div class="accordion-item">
-        <div class="accordion-header">
-          <span><i class="fas fa-grammar"></i> 3. Repaso de gramática: El verbo “to be”</span>
-          <i class="fas fa-chevron-down toggle-icon"></i>
-        </div>
-        <div class="accordion-content">
-          <p>Aquí tienes un resumen completo del verbo <strong>to be</strong> en presente, con todas las formas que hemos aprendido:</p>
-
-          <h4 style="margin-top:1.2rem; color:#1f5f54;">✅ Afirmativo</h4>
-          <div style="overflow-x:auto; margin:0.5rem 0;">
-            <table>
-              <thead><tr><th>Pronombre</th><th>Verbo</th><th>Ejemplo</th></tr></thead>
-              <tbody>
-                <tr><td>I</td><td><span class="highlight-affirm">am</span></td><td>I <span class="highlight-affirm">am</span> a student.</td></tr>
-                <tr><td>You</td><td><span class="highlight-affirm">are</span></td><td>You <span class="highlight-affirm">are</span> my friend.</td></tr>
-                <tr><td>He / She / It</td><td><span class="highlight-affirm">is</span></td><td>She <span class="highlight-affirm">is</span> a nurse.</td></tr>
-                <tr><td>We</td><td><span class="highlight-affirm">are</span></td><td>We <span class="highlight-affirm">are</span> happy.</td></tr>
-                <tr><td>They</td><td><span class="highlight-affirm">are</span></td><td>They <span class="highlight-affirm">are</span> in the garden.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h4 style="margin-top:1.2rem; color:#c2410c;">❌ Negativo</h4>
-          <div style="overflow-x:auto; margin:0.5rem 0;">
-            <table>
-              <thead><tr><th>Pronombre</th><th>Negativo</th><th>Contracción</th><th>Ejemplo</th></tr></thead>
-              <tbody>
-                <tr><td>I</td><td>I am not</td><td>—</td><td>I <span class="highlight-neg">am not</span> a servant.</td></tr>
-                <tr><td>You</td><td>You are not</td><td>You <span class="highlight-neg">aren’t</span></td><td>You <span class="highlight-neg">aren’t</span> my enemy.</td></tr>
-                <tr><td>He / She / It</td><td>He/She/It is not</td><td><span class="highlight-neg">isn’t</span></td><td>He <span class="highlight-neg">isn’t</span> a teacher.</td></tr>
-                <tr><td>We</td><td>We are not</td><td>We <span class="highlight-neg">aren’t</span></td><td>We <span class="highlight-neg">aren’t</span> lost.</td></tr>
-                <tr><td>They</td><td>They are not</td><td>They <span class="highlight-neg">aren’t</span></td><td>They <span class="highlight-neg">aren’t</span> in the classroom.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h4 style="margin-top:1.2rem; color:#1f5f54;">❓ Preguntas</h4>
-          <div style="overflow-x:auto; margin:0.5rem 0;">
-            <table>
-              <thead><tr><th>Pregunta</th><th>Respuesta corta afirmativa</th><th>Respuesta corta negativa</th></tr></thead>
-              <tbody>
-                <tr><td><span class="highlight-quest">Am I</span> a teacher?</td><td>Yes, I am.</td><td>No, I’m not.</td></tr>
-                <tr><td><span class="highlight-quest">Are you</span> my friend?</td><td>Yes, you are.</td><td>No, you aren’t.</td></tr>
-                <tr><td><span class="highlight-quest">Is he</span> a prophet?</td><td>Yes, he is.</td><td>No, he isn’t.</td></tr>
-                <tr><td><span class="highlight-quest">Is she</span> at home?</td><td>Yes, she is.</td><td>No, she isn’t.</td></tr>
-                <tr><td><span class="highlight-quest">Is it</span> a book?</td><td>Yes, it is.</td><td>No, it isn’t.</td></tr>
-                <tr><td><span class="highlight-quest">Are we</span> ready?</td><td>Yes, we are.</td><td>No, we aren’t.</td></tr>
-                <tr><td><span class="highlight-quest">Are they</span> in the garden?</td><td>Yes, they are.</td><td>No, they aren’t.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="rule-box">
-            <strong><i class="fas fa-gavel"></i> Reglas clave recordadas:</strong>
-            <ul style="margin-top:0.5rem; padding-left:1.2rem;">
-              <li><strong>I</strong> → <strong>am</strong> (afirmativo), <strong>am not</strong> (negativo), <strong>Am I…?</strong> (pregunta)</li>
-              <li><strong>He / She / It</strong> → <strong>is</strong> / <strong>isn’t</strong> / <strong>Is he…?</strong></li>
-              <li><strong>You / We / They</strong> → <strong>are</strong> / <strong>aren’t</strong> / <strong>Are you…?</strong></li>
+            <h4 style="color:#1f5f54; margin-top:1rem; margin-bottom:0.3rem;">📌 Subobjetivos</h4>
+            <ul>
+              <li>Repasar la conjugación de <strong>to be</strong> en afirmativo: <em>I am, you are, he/she/it is, we are, they are</em>.</li>
+              <li>Repasar la forma negativa: <em>I am not, you aren't, he isn't, we aren't, they aren't</em>.</li>
+              <li>Repasar las preguntas: <em>Am I?, Are you?, Is he?, Are we?, Are they?</em></li>
+              <li>Comprender el Salmo 23:1: <em>"The Lord is my shepherd; I shall not want."</em></li>
+              <li>Practicar la conversación usando todas las formas del verbo.</li>
             </ul>
           </div>
+
+          <!-- Resúmenes con audio (texto oculto) -->
+          <div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0;">
+            <div style="flex:1; min-width:200px;">
+              <button class="audio-only-btn es" id="summaryEsBtn"><i class="fas fa-volume-up"></i> Escuchar resumen en español</button>
+              <div id="summaryEsFeedback" style="margin-top:0.3rem; font-size:0.9rem; color:#5b6e8c;"></div>
+            </div>
+            <div style="flex:1; min-width:200px;">
+              <button class="audio-only-btn" id="summaryEnBtn"><i class="fas fa-volume-up"></i> Listen to summary in English</button>
+              <div id="summaryEnFeedback" style="margin-top:0.3rem; font-size:0.9rem; color:#5b6e8c;"></div>
+            </div>
+          </div>
+
+          <div class="watch-summary-text" id="summaryEsText">
+            En esta lección de repaso, consolidarás todo lo aprendido en las lecciones 1 a 4 sobre el verbo to be. Repasarás las formas afirmativas, negativas e interrogativas con todos los pronombres. Practicarás con el Salmo 23:1 "The Lord is my shepherd" y con ejemplos cotidianos. Al final, podrás usar el verbo to be con confianza en cualquier situación.
+          </div>
+          <div class="watch-summary-text" id="summaryEnText">
+            In this review lesson, you will consolidate everything you learned in lessons 1 to 4 about the verb to be. You will review the affirmative, negative and interrogative forms with all personal pronouns. You will practice with Psalm 23:1 "The Lord is my shepherd" and with everyday examples. By the end, you will be able to use the verb to be with confidence in any situation.
+          </div>
+
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Observa:</strong> El Salmo 23:1 contiene dos formas del verbo: <em>“The Lord <strong>is</strong> my shepherd”</em> (afirmativo) y <em>“I shall <strong>not</strong> want”</em> (negativo con un verbo modal). Esta lección repasa todas las formas de <em>to be</em>.
+          </div>
         </div>
       </div>
 
-      <!-- ======== 4. APLICACIÓN COTIDIANA ======== -->
+      <!-- ===== 2. LISTEN ===== -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <span><i class="fas fa-comment-dots"></i> 4. Aplicación cotidiana</span>
+          <span><i class="fas fa-headphones"></i> 2. Listen · Escucha</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
-          <p>Practica usando todas las formas del verbo <strong>to be</strong> en situaciones cotidianas:</p>
-          <div class="review-grid">
-            <div class="review-item"><strong>Afirmativo</strong> I am happy.</div>
-            <div class="review-item"><strong>Negativo</strong> I am not sad.</div>
-            <div class="review-item"><strong>Pregunta</strong> Are you happy?</div>
-            <div class="review-item"><strong>Afirmativo</strong> She is a teacher.</div>
-            <div class="review-item"><strong>Negativo</strong> He isn’t a doctor.</div>
-            <div class="review-item"><strong>Pregunta</strong> Is she at home?</div>
-            <div class="review-item"><strong>Afirmativo</strong> We are ready.</div>
-            <div class="review-item"><strong>Negativo</strong> We aren’t late.</div>
-            <div class="review-item"><strong>Pregunta</strong> Are they in the garden?</div>
+          <p>Escucha atentamente cada parte. Puedes hacer clic en el botón 🔊 para escuchar el texto en inglés.</p>
+
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem; margin:1rem 0;">
+            <p style="font-size:1.2rem; font-weight:600;">
+              “The Lord is my shepherd; I shall not want.”
+              <button class="tts-btn" data-tts="The Lord is my shepherd; I shall not want." aria-label="Escuchar"><i class="fas fa-volume-up"></i></button>
+              <span style="font-weight:400; font-size:0.9rem; display:block; margin-top:0.3rem;">— <strong>Salmo 23:1</strong> (EasyEnglish Bible)</span>
+            </p>
+          </div>
+
+          <div style="background:#f0f6fe; padding:1rem; border-radius:1rem; border-left:6px solid #2c7a6e; margin:1rem 0;">
+            <p><strong>Lectura extendida (Salmo 23:1-3):</strong></p>
+            <p style="font-style:italic;">
+              “The Lord is my shepherd. I have everything I need. He lets me rest in green fields. He leads me beside calm water. He makes me strong again. He leads me along the right path, for his name's sake.”
+              <button class="tts-btn" data-tts="The Lord is my shepherd. I have everything I need. He lets me rest in green fields. He leads me beside calm water. He makes me strong again. He leads me along the right path, for his name's sake." aria-label="Escuchar lectura"><i class="fas fa-volume-up"></i></button>
+            </p>
+            <p style="font-size:0.9rem; color:#4a5a72;">— Salmo 23:1-3 (EASY)</p>
+          </div>
+
+          <div style="background:#f9fafc; padding:1rem; border-radius:1rem; margin:1rem 0;">
+            <p><strong>Palabras clave de repaso:</strong></p>
+            <ul>
+              <li><strong>shepherd</strong> – /ˈʃepərd/ – pastor <button class="tts-btn" data-tts="shepherd"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>want</strong> – /wɒnt/ – carecer / faltar <button class="tts-btn" data-tts="want"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>green</strong> – /ɡriːn/ – verde <button class="tts-btn" data-tts="green"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>fields</strong> – /fiːldz/ – campos <button class="tts-btn" data-tts="fields"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>leads</strong> – /liːdz/ – guía <button class="tts-btn" data-tts="leads"><i class="fas fa-volume-up"></i></button></li>
+            </ul>
+          </div>
+
+          <button class="btn-reveal" data-target="listenTranslation">Ver traducción completa</button>
+          <div id="listenTranslation" class="answer-text">
+            <p><strong>Traducción:</strong> “El Señor es mi pastor; nada me falta. Él me hace descansar en verdes pastos; me guía junto a aguas tranquilas. Me da nuevas fuerzas; me guía por caminos rectos, por amor a su nombre.”</p>
+            <button class="tts-btn" data-tts="El Señor es mi pastor; nada me falta. Él me hace descansar en verdes pastos; me guía junto a aguas tranquilas. Me da nuevas fuerzas; me guía por caminos rectos, por amor a su nombre." data-lang="es-ES" aria-label="Escuchar traducción"><i class="fas fa-volume-up"></i> Escuchar traducción</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 3. SPEAK ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-microphone"></i> 3. Speak · Practica la pronunciación</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Escucha la pronunciación de cada oración (afirmativa, negativa y pregunta), luego haz clic en <strong>🎤 Practicar</strong> para decirla en voz alta.</p>
+
+          <div id="speakExercise">
+            <!-- Las frases se generarán desde JavaScript -->
+          </div>
+
+          <div class="card-highlight">
+            <i class="fas fa-info-circle"></i> <strong>Nota:</strong> El reconocimiento de voz funciona mejor en Chrome y con micrófono activado.
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 4. WRITE ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-pen"></i> 4. Write · Escribe la forma correcta</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Completa cada oración con la forma correcta de <strong>to be</strong> (afirmativa, negativa o interrogativa). Luego haz clic en <strong>🔊 Escuchar todas</strong> para oír las oraciones completas.</p>
+
+          <div id="writeExercise">
+            <ol id="writeList" style="list-style-type:decimal; padding-left:1.5rem;">
+              <!-- Los items se generan desde JavaScript -->
+            </ol>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.5rem 0;">
+              <button id="writeCheckBtn" class="btn-check">Verificar todas</button>
+              <button id="writeListenBtn" class="btn-primary"><i class="fas fa-volume-up"></i> Escuchar todas</button>
+              <button id="writeResetBtn" class="btn-check" style="background:#5b6e8c;">Reiniciar</button>
+            </div>
+            <div id="writeFeedback" style="margin-top:0.8rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 5. INTERPRET ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-theater-masks"></i> 5. Interpret · Doblaje bíblico</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Lee el siguiente diálogo bíblico en voz alta, interpretando los personajes.</p>
+          <div style="background:#f9fafc; padding:1rem; border-radius:1rem; margin:1rem 0;">
+            <p><strong>📖 Diálogo (Salmo 23):</strong></p>
+            <div class="dialogue-line">
+              <span class="dialogue-speaker">Creyente:</span> “The Lord is my shepherd. I have everything I need.”
+              <button class="tts-btn" data-tts="The Lord is my shepherd. I have everything I need."><i class="fas fa-volume-up"></i></button>
+            </div>
+            <div class="dialogue-line">
+              <span class="dialogue-speaker">Amigo:</span> “Is the Lord your shepherd? Are you sure?”
+              <button class="tts-btn" data-tts="Is the Lord your shepherd? Are you sure?"><i class="fas fa-volume-up"></i></button>
+            </div>
+            <div class="dialogue-line">
+              <span class="dialogue-speaker">Creyente:</span> “Yes, He is my shepherd. I am not afraid. He leads me beside calm water.”
+              <button class="tts-btn" data-tts="Yes, He is my shepherd. I am not afraid. He leads me beside calm water."><i class="fas fa-volume-up"></i></button>
+            </div>
           </div>
           <div class="card-highlight">
-            <i class="fas fa-pen-fancy"></i> <strong>Practica escrita:</strong> Escribe 6 oraciones (2 afirmativas, 2 negativas y 2 preguntas) sobre tu vida usando el verbo <em>to be</em>.
+            <i class="fas fa-theater-masks"></i> <strong>Actividad:</strong> Practica el diálogo con un compañero o grábate a ti mismo.
           </div>
         </div>
       </div>
 
-      <!-- ======== 5. EJERCICIO DE COMPLETAR (FILL-IN) ======== -->
+      <!-- ===== 6. GRAMMAR ===== -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <span><i class="fas fa-puzzle-piece"></i> 5. Ejercicio: Completa con la forma correcta de “to be”</span>
+          <span><i class="fas fa-grammar"></i> 6. Grammar · Repaso de "to be"</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
-          <p>Completa cada oración con la forma correcta de <strong>to be</strong> (am, is, are, am not, isn’t, aren’t, o la forma interrogativa).</p>
-          <div id="fillExercise"></div>
-          <div class="card-highlight" style="margin-top:1rem;">
-            <i class="fas fa-lightbulb"></i> <strong>Ayuda:</strong> Lee cada oración y decide si es afirmativa, negativa o pregunta. Luego elige la forma correcta.
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem;">
+            <h3 style="color:#1f5f54; margin-bottom:0.5rem;">🔹 Repaso completo del verbo "to be"</h3>
+            <p>El verbo <strong>to be</strong> es el verbo más importante en inglés. Aquí tienes un resumen de todas sus formas en presente:</p>
+
+            <div style="overflow-x:auto; margin:1rem 0;">
+              <table>
+                <thead>
+                  <tr><th>Pronombre</th><th>Afirmativo</th><th>Negativo</th><th>Pregunta</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>I</td><td>I <strong>am</strong></td><td>I <strong>am not</strong></td><td><strong>Am I</strong>?</td></tr>
+                  <tr><td>You</td><td>You <strong>are</strong></td><td>You <strong>aren't</strong></td><td><strong>Are you</strong>?</td></tr>
+                  <tr><td>He</td><td>He <strong>is</strong></td><td>He <strong>isn't</strong></td><td><strong>Is he</strong>?</td></tr>
+                  <tr><td>She</td><td>She <strong>is</strong></td><td>She <strong>isn't</strong></td><td><strong>Is she</strong>?</td></tr>
+                  <tr><td>It</td><td>It <strong>is</strong></td><td>It <strong>isn't</strong></td><td><strong>Is it</strong>?</td></tr>
+                  <tr><td>We</td><td>We <strong>are</strong></td><td>We <strong>aren't</strong></td><td><strong>Are we</strong>?</td></tr>
+                  <tr><td>They</td><td>They <strong>are</strong></td><td>They <strong>aren't</strong></td><td><strong>Are they</strong>?</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="rule-box">
+              <strong><i class="fas fa-gavel"></i> Reglas clave:</strong>
+              <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+                <li><strong>I</strong> → <strong>am</strong> (afirmativo), <strong>am not</strong> (negativo), <strong>Am I?</strong> (pregunta)</li>
+                <li><strong>He / She / It</strong> → <strong>is</strong> / <strong>isn't</strong> / <strong>Is he/she/it?</strong></li>
+                <li><strong>You / We / They</strong> → <strong>are</strong> / <strong>aren't</strong> / <strong>Are you/we/they?</strong></li>
+              </ul>
+              <button class="tts-btn" data-tts="I am, you are, he is, she is, it is, we are, they are. I am not, you are not, he is not, she is not, it is not, we are not, they are not. Am I, are you, is he, is she, is it, are we, are they."><i class="fas fa-volume-up"></i> Escuchar todas las formas</button>
+            </div>
+
+            <div class="card-highlight">
+              <i class="fas fa-lightbulb"></i> <strong>En contexto bíblico:</strong> El Salmo 23:1 usa la forma afirmativa <em>“The Lord <strong>is</strong> my shepherd”</em> y la negativa <em>“I shall <strong>not</strong> want”</em>. Esta lección repasa todas las formas para que puedas usarlas con confianza.
+            </div>
+
+            <p style="margin-top:1rem;">
+              <button class="btn-primary" id="grammarListenEs"><i class="fas fa-volume-up"></i> Escuchar explicación en español</button>
+              <button class="btn-primary" id="grammarListenEn" style="background:#5b6e8c;"><i class="fas fa-volume-up"></i> Escuchar ejemplos en inglés</button>
+            </p>
+            <div id="grammarListenFeedback" style="margin-top:0.5rem;"></div>
           </div>
         </div>
       </div>
 
-      <!-- ======== 6. EJERCICIO DE ARRASTRAR (DRAG & DROP) ======== -->
+      <!-- ===== 7. GRAMMAR EXERCISE ===== -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <span><i class="fas fa-arrows-alt"></i> 6. Ejercicio interactivo: Arrastra para formar oraciones</span>
+          <span><i class="fas fa-puzzle-piece"></i> 7. Grammar Exercise · Práctica de repaso</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
-          <p>Arrastra las palabras sueltas para formar oraciones correctas con el verbo <strong>to be</strong> (afirmativas, negativas o preguntas).</p>
-          <div id="dragExercise"></div>
-          <button id="resetDragBtn" class="btn-reset-drag"><i class="fas fa-redo"></i> Reiniciar ejercicio</button>
-          <div id="dragFeedback" class="drag-feedback"></div>
+          <p>Completa cada oración con la forma correcta de <strong>to be</strong> (afirmativa, negativa o interrogativa). Luego, haz clic en <strong>🎧 Escuchar dictado</strong> para oír la oración completa.</p>
+
+          <div id="grammarExercise">
+            <ol id="grammarList" style="list-style-type:decimal; padding-left:1.5rem;">
+              <!-- Los items se generan desde JavaScript -->
+            </ol>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.5rem 0;">
+              <button id="grammarCheckBtn" class="btn-check">Verificar todas</button>
+              <button id="grammarDictationBtn" class="btn-primary"><i class="fas fa-headphones"></i> Escuchar dictado</button>
+              <button id="grammarResetBtn" class="btn-check" style="background:#5b6e8c;">Reiniciar</button>
+            </div>
+            <div id="grammarFeedback" style="margin-top:0.8rem;"></div>
+            <div id="grammarDictationText" style="margin-top:0.5rem; font-style:italic; color:#5b6e8c;"></div>
+          </div>
         </div>
       </div>
 
-      <!-- ======== 7. FLASHCARDS ======== -->
+      <!-- ===== 8. VOCABULARY ===== -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <span><i class="fas fa-id-card"></i> 7. Flashcards interactivas</span>
+          <span><i class="fas fa-words"></i> 8. Vocabulary · Vocabulario de repaso</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
-          <p><i class="fas fa-hand-pointer"></i> Haz clic en cada tarjeta para ver la traducción al español.</p>
-          <div class="flashcard-grid" id="flashcardGrid"></div>
+          <p>Haz clic en cada palabra en inglés para escuchar su pronunciación y voltear la tarjeta para ver la traducción.</p>
+          <div class="flashcard-grid" id="vocabFlashcardGrid"></div>
         </div>
       </div>
 
-      <!-- ======== 8. QUIZ DE REPASO ======== -->
+      <!-- ===== 9. EVALUATION ===== -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <span><i class="fas fa-gamepad"></i> 8. Quiz de repaso</span>
+          <span><i class="fas fa-check-circle"></i> 9. Evaluation · Evaluación de repaso</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
-          <p>Responde las siguientes preguntas para evaluar tu comprensión de toda la Unidad 1.</p>
-          <div id="quizContainer"></div>
-          <div id="quizFeedback" style="margin-top:0.8rem;"></div>
+          <p>Responde las preguntas una por una. Selecciona la opción correcta y haz clic en <strong>Siguiente</strong> para avanzar. Al final verás tu puntuación.</p>
+
+          <div id="evalContainer" style="margin:1rem 0;">
+            <div id="evalCard" style="background:#f9fafc; border-radius:1rem; padding:1.5rem; border:2px solid #e9edf2; min-height:200px;">
+              <p id="evalQuestion" style="font-size:1.1rem; font-weight:600;">Cargando pregunta...</p>
+              <div id="evalOptions" style="margin:0.8rem 0;"></div>
+              <div id="evalFeedback" style="margin-top:0.8rem;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1rem; flex-wrap:wrap; gap:0.5rem;">
+              <span id="evalProgress" style="font-weight:500;">Pregunta 1 de 8</span>
+              <div style="display:flex; gap:0.5rem;">
+                <button id="evalNextBtn" class="btn-check" disabled>Siguiente <i class="fas fa-arrow-right"></i></button>
+                <button id="evalResetBtn" class="btn-check" style="background:#5b6e8c;"><i class="fas fa-redo"></i> Reiniciar</button>
+              </div>
+            </div>
+            <div id="evalResult" style="margin-top:1rem; font-weight:700; font-size:1.2rem;"></div>
+          </div>
         </div>
       </div>
 
-      <!-- ======== 9. REPASO ESPACIADO (SRS) ======== -->
+      <!-- ===== 10. SRS REVIEW ===== -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <span><i class="fas fa-calendar-week"></i> 9. Plan de repaso (SRS)</span>
+          <span><i class="fas fa-calendar-week"></i> 10. Plan de repaso (SRS)</span>
           <i class="fas fa-chevron-down toggle-icon"></i>
         </div>
         <div class="accordion-content">
-          <p>Para consolidar todo lo aprendido en la Unidad 1, sigue este plan:</p>
           <ul>
             <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
             <li><strong>Repaso 2:</strong> en 3 días</li>
@@ -331,7 +386,7 @@
             <li><strong>Repaso 5:</strong> en 30 días</li>
           </ul>
           <div class="card-highlight">
-            <i class="far fa-clock"></i> <strong>Técnica de estudio:</strong> Escribe la tabla completa de <em>to be</em> (afirmativo, negativo y preguntas) dos veces. Luego, escribe 5 oraciones sobre tu familia y 5 preguntas que harías a un amigo.
+            <i class="far fa-clock"></i> <strong>Técnica:</strong> Escribe la conjugación completa de <em>to be</em> (afirmativa, negativa e interrogativa) y practica con tus propias oraciones.
           </div>
         </div>
       </div>
@@ -339,7 +394,7 @@
     </div><!-- fin accordion -->
   </main>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- FOOTER -->
   <footer class="main-footer">
     <div class="footer-links">
       <a href="../main-es"><i class="fas fa-home"></i> Inicio</a>
@@ -355,24 +410,20 @@
       <a href="https://www.tiktok.com/@idclatam.org" target="_blank"><i class="fab fa-tiktok"></i></a>
       <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <p>&copy; 2026 BibleFluent · <span style="font-weight:600;">“The Lord is my shepherd.”</span> (Salmo 23:1)</p>
+    <p class="footer-copy">&copy; 2026 BibleFluent · <span style="font-weight:600;">“The Lord is my shepherd.”</span> (Salmo 23:1)</p>
   </footer>
 
-  <!-- Botón de scroll top -->
   <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
 
-  <!-- ========== SCRIPTS ========== -->
-  <!-- Script general -->
+  <!-- SCRIPTS -->
   <script src="script.js"></script>
-
-  <!-- Script inline específico de la lección 5 -->
   <script>
     (function() {
       'use strict';
 
-      // ============================================================
-      // DATOS DE LA LECCIÓN 5 (REPASO)
-      // ============================================================
+      // ================================================================
+      // DATOS DE LA LECCIÓN (para script.js)
+      // ================================================================
       window.lessonData = {
         vocab: [
           { en: 'shepherd', es: 'pastor' },
@@ -391,185 +442,578 @@
           { en: 'Lord', es: 'Señor' }
         ],
         quiz: [
-          { question: 'La forma negativa de "I am" es:', options: ['I am not', 'I aren’t', 'I isn’t', 'I not'], correct: 0 },
+          { question: 'La forma negativa de "I am" es:', options: ['I am not', 'I aren\'t', 'I isn\'t', 'I not'], correct: 0 },
           { question: '¿Cómo se dice "¿Estás listo?" en inglés?', options: ['Are you ready?', 'Is you ready?', 'Am you ready?', 'Are your ready?'], correct: 0 },
           { question: '¿Qué significa "shepherd"?', options: ['pastor', 'oveja', 'campo', 'camino'], correct: 0 },
-          { question: 'La forma correcta para "She" en negativo contraído es:', options: ['isn’t', 'aren’t', 'am not', 'not is'], correct: 0 },
+          { question: 'La forma correcta para "She" en negativo contraído es:', options: ['isn\'t', 'aren\'t', 'am not', 'not is'], correct: 0 },
           { question: '¿Cuál es la pregunta correcta para "They are in the garden"?', options: ['Are they in the garden?', 'Is they in the garden?', 'Am they in the garden?', 'Are them in the garden?'], correct: 0 },
           { question: 'Traduce "calm" al español:', options: ['tranquilo', 'caliente', 'frío', 'alto'], correct: 0 },
           { question: 'La forma afirmativa para "We" es:', options: ['are', 'is', 'am', 'be'], correct: 0 },
           { question: '¿Cómo se dice "campos" en inglés?', options: ['fields', 'flowers', 'forests', 'fences'], correct: 0 }
-        ],
-        fill: [
-          { sentence: 'I ____ a believer. (soy)', answer: 'am' },
-          { sentence: 'You ____ my friend. (eres)', answer: 'are' },
-          { sentence: 'She ____ a nurse. (es)', answer: 'is' },
-          { sentence: 'We ____ in the church. (estamos)', answer: 'are' },
-          { sentence: 'I ____ a servant. (no soy)', answer: 'am not' },
-          { sentence: 'He ____ a teacher. (no es)', answer: 'is not' },
-          { sentence: '____ you my brother? (¿eres?)', answer: 'Are' },
-          { sentence: '____ she at home? (¿está?)', answer: 'Is' }
-        ],
-        customInit: function() {
-          initDragExercise();
-        }
+        ]
       };
 
-      // ============================================================
-      // EJERCICIO DE ARRASTRAR (DRAG & DROP) - REPASO
-      // ============================================================
-      function initDragExercise() {
-        var container = document.getElementById('dragExercise');
-        if (!container) return;
+      // ================================================================
+      // TEXTO A VOZ (SpeechSynthesis)
+      // ================================================================
+      function speakText(text, lang) {
+        lang = lang || 'en-US';
+        if (!window.speechSynthesis) {
+          console.warn('SpeechSynthesis no soportado');
+          return false;
+        }
 
-        // Oraciones de repaso (afirmativas, negativas y preguntas)
-        var sentences = [
-          { words: ['I', 'am', 'a', 'student.'], target: 'I am a student.' },
-          { words: ['You', 'are', 'my', 'friend.'], target: 'You are my friend.' },
-          { words: ['He', 'is', 'not', 'a', 'teacher.'], target: 'He is not a teacher.' },
-          { words: ['Are', 'you', 'ready?'], target: 'Are you ready?' }
-        ];
+        try {
+          window.speechSynthesis.cancel();
 
-        var allWords = [];
-        sentences.forEach(function(s, idx) {
-          s.words.forEach(function(w) {
-            allWords.push({ word: w, sentenceIndex: idx });
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = lang;
+          utterance.rate = 0.9;
+          utterance.pitch = 1;
+          utterance.volume = 1;
+
+          var voices = window.speechSynthesis.getVoices();
+          var targetVoice = null;
+          var langPrefix = lang.split('-')[0];
+          var googleVoice = voices.find(function(v) {
+            return v.lang.startsWith(langPrefix) && v.name.includes('Google');
           });
-        });
-
-        function shuffle(arr) {
-          for (var i = arr.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-          }
-          return arr;
-        }
-        var shuffled = shuffle(allWords.slice());
-
-        var dragContainer = document.createElement('div');
-        dragContainer.className = 'drag-container';
-        dragContainer.id = 'dragSource';
-        dragContainer.setAttribute('aria-label', 'Palabras para arrastrar');
-
-        shuffled.forEach(function(item) {
-          var span = document.createElement('span');
-          span.className = 'drag-item';
-          span.textContent = item.word;
-          span.dataset.sentence = item.sentenceIndex;
-          span.draggable = true;
-          span.addEventListener('dragstart', handleDragStart);
-          span.addEventListener('dragend', handleDragEnd);
-          dragContainer.appendChild(span);
-        });
-
-        var dropContainer = document.createElement('div');
-        dropContainer.style.margin = '1rem 0';
-
-        sentences.forEach(function(s, idx) {
-          var zone = document.createElement('div');
-          zone.className = 'drop-zone';
-          zone.dataset.sentence = idx;
-          zone.dataset.expected = s.words.join(' ');
-          zone.textContent = '🖱️ Arrastra aquí para formar: "' + s.target + '"';
-          zone.addEventListener('dragover', handleDragOver);
-          zone.addEventListener('dragenter', handleDragEnter);
-          zone.addEventListener('dragleave', handleDragLeave);
-          zone.addEventListener('drop', handleDrop);
-          dropContainer.appendChild(zone);
-        });
-
-        container.appendChild(dragContainer);
-        container.appendChild(dropContainer);
-
-        var draggedItem = null;
-
-        function handleDragStart(e) {
-          draggedItem = this;
-          this.classList.add('dragging');
-          e.dataTransfer.effectAllowed = 'move';
-          e.dataTransfer.setData('text/plain', this.textContent);
-        }
-
-        function handleDragEnd(e) {
-          this.classList.remove('dragging');
-          document.querySelectorAll('.drop-zone').forEach(function(z) {
-            z.classList.remove('drag-over');
-          });
-        }
-
-        function handleDragOver(e) {
-          e.preventDefault();
-          e.dataTransfer.dropEffect = 'move';
-          this.classList.add('drag-over');
-        }
-
-        function handleDragEnter(e) {
-          this.classList.add('drag-over');
-        }
-
-        function handleDragLeave(e) {
-          this.classList.remove('drag-over');
-        }
-
-        function handleDrop(e) {
-          e.preventDefault();
-          this.classList.remove('drag-over');
-          var zone = this;
-          var word = e.dataTransfer.getData('text/plain');
-          var sentenceIndex = parseInt(zone.dataset.sentence);
-
-          if (draggedItem) {
-            var wordData = shuffled.find(function(item) {
-              return item.word === word && item.sentenceIndex === sentenceIndex;
+          if (googleVoice) {
+            targetVoice = googleVoice;
+          } else {
+            targetVoice = voices.find(function(v) {
+              return v.lang.startsWith(langPrefix);
             });
-
-            if (wordData) {
-              var clone = draggedItem.cloneNode(true);
-              clone.classList.remove('dragging');
-              clone.classList.add('dropped');
-              clone.draggable = false;
-              draggedItem.remove();
-              zone.appendChild(clone);
-
-              var wordsInZone = zone.querySelectorAll('.drag-item');
-              var expectedWords = zone.dataset.expected.split(' ');
-              if (wordsInZone.length === expectedWords.length) {
-                var formed = [];
-                wordsInZone.forEach(function(el) { formed.push(el.textContent); });
-                if (formed.join(' ') === zone.dataset.expected) {
-                  zone.classList.add('correct');
-                  zone.classList.remove('wrong');
-                  document.getElementById('dragFeedback').innerHTML = '<span class="feedback-correct">✅ ¡Excelente! Has formado la oración: "' + zone.dataset.expected + '"</span>';
-                } else {
-                  zone.classList.add('wrong');
-                  zone.classList.remove('correct');
-                  document.getElementById('dragFeedback').innerHTML = '<span class="feedback-wrong">❌ El orden no es correcto. Revisa la posición de las palabras.</span>';
-                }
-              }
-            } else {
-              zone.classList.add('wrong');
-              document.getElementById('dragFeedback').innerHTML = '<span class="feedback-wrong">❌ Esta palabra no pertenece a esta oración.</span>';
-              setTimeout(function() {
-                if (draggedItem && draggedItem.parentNode) {
-                  var sourceContainer = document.getElementById('dragSource');
-                  if (sourceContainer) {
-                    sourceContainer.appendChild(draggedItem);
-                    draggedItem.classList.remove('dragging');
-                    draggedItem.draggable = true;
-                  }
-                }
-                zone.classList.remove('wrong');
-              }, 1000);
-            }
           }
-        }
+          if (targetVoice) {
+            utterance.voice = targetVoice;
+          }
 
-        document.getElementById('resetDragBtn').addEventListener('click', function() {
-          location.reload();
+          window.speechSynthesis.speak(utterance);
+          return true;
+        } catch (e) {
+          console.error('Error en speakText:', e);
+          return false;
+        }
+      }
+
+      // Asignar eventos a todos los botones TTS
+      document.querySelectorAll('.tts-btn[data-tts]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var text = this.getAttribute('data-tts');
+          var lang = this.getAttribute('data-lang') || 'en-US';
+          if (text) speakText(text, lang);
+        });
+      });
+
+      // Precargar voces
+      if (window.speechSynthesis) {
+        window.speechSynthesis.getVoices();
+        window.speechSynthesis.onvoiceschanged = function() {
+          window.speechSynthesis.getVoices();
+        };
+      }
+
+      // ================================================================
+      // WATCH: Resúmenes con audio (texto oculto)
+      // ================================================================
+      function setupSummaryButton(btnId, textId, feedbackId, lang) {
+        var btn = document.getElementById(btnId);
+        var textEl = document.getElementById(textId);
+        var feedbackEl = document.getElementById(feedbackId);
+
+        if (!btn || !textEl) return;
+
+        btn.addEventListener('click', function() {
+          var text = textEl.textContent.trim();
+          if (!text) {
+            if (feedbackEl) {
+              feedbackEl.innerHTML = '<span style="color:#c2410c;">⚠️ No hay texto para reproducir.</span>';
+            }
+            return;
+          }
+
+          btn.classList.add('playing');
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reproduciendo...';
+          if (feedbackEl) {
+            feedbackEl.innerHTML = '<span style="color:#1f5f54;">🔊 Reproduciendo...</span>';
+          }
+
+          var success = speakText(text, lang);
+
+          setTimeout(function() {
+            btn.classList.remove('playing');
+            btn.innerHTML = '<i class="fas fa-volume-up"></i> ' + (lang === 'es-ES' ? 'Escuchar resumen en español' : 'Listen to summary in English');
+            if (feedbackEl) {
+              if (success) {
+                feedbackEl.innerHTML = '<span style="color:#1f7b4d;">✅ Audio reproducido correctamente.</span>';
+              } else {
+                feedbackEl.innerHTML = '<span style="color:#c2410c;">❌ Error al reproducir el audio.</span>';
+              }
+            }
+          }, Math.max(text.length * 100, 3000));
         });
       }
+
+      setupSummaryButton('summaryEsBtn', 'summaryEsText', 'summaryEsFeedback', 'es-ES');
+      setupSummaryButton('summaryEnBtn', 'summaryEnText', 'summaryEnFeedback', 'en-US');
+
+      // ================================================================
+      // 3. SPEAK - Frases de repaso
+      // ================================================================
+      var speakPhrases = [
+        'I am a believer.',
+        'You are my friend.',
+        'He is a teacher.',
+        'She is a nurse.',
+        'We are happy.',
+        'They are in the garden.',
+        'I am not a servant.',
+        'Are you ready?'
+      ];
+
+      var speakContainer = document.getElementById('speakExercise');
+      if (speakContainer) {
+        var speakHtml = '<div class="example-grid">';
+        speakPhrases.forEach(function(phrase, index) {
+          speakHtml += '<div class="example-item" style="display:flex; flex-direction:column; gap:0.3rem; padding:0.8rem;">';
+          speakHtml += '<div><strong>' + phrase + '</strong> <button class="tts-btn" data-tts="' + phrase + '" aria-label="Escuchar"><i class="fas fa-volume-up"></i></button></div>';
+          speakHtml += '<button class="btn-check speak-practice-btn" data-phrase="' + phrase + '" style="font-size:0.8rem; padding:0.2rem 0.8rem;"><i class="fas fa-microphone"></i> Practicar</button>';
+          speakHtml += '<div class="speak-feedback" id="speakFeedback' + index + '" style="font-size:0.85rem; min-height:1.2rem;"></div>';
+          speakHtml += '</div>';
+        });
+        speakHtml += '</div>';
+        speakContainer.innerHTML = speakHtml;
+
+        function cleanText(text) {
+          return text.toLowerCase()
+            .replace(/[.,!?;:()"']/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+        }
+
+        if ('webkitSpeechRecognition' in window) {
+          var recognition = new webkitSpeechRecognition();
+          recognition.lang = 'en-US';
+          recognition.continuous = false;
+          recognition.interimResults = false;
+
+          document.querySelectorAll('.speak-practice-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var phrase = this.getAttribute('data-phrase');
+              var feedbackDiv = this.parentElement.querySelector('.speak-feedback');
+              if (!feedbackDiv) return;
+
+              var expectedClean = cleanText(phrase);
+              feedbackDiv.innerHTML = '<span style="color:#1f5f54;">🎤 Escuchando... Di: "' + phrase + '"</span>';
+              recognition.start();
+
+              recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript;
+                var transcriptClean = cleanText(transcript);
+                var isCorrect = (transcriptClean === expectedClean) ||
+                                transcriptClean.includes(expectedClean) ||
+                                expectedClean.includes(transcriptClean);
+                if (!isCorrect) {
+                  var expectedWords = expectedClean.split(' ');
+                  var transcriptWords = transcriptClean.split(' ');
+                  var matchCount = 0;
+                  var ti = 0;
+                  for (var ei = 0; ei < expectedWords.length && ti < transcriptWords.length; ei++) {
+                    if (transcriptWords[ti] === expectedWords[ei]) {
+                      matchCount++;
+                      ti++;
+                    } else {
+                      var found = false;
+                      for (var j = ti + 1; j < transcriptWords.length; j++) {
+                        if (transcriptWords[j] === expectedWords[ei]) {
+                          matchCount++;
+                          ti = j + 1;
+                          found = true;
+                          break;
+                        }
+                      }
+                      if (!found) break;
+                    }
+                  }
+                  if (matchCount >= expectedWords.length) {
+                    isCorrect = true;
+                  }
+                }
+
+                if (isCorrect) {
+                  feedbackDiv.innerHTML = '<span class="feedback-correct">✅ ¡Excelente! Has pronunciado correctamente.</span>';
+                } else {
+                  feedbackDiv.innerHTML = '<span class="feedback-wrong">❌ Has dicho: "' + transcript + '". Intenta decir "' + phrase + '"</span>';
+                }
+              };
+
+              recognition.onerror = function() {
+                feedbackDiv.innerHTML = '<span class="feedback-wrong">❌ No se pudo reconocer. Intenta de nuevo.</span>';
+              };
+            });
+          });
+        } else {
+          document.querySelectorAll('.speak-practice-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var feedbackDiv = this.parentElement.querySelector('.speak-feedback');
+              if (feedbackDiv) {
+                feedbackDiv.innerHTML = '<span class="feedback-wrong">⚠️ Tu navegador no soporta reconocimiento de voz. Practica en voz alta.</span>';
+              }
+            });
+          });
+        }
+      }
+
+      // ================================================================
+      // 4. WRITE - Repaso
+      // ================================================================
+      var writeData = [
+        { sentence: 'I ____ a believer. (soy)', answer: 'am' },
+        { sentence: 'You ____ my friend. (eres)', answer: 'are' },
+        { sentence: 'She ____ a nurse. (es)', answer: 'is' },
+        { sentence: 'We ____ in the church. (estamos)', answer: 'are' },
+        { sentence: 'I ____ a servant. (no soy)', answer: 'am not' },
+        { sentence: 'He ____ a teacher. (no es)', answer: 'is not' },
+        { sentence: '____ you my brother? (¿eres?)', answer: 'Are' },
+        { sentence: '____ she at home? (¿está?)', answer: 'Is' }
+      ];
+
+      var writeList = document.getElementById('writeList');
+      if (writeList) {
+        writeData.forEach(function(item, index) {
+          var li = document.createElement('li');
+          li.style.marginBottom = '0.5rem';
+          li.innerHTML = item.sentence.replace('____', '<input type="text" class="write-input" data-index="' + index + '" style="padding:0.2rem 0.5rem; border:1px solid #ccd8e6; border-radius:0.5rem; width:100px; margin:0 0.3rem;">') +
+            ' <span style="font-size:0.8rem; color:#5b6e8c;">' + item.hint + '</span>' +
+            ' <span class="write-feedback" id="writeFb' + index + '" style="font-size:0.85rem;"></span>';
+          writeList.appendChild(li);
+        });
+      }
+
+      document.getElementById('writeCheckBtn')?.addEventListener('click', function() {
+        var inputs = document.querySelectorAll('.write-input');
+        var allCorrect = true;
+        inputs.forEach(function(input) {
+          var index = parseInt(input.dataset.index);
+          var expected = writeData[index].answer;
+          var fb = document.getElementById('writeFb' + index);
+          var userAnswer = input.value.trim().toLowerCase();
+          var accepted = [expected.toLowerCase()];
+          if (expected === 'are not') accepted.push('aren\'t');
+          if (expected === 'is not') accepted.push('isn\'t');
+          if (expected === 'am not') accepted.push('am not');
+          if (accepted.includes(userAnswer)) {
+            fb.innerHTML = '<span class="feedback-correct">✅</span>';
+          } else {
+            fb.innerHTML = '<span class="feedback-wrong">❌ (esperado: ' + expected + ')</span>';
+            allCorrect = false;
+          }
+        });
+        var feedbackDiv = document.getElementById('writeFeedback');
+        if (feedbackDiv) {
+          if (allCorrect) {
+            feedbackDiv.innerHTML = '<span class="feedback-correct">🎉 ¡Todas las respuestas son correctas!</span>';
+          } else {
+            feedbackDiv.innerHTML = '<span class="feedback-wrong">❌ Algunas respuestas son incorrectas. Revisa los errores.</span>';
+          }
+        }
+      });
+
+      document.getElementById('writeListenBtn')?.addEventListener('click', function() {
+        var inputs = document.querySelectorAll('.write-input');
+        var fullSentences = [];
+        inputs.forEach(function(input) {
+          var index = parseInt(input.dataset.index);
+          var answer = input.value.trim() || writeData[index].answer;
+          var sentence = writeData[index].sentence.replace('____', answer);
+          fullSentences.push(sentence);
+        });
+        var text = fullSentences.join('. ');
+        speakText(text, 'en-US');
+        var feedbackDiv = document.getElementById('writeFeedback');
+        if (feedbackDiv) {
+          feedbackDiv.innerHTML = '<span style="color:#1f5f54;">🔊 Escuchando las oraciones...</span>';
+        }
+      });
+
+      document.getElementById('writeResetBtn')?.addEventListener('click', function() {
+        document.querySelectorAll('.write-input').forEach(function(input) {
+          input.value = '';
+        });
+        document.querySelectorAll('.write-feedback').forEach(function(el) {
+          el.innerHTML = '';
+        });
+        var feedbackDiv = document.getElementById('writeFeedback');
+        if (feedbackDiv) feedbackDiv.innerHTML = '';
+      });
+
+      // ================================================================
+      // 7. GRAMMAR EXERCISE - Repaso
+      // ================================================================
+      var grammarData = [
+        { sentence: 'I ____ a student. (soy)', answer: 'am' },
+        { sentence: 'You ____ very kind. (eres)', answer: 'are' },
+        { sentence: 'He ____ my father. (es)', answer: 'is' },
+        { sentence: 'She ____ at work. (está)', answer: 'is' },
+        { sentence: 'It ____ a beautiful day. (es)', answer: 'is' },
+        { sentence: 'We ____ ready. (estamos)', answer: 'are' },
+        { sentence: 'They ____ in the garden. (están)', answer: 'are' },
+        { sentence: 'I ____ a servant. (no soy)', answer: 'am not' }
+      ];
+
+      var grammarList = document.getElementById('grammarList');
+      if (grammarList) {
+        grammarData.forEach(function(item, index) {
+          var li = document.createElement('li');
+          li.style.marginBottom = '0.5rem';
+          li.innerHTML = item.sentence.replace('____', '<input type="text" class="grammar-input" data-index="' + index + '" style="padding:0.2rem 0.5rem; border:1px solid #ccd8e6; border-radius:0.5rem; width:100px; margin:0 0.3rem;">') +
+            ' <span style="font-size:0.8rem; color:#5b6e8c;">' + item.hint + '</span>' +
+            ' <span class="grammar-feedback" id="grammarFb' + index + '" style="font-size:0.85rem;"></span>';
+          grammarList.appendChild(li);
+        });
+      }
+
+      document.getElementById('grammarCheckBtn')?.addEventListener('click', function() {
+        var inputs = document.querySelectorAll('.grammar-input');
+        var allCorrect = true;
+        inputs.forEach(function(input) {
+          var index = parseInt(input.dataset.index);
+          var expected = grammarData[index].answer;
+          var fb = document.getElementById('grammarFb' + index);
+          var userAnswer = input.value.trim().toLowerCase();
+          var accepted = [expected.toLowerCase()];
+          if (expected === 'are not') accepted.push('aren\'t');
+          if (expected === 'is not') accepted.push('isn\'t');
+          if (expected === 'am not') accepted.push('am not');
+          if (accepted.includes(userAnswer)) {
+            fb.innerHTML = '<span class="feedback-correct">✅</span>';
+          } else {
+            fb.innerHTML = '<span class="feedback-wrong">❌ (esperado: ' + expected + ')</span>';
+            allCorrect = false;
+          }
+        });
+        var feedbackDiv = document.getElementById('grammarFeedback');
+        if (feedbackDiv) {
+          if (allCorrect) {
+            feedbackDiv.innerHTML = '<span class="feedback-correct">🎉 ¡Todas las respuestas son correctas!</span>';
+          } else {
+            feedbackDiv.innerHTML = '<span class="feedback-wrong">❌ Algunas respuestas son incorrectas.</span>';
+          }
+        }
+      });
+
+      document.getElementById('grammarDictationBtn')?.addEventListener('click', function() {
+        var inputs = document.querySelectorAll('.grammar-input');
+        var fullSentences = [];
+        inputs.forEach(function(input) {
+          var index = parseInt(input.dataset.index);
+          var answer = input.value.trim() || grammarData[index].answer;
+          var sentence = grammarData[index].sentence.replace('____', answer);
+          fullSentences.push(sentence);
+        });
+        var text = fullSentences.join('. ');
+        speakText(text, 'en-US');
+        var dictationDiv = document.getElementById('grammarDictationText');
+        if (dictationDiv) {
+          dictationDiv.innerHTML = '🎧 Escuchando el dictado...';
+          setTimeout(function() {
+            dictationDiv.innerHTML = '📝 Texto dictado: <strong>' + text + '</strong>';
+          }, 3000);
+        }
+      });
+
+      document.getElementById('grammarResetBtn')?.addEventListener('click', function() {
+        document.querySelectorAll('.grammar-input').forEach(function(input) {
+          input.value = '';
+        });
+        document.querySelectorAll('.grammar-feedback').forEach(function(el) {
+          el.innerHTML = '';
+        });
+        var feedbackDiv = document.getElementById('grammarFeedback');
+        if (feedbackDiv) feedbackDiv.innerHTML = '';
+        var dictationDiv = document.getElementById('grammarDictationText');
+        if (dictationDiv) dictationDiv.innerHTML = '';
+      });
+
+      // ================================================================
+      // 6. GRAMMAR - Escuchar explicación
+      // ================================================================
+      document.getElementById('grammarListenEs')?.addEventListener('click', function() {
+        var text = 'El verbo to be tiene tres formas en presente: afirmativa, negativa e interrogativa. I am, you are, he is, she is, it is, we are, they are. Negativo: I am not, you are not, he is not, she is not, it is not, we are not, they are not. Preguntas: Am I?, Are you?, Is he?, Is she?, Is it?, Are we?, Are they?';
+        speakText(text, 'es-ES');
+        var fb = document.getElementById('grammarListenFeedback');
+        if (fb) fb.innerHTML = '<span style="color:#1f5f54;">🔊 Escuchando explicación en español...</span>';
+      });
+
+      document.getElementById('grammarListenEn')?.addEventListener('click', function() {
+        var text = 'I am, you are, he is, she is, it is, we are, they are. I am not, you are not, he is not, she is not, it is not, we are not, they are not. Am I, are you, is he, is she, is it, are we, are they. The Lord is my shepherd. I am a believer. Are you ready?';
+        speakText(text, 'en-US');
+        var fb = document.getElementById('grammarListenFeedback');
+        if (fb) fb.innerHTML = '<span style="color:#1f5f54;">🔊 Escuchando ejemplos en inglés...</span>';
+      });
+
+      // ================================================================
+      // 8. VOCABULARY - Tarjetas en cuadrícula con audio
+      // ================================================================
+      var vocabFlashGrid = document.getElementById('vocabFlashcardGrid');
+      if (vocabFlashGrid) {
+        var vocabWords = [
+          { en: 'shepherd', es: 'pastor' },
+          { en: 'want', es: 'carecer / faltar' },
+          { en: 'green', es: 'verde' },
+          { en: 'fields', es: 'campos / pastos' },
+          { en: 'leads', es: 'guía' },
+          { en: 'calm', es: 'tranquilo' },
+          { en: 'strong', es: 'fuerte' },
+          { en: 'path', es: 'sendero' },
+          { en: 'God', es: 'Dios' },
+          { en: 'love', es: 'amor' },
+          { en: 'light', es: 'luz' },
+          { en: 'world', es: 'mundo' },
+          { en: 'friends', es: 'amigos' },
+          { en: 'Lord', es: 'Señor' }
+        ];
+
+        vocabWords.forEach(function(item) {
+          var card = document.createElement('div');
+          card.className = 'flashcard';
+          card.addEventListener('click', function() {
+            speakText(item.en, 'en-US');
+            this.classList.toggle('show');
+          });
+          card.innerHTML = '<div class="en">' + item.en + '</div><div class="es">' + item.es + '</div>';
+          vocabFlashGrid.appendChild(card);
+        });
+      }
+
+      // ================================================================
+      // 9. EVALUATION
+      // ================================================================
+      var evalQuestions = [
+        { question: 'La forma negativa de "I am" es:', options: ['I am not', 'I aren\'t', 'I isn\'t', 'I not'], correct: 0 },
+        { question: '¿Cómo se dice "¿Estás listo?" en inglés?', options: ['Are you ready?', 'Is you ready?', 'Am you ready?', 'Are your ready?'], correct: 0 },
+        { question: '¿Qué significa "shepherd"?', options: ['pastor', 'oveja', 'campo', 'camino'], correct: 0 },
+        { question: 'La forma correcta para "She" en negativo contraído es:', options: ['isn\'t', 'aren\'t', 'am not', 'not is'], correct: 0 },
+        { question: '¿Cuál es la pregunta correcta para "They are in the garden"?', options: ['Are they in the garden?', 'Is they in the garden?', 'Am they in the garden?', 'Are them in the garden?'], correct: 0 },
+        { question: 'Traduce "calm" al español:', options: ['tranquilo', 'caliente', 'frío', 'alto'], correct: 0 },
+        { question: 'La forma afirmativa para "We" es:', options: ['are', 'is', 'am', 'be'], correct: 0 },
+        { question: '¿Cómo se dice "campos" en inglés?', options: ['fields', 'flowers', 'forests', 'fences'], correct: 0 }
+      ];
+
+      var evalIndex = 0;
+      var evalScore = 0;
+      var evalAnswered = false;
+
+      function loadEvaluation() {
+        var questionEl = document.getElementById('evalQuestion');
+        var optionsEl = document.getElementById('evalOptions');
+        var progressEl = document.getElementById('evalProgress');
+        var nextBtn = document.getElementById('evalNextBtn');
+        var feedbackEl = document.getElementById('evalFeedback');
+        var resultEl = document.getElementById('evalResult');
+
+        if (!questionEl || !optionsEl || !progressEl) return;
+
+        if (evalIndex >= evalQuestions.length) {
+          questionEl.textContent = '🎉 ¡Evaluación completada!';
+          optionsEl.innerHTML = '';
+          progressEl.textContent = '';
+          if (feedbackEl) feedbackEl.innerHTML = '';
+          if (nextBtn) nextBtn.disabled = true;
+          if (resultEl) {
+            var total = evalQuestions.length;
+            var correct = evalScore;
+            var percent = Math.round((correct / total) * 100);
+            resultEl.innerHTML = '✅ Has acertado <strong>' + correct + '</strong> de ' + total + ' preguntas (' + percent + '%).';
+            if (percent >= 80) {
+              resultEl.innerHTML += '<br>🎉 ¡Excelente trabajo!';
+            } else if (percent >= 50) {
+              resultEl.innerHTML += '<br>📚 ¡Buen intento! Repasa los temas que fallaste.';
+            } else {
+              resultEl.innerHTML += '<br>💪 ¡Sigue practicando! Vuelve a repasar la lección.';
+            }
+          }
+          return;
+        }
+
+        var q = evalQuestions[evalIndex];
+        questionEl.textContent = (evalIndex + 1) + '. ' + q.question;
+        progressEl.textContent = 'Pregunta ' + (evalIndex + 1) + ' de ' + evalQuestions.length;
+        if (feedbackEl) feedbackEl.innerHTML = '';
+        if (resultEl) resultEl.innerHTML = '';
+        if (nextBtn) nextBtn.disabled = true;
+        evalAnswered = false;
+
+        optionsEl.innerHTML = '';
+        q.options.forEach(function(opt, idx) {
+          var btn = document.createElement('button');
+          btn.className = 'btn-check';
+          btn.textContent = opt;
+          btn.style.margin = '0.3rem';
+          btn.addEventListener('click', function() {
+            if (evalAnswered) return;
+            evalAnswered = true;
+            var isCorrect = (idx === q.correct);
+            if (isCorrect) {
+              evalScore++;
+              feedbackEl.innerHTML = '<span class="feedback-correct">✅ ¡Correcto!</span>';
+            } else {
+              feedbackEl.innerHTML = '<span class="feedback-wrong">❌ Incorrecto. La respuesta correcta es: ' + q.options[q.correct] + '</span>';
+            }
+            optionsEl.querySelectorAll('.btn-check').forEach(function(b) {
+              b.disabled = true;
+              if (b.textContent === q.options[q.correct]) {
+                b.style.background = '#1f7b4d';
+              }
+            });
+            if (nextBtn) nextBtn.disabled = false;
+          });
+          optionsEl.appendChild(btn);
+        });
+      }
+
+      document.getElementById('evalNextBtn')?.addEventListener('click', function() {
+        if (!evalAnswered) return;
+        evalIndex++;
+        loadEvaluation();
+      });
+
+      document.getElementById('evalResetBtn')?.addEventListener('click', function() {
+        evalIndex = 0;
+        evalScore = 0;
+        evalAnswered = false;
+        loadEvaluation();
+        document.getElementById('evalResult').innerHTML = '';
+      });
+
+      loadEvaluation();
+
+      // ================================================================
+      // SCROLL TOP
+      // ================================================================
+      var scrollBtn = document.getElementById('scrollTopBtn');
+      if (scrollBtn) {
+        window.addEventListener('scroll', function() {
+          scrollBtn.style.display = (window.scrollY > 300) ? 'flex' : 'none';
+        });
+        scrollBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // ================================================================
+      // BOTONES REVEAL
+      // ================================================================
+      document.querySelectorAll('.btn-reveal[data-target]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var targetId = this.getAttribute('data-target');
+          var target = document.getElementById(targetId);
+          if (target) target.classList.toggle('show');
+        });
+      });
 
     })();
   </script>

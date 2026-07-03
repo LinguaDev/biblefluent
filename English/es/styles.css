@@ -1,7 +1,8 @@
 /* ============================================
-   KOINÉ ACADEMY - INGLÉS BÍBLICO
+   BIBLEFLUENT - INGLÉS BÍBLICO
    Estilos globales para todas las lecciones
-   Basado en el diseño moderno y accesible
+   Diseño moderno, limpio y responsive
+   Basado en el método ABA English
    ============================================ */
 
 /* ---------- RESET Y BASE ---------- */
@@ -13,7 +14,7 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #f5f8fc;
+  background: #f6f9fc;
   color: #1e2a3a;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -26,14 +27,19 @@ body {
   padding: 0 1.5rem;
 }
 
-/* ---------- ENCABEZADO (sticky) ---------- */
+/* ---------- HEADER (sticky) ---------- */
 .site-header {
   background: white;
   border-bottom: 1px solid #e2e8f0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .header-container {
@@ -63,6 +69,13 @@ body {
   letter-spacing: -0.5px;
 }
 
+.logo-sub {
+  font-size: 0.75rem;
+  color: #5b6e8c;
+  font-weight: 400;
+  margin-left: 0.3rem;
+}
+
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -86,6 +99,11 @@ body {
   color: #c6a43b;
 }
 
+.nav-links a.active {
+  color: #1f5f54;
+  font-weight: 600;
+}
+
 .social-icons-header {
   display: flex;
   gap: 0.8rem;
@@ -102,6 +120,7 @@ body {
   color: #c6a43b;
 }
 
+/* Responsive header */
 @media (max-width: 900px) {
   .header-container {
     flex-direction: column;
@@ -121,14 +140,14 @@ body {
   }
 }
 
-/* ---------- HERO (cabecera de lección) ---------- */
+/* ---------- HERO ---------- */
 .hero {
   background: linear-gradient(135deg, #0b2b3b 0%, #1f5f54 100%);
   border-radius: 2rem;
   padding: 2rem 2rem 1.8rem;
   margin: 1.5rem 0 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .hero h1 {
@@ -150,6 +169,13 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+  display: inline-block;
+}
+
+.hero p {
+  margin-top: 0.3rem;
+  opacity: 0.9;
+  font-size: 1.05rem;
 }
 
 .progress-section {
@@ -190,9 +216,13 @@ body {
 @media (max-width: 700px) {
   .hero {
     padding: 1.5rem;
+    border-radius: 1.2rem;
   }
   .hero h1 {
     font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 0.95rem;
   }
 }
 
@@ -261,9 +291,35 @@ body {
 }
 
 .accordion-item.active .accordion-content {
-  max-height: 3000px; /* suficientemente alto para contenido */
+  max-height: 5000px; /* suficiente para contenido extenso */
   padding: 0 1.5rem 2rem 1.5rem;
   border-top: 1px solid #eef2f6;
+}
+
+@media (max-width: 700px) {
+  .accordion-header {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .accordion-item.active .accordion-content {
+    padding: 0 1rem 1.5rem 1rem;
+  }
+}
+
+/* ---------- VERSÍCULO DESTACADO ---------- */
+.verse-box {
+  background: #f0f6fe;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  border-left: 6px solid #2c7a6e;
+  margin: 1rem 0;
+}
+
+.verse-box .verse-ref {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #2c7a6e;
 }
 
 /* ---------- TABLAS ---------- */
@@ -301,6 +357,24 @@ tr:last-child td {
   }
 }
 
+/* ---------- TARJETAS DESTACADAS ---------- */
+.card-highlight {
+  background: #fef9e6;
+  border-left: 6px solid #f4b942;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  color: #1e2a3a;
+}
+
+.rule-box {
+  background: #eef3fa;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid #1f5f54;
+}
+
 /* ---------- BOTONES ---------- */
 .btn-reveal {
   background: #eef2fa;
@@ -334,10 +408,51 @@ tr:last-child td {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .btn-primary:hover {
   background: #154b41;
+}
+
+.btn-check {
+  background: #1f5f54;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-check:hover {
+  background: #154b41;
+}
+
+.btn-check:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-reset-drag {
+  background: #5b6e8c;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-reset-drag:hover {
+  background: #3f4f66;
 }
 
 /* ---------- RESPUESTAS OCULTAS ---------- */
@@ -355,50 +470,15 @@ tr:last-child td {
   display: block;
 }
 
-/* ---------- TARJETAS DESTACADAS ---------- */
-.card-highlight {
-  background: #fef9e6;
-  border-left: 6px solid #f4b942;
-  padding: 1rem 1.2rem;
-  border-radius: 1rem;
-  margin: 1rem 0;
-  color: #1e2a3a;
+/* ---------- FEEDBACK ---------- */
+.feedback-correct {
+  color: #1f7b4d;
+  font-weight: 500;
 }
 
-.rule-box {
-  background: #eef3fa;
-  padding: 1rem 1.2rem;
-  border-radius: 1rem;
-  margin: 1rem 0;
-  border-left: 4px solid #1f5f54;
-}
-
-/* ---------- TEXTO GRIEGO (lo mantenemos para consistencia, aunque sea inglés) ---------- */
-.greek-word {
-  font-family: 'Segoe UI', 'Noto Sans', 'Times New Roman', serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  background: #eef3fa;
-  padding: 0.1rem 0.5rem;
-  border-radius: 16px;
-  display: inline-block;
-}
-
-/* ---------- CUADROS DE EJEMPLOS ---------- */
-.example-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
-
-.example-item {
-  background: #f8fafc;
-  padding: 0.5rem 0.8rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  font-size: 0.95rem;
-  border: 1px solid #e9edf2;
+.feedback-wrong {
+  color: #c2410c;
+  font-weight: 500;
 }
 
 /* ---------- FLASHCARDS ---------- */
@@ -426,7 +506,7 @@ tr:last-child td {
 
 .flashcard:hover {
   background: #eef3fa;
-  transform: scale(1.01);
+  transform: scale(1.02);
 }
 
 .flashcard .en {
@@ -458,9 +538,9 @@ tr:last-child td {
   padding: 0.5rem 1.2rem;
   margin: 0.4rem 0;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.15s, border-color 0.15s;
   display: inline-block;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
 }
 
 .quiz-option:hover {
@@ -477,40 +557,110 @@ tr:last-child td {
   border-color: #c2410c;
 }
 
-/* ---------- FEEDBACK ---------- */
-.feedback-correct {
-  color: #1f7b4d;
-  font-weight: 500;
+.quiz-option.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
-.feedback-wrong {
-  color: #c2410c;
-  font-weight: 500;
+/* ---------- EJERCICIO DE ARRASTRAR (DRAG & DROP) ---------- */
+.drag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 1rem;
+  border: 2px dashed #ccd8e6;
+  min-height: 80px;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ---------- BOTÓN DE VERIFICACIÓN (ejercicios) ---------- */
-.btn-check {
-  background: #1f5f54;
-  color: #fff;
-  border: none;
-  padding: 0.4rem 1.2rem;
+.drag-item {
+  background: #eef3fa;
+  padding: 0.4rem 1rem;
   border-radius: 2rem;
+  cursor: grab;
+  user-select: none;
   font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
+  border: 1px solid #bcc8d8;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
 }
 
-.btn-check:hover {
-  background: #154b41;
+.drag-item:hover {
+  background: #dce5f0;
 }
 
-.input-answer {
-  padding: 0.4rem 0.8rem;
-  border: 1px solid #ccd8e6;
-  border-radius: 2rem;
+.drag-item:active {
+  cursor: grabbing;
+}
+
+.drag-item.dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+.drag-item.dropped {
+  background: #b8d9c0;
+  border-color: #1f7b4d;
+  cursor: default;
+}
+
+.drop-zone {
+  background: #f0f6fe;
+  border: 2px dashed #2c7a6e;
+  border-radius: 1rem;
+  padding: 0.8rem 1.2rem;
+  min-height: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.5rem 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.drop-zone.drag-over {
+  background: #d4e8f0;
+  border-color: #1f5f54;
+}
+
+.drop-zone .drag-item {
+  cursor: default;
+  background: #d4e2f0;
+}
+
+.drop-zone.correct {
+  border-color: #1f7b4d;
+  background: #d4edda;
+}
+
+.drop-zone.wrong {
+  border-color: #c2410c;
+  background: #f8d7da;
+}
+
+.drag-feedback {
+  margin-top: 0.8rem;
+  font-weight: 500;
+}
+
+/* ---------- EJEMPLOS EN CUADRÍCULA ---------- */
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.example-item {
+  background: #f8fafc;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  text-align: center;
   font-size: 0.95rem;
-  width: 100%;
-  max-width: 260px;
+  border: 1px solid #e9edf2;
 }
 
 /* ---------- VIDEO ---------- */
@@ -520,10 +670,39 @@ tr:last-child td {
 
 .video-section iframe {
   border-radius: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* ---------- PIE DE PÁGINA ---------- */
+/* ---------- SCROLL TOP ---------- */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1f5f54;
+  padding: 12px;
+  border-radius: 50%;
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 48px;
+  height: 48px;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-top:hover {
+  background: #154b41;
+  transform: translateY(-3px);
+}
+
+.scroll-top i {
+  font-size: 1.2rem;
+}
+
+/* ---------- FOOTER ---------- */
 .main-footer {
   background: #111c16;
   color: #cdd9cf;
@@ -572,33 +751,9 @@ tr:last-child td {
   color: #c6a43b;
 }
 
-/* ---------- SCROLL TOP ---------- */
-.scroll-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: #1f5f54;
-  padding: 12px;
-  border-radius: 50%;
-  color: white;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 48px;
-  height: 48px;
-  transition: background 0.2s, transform 0.2s;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.scroll-top:hover {
-  background: #154b41;
-  transform: translateY(-3px);
-}
-
-.scroll-top i {
-  font-size: 1.2rem;
+.footer-copy {
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
 /* ---------- UTILIDADES ---------- */
@@ -607,20 +762,20 @@ tr:last-child td {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
 
 /* ---------- RESPONSIVE GENERAL ---------- */
 @media (max-width: 700px) {
   .container {
     padding: 0 1rem;
-  }
-  .accordion-header {
-    font-size: 1rem;
-    padding: 1rem;
-  }
-  .accordion-item.active .accordion-content {
-    padding: 0 1rem 1.5rem 1rem;
   }
   .flashcard-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -628,14 +783,117 @@ tr:last-child td {
   .example-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
+  .drag-container {
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+  .drop-zone {
+    padding: 0.6rem;
+    min-height: 50px;
+  }
+  .drag-item {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+  }
 }
 
-/* ---------- ESTILOS PARA TABLA DE VOCABULARIO (opcional) ---------- */
-#vocabTable td:first-child {
+/* ---------- ACCESIBILIDAD ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- TEXTO DESTACADO ---------- */
+.highlight-word {
+  background: #eef3fa;
+  padding: 0.1rem 0.4rem;
+  border-radius: 12px;
   font-weight: 600;
 }
 
-/* ---------- PARA EL HEADER DEL ACORDEÓN (icono de chevron) ---------- */
-.accordion-header .toggle-icon {
-  transition: transform 0.3s;
+.highlight-affirm {
+  color: #1f7b4d;
+  font-weight: 600;
+}
+
+.highlight-neg {
+  color: #c2410c;
+  font-weight: 600;
+}
+
+.highlight-quest {
+  color: #1f5f54;
+  font-weight: 600;
+}
+
+/* ---------- TTS BUTTONS ---------- */
+.tts-btn {
+  background: none;
+  border: none;
+  color: #1f5f54;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  transition: color 0.2s;
+  vertical-align: middle;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.tts-btn:hover {
+  color: #f4b942;
+  background: rgba(31, 95, 84, 0.08);
+}
+
+.tts-btn.playing {
+  color: #c2410c;
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ---------- TABLA DE VOCABULARIO CON TTS ---------- */
+#vocabTable td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ---------- INPUTS Y FORMULARIOS ---------- */
+.input-answer {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccd8e6;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  width: 100%;
+  max-width: 260px;
+  transition: border-color 0.2s;
+}
+
+.input-answer:focus {
+  outline: none;
+  border-color: #1f5f54;
+  box-shadow: 0 0 0 3px rgba(31, 95, 84, 0.15);
+}
+
+/* ---------- ESTILOS PARA EL DOBLAJE (INTERPRET) ---------- */
+.dialogue-line {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9edf2;
+}
+
+.dialogue-line:last-child {
+  border-bottom: none;
+}
+
+.dialogue-speaker {
+  font-weight: 600;
+  color: #1f5f54;
+  display: inline-block;
+  min-width: 70px;
 }

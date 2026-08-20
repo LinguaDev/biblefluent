@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>BibleFluent · Inglés Bíblico A2 · Lección 81: He Who Believes in Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* --- Estilos base (iguales a la lección 80) --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #1a2634;
+      line-height: 1.6;
+      padding-bottom: 3rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    /* header y footer (igual) */
+    .site-header {
+      background: #1f5f54;
+      color: white;
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .logo-area { display: flex; align-items: center; gap: 0.6rem; }
+    .logo-icon { font-size: 1.6rem; color: #f4b942; }
+    .logo-text { font-weight: 800; font-size: 1.4rem; letter-spacing: -0.5px; }
+    .logo-sub { font-weight: 300; font-size: 0.9rem; opacity: 0.85; }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-links a:hover { opacity: 0.7; }
+    .social-icons-header {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+    }
+    .social-icons-header a { color: white; transition: opacity 0.2s; }
+    .social-icons-header a:hover { opacity: 0.7; }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(145deg, #eaf3f0, #dce8e3);
+      border-radius: 1.5rem;
+      padding: 2.5rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .hero h1 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0f3d35;
+    }
+    .hero-badge {
+      background: #1f5f54;
+      color: white;
+      font-size: 0.8rem;
+      padding: 0.2rem 1rem;
+      border-radius: 2rem;
+      font-weight: 600;
+    }
+    .hero p { font-size: 1.1rem; color: #2d4a42; margin-top: 0.5rem; }
+    .progress-section { margin-top: 1.2rem; }
+    .progress-bar-container {
+      background: #d0dfda;
+      height: 8px;
+      border-radius: 1rem;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #1f5f54;
+      width: 42%; /* progreso aproximado unidad 6 */
+      border-radius: 1rem;
+    }
+    .stats { font-size: 0.9rem; color: #2d4a42; }
+
+    /* acordeón */
+    .accordion { margin: 2rem 0; }
+    .accordion-item {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border: 1px solid #e9edf2;
+    }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: #1f5f54;
+      transition: background 0.15s;
+      user-select: none;
+    }
+    .accordion-header:hover { background: #f6f9f8; }
+    .accordion-header span i { margin-right: 0.6rem; color: #2c7a6e; }
+    .toggle-icon { transition: transform 0.3s; }
+    .accordion-item.active .toggle-icon { transform: rotate(180deg); }
+    .accordion-content {
+      padding: 0 1.5rem 1.8rem 1.5rem;
+      display: none;
+      border-top: 1px solid #e9edf2;
+    }
+    .accordion-item.active .accordion-content { display: block; }
+
+    /* componentes */
+    .card-highlight {
+      background: #f1f7f5;
+      padding: 1rem 1.2rem;
+      border-radius: 1rem;
+      border-left: 6px solid #1f5f54;
+      margin: 1rem 0;
+    }
+    .btn-check, .btn-primary {
+      background: #1f5f54;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.4rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+    .btn-check:hover, .btn-primary:hover { background: #154b41; }
+    .btn-check:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-check { background: #3b6b61; }
+    .btn-check[style*="background:#5b6e8c"] { background: #5b6e8c; }
+    .btn-check[style*="background:#5b6e8c"]:hover { background: #4a5a73; }
+
+    .tts-btn {
+      background: none;
+      border: none;
+      color: #1f5f54;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0 0.3rem;
+      transition: color 0.2s;
+    }
+    .tts-btn:hover { color: #0d3b33; }
+
+    .answer-text { display: none; padding: 0.8rem 0; }
+    .answer-text.show { display: block; }
+
+    .feedback-correct { color: #1f7b4d; }
+    .feedback-wrong { color: #c2410c; }
+
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    .flashcard {
+      background: #f8fafc;
+      border: 1px solid #dce5e0;
+      border-radius: 0.8rem;
+      padding: 0.8rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .flashcard:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .flashcard .en { font-weight: 600; color: #1f5f54; }
+    .flashcard .es { display: none; color: #2d4a42; font-size: 0.9rem; margin-top: 0.2rem; }
+    .flashcard.show .es { display: block; }
+    .flashcard.show .en { color: #2c7a6e; }
+
+    .dialogue-speaker { font-weight: 600; color: #1f5f54; display: inline-block; min-width: 80px; }
+    .dialogue-line { padding: 0.4rem 0; border-bottom: 1px solid #e9edf2; }
+    .dialogue-line:last-child { border-bottom: none; }
+
+    .contrast-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    .contrast-item {
+      background: #f8fafc;
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+      border: 1px solid #e9edf2;
+    }
+    .contrast-item h4 { color: #1f5f54; margin-bottom: 0.3rem; }
+    .contrast-item .highlight { font-weight: 600; color: #1f5f54; }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .example-item {
+      background: #f9fafc;
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+      border: 1px solid #e9edf2;
+    }
+    @media (max-width: 600px) {
+      .example-grid { grid-template-columns: 1fr; }
+      .contrast-grid { grid-template-columns: 1fr; }
+      .header-container { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: center; }
+      .hero h1 { font-size: 1.4rem; }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2rem;
+      padding: 1.5rem 0 0.5rem;
+    }
+    .footer-links a { color: #2d4a42; text-decoration: none; font-weight: 500; }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      font-size: 1.3rem;
+      padding: 0.5rem 0;
+    }
+    .footer-social a { color: #2d4a42; }
+    .footer-copy {
+      text-align: center;
+      padding: 1rem 0 0.5rem;
+      font-size: 0.9rem;
+      color: #5b6e8c;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #1f5f54;
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background 0.2s;
+      z-index: 50;
+    }
+    .scroll-top:hover { background: #154b41; }
+
+    .watch-summary-text { display: none; }
+    .audio-only-btn {
+      background: #1f5f54;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.4rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.3rem 0;
+    }
+    .audio-only-btn:hover { background: #154b41; }
+    .audio-only-btn.playing { background: #c2410c; opacity: 0.7; }
+    .highlight-phrasal { color: #1f5f54; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <!-- HEADER (igual que lección 80) -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-area">
+        <i class="fas fa-scroll logo-icon"></i>
+        <span class="logo-text">BibleFluent</span>
+        <span class="logo-sub">· Inglés Bíblico</span>
+      </div>
+      <nav class="nav-links">
+        <a href="../main-es"><i class="fas fa-home"></i> Inicio</a>
+        <a href="leccion-80"><i class="fas fa-arrow-left"></i> Lección 80</a>
+        <a href="leccion-82"><i class="fas fa-arrow-right"></i> Lección 82</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </nav>
+      <div class="social-icons-header">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <h1>
+        <i class="fas fa-star" style="color:#f4b942;"></i>
+        Lección 81 · He Who Believes in Me
+        <span class="hero-badge">Nivel A2 · Unidad 6</span>
+      </h1>
+      <p>El verbo frasal <strong>believe in</strong> y las preposiciones fijas con <strong>look, wait, listen, ask</strong></p>
+      <div class="progress-section">
+        <div class="progress-bar-container">
+          <div class="progress-fill" style="width:42%;"></div>
+        </div>
+        <div class="stats">
+          <i class="fas fa-check-circle"></i> Vocabulario nuevo: 12 · Acumulado: 986 / 1200
+        </div>
+      </div>
+    </section>
+
+    <!-- ACORDEÓN PRINCIPAL -->
+    <div class="accordion" id="mainAccordion">
+
+      <!-- ===== 1. WATCH ===== -->
+      <div class="accordion-item active">
+        <div class="accordion-header">
+          <span><i class="fas fa-play-circle"></i> 1. Watch · Objetivos y resumen</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem; margin-bottom:1rem;">
+            <h3 style="color:#1f5f54; margin-bottom:0.5rem;">🎯 Objetivo principal</h3>
+            <p>Aprender el verbo frasal <span class="highlight-phrasal">believe in</span> (creer en) y repasar otras preposiciones fijas como <span class="highlight-phrasal">look at, look for, look after, wait for, listen to, ask for</span>. Entenderemos el versículo <em>“He who believes in me will live”</em> (Juan 11:25).</p>
+            <h4 style="color:#1f5f54; margin-top:1rem; margin-bottom:0.3rem;">📌 Subobjetivos</h4>
+            <ul>
+              <li>Comprender el significado de <span class="highlight-phrasal">believe in</span> en contexto bíblico.</li>
+              <li>Repasar verbos con preposiciones fijas: <span class="highlight-phrasal">look at, look for, look after, wait for, listen to, ask for</span>.</li>
+              <li>Practicar la pronunciación y el uso de estas estructuras.</li>
+              <li>Aplicar <span class="highlight-phrasal">believe in</span> a nuestra vida diaria y espiritual.</li>
+            </ul>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0;">
+            <div style="flex:1; min-width:200px;">
+              <button class="audio-only-btn" id="summaryEsBtn"><i class="fas fa-volume-up"></i> Escuchar resumen en español</button>
+              <div id="summaryEsFeedback" style="margin-top:0.3rem; font-size:0.9rem; color:#5b6e8c;"></div>
+            </div>
+            <div style="flex:1; min-width:200px;">
+              <button class="audio-only-btn" id="summaryEnBtn"><i class="fas fa-volume-up"></i> Listen to summary in English</button>
+              <div id="summaryEnFeedback" style="margin-top:0.3rem; font-size:0.9rem; color:#5b6e8c;"></div>
+            </div>
+          </div>
+
+          <div class="watch-summary-text" id="summaryEsText">
+            En esta lección aprenderemos el verbo frasal "believe in", que significa "creer en" alguien o algo. Lo veremos en el versículo "He who believes in me will live" (Juan 11:25). También repasaremos otros verbos con preposiciones fijas: look at (mirar), look for (buscar), look after (cuidar), wait for (esperar), listen to (escuchar), ask for (pedir). Practicaremos con ejemplos bíblicos y cotidianos para que puedas usar estas estructuras con confianza.
+          </div>
+          <div class="watch-summary-text" id="summaryEnText">
+            In this lesson we will learn the phrasal verb "believe in", which means to have faith in someone or something. We will see it in the verse "He who believes in me will live" (John 11:25). We will also review other verbs with fixed prepositions: look at, look for, look after, wait for, listen to, ask for. We will practice with biblical and everyday examples so you can use these structures with confidence.
+          </div>
+
+          <div class="card-highlight">
+            <i class="fas fa-lightbulb"></i> <strong>Observa:</strong> En <em>“He who <span class="highlight-phrasal">believes in</span> me will live”</em>, el verbo <strong>believe</strong> siempre va seguido de la preposición <strong>in</strong> cuando significa creer en alguien (fe, confianza).
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 2. LISTEN ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-headphones"></i> 2. Listen · Escucha</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Escucha atentamente cada parte. Puedes hacer clic en el botón 🔊 para escuchar el texto en inglés.</p>
+
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem; margin:1rem 0;">
+            <p style="font-size:1.2rem; font-weight:600;">
+              “He who believes in me will live, even though they die.”
+              <button class="tts-btn" data-tts="He who believes in me will live, even though they die."><i class="fas fa-volume-up"></i></button>
+              <span style="font-weight:400; font-size:0.9rem; display:block; margin-top:0.3rem;">— <strong>Juan 11:25</strong> (EasyEnglish Bible)</span>
+            </p>
+          </div>
+
+          <div style="background:#f0f6fe; padding:1rem; border-radius:1rem; border-left:6px solid #2c7a6e; margin:1rem 0;">
+            <p><strong>Lectura extendida (Juan 11:25-26):</strong></p>
+            <p style="font-style:italic;">
+              “Jesus said to her, 'I am the resurrection and the life. The one who believes in me will live, even though they die; and whoever lives by believing in me will never die. Do you believe this?'”
+              <button class="tts-btn" data-tts="Jesus said to her, I am the resurrection and the life. The one who believes in me will live, even though they die; and whoever lives by believing in me will never die. Do you believe this?"><i class="fas fa-volume-up"></i></button>
+            </p>
+          </div>
+
+          <div style="background:#f9fafc; padding:1rem; border-radius:1rem; margin:1rem 0;">
+            <p><strong>Verbos frasales y preposiciones fijas de la lección:</strong></p>
+            <ul>
+              <li><strong>believe in</strong> – /bɪˈliːv ɪn/ – creer en <button class="tts-btn" data-tts="believe in"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>look at</strong> – /lʊk æt/ – mirar <button class="tts-btn" data-tts="look at"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>look for</strong> – /lʊk fɔːr/ – buscar <button class="tts-btn" data-tts="look for"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>look after</strong> – /lʊk ˈæftər/ – cuidar <button class="tts-btn" data-tts="look after"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>wait for</strong> – /weɪt fɔːr/ – esperar <button class="tts-btn" data-tts="wait for"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>listen to</strong> – /ˈlɪsən tuː/ – escuchar <button class="tts-btn" data-tts="listen to"><i class="fas fa-volume-up"></i></button></li>
+              <li><strong>ask for</strong> – /æsk fɔːr/ – pedir <button class="tts-btn" data-tts="ask for"><i class="fas fa-volume-up"></i></button></li>
+            </ul>
+          </div>
+
+          <div style="background:#f9fafc; padding:1rem; border-radius:1rem; margin:1rem 0;">
+            <p><strong>Más ejemplos bíblicos:</strong></p>
+            <ul>
+              <li><em><span class="highlight-phrasal">Look at</span> the birds of the air.</em> (Mateo 6:26)
+                <button class="tts-btn" data-tts="Look at the birds of the air."><i class="fas fa-volume-up"></i></button>
+              </li>
+              <li><em><span class="highlight-phrasal">Wait for</span> the Lord.</em> (Salmo 27:14)
+                <button class="tts-btn" data-tts="Wait for the Lord."><i class="fas fa-volume-up"></i></button>
+              </li>
+              <li><em><span class="highlight-phrasal">Listen to</span> his voice.</em> (Juan 10:27)
+                <button class="tts-btn" data-tts="Listen to his voice."><i class="fas fa-volume-up"></i></button>
+              </li>
+              <li><em><span class="highlight-phrasal">Ask for</span> wisdom.</em> (Santiago 1:5)
+                <button class="tts-btn" data-tts="Ask for wisdom."><i class="fas fa-volume-up"></i></button>
+              </li>
+              <li><em><span class="highlight-phrasal">Believe in</span> the Lord Jesus.</em> (Hechos 16:31)
+                <button class="tts-btn" data-tts="Believe in the Lord Jesus."><i class="fas fa-volume-up"></i></button>
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn-reveal btn-check" data-target="listenTranslation">Ver traducción completa</button>
+          <div id="listenTranslation" class="answer-text">
+            <p><strong>Traducción:</strong> “Jesús le dijo: 'Yo soy la resurrección y la vida. El que cree en mí, aunque muera, vivirá; y todo el que vive y cree en mí, no morirá eternamente. ¿Crees esto?'”</p>
+            <button class="tts-btn" data-tts="Jesús le dijo: Yo soy la resurrección y la vida. El que cree en mí, aunque muera, vivirá; y todo el que vive y cree en mí, no morirá eternamente. ¿Crees esto?" data-lang="es-ES"><i class="fas fa-volume-up"></i> Escuchar traducción</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 3. SPEAK ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-microphone"></i> 3. Speak · Practica la pronunciación</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Escucha la pronunciación de cada oración, luego haz clic en <strong>🎤 Practicar</strong> para decirla en voz alta.</p>
+          <div id="speakExercise"></div>
+          <div class="card-highlight">
+            <i class="fas fa-info-circle"></i> <strong>Nota:</strong> El reconocimiento de voz funciona mejor en Chrome y con micrófono activado.
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 4. WRITE ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-pen"></i> 4. Write · Escribe la preposición correcta</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Completa cada oración con la <strong>preposición</strong> correcta (at, for, after, to, in).</p>
+          <div id="writeExercise">
+            <ol id="writeList" style="list-style-type:decimal; padding-left:1.5rem;"></ol>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.5rem 0;">
+              <button id="writeCheckBtn" class="btn-check">Verificar todas</button>
+              <button id="writeListenBtn" class="btn-primary"><i class="fas fa-volume-up"></i> Escuchar todas</button>
+              <button id="writeResetBtn" class="btn-check" style="background:#5b6e8c;">Reiniciar</button>
+            </div>
+            <div id="writeFeedback" style="margin-top:0.8rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 5. INTERPRET ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-theater-masks"></i> 5. Interpret · Doblaje bíblico</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Lee el siguiente diálogo bíblico en voz alta, interpretando los personajes.</p>
+          <div style="background:#f9fafc; padding:1rem; border-radius:1rem; margin:1rem 0;">
+            <p><strong>📖 Diálogo (Juan 11:25-26):</strong></p>
+            <div class="dialogue-line">
+              <span class="dialogue-speaker">Jesús:</span> “I am the resurrection and the life.”
+              <button class="tts-btn" data-tts="I am the resurrection and the life."><i class="fas fa-volume-up"></i></button>
+            </div>
+            <div class="dialogue-line">
+              <span class="dialogue-speaker">Jesús:</span> “He who believes in me will live, even though they die.”
+              <button class="tts-btn" data-tts="He who believes in me will live, even though they die."><i class="fas fa-volume-up"></i></button>
+            </div>
+            <div class="dialogue-line">
+              <span class="dialogue-speaker">Jesús:</span> “Do you believe this?”
+              <button class="tts-btn" data-tts="Do you believe this?"><i class="fas fa-volume-up"></i></button>
+            </div>
+          </div>
+          <div class="card-highlight">
+            <i class="fas fa-theater-masks"></i> <strong>Actividad:</strong> Practica el diálogo con un compañero o grábate a ti mismo.
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 6. GRAMMAR ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-grammar"></i> 6. Grammar · Believe in y otras preposiciones fijas</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <div style="background:#f9fafc; padding:1.2rem; border-radius:1rem;">
+            <h3 style="color:#1f5f54; margin-bottom:0.5rem;">🔹 Verbos con preposiciones fijas</h3>
+            <div class="contrast-grid">
+              <div class="contrast-item">
+                <h4>Con <em>look</em></h4>
+                <p><span class="highlight">look at</span> = mirar</p>
+                <p><span class="highlight">look for</span> = buscar</p>
+                <p><span class="highlight">look after</span> = cuidar</p>
+              </div>
+              <div class="contrast-item">
+                <h4>Otras preposiciones fijas</h4>
+                <p><span class="highlight">wait for</span> = esperar</p>
+                <p><span class="highlight">listen to</span> = escuchar</p>
+                <p><span class="highlight">ask for</span> = pedir</p>
+                <p><span class="highlight">believe in</span> = creer en</p>
+              </div>
+            </div>
+
+            <div class="rule-box" style="background:#edf3f1; padding:1rem; border-radius:0.8rem; margin-top:1rem;">
+              <strong><i class="fas fa-gavel"></i> Regla clave:</strong>
+              <ul style="margin-top:0.4rem; padding-left:1.2rem;">
+                <li>La preposición es fija: no se cambia.</li>
+                <li><span class="highlight-phrasal">Believe in</span> se usa para fe, confianza en una persona (Dios, Jesús, etc.).</li>
+                <li>No se usa <em>believe to</em> o <em>believe on</em> (en inglés moderno).</li>
+              </ul>
+              <button class="tts-btn" data-tts="Look at the birds. Wait for the Lord. Listen to his voice. Ask for wisdom. Believe in the Lord Jesus."><i class="fas fa-volume-up"></i> Escuchar ejemplos</button>
+            </div>
+
+            <p style="margin-top:1rem;">
+              <button class="btn-primary" id="grammarListenEs"><i class="fas fa-volume-up"></i> Escuchar explicación en español</button>
+              <button class="btn-primary" id="grammarListenEn" style="background:#5b6e8c;"><i class="fas fa-volume-up"></i> Escuchar ejemplos en inglés</button>
+            </p>
+            <div id="grammarListenFeedback" style="margin-top:0.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 7. GRAMMAR EXERCISE ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-puzzle-piece"></i> 7. Grammar Exercise · Práctica de preposiciones</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Elige la preposición correcta para cada oración.</p>
+          <div id="grammarExercise">
+            <ol id="grammarList" style="list-style-type:decimal; padding-left:1.5rem;"></ol>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.5rem 0;">
+              <button id="grammarCheckBtn" class="btn-check">Verificar todas</button>
+              <button id="grammarDictationBtn" class="btn-primary"><i class="fas fa-headphones"></i> Escuchar dictado</button>
+              <button id="grammarResetBtn" class="btn-check" style="background:#5b6e8c;">Reiniciar</button>
+            </div>
+            <div id="grammarFeedback" style="margin-top:0.8rem;"></div>
+            <div id="grammarDictationText" style="margin-top:0.5rem; font-style:italic; color:#5b6e8c;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 8. VOCABULARY ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-words"></i> 8. Vocabulary · Vocabulario de la lección</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Haz clic en cada palabra en inglés para escuchar su pronunciación y voltear la tarjeta.</p>
+          <div class="flashcard-grid" id="vocabFlashcardGrid"></div>
+        </div>
+      </div>
+
+      <!-- ===== 9. EVALUATION ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-check-circle"></i> 9. Evaluation · Evaluación</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Responde las preguntas una por una. Selecciona la opción correcta y haz clic en <strong>Siguiente</strong>.</p>
+          <div id="evalContainer" style="margin:1rem 0;">
+            <div id="evalCard" style="background:#f9fafc; border-radius:1rem; padding:1.5rem; border:2px solid #e9edf2; min-height:200px;">
+              <p id="evalQuestion" style="font-size:1.1rem; font-weight:600;">Cargando pregunta...</p>
+              <div id="evalOptions" style="margin:0.8rem 0;"></div>
+              <div id="evalFeedback" style="margin-top:0.8rem;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1rem; flex-wrap:wrap; gap:0.5rem;">
+              <span id="evalProgress" style="font-weight:500;">Pregunta 1 de 8</span>
+              <div style="display:flex; gap:0.5rem;">
+                <button id="evalNextBtn" class="btn-check" disabled>Siguiente <i class="fas fa-arrow-right"></i></button>
+                <button id="evalResetBtn" class="btn-check" style="background:#5b6e8c;"><i class="fas fa-redo"></i> Reiniciar</button>
+              </div>
+            </div>
+            <div id="evalResult" style="margin-top:1rem; font-weight:700; font-size:1.2rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 10. SRS REVIEW ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-calendar-week"></i> 10. Plan de repaso (SRS)</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Repaso 1:</strong> mañana (24 horas)</li>
+            <li><strong>Repaso 2:</strong> en 3 días</li>
+            <li><strong>Repaso 3:</strong> en 7 días</li>
+            <li><strong>Repaso 4:</strong> en 14 días</li>
+            <li><strong>Repaso 5:</strong> en 30 días</li>
+          </ul>
+          <div class="card-highlight">
+            <i class="far fa-clock"></i> <strong>Técnica:</strong> Escribe 6 oraciones usando "believe in" y otras preposiciones fijas. Practica con un compañero haciendo preguntas y respuestas.
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 11. APÉNDICE (verbos irregulares) ===== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span><i class="fas fa-book-open"></i> Apéndice · Verbos irregulares esenciales A1</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Tabla de los verbos irregulares más comunes (repaso).</p>
+          <div style="overflow-x:auto; margin:1rem 0;">
+            <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+              <thead><tr><th style="background:#1f5f54; color:white; padding:0.5rem; text-align:left;">Base</th><th style="background:#1f5f54; color:white; padding:0.5rem; text-align:left;">Past</th><th style="background:#1f5f54; color:white; padding:0.5rem; text-align:left;">Participle</th><th style="background:#1f5f54; color:white; padding:0.5rem; text-align:left;">Significado</th></tr></thead>
+              <tbody>
+                <tr><td>believe</td><td>believed</td><td>believed</td><td>creer</td></tr>
+                <tr><td>look</td><td>looked</td><td>looked</td><td>mirar</td></tr>
+                <tr><td>wait</td><td>waited</td><td>waited</td><td>esperar</td></tr>
+                <tr><td>listen</td><td>listened</td><td>listened</td><td>escuchar</td></tr>
+                <tr><td>ask</td><td>asked</td><td>asked</td><td>pedir</td></tr>
+                <tr><td>be</td><td>was/were</td><td>been</td><td>ser/estar</td></tr>
+                <tr><td>go</td><td>went</td><td>gone</td><td>ir</td></tr>
+                <tr><td>come</td><td>came</td><td>come</td><td>venir</td></tr>
+                <tr><td>say</td><td>said</td><td>said</td><td>decir</td></tr>
+                <tr><td>see</td><td>saw</td><td>seen</td><td>ver</td></tr>
+                <tr><td>give</td><td>gave</td><td>given</td><td>dar</td></tr>
+                <tr><td>have</td><td>had</td><td>had</td><td>tener</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fin accordion -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer" style="background:#eef3f0; padding:1.5rem 0 0.5rem; margin-top:2rem;">
+    <div class="container">
+      <div class="footer-links">
+        <a href="../main-es"><i class="fas fa-home"></i> Inicio</a>
+        <a href="leccion-80"><i class="fas fa-arrow-left"></i> Lección 80</a>
+        <a href="leccion-82"><i class="fas fa-arrow-right"></i> Lección 82</a>
+        <a href="https://biblefluent.org/" target="_blank"><i class="fas fa-graduation-cap"></i> BibleFluent</a>
+        <a href="https://idclatam.org/" target="_blank"><i class="fas fa-church"></i> IDCLATAM</a>
+        <a href="https://wa.me/50557514440" target="_blank"><i class="fab fa-whatsapp"></i> Contacto</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2026 BibleFluent · <span style="font-weight:600;">“He who believes in me will live.”</span> (Juan 11:25)</p>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- SCRIPTS -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ============================================================
+      // SPEAK: Frases de la lección
+      // ============================================================
+      var speakPhrases = [
+        'He who believes in me will live.',
+        'Look at the birds of the air.',
+        'Wait for the Lord.',
+        'Listen to his voice.',
+        'Ask for wisdom.',
+        'Believe in the Lord Jesus.'
+      ];
+      var speakContainer = document.getElementById('speakExercise');
+      if (speakContainer) {
+        var html = '<div class="example-grid">';
+        speakPhrases.forEach(function(phrase, i) {
+          html += '<div class="example-item" style="display:flex; flex-direction:column; gap:0.3rem; padding:0.8rem;">';
+          html += '<div><strong>' + phrase + '</strong> <button class="tts-btn" data-tts="' + phrase + '"><i class="fas fa-volume-up"></i></button></div>';
+          html += '<button class="btn-check speak-practice-btn" data-phrase="' + phrase + '" style="font-size:0.8rem; padding:0.2rem 0.8rem;"><i class="fas fa-microphone"></i> Practicar</button>';
+          html += '<div class="speak-feedback" id="speakFeedback' + i + '" style="font-size:0.85rem; min-height:1.2rem;"></div>';
+          html += '</div>';
+        });
+        html += '</div>';
+        speakContainer.innerHTML = html;
+
+        // Reconocimiento de voz
+        if ('webkitSpeechRecognition' in window) {
+          var recognition = new webkitSpeechRecognition();
+          recognition.lang = 'en-US';
+          recognition.continuous = false;
+          recognition.interimResults = false;
+
+          document.querySelectorAll('.speak-practice-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var phrase = this.getAttribute('data-phrase');
+              var feedback = this.parentElement.querySelector('.speak-feedback');
+              if (!feedback) return;
+              var expected = phrase.toLowerCase().replace(/[.,!?;:()"']/g, '').trim();
+              feedback.innerHTML = '<span style="color:#1f5f54;">🎤 Escuchando... Di: "' + phrase + '"</span>';
+              recognition.start();
+
+              recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript.toLowerCase().replace(/[.,!?;:()"']/g, '').trim();
+                var isCorrect = (transcript === expected) || transcript.includes(expected) || expected.includes(transcript);
+                if (isCorrect) {
+                  feedback.innerHTML = '<span class="feedback-correct">✅ ¡Excelente!</span>';
+                } else {
+                  feedback.innerHTML = '<span class="feedback-wrong">❌ Has dicho: "' + transcript + '". Intenta: "' + phrase + '"</span>';
+                }
+              };
+              recognition.onerror = function() {
+                feedback.innerHTML = '<span class="feedback-wrong">❌ No se reconoció. Intenta de nuevo.</span>';
+              };
+            });
+          });
+        } else {
+          document.querySelectorAll('.speak-practice-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var feedback = this.parentElement.querySelector('.speak-feedback');
+              if (feedback) feedback.innerHTML = '<span class="feedback-wrong">⚠️ Tu navegador no soporta reconocimiento de voz.</span>';
+            });
+          });
+        }
+      }
+
+      // ============================================================
+      // WRITE: completar con preposiciones
+      // ============================================================
+      var writeData = [
+        { sentence: 'Look ____ the birds.', answer: 'at' },
+        { sentence: 'Wait ____ the Lord.', answer: 'for' },
+        { sentence: 'Listen ____ his voice.', answer: 'to' },
+        { sentence: 'Ask ____ wisdom.', answer: 'for' },
+        { sentence: 'Believe ____ the Lord Jesus.', answer: 'in' },
+        { sentence: 'She looks ____ her children.', answer: 'after' }
+      ];
+      var writeList = document.getElementById('writeList');
+      if (writeList) {
+        writeData.forEach(function(item, idx) {
+          var li = document.createElement('li');
+          li.style.marginBottom = '0.5rem';
+          li.innerHTML = item.sentence.replace('____', '<input type="text" class="write-input" data-index="' + idx + '" style="padding:0.2rem 0.5rem; border:1px solid #ccd8e6; border-radius:0.5rem; width:120px; margin:0 0.3rem;">') +
+            ' <span class="write-feedback" id="writeFb' + idx + '" style="font-size:0.85rem;"></span>';
+          writeList.appendChild(li);
+        });
+      }
+
+      document.getElementById('writeCheckBtn')?.addEventListener('click', function() {
+        var inputs = document.querySelectorAll('.write-input');
+        var allOk = true;
+        inputs.forEach(function(inp) {
+          var idx = parseInt(inp.dataset.index);
+          var expected = writeData[idx].answer;
+          var fb = document.getElementById('writeFb' + idx);
+          var user = inp.value.trim().toLowerCase();
+          var ok = user === expected;
+          if (ok) fb.innerHTML = '<span class="feedback-correct">✅</span>';
+          else { fb.innerHTML = '<span class="feedback-wrong">❌ (esperado: ' + expected + ')</span>'; allOk = false; }
+        });
+        var fbDiv = document.getElementById('writeFeedback');
+        if (fbDiv) fbDiv.innerHTML = allOk ? '<span class="feedback-correct">🎉 ¡Todas correctas!</span>' : '<span class="feedback-wrong">❌ Algunas incorrectas.</span>';
+      });
+
+      document.getElementById('writeListenBtn')?.addEventListener('click', function() {
+        var inputs = document.querySelectorAll('.write-input');
+        var sentences = [];
+        inputs.forEach(function(inp) {
+          var idx = parseInt(inp.dataset.index);
+          var ans = inp.value.trim() || writeData[idx].answer;
+          sentences.push(writeData[idx].sentence.replace('____', ans));
+        });
+        speakText(sentences.join('. '), 'en-US');
+        document.getElementById('writeFeedback').innerHTML = '<span style="color:#1f5f54;">🔊 Escuchando...</span>';
+      });
+
+      document.getElementById('writeResetBtn')?.addEventListener('click', function() {
+        document.querySelectorAll('.write-input').forEach(function(inp) { inp.value = ''; });
+        document.querySelectorAll('.write-feedback').forEach(function(el) { el.innerHTML = ''; });
+        document.getElementById('writeFeedback').innerHTML = '';
+      });
+
+      // ============================================================
+      // GRAMMAR EXERCISE (opción multiple con selects)
+      // ============================================================
+      var grammarData = [
+        { sentence: 'Look ____ the birds.', options: ['at', 'for', 'after'], answer: 'at' },
+        { sentence: 'Wait ____ the Lord.', options: ['at', 'for', 'to'], answer: 'for' },
+        { sentence: 'Listen ____ his voice.', options: ['to', 'for', 'at'], answer: 'to' },
+        { sentence: 'Ask ____ wisdom.', options: ['for', 'after', 'in'], answer: 'for' },
+        { sentence: 'Believe ____ the Lord Jesus.', options: ['in', 'at', 'for'], answer: 'in' },
+        { sentence: 'She looks ____ her children.', options: ['after', 'for', 'at'], answer: 'after' }
+      ];
+      var grammarList = document.getElementById('grammarList');
+      if (grammarList) {
+        grammarData.forEach(function(item, idx) {
+          var li = document.createElement('li');
+          li.style.marginBottom = '0.5rem';
+          var sel = '<select class="grammar-select" data-index="' + idx + '" style="padding:0.2rem 0.5rem; border-radius:0.5rem; border:1px solid #ccd8e6; margin:0 0.3rem;">';
+          sel += '<option value="">—</option>';
+          item.options.forEach(function(opt) {
+            sel += '<option value="' + opt + '">' + opt + '</option>';
+          });
+          sel += '</select>';
+          li.innerHTML = item.sentence.replace('____', sel) + ' <span class="grammar-feedback" id="gramFb' + idx + '" style="font-size:0.85rem;"></span>';
+          grammarList.appendChild(li);
+        });
+      }
+
+      document.getElementById('grammarCheckBtn')?.addEventListener('click', function() {
+        var selects = document.querySelectorAll('.grammar-select');
+        var allOk = true;
+        selects.forEach(function(sel) {
+          var idx = parseInt(sel.dataset.index);
+          var expected = grammarData[idx].answer;
+          var fb = document.getElementById('gramFb' + idx);
+          var ok = sel.value === expected;
+          if (ok) fb.innerHTML = '<span class="feedback-correct">✅</span>';
+          else { fb.innerHTML = '<span class="feedback-wrong">❌ (esperado: ' + expected + ')</span>'; allOk = false; }
+        });
+        var fbDiv = document.getElementById('grammarFeedback');
+        if (fbDiv) fbDiv.innerHTML = allOk ? '<span class="feedback-correct">🎉 ¡Todas correctas!</span>' : '<span class="feedback-wrong">❌ Algunas incorrectas.</span>';
+      });
+
+      document.getElementById('grammarDictationBtn')?.addEventListener('click', function() {
+        var selects = document.querySelectorAll('.grammar-select');
+        var sentences = [];
+        selects.forEach(function(sel) {
+          var idx = parseInt(sel.dataset.index);
+          var ans = sel.value || grammarData[idx].answer;
+          sentences.push(grammarData[idx].sentence.replace('____', ans));
+        });
+        speakText(sentences.join('. '), 'en-US');
+        document.getElementById('grammarDictationText').innerHTML = '🎧 Escuchando dictado...';
+        setTimeout(function() {
+          document.getElementById('grammarDictationText').innerHTML = '📝 Texto dictado: <strong>' + sentences.join('. ') + '</strong>';
+        }, 3000);
+      });
+
+      document.getElementById('grammarResetBtn')?.addEventListener('click', function() {
+        document.querySelectorAll('.grammar-select').forEach(function(sel) { sel.value = ''; });
+        document.querySelectorAll('.grammar-feedback').forEach(function(el) { el.innerHTML = ''; });
+        document.getElementById('grammarFeedback').innerHTML = '';
+        document.getElementById('grammarDictationText').innerHTML = '';
+      });
+
+      // ============================================================
+      // VOCABULARY FLASHCARDS
+      // ============================================================
+      var vocabWords = [
+        { en: 'believe in', es: 'creer en' },
+        { en: 'look at', es: 'mirar' },
+        { en: 'look for', es: 'buscar' },
+        { en: 'look after', es: 'cuidar' },
+        { en: 'wait for', es: 'esperar a' },
+        { en: 'listen to', es: 'escuchar a' },
+        { en: 'ask for', es: 'pedir' },
+        { en: 'resurrection', es: 'resurrección' },
+        { en: 'eternal life', es: 'vida eterna' },
+        { en: 'believe', es: 'creer' }
+      ];
+      var grid = document.getElementById('vocabFlashcardGrid');
+      if (grid) {
+        vocabWords.forEach(function(item) {
+          var card = document.createElement('div');
+          card.className = 'flashcard';
+          card.addEventListener('click', function() {
+            speakText(item.en, 'en-US');
+            this.classList.toggle('show');
+          });
+          card.innerHTML = '<div class="en">' + item.en + '</div><div class="es">' + item.es + '</div>';
+          grid.appendChild(card);
+        });
+      }
+
+      // ============================================================
+      // EVALUATION (8 preguntas)
+      // ============================================================
+      var evalQuestions = [
+        { question: '¿Qué significa "believe in" en español?', options: ['creer en', 'esperar a', 'mirar', 'pedir'], correct: 0 },
+        { question: '¿Qué preposición va con "believe" cuando significa "creer en"?', options: ['in', 'on', 'at', 'for'], correct: 0 },
+        { question: '¿Qué verbo frasal significa "mirar"?', options: ['look at', 'look for', 'look after', 'listen to'], correct: 0 },
+        { question: '¿Qué verbo frasal significa "esperar a"?', options: ['wait for', 'look for', 'ask for', 'believe in'], correct: 0 },
+        { question: '¿Qué verbo frasal significa "cuidar"?', options: ['look after', 'look at', 'look for', 'wait for'], correct: 0 },
+        { question: '¿Qué preposición va con "listen" cuando significa "escuchar a"?', options: ['to', 'for', 'at', 'in'], correct: 0 },
+        { question: 'En "He who believes in me will live", ¿qué significa "live"?', options: ['vivir', 'morir', 'creer', 'esperar'], correct: 0 },
+        { question: '¿Qué verbo frasal significa "pedir"?', options: ['ask for', 'look for', 'wait for', 'believe in'], correct: 0 }
+      ];
+      var evalIndex = 0, evalScore = 0, evalAnswered = false;
+
+      function loadEval() {
+        var qEl = document.getElementById('evalQuestion');
+        var optEl = document.getElementById('evalOptions');
+        var progEl = document.getElementById('evalProgress');
+        var nextBtn = document.getElementById('evalNextBtn');
+        var fbEl = document.getElementById('evalFeedback');
+        var resEl = document.getElementById('evalResult');
+        if (!qEl || !optEl || !progEl) return;
+
+        if (evalIndex >= evalQuestions.length) {
+          qEl.textContent = '🎉 ¡Evaluación completada!';
+          optEl.innerHTML = '';
+          progEl.textContent = '';
+          if (fbEl) fbEl.innerHTML = '';
+          if (nextBtn) nextBtn.disabled = true;
+          if (resEl) {
+            var total = evalQuestions.length;
+            var pct = Math.round((evalScore / total) * 100);
+            resEl.innerHTML = '✅ Has acertado <strong>' + evalScore + '</strong> de ' + total + ' (' + pct + '%).';
+            if (pct >= 80) resEl.innerHTML += '<br>🎉 ¡Excelente!';
+            else if (pct >= 50) resEl.innerHTML += '<br>📚 ¡Buen intento! Repasa los temas.';
+            else resEl.innerHTML += '<br>💪 ¡Sigue practicando!';
+          }
+          return;
+        }
+
+        var q = evalQuestions[evalIndex];
+        qEl.textContent = (evalIndex + 1) + '. ' + q.question;
+        progEl.textContent = 'Pregunta ' + (evalIndex + 1) + ' de ' + evalQuestions.length;
+        if (fbEl) fbEl.innerHTML = '';
+        if (resEl) resEl.innerHTML = '';
+        if (nextBtn) nextBtn.disabled = true;
+        evalAnswered = false;
+
+        optEl.innerHTML = '';
+        q.options.forEach(function(opt, idx) {
+          var btn = document.createElement('button');
+          btn.className = 'btn-check';
+          btn.textContent = opt;
+          btn.style.margin = '0.3rem';
+          btn.addEventListener('click', function() {
+            if (evalAnswered) return;
+            evalAnswered = true;
+            var ok = (idx === q.correct);
+            if (ok) evalScore++;
+            fbEl.innerHTML = ok ? '<span class="feedback-correct">✅ Correcto</span>' : '<span class="feedback-wrong">❌ Incorrecto. La respuesta es: ' + q.options[q.correct] + '</span>';
+            optEl.querySelectorAll('.btn-check').forEach(function(b) {
+              b.disabled = true;
+              if (b.textContent === q.options[q.correct]) b.style.background = '#1f7b4d';
+            });
+            if (nextBtn) nextBtn.disabled = false;
+          });
+          optEl.appendChild(btn);
+        });
+      }
+
+      document.getElementById('evalNextBtn')?.addEventListener('click', function() {
+        if (!evalAnswered) return;
+        evalIndex++;
+        loadEval();
+      });
+      document.getElementById('evalResetBtn')?.addEventListener('click', function() {
+        evalIndex = 0; evalScore = 0; evalAnswered = false;
+        loadEval();
+        document.getElementById('evalResult').innerHTML = '';
+      });
+      loadEval();
+
+      // ============================================================
+      // TTS y utilidades (igual que lección 80)
+      // ============================================================
+      function speakText(text, lang) {
+        lang = lang || 'en-US';
+        if (!window.speechSynthesis) return false;
+        try {
+          window.speechSynthesis.cancel();
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = lang;
+          utterance.rate = 0.9;
+          utterance.pitch = 1;
+          utterance.volume = 1;
+          var voices = window.speechSynthesis.getVoices();
+          var target = voices.find(function(v) { return v.lang.startsWith(lang.split('-')[0]) && v.name.includes('Google'); });
+          if (target) utterance.voice = target;
+          window.speechSynthesis.speak(utterance);
+          return true;
+        } catch(e) { return false; }
+      }
+
+      document.querySelectorAll('.tts-btn[data-tts]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          speakText(this.getAttribute('data-tts'), this.getAttribute('data-lang') || 'en-US');
+        });
+      });
+      if (window.speechSynthesis) {
+        window.speechSynthesis.getVoices();
+        window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); };
+      }
+
+      // Resúmenes
+      function setupSummary(btnId, textId, fbId, lang) {
+        var btn = document.getElementById(btnId);
+        var textEl = document.getElementById(textId);
+        var fbEl = document.getElementById(fbId);
+        if (!btn || !textEl) return;
+        btn.addEventListener('click', function() {
+          var txt = textEl.textContent.trim();
+          if (!txt) { if (fbEl) fbEl.innerHTML = '<span style="color:#c2410c;">⚠️ No hay texto.</span>'; return; }
+          btn.classList.add('playing');
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reproduciendo...';
+          var ok = speakText(txt, lang);
+          setTimeout(function() {
+            btn.classList.remove('playing');
+            btn.innerHTML = '<i class="fas fa-volume-up"></i> ' + (lang === 'es-ES' ? 'Escuchar resumen en español' : 'Listen to summary in English');
+            if (fbEl) fbEl.innerHTML = ok ? '<span style="color:#1f7b4d;">✅ Audio reproducido.</span>' : '<span style="color:#c2410c;">❌ Error.</span>';
+          }, Math.max(txt.length * 80, 2500));
+        });
+      }
+      setupSummary('summaryEsBtn', 'summaryEsText', 'summaryEsFeedback', 'es-ES');
+      setupSummary('summaryEnBtn', 'summaryEnText', 'summaryEnFeedback', 'en-US');
+
+      // Grammar listen
+      document.getElementById('grammarListenEs')?.addEventListener('click', function() {
+        var txt = 'Believe in significa creer en. También repasamos look at, look for, look after, wait for, listen to, ask for. Ejemplos: Look at the birds. Wait for the Lord. Listen to his voice. Ask for wisdom. Believe in the Lord Jesus.';
+        speakText(txt, 'es-ES');
+        document.getElementById('grammarListenFeedback').innerHTML = '<span style="color:#1f5f54;">🔊 Escuchando...</span>';
+      });
+      document.getElementById('grammarListenEn')?.addEventListener('click', function() {
+        var txt = 'Look at the birds. Wait for the Lord. Listen to his voice. Ask for wisdom. Believe in the Lord Jesus.';
+        speakText(txt, 'en-US');
+        document.getElementById('grammarListenFeedback').innerHTML = '<span style="color:#1f5f54;">🔊 Escuchando...</span>';
+      });
+
+      // Scroll top
+      var scrollBtn = document.getElementById('scrollTopBtn');
+      if (scrollBtn) {
+        window.addEventListener('scroll', function() {
+          scrollBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        scrollBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Botones reveal
+      document.querySelectorAll('.btn-reveal[data-target]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var target = document.getElementById(this.getAttribute('data-target'));
+          if (target) target.classList.toggle('show');
+        });
+      });
+
+      // Acordeón
+      document.querySelectorAll('.accordion-header').forEach(function(header) {
+        header.addEventListener('click', function() {
+          var item = this.parentElement;
+          var isActive = item.classList.contains('active');
+          document.querySelectorAll('.accordion-item').forEach(function(ai) { ai.classList.remove('active'); });
+          if (!isActive) item.classList.add('active');
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
